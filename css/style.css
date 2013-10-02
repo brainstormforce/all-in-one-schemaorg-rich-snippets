@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document For Styling the Rich Snippets Data*/
+table #tbl-rich-snippet {
+	width:100%;
+}
+tr .tbl-bsf-tr{
+	border:1px dotted #ddd;
+}
+td .tbl-bdf-td{
+	padding:5px;
+}
+.tbl-img{
+	width:170px;
+}
+.tbl-addrs-tr{
+	border:0px;
+}
+.rating-value {
+	display:none;
+}
+.rating-count {
+	font-weight:bold;
+}
+#snippet-box {
+	background: #F0F0F0;
+	background: linear-gradient(top, #FFF 50%, #E7E7E7 100%);
+	background: -o-linear-gradient(top, #FFF 50%, #E7E7E7 100%);
+	background: -moz-linear-gradient(top, #FFF 50%, #E7E7E7 100%);
+	background: -webkit-linear-gradient(top, #FFF 50%, #E7E7E7 100%);
+	background: -ms-linear-gradient(top, #FFF 50%, #E7E7E7 100%);
+	border: 1px solid #ACACAC;
+	font-family:inherit;
+	font-size: 13px;
+	padding: 0;
+	margin: 0 0 15px 0;
+	float: left;
+	width: 600px;
+	clear: both;
+}
+.snippet-markup {
+	float: left;
+	clear: both;
+	width: 100%;
+}
+.snippet-title {
+	font-family:inherit;
+	font-size: 14px;
+	font-weight: bold;
+	background: #D5D2CA;
+	background: linear-gradient(top, #D5D2CA 80%, #EBEAE8 100%);
+	background: -o-linear-gradient(top, #D5D2CA 80%, #EBEAE8 100%);
+	background: -moz-linear-gradient(top, #D5D2CA 80%, #EBEAE8 100%);
+	background: -webkit-linear-gradient(top, #D5D2CA 0%, #EBEAE8 100%);
+	background: -ms-linear-gradient(top, #D5D2CA 80%, #EBEAE8 100%);
+	border-bottom: 1px solid #ACACAC;
+	clear: both;
+	padding: 0.5em 0 0.5em 1%;
+	width: 99%;
+	float: left;
+}
+.snippet-label {
+	width: 25%;
+	float: left;
+	clear: both;
+	text-align: right;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 2% 0 0;
+	padding: 0.4em 2%;
+}
+.snippet-data {
+	width: 65%;
+	float: left;
+	padding: 0.4em 2%;
+}
+.snippet-data-img {
+	width: 56%;
+	float: left;
+	padding: 0.4em 2%;	
+}
+.snippet-image {
+	float: left;
+	min-height: 190px;
+	width: 200px;	
+}
+.snippet-image img {
+	border: 2px solid #FFF;
+	box-shadow: 0px 0px 5px #D5D2CA;
+	-webkit-transition: all 400ms ease-in;
+	-moz-transition: all 400ms ease-in;
+	-o-transition: all 400ms ease-in;
+	transition: all 400ms ease-in;
+	margin: 10px auto;
+	display: block;
+}
+.snippet-map {
+width: 100%;
+height: 320px;
+border: 1px solid #CCC;
+}
+#snippet-box iframe {
+width: 90%;
+margin: 0 auto;
+display: block;
+}
+.ratings {
+	float: right;
+	margin-right: 10px;
+}
+.star-blocks {
+	background:#FFF;
+}
+#dragContainer {
+	top: 65px !important;
+}
+.aio-star
+{
+	float: left;
+	clear: none;
+	color: rgb(255, 217, 13);
+	text-shadow: 1px 1px 1px rgb(138, 127, 64);
+	letter-spacing: 0.2em;
+}
+.star-rating-control {
+	margin-top: 0.3em;
+	float: left;
+}
+.star-img img {
+	box-shadow: none;
+	margin: -2px 2px;
+	border: none !important;
+	padding: 0 !important;
+}
+.snippet-label-img {
+	width: 37%;
+	float: left;
+	clear: right;
+	text-align: right;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 1% 0 0;
+	padding: 0.4em 1%;
+}
+.aio-info {
+	width: 400px;
+	float: left;
+}
+.snippet-clear { clear:both;}
+/*********************************************************** Media queries **********************************************/
+/* =Responsive Structure
+----------------------------------------------- */
+@media (max-width: 855px)
+{
+	#snippet-box {
+		width:100%;
+	}
+	.snippet-title
+	{
+		width:96%;
+		padding: 0.5em 0 0.5em 4%;	
+	}
+	.snippet-image {
+		min-height: 50px;
+		margin: 0 0 15px 0;
+		width: 100%;
+		float: left;
+		clear:both;
+	}
+	.aio-info
+	{
+		width: 100%;
+		float:left;
+		clear: both;	
+	}
+}
+@media (max-width: 650px)
+{
+	
+}
+@media (max-width: 480px)
+{
+}
+@media (max-width: 450px)
+{
+}
+@media (max-width: 320px)
+{
+}
