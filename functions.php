@@ -423,6 +423,7 @@ function display_rich_snippet($content) {
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
 		$count = rating_count();
 		$agregate = average_rating();
+		$starCount = round(average_rating());
 		if(trim($recipes_photo) != "")
 		{
 			$recipe .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$recipes_photo.'"/></div>';
@@ -465,11 +466,11 @@ function display_rich_snippet($content) {
 		if($args_recipe['recipe_rating'] != "")
 			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
 		$recipe .= ' <div class="snippet-data-img"> <span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="rating" class="rating-value">'.$agregate.'</span><span class="star-img">';
-			for($i = 1; $i<=$agregate; $i++)
+			for($i = 1; $i<=$starCount; $i++)
 			{
 				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
 			}
-			for($j = 0; $j<=5-$agregate; $j++)
+			for($j = 0; $j<=5-$starCount; $j++)
 			{
 				if($j)
 					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
