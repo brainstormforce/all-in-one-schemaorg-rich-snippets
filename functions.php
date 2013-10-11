@@ -423,7 +423,7 @@ function display_rich_snippet($content) {
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
 		$count = rating_count();
 		$agregate = average_rating();
-		$starCount = round(average_rating());
+		$starCount = round($agregate);
 		if(trim($recipes_photo) != "")
 		{
 			$recipe .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$recipes_photo.'"/></div>';
