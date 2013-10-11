@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Plugin Functions
+ * Template: Plugin Functions
  *
  */
 //add_filter( 'bsf_meta_boxes', 'bsf_review_metaboxes' );
