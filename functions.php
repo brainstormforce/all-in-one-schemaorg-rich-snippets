@@ -768,7 +768,7 @@ function bsf_do_rating()
 function get_previous_rating($needle, $haystack, $strict = false) {
     foreach ($haystack as $item) {
         if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && get_previous_rating($needle, $item, $strict))) {
-            return $item['user_rating'];
+            return @$item['user_rating'];
         }
     }
     return false;
