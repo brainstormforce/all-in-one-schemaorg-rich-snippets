@@ -4,8 +4,8 @@ Contributors: yawalkarm, brainstormforce
 Donate link: http://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.5
-Tested up to: 3.6.1
-Stable tag: 1.1.4
+Tested up to: 3.7.1
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,13 +13,13 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 == Description ==
 
-What is a Rich Snippet?
+= What is a Rich Snippet? =
 
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
 
 [See Examples of Rich Snippets Here.](http://www.seomoz.org/blog/schema-examples/ "Rich Snippets Examples")
 
-How does a Rich Snippet help?
+= How does a Rich Snippet help? =
 
 - It gives search engines only the important & precise information to display in search result snippets.
 - Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
@@ -27,7 +27,7 @@ How does a Rich Snippet help?
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 
-Supported Content Types -
+= Supported Content Types - =
 
 This plugin supports the following types of Schemas:
 
@@ -40,11 +40,15 @@ This plugin supports the following types of Schemas:
 * Video
 * Articles 
 
-Future release would include -
+= Future release would include - =
 
 * Breadcrumbs
 * Local Business
 * Books
+
+= Want to contribute to the plugin? =
+
+You may now contribute to the plugin on Github: [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")
 
 == Installation ==
 
@@ -134,9 +138,15 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
-= 1.1.3 =
+= 1.1.5 =
 
-* Bug Fix:  Illegal string offset ’user_rating’ Warning
+* Enhancement: Replaced rating 'count' with 'votes' on products - as directed by Google
+* Fixed: Article snippet not displaying accurate when snippet title is blank
+* Fixed: Recipe string 'Published on' can be changed.
+
+= 1.1.4 =
+
+* Fixed:  Illegal string offset `user_rating` Warning
 
 = 1.1.3 =
 
@@ -144,41 +154,41 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 = 1.1.2 =
 
-* Bug fix: Edit media functionality.
+* Fixed: Edit media functionality.
 
 = 1.1.1 =
 
-* Added - Article type
-* Added compatibility with WooThemes Plugins and themes
-* Added - New Media Manager for uploading images in metabox
+* Added: Article type
+* Added: Compatibility with WooThemes Plugins and themes
+* Added: New Media Manager for uploading images in metabox
 
 = 1.1.0 =
 
-* Admin options are added
-* Bug Fix - Ratings on recipe, products and software application
-* Enhancement - Admin options for customizing everything
-* Enhancement - New snippet box design with responsive layout
+* Added: Admin options
+* Fixed: Ratings on recipe, products and software application
+* Enhancement: Admin options for customizing everything
+* Enhancement: New snippet box design with responsive layout
 
 = 1.0.4 =
 
-* Bug Fix - Rating on Comments
-* Bug Fix - On deleting any deactivated plugin
-* Bug Fix - Error message comming on commenting
-* Bug Fix - On post save draft
+* Fixed: Rating on Comments
+* Fixed: On deleting any deactivated plugin
+* Fixed: Error message comming on commenting
+* Fixed: On post save draft
 
 = 1.0.3 =
 
 * Clean up the code
-* Bug fix on plugin activation
-* Bug fix - error on editing theme and plugin files.
+* Fixed: Plugin activation error
+* Fixed: Error on editing theme and plugin files.
 * Removed : Breadcrumbs
 
 = 1.0.2 =
 
 * Added: RDFa Breadcrumbs Plugin is now a part of All in One Schema.org Rich Snippets !
 * Added: Star rating and review for recipe
-* Bug fixes for recipe type
-* Bug fix on post update
+* Fized: Recipe type
+* Fixed: Post update error
 
 = 1.0.1 =
 
