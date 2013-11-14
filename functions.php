@@ -366,7 +366,7 @@ function display_rich_snippet($content) {
 		}
 		$product .= '<div class="snippet-data-img">';
 		$product .= '<span itemprop="rating">'.average_rating().'</span>';						
-		$product .= ' based on <span class="rating-count" itemprop="count">'.rating_count().'</span> reviews </span></div><div class="snippet-clear"></div>';
+		$product .= ' based on <span class="rating-count" itemprop="votes">'.rating_count().'</span> reviews </span></div><div class="snippet-clear"></div>';
 		if(trim($product_brand) != "")
 		{
 			if($args_product['product_brand'] != "")
@@ -444,7 +444,7 @@ function display_rich_snippet($content) {
 				
 			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div><div class="snippet-clear"></div>';
 		}
-		$recipe .= '<div class="snippet-label-img">Published on : </div><div class="snippet-data-img"><time datetime="'.get_the_date('Y-m-d').'" itemprop="published">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
+		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_date('Y-m-d').'" itemprop="published">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
 		{
 			if($args_recipe['recipe_prep'] != "")
@@ -630,9 +630,9 @@ function display_rich_snippet($content) {
 			$article .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 			if($args_article['snippet_title'] != "" )
 			{
-			$article .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_article['snippet_title'];
+				$article .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_article['snippet_title'];
+				$article .= '</div>';
 			}
-			$article .= '</div>';
 			$article .= '<div itemscope itemtype="http://schema.org/Article">';
 			if(trim($article_image) != "")
 			{
