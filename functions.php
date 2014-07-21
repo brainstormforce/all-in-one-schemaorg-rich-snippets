@@ -421,6 +421,7 @@ function display_rich_snippet($content) {
 		$recipes_photo = get_post_meta( $post->ID, '_bsf_recipes_photo', true );
 		$recipes_desc = get_post_meta( $post->ID, '_bsf_recipes_desc', true );
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
+		$recipes_calories = get_post_meta( $post->ID, '_bsf_recipes_calories', true);
 		$count = rating_count();
 		$agregate = average_rating();
 		$starCount = round($agregate);
@@ -463,6 +464,12 @@ function display_rich_snippet($content) {
 				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_time'].'</div>';
 			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_totaltime.'" itemprop="totalTime">'.$recipes_totaltime.'</span></div><div class="snippet-clear"></div>';
 		}
+		if(trim($recipes_calories) != "")
+	 	{
+        		if($args_recipe['recipe_calories'] != "")
+                		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_calories'].'</div>';
+            		$recipe .= '<div class="snippet-data-img"> <span itemprop="calories">'.$recipes_calories.'</span></div><div class="snippet-clear"></div>';
+        	}
 		if($args_recipe['recipe_rating'] != "")
 			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
 		$recipe .= ' <div class="snippet-data-img"> <span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="rating" class="rating-value">'.$agregate.'</span><span class="star-img">';
