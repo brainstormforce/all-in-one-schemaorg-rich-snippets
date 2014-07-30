@@ -94,14 +94,14 @@ td .tbl-bdf-td{
 	display: block;
 }
 .snippet-map {
-width: 100%;
-height: 320px;
-border: 1px solid #CCC;
+	width: 100%;
+	height: 320px;
+	border: 1px solid #CCC;
 }
 #snippet-box iframe {
-width: 90%;
-margin: 0 auto;
-display: block;
+	width: 90%;
+	margin: 0 auto;
+	display: block;
 }
 .ratings {
 	float: right;
