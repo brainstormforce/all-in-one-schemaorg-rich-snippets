@@ -9,8 +9,7 @@ Version: 1.1.5
 Text Domain: rich-snippets
 License: GPL2
 */
-?>
-<?php
+
 /*  Copyright 2013 All in One Rich Snippets (email : nitiny@brainstormforce.com)
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -23,8 +22,7 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-?>
-<?php
+
 if ( !class_exists( "RichSnippets" ) )
 {
 	class RichSnippets
@@ -276,4 +274,3 @@ if ( !class_exists( "RichSnippets" ) )
 if (class_exists("RichSnippets")) {
 	$RichSnippets= new RichSnippets();
 }
-?>
