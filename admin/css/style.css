@@ -166,7 +166,7 @@ div.time-picker li.selected { background: #0063CE; color: #fff; }
 max-width: 180px !important;
 }
 /**/
-.iris-picker.iris-border {
+#bsf_css_editor .iris-picker.iris-border {
 	z-index: 9999;
 }
 .button.button-small.wp-picker-clear {
@@ -176,22 +176,22 @@ max-width: 180px !important;
 	padding: 2px 10px !important;
 	height: 27px;
 }
-.wp-color-picker {
+#bsf_css_editor .wp-color-picker {
 	z-index: 9999;
 	float: left;
 	width: 80px !important;
 }
-.wp-picker-input-wrap {
+#bsf_css_editor .wp-picker-input-wrap {
 	z-index: 9999;
 	width: 160px;
 }
-.wp-picker-input-wrap {
+#bsf_css_editor .wp-picker-input-wrap {
 	z-index: 99999;
 	position: relative;
 	top: -27px;
 	left: 120px;
 }
-.wp-picker-holder {
+#bsf_css_editor .wp-picker-holder {
 	position: relative;
 	z-index: 9999;
 	top: -29px;
