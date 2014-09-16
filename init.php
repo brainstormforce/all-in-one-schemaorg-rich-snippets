@@ -202,7 +202,7 @@ class bsf_Meta_Box {
 					break;
 				case 'radio':
 					if( empty( $meta ) && !empty( $field['std'] ) ) $meta = $field['std'];
-					echo '<div class=class="', $field['class'],'"><ul>';
+					echo '<div class="', $field['class'],'"><ul>';
 					$i = 1;
 					foreach ($field['options'] as $option) {
 						if( $field['class'] == "star review" || $field['class'] == "star product" || $field['class'] == "star software")
@@ -308,9 +308,9 @@ class bsf_Meta_Box {
 					$input_type_url = "hidden";
 					if ( 'url' == $field['allow'] || ( is_array( $field['allow'] ) && in_array( 'url', $field['allow'] ) ) )
 						$input_type_url="text";
-					echo '<input class="bsf_upload_file ', $field['class'],'" type="' . $input_type_url . '" size="45" id="', $field['id'], '" name="', $field['id'], '" value="', $meta, '" />';
-					echo '<input class="bsf_upload_button button ', $field['class'],'" type="button" value="Upload File" />';
-					echo '<input class="bsf_upload_file_id ', $field['class'],'" type="hidden" id="', $field['id'], '_id" name="', $field['id'], '_id" value="', get_post_meta( $post->ID, $field['id'] . "_id",true), '" />';
+					echo '<input class="bsf_upload_file ', $field['class'],' '.$field['id'].'" type="' . $input_type_url . '" size="45" id="', $field['id'], '" name="', $field['id'], '" value="', $meta, '" />';
+					echo '<input class="bsf_upload_button button ', $field['class'],'" id="', $field['id'], '_id" type="button" value="Upload File" />';
+					echo '<input class="bsf_upload_file_id ', $field['class'],'" type="hidden" id="', $field['id'], '" name="', $field['id'], '_id" value="', get_post_meta( $post->ID, $field['id'] . "_id",true), '" />';
 					echo '<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					echo '<div id="', $field['id'], '_status" class="bsf_media_status ', $field['class'],'">';
 						if ( $meta != '' ) {

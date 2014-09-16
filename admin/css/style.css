@@ -12,11 +12,11 @@ table.bsf_metabox textarea.bsf_textarea_code { font-family: Consolas,Monaco,mono
 table.bsf_metabox input.bsf_text_small { width: 100px; margin-right: 15px;}
 table.bsf_metabox input.bsf_timepicker { width: 100px; margin-right: 15px;}
 table.bsf_metabox input.bsf_text_money { width: 90px; margin-right: 15px;}
-table.bsf_metabox input.bsf_text_medium { width: 230px; margin-right: 15px;}
+table.bsf_metabox input.bsf_text_medium { width: 230px;}
 table.bsf_metabox input.bsf_upload_file { width: 65%; }
 table.bsf_metabox li { font-size:12px; margin: 1px 0 5px 0; line-height: 16px; }
 table.bsf_metabox ul { padding-top:5px; margin: 0; }
-table.bsf_metabox select { font-size:12px; margin-top: 3px;}
+table.bsf_metabox select { font-size:12px; margin-top: 3px; width: 230px;}
 table.bsf_metabox input:focus, table.bsf_metabox textarea:focus { background: #fffff8;}
 .bsf_metabox_title { margin: 0 0 5px 0; padding: 5px 0 0 0; font: italic 24px/35px Georgia,"Times New Roman","Bitstream Charter",Times,serif;}
 .bsf_radio_inline { padding: 4px 0 0 0;}
@@ -33,7 +33,7 @@ table.bsf_metabox .bsf_media_status .img_status img, table.bsf_metabox .bsf_medi
 table.bsf_metabox .bsf_media_status .embed_status { float: left; max-width:800px;}
 table.bsf_metabox .bsf_media_status .img_status .bsf_remove_file_button, table.bsf_metabox .bsf_media_status .embed_status .bsf_remove_file_button { text-indent: -9999px; width: 16px; height: 16px; position: absolute; top: -5px; left: -5px;}
 /* Sidebar placement adjustments */
-.inner-sidebar table.bsf_metabox input[type=text], table.bsf_metabox textarea { width: 95%; }
+.inner-sidebar table.bsf_metabox input[type=text], table.bsf_metabox textarea { width: 100%; }
 .inner-sidebar table.bsf_metabox .bsf_media_status .img_status img, .inner-sidebar table.bsf_metabox .bsf_media_status .embed_status img { width: 90%; }
 .postbox table.bsf_metabox .cmb-spinner { float: left; }
 /**
@@ -199,4 +199,7 @@ max-width: 180px !important;
 }
 .bsf_media_status>img {
 	width: 180px !important;
+}
+td > div.star {
+	height: 32px;
 }

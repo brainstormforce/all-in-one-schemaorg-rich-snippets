@@ -1,6 +1,6 @@
 <?php
 /**
- * Template: Plugin Functions
+ * Template Name: Plugin Functions
  *
  */
 //add_filter( 'bsf_meta_boxes', 'bsf_review_metaboxes' );
@@ -22,6 +22,24 @@ add_action( 'wp_head', 'add_ajax_library' );
 /**
  * Initialize the metabox class.
  */
+/* FUNCTION to check for posts having snippets */
+add_action('wp_head','check_snippet_existence','',7);
+function check_snippet_existence(){	
+	global $post;	
+	$type = get_post_meta($post->ID, '_bsf_post_type', true);
+	if($type){		
+		add_action( 'wp_head', 'frontend_style' );
+		add_action('wp_enqueue_scripts', 'enque');
+	}	
+}
+function enque() {
+	wp_enqueue_style('rating_style', plugin_dir_url(__FILE__) . 'css/jquery.rating.css');
+	wp_enqueue_script('jquery_rating', plugin_dir_url(__FILE__) . 'js/jquery.rating.min.js', array('jquery'));
+}
+function frontend_style() {
+		wp_register_style( 'bsf_style', plugins_url('/css/style.css', __FILE__) );
+		wp_enqueue_style('bsf_style');
+	}
 function bsf_initialize_bsf_meta_boxes() {
 	if ( ! class_exists( 'bsf_Meta_Box' ) )
 		require_once plugin_dir_path( __FILE__ ).'init.php';
@@ -72,11 +90,11 @@ function display_rich_snippet($content) {
 				$review .= "<div class='snippet-label'>".$args_review['item_rating']."</div>";
 			
 			$review .= "<div class='snippet-data'> <span class='rating-value' itemprop='rating'>".$rating."</span><span class='star-img'>";
-			for($i = 1; $i<=$rating; $i++)
+			for($i = 1; $i<=ceil($rating); $i++)
 			{
 				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">';
 			}
-			for($j = 0; $j<=5-$rating; $j++)
+			for($j = 0; $j<=5-ceil($rating); $j++)
 			{
 				if($j)
 					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
@@ -348,11 +366,11 @@ function display_rich_snippet($content) {
 			if($args_product['product_brand'] != "")
 				$product .= '<div class="snippet-label-img">'.$args_product['product_rating'].'</div>';		
 			$product .= '<div class="snippet-data-img"><span class="star-img">';
-							for($i = 1; $i<=$product_rating; $i++)
+							for($i = 1; $i<=ceil($product_rating); $i++)
 							{
 								$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
 							}
-							for($j = 0; $j<=5-$product_rating; $j++)
+							for($j = 0; $j<=5-ceil($product_rating); $j++)
 							{
 								if($j)
 									$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
@@ -366,7 +384,7 @@ function display_rich_snippet($content) {
 		}
 		$product .= '<div class="snippet-data-img">';
 		$product .= '<span itemprop="rating">'.average_rating().'</span>';						
-		$product .= ' based on <span class="rating-count" itemprop="votes">'.rating_count().'</span> reviews </span></div><div class="snippet-clear"></div>';
+		$product .= ' based on <span class="rating-count" itemprop="votes">'.rating_count().'</span> votes </span></div><div class="snippet-clear"></div>';
 		if(trim($product_brand) != "")
 		{
 			if($args_product['product_brand'] != "")
@@ -423,7 +441,6 @@ function display_rich_snippet($content) {
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
 		$count = rating_count();
 		$agregate = average_rating();
-		$starCount = round($agregate);
 		if(trim($recipes_photo) != "")
 		{
 			$recipe .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$recipes_photo.'"/></div>';
@@ -466,11 +483,11 @@ function display_rich_snippet($content) {
 		if($args_recipe['recipe_rating'] != "")
 			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
 		$recipe .= ' <div class="snippet-data-img"> <span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="rating" class="rating-value">'.$agregate.'</span><span class="star-img">';
-			for($i = 1; $i<=$starCount; $i++)
+			for($i = 1; $i<=ceil($agregate); $i++)
 			{
 				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
 			}
-			for($j = 0; $j<=5-$starCount; $j++)
+			for($j = 0; $j<=5-ceil($agregate); $j++)
 			{
 				if($j)
 					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
@@ -516,11 +533,11 @@ function display_rich_snippet($content) {
 			if($args_soft['software_rating'] != "")
 				$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';
 			$software .= '<div class="snippet-data-img"> <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$software_rating.'</span></div><span class="star-img">';			
-			for($i = 1; $i<=$software_rating; $i++)
+			for($i = 1; $i<=ceil($software_rating); $i++)
 			{
 				$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
 			}
-			for($j = 0; $j<=5-$software_rating; $j++)
+			for($j = 0; $j<=5-ceil($software_rating); $j++)
 			{
 				if($j)
 					$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
@@ -680,14 +697,6 @@ function display_rich_snippet($content) {
 //Filter the content and return with rich snippet output
 add_filter('the_content','display_rich_snippet');
 require_once(plugin_dir_path( __FILE__ ).'meta-boxes.php');
-function enque() {
-	wp_enqueue_style('rating_style', plugin_dir_url(__FILE__) . 'css/jquery.rating.css');
-	wp_enqueue_script('jquery');
-	wp_enqueue_script('jquery_rating', plugin_dir_url(__FILE__) . 'js/jquery.rating.min.js', array('jquery'));
-	
-	wp_enqueue_script('ratina_js', plugin_dir_url(__FILE__) . 'js/retina.js', array('jquery'));
-}
-add_action('wp_enqueue_scripts', 'enque');
 function get_the_ip() {
     if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
         return $_SERVER["HTTP_X_FORWARDED_FOR"];
@@ -841,7 +850,7 @@ function display_rating() {
 					jQuery.post(ajaxurl, form_data,
 						function (response) {
 							alert(response);
-							window.location.href = window.location.pathname;
+							window.location.href = window.location.href;
 						}
 					);
 				});
@@ -873,7 +882,7 @@ function bsf_display_rating($n) {
 					jQuery.post(ajaxurl, form_data,
 						function (response) {
 							alert(response);
-							window.location.href = window.location.pathname;
+							window.location.href = window.location.href;
 						}
 					);
 				});

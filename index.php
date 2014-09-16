@@ -5,7 +5,7 @@ Plugin URI: http://www.brainstormforce.com
 Author: Brainstorm Force
 Author URI: http://www.brainstormforce.com
 Description: The All in One Rich Snippets gives the power to the blog author to control the rich snippets to be shown in the search results by the search engines.
-Version: 1.1.5
+Version: 1.1.9
 Text Domain: rich-snippets
 License: GPL2
 */
@@ -40,7 +40,7 @@ if ( !class_exists( "RichSnippets" ) )
 			
 			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ));
 //			add_action( 'init', array( $this, 'register_bsf_settings' ));
-			add_action( 'wp_head', array($this, 'frontend_style') );
+			
 			add_filter('plugins_loaded', array( $this, 'rich_snippet_translation'));
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue') );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_new_enqueue') );
@@ -49,11 +49,26 @@ if ( !class_exists( "RichSnippets" ) )
 			add_action( 'wp_ajax_bsf_submit_request', array( $this, 'submit_request') );
 			
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color') );
-		}		
-		function frontend_style() {
-			wp_register_style( 'bsf_style', plugins_url('/css/style.css', __FILE__) );
-			wp_enqueue_style('bsf_style');
+			// Admin bar menu
+			add_action( 'admin_bar_menu', array( $this, "aiosrs_admin_bar" ),100 );
 		}
+		// admin bar menu
+		function aiosrs_admin_bar()
+		{
+			global $wp_admin_bar;
+			$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+			if ( ! is_super_admin() || ! is_admin_bar_showing() )
+			  return;
+			if(!is_admin())
+			{
+				$wp_admin_bar->add_menu( array(
+				  'id' => 'aiosrs',
+				  'title' => 'Test Rich Snippets',
+				  'href' => 'http://www.google.com/webmasters/tools/richsnippets?q='.$actual_link,
+				  'meta' => array('target' => '_blank'),
+				) );
+			}
+		}	
 		function register_custom_menu_page() 
 		{
 			require_once(plugin_dir_path( __FILE__ ).'admin/index.php');
@@ -82,7 +97,8 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
-			wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+			if(!function_exists('vc_map'))
+				wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 		}
 		function post_new_enqueue($hook) {
 			if('post-new.php' != $hook )
@@ -97,7 +113,8 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
-			wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+			if(!function_exists('vc_map'))
+				wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 		}
 		//Initialize the metabox class
 		function wp_initialize_bsf_meta_boxes() {
@@ -155,6 +172,7 @@ if ( !class_exists( "RichSnippets" ) )
 			$sub = $_POST['subject'];
 			$message = $_POST['message'];
 			$name = $_POST['name'];
+			$post_url = $_POST['post_url'];
 			
 			if($sub == "question")
 				$subject = "[AIOSRS] New question received from ".$name;
@@ -192,6 +210,10 @@ if ( !class_exists( "RichSnippets" ) )
 							<td> <strong>'.$site.' </strong></td>
 						</tr>
 						<tr>
+							<td> Ref. Post URL : </td>
+							<td> <strong>'.$post_url.' </strong></td>
+						</tr>
+						<tr>
 							<td colspan="2"> Message : </td>
                         </tr>
                         <tr>
@@ -204,12 +226,11 @@ if ( !class_exists( "RichSnippets" ) )
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:'.$name.'<'.$from.'>' . "\r\n";
-			$headers .= 'Cc: Sujay Pawar <sujay@brainstormforce.com>, Nitin Yawalkar <nitiny@brainstormforce.com>, Viraj Soni <virajs@jawsomeness.com>' . "\r\n";
-			echo mail($to,$subject,$html,$headers) ? "Thank you!" : "Something went wrong !";
+			$headers .= 'Cc: Sujay Pawar <sujay@brainstormforce.com>, Nitin Yawalkar <nitiny@brainstormforce.com>, Aniket Chavan <aniketc@bsf.io>' . "\r\n";
+			echo mail($to,$subject,$html,$headers) ? "Thank you!" : "Something went wrong!";
 		
 			die();
 		}
-		
 		function submit_color()
 		{
 			$snippet_box_bg = $_POST['snippet_box_bg'];
@@ -228,7 +249,6 @@ if ( !class_exists( "RichSnippets" ) )
 			
 			die();
 		}
-		
 		function iris_enqueue_scripts() 
 		{
 				wp_enqueue_script( 'wp-color-picker' );
@@ -236,38 +256,28 @@ if ( !class_exists( "RichSnippets" ) )
 				wp_enqueue_script( 'cp_custom', plugins_url( 'js/cp-script.min.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ), '1.1', true );
 				wp_enqueue_style( 'wp-color-picker' );
 		}
-
 		function bsf_color_scripts() 
 		{
-		
 			global $wp_version;
-		
 			$bsf_script_array = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox' );
 	
 			// styles required for cmb
-	
 			$bsf_style_array = array( 'thickbox' );
 	
 			// if we're 3.5 or later, user wp-color-picker
-	
 			if ( 3.5 <= $wp_version ) {
 	
 				$bsf_script_array[] = 'wp-color-picker';
-	
 				$bsf_style_array[] = 'wp-color-picker';
 	
 			} else {
 	
 				// otherwise use the older 'farbtastic'
-	
 				$bsf_script_array[] = 'farbtastic';
-	
 				$bsf_style_array[] = 'farbtastic';
 	
 			}
-	
 		}
-		
 	}
 }
 	require_once(plugin_dir_path( __FILE__ ).'functions.php');

@@ -6,5 +6,6 @@ html{ display:block !important;}
 .tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
 .tab a.active { font-weight: bold; text-decoration:none; color:#333; }
 .tab.active a:hover { text-decoration: none; color:#C00; }
-.tab-container { background: #fff; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
-.panel-container { margin-bottom: 10px; border-top:1px solid #999; padding: 10px; margin-top: -6px;}
+.tab-container { background: #fff; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; float:left; width: 60%; }
+.panel-container { margin-bottom: 10px; border-top:1px solid #999; padding: 10px; margin-top: -6px; float:left; width: 98%;}
+.get_in_touch { padding-left: 15px; }

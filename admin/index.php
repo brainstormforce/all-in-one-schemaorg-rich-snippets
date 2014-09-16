@@ -11,7 +11,8 @@ function bsf_admin_styles() {
 	wp_enqueue_style( 'star_style' );	
 	wp_enqueue_style( 'meta_style' );		
 	wp_enqueue_script( 'bsf_jquery' );
-	wp_enqueue_script( 'bsf_jquery_ui' );
+	if(!function_exists('vc_map'))
+		wp_enqueue_script( 'bsf_jquery_ui' );
 	wp_enqueue_script( 'bsf_jquery_star' );
 ///	wp_enqueue_script( 'postbox' );
 }
@@ -34,7 +35,7 @@ function rich_snippet_dashboard() {
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
-	echo '<div class="clear"></div><div id="tab-container" class="tab-container">';
+	echo '<div class="clear"></div>'.get_support(1).'<div id="tab-container" class="tab-container">';
 	echo '<ul class="etabs">
 			<li class="tab"><a href="#tab-1">'.__("Configuration","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-4">'.__("Customization","rich-snippets").'</a></li>
@@ -402,12 +403,6 @@ function rich_snippet_dashboard() {
 							
 						</div>
 					</div>
-					<div id="postbox-container-7" class="postbox-container">
-						<div id="side-sortables" class="meta-box-sortables ui-sortable">
-						'.get_support(1).'
-						</div>
-					</div>
-					
 				</div>	
 			 </div>
 	
@@ -424,12 +419,6 @@ function rich_snippet_dashboard() {
 							</div>
 						</div>
 					</div>
-					<div id="postbox-container-8" class="postbox-container">
-						<div id="side-sortables" class="meta-box-sortables ui-sortable">
-						'.get_support(2).'
-						</div>
-					</div>
-					
 				</div>
 			</div>
 	
@@ -468,11 +457,6 @@ function rich_snippet_dashboard() {
 									</ol>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div id="postbox-container-9" class="postbox-container">
-							<div id="side-sortables" class="meta-box-sortables ui-sortable">
-							'.get_support(3).'
 							</div>
 						</div>
 					</div>
@@ -518,11 +502,6 @@ function rich_snippet_dashboard() {
 									</div>
 								</div>
 							</div>
-						<div id="postbox-container-10" class="postbox-container">
-							<div id="side-sortables" class="meta-box-sortables ui-sortable">
-							'.get_support(4).'
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -534,17 +513,17 @@ function rich_snippet_dashboard() {
 <script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.hashchange.min.js').'"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
-	jQuery("#postbox-container-1").css({"width":"63%","padding-right":"2%"});
+	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
 	jQuery("#postbox-container-2").css("width","35%");
-	jQuery("#postbox-container-3").css({"width":"63%","padding-right":"2%"});
+	jQuery("#postbox-container-3").css({"width":"87%","padding-right":"2%"});
 	jQuery("#postbox-container-4").css("width","35%");
-	jQuery("#postbox-container-5").css({"width":"63%","padding-right":"2%"});
+	jQuery("#postbox-container-5").css({"width":"87%","padding-right":"2%"});
 	jQuery("#postbox-container-6").css("width","35%");
 	jQuery("#postbox-container-7").css("width","35%");
 	jQuery("#postbox-container-8").css("width","35%");
 	jQuery("#postbox-container-9").css("width","35%");
 	jQuery("#postbox-container-10").css("width","35%");
-	jQuery("#postbox-container-11").css({"width":"63%","padding-right":"2%"});
+	jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
 	jQuery(".postbox h3").click( function() {
    		jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
    	});
@@ -728,66 +707,35 @@ function add_footer_script()
                 }
             );
         });
-	   jQuery("#submit_request_1").click(function()
+	   jQuery("#support_form").submit(function()
         {
-            var data = jQuery("#support_form_1").serialize();
+            var data = jQuery("#support_form").serialize();
             var form_data = "action=bsf_submit_request&" + data;
          // alert(form_data);
             jQuery.post(ajaxurl, form_data,
                 function (response) {
                     alert(response);
-                }
-            );
-        });
-        jQuery("#submit_request_2").click(function()
-        {
-            var data = jQuery("#support_form_2").serialize();
-            var form_data = "action=bsf_submit_request&" + data;
-         // alert(form_data);
-            jQuery.post(ajaxurl, form_data,
-                function (response) {
-                    alert(response);
-                }
-            );
-        });
-        jQuery("#submit_request_3").click(function()
-        {
-            var data = jQuery("#support_form_3").serialize();
-            var form_data = "action=bsf_submit_request&" + data;
-         // alert(form_data);
-            jQuery.post(ajaxurl, form_data,
-                function (response) {
-                    alert(response);
-                }
-            );
-        });
-        jQuery("#submit_request_4").click(function()
-        {
-            var data = jQuery("#support_form_4").serialize();
-            var form_data = "action=bsf_submit_request&" + data;
-         // alert(form_data);
-            jQuery.post(ajaxurl, form_data,
-                function (response) {
-                    alert(response);
+					jQuery("#support_form .bsf_text_medium, #support_form .bsf_textarea_small").val("");
                 }
             );
         });
     </script>
 <?php }
-function get_support($n)
+function get_support()
 {
 	$html = '
-		<div class="postbox">
-			<div class="handlediv" title="Click to toggle"><br></div>
-			<h3 class="hndle"><span>'.__("Get in touch with the Plugin Developers","rich-snippets").'</span></h3>
+		<div class="postbox" style=" width: 36%; float: right; ">
+			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
 			<div class="inside">
-			<form name="support" id="support_form_'.$n.'" action="" method="post" onsubmit="return false;">
-				<p> '.__( 'Just fill out the form below and your message will be emailed to the Plugin Developers at <em>contact@brainstormforce.com</em>', 'rich-snippets' ).' </p>
+			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
+				<p> '.__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ).' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
-					<tr><td><label for="name"><strong>'.__( 'Your Name:', 'rich-snippets').'</strong> </label></td>
-						<td><input type="text" class="bsf_text_medium" name="name" /></td></tr>
-					<tr><td><label for="email"><strong>'.__( 'Your Email:', 'rich-snippets').'</strong> </label></td>
-						<td><input type="text" class="bsf_text_medium" name="email" /></td></tr>
+					<tr><td><label for="name"><strong>'.__( 'Your Name:', 'rich-snippets').'<span style="color:red;"> *</span></strong> </label></td>
+						<td><input required="required" type="text" class="bsf_text_medium" name="name" /></td></tr>
+					<tr><td><label for="email"><strong>'.__( 'Your Email:', 'rich-snippets').'<span style="color:red;"> *</span></strong> </label></td>
+						<td><input required="required" type="text" class="bsf_text_medium" name="email" /></td></tr>
+					<tr><td><label for="post_url"><strong>'.__( 'Reference URL:', 'rich-snippets').'<span style="color:red;"> *</span></strong> </label></td>
+						<td><input required="required" type="text" class="bsf_text_medium" name="post_url" /></td></tr>
 					<tr><td><label for="subject"><strong>'.__( 'Subject:', 'rich-snippets').'</strong> </label></td>
 						<td>
 							<select class="select_full" name="subject"> 
@@ -803,7 +751,7 @@ function get_support($n)
 						<td rowspan="4"><textarea class="bsf_textarea_small" name="message"></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
-						<td><input id="submit_request_'.$n.'" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
+						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
 				</table>
 			</form>
 			</div>

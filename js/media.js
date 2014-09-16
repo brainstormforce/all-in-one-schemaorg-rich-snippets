@@ -6,12 +6,12 @@ jQuery(document).ready(function($){
 	  $('.bsf_upload_button').click(function(e) {
 		var send_attachment_bkp = wp.media.editor.send.attachment;
 		var button = $(this);
-		var id =  'bsf_upload_file'; //button.attr('id').replace('_button', '');
+		var id =  button.attr('id').replace('_id', '');
 		_custom_media = true;
 		wp.media.editor.send.attachment = function(props, attachment){
 		  if ( _custom_media ) {
 			$("."+id).val(attachment.url);
-		$(".bsf_media_status").html('<img src="'+ attachment.url +'" />');
+		$("#"+id+"_status").html('<img src="'+ attachment.url +'" />');
 		  } else {
 			return _orig_send_attachment.apply( this, [props, attachment] );
 		  };
