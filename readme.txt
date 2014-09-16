@@ -111,6 +111,11 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.2.0 =
+* Improvement: WordPress 4.0 compatibility
+* Fixed: Colorpicker breaking other plugins colorpicker settings.
+
 = 1.1.9 =
 * Fixed: Image uploading in meta issue resolved.
 * Fixed: Compatibility with WordPress 3.9
