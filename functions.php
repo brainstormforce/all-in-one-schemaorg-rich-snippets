@@ -146,7 +146,7 @@ function display_rich_snippet($content) {
 		{
 			if( $args_event['event_title'])
 				$event .= '<div class="snippet-label-img">'.$args_event['event_title'].'</div>';
-			$event .=' <div class="snippet-data-img">​<span itemprop="summary">'.$event_title.'</span></div><div class="snippet-clear"></div>';
+			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($event_org) != "")
 		{
