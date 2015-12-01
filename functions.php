@@ -271,7 +271,7 @@ function display_rich_snippet($content) {
 		
 		if($args_person['snippet_title'] != "")
 			$people .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_person['snippet_title'].'</div>';
-		$people .= '<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Person">';
+		$people .= '<div itemscope itemtype="http://schema.org/Person"">';
 		$people_fn = get_post_meta( $post->ID, '_bsf_people_fn', true );
 		$people_nickname = get_post_meta( $post->ID, '_bsf_people_nickname', true );
 		$people_photo = get_post_meta( $post->ID, '_bsf_people_photo', true );
@@ -280,9 +280,13 @@ function display_rich_snippet($content) {
 		$people_company = get_post_meta( $post->ID, '_bsf_people_company', true );
 		$people_local = get_post_meta( $post->ID, '_bsf_people_local', true );
 		$people_region = get_post_meta( $post->ID, '_bsf_people_region', true );
+
+		$people_street = get_post_meta( $post->ID, '_bsf_people_street', true );
+		$people_postal = get_post_meta( $post->ID, '_bsf_people_postal', true );
+		
 		if(trim($people_photo) != "")
 		{
-			$people .= '<div class="snippet-image"><img width="180" src="'.$people_photo.'" rel="v:photo" /></div>';	
+			$people .= '<div class="snippet-image"><img width="180" src="'.$people_photo.'" itemprop="image" alt="Photo of'.$people_fn.'" /></div>';	
 		}
 		else
 		{
@@ -298,43 +302,60 @@ function display_rich_snippet($content) {
 			if($args_person['person_name'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_name'].'</div> ';
 				
-			$people .= '<div class="snippet-data-img"><span property="v:name">'.$people_fn.'</span></div><div class="snippet-clear"></div>';
+			$people .= '<div class="snippet-data-img"><span itemprop="name">'.$people_fn.'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($people_nickname) != "")
 		{
 			if($args_person['person_nickname'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_nickname'].'</div> ';
-			$people .= '<div class="snippet-data-img"> (<span property="v:nickname">'.$people_nickname.'</span>)</div><div class="snippet-clear"></div>';	
+			$people .= '<div class="snippet-data-img"> (<span itemprop="additionalName">'.$people_nickname.'</span>)</div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_website) != "")
 		{
 			if($args_person['person_website'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_website'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <a href="'.$people_website.'" rel="v:url">'.$people_website.'</a></div><div class="snippet-clear"></div>';	
+			$people .= '<div class="snippet-data-img"> <a href="'.$people_website.'" itemprop="url">'.$people_website.'</a></div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_job_title) != "")
 		{
 			if($args_person['person_job_title'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_job_title'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span property="v:title">'.$people_job_title.'</span></div><div class="snippet-clear"></div>';	
+			$people .= '<div class="snippet-data-img"> <span itemprop="jobTitle">'.$people_job_title.'</span></div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_company) != "")
 		{
 			if($args_person['person_company'] != "")
+				$people .= '<div itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">';
 				$people .= '<div class="snippet-label-img">'.$args_person['person_company'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span property="v:affiliation">'.$people_company.'</span></div><div class="snippet-clear"></div>';	
+			$people .= '<div class="snippet-data-img"> <span itemprop="name">'.$people_company.'</span></div><div class="snippet-clear"></div>';	
+			$people .= '</div>';
 		}
-		if(trim($people_local) != "")
+
+		if(trim($people_street) != "")
 		{
 			if($args_person['person_address'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span rel="v:address">
-						<span typeof="v:Address">
-						<span property="v:locality">'.$people_local.'</span>,';	
+			$people .= '<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+						<!--<span typeof="v:Address">-->
+						<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+		}
+
+		if(trim($people_local) != "")
+		{
+			//if($args_person['person_address'] != "")
+				//$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
+			//$people .= '<!--<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">						<!--<span typeof="v:Address">-->';
+			$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
 		}
 		if(trim($people_region) != "")
-			$people .= '<span property="v:region">'.$people_region.'</span>
-				</span>
+		{
+			$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
+		}
+		if(trim($people_postal) != "")
+		{
+			$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
+		}			
+				$people .= '<!--</span>-->
 			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';

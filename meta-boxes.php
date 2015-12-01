@@ -327,6 +327,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Address','rich-snippets'),
+				'desc' => __('Enter Street','rich-snippets'),
+				'id'   => $prefix . 'people_street',
+				'class' => 'people',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('','rich-snippets'),
 				'desc' => __('Enter Locality','rich-snippets'),
 				'id'   => $prefix . 'people_local',
 				'class' => 'people',
@@ -339,6 +346,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'people',
 				'type' => 'text_medium',
 			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Postal Code','rich-snippets'),
+				'id'   => $prefix . 'people_postal',
+				'class' => 'people',
+				'type' => 'text_medium',
+			),
+
 			// Meta Settings for Products
 			array(
 				'name' => __('Rich Snippets - Products','rich-snippets'),
