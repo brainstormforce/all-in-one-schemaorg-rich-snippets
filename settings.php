@@ -78,10 +78,13 @@ function add_software_option()
 	$software_opt = array(
 		'snippet_title'	=>	__('Summary','rich-snippets'),
 		'software_rating'  =>	__('Author Rating','rich-snippets'),
+		'software_agr'	  =>	__('Aggregate Rating','rich-snippets'),
 		'software_price'   =>	__('Price','rich-snippets'),
 		'software_name'	=>	__('Software Name','rich-snippets'),
 		'software_os'	  =>	__('Operating System','rich-snippets'),
-		'software_website' =>	__('Landing Page','rich-snippets')
+		'software_website' =>	__('Landing Page','rich-snippets'),
+		
+
 //		'software_desc'	=>	__('Brief Description','rich-snippets')
 	);
 	add_option('bsf_software',$software_opt);

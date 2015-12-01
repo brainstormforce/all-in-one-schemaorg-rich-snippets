@@ -559,7 +559,11 @@ function display_rich_snippet($content) {
 		
 		$software .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		if($args_soft['snippet_title'] != "" )
-			$software .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_soft['snippet_title'].'</div>';
+			$software .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_soft['snippet_title'];
+		
+		$software .= bsf_do_rating();
+		$software .= '</div>';
+
 		$software .= '<div itemscope itemtype="http://schema.org/SoftwareApplication">';
 		$software_rating = get_post_meta( $post->ID, '_bsf_software_rating', true);
 		$software_name = get_post_meta( $post->ID, '_bsf_software_name', true );
@@ -569,9 +573,12 @@ function display_rich_snippet($content) {
 		$software_price = get_post_meta( $post->ID, '_bsf_software_price', true );
 		$software_cur = get_post_meta($post->ID, '_bsf_software_cur', true);		
 		$software_os = get_post_meta( $post->ID, '_bsf_software_os', true );
+		$software_cat = get_post_meta( $post->ID, '_bsf_software_cat', true );
+
+
 		if(trim($software_image) != "")
 		{
-			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="image" /></div>';	
+			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" /></div>';	
 		}
 		else
 		{
@@ -582,7 +589,40 @@ function display_rich_snippet($content) {
 			</script>';
 		}
 		$software .= '<div class="aio-info">';		
+		
+//////////////////////////////////////////////////////////////////////
+
 		if(trim($software_rating) != "")
+		{
+			//if($args_soft['product_brand'] != "")
+			$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';		
+			$software .= '<div class="snippet-data-img"><span class="star-img">';
+							for($i = 1; $i<=ceil($software_rating); $i++)
+							{
+								$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+							}
+							for($j = 0; $j<=5-ceil($software_rating); $j++)
+							{
+								if($j)
+									$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+							}
+			$software .= '</span></div><div class="snippet-clear"></div>';
+		}
+
+		
+		$software .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
+		if($args_soft['software_agr'] != "")
+		{
+			$software .= '<div class="snippet-label-img">'.$args_soft['software_agr'].'</div>';
+		}
+		$software .= '<div class="snippet-data-img">';
+		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
+		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+		
+//////////////////////////////////////////////////////////////////////
+
+
+		/*if(trim($software_rating) != "")
 		{
 			if($args_soft['software_rating'] != "")
 				$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';
@@ -598,7 +638,7 @@ function display_rich_snippet($content) {
 			}
 			
 			$software .= '</span></div><div class="snippet-clear"></div>';
-		}
+		}*/
 		if(trim($software_name) != "")
 		{
 			if($args_soft['software_name'] != "")
@@ -609,14 +649,20 @@ function display_rich_snippet($content) {
 		{
 			if($args_soft['software_os'] != "")
 				$software .= '<div class="snippet-label-img">'.$args_soft['software_os'].'</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="operatingSystems">'.$software_os.'</span></div><div class="snippet-clear"></div>';		
+			$software .= ' <div class="snippet-data-img"> <span itemprop="operatingSystem">'.$software_os.'</span></div><div class="snippet-clear"></div>';		
+		}
+		if(trim($software_cat) != "")
+		{
+			//if($args_soft['software_os'] != "")
+				$software .= '<div class="snippet-label-img">Software Category</div>';
+			$software .= ' <div class="snippet-data-img"> <span itemprop="applicationCategory">'.$software_cat.'</span></div><div class="snippet-clear"></div>';		
 		}
 		if(trim($software_price) != "")
 		{
 			if($args_soft['software_price'] != "")
 				$software .= '<div class="snippet-label-img">'.$args_soft['software_price'].'</div>';
-			$software .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://data-vocabulary.org/Offer">
-			<meta itemprop="priceCurrency" content="'.$software_cur.'" />'.$software_cur.' <span itemprop="price"> '.$software_price.'</span></div><div class="snippet-clear"></div>';
+			$software .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+			<span itemprop="priceCurrency">'.$software_cur.'</span> <span itemprop="price"> '.$software_price.'</span></div><div class="snippet-clear"></div>';
 			
 		}
 		if(trim($software_desc) != "")
@@ -629,7 +675,7 @@ function display_rich_snippet($content) {
 		{
 			if($args_soft['software_website'] != "")
 				$software .= '<div class="snippet-label-img">'.$args_soft['software_website'].'</div>';
-			$software .= '<div class="snippet-data-img"> <a itemprop="url" href="'.$software_landing.'">'.$software_landing.'</a></div><div class="snippet-clear"></div>';
+			$software .= '<div class="snippet-data-img"> <a itemprop="featureList" href="'.$software_landing.'">'.$software_landing.'</a></div><div class="snippet-clear"></div>';
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';

@@ -207,7 +207,7 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="product_name" value="'.$args_product["product_name"].'"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>'.__("Product Category :","rich-snippets").'</label></strong></td>
+														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="product_agr" value="'.$args_product["product_agr"].'"/></td>
 													</tr>
 													<tr>
@@ -293,6 +293,10 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Author Rating :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="software_rating" value="'.$args_soft["software_rating"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="'.$args_soft["software_agr"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Software Price :","rich-snippets").'</label></strong></td>
@@ -599,7 +603,7 @@ if(isset($_POST['recipe_submit']))
 }
 if(isset($_POST['software_submit']))
 {
-	foreach(array('snippet_title','software_rating','software_price','software_name','software_os','software_website') as $option)
+	foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{

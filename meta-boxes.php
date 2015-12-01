@@ -540,6 +540,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_medium',
 			),
 			array(
+				'name' => __('Application Category','rich-snippets'),
+				'desc' => __('Like Game, Multimedia','rich-snippets'),
+				'id'   => $prefix . 'software_cat',
+				'class' => 'software',
+				'type' => 'text_medium',
+			),
+			array(
 				'name' => __('Software Image','rich-snippets'),
 				'desc' => __('Upload or select image of software. Medium size is recommended (300px X 300px)','rich-snippets'),
 				'id'   => $prefix . 'software_image',
