@@ -61,7 +61,7 @@ function display_rich_snippet($content) {
 				
 		if($args_review['review_title'] != "")
 			$review .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_review['review_title'].'</div>';
-		$review .= '<div class="snippet-markup" itemscope itemtype="http://data-vocabulary.org/Review">';
+		$review .= '<div class="snippet-markup" itemscope itemtype="http://schema.org/Review">';
 		$item = get_post_meta( $post->ID, '_bsf_item_name', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
@@ -69,27 +69,29 @@ function display_rich_snippet($content) {
 		if(trim($reviewer) != "")
 		{
 			if($args_review['item_reviewer'] != "")
+				$review .= '<span itemprop="author" itemscope itemtype="http://schema.org/Person">';
 				$review .= "<div class='snippet-label'>".$args_review['item_reviewer']."</div>";
-			$review .= " <div class='snippet-data'><span itemprop='reviewer'>".$reviewer."</span></div>";
+			$review .= " <div class='snippet-data'><span itemprop='name'>".$reviewer."</span></div></span>";
 		}
 		if(isset($args_review['review_date']))
 		{
 			if( $args_review['review_date'] != "")
 				$review .= "<div class='snippet-label'>".$args_review['review_date'] ."</div>";
-			$review .= "<div class='snippet-data'> <time itemprop='dtreviewed' datetime='".$post_date."'>".$post_date."</time></div>";
+			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".$post_date."'>".$post_date."</time></div>";
 		}
 		if(trim($item) != "")
 		{
 			if( $args_review['item_name'] != "")
 				$review .= "<div class='snippet-label'>".$args_review['item_name']."</div>";
-			$review .= "<div class='snippet-data'> <span itemprop='itemreviewed'>".$item."</span></div>";
+			$review .= "<div class='snippet-data'> <span itemprop='itemReviewed'>".$item."</span></div>";
 		}
 		if(trim($rating) != "")
 		{
 			if( $args_review['item_rating'] != "")
+				//$review .= '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">';
 				$review .= "<div class='snippet-label'>".$args_review['item_rating']."</div>";
 			
-			$review .= "<div class='snippet-data'> <span class='rating-value' itemprop='rating'>".$rating."</span><span class='star-img'>";
+			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".$rating."</span></span><span class='star-img'>";
 			for($i = 1; $i<=ceil($rating); $i++)
 			{
 				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">';

@@ -24,7 +24,6 @@ function add_event_option()
 		'end_time'		 =>	__('Ending on','rich-snippets'),
 		'events_price'		 =>	__('Offer Price','rich-snippets')
 
-		
 //		'geo_location'	 =>	__('GEO Location','rich-snippets')
 	);
 	add_option('bsf_event',$event_opt);
