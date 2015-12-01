@@ -485,7 +485,7 @@ function display_rich_snippet($content) {
 			$recipe .= bsf_do_rating();
 		}
 		$recipe .= '</div>';
-		$recipe .= '<div itemscope itemtype="http://data-vocabulary.org/Recipe">';
+		$recipe .= '<div itemscope itemtype="http://schema.org/Recipe">';
 		$recipes_name = get_post_meta( $post->ID, '_bsf_recipes_name', true );
 		$recipes_preptime = get_post_meta( $post->ID, '_bsf_recipes_preptime', true );
 		$recipes_cooktime = get_post_meta( $post->ID, '_bsf_recipes_cooktime', true );
@@ -497,7 +497,7 @@ function display_rich_snippet($content) {
 		$agregate = average_rating();
 		if(trim($recipes_photo) != "")
 		{
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$recipes_photo.'"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'"/></div>';
 		}
 		else
 		{
@@ -515,7 +515,7 @@ function display_rich_snippet($content) {
 				
 			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div><div class="snippet-clear"></div>';
 		}
-		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_date('Y-m-d').'" itemprop="published">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
+		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_date('Y-m-d').'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
 		{
 			if($args_recipe['recipe_prep'] != "")
@@ -536,7 +536,7 @@ function display_rich_snippet($content) {
 		}
 		if($args_recipe['recipe_rating'] != "")
 			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
-		$recipe .= ' <div class="snippet-data-img"> <span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate"><span itemprop="rating" class="rating-value">'.$agregate.'</span><span class="star-img">';
+		$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
 			for($i = 1; $i<=ceil($agregate); $i++)
 			{
 				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
@@ -546,7 +546,7 @@ function display_rich_snippet($content) {
 				if($j)
 					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
 			}
-		$recipe .= '</span> Based on <span itemprop="count"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
+		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $recipe : $content;
