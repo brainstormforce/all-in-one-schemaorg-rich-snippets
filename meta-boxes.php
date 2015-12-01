@@ -119,6 +119,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text_medium',
 			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Postal Code','rich-snippets'),
+				'id'   => $prefix . 'event_postal_code',
+				'class' => 'events',
+				'type' => 'text_medium',
+			),
 /*			array(
 				'name' => __('Description ','rich-snippets'),
 				'desc' => __('Describe the event in short.','rich-snippets'),
@@ -141,6 +148,27 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_date',
 			),
 			array(
+				'name' => __('Offer Price','rich-snippets'),
+				'desc' => __('Enter the ticket Price.','rich-snippets'),
+				'id'   => $prefix . 'event_price',
+				'class' => 'events',
+				'type' => 'text_small',
+			),
+			array(
+				'name' => __('Currency ','rich-snippets'),
+				'desc' => __('Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href="http://www.science.co.il/International/Currency-Codes.asp" target="_blank"> Know you currency code</a>','rich-snippets'),
+				'id'   => $prefix . 'event_cur',
+				'class' => 'events',
+				'type' => 'text_small',
+			),
+			array(
+				'name' => __('Url ','rich-snippets'),
+				'desc' => __('Url of buy ticket page','rich-snippets'),
+				'id'   => $prefix . 'event_ticket_url',
+				'class' => 'events',
+				'type' => 'text',
+			),
+			/*array(
 				'name' => __('GEO Location ','rich-snippets'),
 				'desc' => __('Enter Latitude. <a href="http://universimmedia.pagesperso-orange.fr/geo/loc.htm" target="_blank">Find Here.</a>','rich-snippets'),
 				'id'   => $prefix . 'event_geo_latitude',
@@ -160,7 +188,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'event_photo',
 				'class' => 'events',
 				'type' => 'file',
-			),
+			),*/
 			// Meta Settings for Music		
 			array(
 				'name' => __('Rich Snippets - Music','rich-snippets'),

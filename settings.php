@@ -21,7 +21,9 @@ function add_event_option()
 		'event_location'   =>	__('Location','rich-snippets'),
 //		'event_desc'	   =>	__('Description','rich-snippets'),
 		'start_time'	   =>	__('Starting on','rich-snippets'),
-		'end_time'		 =>	__('Ending on','rich-snippets')
+		'end_time'		 =>	__('Ending on','rich-snippets'),
+		'events_price'		 =>	__('Offer Price','rich-snippets')
+
 		
 //		'geo_location'	 =>	__('GEO Location','rich-snippets')
 	);

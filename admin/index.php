@@ -118,6 +118,10 @@ function rich_snippet_dashboard() {
 														<td align="right"><strong><label>'.__("End Time :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="end_time" value="'.$args_event["end_time"].'"/></td>
 													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Ticket Promotion :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="'.$args_event["events_price"].'"/></td>
+													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
@@ -547,7 +551,7 @@ if(isset($_POST['item_submit']))
 }
 if(isset($_POST['event_submit']))
 {
-	foreach(array('snippet_title','event_title','event_location','start_time','end_time') as $option)
+	foreach(array('snippet_title','event_title','event_location','start_time','end_time','events_price') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{

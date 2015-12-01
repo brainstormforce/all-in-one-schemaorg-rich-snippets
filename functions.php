@@ -117,17 +117,23 @@ function display_rich_snippet($content) {
 		
 		if($args_event['snippet_title'] != "")
 			$event .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_event['snippet_title'].'</div>';
-		$event .= '<div itemscope itemtype="http://data-vocabulary.org/Event">';
+		$event .= '<div itemscope itemtype="http://schema.org/Event">';
 		$event_title = get_post_meta( $post->ID, '_bsf_event_title', true );
 		$event_org = get_post_meta( $post->ID, '_bsf_event_organization', true );
 		$event_street = get_post_meta( $post->ID, '_bsf_event_street', true );	
 		$event_local = get_post_meta( $post->ID, '_bsf_event_local', true );	
-		$event_region = get_post_meta( $post->ID, '_bsf_event_region', true );	
+		$event_region = get_post_meta( $post->ID, '_bsf_event_region', true );
+		$event_postal_code = get_post_meta( $post->ID, '_bsf_event_postal_code', true );
 		$event_start_date = get_post_meta( $post->ID, '_bsf_event_start_date', true );	
 		$event_end_date = get_post_meta( $post->ID, '_bsf_event_end_date', true );	
-		$event_geo_latitude = get_post_meta( $post->ID, '_bsf_event_geo_latitude', true );	
-		$event_geo_longitude = get_post_meta( $post->ID, '_bsf_event_geo_longitude', true );	
-		$event_photo = get_post_meta( $post->ID, '_bsf_event_photo', true );	
+
+		$event_ticket_url = get_post_meta( $post->ID, '_bsf_event_ticket_url', true );	
+		$event_price = get_post_meta( $post->ID, '_bsf_event_price', true );	
+		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );	
+
+		//$event_geo_latitude = get_post_meta( $post->ID, '_bsf_event_geo_latitude', true );	
+		//$event_geo_longitude = get_post_meta( $post->ID, '_bsf_event_geo_longitude', true );	
+		/*$event_photo = get_post_meta( $post->ID, '_bsf_event_photo', true );	
 		if(trim($event_photo) != "")
 		{
 			$event .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$event_photo.'"></div>';
@@ -139,7 +145,7 @@ function display_rich_snippet($content) {
                     jQuery(".snippet-label-img").addClass("snippet-clear");
                 });
 			</script>';
-		}
+		}*/
 		$event .= '<div class="aio-info">';
 		
 		if(trim($event_title) != "")
@@ -153,25 +159,27 @@ function display_rich_snippet($content) {
 			if( $args_event['event_location'] != "")
 				$event .= '<div class="snippet-label-img">'.$args_event['event_location'].'</div>';
 			$event .=' <div class="snippet-data-img"> 
-				​<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/Organization">
+				​<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 							<span itemprop="name">'.$event_org.'</span>,';
 		}
 		if(trim($event_street) != "")
-			$event .= '<span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-							  <span itemprop="street-address">'.$event_street.'</span>,';
+			$event .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							  <span itemprop="streetAddress">'.$event_street.'</span>,';
 		if(trim($event_local) != "")
-			$event .= '<span itemprop="locality">'.$event_local.'</span>,';
+			$event .= '<span itemprop="addressLocality">'.$event_local.'</span>,';
 		if(trim($event_region) != "")
-			$event .= '<span itemprop="region">'.$event_region.'</span>';
+			$event .= '<span itemprop="addressRegion">'.$event_region.'</span>';
+		if(trim($event_postal_code) != "")
+			$event .= '<span itemprop="postalCode">'.$event_postal_code.'</span>';
 		$event .= '</span>';
-		$event .= ' <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">';
-		if(trim($event_geo_latitude) != "")
-			$event .= '<meta itemprop="latitude" content="'.$event_geo_latitude.'" />';
-		if(trim($event_geo_longitude) != "")
+		//$event .= ' <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">';
+		//if(trim($event_geo_latitude) != "")
+		//	$event .= '<meta itemprop="latitude" content="'.$event_geo_latitude.'" />';
+		//if(trim($event_geo_longitude) != "")
 	
-			$event .= '<meta itemprop="longitude" content="'.$event_geo_longitude.'" />';
-		$event .= '</span>
-				</span>
+		//	$event .= '<meta itemprop="longitude" content="'.$event_geo_longitude.'" />';
+		//$event .= '</span>';
+		$event .='</span>
 			</div><div class="snippet-clear"></div>';
 		if(trim($event_start_date) != "")
 		{
@@ -186,6 +194,16 @@ function display_rich_snippet($content) {
 				$event .= '<div class="snippet-label-img">'.$args_event['end_time'].'</div>';
 			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.$event_end_date.'T00:00-00:00">'.$event_end_date.'</span></div><div class="snippet-clear"></div>';
 		}
+
+		if(trim($event_price) != "")
+		{
+			if($args_event['events_price'] != "")
+				$event .= '<div class="snippet-label-img">'.$args_event['events_price'].'</div>';
+			$event .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+			<span itemprop="priceCurrency">'.$event_cur.'</span><span itemprop="price">'.' '.$event_price.'</span><br><a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a></div><div class="snippet-clear"></div>';
+			//$event .= '<a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a>';
+		}
+
 		$event .= '</div>
 			</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $event : $content;
@@ -331,7 +349,7 @@ function display_rich_snippet($content) {
 		$product .= bsf_do_rating();
 		
 		$product .= '</div>';
-		$product .= '<div  itemscope itemtype="http://data-vocabulary.org/Product">';
+		$product .= '<div  itemscope itemtype="http://schema.org/Product">';
 		$product_rating = get_post_meta( $post->ID, '_bsf_product_rating', true);
 		$product_brand = get_post_meta( $post->ID, '_bsf_product_brand', true);
 		$product_name = get_post_meta( $post->ID, '_bsf_product_name', true);
@@ -377,14 +395,17 @@ function display_rich_snippet($content) {
 							}
 			$product .= '</span></div><div class="snippet-clear"></div>';
 		}
-		$product .= '<span itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">';
+
+		$product .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
 		if($args_product['product_agr'] != "")
 		{
 			$product .= '<div class="snippet-label-img">'.$args_product['product_agr'].'</div>';
 		}
 		$product .= '<div class="snippet-data-img">';
-		$product .= '<span itemprop="rating">'.average_rating().'</span>';						
-		$product .= ' based on <span class="rating-count" itemprop="votes">'.rating_count().'</span> votes </span></div><div class="snippet-clear"></div>';
+		$product .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
+		$product .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+		
+
 		if(trim($product_brand) != "")
 		{
 			if($args_product['product_brand'] != "")
@@ -397,19 +418,29 @@ function display_rich_snippet($content) {
 				$product .= '<div class="snippet-label-img">'.$args_product['product_name'].'</div>';
 			$product .= ' <div class="snippet-data-img"> <span itemprop="name">'.$product_name.'</span></div><div class="snippet-clear"></div>';
 		}
+
+		
 		if(trim($product_price) != "")
 		{
 			if($args_product['product_price'] != "")
-				$product .= '<div class="snippet-label-img">'.$args_product['product_price'].'</div>';
-			$product .= '<div class="snippet-data-img"> <span itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
-			<meta itemprop="currency" content="'.$product_cur.'" /><span itemprop="price">'.$product_cur.' '.$product_price.'</span></div><div class="snippet-clear"></div>';
+				$product .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label-img">'.$args_product['product_price'].'</div>';
+			$product .= '<div class="snippet-data-img"> 
+			<span itemprop="priceCurrency">'.$product_cur.'</span><span itemprop="price">'.' '.$product_price.'</span></div>';
+			
+			if(trim($product_status) != "")
+			{
+				if($args_product['product_avail'] != "")
+					$product .= '<div class="snippet-label-img">'.$args_product['product_avail'].'</div>';
+				$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.$product_status.'">'.$availability.'</span></span></div><div class="snippet-clear"></div>';		
+			}
+			$product .= '</div><div class="snippet-clear"></div>';
 		}
-		if(trim($product_status) != "")
+		/*if(trim($product_status) != "")
 		{
 			if($args_product['product_avail'] != "")
 				$product .= '<div class="snippet-label-img">'.$args_product['product_avail'].'</div>';
 			$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.$product_status.'">'.$availability.'</span></span></div><div class="snippet-clear"></div>';		
-		}
+		}*/
 		$product .= '</div>
 			</div></div><div class="snippet-clear"></div>';
 			
