@@ -77,7 +77,7 @@ function display_rich_snippet($content) {
 		{
 			if( $args_review['review_date'] != "")
 				$review .= "<div class='snippet-label'>".$args_review['review_date'] ."</div>";
-			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".$post_date."'>".$post_date."</time></div>";
+			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".get_the_time( 'c' )."'>".$post_date."</time></div>";
 		}
 		if(trim($item) != "")
 		{
@@ -515,7 +515,7 @@ function display_rich_snippet($content) {
 				
 			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div><div class="snippet-clear"></div>';
 		}
-		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_date('Y-m-d').'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
+		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_time( 'c' ).'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
 		{
 			if($args_recipe['recipe_prep'] != "")
@@ -780,7 +780,7 @@ function display_rich_snippet($content) {
 				if($args_article['article_name'] != "")
 					$article .= '<div class="snippet-label-img">'.$args_article['article_name'].'</div>';
 					
-				$article .= '<div class="snippet-data-img"><span itemprop="name">'.$article_name.'</span></div><div class="snippet-clear"></div>';
+				$article .= '<div class="snippet-data-img"><span itemprop="headline">'.$article_name.'</span></div><div class="snippet-clear"></div>';
 			}
 			if(trim($article_author) != "")
 			{
@@ -796,6 +796,8 @@ function display_rich_snippet($content) {
 					
 				$article .= '<div class="snippet-data-img"><span itemprop="description">'.$article_desc.'</span></div><div class="snippet-clear"></div>';
 			}
+
+				$article .= '<meta itemprop="datePublished" content="'.get_the_time( 'c' ).'"/>';
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
