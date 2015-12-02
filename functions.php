@@ -696,11 +696,16 @@ function display_rich_snippet($content) {
 		$video_desc = get_post_meta( $post->ID, '_bsf_video_desc', true );
 		$video_thumb = get_post_meta( $post->ID, '_bsf_video_thumb', true );
 		$video_url = get_post_meta( $post->ID, '_bsf_video_url', true );
+		$video_emb_url = get_post_meta( $post->ID, '_bsf_video_emb_url', true );
+
 		$video_duration = get_post_meta( $post->ID, '_bsf_video_duration', true );
 		$video_date = get_post_meta( $post->ID, '_bsf_video_date', true );
 		if(trim($video_url) != "")
 		{
-			$video .= '<div class="snippet-image"><a itemprop="url" href="'.$video_url.'"><img width="180" src="'.$video_thumb.'"></a></div>';	
+			$video .= '<div class="snippet-image"><a href="'.$video_url.'"><img height="180" src="'.$video_thumb.'" alt="'.$video_title.'"></a></div>';	
+		}
+		elseif (trim($video_emb_url) != "") {
+			$video .= '<div class="snippet-image"><a href="'.$video_emb_url.'"><img height="180" src="'.$video_thumb.'" " alt="'.$video_title.'"></a></div>';	
 		}
 		else
 		{
@@ -710,7 +715,7 @@ function display_rich_snippet($content) {
                 });
 			</script>';
 		}
-		$video .= '<div class="aio-info">';		
+		$video .= '<div class="aio-info" style="padding-top:25px">';		
 		if(trim($video_title) != "")
 		{
 			if($args_video['video_title'] != "" )
@@ -725,11 +730,17 @@ function display_rich_snippet($content) {
 			$video .= '<div class="snippet-data-img"> <p itemprop="description">'.$video_desc.'</p></div><div class="snippet-clear"></div>';
 		}
 		if(trim($video_thumb) != "")
-			$video .= '<meta itemprop="thumbnail" content="'.$video_thumb.'">';		
+			$video .= '<meta itemprop="thumbnailUrl" content="'.$video_thumb.'">';
+		if(trim($video_url) != ""){
+			$video .= '<meta itemprop="contentUrl" content="'.$video_url.'">';
+		}
+		elseif(trim($video_emb_url) != ""){
+			$video .= '<meta itemprop="embedURL" content="'.$video_emb_url.'">';
+		}			
 		if(trim($video_duration) != "")
 			$video .= '<meta itemprop="duration" content="'.$video_duration.'">';		
 		if(trim($video_date) != "")
-			$video .= '<meta itemprop="uploaddate" content="'.$video_date.'">';		
+			$video .= '<meta itemprop="uploadDate" content="'.$video_date.'">';		
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $video : $content;

@@ -598,11 +598,20 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Video','rich-snippets'),
-				'desc' => __('Upload Video or enter the video file url','rich-snippets'),
+				'desc' => __('Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file format','rich-snippets'),
 				'id'   => $prefix . 'video_url',
 				'class' => 'video',
 				'type' => 'file',
 			),
+
+			array(
+				'name' => __('Embed Video','rich-snippets'),
+				'desc' => __('A URL pointing to a player for the specific video. Usually this is the information in the src element of an &lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class="bsf_vd_note"><h3>Add only one url either in "Video" or "Embed Video" field. Dont use both.</h3></div>','rich-snippets'),
+				'id'   => $prefix . 'video_emb_url',
+				'class' => 'video',
+				'type' => 'text',
+			),
+			
 			array(
 				'name' => __('Video Duration','rich-snippets'),
 				'desc' => __('Enter the duration for this video','rich-snippets'),
