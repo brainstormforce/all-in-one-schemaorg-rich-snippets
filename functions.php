@@ -611,10 +611,10 @@ function display_rich_snippet($content) {
 
 		
 		$software .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
-		if($args_soft['software_agr'] != "")
-		{
+		//if($args_soft['software_agr'] != "")
+		//{
 			$software .= '<div class="snippet-label-img">'.$args_soft['software_agr'].'</div>';
-		}
+		//}
 		$software .= '<div class="snippet-data-img">';
 		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
 		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
