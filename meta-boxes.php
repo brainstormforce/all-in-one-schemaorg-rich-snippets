@@ -119,6 +119,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text_medium',
 			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Postal Code','rich-snippets'),
+				'id'   => $prefix . 'event_postal_code',
+				'class' => 'events',
+				'type' => 'text_medium',
+			),
 /*			array(
 				'name' => __('Description ','rich-snippets'),
 				'desc' => __('Describe the event in short.','rich-snippets'),
@@ -141,6 +148,27 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_date',
 			),
 			array(
+				'name' => __('Offer Price','rich-snippets'),
+				'desc' => __('Enter the ticket Price.','rich-snippets'),
+				'id'   => $prefix . 'event_price',
+				'class' => 'events',
+				'type' => 'text_small',
+			),
+			array(
+				'name' => __('Currency ','rich-snippets'),
+				'desc' => __('Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href="http://www.science.co.il/International/Currency-Codes.asp" target="_blank"> Know you currency code</a>','rich-snippets'),
+				'id'   => $prefix . 'event_cur',
+				'class' => 'events',
+				'type' => 'text_small',
+			),
+			array(
+				'name' => __('Url ','rich-snippets'),
+				'desc' => __('Url of buy ticket page','rich-snippets'),
+				'id'   => $prefix . 'event_ticket_url',
+				'class' => 'events',
+				'type' => 'text',
+			),
+			/*array(
 				'name' => __('GEO Location ','rich-snippets'),
 				'desc' => __('Enter Latitude. <a href="http://universimmedia.pagesperso-orange.fr/geo/loc.htm" target="_blank">Find Here.</a>','rich-snippets'),
 				'id'   => $prefix . 'event_geo_latitude',
@@ -160,7 +188,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'event_photo',
 				'class' => 'events',
 				'type' => 'file',
-			),
+			),*/
 			// Meta Settings for Music		
 			array(
 				'name' => __('Rich Snippets - Music','rich-snippets'),
@@ -299,6 +327,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Address','rich-snippets'),
+				'desc' => __('Enter Street','rich-snippets'),
+				'id'   => $prefix . 'people_street',
+				'class' => 'people',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('','rich-snippets'),
 				'desc' => __('Enter Locality','rich-snippets'),
 				'id'   => $prefix . 'people_local',
 				'class' => 'people',
@@ -311,6 +346,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'people',
 				'type' => 'text_medium',
 			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Postal Code','rich-snippets'),
+				'id'   => $prefix . 'people_postal',
+				'class' => 'people',
+				'type' => 'text_medium',
+			),
+
 			// Meta Settings for Products
 			array(
 				'name' => __('Rich Snippets - Products','rich-snippets'),
@@ -497,6 +540,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_medium',
 			),
 			array(
+				'name' => __('Application Category','rich-snippets'),
+				'desc' => __('Like Game, Multimedia','rich-snippets'),
+				'id'   => $prefix . 'software_cat',
+				'class' => 'software',
+				'type' => 'text_medium',
+			),
+			array(
 				'name' => __('Software Image','rich-snippets'),
 				'desc' => __('Upload or select image of software. Medium size is recommended (300px X 300px)','rich-snippets'),
 				'id'   => $prefix . 'software_image',
@@ -548,11 +598,20 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Video','rich-snippets'),
-				'desc' => __('Upload Video or enter the video file url','rich-snippets'),
+				'desc' => __('Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file format','rich-snippets'),
 				'id'   => $prefix . 'video_url',
 				'class' => 'video',
 				'type' => 'file',
 			),
+
+			array(
+				'name' => __('Embed Video','rich-snippets'),
+				'desc' => __('A URL pointing to a player for the specific video. Usually this is the information in the src element of an &lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class="bsf_vd_note"><h3>Add only one url either in "Video" or "Embed Video" field. Dont use both.</h3></div>','rich-snippets'),
+				'id'   => $prefix . 'video_emb_url',
+				'class' => 'video',
+				'type' => 'text',
+			),
+			
 			array(
 				'name' => __('Video Duration','rich-snippets'),
 				'desc' => __('Enter the duration for this video','rich-snippets'),
