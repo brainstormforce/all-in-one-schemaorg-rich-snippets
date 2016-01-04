@@ -109,7 +109,10 @@ function add_article_option()
 		'article_name'	  =>	__('Article Name','rich-snippets'),
 		'article_author'	  =>	__('Author','rich-snippets'),
 		'article_desc'	  =>	__('Description','rich-snippets'),
-		'article_image'	  =>	__('Image','rich-snippets')
+		'article_image'	  =>	__('Image','rich-snippets'),
+		'article_publisher'	  =>	__('Publisher Name','rich-snippets'),
+		'article_publisher_logo'	  =>	__('Publisher Logo','rich-snippets')
+
 	);
 	add_option('bsf_article',$article_opt);
 }

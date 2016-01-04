@@ -396,6 +396,14 @@ function rich_snippet_dashboard() {
 														<td align="right"><strong><label>'.__("Image :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="article_image" value="'.$args_article["article_image"].'"/></td>
 													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Publisher :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="'.$args_article["article_publisher"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Publisher Logo :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="'.$args_article["article_publisher_logo"].'"/></td>
+													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
@@ -627,7 +635,7 @@ if(isset($_POST['video_submit']))
 }
 if(isset($_POST['article_submit']))
 {
-	foreach(array('snippet_title','article_name','article_author','article_desc','article_image') as $option)
+	foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{

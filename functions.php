@@ -755,6 +755,10 @@ function display_rich_snippet($content) {
 		$article_desc = get_post_meta( $post->ID, '_bsf_article_desc', true );
 		$article_image = get_post_meta( $post->ID, '_bsf_article_image', true );
 		$article_author = get_post_meta( $post->ID, '_bsf_article_author', true );
+		$article_publisher = get_post_meta( $post->ID, '_bsf_article_publisher', true );
+		$article_publisher_logo = get_post_meta( $post->ID, '_bsf_article_publisher_logo', true );
+
+
 			$article .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 			if($args_article['snippet_title'] != "" )
 			{
@@ -764,7 +768,12 @@ function display_rich_snippet($content) {
 			$article .= '<div itemscope itemtype="http://schema.org/Article">';
 			if(trim($article_image) != "")
 			{
-				$article .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$article_image.'"/></div>';
+				$article .= '<div class="snippet-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+				$article .= '<img width="180" src="'.$article_image.'"/>';
+				$article .=	'<meta itemprop="url" content="'.$article_image.'">';
+				$article .=	'<meta itemprop="width" content="800">';
+				$article .=	'<meta itemprop="height" content="800">';
+				$article .=	'</div>';
 			}
 			else
 			{
@@ -782,13 +791,6 @@ function display_rich_snippet($content) {
 					
 				$article .= '<div class="snippet-data-img"><span itemprop="headline">'.$article_name.'</span></div><div class="snippet-clear"></div>';
 			}
-			if(trim($article_author) != "")
-			{
-				if($args_article['article_author'] != "")
-					$article .= '<div class="snippet-label-img">'.$args_article['article_author'].'</div>';
-					
-				$article .= '<div class="snippet-data-img"><span itemprop="author">'.$article_author.'</span></div><div class="snippet-clear"></div>';
-			}
 			if(trim($article_desc) != "")
 			{
 				if($args_article['article_desc'] != "")
@@ -796,8 +798,52 @@ function display_rich_snippet($content) {
 					
 				$article .= '<div class="snippet-data-img"><span itemprop="description">'.$article_desc.'</span></div><div class="snippet-clear"></div>';
 			}
+			if(trim($article_author) != "")
+			{
+				if($args_article['article_author'] != "")
+					$article .= '<div class="snippet-label-img">'.$args_article['article_author'].'</div>';
+					
+				$article .= '<div class="snippet-data-img" itemprop="author" itemscope itemtype="https://schema.org/Person">
+							<span itemprop="name">'.$article_author.'</span>
+							</div>
+							<div class="snippet-clear"></div>';
 
-				$article .= '<meta itemprop="datePublished" content="'.get_the_time( 'c' ).'"/>';
+
+			}
+			if(trim($article_publisher) != "")
+			{
+				if($args_article['article_publisher'] != "")
+					$article .= '<div class="snippet-label-img">'.$args_article['article_publisher'].'</div>';
+				
+				$article .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';	
+				
+				$article .= '<div class="snippet-data-img">
+							<span itemprop="name">'.$article_publisher.'</span>
+							</div>
+							
+
+							<div class="snippet-clear"></div>';
+				if(trim($article_publisher_logo) != "")
+				{
+					if($args_article['article_publisher_logo'] != "")
+						$article .= '<div class="snippet-label-img">'.$args_article['article_publisher_logo'].'</div>';
+
+					$article .= '<div class="snippet-data-img" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+					$article .= '<img width="180" src="'.$article_publisher_logo.'"/>';
+					$article .=	'<meta itemprop="url" content="'.$article_publisher_logo.'">';
+					$article .=	'<meta itemprop="width" content="800">';
+					$article .=	'<meta itemprop="height" content="800">';
+					$article .=	'</div>';
+				}
+
+				$article .=	'</div>';
+			}
+			
+
+				$article .= '<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="'.get_permalink().'"/>';
+				$article .= '<meta itemprop="datePublished" content="'.get_the_time( 'c').'"/>';
+				$article .= '<meta itemprop="dateModified" content="'. get_the_modified_time( 'c' ).'"/>';
+
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
