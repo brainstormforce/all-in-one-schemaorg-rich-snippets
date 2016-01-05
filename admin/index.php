@@ -44,7 +44,7 @@ function rich_snippet_dashboard() {
 			
 		 </ul>
 		 <div class="clear"></div>
-		 <div class="panel-container">
+		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
 					<div id="postbox-container-1" class="postbox-container">
@@ -525,8 +525,8 @@ function rich_snippet_dashboard() {
 		 </div>
 	</div> ';
 	echo '
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.easytabs.min.js').'"></script>
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.hashchange.min.js').'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.hashchange.min.js'.'"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
 	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
@@ -740,7 +740,7 @@ function add_footer_script()
 function get_support()
 {
 	$html = '
-		<div class="postbox" style=" width: 36%; float: right; ">
+		<div class="postbox bsf-contact" style=" width: 36%; float: right; ">
 			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">

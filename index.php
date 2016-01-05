@@ -222,7 +222,7 @@ if ( !class_exists( "RichSnippets" ) )
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:'.$name.'<'.$from.'>' . "\r\n";
-			$headers .= 'Cc: Sujay Pawar <sujay@brainstormforce.com>, Nitin Yawalkar <nitiny@brainstormforce.com>, Aniket Chavan <aniketc@bsf.io>' . "\r\n";
+			$headers .= 'Cc: Sujay Pawar <sujay@brainstormforce.com>, Nitin Yawalkar <nitiny@brainstormforce.com>, Pratik Chaskar <pratikc@brainstormforce.com>, Sandesh Jangam <sandeshj@bsf.io>' . "\r\n";
 			echo mail($to,$subject,$html,$headers) ? "Thank you!" : "Something went wrong!";
 		
 			die();
