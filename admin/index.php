@@ -525,8 +525,8 @@ function rich_snippet_dashboard() {
 		 </div>
 	</div> ';
 	echo '
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.easytabs.min.js').'"></script>
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.hashchange.min.js').'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.hashchange.min.js'.'"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
 	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
