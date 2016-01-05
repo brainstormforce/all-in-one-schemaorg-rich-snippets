@@ -3,7 +3,7 @@ Contributors: brainstormforce, yawalkarm
 Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
-Tested up to: 4.5.0
+Tested up to: 4.4
 Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -113,7 +113,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 = 1.3.0 =
 * Improvement: Updated markup data to meet Google Structured data guidelines
-* Fixed: WordPress 4.5 compatibility
+* Fixed: WordPress 4.4 compatibility
 * Fixed: Admin UI on small screens
 
 = 1.2.0 =
