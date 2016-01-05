@@ -9,3 +9,20 @@ html{ display:block !important;}
 .tab-container { background: #fff; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; float:left; width: 60%; }
 .panel-container { margin-bottom: 10px; border-top:1px solid #999; padding: 10px; margin-top: -6px; float:left; width: 98%;}
 .get_in_touch { padding-left: 15px; }
+.panel-container.bsf-panel #poststuff {
+    width: 100%;
+    min-width: 100%;
+    float: left;
+}
+.panel-container.bsf-panel .postbox-container {
+    width: 98% !important;
+}
+
+.bsf-contact table.bsf_metabox input.bsf_text_medium { 
+	width: 100% !important;
+}
+
+.bsf-contact table.bsf_metabox select{
+		width: 100% !important;
+
+}
