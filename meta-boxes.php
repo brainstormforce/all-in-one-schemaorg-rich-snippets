@@ -635,16 +635,16 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'title',
 			),
 			array(
+				'name' => __('Article Image','rich-snippets'),
+				'desc' => __('Upload or select image from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'article_image',
+				'class' => 'article',
+				'type' => 'file',
+			),
+			array(
 				'name' => __('Article Name','rich-snippets'),
 				'desc' => __('Enter the name for this article','rich-snippets'),
 				'id'   => $prefix . 'article_name',
-				'class' => 'article',
-				'type' => 'text',
-			),
-			array(
-				'name' => __('Author','rich-snippets'),
-				'desc' => __('Enter the author name for this article','rich-snippets'),
-				'id'   => $prefix . 'article_author',
 				'class' => 'article',
 				'type' => 'text',
 			),
@@ -656,12 +656,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'textarea_small',
 			),
 			array(
-				'name' => __('Article Image','rich-snippets'),
+				'name' => __('Author','rich-snippets'),
+				'desc' => __('Enter the author name for this article','rich-snippets'),
+				'id'   => $prefix . 'article_author',
+				'class' => 'article',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Publisher - Orgnization','rich-snippets'),
+				'desc' => __('Enter the publisher name for this article','rich-snippets'),
+				'id'   => $prefix . 'article_publisher',
+				'class' => 'article',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Publisher Logo','rich-snippets'),
 				'desc' => __('Upload or select image from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
-				'id'   => $prefix . 'article_image',
+				'id'   => $prefix . 'article_publisher_logo',
 				'class' => 'article',
 				'type' => 'file',
 			),
+			
+			
 		),
 	);
 	// Add other metaboxes as needed
