@@ -112,8 +112,8 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.3.0 =
+* Improvement: Updated markup data to meet Google Structured data guidelines
 * Fixed: WordPress 4.5 compatibility
-* Fixed: Updated markup data to meet Google Structured data guidelines
 * Fixed: Admin UI on small screens
 
 = 1.2.0 =
