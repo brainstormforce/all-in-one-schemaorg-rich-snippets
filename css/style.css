@@ -85,7 +85,8 @@ td .tbl-bdf-td{
 }
 .snippet-image img {
 	border: 2px solid #FFF;
-	box-shadow: 0px 0px 5px #D5D2CA;
+	box-shadow: none;
+	/*box-shadow: 0px 0px 5px #D5D2CA;*/
 	-webkit-transition: all 400ms ease-in;
 	-moz-transition: all 400ms ease-in;
 	-o-transition: all 400ms ease-in;
