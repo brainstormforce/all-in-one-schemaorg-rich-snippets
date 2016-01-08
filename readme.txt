@@ -1,10 +1,10 @@
 === All In One Schema.org Rich Snippets ===
 Contributors: brainstormforce, yawalkarm
-Donate link: http://www.brainstormforce.com
+Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
-Tested up to: 4.0.0
-Stable tag: 1.2.0
+Tested up to: 4.4
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -22,8 +22,7 @@ It is basically a short summary of your page in the search results of Google, Ya
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 > **Curious, how does this plugin work?**
->
-> [Take a quick test drive!](http://drive.brainstormforce.com)
+
 
 = Supported Content Types - =
 This plugin supports the following types of Schemas:
@@ -111,6 +110,11 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.3.0 =
+* Improvement: Updated markup data to meet Google Structured data guidelines
+* Fixed: WordPress 4.4 compatibility
+* Fixed: Admin UI on small screens
 
 = 1.2.0 =
 * Improvement: WordPress 4.0 compatibility

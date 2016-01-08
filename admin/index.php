@@ -44,7 +44,7 @@ function rich_snippet_dashboard() {
 			
 		 </ul>
 		 <div class="clear"></div>
-		 <div class="panel-container">
+		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
 					<div id="postbox-container-1" class="postbox-container">
@@ -117,6 +117,10 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("End Time :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="end_time" value="'.$args_event["end_time"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Ticket Promotion :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="'.$args_event["events_price"].'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -203,7 +207,7 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="product_name" value="'.$args_product["product_name"].'"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>'.__("Product Category :","rich-snippets").'</label></strong></td>
+														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="product_agr" value="'.$args_product["product_agr"].'"/></td>
 													</tr>
 													<tr>
@@ -289,6 +293,10 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Author Rating :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="software_rating" value="'.$args_soft["software_rating"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="'.$args_soft["software_agr"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Software Price :","rich-snippets").'</label></strong></td>
@@ -387,6 +395,14 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Image :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="article_image" value="'.$args_article["article_image"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Publisher :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="'.$args_article["article_publisher"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Publisher Logo :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="'.$args_article["article_publisher_logo"].'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -509,8 +525,8 @@ function rich_snippet_dashboard() {
 		 </div>
 	</div> ';
 	echo '
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.easytabs.min.js').'"></script>
-<script src="'.plugins_url('/all-in-one-schemaorg-rich-snippets/admin/js/jquery.hashchange.min.js').'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
+<script src="'.plugin_dir_url( __FILE__ ).'js/jquery.hashchange.min.js'.'"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
 	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
@@ -547,7 +563,7 @@ if(isset($_POST['item_submit']))
 }
 if(isset($_POST['event_submit']))
 {
-	foreach(array('snippet_title','event_title','event_location','start_time','end_time') as $option)
+	foreach(array('snippet_title','event_title','event_location','start_time','end_time','events_price') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -595,7 +611,7 @@ if(isset($_POST['recipe_submit']))
 }
 if(isset($_POST['software_submit']))
 {
-	foreach(array('snippet_title','software_rating','software_price','software_name','software_os','software_website') as $option)
+	foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -619,7 +635,7 @@ if(isset($_POST['video_submit']))
 }
 if(isset($_POST['article_submit']))
 {
-	foreach(array('snippet_title','article_name','article_author','article_desc','article_image') as $option)
+	foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -724,7 +740,7 @@ function add_footer_script()
 function get_support()
 {
 	$html = '
-		<div class="postbox" style=" width: 36%; float: right; ">
+		<div class="postbox bsf-contact" style=" width: 36%; float: right; ">
 			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">

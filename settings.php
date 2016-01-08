@@ -21,8 +21,9 @@ function add_event_option()
 		'event_location'   =>	__('Location','rich-snippets'),
 //		'event_desc'	   =>	__('Description','rich-snippets'),
 		'start_time'	   =>	__('Starting on','rich-snippets'),
-		'end_time'		 =>	__('Ending on','rich-snippets')
-		
+		'end_time'		 =>	__('Ending on','rich-snippets'),
+		'events_price'		 =>	__('Offer Price','rich-snippets')
+
 //		'geo_location'	 =>	__('GEO Location','rich-snippets')
 	);
 	add_option('bsf_event',$event_opt);
@@ -77,10 +78,13 @@ function add_software_option()
 	$software_opt = array(
 		'snippet_title'	=>	__('Summary','rich-snippets'),
 		'software_rating'  =>	__('Author Rating','rich-snippets'),
+		'software_agr'	  =>	__('Aggregate Rating','rich-snippets'),
 		'software_price'   =>	__('Price','rich-snippets'),
 		'software_name'	=>	__('Software Name','rich-snippets'),
 		'software_os'	  =>	__('Operating System','rich-snippets'),
-		'software_website' =>	__('Landing Page','rich-snippets')
+		'software_website' =>	__('Landing Page','rich-snippets'),
+		
+
 //		'software_desc'	=>	__('Brief Description','rich-snippets')
 	);
 	add_option('bsf_software',$software_opt);
@@ -105,7 +109,10 @@ function add_article_option()
 		'article_name'	  =>	__('Article Name','rich-snippets'),
 		'article_author'	  =>	__('Author','rich-snippets'),
 		'article_desc'	  =>	__('Description','rich-snippets'),
-		'article_image'	  =>	__('Image','rich-snippets')
+		'article_image'	  =>	__('Image','rich-snippets'),
+		'article_publisher'	  =>	__('Publisher Name','rich-snippets'),
+		'article_publisher_logo'	  =>	__('Publisher Logo','rich-snippets')
+
 	);
 	add_option('bsf_article',$article_opt);
 }
