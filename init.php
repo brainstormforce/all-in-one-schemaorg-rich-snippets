@@ -205,7 +205,7 @@ class bsf_Meta_Box {
 					echo '<div class="', $field['class'],'"><ul>';
 					$i = 1;
 					foreach ($field['options'] as $option) {
-						if( $field['class'] == "star review" || $field['class'] == "star product" || $field['class'] == "star software")
+						if( $field['class'] == "star review" || $field['class'] == "star product" || $field['class'] == "star software" || $field['class'] == "star service" )
 							$class = "star";
 						else 
 							$class = $field['class'];

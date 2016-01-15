@@ -16,6 +16,8 @@ function hidden() {
 	jQuery(".software").hide();
 	jQuery(".video").hide();
 	jQuery(".article").hide();
+	jQuery(".service").hide();
+
 }
 //Function to expand the updated snippet block
 function expand_default(selected) {
@@ -60,6 +62,10 @@ function expand_default(selected) {
 	{
 		jQuery(".article").show(500);
 	}
+	else if(selected == '11')
+	{
+		jQuery(".service").show(500);
+	}
 }
     jQuery("#_bsf_post_type").change(function() {
 		hidden();
@@ -103,6 +109,10 @@ function expand_default(selected) {
 		else if(type == '10')
 		{
 			jQuery(".article").show(500);
+		}
+		else if(type == '11')
+		{
+			jQuery(".service").show(500);
 		}
 	});
 });
