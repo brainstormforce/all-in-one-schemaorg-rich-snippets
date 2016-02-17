@@ -70,20 +70,6 @@ It is basically a short summary of your page in the search results of Google, Ya
 This plugin currently supports almost all of the content types that are released by Schema.org at one place.
 Review, Event, People, Product, Recipe, Software Application, Video, Articles etc.
 
-## Screenshots ##
-### 1. Meta box in post-new under the editor screen. ###
-![Meta box in post-new under the editor screen.](//ps.w.org/all-in-one-schemaorg-rich-snippets/assets/screenshot-1.png)
-
-### 2. Select content type from dropdown ###
-![Select content type from dropdown](//ps.w.org/all-in-one-schemaorg-rich-snippets/assets/screenshot-2.png)
-
-### 3. Fill the details as much as you can ###
-![Fill the details as much as you can](//ps.w.org/all-in-one-schemaorg-rich-snippets/assets/screenshot-3.png)
-
-### 4. Test the post or page URL in Google Rich Snippets Testing ###
-![Test the post or page URL in Google Rich Snippets Testing](//ps.w.org/all-in-one-schemaorg-rich-snippets/assets/screenshot-4.png)
-
-
 ## Changelog ##
 
 ### 1.4.0 ###
