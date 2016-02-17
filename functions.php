@@ -904,7 +904,13 @@ function display_rich_snippet($content) {
 
 			if(trim($service_type) != "")
 			{
-				$service .= '<meta itemprop="serviceType" content="'.$service_type.'" />';
+				if($args_service['service_type'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_type'].'</div>';
+
+				$service .= '<div class="snippet-data-img">
+							<span itemprop="serviceType">'.$service_type.'</span>
+							</div>
+							<div class="snippet-clear"></div>';
 			}
 
 			if(trim($service_provider_name) != "")

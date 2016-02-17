@@ -158,6 +158,7 @@ if ( !class_exists( "RichSnippets" ) )
 			add_software_option();
 			add_video_option();
 			add_article_option();
+			add_service_option();
 			add_color_option();
 		}
 		function submit_request()
