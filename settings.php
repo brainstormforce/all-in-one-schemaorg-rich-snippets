@@ -7,7 +7,7 @@ function add_review_option()
 		'item_reviewer'	=>	__('Reviewer','rich-snippets'),
 		'review_date'	=>	__('Review Date','rich-snippets'),		
 		'item_name'		=>	__('Reviewed Item','rich-snippets'),
-//		'item_description' =>	__('Description','rich-snippets'),
+		//		'item_description' =>	__('Description','rich-snippets'),
 		'item_rating'	  =>	__('Author Rating','rich-snippets')
 	);
 	add_option('bsf_review',$review_opt);
@@ -109,9 +109,28 @@ function add_article_option()
 		'article_name'	  =>	__('Article Name','rich-snippets'),
 		'article_author'	  =>	__('Author','rich-snippets'),
 		'article_desc'	  =>	__('Description','rich-snippets'),
-		'article_image'	  =>	__('Image','rich-snippets')
+		'article_image'	  =>	__('Image','rich-snippets'),
+		'article_publisher'	  =>	__('Publisher Name','rich-snippets'),
+		'article_publisher_logo'	  =>	__('Publisher Logo','rich-snippets')
+
 	);
 	add_option('bsf_article',$article_opt);
+}
+// Function to add article option for settings
+function add_service_option()
+{
+	$service_opt = array(
+		'snippet_title'	=>	__('Summary','rich-snippets'),
+		'service_type'	  =>	__('Service Type','rich-snippets'),
+		'service_area'	  =>	__('Area','rich-snippets'),
+		'service_desc'	  =>	__('Description','rich-snippets'),
+		'service_channel'	  =>	__('URL','rich-snippets'),
+		'service_url_link'	  =>	__('Click Here For More Info','rich-snippets'),
+		'service_rating'	  =>	__('User Rating','rich-snippets'),
+		'service_provider_name'	  =>	__('Provider Name','rich-snippets')
+
+	);
+	add_option('bsf_service',$service_opt);
 }
 // Function for customization
 function add_color_option()

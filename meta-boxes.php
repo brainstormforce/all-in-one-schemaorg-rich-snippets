@@ -31,6 +31,8 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('Software Application','rich-snippets'), 'value' => '8', ),
 					array( 'name' => __('Video','rich-snippets'), 'value' => '9', ),
 					array( 'name' => __('Article','rich-snippets'), 'value' => '10', ),
+					array( 'name' => __('Service','rich-snippets'), 'value' => '11', ),
+
 				),
 			),
 			// Meta Settings for Item Review		
@@ -635,16 +637,16 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'title',
 			),
 			array(
+				'name' => __('Article Image','rich-snippets'),
+				'desc' => __('Upload or select image from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'article_image',
+				'class' => 'article',
+				'type' => 'file',
+			),
+			array(
 				'name' => __('Article Name','rich-snippets'),
 				'desc' => __('Enter the name for this article','rich-snippets'),
 				'id'   => $prefix . 'article_name',
-				'class' => 'article',
-				'type' => 'text',
-			),
-			array(
-				'name' => __('Author','rich-snippets'),
-				'desc' => __('Enter the author name for this article','rich-snippets'),
-				'id'   => $prefix . 'article_author',
 				'class' => 'article',
 				'type' => 'text',
 			),
@@ -656,11 +658,81 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'textarea_small',
 			),
 			array(
-				'name' => __('Article Image','rich-snippets'),
+				'name' => __('Author','rich-snippets'),
+				'desc' => __('Enter the author name for this article','rich-snippets'),
+				'id'   => $prefix . 'article_author',
+				'class' => 'article',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Publisher - Orgnization','rich-snippets'),
+				'desc' => __('Enter the publisher name for this article','rich-snippets'),
+				'id'   => $prefix . 'article_publisher',
+				'class' => 'article',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Publisher Logo','rich-snippets'),
 				'desc' => __('Upload or select image from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
-				'id'   => $prefix . 'article_image',
+				'id'   => $prefix . 'article_publisher_logo',
 				'class' => 'article',
 				'type' => 'file',
+			),
+			
+
+			// Meta Settings for Service
+			array(
+				'name' => __('Rich Snippets - Service','rich-snippets'),
+				'desc' => __('Please provide the following information.','rich-snippets'),
+				'id'   => $prefix . 'service',
+				'class' => 'service',
+				'type' => 'title',
+			),
+			array(
+				'name' => __('Image','rich-snippets'),
+				'desc' => __('Upload or select image from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'service_image',
+				'class' => 'service',
+				'type' => 'file',
+			),
+			array(
+				'name' => __('Service Type','rich-snippets'),
+				'desc' => __('Enter the service type','rich-snippets'),
+				'id'   => $prefix . 'service_type',
+				'class' => 'service',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Service Served Area','rich-snippets'),
+				'desc' => __('Enter the area where service is available','rich-snippets'),
+				'id'   => $prefix . 'service_area',
+				'class' => 'service',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Short Description','rich-snippets'),
+				'desc' => __('Enter the description about service (About 30 Words)','rich-snippets'),
+				'id'   => $prefix . 'service_desc',
+				'class' => 'service',
+				'type' => 'textarea_small',
+			),
+			array(
+				'name' => __('Provider Name','rich-snippets'),
+				'desc' => __('Enter the service provider name','rich-snippets'),
+				'id'   => $prefix . 'service_provider',
+				'class' => 'service',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Enable/Disable Rating','rich-snippets'),
+				'desc' => __('.','rich-snippets'),
+				'id'   => $prefix . 'service_rating_switch',
+				'class' => 'service',
+				'type' => 'select',
+				'options' => array(
+					array('name' => __('Disable','rich-snippets'), 'value' => ''),
+					array('name' => __('Enable','rich-snippets'), 'value' => 'enable'),
+				),
 			),
 		),
 	);
