@@ -36,6 +36,7 @@ td .tbl-bdf-td{
 	float: left;
 	width: 600px;
 	clear: both;
+	box-sizing: content-box;
 }
 .snippet-markup {
 	float: left;
