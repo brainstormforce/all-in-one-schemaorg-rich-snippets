@@ -3,8 +3,8 @@ Contributors: brainstormforce, yawalkarm
 Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
-Tested up to: 4.4
-Stable tag: 1.3.0
+Tested up to: 4.4.2
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -13,12 +13,12 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 = What is a Rich Snippet? =
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
-[See Examples of Rich Snippets Here.](http://www.seomoz.org/blog/schema-examples/ "Rich Snippets Examples")
+[See Examples of Rich Snippets Here.](https://www.brainstormforce.com/schema-rich-snippets/ "Rich Snippets Examples")
 
 = How does a Rich Snippet help? =
 - It gives search engines only the important & precise information to display in search result snippets.
 - Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](http://dashburst.com/google-search-what-are-rich-snippets/ "See the difference") in CTR (Click Through Rate)
+- [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 > **Curious, how does this plugin work?**
@@ -55,39 +55,6 @@ Google will start showing rich snippets in the search results, as soon as your p
 
 You can test the rich snippet on Google Webmasters Rich Snippets Testing Tool
 
-== Release Notes ==
-What's new in this version 1.1.8
-From the very beginning - one of the major thing we are known for is our designs. It always has been one of our major focus. In fact you can say design is our DNA. However, in previous versions on AIOSRS, we felt it was missing somehow.
-
-We have received requests for article rich snippets from a huge no. of our users. So, we have added the Article type in this new update.
-
-Also, we observed most of the people did not want the MicroData box visible to users but only to search engines and requested the feature. However as this is against Google's guidelines, we gave a though to an alternative. Rather than people using the plugin only for 'displaying rich snippets in search results' and 'comporting on front end design' - why not design the plugin in a way that people would want the plugin for displaying a beautiful post summary and rich snippets would come with that? Wouldn't that be awesome? 
-
-So with this update, we stared trying the same thing; and with of course with feedbacks from our beloved users, we look forward making it even better.
-
-In brief, new things in updated version -
-* Redesigned Front End
-* Fully Responsive
-* Retina Ready
-* Options Panel to make settings and control front end display
-* Options Panel to make settings and control strings (Flexibility for admin & also helpful for sites in other languages)
-* Setting to make images look better
-Some of the other non design things -
-* Better reviews and ratings functionality
-* 100% MicroData. Rolled out RDFa completely
-* and many other small but important things
-
-Thanks [Nitin](http://profiles.wordpress.org/yawalkarm/ "Nitin Yawalkar") & Pratik for your major contributions
-
-******************** ******************** ******************** 
-Next scheduled version will include - 
-- Even simpler, shorter, typographic and more beautiful design of MicroData box. May be like this https://moqups.com/brainstormforce/5P0EaLtt
-- Redesigned admin panel
-- Refined MicroData input options
-- Support for more post types (Local Business, etc)
-Cheers & Regards,
-Sujay
-
 == Frequently Asked Questions ==
 
 = What is a Rich Snippet? =
@@ -95,7 +62,7 @@ It is basically a short summary of your page in the search results of Google, Ya
 = How does a Rich Snippet help? =
 - It gives search engines only the important & precise information to display in search result snippets.
 - Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](http://dashburst.com/google-search-what-are-rich-snippets/ "See the difference") in CTR (Click Through Rate)
+- [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 
@@ -110,6 +77,10 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.4.0 =
+* Added new service schema
+* Css minor fix
 
 = 1.3.0 =
 * Improvement: Updated markup data to meet Google Structured data guidelines

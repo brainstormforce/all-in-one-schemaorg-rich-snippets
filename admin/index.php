@@ -31,7 +31,9 @@ function rich_snippet_dashboard() {
 	$args_recipe = get_option('bsf_recipe');
 	$args_soft = get_option('bsf_software');	
 	$args_video = get_option('bsf_video');	
-	$args_article = get_option('bsf_article');	
+	$args_article = get_option('bsf_article');
+	$args_service = get_option('bsf_service');	
+	
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
@@ -415,6 +417,58 @@ function rich_snippet_dashboard() {
 									</div>
 								</div>
 							</div>
+							<div class="postbox closed">
+								<div class="handlediv" title="Click to toggle"><br></div>
+								<h3 class="hndle"><span>'.__("Service","rich-snippets").'</span></h3>
+								<div class="inside">
+									<div class="table">								
+										<p>'.__("Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>","rich-snippets").'</p>
+										<form id="bsf_service_form" method="post">
+											<table class="bsf_metabox">
+												<tbody>
+													<tr>
+														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_service["snippet_title"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Service Type :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_type" value="'.$args_service["service_type"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Area :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_area" value="'.$args_service["service_area"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_desc" value="'.$args_service["service_desc"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Provider Name :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="'.$args_service["service_provider_name"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("URL :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_channel" value="'.$args_service["service_channel"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("URL Text :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_url_link" value="'.$args_service["service_url_link"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Service Rating :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_rating" value="'.$args_service["service_rating"].'"/></td>
+													</tr>
+													<tr><td colspan="2"></td></tr>
+													<tr>
+														<td></td>
+														<td><input type="submit" class="button-primary" name="service_submit" value="'.__("Update ").'"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=service">'.__('Reset ','rich-snippets').'</a></td>
+													</tr>
+												</tbody>
+											</table>
+										</form>
+									</div>
+								</div>
+							</div>
 						<!-- Post blox -->		
 							
 						</div>
@@ -645,6 +699,18 @@ if(isset($_POST['article_submit']))
 	$status = update_option('bsf_article',$args);
 	displayStatus($status);
 }
+if(isset($_POST['service_submit']))
+{
+	foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','service_rating','service_channel','service_url_link') as $option)
+	{
+		if(isset($_POST[$option])) 
+		{
+			$args[$option] = $_POST[$option];
+		}		
+	}
+	$status = update_option('bsf_service',$args);
+	displayStatus($status);
+}
 function displayStatus($status) {
 	if($status)
 	{
@@ -678,6 +744,8 @@ if(isset($_GET['action']))
 		
 		if($option_to_reset == 'article')
 			delete_option('bsf_article');
+		if($option_to_reset == 'service')
+			delete_option('bsf_service');
 		
 		if($option_to_reset == 'color')
 			delete_option('bsf_custom');
@@ -704,6 +772,8 @@ function bsf_reset_options($option_to_reset)
 		add_video_option();
 	if($option_to_reset == 'article')
 		add_article_option();
+	if($option_to_reset == 'service')
+		add_service_option();
 	if($option_to_reset == 'color')
 		add_color_option();
 	

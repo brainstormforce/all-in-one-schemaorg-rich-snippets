@@ -5,7 +5,7 @@ Plugin URI: https://www.brainstormforce.com
 Author: Brainstorm Force
 Author URI: https://www.brainstormforce.com
 Description: The All in One Rich Snippets gives the power to the blog author to control the rich snippets to be shown in the search results by the search engines.
-Version: 1.3.0
+Version: 1.4.0
 Text Domain: rich-snippets
 License: GPL2
 */
@@ -158,6 +158,7 @@ if ( !class_exists( "RichSnippets" ) )
 			add_software_option();
 			add_video_option();
 			add_article_option();
+			add_service_option();
 			add_color_option();
 		}
 		function submit_request()
