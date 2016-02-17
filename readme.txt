@@ -80,7 +80,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 = 1.4.0 =
 * Added new service schema
-* Css minor fix
+* Minor CSS fixes
 
 = 1.3.0 =
 * Improvement: Updated markup data to meet Google Structured data guidelines
