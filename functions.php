@@ -1159,3 +1159,4 @@ function bsf_display_rating($n) {
 	$rating .= $script;
     return $rating;
 }
+
