@@ -526,17 +526,18 @@ function display_rich_snippet($content) {
 		{
 			if($args_recipe['recipe_cook'] != "")
 				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_cook'].'</div>';
-			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_cooktime.'" itemprop="cookTime">'.$recipes_cooktime.'</span></div><div class="snippet-clear"></div> ';
+			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_cooktime.'" itemprop="cookTime">'.$recipes_cooktime.'</time></div><div class="snippet-clear"></div> ';
 		}
 		if(trim($recipes_totaltime) != "")
 		{
 			if($args_recipe['recipe_time'] != "")
 				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_time'].'</div>';
-			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_totaltime.'" itemprop="totalTime">'.$recipes_totaltime.'</span></div><div class="snippet-clear"></div>';
+			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_totaltime.'" itemprop="totalTime">'.$recipes_totaltime.'</time></div><div class="snippet-clear"></div>';
 		}
-		if($args_recipe['recipe_rating'] != "")
+		if($args_recipe['recipe_rating'] != "" && $count > 0)
+		{
 			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
-		$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
+			$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
 			for($i = 1; $i<=ceil($agregate); $i++)
 			{
 				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
@@ -546,7 +547,8 @@ function display_rich_snippet($content) {
 				if($j)
 					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
 			}
-		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
+			$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
+		}
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $recipe : $content;
