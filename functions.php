@@ -337,7 +337,12 @@ function display_rich_snippet($content) {
 				$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
 			$people .= '<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 						<!--<span typeof="v:Address">-->
-						<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+						<span itemprop="streetAddress">'.$people_street.'</span>,<br>';		
+			$address_tag_is_open = true;
+		}	
+		else	
+		{	
+			$address_tag_is_open = false;
 		}
 
 		if(trim($people_local) != "")
@@ -354,9 +359,15 @@ function display_rich_snippet($content) {
 		if(trim($people_postal) != "")
 		{
 			$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
-		}			
-				$people .= '<!--</span>-->
-			</span></div><div class="snippet-clear"></div>';	
+		}
+		
+		if($address_tag_is_open === true)
+		{
+			$people .= '<!--</span>-->
+			</span></div>';
+		}
+		
+		$people .= '<div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $people : $content;
