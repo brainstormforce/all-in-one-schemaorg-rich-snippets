@@ -335,28 +335,26 @@ function display_rich_snippet($content) {
 		{
 			if($args_person['person_address'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-						<!--<span typeof="v:Address">-->
-						<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+				$people .= '<div class="snippet-data-img">';
+					$people .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
+						$people .= '<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+						if(trim($people_local) != "")
+						{
+							$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
+						}
+						if(trim($people_region) != "")
+						{
+							$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
+						}
+						if(trim($people_postal) != "")
+						{
+							$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
+						}			
+					$people .= '</span>';
+				$people .= '</div>';
+				$people .= '<div class="snippet-clear"></div>';	
 		}
 
-		if(trim($people_local) != "")
-		{
-			//if($args_person['person_address'] != "")
-				//$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
-			//$people .= '<!--<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">						<!--<span typeof="v:Address">-->';
-			$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
-		}
-		if(trim($people_region) != "")
-		{
-			$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
-		}
-		if(trim($people_postal) != "")
-		{
-			$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
-		}			
-				$people .= '<!--</span>-->
-			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $people : $content;
