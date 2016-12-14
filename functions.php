@@ -848,6 +848,113 @@ function display_rich_snippet($content) {
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $article : $content;
+	}else if($type == '11')
+	{
+		global $post;
+		$service = $content;
+		$args_service = get_option('bsf_service');
+		$service_type = get_post_meta( $post->ID, '_bsf_service_type', true );
+		$service_area = get_post_meta( $post->ID, '_bsf_service_area', true );
+		$service_desc = get_post_meta( $post->ID, '_bsf_service_desc', true );
+		$service_image = get_post_meta( $post->ID, '_bsf_service_image', true );
+		$service_provider_name = get_post_meta( $post->ID, '_bsf_service_provider', true );
+		$service_rating = get_post_meta( $post->ID, '_bsf_service_rating', true );
+		$service_rating_switch = get_post_meta( $post->ID, '_bsf_service_rating_switch', true );
+		$service_channel = get_permalink( $post->ID );
+		$service_url_link = $args_service['service_url_link'] != ''? $args_service['service_url_link'] : "Click Here For More Info";
+
+
+			$service .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+			if($args_service['snippet_title'] != "" )
+			{
+				$service .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_service['snippet_title'];
+				if ( $service_rating_switch == 'enable' ) {
+					$service .= bsf_do_rating();
+				}
+				$service .= '</div>';
+			}
+			$service .= '<div itemscope itemtype="http://schema.org/Service">';
+			if(trim($service_image) != "")
+			{
+				$service .= '<div class="snippet-image">';
+				$service .= '<img itemprop="image" width="180" src="'.$service_image.'"/>';
+				$service .=	'</div>';
+			}
+			else
+			{
+				$service .= '<script type="text/javascript">
+					jQuery(document).ready(function() {
+						jQuery(".snippet-label-img").addClass("snippet-clear");
+					});
+				</script>';
+			}
+			$service .= '<div class="aio-info">';
+			
+			if( average_rating() > 0 ){
+				if($args_service['service_rating'] != "")
+				{	
+					$service .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
+					$service .= '<div class="snippet-label-img">'.$args_service['service_rating'].'</div>';
+					$service .= '<div class="snippet-data-img">';
+					$service .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
+					$service .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+				}
+			}
+			
+
+			if(trim($service_type) != "")
+			{
+				if($args_service['service_type'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_type'].'</div>';
+
+				$service .= '<div class="snippet-data-img">
+							<span itemprop="serviceType">'.$service_type.'</span>
+							</div>
+							<div class="snippet-clear"></div>';
+			}
+
+			if(trim($service_provider_name) != "")
+			{
+				if($args_service['service_provider_name'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_provider_name'].'</div>';
+					
+				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+							<span itemprop="name">'.$service_provider_name.'</span>
+							</div>
+							<div class="snippet-clear"></div>';
+			}
+
+			if(trim($service_area) != "")
+			{
+				if($args_service['service_area'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_area'].'</div>';
+					
+				$service .= '<div class="snippet-data-img" itemprop="areaServed" itemscope itemtype="http://schema.org/State">
+							<span itemprop="name">'.$service_area.'</span>
+							</div><div class="snippet-clear"></div>';
+			}
+
+			if(trim($service_desc) != "")
+			{
+				if($args_service['service_desc'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_desc'].'</div>';
+					
+				$service .= '<div class="snippet-data-img"><span itemprop="description">'.$service_desc.'</span></div><div class="snippet-clear"></div>';
+			}
+			
+			if(trim($service_channel) != "")
+			{
+				if($args_service['service_channel'] != "")
+					$service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
+					
+				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
+							<a itemprop="URL" href="'.$service_channel.'">'.$service_url_link.' </a>
+							</div><div class="snippet-clear"></div>';
+			}
+
+					
+			$service .= '</div></div></div><div class="snippet-clear"></div>';
+		return ( is_single() || is_page() ) ? $service : $content;
 	}	
 	 else {
 		return $content;
