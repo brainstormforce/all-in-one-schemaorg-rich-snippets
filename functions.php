@@ -1010,11 +1010,11 @@ function display_rich_snippet($content) {
 			if(trim($service_channel) != "")
 			{
 				if($args_service['service_channel'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
+					// $service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
 
-							<a itemprop="URL" href="'.$service_channel.'">'.$service_url_link.' </a>
+							<meta itemprop="URL" href="'.$service_channel.'">
 							</div><div class="snippet-clear"></div>';
 			}
 

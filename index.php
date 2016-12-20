@@ -60,7 +60,8 @@ if ( !class_exists( "RichSnippets" ) )
 				$wp_admin_bar->add_menu( array(
 				  'id' => 'aiosrs',
 				  'title' => 'Test Rich Snippets',
-				  'href' => 'http://www.google.com/webmasters/tools/richsnippets?q='.$actual_link,
+				  'href' => 'http://www.google.com/webmasters/tools/richsnippets?
+https://search.google.com/structured-data/testing-tool#url='.$actual_link,
 				  'meta' => array('target' => '_blank'),
 				) );
 			}
