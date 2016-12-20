@@ -126,9 +126,11 @@ function display_rich_snippet($content) {
 		$event_local = get_post_meta( $post->ID, '_bsf_event_local', true );	
 		$event_region = get_post_meta( $post->ID, '_bsf_event_region', true );
 		$event_postal_code = get_post_meta( $post->ID, '_bsf_event_postal_code', true );
+		$event_image = get_post_meta($post->ID, '_bsf_event_image', true);
+		$event_performer = get_post_meta( $post->ID, '_bsf_event_performer', true );
 		$event_start_date = get_post_meta( $post->ID, '_bsf_event_start_date', true );	
 		$event_end_date = get_post_meta( $post->ID, '_bsf_event_end_date', true );	
-
+		$event_description = get_post_meta( $post->ID, '_bsf_event_description', true );
 		$event_ticket_url = get_post_meta( $post->ID, '_bsf_event_ticket_url', true );	
 		$event_price = get_post_meta( $post->ID, '_bsf_event_price', true );	
 		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );	
@@ -148,13 +150,27 @@ function display_rich_snippet($content) {
                 });
 			</script>';
 		}*/
+		if(trim($event_image) != "")
+		{
+			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" /></div>';
+		}
+		else
+		{
+			$event .= '<script type="text/javascript">
+				jQuery(document).ready(function() {
+                    jQuery(".snippet-label-img").addClass("snippet-clear");
+                });
+			</script>';
+		}
 		$event .= '<div class="aio-info">';
 		
 		if(trim($event_title) != "")
 		{
 			if( $args_event['event_title'])
 				$event .= '<div class="snippet-label-img">'.$args_event['event_title'].'</div>';
-			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div><div class="snippet-clear"></div>';
+			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div>
+			<meta itemprop="url" content="'.$event_ticket_url.'">
+			<div class="snippet-clear"></div>';
 		}
 		if(trim($event_org) != "")
 		{
@@ -183,6 +199,13 @@ function display_rich_snippet($content) {
 		//$event .= '</span>';
 		$event .='</span>
 			</div><div class="snippet-clear"></div>';
+		if(trim($event_performer) != "")
+		{
+			if( $args_event['event_performer'] != "")
+				$event .= '<div class="snippet-label-img">'.$args_event['event_performer'].'</div>';
+	
+			$event .= ' <div class="snippet-data-img"> <span itemprop="performer">'.$event_performer.'</span></div><div class="snippet-clear"></div>';
+		}
 		if(trim($event_start_date) != "")
 		{
 			if( $args_event['start_time'] != "")
@@ -197,6 +220,13 @@ function display_rich_snippet($content) {
 			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.$event_end_date.'T00:00-00:00">'.$event_end_date.'</span></div><div class="snippet-clear"></div>';
 		}
 
+		if(trim($event_description) != "")
+		{
+			if( $args_event['event_description'] != "")
+				$event .= '<div class="snippet-label-img">'.$args_event['event_description'].'</div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.$event_description.'</span></div><div class="snippet-clear"></div>';
+		}
+
 		if(trim($event_price) != "")
 		{
 			if($args_event['events_price'] != "")
@@ -207,7 +237,9 @@ function display_rich_snippet($content) {
 		}
 
 		$event .= '</div>
-			</div></div><div class="snippet-clear"></div>';
+			</div></div>
+			<meta itemprop="description" content="Event">
+			<div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $event : $content;
 	}
 	else if($type == '4')
@@ -487,11 +519,13 @@ function display_rich_snippet($content) {
 		$recipe .= '</div>';
 		$recipe .= '<div itemscope itemtype="http://schema.org/Recipe">';
 		$recipes_name = get_post_meta( $post->ID, '_bsf_recipes_name', true );
+		$authors_name = get_post_meta( $post->ID, '_bsf_authors_name', true );
 		$recipes_preptime = get_post_meta( $post->ID, '_bsf_recipes_preptime', true );
 		$recipes_cooktime = get_post_meta( $post->ID, '_bsf_recipes_cooktime', true );
 		$recipes_totaltime = get_post_meta( $post->ID, '_bsf_recipes_totaltime', true );
 		$recipes_photo = get_post_meta( $post->ID, '_bsf_recipes_photo', true );
 		$recipes_desc = get_post_meta( $post->ID, '_bsf_recipes_desc', true );
+		$recipes_nutrition = get_post_meta( $post->ID, '_bsf_recipes_nutrition', true );
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
 		$count = rating_count();
 		$agregate = average_rating();
@@ -513,7 +547,20 @@ function display_rich_snippet($content) {
 			if($args_recipe['recipe_name'] != "")
 				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_name'].'</div>';
 				
-			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div><div class="snippet-clear"></div>';
+			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div>
+			<meta itemprop="description" content="'.$recipes_desc.'" >
+			<meta itemprop="recipeIngredient" content="'.$recipes_ingredient.'" >
+			<div itemprop="nutrition"
+		    itemscope itemtype="http://schema.org/NutritionInformation">
+		    <meta itemprop="calories" content="'.$recipes_nutrition.'" ></div>
+			<div class="snippet-clear"></div>';
+		}
+		if(trim($authors_name) != "")
+		{
+			if($args_recipe['author_name'] != "")
+				$recipe .= '<div class="snippet-label-img">'.$args_recipe['author_name'].'</div>';
+				
+			$recipe .= '<div class="snippet-data-img"><span itemprop="author">'.$authors_name.'</span></div><div class="snippet-clear"></div>';
 		}
 		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_time( 'c' ).'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
@@ -858,6 +905,14 @@ function display_rich_snippet($content) {
 		$service_desc = get_post_meta( $post->ID, '_bsf_service_desc', true );
 		$service_image = get_post_meta( $post->ID, '_bsf_service_image', true );
 		$service_provider_name = get_post_meta( $post->ID, '_bsf_service_provider', true );
+		$service_street = get_post_meta( $post->ID, '_bsf_service_street', true );	
+		$service_local = get_post_meta( $post->ID, '_bsf_service_local', true );	
+		$service_region = get_post_meta( $post->ID, '_bsf_service_region', true );
+		$service_postal_code = get_post_meta( $post->ID, '_bsf_service_postal_code', true );
+		$service_provider_location_image = get_post_meta( $post->ID, '_bsf_provider_location_image', true );
+		$service_telephone = get_post_meta( $post->ID, '_bsf_service_telephone', true );
+		$service_price = get_post_meta( $post->ID, '_bsf_service_price', true );	
+		$service_cur = get_post_meta( $post->ID, '_bsf_service_cur', true );
 		$service_rating = get_post_meta( $post->ID, '_bsf_service_rating', true );
 		$service_rating_switch = get_post_meta( $post->ID, '_bsf_service_rating_switch', true );
 		$service_channel = get_permalink( $post->ID );
@@ -918,9 +973,19 @@ function display_rich_snippet($content) {
 				if($args_service['service_provider_name'] != "")
 					$service .= '<div class="snippet-label-img">'.$args_service['service_provider_name'].'</div>';
 					
-				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
-							<span itemprop="name">'.$service_provider_name.'</span>
+				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="http://schema.org/LocalBusiness">
+				<meta itemprop="image" content="'.$service_provider_location_image.'"/>
+							<span itemprop="name">'.$service_provider_name.'</span>,
+							<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">'.$service_street.'</span>,
+							<span itemprop="addressLocality">'.$service_local.'</span>,
+							<span itemprop="addressRegion">'.$service_region.'</span>,
+							<span itemprop="postalCode">'.$service_postal_code.'</span>,
+							<span itemprop="telephone">No.'.$service_telephone.'</span>
 							</div>
+							<span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span>	
+							</div>
+							
 							<div class="snippet-clear"></div>';
 			}
 
@@ -948,6 +1013,7 @@ function display_rich_snippet($content) {
 					$service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
+
 							<a itemprop="URL" href="'.$service_channel.'">'.$service_url_link.' </a>
 							</div><div class="snippet-clear"></div>';
 			}

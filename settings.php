@@ -62,11 +62,14 @@ function add_recipe_option()
 	$recipe_opt = array(
 		'snippet_title'	=>	__('Summary','rich-snippets'),
 		'recipe_name'	  =>	__('Recipe Name','rich-snippets'),
+		'author_name'	  =>	__('Author Name','rich-snippets'),
 		'recipe_pub'	   =>	__('Published On','rich-snippets'),		
 		'recipe_prep'	  =>	__('Preparation Time','rich-snippets'),
 		'recipe_cook'	  =>	__('Cook Time','rich-snippets'),
 		'recipe_time'	  =>	__('Total Time','rich-snippets'),
-//		'recipe_ingred'	=>	__('Ingredients','rich-snippets'),
+		'recipe_desc'	=>	__('Description','rich-snippets'),
+		'recipe_nutrition'	=>	__('Nutrition','rich-snippets'),
+		'recipe_ingredient'	=>	__('Ingredients','rich-snippets'),
 //		'recipe_summary'   =>	__('Brief Summary','rich-snippets'),
 		'recipe_rating'	=>	__('Average Rating','rich-snippets')
 	);
@@ -127,8 +130,10 @@ function add_service_option()
 		'service_channel'	  =>	__('URL','rich-snippets'),
 		'service_url_link'	  =>	__('Click Here For More Info','rich-snippets'),
 		'service_rating'	  =>	__('User Rating','rich-snippets'),
-		'service_provider_name'	  =>	__('Provider Name','rich-snippets')
-
+		'service_provider_name'	  =>	__('Provider Name','rich-snippets'),
+		'event_location'   =>	__('Location','rich-snippets'),
+		'service_telephone'	  =>	__('Provider telephone number','rich-snippets'),
+		'service_price'	=>	__('Price Range','rich-snippets')
 	);
 	add_option('bsf_service',$service_opt);
 }
