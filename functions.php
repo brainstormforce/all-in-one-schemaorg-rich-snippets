@@ -94,12 +94,12 @@ function display_rich_snippet($content) {
 			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".$rating."</span></span><span class='star-img'>";
 			for($i = 1; $i<=ceil($rating); $i++)
 			{
-				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">';
+				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">';
 			}
 			for($j = 0; $j<=5-ceil($rating); $j++)
 			{
 				if($j)
-					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
 			$review .= '</span></div>';
 		}
@@ -130,7 +130,7 @@ function display_rich_snippet($content) {
 		$event_performer = get_post_meta( $post->ID, '_bsf_event_performer', true );
 		$event_start_date = get_post_meta( $post->ID, '_bsf_event_start_date', true );	
 		$event_end_date = get_post_meta( $post->ID, '_bsf_event_end_date', true );	
-		$event_description = get_post_meta( $post->ID, '_bsf_event_description', true );
+		$event_description = get_post_meta( $post->ID, '_bsf_event_desc', true );
 		$event_ticket_url = get_post_meta( $post->ID, '_bsf_event_ticket_url', true );	
 		$event_price = get_post_meta( $post->ID, '_bsf_event_price', true );	
 		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );	
@@ -152,7 +152,7 @@ function display_rich_snippet($content) {
 		}*/
 		if(trim($event_image) != "")
 		{
-			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" /></div>';
+			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" alt="event" /></div>';
 		}
 		else
 		{
@@ -188,7 +188,7 @@ function display_rich_snippet($content) {
 		if(trim($event_region) != "")
 			$event .= '<span itemprop="addressRegion">'.$event_region.'</span>';
 		if(trim($event_postal_code) != "")
-			$event .= '<span itemprop="postalCode">'.$event_postal_code.'</span>';
+			$event .= '-<span itemprop="postalCode">'.$event_postal_code.'</span>';
 		$event .= '</span>';
 		//$event .= ' <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">';
 		//if(trim($event_geo_latitude) != "")
@@ -222,8 +222,8 @@ function display_rich_snippet($content) {
 
 		if(trim($event_description) != "")
 		{
-			if( $args_event['event_description'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['event_description'].'</div>';
+			if( $args_event['event_desc'] != "")
+				$event .= '<div class="snippet-label-img">'.$args_event['event_desc'].'</div>';
 			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.$event_description.'</span></div><div class="snippet-clear"></div>';
 		}
 
@@ -381,7 +381,7 @@ function display_rich_snippet($content) {
 		}
 		if(trim($people_region) != "")
 		{
-			$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
+			$people .= '<span itemprop="addressRegion">'.$people_region.'</span>- ';
 		}
 		if(trim($people_postal) != "")
 		{
@@ -423,7 +423,7 @@ function display_rich_snippet($content) {
 			$availability = "Pre-Order Only";
 		if(trim($product_image) != "")
 		{
-			$product .= '<div class="snippet-image"><img width="180" src="'.$product_image.'" itemprop="image" /></div>';
+			$product .= '<div class="snippet-image"><img width="180" src="'.$product_image.'" itemprop="image" alt="product image" /></div>';
 		}
 		else
 		{
@@ -441,12 +441,12 @@ function display_rich_snippet($content) {
 			$product .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($product_rating); $i++)
 							{
-								$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+								$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 							}
 							for($j = 0; $j<=5-ceil($product_rating); $j++)
 							{
 								if($j)
-									$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+									$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 							}
 			$product .= '</span></div><div class="snippet-clear"></div>';
 		}
@@ -531,7 +531,7 @@ function display_rich_snippet($content) {
 		$agregate = average_rating();
 		if(trim($recipes_photo) != "")
 		{
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.' alt="recipe image"/></div>';
 		}
 		else
 		{
@@ -586,12 +586,12 @@ function display_rich_snippet($content) {
 		$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
 			for($i = 1; $i<=ceil($agregate); $i++)
 			{
-				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 			}
 			for($j = 0; $j<=5-ceil($agregate); $j++)
 			{
 				if($j)
-					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
 		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		$recipe .= '</div>
@@ -625,7 +625,7 @@ function display_rich_snippet($content) {
 
 		if(trim($software_image) != "")
 		{
-			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" /></div>';	
+			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" alt="software image" /></div>';	
 		}
 		else
 		{
@@ -646,12 +646,12 @@ function display_rich_snippet($content) {
 			$software .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($software_rating); $i++)
 							{
-								$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+								$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 							}
 							for($j = 0; $j<=5-ceil($software_rating); $j++)
 							{
 								if($j)
-									$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+									$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 							}
 			$software .= '</span></div><div class="snippet-clear"></div>';
 		}
@@ -816,7 +816,7 @@ function display_rich_snippet($content) {
 			if(trim($article_image) != "")
 			{
 				$article .= '<div class="snippet-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-				$article .= '<img width="180" src="'.$article_image.'"/>';
+				$article .= '<img width="180" src="'.$article_image.'" alt="'.$article_name.'"/>';
 				$article .=	'<meta itemprop="url" content="'.$article_image.'">';
 				$article .=	'<meta itemprop="width" content="800">';
 				$article .=	'<meta itemprop="height" content="800">';
@@ -932,7 +932,7 @@ function display_rich_snippet($content) {
 			if(trim($service_image) != "")
 			{
 				$service .= '<div class="snippet-image">';
-				$service .= '<img itemprop="image" width="180" src="'.$service_image.'"/>';
+				$service .= '<img itemprop="image" width="180" src="'.$service_image.'" alt="'.$service_type.'"/>';
 				$service .=	'</div>';
 			}
 			else
@@ -986,10 +986,10 @@ function display_rich_snippet($content) {
 							if(trim($service_postal_code) != "")
 							$service .= '<span itemprop="postalCode">'.$service_postal_code.'</span>,<br/>';
 							if(trim($service_telephone) != "")
-							$service .= '<span itemprop="telephone">No.'.$service_telephone.'</span>';
+							$service .= '<span itemprop="telephone"> Telephone No.'.$service_telephone.'</span>';
 							$service .= '</div>';
-							if(trim($service_cur) != "" && trim($service_price) != "")
-							$service .= 'PR - <strong><span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span></strong>';
+							// if(trim($service_cur) != "" && trim($service_price) != "")
+							// $service .= 'PR - <strong><span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span></strong>';
 							$service .= '</div>
 							<div class="snippet-clear"></div>';
 			}

@@ -128,13 +128,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text_medium',
 			),
-/*			array(
+			array(
 				'name' => __('Description ','rich-snippets'),
 				'desc' => __('Describe the event in short.','rich-snippets'),
 				'id'   => $prefix . 'event_desc',
 				'class' => 'events',
 				'type' => 'textarea_small',
-			),*/
+			),
 			array(
 				'name' => __('Start Date ','rich-snippets'),
 				'desc' => __('Provide the Event Start Date.','rich-snippets'),
@@ -794,20 +794,20 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'service',
 				'type' => 'text_medium',
 			),
-			array(
-				'name' => __('Price Range','rich-snippets'),
-				'desc' => __('Enter the Price Range.','rich-snippets'),
-				'id'   => $prefix . 'service_price',
-				'class' => 'service',
-				'type' => 'text_small',
-			),
-			array(
-				'name' => __('Currency ','rich-snippets'),
-				'desc' => __('Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href="http://www.science.co.il/International/Currency-Codes.asp" target="_blank"> Know you currency code</a>','rich-snippets'),
-				'id'   => $prefix . 'service_cur',
-				'class' => 'service',
-				'type' => 'text_small',
-			),
+			// array(
+			// 	'name' => __('Price Range','rich-snippets'),
+			// 	'desc' => __('Enter the Price Range.','rich-snippets'),
+			// 	'id'   => $prefix . 'service_price',
+			// 	'class' => 'service',
+			// 	'type' => 'text_small',
+			// ),
+			// array(
+			// 	'name' => __('Currency ','rich-snippets'),
+			// 	'desc' => __('Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href="http://www.science.co.il/International/Currency-Codes.asp" target="_blank"> Know you currency code</a>','rich-snippets'),
+			// 	'id'   => $prefix . 'service_cur',
+			// 	'class' => 'service',
+			// 	'type' => 'text_small',
+			// ),
 			array(
 				'name' => __('Enable/Disable Rating','rich-snippets'),
 				'desc' => __('.','rich-snippets'),
