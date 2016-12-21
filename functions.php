@@ -974,18 +974,23 @@ function display_rich_snippet($content) {
 					$service .= '<div class="snippet-label-img">'.$args_service['service_provider_name'].'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="http://schema.org/LocalBusiness">
-				<meta itemprop="image" content="'.$service_provider_location_image.'"/>
-							<span itemprop="name">'.$service_provider_name.'</span>,
-							<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							<span itemprop="streetAddress">'.$service_street.'</span>,
-							<span itemprop="addressLocality">'.$service_local.'</span>,
-							<span itemprop="addressRegion">'.$service_region.'</span>,
-							<span itemprop="postalCode">'.$service_postal_code.'</span>,
-							<span itemprop="telephone">No.'.$service_telephone.'</span>
-							</div>
-							<span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span>	
-							</div>
-							
+							<meta itemprop="image" content="'.$service_provider_location_image.'"/>
+							<span itemprop="name">'.$service_provider_name.'</span>,';
+							if(trim($service_street) != "")
+							$service .= '<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">'.$service_street.'</span>,';
+							if(trim($service_local) != "")
+							$service .= '<span itemprop="addressLocality">'.$service_local.'</span>,';
+							if(trim($service_region) != "")
+							$service .= '<span itemprop="addressRegion">'.$service_region.'</span>-';
+							if(trim($service_postal_code) != "")
+							$service .= '<span itemprop="postalCode">'.$service_postal_code.'</span>,<br/>';
+							if(trim($service_telephone) != "")
+							$service .= '<span itemprop="telephone">No.'.$service_telephone.'</span>';
+							$service .= '</div>';
+							if(trim($service_cur) != "" && trim($service_price) != "")
+							$service .= 'PR - <strong><span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span></strong>';
+							$service .= '</div>
 							<div class="snippet-clear"></div>';
 			}
 
