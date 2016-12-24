@@ -23,7 +23,7 @@ add_action( 'wp_head', 'add_ajax_library' );
  * Initialize the metabox class.
  */
 /* FUNCTION to check for posts having snippets */
-add_action('init','check_snippet_existence','',7);
+add_action('wp','check_snippet_existence','',7);
 function check_snippet_existence(){	
 	global $post;	
 	$type = get_post_meta($post->ID, '_bsf_post_type', true);
