@@ -3,7 +3,7 @@
 **Donate link:** https://www.brainstormforce.com  
 **Tags:** Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing  
 **Requires at least:** 3.7  
-**Tested up to:** 4.4.2  
+**Tested up to:** 4.7
 **Stable tag:** 1.4.1 
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -71,6 +71,9 @@ This plugin currently supports almost all of the content types that are released
 Review, Event, People, Product, Recipe, Software Application, Video, Articles etc.
 
 ## Changelog ##
+
+### 1.4.1 ###
+* Fix: Compatibility fix WordPress 4.7.
 
 ### 1.4.0 ###
 * Added new service schema
