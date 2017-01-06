@@ -51,12 +51,13 @@ function display_rich_snippet($content) {
 	$args_color = get_option('bsf_custom');
 	$id = $post->ID;
 	$type = get_post_meta($id, '_bsf_post_type', true);
+
 	if($type == '1')
 	{
 		global $post;
 	
 		$args_review = get_option('bsf_review');		
-		$review = $content;
+		$review = '';
 		$review .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 				
 		if($args_review['review_title'] != "")
@@ -106,14 +107,23 @@ function display_rich_snippet($content) {
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
 			
-		return ( is_single() || is_page() ) ? $review : $content;
+			if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $review;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$review : $content; }
 	} 
 	else if($type == '2')
 	{
 		global $post;
 		$args_event = get_option('bsf_event');
 		
-		$event = $content;
+		$event = '';
 		
 		$event .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -240,12 +250,21 @@ function display_rich_snippet($content) {
 			</div></div>
 			<meta itemprop="description" content="Event">
 			<div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $event : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $event;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$event : $content; }
 	}
 	else if($type == '4')
 	{
 		global $post;
-		$organization = $content;
+		$organization = '';
 		$organization .= '<div class="snippet-title">Organization Brief :</div>';
 		$organization .= '<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Organization">';
 		$org_name = get_post_meta( $post->ID,'_bsf_organization_name', true );
@@ -289,7 +308,16 @@ function display_rich_snippet($content) {
 				</span>
 			</span>';
 		$organization .= '</div><div style="clear:both;"></div>';
-		return ( is_single() || is_page() ) ? $organization : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $organization;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$organization : $content; }
 	}
 	else if($type == '5')
 	{
@@ -297,7 +325,7 @@ function display_rich_snippet($content) {
 		
 		$args_person = get_option('bsf_person');
 		
-		$people = $content;
+		$people = '';
 		
 		$people .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -391,13 +419,22 @@ function display_rich_snippet($content) {
 			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $people : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $people;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$people : $content; }
 	}
 	else if($type == '6')
 	{
 		global $post;
 		$args_product = get_option('bsf_product');
-		$product = $content;
+		$product = '';
 		$product .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		if($args_product['snippet_title'] != "")
 			$product .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_product['snippet_title'];
@@ -500,12 +537,21 @@ function display_rich_snippet($content) {
 			</div></div><div class="snippet-clear"></div>';
 			
 //		$product .= getPostLikeLink($post->ID);
-		return ( is_single() || is_page() ) ? $product : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $product;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$product : $content; }
 	}
 	else if($type == '7')
 	{
 		global $post;
-		$recipe = $content;
+		$recipe = '';
 		
 		$recipe .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -596,13 +642,22 @@ function display_rich_snippet($content) {
 		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $recipe : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $recipe;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$recipe : $content; }
 	}
 	else if($type == '8')
 	{
 		global $post;
 		$args_soft = get_option('bsf_software');	
-		$software = $content;
+		$software = '';
 		
 		$software .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		if($args_soft['snippet_title'] != "" )
@@ -726,13 +781,22 @@ function display_rich_snippet($content) {
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $software : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $software;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$software : $content; }
 	}
 	else if($type == '9')
 	{
 		global $post;
 		$args_video = get_option('bsf_video');
-		$video = $content;
+		$video = '';
 		
 		$video .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -790,12 +854,21 @@ function display_rich_snippet($content) {
 			$video .= '<meta itemprop="uploadDate" content="'.$video_date.'">';		
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $video : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $video;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$video : $content; }
 	}
 	else if($type == '10')
 	{
 		global $post;
-		$article = $content;
+		$article = '';
 		$args_article = get_option('bsf_article');
 		$article_title = get_post_meta( $post->ID, '_bsf_article_title', true );
 		$article_name = get_post_meta( $post->ID, '_bsf_article_name', true );
@@ -894,11 +967,20 @@ function display_rich_snippet($content) {
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $article : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $article;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$article : $content; }
 	}else if($type == '11')
 	{
 		global $post;
-		$service = $content;
+		$service = '';
 		$args_service = get_option('bsf_service');
 		$service_type = get_post_meta( $post->ID, '_bsf_service_type', true );
 		$service_area = get_post_meta( $post->ID, '_bsf_service_area', true );
@@ -1025,14 +1107,28 @@ function display_rich_snippet($content) {
 
 					
 			$service .= '</div></div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $service : $content;
+		if ( FLBuilderModel::is_builder_enabled() ) 
+			{
+				//remove_filter( 'the_content', 'FLBuilder::render_content' );
+				if( is_single() || is_page() )
+				{
+					echo $service;
+				}
+				
+			}
+			else { return ( is_single() || is_page() ) ? $content.$service : $content; }
 	}	
 	 else {
 		return $content;
 	}
 }
-//Filter the content and return with rich snippet output
-add_filter('the_content','display_rich_snippet');
+if ( class_exists( 'FLBuilderLoader' ) ) 
+{
+	add_filter('fl_builder_after_render_content','display_rich_snippet');
+}
+else{ add_filter('the_content','display_rich_snippet'); }
+
+
 require_once(plugin_dir_path( __FILE__ ).'meta-boxes.php');
 function get_the_ip() {
     if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
