@@ -8,8 +8,7 @@ function add_review_option()
 		'review_date'	=>	__('Review Date','rich-snippets'),		
 		'item_name'		=>	__('Reviewed Item','rich-snippets'),
 		//		'item_description' =>	__('Description','rich-snippets'),
-		'item_rating'	  =>	__('Author Rating','rich-snippets'),
-		'common'	  =>	__('Common','rich-snippets')
+		'item_rating'	  =>	__('Author Rating','rich-snippets')
 	);
  	$var = get_option('bsf_review');
  	$result = array_diff($review_opt, $var);
@@ -86,7 +85,6 @@ function add_product_option()
 		'product_rating'   =>	__('Author Rating','rich-snippets'),
 		'product_brand'	=>	__('Brand Name','rich-snippets'),
 		'product_name'	 =>	__('Product Name','rich-snippets'),
-		'pro'	 =>	__('Pro','rich-snippets'),
 		'product_agr'	  =>	__('Aggregate Rating','rich-snippets'),
 		'product_price'	=>	__('Price','rich-snippets'),
 		'product_avail'	=>	__('Product Availability','rich-snippets')

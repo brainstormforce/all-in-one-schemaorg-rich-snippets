@@ -151,6 +151,7 @@ if ( !class_exists( "RichSnippets" ) )
 		/* Translation */
 		function rich_snippet_translation()
 		{
+			
 			// Load Translation File
 			load_plugin_textdomain('rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
 		}

@@ -11,7 +11,7 @@ function bsf_admin_styles() {
 	wp_enqueue_style( 'star_style' );	
 	wp_enqueue_style( 'meta_style' );		
 	wp_enqueue_script( 'bsf_jquery' );
-	if(!function_exists('vc_map'))
+	//if(!function_exists('vc_map'))
 		wp_enqueue_script( 'bsf_jquery_ui' );
 	wp_enqueue_script( 'bsf_jquery_star' );
 ///	wp_enqueue_script( 'postbox' );
@@ -75,10 +75,6 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Item Name :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="item_name" value="'.$args_review["item_name"].'"/></td>
-													</tr>
-													<tr>
-														<td align="right"><strong><label>'.__("common :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="common" value="'.$args_review["common"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Item Ratings :","rich-snippets").'</label></strong></td>
@@ -219,10 +215,6 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Product Name :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="product_name" value="'.$args_product["product_name"].'"/></td>
-													</tr>
-													<tr>
-														<td align="right"><strong><label>'.__("Pro :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="pro" value="'.$args_product["pro"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
@@ -633,7 +625,7 @@ function rich_snippet_dashboard() {
 // Update options
 if(isset($_POST['item_submit']))
 {
-	foreach(array('review_title','item_reviewer','review_date','common','item_name','item_rating') as $option)
+	foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -669,7 +661,7 @@ if(isset($_POST['person_submit']))
 }
 if(isset($_POST['product_submit']))
 {
-	foreach(array('snippet_title','product_rating','product_brand','product_name','pro','product_agr','product_price','product_avail') as $option)
+	foreach(array('snippet_title','product_rating','product_brand','product_name','product_agr','product_price','product_avail') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
