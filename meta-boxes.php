@@ -23,8 +23,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('Select what this post is about','rich-snippets'), 'value' => '0', ),
 					array( 'name' => __('Item Review','rich-snippets'), 'value' => '1', ),
 					array( 'name' => __('Event','rich-snippets'), 'value' => '2', ),
-//					array( 'name' => __('Music','rich-snippets'), 'value' => '3', ),
-//					array( 'name' => __('Organization','rich-snippets'), 'value' => '4', ),
 					array( 'name' => __('People','rich-snippets'), 'value' => '5', ),
 					array( 'name' => __('Product','rich-snippets'), 'value' => '6', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => '7', ),
@@ -71,13 +69,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('','rich-snippets'), 'value' => '5', ),
 				),
 			),
-/*			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter the item description here','rich-snippets'),
-				'id'   => $prefix . 'item_desc',
-				'class' => 'review',
-				'type' => 'textarea_small1',
-			),*/
 			// Meta Settings for Events		
 			array(
 				'name' => __('Rich Snippets - Events','rich-snippets'),
@@ -170,27 +161,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text',
 			),
-			/*array(
-				'name' => __('GEO Location ','rich-snippets'),
-				'desc' => __('Enter Latitude. <a href="http://universimmedia.pagesperso-orange.fr/geo/loc.htm" target="_blank">Find Here.</a>','rich-snippets'),
-				'id'   => $prefix . 'event_geo_latitude',
-				'class' => 'events',
-				'type' => 'text_medium',
-			),
-			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter Longitude','rich-snippets'),
-				'id'   => $prefix . 'event_geo_longitude',
-				'class' => 'events',
-				'type' => 'text_medium',
-			),
-			array(
-				'name' => __('Event Photo ','rich-snippets'),
-				'desc' => __('Upload or Select from media gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
-				'id'   => $prefix . 'event_photo',
-				'class' => 'events',
-				'type' => 'file',
-			),*/
 			// Meta Settings for Music		
 			array(
 				'name' => __('Rich Snippets - Music','rich-snippets'),
@@ -399,13 +369,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'product',
 				'type' => 'file',
 			),
-/*			array(
-				'name' => __('Product Category','rich-snippets'),
-				'desc' => __('Select the product category.','rich-snippets'),
-				'id'   => $prefix . 'product_cat',
-				'class' => 'product',
-				'type' => 'text_medium',
-			),*/
 			array(
 				'name' => __('Product Price','rich-snippets'),
 				'desc' => __('Enter the product Price.','rich-snippets'),
@@ -505,21 +468,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'recipes',
 				'type' => 'file',
 			),
-			
-/*			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter the ingredients used','rich-snippets'),
-				'id'   => $prefix . 'recipes_ingredient',
-				'class' => 'recipes',
-				'type' => 'textarea_small1',
-			),
-			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Describe the recipe in short.','rich-snippets'),
-				'id'   => $prefix . 'recipes_desc',
-				'class' => 'recipes',
-				'type' => 'textarea_small1',
-			),*/
 			// Meta Settings for Software Application
 			array(
 				'name' => __('Rich Snippets - Software Application','rich-snippets'),
@@ -590,14 +538,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'software_landing',
 				'class' => 'software',
 				'type' => 'text',
-			),
-			/*array(
-				'name' => __('Software Description','rich-snippets'),
-				'desc' => __('Enter the software description.','rich-snippets'),
-				'id'   => $prefix . 'software_desc',
-				'class' => 'software',
-				'type' => 'textarea_small',
-			),*/  
+			),  
 			// Meta Settings for Video
 			array(
 				'name' => __('Rich Snippets - Videos','rich-snippets'),
@@ -794,20 +735,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'service',
 				'type' => 'text_medium',
 			),
-			// array(
-			// 	'name' => __('Price Range','rich-snippets'),
-			// 	'desc' => __('Enter the Price Range.','rich-snippets'),
-			// 	'id'   => $prefix . 'service_price',
-			// 	'class' => 'service',
-			// 	'type' => 'text_small',
-			// ),
-			// array(
-			// 	'name' => __('Currency ','rich-snippets'),
-			// 	'desc' => __('Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href="http://www.science.co.il/International/Currency-Codes.asp" target="_blank"> Know you currency code</a>','rich-snippets'),
-			// 	'id'   => $prefix . 'service_cur',
-			// 	'class' => 'service',
-			// 	'type' => 'text_small',
-			// ),
 			array(
 				'name' => __('Enable/Disable Rating','rich-snippets'),
 				'desc' => __('.','rich-snippets'),

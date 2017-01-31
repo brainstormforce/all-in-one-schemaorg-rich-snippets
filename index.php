@@ -28,7 +28,6 @@ if ( !class_exists( "RichSnippets" ) )
 		function __construct() // Constructor
 		{
 			register_activation_hook(__FILE__, array($this, 'register_bsf_settings'));
-//			add_action( 'admin_notices', array($this, 'display_message') );
 			add_action( 'admin_head', array( $this, 'star_icons') );
 			// Add Admin Menu
 			add_action('admin_menu', array( $this, 'register_custom_menu_page') );
@@ -83,7 +82,6 @@ if ( !class_exists( "RichSnippets" ) )
 		function post_enqueue($hook) {
 			if( 'post.php' != $hook )
 				return;
-		//	wp_enqueue_script( 'bsf_jquery' );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
 			wp_enqueue_script( 'bsf_toggle' );
@@ -99,7 +97,6 @@ if ( !class_exists( "RichSnippets" ) )
 		function post_new_enqueue($hook) {
 			if('post-new.php' != $hook )
 				return;
-		//	wp_enqueue_script( 'bsf_jquery' );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
 			wp_enqueue_script( 'bsf_toggle' );

@@ -89,7 +89,6 @@ function display_rich_snippet($content) {
 		if(trim($rating) != "")
 		{
 			if( $args_review['item_rating'] != "")
-				//$review .= '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">';
 				$review .= "<div class='snippet-label'>".$args_review['item_rating']."</div>";
 			
 			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".$rating."</span></span><span class='star-img'>";
@@ -144,23 +143,8 @@ function display_rich_snippet($content) {
 		$event_description = get_post_meta( $post->ID, '_bsf_event_desc', true );
 		$event_ticket_url = get_post_meta( $post->ID, '_bsf_event_ticket_url', true );	
 		$event_price = get_post_meta( $post->ID, '_bsf_event_price', true );	
-		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );	
+		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );
 
-		//$event_geo_latitude = get_post_meta( $post->ID, '_bsf_event_geo_latitude', true );	
-		//$event_geo_longitude = get_post_meta( $post->ID, '_bsf_event_geo_longitude', true );	
-		/*$event_photo = get_post_meta( $post->ID, '_bsf_event_photo', true );	
-		if(trim($event_photo) != "")
-		{
-			$event .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$event_photo.'"></div>';
-		}
-		else
-		{
-			$event .= '<script type="text/javascript">
-				jQuery(document).ready(function() {
-                    jQuery(".snippet-label-img").addClass("snippet-clear");
-                });
-			</script>';
-		}*/
 		if(trim($event_image) != "")
 		{
 			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" alt="event" /></div>';
@@ -201,22 +185,10 @@ function display_rich_snippet($content) {
 		if(trim($event_postal_code) != "")
 			$event .= '-<span itemprop="postalCode">'.$event_postal_code.'</span>';
 		$event .= '</span>';
-		//$event .= ' <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">';
-		//if(trim($event_geo_latitude) != "")
-		//	$event .= '<meta itemprop="latitude" content="'.$event_geo_latitude.'" />';
-		//if(trim($event_geo_longitude) != "")
-	
-		//	$event .= '<meta itemprop="longitude" content="'.$event_geo_longitude.'" />';
-		//$event .= '</span>';
+
 		$event .='</span>
 			</div><div class="snippet-clear"></div>';
-		// if(trim($event_performer) != "")
-		// {
-		// 	if( $args_event['event_performer'] != "")
-		// 		$event .= '<div class="snippet-label-img">'.$args_event['event_performer'].'</div>';
-	
-		// 	$event .= ' <div class="snippet-data-img"> <span itemprop="performer">'.$event_performer.'</span></div><div class="snippet-clear"></div>';
-		// }
+
 		if(trim($event_start_date) != "")
 		{
 			if( $args_event['start_time'] != "")
@@ -244,7 +216,6 @@ function display_rich_snippet($content) {
 				$event .= '<div class="snippet-label-img">'.$args_event['events_price'].'</div>';
 			$event .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<span itemprop="priceCurrency">'.$event_cur.'</span><span itemprop="price">'.' '.$event_price.'</span><br><a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a></div><div class="snippet-clear"></div>';
-			//$event .= '<a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a>';
 		}
 
 		$event .= '</div>
@@ -407,9 +378,6 @@ function display_rich_snippet($content) {
 
 		if(trim($people_local) != "")
 		{
-			//if($args_person['person_address'] != "")
-				//$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
-			//$people .= '<!--<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">						<!--<span typeof="v:Address">-->';
 			$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
 		}
 		if(trim($people_region) != "")
@@ -534,16 +502,8 @@ function display_rich_snippet($content) {
 			}
 			$product .= '</div><div class="snippet-clear"></div>';
 		}
-		/*if(trim($product_status) != "")
-		{
-			if($args_product['product_avail'] != "")
-				$product .= '<div class="snippet-label-img">'.$args_product['product_avail'].'</div>';
-			$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.$product_status.'">'.$availability.'</span></span></div><div class="snippet-clear"></div>';		
-		}*/
 		$product .= '</div>
 			</div></div><div class="snippet-clear"></div>';
-			
-//		$product .= getPostLikeLink($post->ID);
 
 		if(class_exists('FLBuilderModel')) {
 
@@ -703,12 +663,9 @@ function display_rich_snippet($content) {
 			</script>';
 		}
 		$software .= '<div class="aio-info">';		
-		
-//////////////////////////////////////////////////////////////////////
 
 		if(trim($software_rating) != "")
 		{
-			//if($args_soft['product_brand'] != "")
 			$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';		
 			$software .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($software_rating); $i++)
@@ -725,34 +682,11 @@ function display_rich_snippet($content) {
 
 		
 		$software .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
-		//if($args_soft['software_agr'] != "")
-		//{
 			$software .= '<div class="snippet-label-img">'.$args_soft['software_agr'].'</div>';
-		//}
 		$software .= '<div class="snippet-data-img">';
 		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
 		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
 		
-//////////////////////////////////////////////////////////////////////
-
-
-		/*if(trim($software_rating) != "")
-		{
-			if($args_soft['software_rating'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';
-			$software .= '<div class="snippet-data-img"> <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$software_rating.'</span></div><span class="star-img">';			
-			for($i = 1; $i<=ceil($software_rating); $i++)
-			{
-				$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
-			}
-			for($j = 0; $j<=5-ceil($software_rating); $j++)
-			{
-				if($j)
-					$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
-			}
-			
-			$software .= '</span></div><div class="snippet-clear"></div>';
-		}*/
 		if(trim($software_name) != "")
 		{
 			if($args_soft['software_name'] != "")
@@ -767,7 +701,6 @@ function display_rich_snippet($content) {
 		}
 		if(trim($software_cat) != "")
 		{
-			//if($args_soft['software_os'] != "")
 				$software .= '<div class="snippet-label-img">Software Category</div>';
 			$software .= ' <div class="snippet-data-img"> <span itemprop="applicationCategory">'.$software_cat.'</span></div><div class="snippet-clear"></div>';		
 		}
@@ -1089,8 +1022,6 @@ function display_rich_snippet($content) {
 							if(trim($service_telephone) != "")
 							$service .= '<span itemprop="telephone"> Telephone No.'.$service_telephone.'</span>';
 							$service .= '</div>';
-							// if(trim($service_cur) != "" && trim($service_price) != "")
-							// $service .= 'PR - <strong><span>'.$service_cur.'</span><span itemprop="priceRange">'.' '.$service_price.'</span></strong>';
 							$service .= '</div>
 							<div class="snippet-clear"></div>';
 			}
@@ -1116,7 +1047,6 @@ function display_rich_snippet($content) {
 			if(trim($service_channel) != "")
 			{
 				if($args_service['service_channel'] != "")
-					// $service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
 
@@ -1164,7 +1094,6 @@ function get_the_ip() {
     }
 }
 function average_rating() {
-//	global $wpdb;
 	global $post;
 	
 	$data = get_post_meta($post->ID, 'post-rating', false);
@@ -1247,8 +1176,6 @@ function add_ajax_library() {
 }
 function bsf_add_rating()
 {
-//	ob_clean();
-	
 	if(isset($_POST['star-review']))
 		$stars = $_POST['star-review'];
 	else
@@ -1265,7 +1192,6 @@ function bsf_add_rating()
 }
 function bsf_update_rating()
 {
-//	ob_clean();
 	if(isset($_POST['star-review']))
 		$stars = $_POST['star-review'];
 	else

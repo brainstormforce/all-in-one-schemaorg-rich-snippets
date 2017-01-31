@@ -7,11 +7,11 @@ function add_review_option()
 		'item_reviewer'	=>	__('Reviewer','rich-snippets'),
 		'review_date'	=>	__('Review Date','rich-snippets'),		
 		'item_name'		=>	__('Reviewed Item','rich-snippets'),
-		//		'item_description' =>	__('Description','rich-snippets'),
 		'item_rating'	  =>	__('Author Rating','rich-snippets')
 	);
  	add_option('bsf_review',$review_opt);	
 }
+
 // Function to add event option for settings
 function add_event_option()
 {
@@ -23,11 +23,10 @@ function add_event_option()
 		'start_time'	   =>	__('Starting on','rich-snippets'),
 		'end_time'		 =>	__('Ending on','rich-snippets'),
 		'events_price'		 =>	__('Offer Price','rich-snippets')
-
-//		'geo_location'	 =>	__('GEO Location','rich-snippets')
 	);
 	add_option('bsf_event',$event_opt);
 }
+
 // Function to add person option for settings
 function add_person_option()
 {
@@ -42,6 +41,7 @@ function add_person_option()
 	);
 	add_option('bsf_person',$person_opt);
 }
+
 // Function to add product option for settings
 function add_product_option()
 {
@@ -56,6 +56,7 @@ function add_product_option()
 	);
 	add_option('bsf_product',$product_opt);
 }
+
 // Function to add recipe option for settings
 function add_recipe_option()
 {
@@ -70,11 +71,11 @@ function add_recipe_option()
 		'recipe_desc'	=>	__('Description','rich-snippets'),
 		'recipe_nutrition'	=>	__('Nutrition','rich-snippets'),
 		'recipe_ingredient'	=>	__('Ingredients','rich-snippets'),
-//		'recipe_summary'   =>	__('Brief Summary','rich-snippets'),
 		'recipe_rating'	=>	__('Average Rating','rich-snippets')
 	);
 	add_option('bsf_recipe',$recipe_opt);
 }
+
 // Function to add software option for settings
 function add_software_option()
 {	
@@ -86,12 +87,10 @@ function add_software_option()
 		'software_name'	=>	__('Software Name','rich-snippets'),
 		'software_os'	  =>	__('Operating System','rich-snippets'),
 		'software_website' =>	__('Landing Page','rich-snippets'),
-		
-
-//		'software_desc'	=>	__('Brief Description','rich-snippets')
 	);
 	add_option('bsf_software',$software_opt);
 }
+
 // Function to add video option for settings
 function add_video_option()
 {
