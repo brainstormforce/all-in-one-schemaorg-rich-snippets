@@ -105,18 +105,15 @@ function display_rich_snippet($content) {
 		}
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
-			if(class_exists('FLBuilderModel')) {
-
-			if ( FLBuilderModel::is_builder_enabled() ) 
+			
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $review;
-				}
-				
-			}
+				echo $review;
+			}		
 		}
-			else { return ( is_single() || is_page() ) ? $content.$review : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$review : $content; }
 	} 
 	else if($type == '2')
 	{
@@ -222,16 +219,14 @@ function display_rich_snippet($content) {
 			</div></div>
 			<meta itemprop="description" content="Event">
 			<div class="snippet-clear"></div>';
-		if(class_exists('FLBuilderModel')) {
 
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $event;
-				}
-				
+				echo $event;
 			}
+			
 		}
 		else { return ( is_single() || is_page() ) ? $content.$event : $content; }
 	}
@@ -282,18 +277,16 @@ function display_rich_snippet($content) {
 				</span>
 			</span>';
 		$organization .= '</div><div style="clear:both;"></div>';
-		if(class_exists('FLBuilderModel')) {
 
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $organization;
-				}
-				
+				echo $organization;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$organization : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$organization : $content; }
 	}
 	else if($type == '5')
 	{
@@ -371,39 +364,35 @@ function display_rich_snippet($content) {
 		{
 			if($args_person['person_address'] != "")
 				$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-						<!--<span typeof="v:Address">-->
-						<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+				$people .= '<div class="snippet-data-img">';
+					$people .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
+						$people .= '<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+						if(trim($people_local) != "")
+						{
+							$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
+						}
+						if(trim($people_region) != "")
+						{
+							$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
+						}
+						if(trim($people_postal) != "")
+						{
+							$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
+						}			
+					$people .= '</span>';
+				$people .= '</div>';
+				$people .= '<div class="snippet-clear"></div>';	
 		}
-
-		if(trim($people_local) != "")
-		{
-			$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
-		}
-		if(trim($people_region) != "")
-		{
-			$people .= '<span itemprop="addressRegion">'.$people_region.'</span>- ';
-		}
-		if(trim($people_postal) != "")
-		{
-			$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
-		}			
-				$people .= '<!--</span>-->
-			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		if(class_exists('FLBuilderModel')) {
-
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $people;
-				}
-				
-			}
+				echo $people;
+			}	
 		}
-			else { return ( is_single() || is_page() ) ? $content.$people : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$people : $content; }
 	}
 	else if($type == '6')
 	{
@@ -505,18 +494,15 @@ function display_rich_snippet($content) {
 		$product .= '</div>
 			</div></div><div class="snippet-clear"></div>';
 
-		if(class_exists('FLBuilderModel')) {
-
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $product;
-				}
-				
+				echo $product;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$product : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$product : $content; }
 	}
 	else if($type == '7')
 	{
@@ -612,18 +598,16 @@ function display_rich_snippet($content) {
 		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		if(class_exists('FLBuilderModel')) {
 
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $recipe;
-				}
-				
+				echo $recipe;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$recipe : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$recipe : $content; }
 	}
 	else if($type == '8')
 	{
@@ -726,18 +710,16 @@ function display_rich_snippet($content) {
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		if(class_exists('FLBuilderModel')) {
 
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $software;
-				}
-				
+				echo $software;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$software : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$software : $content; }
 	}
 	else if($type == '9')
 	{
@@ -802,18 +784,15 @@ function display_rich_snippet($content) {
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 
-		if(class_exists('FLBuilderModel')) {
-
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $video;
-				}
-				
+				echo $video;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$video : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$video : $content; }
 	}
 	else if($type == '10')
 	{
@@ -917,18 +896,17 @@ function display_rich_snippet($content) {
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
-		if(class_exists('FLBuilderModel')) {
+		
 
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $article;
-				}
-				
+				echo $article;
 			}
 		}
-			else { return ( is_single() || is_page() ) ? $content.$article : $content; }
+	
+		else { return ( is_single() || is_page() ) ? $content.$article : $content; }
 	}else if($type == '11')
 	{
 		global $post;
@@ -1057,18 +1035,15 @@ function display_rich_snippet($content) {
 					
 			$service .= '</div></div></div><div class="snippet-clear"></div>';
 
-		if(class_exists('FLBuilderModel')) {
-
-		if ( FLBuilderModel::is_builder_enabled() ) 
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
 			{
-				if( is_single() || is_page() )
-				{
-					echo $service;
-				}
-				
+				echo $service;
 			}
+			
 		}
-			else { return ( is_single() || is_page() ) ? $content.$service : $content; }
+		else { return ( is_single() || is_page() ) ? $content.$service : $content; }
 	}	
 	 else {
 		return $content;
