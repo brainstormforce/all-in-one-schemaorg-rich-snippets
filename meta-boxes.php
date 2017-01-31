@@ -477,6 +477,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'recipes',
 				'type' => 'file',
 			),
+			 array(
+                		'name' => __('Recipe Calories','rich-snippets'),
+                		'desc' => __('Calories per serving','rich-snippets'),
+                		'id'   => $prefix . 'recipes_calories',
+                		'class' => 'recipes',
+                		'type' => 'text_small',
+        		 ),
 /*			array(
 				'name' => __('','rich-snippets'),
 				'desc' => __('Enter the ingredients used','rich-snippets'),
