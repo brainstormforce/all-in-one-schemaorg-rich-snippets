@@ -7,14 +7,11 @@ if ( is_admin() )
 }
 //enqueues the scripts and styles in admin dashboard
 function bsf_admin_styles() {
-//	wp_enqueue_style( 'ui_style' );
 	wp_enqueue_style( 'star_style' );	
 	wp_enqueue_style( 'meta_style' );		
 	wp_enqueue_script( 'bsf_jquery' );
-	//if(!function_exists('vc_map'))
 		wp_enqueue_script( 'bsf_jquery_ui' );
 	wp_enqueue_script( 'bsf_jquery_star' );
-///	wp_enqueue_script( 'postbox' );
 }
 function add_the_script() {
    wp_enqueue_script('postbox');
