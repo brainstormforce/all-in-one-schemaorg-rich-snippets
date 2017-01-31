@@ -23,8 +23,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('Select what this post is about','rich-snippets'), 'value' => '0', ),
 					array( 'name' => __('Item Review','rich-snippets'), 'value' => '1', ),
 					array( 'name' => __('Event','rich-snippets'), 'value' => '2', ),
-//					array( 'name' => __('Music','rich-snippets'), 'value' => '3', ),
-//					array( 'name' => __('Organization','rich-snippets'), 'value' => '4', ),
 					array( 'name' => __('People','rich-snippets'), 'value' => '5', ),
 					array( 'name' => __('Product','rich-snippets'), 'value' => '6', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => '7', ),
@@ -71,13 +69,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('','rich-snippets'), 'value' => '5', ),
 				),
 			),
-/*			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter the item description here','rich-snippets'),
-				'id'   => $prefix . 'item_desc',
-				'class' => 'review',
-				'type' => 'textarea_small1',
-			),*/
 			// Meta Settings for Events		
 			array(
 				'name' => __('Rich Snippets - Events','rich-snippets'),
@@ -128,13 +119,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text_medium',
 			),
-/*			array(
+			array(
 				'name' => __('Description ','rich-snippets'),
 				'desc' => __('Describe the event in short.','rich-snippets'),
 				'id'   => $prefix . 'event_desc',
 				'class' => 'events',
 				'type' => 'textarea_small',
-			),*/
+			),
 			array(
 				'name' => __('Start Date ','rich-snippets'),
 				'desc' => __('Provide the Event Start Date.','rich-snippets'),
@@ -170,27 +161,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type' => 'text',
 			),
-			/*array(
-				'name' => __('GEO Location ','rich-snippets'),
-				'desc' => __('Enter Latitude. <a href="http://universimmedia.pagesperso-orange.fr/geo/loc.htm" target="_blank">Find Here.</a>','rich-snippets'),
-				'id'   => $prefix . 'event_geo_latitude',
-				'class' => 'events',
-				'type' => 'text_medium',
-			),
-			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter Longitude','rich-snippets'),
-				'id'   => $prefix . 'event_geo_longitude',
-				'class' => 'events',
-				'type' => 'text_medium',
-			),
-			array(
-				'name' => __('Event Photo ','rich-snippets'),
-				'desc' => __('Upload or Select from media gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
-				'id'   => $prefix . 'event_photo',
-				'class' => 'events',
-				'type' => 'file',
-			),*/
 			// Meta Settings for Music		
 			array(
 				'name' => __('Rich Snippets - Music','rich-snippets'),
@@ -399,13 +369,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'product',
 				'type' => 'file',
 			),
-/*			array(
-				'name' => __('Product Category','rich-snippets'),
-				'desc' => __('Select the product category.','rich-snippets'),
-				'id'   => $prefix . 'product_cat',
-				'class' => 'product',
-				'type' => 'text_medium',
-			),*/
 			array(
 				'name' => __('Product Price','rich-snippets'),
 				'desc' => __('Enter the product Price.','rich-snippets'),
@@ -450,6 +413,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_medium',
 			),
 			array(
+				'name' => __('Author Name ','rich-snippets'),
+				'desc' => __('Enter the Author name.','rich-snippets'),
+				'id'   => $prefix . 'authors_name',
+				'class' => 'recipes',
+				'type' => 'text_medium',
+			),
+			array(
 				'name' => __('Time Required ','rich-snippets'),
 				'desc' => __('Preperation time  (Format: 1H30M. H - Hours, M - Minutes )','rich-snippets'),
 				'id'   => $prefix . 'recipes_preptime',
@@ -471,26 +441,33 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_small',
 			),
 			array(
+				'name' => __('Description','rich-snippets'),
+				'desc' => __('Describe the recipe in short.','rich-snippets'),
+				'id'   => $prefix . 'recipes_desc',
+				'class' => 'recipes',
+				'type' => 'textarea_small',
+			),
+			array(
+				'name' => __('Nutrition','rich-snippets'),
+				'desc' => __('Nutrition','rich-snippets'),
+				'id'   => $prefix . 'recipes_nutrition',
+				'class' => 'recipes',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('Ingredients','rich-snippets'),
+				'desc' => __('Enter the ingredients used','rich-snippets'),
+				'id'   => $prefix . 'recipes_ingredient',
+				'class' => 'recipes',
+				'type' => 'text_medium',
+			),
+			array(
 				'name' => __('Recipe Photo','rich-snippets'),
 				'desc' => __('Upload or Select recipe photo. Medium size is recommended (300px X 300px)','rich-snippets'),
 				'id'   => $prefix . 'recipes_photo',
 				'class' => 'recipes',
 				'type' => 'file',
 			),
-/*			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Enter the ingredients used','rich-snippets'),
-				'id'   => $prefix . 'recipes_ingredient',
-				'class' => 'recipes',
-				'type' => 'textarea_small1',
-			),
-			array(
-				'name' => __('','rich-snippets'),
-				'desc' => __('Describe the recipe in short.','rich-snippets'),
-				'id'   => $prefix . 'recipes_desc',
-				'class' => 'recipes',
-				'type' => 'textarea_small1',
-			),*/
 			// Meta Settings for Software Application
 			array(
 				'name' => __('Rich Snippets - Software Application','rich-snippets'),
@@ -561,14 +538,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'software_landing',
 				'class' => 'software',
 				'type' => 'text',
-			),
-			/*array(
-				'name' => __('Software Description','rich-snippets'),
-				'desc' => __('Enter the software description.','rich-snippets'),
-				'id'   => $prefix . 'software_desc',
-				'class' => 'software',
-				'type' => 'textarea_small',
-			),*/  
+			),  
 			// Meta Settings for Video
 			array(
 				'name' => __('Rich Snippets - Videos','rich-snippets'),
@@ -722,6 +692,48 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'service_provider',
 				'class' => 'service',
 				'type' => 'text',
+			),
+			array(
+				'name' => __('Location','rich-snippets'),
+				'desc' => __('Street Address','rich-snippets'),
+				'id'   => $prefix . 'service_street',
+				'class' => 'service',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Locality','rich-snippets'),
+				'id'   => $prefix . 'service_local',
+				'class' => 'service',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Region','rich-snippets'),
+				'id'   => $prefix . 'service_region',
+				'class' => 'service',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('','rich-snippets'),
+				'desc' => __('Postal Code','rich-snippets'),
+				'id'   => $prefix . 'service_postal_code',
+				'class' => 'service',
+				'type' => 'text_medium',
+			),
+			array(
+				'name' => __('Provider Location Image','rich-snippets'),
+				'desc' => __('Upload the provider location image or select from library. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'provider_location_image',
+				'class' => 'service',
+				'type' => 'file',
+			),
+			array(
+				'name' => __('Telephone','rich-snippets'),
+				'desc' => __('Telephone number','rich-snippets'),
+				'id'   => $prefix . 'service_telephone',
+				'class' => 'service',
+				'type' => 'text_medium',
 			),
 			array(
 				'name' => __('Enable/Disable Rating','rich-snippets'),

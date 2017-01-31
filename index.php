@@ -28,14 +28,12 @@ if ( !class_exists( "RichSnippets" ) )
 		function __construct() // Constructor
 		{
 			register_activation_hook(__FILE__, array($this, 'register_bsf_settings'));
-//			add_action( 'admin_notices', array($this, 'display_message') );
 			add_action( 'admin_head', array( $this, 'star_icons') );
 			// Add Admin Menu
 			add_action('admin_menu', array( $this, 'register_custom_menu_page') );
 			add_action( 'admin_init', array( $this, 'set_styles' ));
 
 			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ));
-//			add_action( 'init', array( $this, 'register_bsf_settings' ));
 
 			add_filter('plugins_loaded', array( $this, 'rich_snippet_translation'));
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue') );
@@ -48,6 +46,7 @@ if ( !class_exists( "RichSnippets" ) )
 			// Admin bar menu
 			add_action( 'admin_bar_menu', array( $this, "aiosrs_admin_bar" ),100 );
 		}
+		
 		// admin bar menu
 		function aiosrs_admin_bar()
 		{
@@ -60,7 +59,7 @@ if ( !class_exists( "RichSnippets" ) )
 				$wp_admin_bar->add_menu( array(
 				  'id' => 'aiosrs',
 				  'title' => 'Test Rich Snippets',
-				  'href' => 'http://www.google.com/webmasters/tools/richsnippets?q='.$actual_link,
+				  'href' => 'https://search.google.com/structured-data/testing-tool#url='.$actual_link,
 				  'meta' => array('target' => '_blank'),
 				) );
 			}
@@ -83,7 +82,6 @@ if ( !class_exists( "RichSnippets" ) )
 		function post_enqueue($hook) {
 			if( 'post.php' != $hook )
 				return;
-		//	wp_enqueue_script( 'bsf_jquery' );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
 			wp_enqueue_script( 'bsf_toggle' );
@@ -99,7 +97,6 @@ if ( !class_exists( "RichSnippets" ) )
 		function post_new_enqueue($hook) {
 			if('post-new.php' != $hook )
 				return;
-		//	wp_enqueue_script( 'bsf_jquery' );
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
 			wp_enqueue_script( 'bsf_toggle' );
@@ -145,6 +142,7 @@ if ( !class_exists( "RichSnippets" ) )
 		/* Translation */
 		function rich_snippet_translation()
 		{
+			
 			// Load Translation File
 			load_plugin_textdomain('rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
 		}

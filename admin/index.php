@@ -7,14 +7,11 @@ if ( is_admin() )
 }
 //enqueues the scripts and styles in admin dashboard
 function bsf_admin_styles() {
-//	wp_enqueue_style( 'ui_style' );
 	wp_enqueue_style( 'star_style' );	
 	wp_enqueue_style( 'meta_style' );		
 	wp_enqueue_script( 'bsf_jquery' );
-	if(!function_exists('vc_map'))
 		wp_enqueue_script( 'bsf_jquery_ui' );
 	wp_enqueue_script( 'bsf_jquery_star' );
-///	wp_enqueue_script( 'postbox' );
 }
 function add_the_script() {
    wp_enqueue_script('postbox');
@@ -119,6 +116,10 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("End Time :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="end_time" value="'.$args_event["end_time"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="event_desc" value="'.$args_event["event_desc"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Ticket Promotion :","rich-snippets").'</label></strong></td>
@@ -249,6 +250,10 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="recipe_name" value="'.$args_recipe["recipe_name"].'"/></td>
 													</tr>
 													<tr>
+														<td align="right"><strong><label>'.__("Author Name :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="author_name" value="'.$args_recipe["author_name"].'"/></td>
+													</tr>
+													<tr>
 														<td align="right"><strong><label>'.__("Published On : ","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="recipe_pub" value="'.$args_recipe["recipe_pub"].'"/></td>
 													</tr>
@@ -263,6 +268,10 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>'.__("Total Time :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="recipe_time" value="'.$args_recipe["recipe_time"].'"/></td>
+													</tr>
+													<tr>
+														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="'.$args_recipe["recipe_desc"].'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Average Rating:","rich-snippets").'</label></strong></td>
@@ -447,6 +456,10 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="'.$args_service["service_provider_name"].'"/></td>
 													</tr>
 													<tr>
+														<td align="right"><strong><label>'.__("Provider Location :","rich-snippets").'</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="provider_location" value="'.$args_service["provider_location"].'"/></td>
+													</tr>
+													<tr>
 														<td align="right"><strong><label>'.__("URL :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="service_channel" value="'.$args_service["service_channel"].'"/></td>
 													</tr>
@@ -617,7 +630,7 @@ if(isset($_POST['item_submit']))
 }
 if(isset($_POST['event_submit']))
 {
-	foreach(array('snippet_title','event_title','event_location','start_time','end_time','events_price') as $option)
+	foreach(array('snippet_title','event_title','event_location','event_performer','start_time','end_time','event_desc','events_price') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -653,7 +666,7 @@ if(isset($_POST['product_submit']))
 }
 if(isset($_POST['recipe_submit']))
 {
-	foreach(array('snippet_title','recipe_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_rating') as $option)
+	foreach(array('snippet_title','recipe_name','author_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_desc','recipe_rating') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{
@@ -701,7 +714,7 @@ if(isset($_POST['article_submit']))
 }
 if(isset($_POST['service_submit']))
 {
-	foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','service_rating','service_channel','service_url_link') as $option)
+	foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','provider_location','service_rating','service_channel','service_url_link') as $option)
 	{
 		if(isset($_POST[$option])) 
 		{

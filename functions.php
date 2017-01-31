@@ -51,12 +51,13 @@ function display_rich_snippet($content) {
 	$args_color = get_option('bsf_custom');
 	$id = $post->ID;
 	$type = get_post_meta($id, '_bsf_post_type', true);
+
 	if($type == '1')
 	{
 		global $post;
 	
 		$args_review = get_option('bsf_review');		
-		$review = $content;
+		$review = '';
 		$review .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 				
 		if($args_review['review_title'] != "")
@@ -88,32 +89,38 @@ function display_rich_snippet($content) {
 		if(trim($rating) != "")
 		{
 			if( $args_review['item_rating'] != "")
-				//$review .= '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">';
 				$review .= "<div class='snippet-label'>".$args_review['item_rating']."</div>";
 			
 			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".$rating."</span></span><span class='star-img'>";
 			for($i = 1; $i<=ceil($rating); $i++)
 			{
-				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">';
+				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">';
 			}
 			for($j = 0; $j<=5-ceil($rating); $j++)
 			{
 				if($j)
-					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
 			$review .= '</span></div>';
 		}
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
 			
-		return ( is_single() || is_page() ) ? $review : $content;
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $review;
+			}		
+		}
+		else { return ( is_single() || is_page() ) ? $content.$review : $content; }
 	} 
 	else if($type == '2')
 	{
 		global $post;
 		$args_event = get_option('bsf_event');
 		
-		$event = $content;
+		$event = '';
 		
 		$event .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -126,19 +133,18 @@ function display_rich_snippet($content) {
 		$event_local = get_post_meta( $post->ID, '_bsf_event_local', true );	
 		$event_region = get_post_meta( $post->ID, '_bsf_event_region', true );
 		$event_postal_code = get_post_meta( $post->ID, '_bsf_event_postal_code', true );
+		$event_image = get_post_meta($post->ID, '_bsf_event_image', true);
+		//$event_performer = get_post_meta( $post->ID, '_bsf_event_performer', true );
 		$event_start_date = get_post_meta( $post->ID, '_bsf_event_start_date', true );	
 		$event_end_date = get_post_meta( $post->ID, '_bsf_event_end_date', true );	
-
+		$event_description = get_post_meta( $post->ID, '_bsf_event_desc', true );
 		$event_ticket_url = get_post_meta( $post->ID, '_bsf_event_ticket_url', true );	
 		$event_price = get_post_meta( $post->ID, '_bsf_event_price', true );	
-		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );	
+		$event_cur = get_post_meta( $post->ID, '_bsf_event_cur', true );
 
-		//$event_geo_latitude = get_post_meta( $post->ID, '_bsf_event_geo_latitude', true );	
-		//$event_geo_longitude = get_post_meta( $post->ID, '_bsf_event_geo_longitude', true );	
-		/*$event_photo = get_post_meta( $post->ID, '_bsf_event_photo', true );	
-		if(trim($event_photo) != "")
+		if(trim($event_image) != "")
 		{
-			$event .= '<div class="snippet-image"><img width="180" itemprop="photo" src="'.$event_photo.'"></div>';
+			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" alt="event" /></div>';
 		}
 		else
 		{
@@ -147,14 +153,16 @@ function display_rich_snippet($content) {
                     jQuery(".snippet-label-img").addClass("snippet-clear");
                 });
 			</script>';
-		}*/
+		}
 		$event .= '<div class="aio-info">';
 		
 		if(trim($event_title) != "")
 		{
 			if( $args_event['event_title'])
 				$event .= '<div class="snippet-label-img">'.$args_event['event_title'].'</div>';
-			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div><div class="snippet-clear"></div>';
+			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div>
+			<meta itemprop="url" content="'.$event_ticket_url.'">
+			<div class="snippet-clear"></div>';
 		}
 		if(trim($event_org) != "")
 		{
@@ -172,17 +180,12 @@ function display_rich_snippet($content) {
 		if(trim($event_region) != "")
 			$event .= '<span itemprop="addressRegion">'.$event_region.'</span>';
 		if(trim($event_postal_code) != "")
-			$event .= '<span itemprop="postalCode">'.$event_postal_code.'</span>';
+			$event .= '-<span itemprop="postalCode">'.$event_postal_code.'</span>';
 		$event .= '</span>';
-		//$event .= ' <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">';
-		//if(trim($event_geo_latitude) != "")
-		//	$event .= '<meta itemprop="latitude" content="'.$event_geo_latitude.'" />';
-		//if(trim($event_geo_longitude) != "")
-	
-		//	$event .= '<meta itemprop="longitude" content="'.$event_geo_longitude.'" />';
-		//$event .= '</span>';
+
 		$event .='</span>
 			</div><div class="snippet-clear"></div>';
+
 		if(trim($event_start_date) != "")
 		{
 			if( $args_event['start_time'] != "")
@@ -197,23 +200,40 @@ function display_rich_snippet($content) {
 			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.$event_end_date.'T00:00-00:00">'.$event_end_date.'</span></div><div class="snippet-clear"></div>';
 		}
 
+		if(trim($event_description) != "")
+		{
+			if( $args_event['event_desc'] != "")
+				$event .= '<div class="snippet-label-img">'.$args_event['event_desc'].'</div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.$event_description.'</span></div><div class="snippet-clear"></div>';
+		}
+
 		if(trim($event_price) != "")
 		{
 			if($args_event['events_price'] != "")
 				$event .= '<div class="snippet-label-img">'.$args_event['events_price'].'</div>';
 			$event .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<span itemprop="priceCurrency">'.$event_cur.'</span><span itemprop="price">'.' '.$event_price.'</span><br><a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a></div><div class="snippet-clear"></div>';
-			//$event .= '<a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a>';
 		}
 
 		$event .= '</div>
-			</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $event : $content;
+			</div></div>
+			<meta itemprop="description" content="Event">
+			<div class="snippet-clear"></div>';
+
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $event;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$event : $content; }
 	}
 	else if($type == '4')
 	{
 		global $post;
-		$organization = $content;
+		$organization = '';
 		$organization .= '<div class="snippet-title">Organization Brief :</div>';
 		$organization .= '<div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Organization">';
 		$org_name = get_post_meta( $post->ID,'_bsf_organization_name', true );
@@ -257,7 +277,16 @@ function display_rich_snippet($content) {
 				</span>
 			</span>';
 		$organization .= '</div><div style="clear:both;"></div>';
-		return ( is_single() || is_page() ) ? $organization : $content;
+
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $organization;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$organization : $content; }
 	}
 	else if($type == '5')
 	{
@@ -265,7 +294,7 @@ function display_rich_snippet($content) {
 		
 		$args_person = get_option('bsf_person');
 		
-		$people = $content;
+		$people = '';
 		
 		$people .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -354,16 +383,22 @@ function display_rich_snippet($content) {
 				$people .= '</div>';
 				$people .= '<div class="snippet-clear"></div>';	
 		}
-
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $people : $content;
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $people;
+			}	
+		}
+		else { return ( is_single() || is_page() ) ? $content.$people : $content; }
 	}
 	else if($type == '6')
 	{
 		global $post;
 		$args_product = get_option('bsf_product');
-		$product = $content;
+		$product = '';
 		$product .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		if($args_product['snippet_title'] != "")
 			$product .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_product['snippet_title'];
@@ -389,7 +424,7 @@ function display_rich_snippet($content) {
 			$availability = "Pre-Order Only";
 		if(trim($product_image) != "")
 		{
-			$product .= '<div class="snippet-image"><img width="180" src="'.$product_image.'" itemprop="image" /></div>';
+			$product .= '<div class="snippet-image"><img width="180" src="'.$product_image.'" itemprop="image" alt="product image" /></div>';
 		}
 		else
 		{
@@ -407,12 +442,12 @@ function display_rich_snippet($content) {
 			$product .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($product_rating); $i++)
 							{
-								$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+								$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 							}
 							for($j = 0; $j<=5-ceil($product_rating); $j++)
 							{
 								if($j)
-									$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+									$product .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 							}
 			$product .= '</span></div><div class="snippet-clear"></div>';
 		}
@@ -456,22 +491,23 @@ function display_rich_snippet($content) {
 			}
 			$product .= '</div><div class="snippet-clear"></div>';
 		}
-		/*if(trim($product_status) != "")
-		{
-			if($args_product['product_avail'] != "")
-				$product .= '<div class="snippet-label-img">'.$args_product['product_avail'].'</div>';
-			$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.$product_status.'">'.$availability.'</span></span></div><div class="snippet-clear"></div>';		
-		}*/
 		$product .= '</div>
 			</div></div><div class="snippet-clear"></div>';
+
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $product;
+			}
 			
-//		$product .= getPostLikeLink($post->ID);
-		return ( is_single() || is_page() ) ? $product : $content;
+		}
+		else { return ( is_single() || is_page() ) ? $content.$product : $content; }
 	}
 	else if($type == '7')
 	{
 		global $post;
-		$recipe = $content;
+		$recipe = '';
 		
 		$recipe .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -485,17 +521,19 @@ function display_rich_snippet($content) {
 		$recipe .= '</div>';
 		$recipe .= '<div itemscope itemtype="http://schema.org/Recipe">';
 		$recipes_name = get_post_meta( $post->ID, '_bsf_recipes_name', true );
+		$authors_name = get_post_meta( $post->ID, '_bsf_authors_name', true );
 		$recipes_preptime = get_post_meta( $post->ID, '_bsf_recipes_preptime', true );
 		$recipes_cooktime = get_post_meta( $post->ID, '_bsf_recipes_cooktime', true );
 		$recipes_totaltime = get_post_meta( $post->ID, '_bsf_recipes_totaltime', true );
 		$recipes_photo = get_post_meta( $post->ID, '_bsf_recipes_photo', true );
 		$recipes_desc = get_post_meta( $post->ID, '_bsf_recipes_desc', true );
+		$recipes_nutrition = get_post_meta( $post->ID, '_bsf_recipes_nutrition', true );
 		$recipes_ingredient = get_post_meta( $post->ID, '_bsf_recipes_ingredient', true );
 		$count = rating_count();
 		$agregate = average_rating();
 		if(trim($recipes_photo) != "")
 		{
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'" alt="recipe image"/></div>';
 		}
 		else
 		{
@@ -511,7 +549,20 @@ function display_rich_snippet($content) {
 			if($args_recipe['recipe_name'] != "")
 				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_name'].'</div>';
 				
-			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div><div class="snippet-clear"></div>';
+			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div>
+			<meta itemprop="description" content="'.$recipes_desc.'" >
+			<meta itemprop="recipeIngredient" content="'.$recipes_ingredient.'" >
+			<div itemprop="nutrition"
+		    itemscope itemtype="http://schema.org/NutritionInformation">
+		    <meta itemprop="calories" content="'.$recipes_nutrition.'" ></div>
+			<div class="snippet-clear"></div>';
+		}
+		if(trim($authors_name) != "")
+		{
+			if($args_recipe['author_name'] != "")
+				$recipe .= '<div class="snippet-label-img">'.$args_recipe['author_name'].'</div>';
+				
+			$recipe .= '<div class="snippet-data-img"><span itemprop="author">'.$authors_name.'</span></div><div class="snippet-clear"></div>';
 		}
 		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_time( 'c' ).'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
@@ -538,24 +589,33 @@ function display_rich_snippet($content) {
 			$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
 			for($i = 1; $i<=ceil($agregate); $i++)
 			{
-				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 			}
 			for($j = 0; $j<=5-ceil($agregate); $j++)
 			{
 				if($j)
-					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
 			$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		}
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $recipe : $content;
+
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $recipe;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$recipe : $content; }
 	}
 	else if($type == '8')
 	{
 		global $post;
 		$args_soft = get_option('bsf_software');	
-		$software = $content;
+		$software = '';
 		
 		$software .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		if($args_soft['snippet_title'] != "" )
@@ -578,7 +638,7 @@ function display_rich_snippet($content) {
 
 		if(trim($software_image) != "")
 		{
-			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" /></div>';	
+			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" alt="software image" /></div>';	
 		}
 		else
 		{
@@ -589,56 +649,30 @@ function display_rich_snippet($content) {
 			</script>';
 		}
 		$software .= '<div class="aio-info">';		
-		
-//////////////////////////////////////////////////////////////////////
 
 		if(trim($software_rating) != "")
 		{
-			//if($args_soft['product_brand'] != "")
 			$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';		
 			$software .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($software_rating); $i++)
 							{
-								$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
+								$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
 							}
 							for($j = 0; $j<=5-ceil($software_rating); $j++)
 							{
 								if($j)
-									$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
+									$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 							}
 			$software .= '</span></div><div class="snippet-clear"></div>';
 		}
 
 		
 		$software .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
-		//if($args_soft['software_agr'] != "")
-		//{
 			$software .= '<div class="snippet-label-img">'.$args_soft['software_agr'].'</div>';
-		//}
 		$software .= '<div class="snippet-data-img">';
 		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
 		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
 		
-//////////////////////////////////////////////////////////////////////
-
-
-		/*if(trim($software_rating) != "")
-		{
-			if($args_soft['software_rating'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';
-			$software .= '<div class="snippet-data-img"> <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$software_rating.'</span></div><span class="star-img">';			
-			for($i = 1; $i<=ceil($software_rating); $i++)
-			{
-				$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png">'; 
-			}
-			for($j = 0; $j<=5-ceil($software_rating); $j++)
-			{
-				if($j)
-					$software .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png">'; 
-			}
-			
-			$software .= '</span></div><div class="snippet-clear"></div>';
-		}*/
 		if(trim($software_name) != "")
 		{
 			if($args_soft['software_name'] != "")
@@ -653,7 +687,6 @@ function display_rich_snippet($content) {
 		}
 		if(trim($software_cat) != "")
 		{
-			//if($args_soft['software_os'] != "")
 				$software .= '<div class="snippet-label-img">Software Category</div>';
 			$software .= ' <div class="snippet-data-img"> <span itemprop="applicationCategory">'.$software_cat.'</span></div><div class="snippet-clear"></div>';		
 		}
@@ -679,13 +712,22 @@ function display_rich_snippet($content) {
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $software : $content;
+
+		if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $software;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$software : $content; }
 	}
 	else if($type == '9')
 	{
 		global $post;
 		$args_video = get_option('bsf_video');
-		$video = $content;
+		$video = '';
 		
 		$video .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
 		
@@ -743,12 +785,21 @@ function display_rich_snippet($content) {
 			$video .= '<meta itemprop="uploadDate" content="'.$video_date.'">';		
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $video : $content;
+
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $video;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$video : $content; }
 	}
 	else if($type == '10')
 	{
 		global $post;
-		$article = $content;
+		$article = '';
 		$args_article = get_option('bsf_article');
 		$article_title = get_post_meta( $post->ID, '_bsf_article_title', true );
 		$article_name = get_post_meta( $post->ID, '_bsf_article_name', true );
@@ -769,7 +820,7 @@ function display_rich_snippet($content) {
 			if(trim($article_image) != "")
 			{
 				$article .= '<div class="snippet-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-				$article .= '<img width="180" src="'.$article_image.'"/>';
+				$article .= '<img width="180" src="'.$article_image.'" alt="'.$article_name.'"/>';
 				$article .=	'<meta itemprop="url" content="'.$article_image.'">';
 				$article .=	'<meta itemprop="width" content="800">';
 				$article .=	'<meta itemprop="height" content="800">';
@@ -847,17 +898,35 @@ function display_rich_snippet($content) {
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $article : $content;
+		
+
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $article;
+			}
+		}
+	
+		else { return ( is_single() || is_page() ) ? $content.$article : $content; }
 	}else if($type == '11')
 	{
 		global $post;
-		$service = $content;
+		$service = '';
 		$args_service = get_option('bsf_service');
 		$service_type = get_post_meta( $post->ID, '_bsf_service_type', true );
 		$service_area = get_post_meta( $post->ID, '_bsf_service_area', true );
 		$service_desc = get_post_meta( $post->ID, '_bsf_service_desc', true );
 		$service_image = get_post_meta( $post->ID, '_bsf_service_image', true );
 		$service_provider_name = get_post_meta( $post->ID, '_bsf_service_provider', true );
+		$service_street = get_post_meta( $post->ID, '_bsf_service_street', true );	
+		$service_local = get_post_meta( $post->ID, '_bsf_service_local', true );	
+		$service_region = get_post_meta( $post->ID, '_bsf_service_region', true );
+		$service_postal_code = get_post_meta( $post->ID, '_bsf_service_postal_code', true );
+		$service_provider_location_image = get_post_meta( $post->ID, '_bsf_provider_location_image', true );
+		$service_telephone = get_post_meta( $post->ID, '_bsf_service_telephone', true );
+		$service_price = get_post_meta( $post->ID, '_bsf_service_price', true );	
+		$service_cur = get_post_meta( $post->ID, '_bsf_service_cur', true );
 		$service_rating = get_post_meta( $post->ID, '_bsf_service_rating', true );
 		$service_rating_switch = get_post_meta( $post->ID, '_bsf_service_rating_switch', true );
 		$service_channel = get_permalink( $post->ID );
@@ -877,7 +946,7 @@ function display_rich_snippet($content) {
 			if(trim($service_image) != "")
 			{
 				$service .= '<div class="snippet-image">';
-				$service .= '<img itemprop="image" width="180" src="'.$service_image.'"/>';
+				$service .= '<img itemprop="image" width="180" src="'.$service_image.'" alt="'.$service_type.'"/>';
 				$service .=	'</div>';
 			}
 			else
@@ -918,9 +987,22 @@ function display_rich_snippet($content) {
 				if($args_service['service_provider_name'] != "")
 					$service .= '<div class="snippet-label-img">'.$args_service['service_provider_name'].'</div>';
 					
-				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
-							<span itemprop="name">'.$service_provider_name.'</span>
-							</div>
+				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="http://schema.org/LocalBusiness">
+							<meta itemprop="image" content="'.$service_provider_location_image.'"/>
+							<span itemprop="name">'.$service_provider_name.'</span>,';
+							if(trim($service_street) != "")
+							$service .= '<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">'.$service_street.'</span>,';
+							if(trim($service_local) != "")
+							$service .= '<span itemprop="addressLocality">'.$service_local.'</span>,';
+							if(trim($service_region) != "")
+							$service .= '<span itemprop="addressRegion">'.$service_region.'</span>-';
+							if(trim($service_postal_code) != "")
+							$service .= '<span itemprop="postalCode">'.$service_postal_code.'</span>,<br/>';
+							if(trim($service_telephone) != "")
+							$service .= '<span itemprop="telephone"> Telephone No.'.$service_telephone.'</span>';
+							$service .= '</div>';
+							$service .= '</div>
 							<div class="snippet-clear"></div>';
 			}
 
@@ -945,23 +1027,37 @@ function display_rich_snippet($content) {
 			if(trim($service_channel) != "")
 			{
 				if($args_service['service_channel'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_channel'].'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
-							<a itemprop="URL" href="'.$service_channel.'">'.$service_url_link.' </a>
+
+							<meta itemprop="URL" href="'.$service_channel.'">
 							</div><div class="snippet-clear"></div>';
 			}
 
 					
 			$service .= '</div></div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $service : $content;
+
+		if ( class_exists('FLBuilderModel') && FLBuilderModel::is_builder_enabled() ) 
+		{
+			if( is_single() || is_page() )
+			{
+				echo $service;
+			}
+			
+		}
+		else { return ( is_single() || is_page() ) ? $content.$service : $content; }
 	}	
 	 else {
 		return $content;
 	}
 }
-//Filter the content and return with rich snippet output
-add_filter('the_content','display_rich_snippet');
+if ( class_exists( 'FLBuilderLoader' ) ) 
+{
+	add_filter('fl_builder_after_render_content','display_rich_snippet');
+}
+else{ add_filter('the_content','display_rich_snippet'); }
+
+
 require_once(plugin_dir_path( __FILE__ ).'meta-boxes.php');
 function get_the_ip() {
     if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
@@ -975,7 +1071,6 @@ function get_the_ip() {
     }
 }
 function average_rating() {
-//	global $wpdb;
 	global $post;
 	
 	$data = get_post_meta($post->ID, 'post-rating', false);
@@ -1058,8 +1153,6 @@ function add_ajax_library() {
 }
 function bsf_add_rating()
 {
-//	ob_clean();
-	
 	if(isset($_POST['star-review']))
 		$stars = $_POST['star-review'];
 	else
@@ -1076,7 +1169,6 @@ function bsf_add_rating()
 }
 function bsf_update_rating()
 {
-//	ob_clean();
 	if(isset($_POST['star-review']))
 		$stars = $_POST['star-review'];
 	else
