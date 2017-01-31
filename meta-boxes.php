@@ -4,11 +4,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_bsf_';
 	$post_types=get_post_types('','names');
- 	
+	$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
+	$required_post_type = array_diff( $post_types, $woocommerce_post_type );
+	//var_dump($required_post_type);
 	$meta_boxes[] = array(
 		'id'         => 'review_metabox',
 		'title'      => __('Configure Rich Snippet','rich-snippets'),
-		'pages'      => $post_types, //array( 'post','page' ), // Custom Post types
+		'pages'      => $required_post_type,//$post_types, //array( 'post','page' ), // Custom Post types
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
@@ -86,7 +88,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Location ','rich-snippets'),
-				'desc' => __('Organization Name Here','rich-snippets'),
+				'desc' => __('Location Name Here','rich-snippets'),
 				'id'   => $prefix . 'event_organization',
 				'class' => 'events',
 				'type' => 'text_medium',
