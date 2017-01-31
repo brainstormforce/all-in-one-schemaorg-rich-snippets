@@ -35,7 +35,6 @@ if ( !class_exists( "RichSnippets" ) )
 			add_action( 'admin_init', array( $this, 'set_styles' ));
 
 			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ));
-			add_action( 'init', array( $this, 'AIOSRS_setting_called' ));
 
 			add_filter('plugins_loaded', array( $this, 'rich_snippet_translation'));
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue') );
@@ -47,11 +46,6 @@ if ( !class_exists( "RichSnippets" ) )
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color') );
 			// Admin bar menu
 			add_action( 'admin_bar_menu', array( $this, "aiosrs_admin_bar" ),100 );
-		}
-		function AIOSRS_setting_called(){
-			if(!get_option('AIOSRS_setting_called')){	
-			add_action( 'admin_init', array( $this, 'register_bsf_settings' ));
-			}
 		}
 		
 		// admin bar menu

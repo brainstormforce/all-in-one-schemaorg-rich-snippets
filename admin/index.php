@@ -113,10 +113,6 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="event_location" value="'.$args_event["event_location"].'"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>'.__("Event Performer :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_performer" value="'.$args_event["event_performer"].'"/></td>
-													</tr>
-													<tr>
 														<td align="right"><strong><label>'.__("Start Time :","rich-snippets").'</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="start_time" value="'.$args_event["start_time"].'"/></td>
 													</tr>

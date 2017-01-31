@@ -106,16 +106,17 @@ function display_rich_snippet($content) {
 		}
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
-			
+			if(class_exists('FLBuilderModel')) {
+
 			if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $review;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$review : $content; }
 	} 
 	else if($type == '2')
@@ -137,7 +138,7 @@ function display_rich_snippet($content) {
 		$event_region = get_post_meta( $post->ID, '_bsf_event_region', true );
 		$event_postal_code = get_post_meta( $post->ID, '_bsf_event_postal_code', true );
 		$event_image = get_post_meta($post->ID, '_bsf_event_image', true);
-		$event_performer = get_post_meta( $post->ID, '_bsf_event_performer', true );
+		//$event_performer = get_post_meta( $post->ID, '_bsf_event_performer', true );
 		$event_start_date = get_post_meta( $post->ID, '_bsf_event_start_date', true );	
 		$event_end_date = get_post_meta( $post->ID, '_bsf_event_end_date', true );	
 		$event_description = get_post_meta( $post->ID, '_bsf_event_desc', true );
@@ -209,13 +210,13 @@ function display_rich_snippet($content) {
 		//$event .= '</span>';
 		$event .='</span>
 			</div><div class="snippet-clear"></div>';
-		if(trim($event_performer) != "")
-		{
-			if( $args_event['event_performer'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['event_performer'].'</div>';
+		// if(trim($event_performer) != "")
+		// {
+		// 	if( $args_event['event_performer'] != "")
+		// 		$event .= '<div class="snippet-label-img">'.$args_event['event_performer'].'</div>';
 	
-			$event .= ' <div class="snippet-data-img"> <span itemprop="performer">'.$event_performer.'</span></div><div class="snippet-clear"></div>';
-		}
+		// 	$event .= ' <div class="snippet-data-img"> <span itemprop="performer">'.$event_performer.'</span></div><div class="snippet-clear"></div>';
+		// }
 		if(trim($event_start_date) != "")
 		{
 			if( $args_event['start_time'] != "")
@@ -250,16 +251,18 @@ function display_rich_snippet($content) {
 			</div></div>
 			<meta itemprop="description" content="Event">
 			<div class="snippet-clear"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $event;
 				}
 				
 			}
-			else { return ( is_single() || is_page() ) ? $content.$event : $content; }
+		}
+		else { return ( is_single() || is_page() ) ? $content.$event : $content; }
 	}
 	else if($type == '4')
 	{
@@ -308,15 +311,17 @@ function display_rich_snippet($content) {
 				</span>
 			</span>';
 		$organization .= '</div><div style="clear:both;"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $organization;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$organization : $content; }
 	}
 	else if($type == '5')
@@ -419,15 +424,17 @@ function display_rich_snippet($content) {
 			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $people;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$people : $content; }
 	}
 	else if($type == '6')
@@ -537,15 +544,18 @@ function display_rich_snippet($content) {
 			</div></div><div class="snippet-clear"></div>';
 			
 //		$product .= getPostLikeLink($post->ID);
+
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $product;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$product : $content; }
 	}
 	else if($type == '7')
@@ -577,7 +587,7 @@ function display_rich_snippet($content) {
 		$agregate = average_rating();
 		if(trim($recipes_photo) != "")
 		{
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.' alt="recipe image"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'" alt="recipe image"/></div>';
 		}
 		else
 		{
@@ -642,15 +652,17 @@ function display_rich_snippet($content) {
 		$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $recipe;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$recipe : $content; }
 	}
 	else if($type == '8')
@@ -781,15 +793,17 @@ function display_rich_snippet($content) {
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $software;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$software : $content; }
 	}
 	else if($type == '9')
@@ -854,15 +868,18 @@ function display_rich_snippet($content) {
 			$video .= '<meta itemprop="uploadDate" content="'.$video_date.'">';		
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
+
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $video;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$video : $content; }
 	}
 	else if($type == '10')
@@ -967,15 +984,17 @@ function display_rich_snippet($content) {
 			
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $article;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$article : $content; }
 	}else if($type == '11')
 	{
@@ -1107,15 +1126,18 @@ function display_rich_snippet($content) {
 
 					
 			$service .= '</div></div></div><div class="snippet-clear"></div>';
+
+		if(class_exists('FLBuilderModel')) {
+
 		if ( FLBuilderModel::is_builder_enabled() ) 
 			{
-				//remove_filter( 'the_content', 'FLBuilder::render_content' );
 				if( is_single() || is_page() )
 				{
 					echo $service;
 				}
 				
 			}
+		}
 			else { return ( is_single() || is_page() ) ? $content.$service : $content; }
 	}	
 	 else {
