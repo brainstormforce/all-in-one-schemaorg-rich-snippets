@@ -10,7 +10,7 @@ function bsf_admin_styles() {
 	wp_enqueue_style( 'star_style' );	
 	wp_enqueue_style( 'meta_style' );		
 	wp_enqueue_script( 'bsf_jquery' );
-		wp_enqueue_script( 'bsf_jquery_ui' );
+		wp_enqueue_script( 'jquery-ui-core' );
 	wp_enqueue_script( 'bsf_jquery_star' );
 }
 function add_the_script() {
