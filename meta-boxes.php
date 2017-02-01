@@ -6,7 +6,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 	$post_types=get_post_types('','names');
 	$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
 	$required_post_type = array_diff( $post_types, $woocommerce_post_type );
-	//var_dump($required_post_type);
 	$meta_boxes[] = array(
 		'id'         => 'review_metabox',
 		'title'      => __('Configure Rich Snippet','rich-snippets'),
