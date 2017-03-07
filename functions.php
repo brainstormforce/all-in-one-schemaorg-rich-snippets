@@ -358,7 +358,7 @@ function display_rich_snippet($content) {
 				$people .= '<!--</span>-->
 			</span></div><div class="snippet-clear"></div>';	
 		$people .= '</div>
-				</div></div><div class="snippet-clear"></div>';
+				</div><div class="snippet-clear"></div>';
 		return ( is_single() || is_page() ) ? $people : $content;
 	}
 	else if($type == '6')
