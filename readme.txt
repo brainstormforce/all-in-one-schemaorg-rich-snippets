@@ -1,10 +1,10 @@
 === All In One Schema.org Rich Snippets ===
-Contributors: brainstormforce, yawalkarm
+Contributors: brainstormforce, uttam
 Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 1.4.0
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -77,6 +77,18 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+= 1.4.2
+* Improvement: Added company / organization and address in people schema. 
+* Improvement: Added nutrition & ingredients in recipe schema. 
+* Improvement: Added software image & operating system in software application schema. 
+* Improvement: Added video description in software application schema. 
+* Improvement: Added author, publisher - orgnization and publisher logo in article schema. 
+* Improvement: Added provider location, provider location image and telephone in service schema. 
+* Improvement: Changes admin bar test rich snippet redirect link to structured data testing tool .
+* Fix: removed all error in schema according to structured data testing tool
+
+= 1.4.1 =
+* Fix: Compatibility fix WordPress 4.7.
 
 = 1.4.0 =
 * Added new service schema
