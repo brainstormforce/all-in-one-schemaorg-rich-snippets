@@ -30,7 +30,34 @@ function rich_snippet_dashboard() {
 	$args_video = get_option('bsf_video');	
 	$args_article = get_option('bsf_article');
 	$args_service = get_option('bsf_service');	
-	
+	if(isset($args_event["event_desc"]) ) { 
+		$event_desc = $args_event["event_desc"]; 
+	}
+	else {
+		$event_desc = null;
+	}
+
+	if(isset($args_recipe["author_name"])) {
+		$author_name = $args_recipe["author_name"];
+	}
+	else {
+		$author_name = null;
+	}
+
+	if(isset($args_recipe["recipe_desc"])) {
+		$recipe_desc = $args_recipe["recipe_desc"];
+	}
+	else {
+		$recipe_desc = null;
+	}
+
+	if(isset($args_service["provider_location"])) {
+		$provider_location = $args_service["provider_location"];
+	}
+	else {
+		$provider_location = null;
+	}
+
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
@@ -119,7 +146,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_desc" value="'.$args_event["event_desc"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="event_desc" value="'.$event_desc.'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Ticket Promotion :","rich-snippets").'</label></strong></td>
@@ -251,7 +278,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Author Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="author_name" value="'.$args_recipe["author_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="author_name" value="'.$author_name.'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Published On : ","rich-snippets").'</label></strong></td>
@@ -271,7 +298,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="'.$args_recipe["recipe_desc"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="'.$recipe_desc.'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Average Rating:","rich-snippets").'</label></strong></td>
@@ -457,7 +484,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Provider Location :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="provider_location" value="'.$args_service["provider_location"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="provider_location" value="'.$provider_location.'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("URL :","rich-snippets").'</label></strong></td>

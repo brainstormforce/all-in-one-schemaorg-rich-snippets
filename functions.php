@@ -25,12 +25,18 @@ add_action( 'wp_head', 'add_ajax_library' );
 /* FUNCTION to check for posts having snippets */
 add_action('wp','check_snippet_existence','',7);
 function check_snippet_existence(){	
-	global $post;	
+	global $post;
+
+	if( !isset( $post->ID ) ) {
+		return;
+	}
+	
 	$type = get_post_meta($post->ID, '_bsf_post_type', true);
 	if($type){		
 		add_action( 'wp_head', 'frontend_style' );
 		add_action('wp_enqueue_scripts', 'enque');
-	}	
+	}
+
 }
 function enque() {
 	wp_enqueue_style('rating_style', plugin_dir_url(__FILE__) . 'css/jquery.rating.css');
