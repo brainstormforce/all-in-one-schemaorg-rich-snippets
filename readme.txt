@@ -78,14 +78,14 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 = 1.4.2
-* Improvement: Added company / organization and address in people schema. 
+* Improvement: Added company/organization and address in people schema. 
 * Improvement: Added nutrition & ingredients in recipe schema. 
 * Improvement: Added software image & operating system in software application schema. 
 * Improvement: Added video description in software application schema. 
-* Improvement: Added author, publisher - orgnization and publisher logo in article schema. 
-* Improvement: Added provider location, provider location image and telephone in service schema. 
-* Improvement: Changes admin bar test rich snippet redirect link to structured data testing tool .
-* Fix: removed all error in schema according to structured data testing tool
+* Improvement: Added author, publisher - organization and publisher logo in article schema. 
+* Improvement: Added provider location, provider location image, and telephone in service schema. 
+* Improvement: Changes admin bar test rich snippet redirect link to the structured data testing tool.
+* Fix: removed all error in schema according to structured data testing tool.
 
 = 1.4.1 =
 * Fix: Compatibility fix WordPress 4.7.
