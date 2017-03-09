@@ -23,7 +23,7 @@ add_action( 'wp_head', 'add_ajax_library' );
  * Initialize the metabox class.
  */
 /* FUNCTION to check for posts having snippets */
-add_action('wp_head','check_snippet_existence','',7);
+add_action('wp','check_snippet_existence','',7);
 function check_snippet_existence(){	
 	global $post;	
 	$type = get_post_meta($post->ID, '_bsf_post_type', true);
@@ -1138,7 +1138,7 @@ function bsf_do_rating()
 function get_previous_rating($needle, $haystack, $strict = false) {
     foreach ($haystack as $item) {
         if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && get_previous_rating($needle, $item, $strict))) {
-            return @$item['user_rating'];
+            return !empty($item['user_rating']) ? $item['user_rating'] : '';
         }
     }
     return false;
@@ -1249,4 +1249,3 @@ function bsf_display_rating($n) {
 	$rating .= $script;
     return $rating;
 }
-
