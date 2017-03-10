@@ -148,5 +148,4 @@ function add_color_option()
 	);
 	add_option('bsf_custom',$color_opt);
 }
-
 ?>

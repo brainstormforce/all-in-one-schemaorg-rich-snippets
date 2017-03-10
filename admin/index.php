@@ -32,9 +32,9 @@ function rich_snippet_dashboard() {
 	$args_article = get_option('bsf_article');
 	$args_service = get_option('bsf_service');
 
-	$woo_setting = 'checked';
-	if( empty( get_option("bsf_woocom_setting" ) ) ) { 
-		$woo_setting = "";
+	$woo_setting = '';
+	if( !empty( get_option("bsf_woocom_setting" ) ) ) { 
+		$woo_setting = "Checked";
 	} 
 	
 	if(isset($args_event["event_desc"]) ) { 
@@ -624,27 +624,29 @@ function rich_snippet_dashboard() {
 			</div>
 						
 		 </div>
-	</div>
-	 ';
-	 echo '<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
-			<h3 class="get_in_touch"><p>'.__("wooCommerce Settings","rich-snippets").'</p></h3>
+	 	<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
+			<h3 class="get_in_touch"><p>'.__("WooCommerce Settings","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
 				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on product pages does not make 
 					much sense. If you could still like to enable our plugin on WooCommerce products, please enable this option..', 'rich-snippets' ).' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
 					<tr>
-						<th></th>
 						<td>
 							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" '.$woo_setting.' />
+							<label for="woocommerce_option">Enable Schema</label>
 						</td>
 					</tr>
-					<tr><td></td>
-						<td><input type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/></td>
+					<tr>
+						<td>
+							<input type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/>
+						</td>
+					</tr>
 				</table>
 			</form>
 			</div>
-		</div>';
+		</div>
+	</div>';
 	echo '
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.hashchange.min.js'.'"></script>
