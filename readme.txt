@@ -4,7 +4,7 @@ Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
 Tested up to: 4.7.3
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -77,8 +77,10 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+= 1.4.3 =
+* Fix: WooCommerce Support Added
 
-= 1.4.2 =
+= 1.4.2
 * Improvement: Added company/organization and address in people schema. 
 * Improvement: Added nutrition & ingredients in recipe schema. 
 * Improvement: Added software image & operating system in software application schema. 

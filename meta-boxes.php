@@ -4,8 +4,18 @@ function bsf_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_bsf_';
 	$post_types=get_post_types('','names');
-	$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
-	$required_post_type = array_diff( $post_types, $woocommerce_post_type );
+	if( empty( get_option("bsf_woocom_setting" ) ) ) { 
+
+		$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
+		$required_post_type = array_diff( $post_types, $woocommerce_post_type );
+		
+	} 
+	else {
+
+		$required_post_type = $post_types;	
+
+	}
+
 	$meta_boxes[] = array(
 		'id'         => 'review_metabox',
 		'title'      => __('Configure Rich Snippet','rich-snippets'),
