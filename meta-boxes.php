@@ -6,14 +6,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 	$post_types=get_post_types('','names');
 	if( empty( get_option("bsf_woocom_setting" ) ) ) { 
 
-	$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
-	$required_post_type = array_diff( $post_types, $woocommerce_post_type );
+		$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
+		$required_post_type = array_diff( $post_types, $woocommerce_post_type );
 		
 	} 
 	else {
 
-	$required_post_type = $post_types;	
-	
+		$required_post_type = $post_types;	
+
 	}
 
 	$meta_boxes[] = array(
