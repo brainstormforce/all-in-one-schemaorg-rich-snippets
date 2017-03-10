@@ -21,6 +21,7 @@ add_action('admin_print_scripts', 'add_the_script');
 //The Main Admin Dashboard for Rich Snippets Plugin
 function rich_snippet_dashboard() {
 	$plugins_url = plugins_url();
+	$args_woocom = get_option('bsf_woocom_setting');
 	$args_review = get_option('bsf_review');
 	$args_event = get_option('bsf_event');
 	$args_person = get_option('bsf_person');
@@ -29,7 +30,13 @@ function rich_snippet_dashboard() {
 	$args_soft = get_option('bsf_software');	
 	$args_video = get_option('bsf_video');	
 	$args_article = get_option('bsf_article');
-	$args_service = get_option('bsf_service');	
+	$args_service = get_option('bsf_service');
+
+	$woo_setting = 'checked';
+	if( empty( get_option("bsf_woocom_setting" ) ) ) { 
+		$woo_setting = "";
+	} 
+	
 	if(isset($args_event["event_desc"]) ) { 
 		$event_desc = $args_event["event_desc"]; 
 	}
@@ -617,7 +624,27 @@ function rich_snippet_dashboard() {
 			</div>
 						
 		 </div>
-	</div> ';
+	</div>
+	 ';
+	 echo '<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
+			<h3 class="get_in_touch"><p>'.__("wooCommerce Settings","rich-snippets").'</p></h3>
+			<div class="inside">
+			<form id="bsf_css_editor" method="post" action="">
+				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on product pages does not make 
+					much sense. If you could still like to enable our plugin on WooCommerce products, please enable this option..', 'rich-snippets' ).' </p>
+				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
+					<tr>
+						<th></th>
+						<td>
+							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" '.$woo_setting.' />
+						</td>
+					</tr>
+					<tr><td></td>
+						<td><input type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/></td>
+				</table>
+			</form>
+			</div>
+		</div>';
 	echo '
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.hashchange.min.js'.'"></script>
@@ -643,6 +670,20 @@ function rich_snippet_dashboard() {
 </script>';
 }
 // Update options
+
+if(isset($_POST['setting_submit']))
+{
+		$args = null;
+		if(isset($_POST["woocommerce_option"])) 
+		{
+			$args = true;
+		}	
+		else {
+			$args = false;
+		}	
+	$status = update_option('bsf_woocom_setting',$args);
+	displayStatus($status);
+}
 if(isset($_POST['item_submit']))
 {
 	foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
