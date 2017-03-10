@@ -625,7 +625,7 @@ function rich_snippet_dashboard() {
 						
 		 </div>
 	 	<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
-			<h3 class="get_in_touch"><p>'.__("WooCommerce Settings","rich-snippets").'</p></h3>
+			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
 				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on product pages does not make 
