@@ -2,9 +2,11 @@
 // Metabox for review
 function bsf_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_bsf_';
-	$post_types=get_post_types('','names');
-	if( empty( get_option("bsf_woocom_setting" ) ) ) { 
+	$prefix 		= '_bsf_';
+	$post_types 	= get_post_types('','names');
+	$woo_settings 	= get_option("bsf_woocom_setting" );
+	
+	if( empty( $woo_settings ) ) { 
 
 		$woocommerce_post_type = array( "product", "product_variation", "shop_order" , "shop_order_refund", "shop_coupon", "shop_webhook" );
 		$required_post_type = array_diff( $post_types, $woocommerce_post_type );
