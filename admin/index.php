@@ -688,6 +688,7 @@ if(isset($_POST['setting_submit']))
 		else {
 			$args = false;
 		}	
+	update_option( 'bsf_woocom_init_setting', 'done' );
 	$status = update_option('bsf_woocom_setting',$args);
 	displayStatus($status);
 }
