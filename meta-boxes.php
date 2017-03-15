@@ -4,7 +4,12 @@ function bsf_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list
 	$prefix 		= '_bsf_';
 	$post_types 	= get_post_types('','names');
-	$woo_settings 	= get_option("bsf_woocom_setting" );
+
+	if ( !get_option( 'bsf_woocom_init_setting' ) ) {
+		$woo_settings 	= true;
+	}else {
+		$woo_settings 	= get_option( 'bsf_woocom_setting' );
+	}
 	
 	if( empty( $woo_settings ) ) { 
 

@@ -21,7 +21,12 @@ add_action('admin_print_scripts', 'add_the_script');
 //The Main Admin Dashboard for Rich Snippets Plugin
 function rich_snippet_dashboard() {
 	$plugins_url = plugins_url();
-	$args_woocom = get_option('bsf_woocom_setting');
+	if ( !get_option( 'bsf_woocom_init_setting' ) ) {
+		$args_woocom = true;
+	}else {
+		$args_woocom = get_option('bsf_woocom_setting');
+	}
+	
 	$args_review = get_option('bsf_review');
 	$args_event = get_option('bsf_event');
 	$args_person = get_option('bsf_person');
@@ -33,7 +38,7 @@ function rich_snippet_dashboard() {
 	$args_service = get_option('bsf_service');
 
 	$woo_setting = '';
-	if( !empty( get_option("bsf_woocom_setting" ) ) ) { 
+	if( !empty( $args_woocom ) ) { 
 		$woo_setting = "Checked";
 	} 
 	
