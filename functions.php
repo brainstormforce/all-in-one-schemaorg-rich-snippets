@@ -10,7 +10,7 @@
  * @param  array $meta_boxes
  * @return array
  */
-add_action( 'init', 'bsf_initialize_bsf_meta_boxes', 9999 )
+add_action( 'init', 'bsf_initialize_bsf_meta_boxes', 9999 );
 // Register an action for submitting rating
 add_action( 'wp_ajax_nopriv_bsf_submit_rating', 'bsf_add_rating' );
 add_action( 'wp_ajax_bsf_submit_rating', 'bsf_add_rating' );
