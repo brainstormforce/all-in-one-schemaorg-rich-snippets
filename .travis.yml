@@ -28,4 +28,4 @@ env:
   - WP_VERSION=4.7.3 WP_MULTISITE=0
 
 script:
-  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1;
+  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi 2>&1
