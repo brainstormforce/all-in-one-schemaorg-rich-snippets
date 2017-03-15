@@ -147,6 +147,7 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function register_bsf_settings() {
 			require_once(plugin_dir_path( __FILE__ ).'settings.php');
+			add_woo_commerce_option();
 			add_review_option();
 			add_event_option();
 			add_person_option();
