@@ -83,7 +83,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 = 1.4.3 =
 * Fix: WooCommerce Support Added
 
-= 1.4.2
+= 1.4.2 =
 * Improvement: Added company/organization and address in people schema. 
 * Improvement: Added nutrition & ingredients in recipe schema. 
 * Improvement: Added software image & operating system in software application schema. 
