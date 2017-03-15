@@ -638,7 +638,7 @@ function rich_snippet_dashboard() {
 					<tr>
 						<td>
 							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" '.$woo_setting.' />
-							<label for="woocommerce_option">Enable Schema</label>
+							<label for="woocommerce_option">Enable schema on WooCommerce products</label>
 						</td>
 					</tr>
 					<tr>
