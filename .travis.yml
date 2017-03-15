@@ -47,4 +47,4 @@ before_script:
 script:
   # - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - find . \( -name '*.php' \) -exec php -lf {} \;
-  - phpunit
+  # - phpunit
