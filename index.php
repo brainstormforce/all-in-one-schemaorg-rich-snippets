@@ -5,7 +5,7 @@ Plugin URI: https://www.brainstormforce.com
 Author: Brainstorm Force
 Author URI: https://www.brainstormforce.com
 Description: The All in One Rich Snippets gives the power to the blog author to control the rich snippets to be shown in the search results by the search engines.
-Version: 1.4.3
+Version: 1.4.4
 Text Domain: rich-snippets
 License: GPL2
 */
@@ -147,6 +147,7 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function register_bsf_settings() {
 			require_once(plugin_dir_path( __FILE__ ).'settings.php');
+			add_woo_commerce_option();
 			add_review_option();
 			add_event_option();
 			add_person_option();

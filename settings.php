@@ -148,4 +148,21 @@ function add_color_option()
 	);
 	add_option('bsf_custom',$color_opt);
 }
+
+// Function for customization
+function add_woo_commerce_option()
+{
+	if ( !get_option( 'bsf_woocom_init_setting' ) ) {
+		
+		$woo_opt = false;
+		
+		if ( get_option( 'bsf_custom' ) ) {
+			$woo_opt = true;
+		}
+		
+		add_option('bsf_woocom_setting', $woo_opt);
+		add_option('bsf_woocom_init_setting', 'done');
+	}
+}
+
 ?>
