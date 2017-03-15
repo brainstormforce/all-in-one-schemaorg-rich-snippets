@@ -633,8 +633,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
-				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on product pages does not make 
-					much sense. If you could still like to enable our plugin on WooCommerce products, please enable this option..', 'rich-snippets' ).' </p>
+				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'rich-snippets' ).' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
 					<tr>
 						<td>
