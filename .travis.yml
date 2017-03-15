@@ -28,4 +28,4 @@ env:
   - WP_VERSION=4.7.3 WP_MULTISITE=0
 
 script:
-  - find . \( -name '*.php' \) -exec php -lf {} \;
+  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep "unexpected $end"; then exit 1; fi
