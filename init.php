@@ -172,13 +172,13 @@ class bsf_Meta_Box {
 					echo '<input class="bsf_colorpicker bsf_text_small ', $field['class'],'" type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta, '" /><span class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</span>';
 					break;
 				case 'textarea':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'textarea_small':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'textarea_code':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10" class="bsf_textarea_code">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10" class="bsf_textarea_code">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'select':
 					if( empty( $meta ) && !empty( $field['std'] ) ) $meta = $field['std'];

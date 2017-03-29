@@ -205,12 +205,11 @@ function display_rich_snippet($content) {
 				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['end_time'] ) ).'</div>';
 			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.esc_attr( $event_end_date ).'T00:00-00:00">'.esc_attr( $event_end_date ).'</span></div><div class="snippet-clear"></div>';
 		}
-
 		if(trim($event_description) != "")
 		{
 			if( $args_event['event_desc'] != "")
 				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['event_desc'] ) ).'</div>';
-			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( $event_description ).'</span></div><div class="snippet-clear"></div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( htmlspecialchars_decode( $event_description ) ).'</span></div><div class="snippet-clear"></div>';
 		}
 
 		if(trim($event_price) != "")
@@ -556,7 +555,7 @@ function display_rich_snippet($content) {
 				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_name'] ) ).'</div>';
 				
 			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.esc_attr( $recipes_name ).'</span></div>
-			<meta itemprop="description" content="'.esc_attr( $recipes_desc ).'" >
+			<meta itemprop="description" content="'.esc_attr( htmlspecialchars_decode( $recipes_desc ) ).'" >
 			<meta itemprop="recipeIngredient" content="'.esc_attr( $recipes_ingredient ).'" >
 			<div itemprop="nutrition"
 		    itemscope itemtype="http://schema.org/NutritionInformation">
@@ -708,7 +707,7 @@ function display_rich_snippet($content) {
 		{
 			if($args_soft['software_desc'] != "")
 				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_desc'] ) ).'</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( $software_desc ).'</span></div><div class="snippet-clear"></div>';
+			$software .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( htmlspecialchars_decode( $software_desc ) ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($software_landing) != "")
 		{
@@ -775,7 +774,7 @@ function display_rich_snippet($content) {
 		{
 			if($args_video['video_desc'] != "" )
 				$video .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_video['video_desc'] ) ).'</div>';
-			$video .= '<div class="snippet-data-img"> <p itemprop="description">'.esc_attr( $video_desc ).'</p></div><div class="snippet-clear"></div>';
+			$video .= '<div class="snippet-data-img"> <p itemprop="description">'.esc_attr( htmlspecialchars_decode( $video_desc ) ).'</p></div><div class="snippet-clear"></div>';
 		}
 		if(trim($video_thumb) != "")
 			$video .= '<meta itemprop="thumbnailUrl" content="'.esc_attr( $video_thumb ).'">';
@@ -853,7 +852,7 @@ function display_rich_snippet($content) {
 				if($args_article['article_desc'] != "")
 					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_desc'] ) ).'</div>';
 					
-				$article .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( $article_desc ).'</span></div><div class="snippet-clear"></div>';
+				$article .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $article_desc ) ).'</span></div><div class="snippet-clear"></div>';
 			}
 			if(trim($article_author) != "")
 			{
@@ -1025,9 +1024,9 @@ function display_rich_snippet($content) {
 			if(trim($service_desc) != "")
 			{
 				if($args_service['service_desc'] != "")
-					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_desc'] ) ).'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_service['service_desc'] ) ).'</div>';
 					
-				$service .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( $service_desc ).'</span></div><div class="snippet-clear"></div>';
+				$service .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $service_desc ) ).'</span></div><div class="snippet-clear"></div>';
 			}
 			
 			if(trim($service_channel) != "")
