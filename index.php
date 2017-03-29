@@ -59,7 +59,7 @@ if ( !class_exists( "RichSnippets" ) )
 				$wp_admin_bar->add_menu( array(
 				  'id' => 'aiosrs',
 				  'title' => 'Test Rich Snippets',
-				  'href' => 'https://search.google.com/structured-data/testing-tool#url='.$actual_link,
+				  'href' => 'https://search.google.com/structured-data/testing-tool#url='.esc_url( $actual_link ),
 				  'meta' => array('target' => '_blank'),
 				) );
 			}
@@ -162,25 +162,25 @@ if ( !class_exists( "RichSnippets" ) )
 		function submit_request()
 		{
 			$to = "Brainstorm Force <support@bsf.io>";
-			$from = $_POST['email'];
-			$site = $_POST['site_url'];
-			$sub = $_POST['subject'];
-			$message = $_POST['message'];
-			$name = $_POST['name'];
-			$post_url = $_POST['post_url'];
+			$from = esc_url( $_POST['email'] );
+			$site = esc_url( $_POST['site_url'] );
+			$sub = esc_url( $_POST['subject'] );
+			$message = esc_url( $_POST['message'] );
+			$name = esc_url( $_POST['name'] );
+			$post_url = esc_url( $_POST['post_url'] );
 
 			if($sub == "question")
-				$subject = "[AIOSRS] New question received from ".$name;
+				$subject = "[AIOSRS] New question received from ".__($name,"rich-snippets");
 			else if($sub == "bug")
-				$subject = "[AIOSRS] New bug found by ".$name;
+				$subject = "[AIOSRS] New bug found by ".__($name,"rich-snippets");
 			else if($sub == "help")
-				$subject = "[AIOSRS] New help request received from ".$name;
+				$subject = "[AIOSRS] New help request received from ".__($name,"rich-snippets");
 			else if($sub == "professional")
-				$subject = "[AIOSRS] New service quote request received from ".$name;
+				$subject = "[AIOSRS] New service quote request received from ".__($name,"rich-snippets");
 			else if($sub == "contribute")
-				$subject = "[AIOSRS] New development contribution request by ".$name;
+				$subject = "[AIOSRS] New development contribution request by ".__($name,"rich-snippets");
 			else if($sub == "other")
-				$subject = "[AIOSRS] New contact request received from ".$name;
+				$subject = "[AIOSRS] New contact request received from ".__($name,"rich-snippets");
 
 			$html = '
 			<html>
@@ -194,25 +194,25 @@ if ( !class_exists( "RichSnippets" ) )
 						</tr>
 						<tr>
 							<td width="22%"> Name : </td>
-							<td width="78%"> <strong>'.$name.' </strong></td>
+							<td width="78%"> <strong>'.__($name,"rich-snippets").' </strong></td>
 						</tr>
 						<tr>
 							<td> Email : </td>
-							<td> <strong>'.$from.' </strong></td>
+							<td> <strong>'.__($from,"rich-snippets").' </strong></td>
 						</tr>
 						<tr>
 							<td> Website : </td>
-							<td> <strong>'.$site.' </strong></td>
+							<td> <strong>'.__($site,"rich-snippets").' </strong></td>
 						</tr>
 						<tr>
 							<td> Ref. Post URL : </td>
-							<td> <strong>'.$post_url.' </strong></td>
+							<td> <strong>'.__($post_url,"rich-snippets").' </strong></td>
 						</tr>
 						<tr>
 							<td colspan="2"> Message : </td>
                         </tr>
                         <tr>
-							<td colspan="2"> '.$message.' </td>
+							<td colspan="2"> '.__($message,"rich-snippets").' </td>
 						</tr>
 					</table>
 				</body>
@@ -221,17 +221,20 @@ if ( !class_exists( "RichSnippets" ) )
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:'.$name.'<'.$from.'>' . "\r\n";
-			echo mail($to,$subject,$html,$headers) ? "Thank you!" : "Something went wrong!";
+			echo mail($to,$subject,$html,$headers) ? _e( "Thank you!", 'rich-snippets') : _e( "Something went wrong!", 'rich-snippets');
 
 			die();
 		}
 		function submit_color()
 		{
-			$snippet_box_bg = $_POST['snippet_box_bg'];
-			$snippet_title_bg = $_POST['snippet_title_bg'];
-			$border_color = $_POST['snippet_border'];
-			$title_color = $_POST['snippet_title_color'];
-			$box_color = $_POST['snippet_box_color'];
+			//if(!wp_verify_nonce('snippet_color_form_generate_nonce','snippet_color_form_submit')){
+			//    wp_die('Our Site is protected!!');
+			//}else{
+			$snippet_box_bg = esc_attr( $_POST['snippet_box_bg'] );
+			$snippet_title_bg = esc_attr( $_POST['snippet_title_bg'] );
+			$border_color = esc_attr( $_POST['snippet_border'] );
+			$title_color = esc_attr( $_POST['snippet_title_color'] );
+			$box_color = esc_attr( $_POST['snippet_box_color'] );
 			$color_opt = array(
 				'snippet_box_bg'	   =>	$snippet_box_bg,
 				'snippet_title_bg'	 =>	$snippet_title_bg,
@@ -239,9 +242,10 @@ if ( !class_exists( "RichSnippets" ) )
 				'snippet_title_color'  =>	$title_color,
 				'snippet_box_color'	=>	$box_color,
 			);
-			echo update_option('bsf_custom',$color_opt) ? 'Settings saved !' : 'Error occured. Satings were not saved !' ;
+			echo update_option('bsf_custom',$color_opt) ? _e( 'Settings saved !', 'rich-snippets') : _e( 'Error occured. Satings were not saved !', 'rich-snippets' );
 
 			die();
+			//}
 		}
 		function iris_enqueue_scripts()
 		{
