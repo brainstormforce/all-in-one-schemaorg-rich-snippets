@@ -227,27 +227,33 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function submit_color()
 		{
-			if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' ) 
-			) {
-			   print 'Sorry, your nonce did not verify.';
-			   exit;
-			} 
+			if ( ! current_user_can( 'manage_options'  ) ) {
+				// return if current user is not allowed to manage options.
+				return;
+			}
 			else {
-			$snippet_box_bg = esc_attr( $_POST['snippet_box_bg'] );
-			$snippet_title_bg = esc_attr( $_POST['snippet_title_bg'] );
-			$border_color = esc_attr( $_POST['snippet_border'] );
-			$title_color = esc_attr( $_POST['snippet_title_color'] );
-			$box_color = esc_attr( $_POST['snippet_box_color'] );
-			$color_opt = array(
-				'snippet_box_bg'	   =>	$snippet_box_bg,
-				'snippet_title_bg'	 =>	$snippet_title_bg,
-				'snippet_border'	   =>	$border_color,
-				'snippet_title_color'  =>	$title_color,
-				'snippet_box_color'	=>	$box_color,
-			);
-			echo update_option('bsf_custom',$color_opt) ? _e( 'Settings saved !', 'rich-snippets') : _e( 'Error occured. Satings were not saved !', 'rich-snippets' );
+				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' ) 
+				) {
+				   print 'Sorry, your nonce did not verify.';
+				   exit;
+				} 
+				else {
+				$snippet_box_bg = esc_attr( $_POST['snippet_box_bg'] );
+				$snippet_title_bg = esc_attr( $_POST['snippet_title_bg'] );
+				$border_color = esc_attr( $_POST['snippet_border'] );
+				$title_color = esc_attr( $_POST['snippet_title_color'] );
+				$box_color = esc_attr( $_POST['snippet_box_color'] );
+				$color_opt = array(
+					'snippet_box_bg'	   =>	$snippet_box_bg,
+					'snippet_title_bg'	 =>	$snippet_title_bg,
+					'snippet_border'	   =>	$border_color,
+					'snippet_title_color'  =>	$title_color,
+					'snippet_box_color'	=>	$box_color,
+				);
+				echo update_option('bsf_custom',$color_opt) ? _e( 'Settings saved !', 'rich-snippets') : _e( 'Error occured. Satings were not saved !', 'rich-snippets' );
 
-			die();
+				die();
+				}
 			}
 		}
 		function iris_enqueue_scripts()
