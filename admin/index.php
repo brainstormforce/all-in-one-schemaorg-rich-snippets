@@ -94,6 +94,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>'.__("Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_review_form" method="post">
+										'.wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -134,6 +135,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>'.__("Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_event_form" method="post">
+										'.wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -182,6 +184,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_person_form" method="post">
+										'.wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -230,6 +233,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_product_form" method="post">
+										'.wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -278,6 +282,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_recipe_form" method="post">
+										'.wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -334,6 +339,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_software_form" method="post">
+										'.wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -384,6 +390,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_video_form" method="post">
+										'.wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -424,6 +431,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_article_form" method="post">
+										'.wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -472,6 +480,7 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_service_form" method="post">
+										'.wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -593,7 +602,7 @@ function rich_snippet_dashboard() {
 										<h3 class="hndle">'.__("<span>Customize the look and feel of rich snippet box</span>","rich-snippets").'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
-											'.wp_nonce_field( 'snippet_color_form_submit', 'snippet_color_form_generate_nonce' ).'
+											'.wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tr>
 													<th> <label for="snippet_box_bg"> '.__('Box Background ', 'rich-snippets').' </label> </th>
@@ -634,6 +643,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
+			'.wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ).'
 				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'rich-snippets' ).' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
 					<tr>
@@ -680,6 +690,12 @@ function rich_snippet_dashboard() {
 
 if(isset($_POST['setting_submit']))
 {
+	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
 		$args = null;
 		if(isset($_POST["woocommerce_option"])) 
 		{
@@ -688,117 +704,181 @@ if(isset($_POST['setting_submit']))
 		else {
 			$args = false;
 		}	
-	update_option( 'bsf_woocom_init_setting', 'done' );
-	$status = update_option('bsf_woocom_setting',$args);
-	displayStatus($status);
+		update_option( 'bsf_woocom_init_setting', 'done' );
+		$status = update_option('bsf_woocom_setting',$args);
+		displayStatus($status);
+	}
 }
 if(isset($_POST['item_submit']))
 {
-	foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_review',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_review',$args);
-	displayStatus($status);
 }
 if(isset($_POST['event_submit']))
 {
-	foreach(array('snippet_title','event_title','event_location','event_performer','start_time','end_time','event_desc','events_price') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','event_title','event_location','event_performer','start_time','end_time','event_desc','events_price') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_event',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_event',$args);
-	displayStatus($status);
 }
 if(isset($_POST['person_submit']))
 {
-	foreach(array('snippet_title','person_name','person_nickname','person_job_title','person_website','person_company','person_address') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','person_name','person_nickname','person_job_title','person_website','person_company','person_address') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_person',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_person',$args);
-	displayStatus($status);
 }
 if(isset($_POST['product_submit']))
 {
-	foreach(array('snippet_title','product_rating','product_brand','product_name','product_agr','product_price','product_avail') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','product_rating','product_brand','product_name','product_agr','product_price','product_avail') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_product',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_product',$args);
-	displayStatus($status);
 }
 if(isset($_POST['recipe_submit']))
 {
-	foreach(array('snippet_title','recipe_name','author_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_desc','recipe_rating') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','recipe_name','author_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_desc','recipe_rating') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_recipe',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_recipe',$args);
-	displayStatus($status);
 }
 if(isset($_POST['software_submit']))
 {
-	foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_software',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_software',$args);
-	displayStatus($status);
 }
 if(isset($_POST['video_submit']))
 {
-	foreach(array('snippet_title','video_title','video_desc','video_time','video_date') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','video_title','video_desc','video_time','video_date') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_video',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_video',$args);
-	displayStatus($status);
 }
 if(isset($_POST['article_submit']))
 {
-	foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_article',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_article',$args);
-	displayStatus($status);
 }
 if(isset($_POST['service_submit']))
 {
-	foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','provider_location','service_rating','service_channel','service_url_link') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','provider_location','service_rating','service_channel','service_url_link') as $option)
 		{
-			$args[$option] = esc_attr( $_POST[$option] );
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_service',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_service',$args);
-	displayStatus($status);
 }
 function displayStatus($status) {
 	if($status)

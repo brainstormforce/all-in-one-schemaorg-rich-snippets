@@ -227,9 +227,12 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function submit_color()
 		{
-			//if(!wp_verify_nonce('snippet_color_form_generate_nonce','snippet_color_form_submit')){
-			//    wp_die('Our Site is protected!!');
-			//}else{
+			if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' ) 
+			) {
+			   print 'Sorry, your nonce did not verify.';
+			   exit;
+			} 
+			else {
 			$snippet_box_bg = esc_attr( $_POST['snippet_box_bg'] );
 			$snippet_title_bg = esc_attr( $_POST['snippet_title_bg'] );
 			$border_color = esc_attr( $_POST['snippet_border'] );
@@ -245,7 +248,7 @@ if ( !class_exists( "RichSnippets" ) )
 			echo update_option('bsf_custom',$color_opt) ? _e( 'Settings saved !', 'rich-snippets') : _e( 'Error occured. Satings were not saved !', 'rich-snippets' );
 
 			die();
-			//}
+			}
 		}
 		function iris_enqueue_scripts()
 		{
