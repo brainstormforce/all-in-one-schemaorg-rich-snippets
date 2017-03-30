@@ -51,7 +51,7 @@ if ( !class_exists( "RichSnippets" ) )
 		function aiosrs_admin_bar()
 		{
 			global $wp_admin_bar;
-			$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+			$actual_link = esc_url( "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" );
 			if ( ! is_super_admin() || ! is_admin_bar_showing() )
 			  return;
 			if(!is_admin())
@@ -59,7 +59,7 @@ if ( !class_exists( "RichSnippets" ) )
 				$wp_admin_bar->add_menu( array(
 				  'id' => 'aiosrs',
 				  'title' => 'Test Rich Snippets',
-				  'href' => 'https://search.google.com/structured-data/testing-tool#url='.esc_url( $actual_link ),
+				  'href' => 'https://search.google.com/structured-data/testing-tool#url='. $actual_link,
 				  'meta' => array('target' => '_blank'),
 				) );
 			}

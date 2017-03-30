@@ -536,14 +536,14 @@ function bsf_oembed_ajax_results() {
 		$oembed_url = esc_url( $oembed_string );
 		// Post ID is needed to check for embeds
 		if ( isset( $_REQUEST['post_id'] ) )
-			$GLOBALS['post'] = get_post( $_REQUEST['post_id'] );
+			$GLOBALS['post'] = get_post( esc_attr( $_REQUEST['post_id'] ) );
 		// ping WordPress for an embed
 		$check_embed = $wp_embed->run_shortcode( '[embed]'. $oembed_url .'[/embed]' );
 		// fallback that WordPress creates when no oEmbed was found
 		$fallback = $wp_embed->maybe_make_link( $oembed_url );
 		if ( $check_embed && $check_embed != $fallback ) {
 			// Embed data
-			$return = '<div class="embed_status">'. $check_embed .'<a href="#" class="bsf_remove_file_button" rel="'. $_REQUEST['field_id'] .'">'. __( 'Remove Embed', 'cmb' ) .'</a></div>';
+			$return = '<div class="embed_status">'. $check_embed .'<a href="#" class="bsf_remove_file_button" rel="'. esc_attr( $_REQUEST['field_id'] ) .'">'. __( 'Remove Embed', 'cmb' ) .'</a></div>';
 			// set our response id
 			$found = 'found';
 		} else {
