@@ -161,26 +161,26 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function submit_request()
 		{
-			$to = "Brainstorm Force <support@bsf.io>";
-			$from = esc_url( $_POST['email'] );
-			$site = esc_url( $_POST['site_url'] );
-			$sub = esc_url( $_POST['subject'] );
-			$message = esc_url( $_POST['message'] );
-			$name = esc_url( $_POST['name'] );
-			$post_url = esc_url( $_POST['post_url'] );
+			$to 	 	= "Brainstorm Force <support@bsf.io>";
+			$from 	 	= sanitize_email( $_POST['email'] );
+			$site 	 	= esc_url( $_POST['site_url'] );
+			$sub 	 	= sanitize_text_field( $_POST['subject'] );
+			$message 	= esc_html( $_POST['message'] );
+			$name 	 	= sanitize_text_field( $_POST['name'] );
+			$post_url 	= esc_url( $_POST['post_url'] );
 
 			if($sub == "question")
-				$subject = "[AIOSRS] New question received from ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New question received from ".$name;
 			else if($sub == "bug")
-				$subject = "[AIOSRS] New bug found by ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New bug found by ".$name;
 			else if($sub == "help")
-				$subject = "[AIOSRS] New help request received from ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New help request received from ".$name;
 			else if($sub == "professional")
-				$subject = "[AIOSRS] New service quote request received from ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New service quote request received from ".$name;
 			else if($sub == "contribute")
-				$subject = "[AIOSRS] New development contribution request by ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New development contribution request by ".$name;
 			else if($sub == "other")
-				$subject = "[AIOSRS] New contact request received from ".__($name,"rich-snippets");
+				$subject = "[AIOSRS] New contact request received from ".$name;
 
 			$html = '
 			<html>
@@ -194,25 +194,25 @@ if ( !class_exists( "RichSnippets" ) )
 						</tr>
 						<tr>
 							<td width="22%"> Name : </td>
-							<td width="78%"> <strong>'.__($name,"rich-snippets").' </strong></td>
+							<td width="78%"> <strong>'.$name.' </strong></td>
 						</tr>
 						<tr>
 							<td> Email : </td>
-							<td> <strong>'.__($from,"rich-snippets").' </strong></td>
+							<td> <strong>'.$from.' </strong></td>
 						</tr>
 						<tr>
 							<td> Website : </td>
-							<td> <strong>'.__($site,"rich-snippets").' </strong></td>
+							<td> <strong>'.$site.' </strong></td>
 						</tr>
 						<tr>
 							<td> Ref. Post URL : </td>
-							<td> <strong>'.__($post_url,"rich-snippets").' </strong></td>
+							<td> <strong>'.$post_url.' </strong></td>
 						</tr>
 						<tr>
 							<td colspan="2"> Message : </td>
                         </tr>
                         <tr>
-							<td colspan="2"> '.__($message,"rich-snippets").' </td>
+							<td colspan="2"> '.$message.' </td>
 						</tr>
 					</table>
 				</body>
