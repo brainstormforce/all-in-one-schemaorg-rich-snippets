@@ -64,10 +64,10 @@ function display_rich_snippet($content) {
 	
 		$args_review = get_option('bsf_review');		
 		$review = '';
-		$review .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$review .= '<div id="snippet-box" style="background:'.esc_attr($args_color["snippet_box_bg"] ).'; color:'.esc_attr($args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr($args_color["snippet_border"] ).';">';
 				
 		if($args_review['review_title'] != "")
-			$review .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_review['review_title'].'</div>';
+			$review .= '<div class="snippet-title" style="background:'.esc_attr($args_color["snippet_title_bg"] ).'; color:'.esc_attr($args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr($args_color["snippet_border"] ).';">'.esc_attr(stripslashes( $args_review['review_title'] ) ).'</div>';
 		$review .= '<div class="snippet-markup" itemscope itemtype="http://schema.org/Review">';
 		$item = get_post_meta( $post->ID, '_bsf_item_name', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
@@ -77,27 +77,27 @@ function display_rich_snippet($content) {
 		{
 			if($args_review['item_reviewer'] != "")
 				$review .= '<span itemprop="author" itemscope itemtype="http://schema.org/Person">';
-				$review .= "<div class='snippet-label'>".$args_review['item_reviewer']."</div>";
-			$review .= " <div class='snippet-data'><span itemprop='name'>".$reviewer."</span></div></span>";
+				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_reviewer'] ) )."</div>";
+			$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $reviewer ) )."</span></div></span>";
 		}
 		if(isset($args_review['review_date']))
 		{
 			if( $args_review['review_date'] != "")
-				$review .= "<div class='snippet-label'>".$args_review['review_date'] ."</div>";
-			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".get_the_time( 'c' )."'>".$post_date."</time></div>";
+				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['review_date'] ) ) ."</div>";
+			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".get_the_time( 'c' )."'>".esc_attr( $post_date )."</time></div>";
 		}
 		if(trim($item) != "")
 		{
 			if( $args_review['item_name'] != "")
-				$review .= "<div class='snippet-label'>".$args_review['item_name']."</div>";
-			$review .= "<div class='snippet-data'> <span itemprop='itemReviewed'>".$item."</span></div>";
+				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_name'] ) )."</div>";
+			$review .= "<div class='snippet-data'> <span itemprop='itemReviewed'>".esc_attr($item )."</span></div>";
 		}
 		if(trim($rating) != "")
 		{
 			if( $args_review['item_rating'] != "")
-				$review .= "<div class='snippet-label'>".$args_review['item_rating']."</div>";
+				$review .= "<div class='snippet-label'>".esc_attr(stripslashes(  $args_review['item_rating'] ) )."</div>";
 			
-			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".$rating."</span></span><span class='star-img'>";
+			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".esc_attr( $rating )."</span></span><span class='star-img'>";
 			for($i = 1; $i<=ceil($rating); $i++)
 			{
 				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">';
@@ -128,10 +128,10 @@ function display_rich_snippet($content) {
 		
 		$event = '';
 		
-		$event .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$event .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_event['snippet_title'] != "")
-			$event .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_event['snippet_title'].'</div>';
+			$event .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_event['snippet_title'] ) ).'</div>';
 		$event .= '<div itemscope itemtype="http://schema.org/Event">';
 		$event_title = get_post_meta( $post->ID, '_bsf_event_title', true );
 		$event_org = get_post_meta( $post->ID, '_bsf_event_organization', true );
@@ -150,7 +150,7 @@ function display_rich_snippet($content) {
 
 		if(trim($event_image) != "")
 		{
-			$event .= '<div class="snippet-image"><img width="180" src="'.$event_image.'" itemprop="image" alt="event" /></div>';
+			$event .= '<div class="snippet-image"><img width="180" src="'.esc_url( $event_image ).'" itemprop="image" alt="event" /></div>';
 		}
 		else
 		{
@@ -165,28 +165,28 @@ function display_rich_snippet($content) {
 		if(trim($event_title) != "")
 		{
 			if( $args_event['event_title'])
-				$event .= '<div class="snippet-label-img">'.$args_event['event_title'].'</div>';
-			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.$event_title.'</span></div>
-			<meta itemprop="url" content="'.$event_ticket_url.'">
+				$event .= '<div class="snippet-label-img">'.esc_attr(stripslashes( $args_event['event_title']) ).'</div>';
+			$event .=' <div class="snippet-data-img">​<span itemprop="name">'.esc_attr( $event_title ).'</span></div>
+			<meta itemprop="url" content="'.esc_attr( $event_ticket_url ).'">
 			<div class="snippet-clear"></div>';
 		}
 		if(trim($event_org) != "")
 		{
 			if( $args_event['event_location'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['event_location'].'</div>';
+				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['event_location'] ) ).'</div>';
 			$event .=' <div class="snippet-data-img"> 
 				​<span itemprop="location" itemscope itemtype="http://schema.org/Place">
-							<span itemprop="name">'.$event_org.'</span>,';
+							<span itemprop="name">'.esc_attr( $event_org ).'</span>,';
 		}
 		if(trim($event_street) != "")
 			$event .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							  <span itemprop="streetAddress">'.$event_street.'</span>,';
+							  <span itemprop="streetAddress">'.esc_attr( $event_street ).'</span>,';
 		if(trim($event_local) != "")
-			$event .= '<span itemprop="addressLocality">'.$event_local.'</span>,';
+			$event .= '<span itemprop="addressLocality">'.esc_attr( $event_local ).'</span>,';
 		if(trim($event_region) != "")
-			$event .= '<span itemprop="addressRegion">'.$event_region.'</span>';
+			$event .= '<span itemprop="addressRegion">'.esc_attr( $event_region ).'</span>';
 		if(trim($event_postal_code) != "")
-			$event .= '-<span itemprop="postalCode">'.$event_postal_code.'</span>';
+			$event .= '-<span itemprop="postalCode">'.esc_attr( $event_postal_code ).'</span>';
 		$event .= '</span>';
 
 		$event .='</span>
@@ -195,30 +195,29 @@ function display_rich_snippet($content) {
 		if(trim($event_start_date) != "")
 		{
 			if( $args_event['start_time'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['start_time'].'</div>';
+				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['start_time'] ) ).'</div>';
 	
-			$event .= ' <div class="snippet-data-img"> <span itemprop="startDate" datetime="'.$event_start_date.'T00:00-00:00">'.$event_start_date.'</span></div><div class="snippet-clear"></div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="startDate" datetime="'.esc_attr( $event_start_date ).'T00:00-00:00">'.esc_attr( $event_start_date ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($event_end_date) != "")
 		{
 			if( $args_event['end_time'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['end_time'].'</div>';
-			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.$event_end_date.'T00:00-00:00">'.$event_end_date.'</span></div><div class="snippet-clear"></div>';
+				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['end_time'] ) ).'</div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="'.esc_attr( $event_end_date ).'T00:00-00:00">'.esc_attr( $event_end_date ).'</span></div><div class="snippet-clear"></div>';
 		}
-
 		if(trim($event_description) != "")
 		{
 			if( $args_event['event_desc'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['event_desc'].'</div>';
-			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.$event_description.'</span></div><div class="snippet-clear"></div>';
+				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['event_desc'] ) ).'</div>';
+			$event .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( htmlspecialchars_decode( $event_description ) ).'</span></div><div class="snippet-clear"></div>';
 		}
 
 		if(trim($event_price) != "")
 		{
 			if($args_event['events_price'] != "")
-				$event .= '<div class="snippet-label-img">'.$args_event['events_price'].'</div>';
+				$event .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_event['events_price'] ) ).'</div>';
 			$event .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<span itemprop="priceCurrency">'.$event_cur.'</span><span itemprop="price">'.' '.$event_price.'</span><br><a itemprop="url" href="'.$event_ticket_url.'">Buy Tickets</a></div><div class="snippet-clear"></div>';
+			<span itemprop="priceCurrency">'.esc_attr( $event_cur ).'</span><span itemprop="price">'.' '.esc_attr( $event_price ).'</span><br><a itemprop="url" href="'.esc_url( $event_ticket_url ).'">Buy Tickets</a></div><div class="snippet-clear"></div>';
 		}
 
 		$event .= '</div>
@@ -253,33 +252,33 @@ function display_rich_snippet($content) {
 		$org_latitude = get_post_meta( $post->ID,'_bsf_organization_latitude', true );
 		$org_longitude = get_post_meta( $post->ID,'_bsf_organization_longitude', true );
 		if(trim($org_name) != "")
-			$organization .= 'Organization Name : <span property="v:name">'.$org_name.'</span></div>';
+			$organization .= 'Organization Name : <span property="v:name">'.esc_attr( $org_nam ).'</span></div>';
 		if(trim($org_url) != "")
-			$organization .= 'Website : <a href="'.$org_url.'" rel="v:url">'.$org_url.'</a></div>';
+			$organization .= 'Website : <a href="'.esc_url( $org_url ).'" rel="v:url">'.esc_attr( $org_url ).'</a></div>';
 		if(trim($org_tel) != "")
-			$organization .= 'Telephone No. : <span property="v:tel">'.$org_tel.'</span></div>';
+			$organization .= 'Telephone No. : <span property="v:tel">'.esc_attr( $org_tel ).'</span></div>';
 		if(trim($org_street) != "")
 			$organization .= 'Address : 
 			<span rel="v:address">
 				<span typeof="v:Address">
-					<span property="v:street-address">'.$org_street.'</span>';
+					<span property="v:street-address">'.esc_attr( $org_street ).'</span>';
 		if(trim($org_local) != "")
-			$organization .= '<span property="v:locality">'.$org_local.'</span>';
+			$organization .= '<span property="v:locality">'.esc_attr( $org_local ).'</span>';
 		if(trim($org_region) != "")
-			$organization .= '<span property="v:region">'.$org_region.'</span>';
+			$organization .= '<span property="v:region">'.esc_attr( $org_region ).'</span>';
 		if(trim($org_zip) != "")
-			$organization .= '<span property="v:postal-code">'.$org_zip.'</span>';
+			$organization .= '<span property="v:postal-code">'.esc_attr( $org_zip ).'</span>';
 		if(trim($org_country) != "")
-			$organization .= '<span property="v:country-name">'.$org_country.'</span>
+			$organization .= '<span property="v:country-name">'.esc_attr( $org_country ).'</span>
 					</span>
 				</span>';
 		if(trim($org_latitude) != "")
 			$organization .= 'GEO Location :
 			<span rel="v:geo">
 				<span typeof="v:Geo">
-						 <span property="v:latitude" content="'.$org_latitude.'">'.$org_latitude.'</span> - ';
+						 <span property="v:latitude" content="'.esc_attr( $org_latitude ).'">'.esc_attr( $org_latitude ).'</span> - ';
 		if(trim($org_longitude) != "")
-			$organization .= '<span property="v:longitude" content="'.$org_longitude.'">'.$org_longitude.'</span>
+			$organization .= '<span property="v:longitude" content="'.esc_attr( $org_longitude ).'">'.esc_attr( $org_longitude ).'</span>
 				</span>
 			</span>';
 		$organization .= '</div><div style="clear:both;"></div>';
@@ -302,10 +301,10 @@ function display_rich_snippet($content) {
 		
 		$people = '';
 		
-		$people .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$people .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_person['snippet_title'] != "")
-			$people .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_person['snippet_title'].'</div>';
+			$people .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_person['snippet_title'] ) ).'</div>';
 		$people .= '<div itemscope itemtype="http://schema.org/Person"">';
 		$people_fn = get_post_meta( $post->ID, '_bsf_people_fn', true );
 		$people_nickname = get_post_meta( $post->ID, '_bsf_people_nickname', true );
@@ -321,7 +320,7 @@ function display_rich_snippet($content) {
 		
 		if(trim($people_photo) != "")
 		{
-			$people .= '<div class="snippet-image"><img width="180" src="'.$people_photo.'" itemprop="image" alt="Photo of'.$people_fn.'" /></div>';	
+			$people .= '<div class="snippet-image"><img width="180" src="'.esc_url( $people_photo ).'" itemprop="image" alt="Photo of'.esc_attr( $people_fn ).'" /></div>';	
 		}
 		else
 		{
@@ -335,55 +334,55 @@ function display_rich_snippet($content) {
 		if(trim($people_fn) != "")
 		{
 			if($args_person['person_name'] != "")
-				$people .= '<div class="snippet-label-img">'.$args_person['person_name'].'</div> ';
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_person['person_name'] ) ).'</div> ';
 				
-			$people .= '<div class="snippet-data-img"><span itemprop="name">'.$people_fn.'</span></div><div class="snippet-clear"></div>';
+			$people .= '<div class="snippet-data-img"><span itemprop="name">'.esc_attr( $people_fn ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($people_nickname) != "")
 		{
 			if($args_person['person_nickname'] != "")
-				$people .= '<div class="snippet-label-img">'.$args_person['person_nickname'].'</div> ';
-			$people .= '<div class="snippet-data-img"> (<span itemprop="additionalName">'.$people_nickname.'</span>)</div><div class="snippet-clear"></div>';	
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_person['person_nickname'] ) ).'</div> ';
+			$people .= '<div class="snippet-data-img"> (<span itemprop="additionalName">'.esc_attr( $people_nickname ).'</span>)</div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_website) != "")
 		{
 			if($args_person['person_website'] != "")
-				$people .= '<div class="snippet-label-img">'.$args_person['person_website'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <a href="'.$people_website.'" itemprop="url">'.$people_website.'</a></div><div class="snippet-clear"></div>';	
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_person['person_website'] ) ).'</div> ';
+			$people .= '<div class="snippet-data-img"> <a href="'.esc_url( $people_website ).'" itemprop="url">'.esc_attr( $people_website ).'</a></div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_job_title) != "")
 		{
 			if($args_person['person_job_title'] != "")
-				$people .= '<div class="snippet-label-img">'.$args_person['person_job_title'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span itemprop="jobTitle">'.$people_job_title.'</span></div><div class="snippet-clear"></div>';	
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_person['person_job_title'] ) ).'</div> ';
+			$people .= '<div class="snippet-data-img"> <span itemprop="jobTitle">'.esc_attr( $people_job_title ).'</span></div><div class="snippet-clear"></div>';	
 		}
 		if(trim($people_company) != "")
 		{
 			if($args_person['person_company'] != "")
 				$people .= '<div itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">';
-				$people .= '<div class="snippet-label-img">'.$args_person['person_company'].'</div> ';
-			$people .= '<div class="snippet-data-img"> <span itemprop="name">'.$people_company.'</span></div><div class="snippet-clear"></div>';	
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_person['person_company'] ) ).'</div> ';
+			$people .= '<div class="snippet-data-img"> <span itemprop="name">'.esc_attr( $people_company ).'</span></div><div class="snippet-clear"></div>';	
 			$people .= '</div>';
 		}
 
 		if(trim($people_street) != "")
 		{
 			if($args_person['person_address'] != "")
-				$people .= '<div class="snippet-label-img">'.$args_person['person_address'].'</div> ';
+				$people .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_person['person_address'] ) ).'</div> ';
 				$people .= '<div class="snippet-data-img">';
 					$people .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
-						$people .= '<span itemprop="streetAddress">'.$people_street.'</span>,<br>';	
+						$people .= '<span itemprop="streetAddress">'.esc_attr( $people_street ).'</span>,<br>';	
 						if(trim($people_local) != "")
 						{
-							$people .=	'<span itemprop="addressLocality">'.$people_local.'</span>, ';	
+							$people .=	'<span itemprop="addressLocality">'.esc_attr( $people_local ).'</span>, ';	
 						}
 						if(trim($people_region) != "")
 						{
-							$people .= '<span itemprop="addressRegion">'.$people_region.'</span>, ';
+							$people .= '<span itemprop="addressRegion">'.esc_attr( $people_region ).'</span>, ';
 						}
 						if(trim($people_postal) != "")
 						{
-							$people .= '<span itemprop="postalCode">'.$people_postal.'</span>';
+							$people .= '<span itemprop="postalCode">'.esc_attr( $people_postal ).'</span>';
 						}			
 					$people .= '</span>';
 				$people .= '</div>';
@@ -405,9 +404,9 @@ function display_rich_snippet($content) {
 		global $post;
 		$args_product = get_option('bsf_product');
 		$product = '';
-		$product .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$product .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		if($args_product['snippet_title'] != "")
-			$product .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_product['snippet_title'];
+			$product .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_product['snippet_title'] ) );
 		$product .= bsf_do_rating();
 		
 		$product .= '</div>';
@@ -430,7 +429,7 @@ function display_rich_snippet($content) {
 			$availability = "Pre-Order Only";
 		if(trim($product_image) != "")
 		{
-			$product .= '<div class="snippet-image"><img width="180" src="'.$product_image.'" itemprop="image" alt="product image" /></div>';
+			$product .= '<div class="snippet-image"><img width="180" src="'.esc_url($product_image ).'" itemprop="image" alt="product image" /></div>';
 		}
 		else
 		{
@@ -461,7 +460,7 @@ function display_rich_snippet($content) {
 		$product .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
 		if($args_product['product_agr'] != "")
 		{
-			$product .= '<div class="snippet-label-img">'.$args_product['product_agr'].'</div>';
+			$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_agr'] ) ).'</div>';
 		}
 		$product .= '<div class="snippet-data-img">';
 		$product .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
@@ -471,29 +470,29 @@ function display_rich_snippet($content) {
 		if(trim($product_brand) != "")
 		{
 			if($args_product['product_brand'] != "")
-				$product .= '<div class="snippet-label-img">'.$args_product['product_brand'].'</div>';
-			$product .= ' <div class="snippet-data-img"> <span itemprop="brand">'.$product_brand.'</span></div><div class="snippet-clear"></div>';
+				$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_brand'] ) ).'</div>';
+			$product .= ' <div class="snippet-data-img"> <span itemprop="brand">'.esc_attr( $product_brand ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($product_name) != "")
 		{
 			if($args_product['product_name'] != "")
-				$product .= '<div class="snippet-label-img">'.$args_product['product_name'].'</div>';
-			$product .= ' <div class="snippet-data-img"> <span itemprop="name">'.$product_name.'</span></div><div class="snippet-clear"></div>';
+				$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_name'] ) ).'</div>';
+			$product .= ' <div class="snippet-data-img"> <span itemprop="name">'.esc_attr( $product_name ).'</span></div><div class="snippet-clear"></div>';
 		}
 
 		
 		if(trim($product_price) != "")
 		{
 			if($args_product['product_price'] != "")
-				$product .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label-img">'.$args_product['product_price'].'</div>';
+				$product .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_price'] ) ).'</div>';
 			$product .= '<div class="snippet-data-img"> 
-			<span itemprop="priceCurrency">'.$product_cur.'</span><span itemprop="price">'.' '.$product_price.'</span></div>';
+			<span itemprop="priceCurrency">'.esc_attr( $product_cur ).'</span><span itemprop="price">'.' '.esc_attr( $product_price ).'</span></div>';
 			
 			if(trim($product_status) != "")
 			{
 				if($args_product['product_avail'] != "")
-					$product .= '<div class="snippet-label-img">'.$args_product['product_avail'].'</div>';
-				$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.$product_status.'">'.$availability.'</span></span></div><div class="snippet-clear"></div>';		
+					$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_avail'] ) ).'</div>';
+				$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.esc_attr( $product_status ).'">'.esc_attr( $availability ).'</span></span></div><div class="snippet-clear"></div>';		
 			}
 			$product .= '</div><div class="snippet-clear"></div>';
 		}
@@ -515,13 +514,13 @@ function display_rich_snippet($content) {
 		global $post;
 		$recipe = '';
 		
-		$recipe .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$recipe .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		$args_recipe = get_option('bsf_recipe');
 		
 		if($args_recipe['snippet_title'] != "" )
 		{
-			$recipe .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_recipe['snippet_title'];
+			$recipe .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_recipe['snippet_title'] ) );
 			$recipe .= bsf_do_rating();
 		}
 		$recipe .= '</div>';
@@ -539,7 +538,7 @@ function display_rich_snippet($content) {
 		$agregate = average_rating();
 		if(trim($recipes_photo) != "")
 		{
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.$recipes_photo.'" alt="recipe image"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.esc_url( $recipes_photo ).'" alt="recipe image"/></div>';
 		}
 		else
 		{
@@ -553,46 +552,46 @@ function display_rich_snippet($content) {
 		if(trim($recipes_name) != "")
 		{
 			if($args_recipe['recipe_name'] != "")
-				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_name'].'</div>';
+				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_name'] ) ).'</div>';
 				
-			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.$recipes_name.'</span></div>
-			<meta itemprop="description" content="'.$recipes_desc.'" >
-			<meta itemprop="recipeIngredient" content="'.$recipes_ingredient.'" >
+			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.esc_attr( $recipes_name ).'</span></div>
+			<meta itemprop="description" content="'.esc_attr( htmlspecialchars_decode( $recipes_desc ) ).'" >
+			<meta itemprop="recipeIngredient" content="'.esc_attr( $recipes_ingredient ).'" >
 			<div itemprop="nutrition"
 		    itemscope itemtype="http://schema.org/NutritionInformation">
-		    <meta itemprop="calories" content="'.$recipes_nutrition.'" ></div>
+		    <meta itemprop="calories" content="'.esc_attr( $recipes_nutrition ).'" ></div>
 			<div class="snippet-clear"></div>';
 		}
 		if(trim($authors_name) != "")
 		{
 			if($args_recipe['author_name'] != "")
-				$recipe .= '<div class="snippet-label-img">'.$args_recipe['author_name'].'</div>';
+				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['author_name'] ) ).'</div>';
 				
-			$recipe .= '<div class="snippet-data-img"><span itemprop="author">'.$authors_name.'</span></div><div class="snippet-clear"></div>';
+			$recipe .= '<div class="snippet-data-img"><span itemprop="author">'.esc_attr( $authors_name ).'</span></div><div class="snippet-clear"></div>';
 		}
-		$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_pub'].' </div><div class="snippet-data-img"><time datetime="'.get_the_time( 'c' ).'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
+		$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_pub'] ) ).' </div><div class="snippet-data-img"><time datetime="'.get_the_time( 'c' ).'" itemprop="datePublished">'.get_the_date('Y-m-d').'</time></div><div class="snippet-clear"></div>';
 		if(trim($recipes_preptime) != "")
 		{
 			if($args_recipe['recipe_prep'] != "")
-				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_prep'].'</div>';
-			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_preptime.'" itemprop="prepTime">'.$recipes_preptime.'</time></div><div class="snippet-clear"></div>';
+				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_prep'] ) ).'</div>';
+			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.esc_attr( $recipes_preptime ).'" itemprop="prepTime">'.esc_attr( $recipes_preptime ).'</time></div><div class="snippet-clear"></div>';
 		}
 		if(trim($recipes_cooktime) != "")
 		{
 			if($args_recipe['recipe_cook'] != "")
-				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_cook'].'</div>';
-			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_cooktime.'" itemprop="cookTime">'.$recipes_cooktime.'</time></div><div class="snippet-clear"></div> ';
+				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_cook'] ) ).'</div>';
+			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.esc_attr( $recipes_cooktime ).'" itemprop="cookTime">'.esc_attr( $recipes_cooktime ).'</time></div><div class="snippet-clear"></div> ';
 		}
 		if(trim($recipes_totaltime) != "")
 		{
 			if($args_recipe['recipe_time'] != "")
-				$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_time'].'</div>';
-			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.$recipes_totaltime.'" itemprop="totalTime">'.$recipes_totaltime.'</time></div><div class="snippet-clear"></div>';
+				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_time'] ) ).'</div>';
+			$recipe .= '<div class="snippet-data-img"> <time datetime="PT'.esc_attr( $recipes_totaltime ).'" itemprop="totalTime">'.esc_attr( $recipes_totaltime ).'</time></div><div class="snippet-clear"></div>';
 		}
 		if($args_recipe['recipe_rating'] != "" && $count > 0)
 		{
-			$recipe .= '<div class="snippet-label-img">'.$args_recipe['recipe_rating'].'</div>';
-			$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.$agregate.'</span><span class="star-img">';
+			$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_recipe['recipe_rating'] ) ).'</div>';
+			$recipe .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">'.esc_attr( $agregate ).'</span><span class="star-img">';
 			for($i = 1; $i<=ceil($agregate); $i++)
 			{
 				$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">'; 
@@ -602,7 +601,7 @@ function display_rich_snippet($content) {
 				if($j)
 					$recipe .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
-			$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.$count.'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
+			$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>'.esc_attr( $count ).'</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
 		}
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
@@ -623,9 +622,9 @@ function display_rich_snippet($content) {
 		$args_soft = get_option('bsf_software');	
 		$software = '';
 		
-		$software .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$software .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		if($args_soft['snippet_title'] != "" )
-			$software .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_soft['snippet_title'];
+			$software .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_soft['snippet_title'] ) );
 		
 		$software .= bsf_do_rating();
 		$software .= '</div>';
@@ -644,7 +643,7 @@ function display_rich_snippet($content) {
 
 		if(trim($software_image) != "")
 		{
-			$software .= '<div class="snippet-image"><img width="180" src="'.$software_image.'" itemprop="screenshot" alt="software image" /></div>';	
+			$software .= '<div class="snippet-image"><img width="180" src="'.esc_url( $software_image ).'" itemprop="screenshot" alt="software image" /></div>';	
 		}
 		else
 		{
@@ -658,7 +657,7 @@ function display_rich_snippet($content) {
 
 		if(trim($software_rating) != "")
 		{
-			$software .= '<div class="snippet-label-img">'.$args_soft['software_rating'].'</div>';		
+			$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_rating'] ) ).'</div>';		
 			$software .= '<div class="snippet-data-img"><span class="star-img">';
 							for($i = 1; $i<=ceil($software_rating); $i++)
 							{
@@ -674,7 +673,7 @@ function display_rich_snippet($content) {
 
 		
 		$software .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
-			$software .= '<div class="snippet-label-img">'.$args_soft['software_agr'].'</div>';
+			$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_agr'] ) ).'</div>';
 		$software .= '<div class="snippet-data-img">';
 		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
 		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
@@ -682,39 +681,39 @@ function display_rich_snippet($content) {
 		if(trim($software_name) != "")
 		{
 			if($args_soft['software_name'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_name'].'</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="name">'.$software_name.'</span></div><div class="snippet-clear"></div>';
+				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_name'] ) ).'</div>';
+			$software .= ' <div class="snippet-data-img"> <span itemprop="name">'.esc_attr( $software_name ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($software_os) != "")
 		{
 			if($args_soft['software_os'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_os'].'</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="operatingSystem">'.$software_os.'</span></div><div class="snippet-clear"></div>';		
+				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_os'] ) ).'</div>';
+			$software .= ' <div class="snippet-data-img"> <span itemprop="operatingSystem">'.esc_attr( $software_os ).'</span></div><div class="snippet-clear"></div>';		
 		}
 		if(trim($software_cat) != "")
 		{
 				$software .= '<div class="snippet-label-img">Software Category</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="applicationCategory">'.$software_cat.'</span></div><div class="snippet-clear"></div>';		
+			$software .= ' <div class="snippet-data-img"> <span itemprop="applicationCategory">'.esc_attr( $software_cat ).'</span></div><div class="snippet-clear"></div>';		
 		}
 		if(trim($software_price) != "")
 		{
 			if($args_soft['software_price'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_price'].'</div>';
+				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_price'] ) ).'</div>';
 			$software .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<span itemprop="priceCurrency">'.$software_cur.'</span> <span itemprop="price"> '.$software_price.'</span></div><div class="snippet-clear"></div>';
+			<span itemprop="priceCurrency">'.esc_attr( $software_cur ).'</span> <span itemprop="price"> '.esc_attr( $software_price ).'</span></div><div class="snippet-clear"></div>';
 			
 		}
 		if(trim($software_desc) != "")
 		{
 			if($args_soft['software_desc'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_desc'].'</div>';
-			$software .= ' <div class="snippet-data-img"> <span itemprop="description">'.$software_desc.'</span></div><div class="snippet-clear"></div>';
+				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_desc'] ) ).'</div>';
+			$software .= ' <div class="snippet-data-img"> <span itemprop="description">'.esc_attr( htmlspecialchars_decode( $software_desc ) ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($software_landing) != "")
 		{
 			if($args_soft['software_website'] != "")
-				$software .= '<div class="snippet-label-img">'.$args_soft['software_website'].'</div>';
-			$software .= '<div class="snippet-data-img"> <a itemprop="featureList" href="'.$software_landing.'">'.$software_landing.'</a></div><div class="snippet-clear"></div>';
+				$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_website'] ) ).'</div>';
+			$software .= '<div class="snippet-data-img"> <a itemprop="featureList" href="'.esc_url( $software_landing ).'">'.esc_attr( $software_landing ).'</a></div><div class="snippet-clear"></div>';
 		}
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
@@ -735,10 +734,10 @@ function display_rich_snippet($content) {
 		$args_video = get_option('bsf_video');
 		$video = '';
 		
-		$video .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+		$video .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_video['snippet_title'] != "" )
-			$video .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_video['snippet_title'].'</div>';
+			$video .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_video['snippet_title'] ) ).'</div>';
 		$video .= '<div itemprop="video" itemscope itemtype="http://schema.org/VideoObject">';
 		$video_title = get_post_meta( $post->ID, '_bsf_video_title', true );
 		$video_desc = get_post_meta( $post->ID, '_bsf_video_desc', true );
@@ -750,10 +749,10 @@ function display_rich_snippet($content) {
 		$video_date = get_post_meta( $post->ID, '_bsf_video_date', true );
 		if(trim($video_url) != "")
 		{
-			$video .= '<div class="snippet-image"><a href="'.$video_url.'"><img height="180" src="'.$video_thumb.'" alt="'.$video_title.'"></a></div>';	
+			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_url ).'"><img height="180" src="'.esc_url( $video_thumb ).'" alt="'.esc_attr( $video_title ).'"></a></div>';	
 		}
 		elseif (trim($video_emb_url) != "") {
-			$video .= '<div class="snippet-image"><a href="'.$video_emb_url.'"><img height="180" src="'.$video_thumb.'" " alt="'.$video_title.'"></a></div>';	
+			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_emb_url ).'"><img height="180" src="'.esc_url( $video_thumb ).'" " alt="'.esc_attr( $video_title ).'"></a></div>';	
 		}
 		else
 		{
@@ -767,28 +766,28 @@ function display_rich_snippet($content) {
 		if(trim($video_title) != "")
 		{
 			if($args_video['video_title'] != "" )
-				$video .= '<div class="snippet-label-img">'.$args_video['video_title'].'</div>';
+				$video .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_video['video_title'] ) ).'</div>';
 				
-			$video .= '<div class="snippet-data-img"><span itemprop="name">'.$video_title.'</span></div><div class="snippet-clear"></div>';
+			$video .= '<div class="snippet-data-img"><span itemprop="name">'.esc_attr( $video_title ).'</span></div><div class="snippet-clear"></div>';
 		}
 		if(trim($video_desc) != "")
 		{
 			if($args_video['video_desc'] != "" )
-				$video .= '<div class="snippet-label-img">'.$args_video['video_desc'].'</div>';
-			$video .= '<div class="snippet-data-img"> <p itemprop="description">'.$video_desc.'</p></div><div class="snippet-clear"></div>';
+				$video .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_video['video_desc'] ) ).'</div>';
+			$video .= '<div class="snippet-data-img"> <p itemprop="description">'.esc_attr( htmlspecialchars_decode( $video_desc ) ).'</p></div><div class="snippet-clear"></div>';
 		}
 		if(trim($video_thumb) != "")
-			$video .= '<meta itemprop="thumbnailUrl" content="'.$video_thumb.'">';
+			$video .= '<meta itemprop="thumbnailUrl" content="'.esc_attr( $video_thumb ).'">';
 		if(trim($video_url) != ""){
-			$video .= '<meta itemprop="contentUrl" content="'.$video_url.'">';
+			$video .= '<meta itemprop="contentUrl" content="'.esc_attr( $video_url ).'">';
 		}
 		elseif(trim($video_emb_url) != ""){
-			$video .= '<meta itemprop="embedURL" content="'.$video_emb_url.'">';
+			$video .= '<meta itemprop="embedURL" content="'.esc_attr( $video_emb_url ).'">';
 		}			
 		if(trim($video_duration) != "")
-			$video .= '<meta itemprop="duration" content="'.$video_duration.'">';		
+			$video .= '<meta itemprop="duration" content="'.esc_attr( $video_duration ).'">';		
 		if(trim($video_date) != "")
-			$video .= '<meta itemprop="uploadDate" content="'.$video_date.'">';		
+			$video .= '<meta itemprop="uploadDate" content="'.esc_attr( $video_date ).'">';		
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 
@@ -816,18 +815,18 @@ function display_rich_snippet($content) {
 		$article_publisher_logo = get_post_meta( $post->ID, '_bsf_article_publisher_logo', true );
 
 
-			$article .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+			$article .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 			if($args_article['snippet_title'] != "" )
 			{
-				$article .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_article['snippet_title'];
+				$article .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_article['snippet_title'] ) );
 				$article .= '</div>';
 			}
 			$article .= '<div itemscope itemtype="http://schema.org/Article">';
 			if(trim($article_image) != "")
 			{
 				$article .= '<div class="snippet-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-				$article .= '<img width="180" src="'.$article_image.'" alt="'.$article_name.'"/>';
-				$article .=	'<meta itemprop="url" content="'.$article_image.'">';
+				$article .= '<img width="180" src="'.esc_url( $article_image ).'" alt="'.esc_attr( $article_name ).'"/>';
+				$article .=	'<meta itemprop="url" content="'.esc_attr( $article_image ).'">';
 				$article .=	'<meta itemprop="width" content="800">';
 				$article .=	'<meta itemprop="height" content="800">';
 				$article .=	'</div>';
@@ -844,24 +843,24 @@ function display_rich_snippet($content) {
 			if(trim($article_name) != "")
 			{
 				if($args_article['article_name'] != "")
-					$article .= '<div class="snippet-label-img">'.$args_article['article_name'].'</div>';
+					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_name'] ) ).'</div>';
 					
-				$article .= '<div class="snippet-data-img"><span itemprop="headline">'.$article_name.'</span></div><div class="snippet-clear"></div>';
+				$article .= '<div class="snippet-data-img"><span itemprop="headline">'.esc_attr( $article_name ).'</span></div><div class="snippet-clear"></div>';
 			}
 			if(trim($article_desc) != "")
 			{
 				if($args_article['article_desc'] != "")
-					$article .= '<div class="snippet-label-img">'.$args_article['article_desc'].'</div>';
+					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_desc'] ) ).'</div>';
 					
-				$article .= '<div class="snippet-data-img"><span itemprop="description">'.$article_desc.'</span></div><div class="snippet-clear"></div>';
+				$article .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $article_desc ) ).'</span></div><div class="snippet-clear"></div>';
 			}
 			if(trim($article_author) != "")
 			{
 				if($args_article['article_author'] != "")
-					$article .= '<div class="snippet-label-img">'.$args_article['article_author'].'</div>';
+					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_author'] ) ).'</div>';
 					
 				$article .= '<div class="snippet-data-img" itemprop="author" itemscope itemtype="https://schema.org/Person">
-							<span itemprop="name">'.$article_author.'</span>
+							<span itemprop="name">'.esc_attr( $article_author ).'</span>
 							</div>
 							<div class="snippet-clear"></div>';
 
@@ -870,12 +869,12 @@ function display_rich_snippet($content) {
 			if(trim($article_publisher) != "")
 			{
 				if($args_article['article_publisher'] != "")
-					$article .= '<div class="snippet-label-img">'.$args_article['article_publisher'].'</div>';
+					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_publisher'] ) ).'</div>';
 				
 				$article .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';	
 				
 				$article .= '<div class="snippet-data-img">
-							<span itemprop="name">'.$article_publisher.'</span>
+							<span itemprop="name">'.esc_attr( $article_publisher ).'</span>
 							</div>
 							
 
@@ -883,11 +882,11 @@ function display_rich_snippet($content) {
 				if(trim($article_publisher_logo) != "")
 				{
 					if($args_article['article_publisher_logo'] != "")
-						$article .= '<div class="snippet-label-img">'.$args_article['article_publisher_logo'].'</div>';
+						$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_article['article_publisher_logo'] ) ).'</div>';
 
 					$article .= '<div class="snippet-data-img" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
-					$article .= '<img width="180" src="'.$article_publisher_logo.'"/>';
-					$article .=	'<meta itemprop="url" content="'.$article_publisher_logo.'">';
+					$article .= '<img width="180" src="'.esc_url( $article_publisher_logo ).'"/>';
+					$article .=	'<meta itemprop="url" content="'.esc_attr( $article_publisher_logo ).'">';
 					$article .=	'<meta itemprop="width" content="800">';
 					$article .=	'<meta itemprop="height" content="800">';
 					$article .=	'</div>';
@@ -939,10 +938,10 @@ function display_rich_snippet($content) {
 		$service_url_link = $args_service['service_url_link'] != ''? $args_service['service_url_link'] : "Click Here For More Info";
 
 
-			$service .= '<div id="snippet-box" style="background:'.$args_color["snippet_box_bg"].'; color:'.$args_color["snippet_box_color"].'; border:1px solid '.$args_color["snippet_border"].';">';
+			$service .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 			if($args_service['snippet_title'] != "" )
 			{
-				$service .= '<div class="snippet-title" style="background:'.$args_color["snippet_title_bg"].'; color:'.$args_color["snippet_title_color"].'; border-bottom:1px solid '.$args_color["snippet_border"].';">'.$args_service['snippet_title'];
+				$service .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_service['snippet_title'] ) );
 				if ( $service_rating_switch == 'enable' ) {
 					$service .= bsf_do_rating();
 				}
@@ -952,7 +951,7 @@ function display_rich_snippet($content) {
 			if(trim($service_image) != "")
 			{
 				$service .= '<div class="snippet-image">';
-				$service .= '<img itemprop="image" width="180" src="'.$service_image.'" alt="'.$service_type.'"/>';
+				$service .= '<img itemprop="image" width="180" src="'.esc_url( $service_image ).'" alt="'.esc_attr( $service_type ).'"/>';
 				$service .=	'</div>';
 			}
 			else
@@ -969,7 +968,7 @@ function display_rich_snippet($content) {
 				if($args_service['service_rating'] != "")
 				{	
 					$service .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
-					$service .= '<div class="snippet-label-img">'.$args_service['service_rating'].'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_rating'] ) ).'</div>';
 					$service .= '<div class="snippet-data-img">';
 					$service .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
 					$service .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
@@ -980,10 +979,10 @@ function display_rich_snippet($content) {
 			if(trim($service_type) != "")
 			{
 				if($args_service['service_type'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_type'].'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_type'] ) ).'</div>';
 
 				$service .= '<div class="snippet-data-img">
-							<span itemprop="serviceType">'.$service_type.'</span>
+							<span itemprop="serviceType">'.esc_attr( $service_type ).'</span>
 							</div>
 							<div class="snippet-clear"></div>';
 			}
@@ -991,22 +990,22 @@ function display_rich_snippet($content) {
 			if(trim($service_provider_name) != "")
 			{
 				if($args_service['service_provider_name'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_provider_name'].'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_provider_name'] ) ).'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="provider" itemscope itemtype="http://schema.org/LocalBusiness">
-							<meta itemprop="image" content="'.$service_provider_location_image.'"/>
-							<span itemprop="name">'.$service_provider_name.'</span>,';
+							<meta itemprop="image" content="'.esc_attr( $service_provider_location_image ).'"/>
+							<span itemprop="name">'.esc_attr( $service_provider_name ).'</span>,';
 							if(trim($service_street) != "")
 							$service .= '<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-							<span itemprop="streetAddress">'.$service_street.'</span>,';
+							<span itemprop="streetAddress">'.esc_attr( $service_street ).'</span>,';
 							if(trim($service_local) != "")
-							$service .= '<span itemprop="addressLocality">'.$service_local.'</span>,';
+							$service .= '<span itemprop="addressLocality">'.esc_attr( $service_local ).'</span>,';
 							if(trim($service_region) != "")
-							$service .= '<span itemprop="addressRegion">'.$service_region.'</span>-';
+							$service .= '<span itemprop="addressRegion">'.esc_attr( $service_region ).'</span>-';
 							if(trim($service_postal_code) != "")
-							$service .= '<span itemprop="postalCode">'.$service_postal_code.'</span>,<br/>';
+							$service .= '<span itemprop="postalCode">'.esc_attr( $service_postal_code ).'</span>,<br/>';
 							if(trim($service_telephone) != "")
-							$service .= '<span itemprop="telephone"> Telephone No.'.$service_telephone.'</span>';
+							$service .= '<span itemprop="telephone"> Telephone No.'.esc_attr( $service_telephone ).'</span>';
 							$service .= '</div>';
 							$service .= '</div>
 							<div class="snippet-clear"></div>';
@@ -1015,19 +1014,19 @@ function display_rich_snippet($content) {
 			if(trim($service_area) != "")
 			{
 				if($args_service['service_area'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_area'].'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_area'] ) ).'</div>';
 					
 				$service .= '<div class="snippet-data-img" itemprop="areaServed" itemscope itemtype="http://schema.org/State">
-							<span itemprop="name">'.$service_area.'</span>
+							<span itemprop="name">'.esc_attr( $service_area ).'</span>
 							</div><div class="snippet-clear"></div>';
 			}
 
 			if(trim($service_desc) != "")
 			{
 				if($args_service['service_desc'] != "")
-					$service .= '<div class="snippet-label-img">'.$args_service['service_desc'].'</div>';
+					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_service['service_desc'] ) ).'</div>';
 					
-				$service .= '<div class="snippet-data-img"><span itemprop="description">'.$service_desc.'</span></div><div class="snippet-clear"></div>';
+				$service .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $service_desc ) ).'</span></div><div class="snippet-clear"></div>';
 			}
 			
 			if(trim($service_channel) != "")
@@ -1036,7 +1035,7 @@ function display_rich_snippet($content) {
 					
 				$service .= '<div class="snippet-data-img" itemprop="availableChannel" itemscope itemtype="https://schema.org/ServiceChannel">
 
-							<meta itemprop="URL" href="'.$service_channel.'">
+							<meta itemprop="URL" href="'.esc_url( $service_channel ).'">
 							</div><div class="snippet-clear"></div>';
 			}
 
@@ -1144,7 +1143,7 @@ function bsf_do_rating()
 function get_previous_rating($needle, $haystack, $strict = false) {
     foreach ($haystack as $item) {
         if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && get_previous_rating($needle, $item, $strict))) {
-            return !empty($item['user_rating']) ? $item['user_rating'] : '';
+            return !empty($item['user_rating']) ? esc_attr( $item['user_rating'] ) : '';
         }
     }
     return false;
@@ -1160,35 +1159,35 @@ function add_ajax_library() {
 function bsf_add_rating()
 {
 	if(isset($_POST['star-review']))
-		$stars = $_POST['star-review'];
+		$stars = esc_attr( $_POST['star-review'] );
 	else
 		$stars = '0';
 	
-	$ip = $_POST['ip'];
+	$ip = esc_attr( $_POST['ip'] );
 	
-	$postid = $_POST['post_id'];
+	$postid = esc_attr( $_POST['post_id'] );
 	
 	$user_rating = array('post_id' => $postid, 'user_ip' => $ip, 'user_rating' => $stars);
 	
-	echo false ==  add_post_meta($postid, 'post-rating', $user_rating) ? 'Error adding your rating' : 'Ratings added successfully !';
+	echo false ==  add_post_meta($postid, 'post-rating', $user_rating) ? _e('Error adding your rating') : _e('Ratings added successfully !');
 	die();
 }
 function bsf_update_rating()
 {
 	if(isset($_POST['star-review']))
-		$stars = $_POST['star-review'];
+		$stars = esc_attr( $_POST['star-review'] );
 	else
 		$stars = '0';
 	
-	$ip = $_POST['ip'];
+	$ip = esc_attr( $_POST['ip'] );
 	
-	$postid = $_POST['post_id'];
+	$postid = esc_attr( $_POST['post_id'] );
 	
 	$prev_data = get_post_meta($postid,'post-rating',true);
 	
 	$user_rating = array('post_id' => $postid, 'user_ip' => $ip, 'user_rating' => $stars);
 	
-	echo false ==  update_post_meta($postid, 'post-rating', $user_rating, $prev_data) ? 'Error updating your rating' : 'Ratings updated successfully !';
+	echo false ==  update_post_meta($postid, 'post-rating', $user_rating, $prev_data) ? _e('Error updating your rating') : _e('Ratings updated successfully !');
 	die();
 }
 function display_rating() {

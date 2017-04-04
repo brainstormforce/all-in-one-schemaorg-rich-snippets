@@ -94,27 +94,28 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>'.__("Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_review_form" method="post">
+										'.wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="review_title" value="'.$args_review["review_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="review_title" value="'.stripslashes( $args_review["review_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Reviewer :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_reviewer" value="'.$args_review["item_reviewer"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="item_reviewer" value="'.stripslashes( $args_review["item_reviewer"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Review Date :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="review_date" value="'.$args_review["review_date"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="review_date" value="'.stripslashes( $args_review["review_date"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Item Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_name" value="'.$args_review["item_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="item_name" value="'.stripslashes( $args_review["item_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Item Ratings :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_rating" value="'.$args_review["item_rating"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="item_rating" value="'.stripslashes( $args_review["item_rating"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -134,35 +135,36 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>'.__("Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_event_form" method="post">
+										'.wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_event["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_event["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Event Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_title" value="'.$args_event["event_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="event_title" value="'.stripslashes( $args_event["event_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Event Location :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_location" value="'.$args_event["event_location"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="event_location" value="'.stripslashes( $args_event["event_location"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Start Time :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="start_time" value="'.$args_event["start_time"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="start_time" value="'.stripslashes( $args_event["start_time"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("End Time :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="end_time" value="'.$args_event["end_time"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="end_time" value="'.stripslashes( $args_event["end_time"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_desc" value="'.$event_desc.'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="event_desc" value="'.stripslashes( $event_desc ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Ticket Promotion :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="events_price" value="'.$args_event["events_price"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="'.stripslashes( $args_event["events_price"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -182,35 +184,36 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_person_form" method="post">
+										'.wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_person["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_person["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Person's Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_name" value="'.$args_person["person_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_name" value="'.stripslashes( $args_person["person_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Nickname :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_nickname" value="'.$args_person["person_nickname"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_nickname" value="'.stripslashes( $args_person["person_nickname"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Job Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_job_title" value="'.$args_person["person_job_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_job_title" value="'.stripslashes( $args_person["person_job_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Homepage :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_website" value="'.$args_person["person_website"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_website" value="'.stripslashes( $args_person["person_website"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Company Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_company" value="'.$args_person["person_company"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_company" value="'.stripslashes( $args_person["person_company"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Address :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_address" value="'.$args_person["person_address"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="person_address" value="'.stripslashes( $args_person["person_address"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -230,35 +233,36 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_product_form" method="post">
+										'.wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_product["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_product["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Author Rating :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_rating" value="'.$args_product["product_rating"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_rating" value="'.stripslashes( $args_product["product_rating"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Brand Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_brand" value="'.$args_product["product_brand"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_brand" value="'.stripslashes( $args_product["product_brand"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Product Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_name" value="'.$args_product["product_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_name" value="'.stripslashes( $args_product["product_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_agr" value="'.$args_product["product_agr"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_agr" value="'.stripslashes( $args_product["product_agr"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Price :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_price" value="'.$args_product["product_price"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_price" value="'.stripslashes( $args_product["product_price"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Product Availability :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_avail" value="'.$args_product["product_avail"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="product_avail" value="'.stripslashes( $args_product["product_avail"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -278,43 +282,44 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_recipe_form" method="post">
+										'.wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_recipe["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_recipe["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Recipe Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_name" value="'.$args_recipe["recipe_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_name" value="'.stripslashes( $args_recipe["recipe_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Author Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="author_name" value="'.$author_name.'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="author_name" value="'.stripslashes( $author_name ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Published On : ","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_pub" value="'.$args_recipe["recipe_pub"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_pub" value="'.stripslashes( $args_recipe["recipe_pub"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Preparation Time:","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_prep" value="'.$args_recipe["recipe_prep"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_prep" value="'.stripslashes( $args_recipe["recipe_prep"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Cook Time :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_cook" value="'.$args_recipe["recipe_cook"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_cook" value="'.stripslashes( $args_recipe["recipe_cook"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Total Time :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_time" value="'.$args_recipe["recipe_time"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_time" value="'.stripslashes( $args_recipe["recipe_time"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="'.$recipe_desc.'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="'.stripslashes( $recipe_desc ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Average Rating:","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_rating" value="'.$args_recipe["recipe_rating"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_rating" value="'.stripslashes( $args_recipe["recipe_rating"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -334,35 +339,36 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_software_form" method="post">
+										'.wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_soft["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_soft["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Author Rating :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_rating" value="'.$args_soft["software_rating"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_rating" value="'.stripslashes( $args_soft["software_rating"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("User Rating :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_agr" value="'.$args_soft["software_agr"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="'.stripslashes( $args_soft["software_agr"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Software Price :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_price" value="'.$args_soft["software_price"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_price" value="'.stripslashes( $args_soft["software_price"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Software Name:","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_name" value="'.$args_soft["software_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_name" value="'.stripslashes( $args_soft["software_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Operating System :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_os" value="'.$args_soft["software_os"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_os" value="'.stripslashes( $args_soft["software_os"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Landing Page:","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_website" value="'.$args_soft["software_website"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_website" value="'.stripslashes( $args_soft["software_website"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -384,27 +390,28 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_video_form" method="post">
+										'.wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_video["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_video["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Video Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_title" value="'.$args_video["video_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="video_title" value="'.stripslashes( $args_video["video_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_desc" value="'.$args_video["video_desc"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="video_desc" value="'.stripslashes( $args_video["video_desc"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Video Duration :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_time" value="'.$args_video["video_time"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="video_time" value="'.stripslashes( $args_video["video_time"] ).'"/></td>
 													</tr>													
 													<tr>
 														<td align="right"><strong><label>'.__("Video Upload Date :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_date" value="'.$args_video["video_date"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="video_date" value="'.stripslashes( $args_video["video_date"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -424,35 +431,36 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_article_form" method="post">
+										'.wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_article["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_article["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Article Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_name" value="'.$args_article["article_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_name" value="'.stripslashes( $args_article["article_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Author :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_author" value="'.$args_article["article_author"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_author" value="'.stripslashes( $args_article["article_author"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_desc" value="'.$args_article["article_desc"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_desc" value="'.stripslashes( $args_article["article_desc"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Image :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_image" value="'.$args_article["article_image"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_image" value="'.stripslashes( $args_article["article_image"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Publisher :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="'.$args_article["article_publisher"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="'.stripslashes( $args_article["article_publisher"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Publisher Logo :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="'.$args_article["article_publisher_logo"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="'.stripslashes( $args_article["article_publisher_logo"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -472,43 +480,44 @@ function rich_snippet_dashboard() {
 									<div class="table">								
 										<p>'.__("Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>","rich-snippets").'</p>
 										<form id="bsf_service_form" method="post">
+										'.wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
 														<td align="right"><strong><label>'.__("Rich Snippet Title :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.$args_service["snippet_title"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="'.stripslashes( $args_service["snippet_title"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Service Type :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_type" value="'.$args_service["service_type"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_type" value="'.stripslashes( $args_service["service_type"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Area :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_area" value="'.$args_service["service_area"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_area" value="'.stripslashes( $args_service["service_area"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Description :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_desc" value="'.$args_service["service_desc"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_desc" value="'.stripslashes( $args_service["service_desc"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Provider Name :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="'.$args_service["service_provider_name"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="'.stripslashes( $args_service["service_provider_name"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Provider Location :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="provider_location" value="'.$provider_location.'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="provider_location" value="'.stripslashes( $provider_location ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("URL :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_channel" value="'.$args_service["service_channel"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_channel" value="'.stripslashes( $args_service["service_channel"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("URL Text :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_url_link" value="'.$args_service["service_url_link"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_url_link" value="'.stripslashes( $args_service["service_url_link"] ).'"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>'.__("Service Rating :","rich-snippets").'</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_rating" value="'.$args_service["service_rating"].'"/></td>
+														<td><input class="bsf_text_medium" type="text" name="service_rating" value="'.stripslashes( $args_service["service_rating"] ).'"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -593,26 +602,27 @@ function rich_snippet_dashboard() {
 										<h3 class="hndle">'.__("<span>Customize the look and feel of rich snippet box</span>","rich-snippets").'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
+											'.wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ).'
 											<table class="bsf_metabox">
 												<tr>
 													<th> <label for="snippet_box_bg"> '.__('Box Background ', 'rich-snippets').' </label> </th>
-													<td> <input type="text" name="snippet_box_bg" id="snippet_box_bg" value="'.$args_color["snippet_box_bg"].'"  class="snippet_box_bg" /> </td>
+													<td> <input type="text" name="snippet_box_bg" id="snippet_box_bg" value="'.stripslashes( $args_color["snippet_box_bg"] ).'"  class="snippet_box_bg" /> </td>
 												</tr>
 												<tr>
 													<th> <label for="snippet_title_bg"> '.__('Title Background', 'rich-snippets').' </label> </th>
-													<td> <input type="text" name="snippet_title_bg" id="snippet_title_bg" value="'.$args_color["snippet_title_bg"].'"  class="snippet_title_bg" /> </td>
+													<td> <input type="text" name="snippet_title_bg" id="snippet_title_bg" value="'.stripslashes( $args_color["snippet_title_bg"] ).'"  class="snippet_title_bg" /> </td>
 												</tr>
 												<tr>
 													<th> <label for="snippet_border"> '.__('Border Color', 'rich-snippets').' </label> </th>
-													<td> <input type="text" name="snippet_border" id="snippet_border" value="'.$args_color["snippet_border"].'"  class="snippet_border" /> </td>
+													<td> <input type="text" name="snippet_border" id="snippet_border" value="'.stripslashes( $args_color["snippet_border"] ).'"  class="snippet_border" /> </td>
 												</tr>
 												<tr>
 													<th> <label for="snippet_title_color"> '.__('Title Color', 'rich-snippets').' </label> </th>
-													<td> <input type="text" name="snippet_title_color" id="snippet_title_color" value="'.$args_color["snippet_title_color"].'"  class="snippet_title_color" /> </td>
+													<td> <input type="text" name="snippet_title_color" id="snippet_title_color" value="'.stripslashes( $args_color["snippet_title_color"] ).'"  class="snippet_title_color" /> </td>
 												</tr>
 												<tr>
 													<th> <label for="snippet_box_color"> '.__('Snippet Text Color', 'rich-snippets').' </label> </th>
-													<td> <input type="text" name="snippet_box_color" id="snippet_box_color" value="'.$args_color["snippet_box_color"].'"  class="snippet_box_color" /> </td>
+													<td> <input type="text" name="snippet_box_color" id="snippet_box_color" value="'.stripslashes( $args_color["snippet_box_color"] ).'"  class="snippet_box_color" /> </td>
 												</tr>
 												<tr>
 													<td></td>
@@ -633,6 +643,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
+			'.wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ).'
 				<p> '.__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'rich-snippets' ).' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="'.site_url().'" /> </p>
 					<tr>
@@ -679,6 +690,12 @@ function rich_snippet_dashboard() {
 
 if(isset($_POST['setting_submit']))
 {
+	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
 		$args = null;
 		if(isset($_POST["woocommerce_option"])) 
 		{
@@ -687,117 +704,181 @@ if(isset($_POST['setting_submit']))
 		else {
 			$args = false;
 		}	
-	update_option( 'bsf_woocom_init_setting', 'done' );
-	$status = update_option('bsf_woocom_setting',$args);
-	displayStatus($status);
+		update_option( 'bsf_woocom_init_setting', 'done' );
+		$status = update_option('bsf_woocom_setting',$args);
+		displayStatus($status);
+	}
 }
 if(isset($_POST['item_submit']))
 {
-	foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('review_title','item_reviewer','review_date','item_name','item_rating') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_review',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_review',$args);
-	displayStatus($status);
 }
 if(isset($_POST['event_submit']))
 {
-	foreach(array('snippet_title','event_title','event_location','event_performer','start_time','end_time','event_desc','events_price') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','event_title','event_location','event_performer','start_time','end_time','event_desc','events_price') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_event',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_event',$args);
-	displayStatus($status);
 }
 if(isset($_POST['person_submit']))
 {
-	foreach(array('snippet_title','person_name','person_nickname','person_job_title','person_website','person_company','person_address') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','person_name','person_nickname','person_job_title','person_website','person_company','person_address') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_person',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_person',$args);
-	displayStatus($status);
 }
 if(isset($_POST['product_submit']))
 {
-	foreach(array('snippet_title','product_rating','product_brand','product_name','product_agr','product_price','product_avail') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','product_rating','product_brand','product_name','product_agr','product_price','product_avail') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_product',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_product',$args);
-	displayStatus($status);
 }
 if(isset($_POST['recipe_submit']))
 {
-	foreach(array('snippet_title','recipe_name','author_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_desc','recipe_rating') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','recipe_name','author_name','recipe_pub','recipe_prep','recipe_cook','recipe_time','recipe_desc','recipe_rating') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_recipe',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_recipe',$args);
-	displayStatus($status);
 }
 if(isset($_POST['software_submit']))
 {
-	foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','software_rating','software_agr','software_price','software_name','software_os','software_website') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_software',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_software',$args);
-	displayStatus($status);
 }
 if(isset($_POST['video_submit']))
 {
-	foreach(array('snippet_title','video_title','video_desc','video_time','video_date') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','video_title','video_desc','video_time','video_date') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_video',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_video',$args);
-	displayStatus($status);
 }
 if(isset($_POST['article_submit']))
 {
-	foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','article_name','article_author','article_desc','article_image','article_publisher','article_publisher_logo') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_article',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_article',$args);
-	displayStatus($status);
 }
 if(isset($_POST['service_submit']))
 {
-	foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','provider_location','service_rating','service_channel','service_url_link') as $option)
-	{
-		if(isset($_POST[$option])) 
+	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' ) 
+		) {
+		   print 'Sorry, your nonce did not verify.';
+		   exit;
+		} 
+	else {
+		foreach(array('snippet_title','service_type','service_area','service_desc','service_provider_name','provider_location','service_rating','service_channel','service_url_link') as $option)
 		{
-			$args[$option] = $_POST[$option];
-		}		
+			if(isset($_POST[$option])) 
+			{
+				$args[$option] = esc_attr( $_POST[$option] );
+			}		
+		}
+		$status = update_option('bsf_service',$args);
+		displayStatus($status);
 	}
-	$status = update_option('bsf_service',$args);
-	displayStatus($status);
 }
 function displayStatus($status) {
 	if($status)
@@ -811,9 +892,9 @@ function displayStatus($status) {
 }
 if(isset($_GET['action']))
 {
-	if($_GET['action'] == 'reset')
+	if(esc_attr( $_GET['action'] ) == 'reset' )
 	{
-		$option_to_reset = $_GET['options'];
+		$option_to_reset = esc_attr( $_GET['options'] );
 		if($option_to_reset == 'review')
 			delete_option('bsf_review');
 		if($option_to_reset == 'event')

@@ -81,8 +81,8 @@ class bsf_Meta_Box {
 		if ( 'id' !== $meta_box['show_on']['key'] )
 			return $display;
 		// If we're showing it based on ID, get the current ID
-		if( isset( $_GET['post'] ) ) $post_id = $_GET['post'];
-		elseif( isset( $_POST['post_ID'] ) ) $post_id = $_POST['post_ID'];
+		if( isset( $_GET['post'] ) ) $post_id = esc_attr( $_GET['post'] );
+		elseif( isset( $_POST['post_ID'] ) ) $post_id = esc_attr( $_POST['post_ID'] );
 		if( !isset( $post_id ) )
 			return false;
 		// If value isn't an array, turn it into one
@@ -98,8 +98,8 @@ class bsf_Meta_Box {
 		if( 'page-template' !== $meta_box['show_on']['key'] )
 			return $display;
 		// Get the current ID
-		if( isset( $_GET['post'] ) ) $post_id = $_GET['post'];
-		elseif( isset( $_POST['post_ID'] ) ) $post_id = $_POST['post_ID'];
+		if( isset( $_GET['post'] ) ) $post_id = esc_attr( $_GET['post'] );
+		elseif( isset( $_POST['post_ID'] ) ) $post_id = esc_attr( $_POST['post_ID'] );
 		if( !( isset( $post_id ) || is_page() ) ) return false;
 		// Get current template
 		$current_template = get_post_meta( $post_id, '_wp_page_template', true );
@@ -172,13 +172,13 @@ class bsf_Meta_Box {
 					echo '<input class="bsf_colorpicker bsf_text_small ', $field['class'],'" type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta, '" /><span class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</span>';
 					break;
 				case 'textarea':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'textarea_small':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'textarea_code':
-					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10" class="bsf_textarea_code">', '' !== $meta ? $meta : $field['std'], '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
+					echo '<textarea class="', $field['class'],'" name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="10" class="bsf_textarea_code">', '' !== $meta ? htmlspecialchars_decode( $meta ) : htmlspecialchars_decode( $field['std'] ), '</textarea>','<p class="bsf_metabox_description ', $field['class'],'">', $field['desc'], '</p>';
 					break;
 				case 'select':
 					if( empty( $meta ) && !empty( $field['std'] ) ) $meta = $field['std'];
@@ -356,8 +356,9 @@ class bsf_Meta_Box {
 	}
 	// Save data from metabox
 	function save( $post_id)  {
+		var_dump($post_id);
 		// verify nonce
-		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['wp_meta_box_nonce'], basename(__FILE__) ) ) {
+		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || !wp_verify_nonce( esc_attr( $_POST['wp_meta_box_nonce'] ), basename(__FILE__) ) ) {
 			return $post_id;
 		}
 		// check autosave
@@ -365,7 +366,7 @@ class bsf_Meta_Box {
 			return $post_id;
 		}
 		// check permissions
-		if ( 'page' == $_POST['post_type'] ) {
+		if ( 'page' == esc_attr( $_POST['post_type'] ) ) {
 			if ( !current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
@@ -377,7 +378,7 @@ class bsf_Meta_Box {
 			if ( ! isset( $field['multiple'] ) )
 				$field['multiple'] = ( 'multicheck' == $field['type'] ) ? true : false;
 			$old = get_post_meta( $post_id, $name, !$field['multiple'] /* If multicheck this can be multiple values */ );
-			$new = isset( $_POST[$field['id']] ) ? $_POST[$field['id']] : null;
+			$new = isset( $_POST[$field['id']] ) ? esc_attr( $_POST[$field['id']] ) : null;
 			if ( in_array( $field['type'], array( 'taxonomy_select', 'taxonomy_radio', 'taxonomy_multicheck' ) ) )  {
 				$new = wp_set_object_terms( $post_id, $new, $field['taxonomy'] );
 			}
@@ -417,7 +418,7 @@ class bsf_Meta_Box {
 				$name = $field['id'] . "_id";
 				$old = get_post_meta( $post_id, $name, !$field['multiple'] /* If multicheck this can be multiple values */ );
 				if ( isset( $field['save_id'] ) && $field['save_id'] ) {
-					$new = isset( $_POST[$name] ) ? $_POST[$name] : null;
+					$new = isset( $_POST[$name] ) ? esc_attr( $_POST[$name] ) : null;
 				} else {
 					$new = "";
 				}
@@ -462,8 +463,8 @@ function bsf_scripts( $hook ) {
 add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
 function bsf_editor_footer_scripts() { ?>
 	<?php
-	if ( isset( $_GET['bsf_force_send'] ) && 'true' == $_GET['bsf_force_send'] ) {
-		$label = $_GET['bsf_send_label'];
+	if ( isset( $_GET['bsf_force_send'] ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
+		$label = esc_attr( $_GET['bsf_send_label'] );
 		if ( empty( $label ) ) $label="Select File";
 		?>
 		<script type="text/javascript">
@@ -479,10 +480,10 @@ add_action( 'admin_print_footer_scripts', 'bsf_editor_footer_scripts', 99 );
 add_filter( 'get_media_item_args', 'bsf_force_send' );
 function bsf_force_send( $args ) {
 	// if the Gallery tab is opened from a custom meta box field, add Insert Into Post button
-	if ( isset( $_GET['bsf_force_send'] ) && 'true' == $_GET['bsf_force_send'] )
+	if ( isset( $_GET['bsf_force_send'] ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) )
 		$args['send'] = true;
 	// if the From Computer tab is opened AT ALL, add Insert Into Post button after an image is uploaded
-	if ( isset( $_POST['attachment_id'] ) && '' != $_POST["attachment_id"] ) {
+	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST["attachment_id"] ) ) {
 		$args['send'] = true;
 		// TO DO: Are there any conditions in which we don't want the Insert Into Post
 		// button added? For example, if a post type supports thumbnails, does not support
@@ -493,7 +494,7 @@ function bsf_force_send( $args ) {
 		// $post_type_object = get_post_type_object( $attachment_parent_post_type );
 	}
 	// change the label of the button on the From Computer tab
-	if ( isset( $_POST['attachment_id'] ) && '' != $_POST["attachment_id"] ) {
+	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST["attachment_id"] ) ) {
 		echo '
 			<script type="text/javascript">
 				function cmbGetParameterByNameInline(name) {
@@ -535,14 +536,14 @@ function bsf_oembed_ajax_results() {
 		$oembed_url = esc_url( $oembed_string );
 		// Post ID is needed to check for embeds
 		if ( isset( $_REQUEST['post_id'] ) )
-			$GLOBALS['post'] = get_post( $_REQUEST['post_id'] );
+			$GLOBALS['post'] = get_post( esc_attr( $_REQUEST['post_id'] ) );
 		// ping WordPress for an embed
 		$check_embed = $wp_embed->run_shortcode( '[embed]'. $oembed_url .'[/embed]' );
 		// fallback that WordPress creates when no oEmbed was found
 		$fallback = $wp_embed->maybe_make_link( $oembed_url );
 		if ( $check_embed && $check_embed != $fallback ) {
 			// Embed data
-			$return = '<div class="embed_status">'. $check_embed .'<a href="#" class="bsf_remove_file_button" rel="'. $_REQUEST['field_id'] .'">'. __( 'Remove Embed', 'cmb' ) .'</a></div>';
+			$return = '<div class="embed_status">'. $check_embed .'<a href="#" class="bsf_remove_file_button" rel="'. esc_attr( $_REQUEST['field_id'] ) .'">'. __( 'Remove Embed', 'cmb' ) .'</a></div>';
 			// set our response id
 			$found = 'found';
 		} else {
