@@ -4,7 +4,7 @@
 **Tags:** Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing  
 **Requires at least:** 3.7  
 **Tested up to:** 4.7.3
-**Stable tag:** 1.4.4
+**Stable tag:** 1.4.5
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -71,6 +71,12 @@ This plugin currently supports almost all of the content types that are released
 Review, Event, People, Product, Recipe, Software Application, Video, Articles etc.
 
 ## Changelog ##
+
+### 1.5 ###
+* Improvement: Improved overall the security of the plugin by using sanitization and escaping the attributes wherever possible, checking nounce and user capabilities before any actions are performed.
+* Fix: XSS Vulnerability in the settings page, Thanks for the report Neven Biruski (DefenseCode).
+* Fix: Missing closing div tag in the generated schema markup breaking style for some themes.
+
 ### 1.4.4 ###
 * Fix: PHP fatal error to older version of PHP
 
