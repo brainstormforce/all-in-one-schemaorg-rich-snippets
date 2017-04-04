@@ -82,6 +82,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 * Improvement: Improved overall the security of the plugin by using sanitization and escaping the attributes wherever possible, checking nounce and user capabilities before any actions are performed.
 * Fix: XSS Vulnerability in the settings page, Thanks for the report Neven Biruski (DefenseCode).
 * Fix: Missing closing div tag in the generated schema markup breaking style for some themes.
+* Fix: Load the external scripts without protocol to prevent it from breaking on https sites.
 
 = 1.4.4 =
 * Fix: PHP fatal error to older version of PHP
