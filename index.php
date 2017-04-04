@@ -91,8 +91,8 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
-			if(!function_exists('vc_map'))
-				wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+			// if(!function_exists('vc_map'))
+				wp_enqueue_style('jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 		}
 		function post_new_enqueue($hook) {
 			if('post-new.php' != $hook )
@@ -106,8 +106,8 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
-			if(!function_exists('vc_map'))
-				wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+			// if(!function_exists('vc_map'))
+				wp_enqueue_style('jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 		}
 		//Initialize the metabox class
 		function wp_initialize_bsf_meta_boxes() {
