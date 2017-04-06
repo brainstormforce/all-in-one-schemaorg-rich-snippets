@@ -356,7 +356,6 @@ class bsf_Meta_Box {
 	}
 	// Save data from metabox
 	function save( $post_id)  {
-		var_dump($post_id);
 		// verify nonce
 		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || !wp_verify_nonce( esc_attr( $_POST['wp_meta_box_nonce'] ), basename(__FILE__) ) ) {
 			return $post_id;
