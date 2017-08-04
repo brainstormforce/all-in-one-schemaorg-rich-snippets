@@ -19,7 +19,8 @@ function bsf_metaboxes( array $meta_boxes ) {
 	} 
 	else {
 
-		$required_post_type = $post_types;	
+		$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+		$required_post_type = array_diff( $post_types, $exclude_custom_post_type );
 
 	}
 
