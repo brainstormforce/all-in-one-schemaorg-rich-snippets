@@ -88,7 +88,7 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_enqueue_style( 'star_style' );
 			wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js','', '0.9.1' );
 			wp_enqueue_script( 'bsf-scripts' );
-			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
+			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', array( 'jquery', 'media-upload', 'media-editor' ), '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
 			if(!function_exists('vc_map'))
@@ -103,7 +103,7 @@ if ( !class_exists( "RichSnippets" ) )
 			wp_enqueue_style( 'star_style' );
 			wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', '', '0.9.1' );
 			wp_enqueue_script( 'bsf-scripts' );
-			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', '', '1.0' );
+			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', array( 'jquery', 'media-upload', 'media-editor' ), '1.0' );
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script('jquery-ui-datepicker');
 			if(!function_exists('vc_map'))
