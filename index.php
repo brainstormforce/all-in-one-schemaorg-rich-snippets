@@ -82,6 +82,10 @@ if ( !class_exists( "RichSnippets" ) )
 		function post_enqueue($hook) {
 			if( 'post.php' != $hook )
 				return;
+			$current_admin_screen = get_current_screen();
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) )
+				return;
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
 			wp_enqueue_script( 'bsf_toggle' );
@@ -96,6 +100,10 @@ if ( !class_exists( "RichSnippets" ) )
 		}
 		function post_new_enqueue($hook) {
 			if('post-new.php' != $hook )
+				return;
+			$current_admin_screen = get_current_screen();
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) )
 				return;
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
