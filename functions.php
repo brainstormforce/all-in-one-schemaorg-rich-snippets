@@ -187,7 +187,7 @@ function display_rich_snippet($content) {
 			$event .= '<span itemprop="addressRegion">'.esc_attr( $event_region ).'</span>';
 		if(trim($event_postal_code) != "")
 			$event .= '-<span itemprop="postalCode">'.esc_attr( $event_postal_code ).'</span>';
-		$event .= '</span>';
+		$itemprop="ratingValue" .= '</span>';
 
 		$event .='</span>
 			</div><div class="snippet-clear"></div>';
@@ -464,7 +464,7 @@ function display_rich_snippet($content) {
 		}
 		$product .= '<div class="snippet-data-img">';
 		$product .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
-		$product .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+		$product .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().' votes </span></div></div><div class="snippet-clear"></div>';
 		
 
 		if(trim($product_brand) != "")
@@ -492,7 +492,7 @@ function display_rich_snippet($content) {
 			{
 				if($args_product['product_avail'] != "")
 					$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_avail'] ) ).'</div>';
-				$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.esc_attr( $product_status ).'">'.esc_attr( $availability ).'</span></span></div><div class="snippet-clear"></div>';		
+				$product .= ' <div class="snippet-data-img"> <span itemprop="availability" content="'.esc_attr( $product_status ).'">'.esc_attr( $availability ).'</span></div><div class="snippet-clear"></div>';		
 			}
 			$product .= '</div><div class="snippet-clear"></div>';
 		}
@@ -676,7 +676,7 @@ function display_rich_snippet($content) {
 			$software .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_soft['software_agr'] ) ).'</div>';
 		$software .= '<div class="snippet-data-img">';
 		$software .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
-		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+		$software .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().' votes </span></div></div><div class="snippet-clear"></div>';
 		
 		if(trim($software_name) != "")
 		{
@@ -971,7 +971,7 @@ function display_rich_snippet($content) {
 					$service .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_service['service_rating'] ) ).'</div>';
 					$service .= '<div class="snippet-data-img">';
 					$service .= '<span itemprop="ratingValue">'.average_rating().'</span>';						
-					$service .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().'</span> votes </span></div></div><div class="snippet-clear"></div>';
+					$service .= ' based on <span class="rating-count" itemprop="reviewCount">'.rating_count().' votes </span></div></div><div class="snippet-clear"></div>';
 				}
 			}
 			
@@ -1193,7 +1193,7 @@ function bsf_update_rating()
 function display_rating() {
 	
 		global $post;
-        $rating = '<span class="ratings"><div class="star-blocks">';
+        $rating = '<div class="ratings"><div class="star-blocks">';
 		$rating .= '<form name="rating" method="post" action="'. get_permalink() .'" id="bsf-rating" onsubmit="return false;">';
         $rating .= '<input type="radio" name="star-review" class="star star-1" value="1"/>';
 		$rating .= '<input type="radio" name="star-review" class="star star-2" value="2"/>';
@@ -1203,7 +1203,7 @@ function display_rating() {
 		$rating .= '<input type="hidden" name="ip" value="'.get_the_ip().'" />';
 		$rating .= '<input type="hidden" name="post_id" value="'.$post->ID.'" />';		
 		$rating .= '</form>';
-        $rating .= '</div></span>';
+        $rating .= '</div></div>';
 		$script = '<script type="text/javascript">
 				jQuery("#bsf-rating").click(function()
 				{
@@ -1225,7 +1225,7 @@ function display_rating() {
 function bsf_display_rating($n) {
 	
 		global $post;
-        $rating = '<span class="ratings"><div class="star-blocks">';
+        $rating = '<div class="ratings"><div class="star-blocks">';
 		$rating .= '<form name="rating" method="post" action="'. get_permalink() .'" id="bsf-rating" onsubmit="return false;">';
         $rating .= '<input type="radio" name="star-review" class="star star-1" value="1" '; $n == 1 ? $rating .=' checked="checked"/>' : $rating .='/>';
 		$rating .= '<input type="radio" name="star-review" class="star star-2" value="2" '; $n == 2 ? $rating .=' checked="checked"/>' : $rating .='/>';
@@ -1235,7 +1235,7 @@ function bsf_display_rating($n) {
 		$rating .= '<input type="hidden" name="ip" value="'.get_the_ip().'" />';
 		$rating .= '<input type="hidden" name="post_id" value="'.$post->ID.'" />';		
 		$rating .= '</form>';
-        $rating .= '</div></span>';
+        $rating .= '</div></div>';
 		$script = '<script type="text/javascript">
 				jQuery("#bsf-rating").click(function()
 				{
