@@ -1,4 +1,4 @@
-=== All In One Schema.org Rich Snippets ===
+=== All In One Schema Rich Snippets ===
 Contributors: brainstormforce, yawalkarm
 Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing

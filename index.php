@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: All In One Schema.org Rich Snippets
+Plugin Name: All In One Schema Rich Snippets
 Plugin URI: https://www.brainstormforce.com
 Author: Brainstorm Force
 Author URI: https://www.brainstormforce.com
