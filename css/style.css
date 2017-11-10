@@ -58,7 +58,6 @@
 .snippet-clear { 
 	clear:both;
 }
-
 .snippet-markup {
     width: 100%;
     display: block;
@@ -77,6 +76,7 @@
     display: inline-block;
     padding: 0.3em 0.5em;
 }
+/* Ratings */
 .ratings {
     position: absolute;
     right: 1em;
@@ -95,38 +95,21 @@
 	border: none !important;
 	padding: 0 !important;
 }
-
-/* CSS Document For Styling the Rich Snippets Data*/
-table #tbl-rich-snippet {
-	width:100%;
-}
-tr .tbl-bsf-tr {
-	border:1px dotted #ddd;
-}
-td .tbl-bdf-td {
-	padding:5px;
-}
-.tbl-img {
-	width:170px;
-}
-.tbl-addrs-tr {
-	border:0px;
+.rating-count {
+	font-weight:bold;
 }
 .rating-value {
 	display:none;
 }
-.rating-count {
-	font-weight:bold;
-}
+
+/* Unknown CSS */
 #snippet-box iframe {
 	width: 90%;
 	margin: 0 auto;
 	display: block;
 }
 
-/*********************************************************** Media queries **********************************************/
-/* =Responsive Structure
------------------------------------------------ */
+/* Responsive Structure */
 @media (max-width: 768px) {
 	.snippet-title {
 		padding: 0.5em 0 0.5em 4%;	
