@@ -59,10 +59,10 @@
     width: 100%;
 }
 .snippet-type-2 .snippet-label-img {
-    width: 25%;
+    width: 33%;
 }
 .snippet-type-2 .snippet-data-img {
-    width: 74%;
+    width: 65%;
 }
 .snippet-clear { 
 	clear:both;
@@ -72,7 +72,7 @@
     display: block;
 }
 .snippet-label {
-    width: 25%;
+    width: 33%;
     display: inline-block;
     text-align: right;
     font-size: 13px;
@@ -81,7 +81,7 @@
     padding: 0.3em 0.5em;
 }
 .snippet-data {
-    width: 74%;
+    width: 65%;
     display: inline-block;
     padding: 0.3em 0.5em;
 }
