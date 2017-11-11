@@ -55,6 +55,15 @@
     padding: 0.3em 0.5em;
     vertical-align: top;
 }
+.snippet-type-2 .aio-info {
+    width: 100%;
+}
+.snippet-type-2 .snippet-label-img {
+    width: 25%;
+}
+.snippet-type-2 .snippet-data-img {
+    width: 74%;
+}
 .snippet-clear { 
 	clear:both;
 }
