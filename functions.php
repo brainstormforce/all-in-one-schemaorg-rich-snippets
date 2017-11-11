@@ -62,11 +62,7 @@ function display_rich_snippet($content) {
 	{
 		global $post;
 	
-		$args_review = get_option('bsf_review');		
-
-		echo "<pre>";
-		print_r($type);
-		echo "</pre>";
+		$args_review = get_option('bsf_review');
 
 		$review = '';
 		$review .= '<div id="snippet-box" class="snippet-type-'.$type.'" style="background:'.esc_attr($args_color["snippet_box_bg"] ).'; color:'.esc_attr($args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr($args_color["snippet_border"] ).';">';
