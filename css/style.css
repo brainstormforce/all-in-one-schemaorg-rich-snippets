@@ -109,6 +109,9 @@ td .tbl-bdf-td{
 	float: right;
 	margin-right: 10px;
 }
+div.ratings {
+	display: inline;
+}
 .star-blocks {
 	background:#FFF;
 }
