@@ -62,9 +62,10 @@ function display_rich_snippet($content) {
 	{
 		global $post;
 	
-		$args_review = get_option('bsf_review');		
+		$args_review = get_option('bsf_review');
+
 		$review = '';
-		$review .= '<div id="snippet-box" style="background:'.esc_attr($args_color["snippet_box_bg"] ).'; color:'.esc_attr($args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr($args_color["snippet_border"] ).';">';
+		$review .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr($args_color["snippet_box_bg"] ).'; color:'.esc_attr($args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr($args_color["snippet_border"] ).';">';
 				
 		if($args_review['review_title'] != "")
 			$review .= '<div class="snippet-title" style="background:'.esc_attr($args_color["snippet_title_bg"] ).'; color:'.esc_attr($args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr($args_color["snippet_border"] ).';">'.esc_attr(stripslashes( $args_review['review_title'] ) ).'</div>';
@@ -128,7 +129,7 @@ function display_rich_snippet($content) {
 		
 		$event = '';
 		
-		$event .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$event .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_event['snippet_title'] != "")
 			$event .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_event['snippet_title'] ) ).'</div>';
@@ -301,7 +302,7 @@ function display_rich_snippet($content) {
 		
 		$people = '';
 		
-		$people .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$people .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_person['snippet_title'] != "")
 			$people .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_person['snippet_title'] ) ).'</div>';
@@ -404,7 +405,7 @@ function display_rich_snippet($content) {
 		global $post;
 		$args_product = get_option('bsf_product');
 		$product = '';
-		$product .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$product .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		if($args_product['snippet_title'] != "")
 			$product .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes(  $args_product['snippet_title'] ) );
 		$product .= bsf_do_rating();
@@ -514,7 +515,7 @@ function display_rich_snippet($content) {
 		global $post;
 		$recipe = '';
 		
-		$recipe .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$recipe .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		$args_recipe = get_option('bsf_recipe');
 		
@@ -622,7 +623,7 @@ function display_rich_snippet($content) {
 		$args_soft = get_option('bsf_software');	
 		$software = '';
 		
-		$software .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$software .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		if($args_soft['snippet_title'] != "" )
 			$software .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_soft['snippet_title'] ) );
 		
@@ -734,7 +735,7 @@ function display_rich_snippet($content) {
 		$args_video = get_option('bsf_video');
 		$video = '';
 		
-		$video .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+		$video .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 		
 		if($args_video['snippet_title'] != "" )
 			$video .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_video['snippet_title'] ) ).'</div>';
@@ -749,10 +750,10 @@ function display_rich_snippet($content) {
 		$video_date = get_post_meta( $post->ID, '_bsf_video_date', true );
 		if(trim($video_url) != "")
 		{
-			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_url ).'"><img height="180" src="'.esc_url( $video_thumb ).'" alt="'.esc_attr( $video_title ).'"></a></div>';	
+			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_url ).'"><img width="180" src="'.esc_url( $video_thumb ).'" alt="'.esc_attr( $video_title ).'"></a></div>';	
 		}
 		elseif (trim($video_emb_url) != "") {
-			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_emb_url ).'"><img height="180" src="'.esc_url( $video_thumb ).'" " alt="'.esc_attr( $video_title ).'"></a></div>';	
+			$video .= '<div class="snippet-image"><a href="'.esc_url( $video_emb_url ).'"><img width="180" src="'.esc_url( $video_thumb ).'" " alt="'.esc_attr( $video_title ).'"></a></div>';	
 		}
 		else
 		{
@@ -762,7 +763,7 @@ function display_rich_snippet($content) {
                 });
 			</script>';
 		}
-		$video .= '<div class="aio-info" style="padding-top:25px">';		
+		$video .= '<div class="aio-info" style="padding-top:10px">';		
 		if(trim($video_title) != "")
 		{
 			if($args_video['video_title'] != "" )
@@ -815,7 +816,7 @@ function display_rich_snippet($content) {
 		$article_publisher_logo = get_post_meta( $post->ID, '_bsf_article_publisher_logo', true );
 
 
-			$article .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+			$article .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 			if($args_article['snippet_title'] != "" )
 			{
 				$article .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_article['snippet_title'] ) );
@@ -869,9 +870,10 @@ function display_rich_snippet($content) {
 			if(trim($article_publisher) != "")
 			{
 				if($args_article['article_publisher'] != "")
-					$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_publisher'] ) ).'</div>';
 				
 				$article .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';	
+
+				$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_article['article_publisher'] ) ).'</div>';
 				
 				$article .= '<div class="snippet-data-img">
 							<span itemprop="name">'.esc_attr( $article_publisher ).'</span>
@@ -884,7 +886,7 @@ function display_rich_snippet($content) {
 					if($args_article['article_publisher_logo'] != "")
 						$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_article['article_publisher_logo'] ) ).'</div>';
 
-					$article .= '<div class="snippet-data-img" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+					$article .= '<div class="snippet-data-img publisher-logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
 					$article .= '<img width="180" src="'.esc_url( $article_publisher_logo ).'"/>';
 					$article .=	'<meta itemprop="url" content="'.esc_attr( $article_publisher_logo ).'">';
 					$article .=	'<meta itemprop="width" content="800">';
@@ -938,7 +940,7 @@ function display_rich_snippet($content) {
 		$service_url_link = $args_service['service_url_link'] != ''? $args_service['service_url_link'] : "Click Here For More Info";
 
 
-			$service .= '<div id="snippet-box" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
+			$service .= '<div id="snippet-box" class="snippet-type-'.esc_attr($type).'" style="background:'.esc_attr( $args_color["snippet_box_bg"] ).'; color:'.esc_attr( $args_color["snippet_box_color"] ).'; border:1px solid '.esc_attr( $args_color["snippet_border"] ).';">';
 			if($args_service['snippet_title'] != "" )
 			{
 				$service .= '<div class="snippet-title" style="background:'.esc_attr( $args_color["snippet_title_bg"] ).'; color:'.esc_attr( $args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr( $args_color["snippet_border"] ).';">'.esc_attr( stripslashes( $args_service['snippet_title'] ) );
