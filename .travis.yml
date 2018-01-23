@@ -7,6 +7,7 @@ notifications:
   email:
     on_success: never
     on_failure: change
+  slack: bsf-bots:RDGCoMDDxnlCvnUfvhq8pQ36
 
 cache:
   - composer
@@ -14,16 +15,17 @@ cache:
 
 matrix:
   include:
-    - php: 7.1
-      env: WP_VERSION=latest
     - php: 7.0
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=trunk
-    - php: 5.3
-      env: WP_VERSION=latest
+      env: WP_TRAVISCI=phpcs
+
+before_script:
+  - |
+    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      composer install
+    fi
 
 script:
-  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi 2>&1
+  - |
+    if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
+      vendor/bin/phpcs
+    fi
