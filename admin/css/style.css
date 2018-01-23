@@ -40,7 +40,7 @@ table.bsf_metabox .bsf_media_status .img_status .bsf_remove_file_button, table.b
  * Color picker
  */
 table.bsf_metabox .wp-color-result, table.bsf_metabox .wp-picker-input-wrap { vertical-align: middle; }
-table.bsf_metabox .wp-color-result, table.bsf_metabox .wp-picker-container { margin: 0 10px 0 0; width: 80px; height: 22px; display: block; box-shadow: none;}
+table.bsf_metabox .wp-color-result, table.bsf_metabox .wp-picker-container { margin: 0 10px 0 0; width: 102px; margin-bottom: 10px; height: 22px; display: block; box-shadow: none;}
 /**
  * Timepicker
  */
