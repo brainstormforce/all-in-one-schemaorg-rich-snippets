@@ -5,8 +5,8 @@
 	<rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="5.2-"/>
 
-	<!-- <rule ref="WordPress-Core" /> -->
-	<!-- <rule ref="WordPress-Docs" /> -->
+	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Docs" />
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
