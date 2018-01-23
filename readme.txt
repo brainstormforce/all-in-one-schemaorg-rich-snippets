@@ -79,8 +79,8 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.5.2 =
-* Fix: Frontend snippet box structure updated.
-* Fix: Js issue on editor object undefined.
+* Fix: Frontend Summary box sturcture validation issue.
+* Fix: Editor object undefined issue lead js issue in page.
 
 = 1.5.1 =
 * Fix: Plugin outputting extra output causing Ajax calls to break after last update.
