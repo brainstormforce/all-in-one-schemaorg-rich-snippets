@@ -1153,7 +1153,7 @@ function get_previous_rating($needle, $haystack, $strict = false) {
 function add_ajax_library() {
  
     $html = '<script type="text/javascript">';
-        $html .= 'var ajaxurl = "' . admin_url( 'admin-ajax.php' ) . '"';
+        $html .= 'var ajaxurl = "' . admin_url( 'admin-ajax.php' ) . '";';
     $html .= '</script>';
  
     echo $html;
