@@ -828,8 +828,6 @@ function display_rich_snippet($content) {
 				$article .= '<div class="snippet-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
 				$article .= '<img width="180" src="'.esc_url( $article_image ).'" alt="'.esc_attr( $article_name ).'"/>';
 				$article .=	'<meta itemprop="url" content="'.esc_attr( $article_image ).'">';
-				$article .=	'<meta itemprop="width" content="800">';
-				$article .=	'<meta itemprop="height" content="800">';
 				$article .=	'</div>';
 			}
 			else
@@ -889,8 +887,6 @@ function display_rich_snippet($content) {
 					$article .= '<div class="snippet-data-img publisher-logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
 					$article .= '<img width="180" src="'.esc_url( $article_publisher_logo ).'"/>';
 					$article .=	'<meta itemprop="url" content="'.esc_attr( $article_publisher_logo ).'">';
-					$article .=	'<meta itemprop="width" content="800">';
-					$article .=	'<meta itemprop="height" content="800">';
 					$article .=	'</div>';
 				}
 
