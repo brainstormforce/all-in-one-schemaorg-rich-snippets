@@ -2,20 +2,23 @@ html{ display:block !important;}
 .etabs { margin: 0; padding: 0; }
 .tab { display: inline-block; zoom:1; *display:inline; background: #fff; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; font-weight:bold; }
 .tab a { box-shadow: none; font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; text-decoration:none; color:rgb(175, 175, 175); }
-.tab a:hover { text-decoration: none; color:#C00; }
+.tab a:hover { text-decoration: none; color:#0073aa; }
 .tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
 .tab a.active { font-weight: bold; text-decoration:none; color:#333; }
-.tab.active a:hover { text-decoration: none; color:#C00; }
-.tab-container { background: #fff; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; float:left; width: 60%; }
-.panel-container { margin-bottom: 10px; border-top:1px solid #999; padding: 10px; margin-top: -6px; float:left; width: 98%;}
+.tab.active a:hover { text-decoration: none; color:#0073aa; }
+.tab-container { background: #fff; /*padding: 10px;*/ -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; display: inline-block; width: 95%; }
+.panel-container { /*margin-bottom: 10px;*/ /*border-top:1px solid #999; padding: 10px; margin-top: -6px; float:left; min-width: 98%;*/}
 .get_in_touch { padding-left: 15px; }
+#bsf-postbox-container-2 {width: 65%;}
+#bsf-postbox-container-1 { width:35%; }
+.bsf-hndle { font-size: 22px;font-weight: 600;}
 .panel-container.bsf-panel #poststuff {
     width: 100%;
     min-width: 100%;
     float: left;
 }
 .panel-container.bsf-panel .postbox-container {
-    width: 98% !important;
+    width: 100% !important;
 }
 
 .bsf-contact table.bsf_metabox input.bsf_text_medium { 
@@ -25,4 +28,21 @@ html{ display:block !important;}
 .bsf-contact table.bsf_metabox select{
 		width: 100% !important;
 
+}
+.panel-container.bsf-panel p, 
+.panel-container.bsf-panel li {
+    font-size: 16px;
+    font-weight: 400;
+}
+.meta-box-sortables.ui-sortable {
+    padding: 15px;
+}
+@media(max-width:768px){
+	#bsf-postbox-container-2 {
+	    width: 100%;
+	    margin-bottom: 20px;
+	}
+	#bsf-postbox-container-1 {
+		width: 100%;
+	}
 }

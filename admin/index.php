@@ -73,19 +73,21 @@ function rich_snippet_dashboard() {
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
-	echo '<div class="clear"></div>'.get_support(1).'<div id="tab-container" class="tab-container">';
+	echo '<div id="post-body" class="columns-2">';
+	echo '<div class="clear"></div>';
+	echo '<div id="bsf-postbox-container-2" class="postbox-container"><div id="tab-container" class="tab-container">';
 	echo '<ul class="etabs">
 			<li class="tab"><a href="#tab-1">'.__("Configuration","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-4">'.__("Customization","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-2">'.__(" How to Use?","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-3">'.__("FAQs","rich-snippets").'</a></li>
-			
+			<li class="tab"><a href="#tab-5">'.__("Getting Started","rich-snippets").'</a></li>
 		 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
-					<div id="postbox-container-1" class="postbox-container">
+					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox closed">
 								<div class="handlediv" title="Click to toggle"><br></div>
@@ -552,6 +554,41 @@ function rich_snippet_dashboard() {
 					</div>
 				</div>
 			</div>
+			 <div id="tab-5">
+				<div id="poststuff">
+					<div id="postbox-container-17" class="postbox-container">
+						<div class="meta-box-sortables ui-sortable">
+							<div class="bsf-postbox">
+								<h3 class="bsf-hndle"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
+								<div class="inside">
+									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup plugin</p>
+
+										<p>It gives search engines only the important & precise information to display in search result snippets. Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition.</p>
+										<h3>Supported types of Schemas:</h3>
+										<ul>
+											<li>Review</li>
+											<li>Event</li>
+											<li>People</li>
+											<li>Product</li>
+											<li>Recipe</li>
+											<li>Software Application</li>
+											<li>Video</li>
+											<li>Articles</li>
+										</ul>
+								</div>
+							</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable">
+									<h3 class="bsf-hndle"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
+									<div class="inside">
+										<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup plugin</p>
+
+											<p>It gives search engines only the important & precise information to display in search result snippets. Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition.</p>
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	
 			 <div id="tab-3">
 				<div id="poststuff">
@@ -639,7 +676,10 @@ function rich_snippet_dashboard() {
 			</div>
 						
 		 </div>
-	 	<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
+		 </div>
+		<div class="postbox-container" id="bsf-postbox-container-1" >
+		<div id="side-sortables">
+	 	<div class="postbox bsf-woocommerce-setting">
 			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
@@ -660,7 +700,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>
+		</div>'.get_support(1).'
 	</div>';
 	echo '
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
@@ -979,7 +1019,7 @@ function add_footer_script()
 function get_support()
 {
 	$html = '
-		<div class="postbox bsf-contact" style=" width: 36%; float: right; ">
+		<div class="postbox bsf-contact">
 			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
@@ -1003,13 +1043,16 @@ function get_support()
 							</select>
 						</td><td></td></tr>
 					<tr><td class="bsf_label"><label for="message"><strong>'.__( 'Your Query in Brief:', 'rich-snippets').'</strong> </label></td>
-						<td rowspan="4"><textarea class="bsf_textarea_small" name="message"></textarea> </td></tr>
+						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
 						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
 				</table>
 			</form>
 			</div>
+		</div>
+		</div>
+		</div>
 		</div>
 	';
 	return $html;
