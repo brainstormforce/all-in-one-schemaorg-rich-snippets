@@ -29,8 +29,8 @@
     vertical-align: top;
 }
 .snippet-image img {
-	border: 2px solid #FFF;
-	box-shadow: none;
+	/*border: 2px solid #FFF;
+	box-shadow: none;*/
 	margin: 10px auto;
 	display: block;
 }
