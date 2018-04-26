@@ -73,13 +73,12 @@ function rich_snippet_dashboard() {
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
-	echo '<div class="clear"></div>'.get_support(1).'<div id="tab-container" class="tab-container">';
+	echo '<div class="clear"></div><div id="tab-container" class="tab-container">';
 	echo '<ul class="etabs">
 			<li class="tab"><a href="#tab-1">'.__("Configuration","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-4">'.__("Customization","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-2">'.__(" How to Use?","rich-snippets").'</a></li>
 			<li class="tab"><a href="#tab-3">'.__("FAQs","rich-snippets").'</a></li>
-			
 		 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
@@ -660,7 +659,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>
+		</div>'.get_support(1).'
 	</div>';
 	echo '
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
@@ -1003,7 +1002,7 @@ function get_support()
 							</select>
 						</td><td></td></tr>
 					<tr><td class="bsf_label"><label for="message"><strong>'.__( 'Your Query in Brief:', 'rich-snippets').'</strong> </label></td>
-						<td rowspan="4"><textarea class="bsf_textarea_small" name="message"></textarea> </td></tr>
+						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
 						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
