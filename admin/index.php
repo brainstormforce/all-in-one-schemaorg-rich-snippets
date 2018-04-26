@@ -585,6 +585,11 @@ function rich_snippet_dashboard() {
 										</ol>
 										<li><strong>'.__("Is Google Authorship part of your plugin as well?","rich-snippets").'</strong></li>
 										<p>'.__("Unfortunately, not at the moment. Though this is definitely in our roadmap and the development will complete soon. Stay tuned!","rich-snippets").'</p>
+										<li><strong>'.__("Can I need to use this plugin with WooCommerce?","rich-snippets").'</strong></li>
+										<p>'.__("This plugin is useful on other pages and posts - where you do not have real products configured with wooCommerce short code. Also WooCommerce has built in MicroData so you do not even need to use our plugin on those pages or posts. 
+											However - for all other pages where you there is no shortcode of WooCommerce -you take benefit of this plugin to generate MicroData.","rich-snippets").'</p>
+										<li><strong>'.__("Can I use this plugin with *ANY OTHER* plugin?","rich-snippets").'</strong></li>
+										<p>'.__('Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it give you power to add Rich Snippets MicroData in your pages and posts easily. ',"rich-snippets").'</p>
 									</ol>
 									</div>
 								</div>
