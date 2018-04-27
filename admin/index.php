@@ -547,7 +547,7 @@ function rich_snippet_dashboard() {
 								<div class="handlediv" title="Click to toggle"><br></div>
 								<h3 class="hndle"><span>'.__("Usage Instructions","rich-snippets").'</span></h3>
 								<div class="inside">
-									<img width="95%" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/how-to-use.png").'"/>
+									<img width="95%" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/how-to-use.png").'"/>
 								</div>
 							</div>
 						</div>
@@ -557,33 +557,193 @@ function rich_snippet_dashboard() {
 			 <div id="tab-5">
 				<div id="poststuff">
 					<div id="postbox-container-17" class="postbox-container">
-						<div class="meta-box-sortables ui-sortable">
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
 							<div class="bsf-postbox">
-								<h3 class="bsf-hndle"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
+								<h3 class="bsf-hndle" style="margin-top:0;"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
 								<div class="inside">
 									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup plugin</p>
 
 										<p>It gives search engines only the important & precise information to display in search result snippets. Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition.</p>
+										<div class="bsf-xs-separator"></div>
 										<h3>Supported types of Schemas:</h3>
-										<ul>
-											<li>Review</li>
-											<li>Event</li>
-											<li>People</li>
-											<li>Product</li>
-											<li>Recipe</li>
-											<li>Software Application</li>
-											<li>Video</li>
-											<li>Articles</li>
+										<div class="bsf-xs-separator"></div>
+										<ul class="bsf-schema">
+											<li><span class="dashicons dashicons-star-half"></span> Review</li>
+											<li><span class="dashicons dashicons-awards"></span> Event</li>
+											<li><span class="dashicons dashicons-admin-users"></span> People</li>
+											<li><span class="dashicons dashicons-products"></span> Product</li>
+											<li><span class="dashicons dashicons-nametag"></span> Recipe</li>
+											<li><span class="dashicons dashicons-welcome-view-site"></span> Software Application</li>
+											<li><span class="dashicons dashicons-video-alt"></span> Video</li>
+											<li><span class="dashicons dashicons-clipboard"></span> Articles</li>
 										</ul>
+										<div class="bsf-xs-separator"></div>
+										<div class="bsf-btn-wraper">
+										<a href="https://wpschema.com/schema-types/" target="_blank" class="bsf-btn bsf-btn-xs btn-transperant ">Do More with Schema Pro</a>
+										</div>
+										<div class="bsf-xs-separator"></div>
 								</div>
 							</div>
 						</div>
-						<div class="meta-box-sortables ui-sortable">
-									<h3 class="bsf-hndle"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd">
+									<h3 class="bsf-hndle"><span>'.__("How it works","rich-snippets").'</span></h3>
 									<div class="inside">
-										<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup plugin</p>
-
-											<p>It gives search engines only the important & precise information to display in search result snippets. Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition.</p>
+										<ol class="bsf-li-counter">
+											<li>Install All In One Schema Rich Snippets
+											<p>Lorem ipsum dolor sit amet, et nunc vivamus aliquam. Sodales eleifend ullamcorper ante natoque.</p></li>
+											<li>Configure The Settings<p>Once installed you will see the "Rich Snippets" options in the left menu of your WordPress dashboard. Go through the settings<br>especially the configuration and customization tabs. </p></li>
+											<li>Add Markup To Pages<p>Edit a page/post you want to add rich snippets to then scroll down until you see "configure rich snippet."</p></li>
+											<li>Test Your Rich Snippets<p>Lorem ipsum dolor sit amet, et nunc vivamus aliquam. Sodales eleifend ullamcorper ante natoque.</p></li>
+										</ol>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
+									<h3 class="bsf-hndle"><span>'.__("Want time-saving and more advance solution for Schema Mark-up?","rich-snippets").'</span></h3>
+									<div class="inside">
+										<p>Schema Pro is the advance version of the All-in-one Schema.org Rich Snippet. It is built from scratch according to the latest guidelines and technology. Both these plugins can be used simultaneously on a website.</p>
+										<h3>Why use Schema Pro?</h3>
+										<div class="bsf-schema">
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/quick.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Its quick & easy way to implement Schema markup</h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/click.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Automate Schema markup with few clicks </h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/latest.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>It uses latest JSON LD Code<h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/search.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Schema data is only visible to search engines</h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/website.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Does not affect the design of the website</h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/custom.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Supports custom fields<h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/acf.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Out of the box support for ACF, PODS</h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/seo.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Full compatibility with Yoast SEO</h3>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd">
+									<h3 class="bsf-hndle"><span>'.__("With Schema Pro, you can…","rich-snippets").'</span></h3>
+									<div class="inside">
+										<ol class="bsf-li-counter">
+											<li>Automate Schema markup of the website.</li>
+											<li>Save time implementing Schema markup more faster & more accurate.</li>
+											<li>Target different post types with different Schema types</li>
+										</ol>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
+									<h3 class="bsf-hndle"><span>'.__("Testimonials","rich-snippets").'</span></h3>
+									<div class="inside">
+										<div class="bsf-schema">
+											<div class="bsf-testimonial-wrap">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-testimonial-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/bill.jpg").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+													<b>Bill Erickson,</b> <span>Erickson Web Consulting</span>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-ls-separator"></div>
+											<div class="bsf-testimonial-wrap">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-testimonial-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/kylevan.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+													<b>David Henzel,</b> <span> MaxCDN</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd testimonial-wraper">
+									<div class="inside">
+										<div class="bsf-schema">
+											<div class="bsf-schema-button-wrap">
+												<a href="https://wpschema.com/" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
+											</div>
+											<div class="bsf-schema-button-wrap">
+												<a href="https://wpschema.com/" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
+											</div>
+										</div>
 									</div>
 						</div>
 					</div>
@@ -680,6 +840,16 @@ function rich_snippet_dashboard() {
 		<div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables">
 	 	<div class="postbox bsf-woocommerce-setting">
+			<h3 class="get_in_touch"><p>'.__("Beginner's Guide","rich-snippets").'</p></h3>
+			<div class="inside">
+				<ul>
+				<li><a href="#">Documentation</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Support</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="postbox bsf-woocommerce-setting">
 			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">

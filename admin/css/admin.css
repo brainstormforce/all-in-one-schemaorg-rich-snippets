@@ -7,42 +7,259 @@ html{ display:block !important;}
 .tab a.active { font-weight: bold; text-decoration:none; color:#333; }
 .tab.active a:hover { text-decoration: none; color:#0073aa; }
 .tab-container { background: #fff; /*padding: 10px;*/ -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; display: inline-block; width: 95%; }
-.panel-container { /*margin-bottom: 10px;*/ /*border-top:1px solid #999; padding: 10px; margin-top: -6px; float:left; min-width: 98%;*/}
+.panel-container { /*margin-bottom: 10px;*/ border-top:1px solid #999; margin-top: -7px; float:left; min-width: 98%;}
 .get_in_touch { padding-left: 15px; }
 #bsf-postbox-container-2 {width: 65%;}
 #bsf-postbox-container-1 { width:35%; }
-.bsf-hndle { font-size: 22px;font-weight: 600;}
+.bsf-hndle { font-size: 22px;line-height:40px;font-weight: 600;}
 .panel-container.bsf-panel #poststuff {
     width: 100%;
     min-width: 100%;
     float: left;
 }
+.panel-container.bsf-panel {
+    border: 2px solid #e1e1e1;
+}
 .panel-container.bsf-panel .postbox-container {
     width: 100% !important;
-}
-
-.bsf-contact table.bsf_metabox input.bsf_text_medium { 
-	width: 100% !important;
 }
 
 .bsf-contact table.bsf_metabox select{
 		width: 100% !important;
 
 }
-.panel-container.bsf-panel p, 
-.panel-container.bsf-panel li {
+.panel-container.bsf-panel p {
     font-size: 16px;
     font-weight: 400;
 }
-.meta-box-sortables.ui-sortable {
-    padding: 15px;
+.panel-container.bsf-panel b {
+	font-size: 16px;
+}
+#bsf-postbox-container-2 .ui-sortable {
+    padding: 30px;
+}
+.bsf-even-odd {
+    background: #f8f8f8;
+}
+.bsf-schema {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.bsf-schema li {
+	width: calc(100% / 4 - 65px);
+    margin: 15px;
+    margin-left: 0;
+    text-align: center;
+    position: relative;
+    padding: 30px 25px 30px 25px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
+    -moz-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
+    -ms-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
+    -webkit-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
+}
+.bsf-schema li span {
+    display: block;
+    color: #828282;
+    font-size: 30px;
+    line-height: 32px;
+    width: 32px;
+    height: 32px;
+    margin: 7px auto;
+    text-align: center;
+}
+.bsf-schema li:hover::after {
+    width: 100%;
+}
+.bsf-schema li:after {
+    content: "";
+    background-color: rgba(247,21,104,0.9);
+    top: 0;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.4s ease-in-out 0s;
+    width: 0;
+}
+.bsf-schema-features {
+    width: calc(100% / 2 - 40px);
+    margin: 10px 40px;
+    margin-left: 0;
+}
+.bsf-schema-button-wrap {
+    width: calc(100% / 2 - 100px);
+    margin: 10px 50px;
+}
+.bsf-testimonial-wrap {
+	width: 100%;
+}
+.bsf-schema-features p {
+	color: #555;
+    font-size: 14px !important;
+}
+ol.bsf-li-counter {
+    counter-reset: my-badass-counter;
+}
+.bsf-li-counter li {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    list-style: none;
+}
+.bsf-schema-features h3 {
+	font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0;
+
+}
+.bsf-li-counter p {
+    margin-top: 10px;
+}
+.bsf-li-counter li:before {
+    position: absolute;
+    z-index: 100;
+    font-size: 13px;
+    text-align: center;
+    left: -40px;
+    top: -2px;
+    border-radius: 100px;
+    background-color: #f62a75;
+    color: white;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    content: counter(my-badass-counter);
+    counter-increment: my-badass-counter;
+}
+.bsf-schema-features-icon, 
+.bsf-schema-features-cont,
+.bsf-schema-testimonial-icon {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 10px;
+}
+.bsf-schema-testimonial-icon {
+	padding: 15px 35px;
+}
+.bsf-schema-testimonial-icon img {
+	width: 100px;
+	border-radius: 50%;
+}
+.bsf-schema-features-icon img {
+    margin-top: 15px;
+    width: 42px;
+}
+.bsf-btn-wraper {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+.btn-btn-grey {
+	background-color: #eee;
+    border-color: #ccc;
+    color: #666;
+}
+.btn-btn-grey:hover,
+.btn-btn-grey:active {
+    background-color: #d7d7d7;
+    border-color: #ccc;
+    color: #444;
+    box-shadow: none;
+    outline: none;
+}
+.btn-btn-purple {
+	background-color:rgba(247,21,104,0.9);
+    border-color: rgba(247,21,104,0.9);
+    color: #fff;
+}
+.btn-btn-purple:hover,
+.btn-btn-purple:active {
+	color: #fff;
+    background: #f70c62;
+    border-color:#f70c62;
+}
+.bsf-btn-lg {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 22px 50px;
+    width: 270px
+}
+.bsf-panel .bsf-btn-xs {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 35px;
+    width: 175px
+}
+.bsf-panel .btn-transperant {
+    border: 1px solid #b7b7b777;
+    color: #7d7d7d;
+    background: transparent;
+    border-radius: 50px;
+}
+.bsf-panel .btn-transperant:hover {
+    background: #f62a75;
+    color: #fff;
+}
+.bsf-btn {
+	border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    box-shadow: none;
+}
+a.bsf-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+#postbox-container-17 .ui-sortable {
+    padding: 50px;
+}
+.bsf-xs-separator {
+	width: 100%;
+    height: 15px;
+}
+.bsf-ls-separator {
+    display: block;
+    width: 100%;
+    height: 60px;
 }
 @media(max-width:768px){
 	#bsf-postbox-container-2 {
 	    width: 100%;
 	    margin-bottom: 20px;
 	}
-	#bsf-postbox-container-1 {
+	#bsf-postbox-container-1,
+	.bsf-schema,
+	.tab-container,
+	.bsf-schema li,
+	.bsf-schema-features {
+		display: block;
+		box-sizing: border-box;
 		width: 100%;
 	}
 }
