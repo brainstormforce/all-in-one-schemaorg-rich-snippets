@@ -202,13 +202,24 @@ ol.bsf-li-counter {
     font-size: 16px;
     font-weight: 600;
     padding: 22px 50px;
-    width: 270px
+    width: 270px;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    transition: all 200ms linear;
 }
 .bsf-panel .bsf-btn-xs {
     font-size: 14px;
     font-weight: 600;
     padding: 20px 35px;
     width: 175px
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    transition: all 200ms linear;
+
 }
 .bsf-panel .btn-transperant {
     border: 1px solid #b7b7b777;
