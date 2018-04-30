@@ -28,6 +28,7 @@ if ( !class_exists( "RichSnippets" ) )
 		function __construct() // Constructor
 		{
 			register_activation_hook(__FILE__, array($this, 'register_bsf_settings'));
+			add_action('admin_init',  array( $this, 'aiosrs_admin_redirect') );
 			add_action( 'admin_head', array( $this, 'star_icons') );
 			// Add Admin Menu
 			add_action('admin_menu', array( $this, 'register_custom_menu_page') );
@@ -166,6 +167,15 @@ if ( !class_exists( "RichSnippets" ) )
 			add_article_option();
 			add_service_option();
 			add_color_option();
+		    add_option('aisrs_do_activation_redirect', true);
+
+		}
+		function aiosrs_admin_redirect() {
+			$main_url = esc_url(admin_url());
+		    if (get_option('aisrs_do_activation_redirect', false)) {
+		        delete_option('aisrs_do_activation_redirect');
+		        wp_redirect($main_url.'/admin.php?page=rich_snippet_dashboard#tab-5');
+		    }
 		}
 		function submit_request()
 		{

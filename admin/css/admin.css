@@ -64,12 +64,12 @@ html{ display:block !important;}
     align-items: stretch;
 }
 .bsf-schema li {
-	width: calc(100% / 4 - 65px);
-    margin: 15px;
-    margin-left: 0;
+    width: calc(100% / 4 - 90px);
+    margin: 17px;
     text-align: center;
     position: relative;
-    padding: 30px 25px 30px 25px;
+    border: 1px solid #f9f9f9;
+    padding: 35px 25px 35px 25px;
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
     -moz-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
     -ms-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
