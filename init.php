@@ -352,6 +352,8 @@ class bsf_Meta_Box {
 			}
 			echo '</td>','</tr>';
 		}
+		echo '<td></td>','<td class="bsf-table-data"><a href="https://wpschema.com/" target="_blank">'.__('Don&#39;t want Schema data to be visible in frond-end? Use Schema Pro
+','rich-snippets').'</a></td>';
 		echo '</table>';
 	}
 	// Save data from metabox

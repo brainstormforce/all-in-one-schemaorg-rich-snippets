@@ -843,7 +843,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch"><p>'.__("Beginner's Guide","rich-snippets").'</p></h3>
 			<div class="inside">
 				<ul>
-				<li><a href="#">Documentation</a></li>
+				<li><a href="https://wpschema.com/schema-markup-wordpress/" target="_blnak">The complete beginners guide for Schema markup</a></li>
 				<li><a href="#">FAQ</a></li>
 				<li><a href="#">Support</a></li>
 				</ul>
