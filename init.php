@@ -352,7 +352,7 @@ class bsf_Meta_Box {
 			}
 			echo '</td>','</tr>';
 		}
-		echo '<td></td>','<td class="bsf-table-data"><div class="bsf-tooltip"><span class="dashicons dashicons-hidden"></span><a href="https://wpschema.com" target="_blank"><span class="bsf-tooltiptext">Don&#39;t want Schema data to be visible in frond-end? Use Schema Pro</span></a></div></td>';
+		echo '<td></td>','<td class="bsf-table-data"><div class="bsf-tooltip"><span class="dashicons dashicons-info"></span><span class="bsf-tooltiptext">Don&#39;t want Schema data to be visible in frond-end? <a href="https://wpschema.com" target="_blank">Use Schema Pro</span></a></div></td>';
 		echo '</table>';
 	}
 	// Save data from metabox

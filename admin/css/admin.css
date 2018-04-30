@@ -275,11 +275,11 @@ a.bsf-btn:focus {
 .bsf-tooltip .bsf-tooltiptext {
     visibility: hidden;
     position: absolute;
-    top: -17px;
+    top: -21px;
     right: 35px;
     width: 322px;
-    background-color: #000;
-    color: #fff;
+    background-color:#f7f7f7;
+    color: #000;
     text-align: center;
     border-radius: 3px;
     padding: 13px;
@@ -291,7 +291,7 @@ span.bsf-tooltiptext:after {
     height: 0;
     border-style: solid;
     border-width: 13px 0 13px 17px;
-    border-color: transparent transparent transparent #000;
+    border-color: transparent transparent transparent #f7f7f7;
     content: "";
     position: absolute;
     right: -15px;
