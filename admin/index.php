@@ -835,11 +835,12 @@ function rich_snippet_dashboard() {
 		 </div>
 		<div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables">
-	 	<div class="postbox bsf-woocommerce-setting">
+	 	<div class="postbox bsf-woocommerce-setting beginner-guide">
+			<h3 class="get_in_touch"><p>'.__("Beginner's Guide","rich-snippets").'</p></h3>
 			<div class="inside">
 				<ul>
-				<li><h3 class="bsf-guide-title"><a href="https://wpschema.com/schema-markup-wordpress/" target="_blnak">The<br>Complete Beginners<br> Guide for Schema Markup</a></h3></li>
-				<img class="bsf-guide-icon" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/guide.png").'"/>
+				<li><a href="https://wpschema.com/schema-markup-wordpress/" target="_blnak">The Complete Beginners Guide for<br>Schema markup</a></li>
+				<img class="bsf-guide-icon" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/bsf-guide-icon.png").'"/>
 
 				</ul>
 			</div>
