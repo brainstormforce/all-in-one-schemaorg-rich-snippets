@@ -282,8 +282,8 @@ span.bsf-tooltiptext:after {
     margin: 0;
     position: absolute;
     right: 5rem;
-    top: -30px;
-    width: 75px;
+    top: -25px;
+    width: 60px;
 }
 .beginner-guide a:hover {
     color: #0073aa;
