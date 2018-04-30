@@ -209,28 +209,6 @@ ol.bsf-li-counter {
     -o-transition: all 200ms linear;
     transition: all 200ms linear;
 }
-.bsf-panel .bsf-btn-xs {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 20px 35px;
-    width: 175px
-    -webkit-transition: all 200ms linear;
-    -moz-transition: all 200ms linear;
-    -ms-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
-    transition: all 200ms linear;
-
-}
-.bsf-panel .btn-transperant {
-    border: 1px solid #b7b7b777;
-    color: #7d7d7d;
-    background: transparent;
-    border-radius: 50px;
-}
-.bsf-panel .btn-transperant:hover {
-    background: #f62a75;
-    color: #fff;
-}
 .bsf-btn {
 	border: 0;
     border-radius: 3px;
@@ -299,6 +277,26 @@ span.bsf-tooltiptext:after {
 }
 .bsf-tooltip:hover .bsf-tooltiptext {
     visibility: visible;
+}
+.bsf-guide-icon {
+    margin: 0;
+    position: absolute;
+    right: 5rem;
+    top: 0;
+    width: 90px;
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%);
+    opacity: 0.7;
+}
+.bsf-guide-title a:focus {
+    outline: none;
+    box-shadow: none;
+}
+.bsf-guide-title a {
+    line-height: 1.5;
+}
+.bsf-guide-title {
+    margin-bottom: 0;
 }
 @media(max-width:768px){
 	#bsf-postbox-container-2 {
