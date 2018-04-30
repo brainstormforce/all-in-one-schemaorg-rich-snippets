@@ -267,6 +267,39 @@ a.bsf-btn:focus {
     top: 10px;
     right: 10px;
 }
+.bsf-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.bsf-tooltip .bsf-tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    top: -17px;
+    right: 35px;
+    width: 322px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 13px;
+    position: absolute;
+    z-index: 1;
+}
+span.bsf-tooltiptext:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 13px 0 13px 17px;
+    border-color: transparent transparent transparent #000;
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 20px;
+}
+.bsf-tooltip:hover .bsf-tooltiptext {
+    visibility: visible;
+}
 @media(max-width:768px){
 	#bsf-postbox-container-2 {
 	    width: 100%;

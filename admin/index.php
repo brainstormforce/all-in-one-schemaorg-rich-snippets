@@ -578,10 +578,6 @@ function rich_snippet_dashboard() {
 											<li><span class="dashicons dashicons-clipboard"></span> Articles</li>
 										</ul>
 										<div class="bsf-xs-separator"></div>
-										<div class="bsf-btn-wraper">
-										<a href="https://wpschema.com/schema-types/" target="_blank" class="bsf-btn bsf-btn-xs btn-transperant ">Do More with Schema Pro</a>
-										</div>
-										<div class="bsf-xs-separator"></div>
 								</div>
 							</div>
 						</div>
