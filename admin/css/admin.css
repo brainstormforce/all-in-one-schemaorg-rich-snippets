@@ -8,7 +8,7 @@ html{ display:block !important;}
 .tab-container { width: 95%; }
 .get_in_touch { padding-left: 15px; }
 #bsf-postbox-container-2 {width: 65%;}
-#bsf-postbox-container-1 { width:35%; }
+#bsf-postbox-container-1 { width:35%; margin-top: 55px;}
 .bsf-hndle { font-size: 22px;line-height:40px;font-weight: 600;}
 .panel-container.bsf-panel #poststuff {width: 100%;min-width: 100%;float: left;}
 .bsf-tab-wraper li {margin: 0;}
