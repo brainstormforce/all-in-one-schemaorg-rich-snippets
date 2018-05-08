@@ -76,12 +76,12 @@ function rich_snippet_dashboard() {
 	echo '<div id="post-body" class="columns-2">';
 	echo '<div class="clear"></div>';
 	echo '<div id="bsf-postbox-container-2" class="postbox-container"><div id="tab-container" class="tab-container">';
-	echo '<ul class="etabs">
-			<li class="tab"><a href="#tab-1">'.__("Configuration","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-4">'.__("Customization","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-2">'.__(" How to Use?","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-3">'.__("FAQs","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-5">'.__("Getting Started","rich-snippets").'</a></li>
+	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
+			<li><a href="#tab-1" class="nav-tab">'.__("Configuration","rich-snippets").'</a></li>
+			<li><a href="#tab-4" class="nav-tab">'.__("Customization","rich-snippets").'</a></li>
+			<li><a href="#tab-2" class="nav-tab">'.__(" How to Use?","rich-snippets").'</a></li>
+			<li><a href="#tab-3" class="nav-tab">'.__("FAQs","rich-snippets").'</a></li>
+			<li><a href="#tab-5" class="nav-tab">'.__("Getting Started","rich-snippets").'</a></li>
 		 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
@@ -89,7 +89,7 @@ function rich_snippet_dashboard() {
 				<div id="poststuff">
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox closed">
+							<div class="postbox">
 								<div class="handlediv" title="Click to toggle"><br></div>
 								<h3 class="hndle"><span>'.__("Item Review","rich-snippets").'</span></h3>
 								<div class="inside">

@@ -3,22 +3,20 @@ html{ display:block !important;}
 .tab { display: inline-block; zoom:1; *display:inline; background: #fff; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; font-weight:bold; }
 .tab a { box-shadow: none; font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; text-decoration:none; color:rgb(175, 175, 175); }
 .tab a:hover { text-decoration: none; color:#0073aa; }
-.tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
 .tab a.active { font-weight: bold; text-decoration:none; color:#333; }
 .tab.active a:hover { text-decoration: none; color:#0073aa; }
-.tab-container { background: #fff; /*padding: 10px;*/ -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; display: inline-block; width: 95%; }
-.panel-container { /*margin-bottom: 10px;*/ border-top:1px solid #999; margin-top: -7px; float:left; min-width: 98%;}
+.tab-container { width: 95%; }
 .get_in_touch { padding-left: 15px; }
 #bsf-postbox-container-2 {width: 65%;}
 #bsf-postbox-container-1 { width:35%; }
 .bsf-hndle { font-size: 22px;line-height:40px;font-weight: 600;}
-.panel-container.bsf-panel #poststuff {
-    width: 100%;
-    min-width: 100%;
-    float: left;
-}
-.panel-container.bsf-panel {
-    border: 2px solid #e1e1e1;
+.panel-container.bsf-panel #poststuff {width: 100%;min-width: 100%;float: left;}
+.bsf-tab-wraper li {margin: 0;}
+.bsf-tab-wraper .nav-tab.active {
+    border-bottom: 1px solid #f1f1f1;
+    background: #f1f1f1;
+    color: #000;
+    margin-bottom: -1px;
 }
 .panel-container.bsf-panel .postbox-container {
     width: 100% !important;
@@ -36,7 +34,7 @@ html{ display:block !important;}
 	font-size: 16px;
 }
 #bsf-postbox-container-2 .ui-sortable {
-    padding: 30px;
+    padding: 5px;
 }
 .bsf-even-odd {
     background: #f8f8f8;
@@ -227,6 +225,9 @@ ol.bsf-li-counter {
 a.bsf-btn:focus {
     outline: none;
     box-shadow: none;
+}
+#postbox-container-17 {
+    background: #fff;
 }
 #postbox-container-17 .ui-sortable {
     padding: 50px;
