@@ -79,7 +79,7 @@ function rich_snippet_dashboard() {
 	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
 			<li><a href="#tab-1" class="nav-tab">'.__("Configuration","rich-snippets").'</a></li>
 			<li><a href="#tab-4" class="nav-tab">'.__("Customization","rich-snippets").'</a></li>
-			<li><a href="#tab-2" class="nav-tab">'.__(" How to Use?","rich-snippets").'</a></li>
+			<li><a href="#tab-2" class="nav-tab">'.__("How to Use?","rich-snippets").'</a></li>
 			<li><a href="#tab-3" class="nav-tab">'.__("FAQs","rich-snippets").'</a></li>
 			<li><a href="#tab-5" class="nav-tab">'.__("Getting Started","rich-snippets").'</a></li>
 		 </ul>
