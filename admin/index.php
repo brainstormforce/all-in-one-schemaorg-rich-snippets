@@ -561,21 +561,20 @@ function rich_snippet_dashboard() {
 							<div class="bsf-postbox">
 								<h3 class="bsf-hndle" style="margin-top:0;"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
 								<div class="inside">
-									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup plugin</p>
+									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup WordPress plugin</p>
 
-										<p>It gives search engines only the important & precise information to display in search result snippets. Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition.</p>
+										<p>All-in-one Schema Rich Snippets offers you different schema content types so you can give search engines precise information about your web pages to display in search result snippets.</p>
 										<div class="bsf-xs-separator"></div>
 										<h3>Supported types of Schemas:</h3>
-										<div class="bsf-xs-separator"></div>
-										<ul class="bsf-schema">
-											<li><span class="dashicons dashicons-star-half"></span> Review</li>
-											<li><span class="dashicons dashicons-awards"></span> Event</li>
-											<li><span class="dashicons dashicons-admin-users"></span> People</li>
-											<li><span class="dashicons dashicons-products"></span> Product</li>
-											<li><span class="dashicons dashicons-nametag"></span> Recipe</li>
-											<li><span class="dashicons dashicons-welcome-view-site"></span> Software Application</li>
-											<li><span class="dashicons dashicons-video-alt"></span> Video</li>
-											<li><span class="dashicons dashicons-clipboard"></span> Articles</li>
+										<ul class="schema-types">
+											<li>Review</li>
+											<li>Event</li>
+											<li>People</li>
+											<li>Product</li>
+											<li>Recipe</li>
+											<li>Software Application</li>
+											<li>Video</li>
+											<li>Articles</li>
 										</ul>
 										<div class="bsf-xs-separator"></div>
 								</div>
@@ -594,96 +593,96 @@ function rich_snippet_dashboard() {
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
-									<h3 class="bsf-hndle"><span>'.__("Want time-saving and more advance solution for Schema Mark-up?","rich-snippets").'</span></h3>
+									<h3 class="bsf-hndle"><span>'.__("Advance Schema Markup Solution - Schema Pro","rich-snippets").'</span></h3>
 									<div class="inside">
 										<p>Schema Pro is the advance version of the All-in-one Schema.org Rich Snippet. It is built from scratch according to the latest guidelines and technology. Both these plugins can be used simultaneously on a website.</p>
 										<h3>Why use Schema Pro?</h3>
-										<div class="bsf-schema">
-											<div class="bsf-schema-features">
+										<div class="bsf-schema-desc">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/quick.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Its quick & easy way to implement Schema markup</h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/click.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Automate Schema markup with few clicks </h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/latest.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>It uses latest JSON LD Code<h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/search.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Schema data is only visible to search engines</h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/website.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Does not affect the design of the website</h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/custom.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Supports custom fields<h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/acf.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Out of the box support for ACF, PODS</h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
-											<div class="bsf-schema-features">
+											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/seo.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Full compatibility with Yoast SEO</h3>
-													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
+													<p>Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda Lorem ipsum dolor sit amet, vel mauris eget vestibulum metus in, varius assumenda.</p>
 													</div>
 												</div>
 											</div>
@@ -722,8 +721,8 @@ function rich_snippet_dashboard() {
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/kylevan.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-													<b>David Henzel,</b> <span> MaxCDN</span>
+													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldnt be any easier to use!</p>
+													<b>Kyle Van Deusen,</b> <span> Owner at ogalweb.com</span>
 													</div>
 												</div>
 											</div>

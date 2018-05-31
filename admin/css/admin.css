@@ -61,28 +61,6 @@ html{ display:block !important;}
     -ms-flex-align: stretch;
     align-items: stretch;
 }
-.bsf-schema li {
-    width: calc(100% / 4 - 90px);
-    margin: 17px;
-    text-align: center;
-    position: relative;
-    border: 1px solid #f9f9f9;
-    padding: 35px 25px 35px 25px;
-    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
-    -moz-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
-    -ms-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
-    -webkit-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.06);
-}
-.bsf-schema li span {
-    display: block;
-    color: #828282;
-    font-size: 30px;
-    line-height: 32px;
-    width: 32px;
-    height: 32px;
-    margin: 7px auto;
-    text-align: center;
-}
 .bsf-schema li:hover::after {
     width: 100%;
 }
@@ -108,9 +86,17 @@ html{ display:block !important;}
 .bsf-testimonial-wrap {
 	width: 100%;
 }
-.bsf-schema-features p {
+.bsf-schema-features-wrap {
+    margin-bottom: 15px;
+}
+.schema-types li {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.bsf-schema-features-1 p {
 	color: #555;
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 ol.bsf-li-counter {
     counter-reset: my-badass-counter;
@@ -123,7 +109,7 @@ ol.bsf-li-counter {
     margin-left: 15px;
     list-style: none;
 }
-.bsf-schema-features h3 {
+.bsf-schema-features-1 h3 {
 	font-size: 15px;
     font-weight: 600;
     margin-bottom: 0;
@@ -165,7 +151,7 @@ ol.bsf-li-counter {
 }
 .bsf-schema-features-icon img {
     margin-top: 15px;
-    width: 42px;
+    width: 38px;
 }
 .bsf-btn-wraper {
 	width: 100%;
