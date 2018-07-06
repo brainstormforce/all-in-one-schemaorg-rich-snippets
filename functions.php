@@ -23,7 +23,7 @@ add_action( 'wp_head', 'add_ajax_library' );
  * Initialize the metabox class.
  */
 /* FUNCTION to check for posts having snippets */
-add_action('wp','check_snippet_existence','',7);
+add_action( 'wp','check_snippet_existence' );
 function check_snippet_existence(){	
 	global $post;
 
@@ -33,19 +33,17 @@ function check_snippet_existence(){
 	
 	$type = get_post_meta($post->ID, '_bsf_post_type', true);
 	if($type){		
-		add_action( 'wp_head', 'frontend_style' );
 		add_action('wp_enqueue_scripts', 'enque');
 	}
 
 }
-function enque() {
+function enque( ) {
 	wp_enqueue_style('rating_style', plugin_dir_url(__FILE__) . 'css/jquery.rating.css');
 	wp_enqueue_script('jquery_rating', plugin_dir_url(__FILE__) . 'js/jquery.rating.min.js', array('jquery'));
+	wp_register_style( 'bsf_style', plugins_url('/css/style.css', __FILE__) );
+	wp_enqueue_style('bsf_style');
 }
-function frontend_style() {
-		wp_register_style( 'bsf_style', plugins_url('/css/style.css', __FILE__) );
-		wp_enqueue_style('bsf_style');
-	}
+
 function bsf_initialize_bsf_meta_boxes() {
 	if ( ! class_exists( 'bsf_Meta_Box' ) )
 		require_once plugin_dir_path( __FILE__ ).'init.php';
