@@ -23,8 +23,8 @@ add_action( 'wp_head', 'add_ajax_library' );
  * Initialize the metabox class.
  */
 /* FUNCTION to check for posts having snippets */
-add_action( 'wp','check_snippet_existence' );
-function check_snippet_existence(){	
+add_action( 'wp','aiosrs_check_snippet_existence' );
+function aiosrs_check_snippet_existence(){	
 	global $post;
 
 	if( !isset( $post->ID ) ) {
@@ -33,11 +33,11 @@ function check_snippet_existence(){
 	
 	$type = get_post_meta($post->ID, '_bsf_post_type', true);
 	if($type){		
-		add_action('wp_enqueue_scripts', 'enque');
+		add_action('wp_enqueue_scripts', 'aiosrs_enque');
 	}
 
 }
-function enque( ) {
+function aiosrs_enque( ) {
 	wp_enqueue_style('rating_style', plugin_dir_url(__FILE__) . 'css/jquery.rating.css');
 	wp_enqueue_script('jquery_rating', plugin_dir_url(__FILE__) . 'js/jquery.rating.min.js', array('jquery'));
 	wp_register_style( 'bsf_style', plugins_url('/css/style.css', __FILE__) );
