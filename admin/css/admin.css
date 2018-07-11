@@ -302,4 +302,42 @@ span.bsf-tooltiptext:after {
 		box-sizing: border-box;
 		width: 100%;
 	}
+    #postbox-container-17 .ui-sortable {
+        padding: 20px;
+    }
+   .bsf-hndle {
+        font-size: 18px;
+        line-height: 27px;
+        font-weight: 600;
+    }
+    .bsf-schema-features-icon, 
+    .bsf-schema-features-cont, 
+    .bsf-schema-testimonial-icon {
+         display: block; 
+         text-align: center;
+    }
+    .bsf-schema-button-wrap {
+        width: 100%;
+        margin: 15px auto;
+    }
+    .bsf-guide-icon {
+        display: none;
+    }
+    div .bsf-btn-lg {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+@media(max-width:1600px ) {
+    .bsf-btn-lg {
+        width: auto;
+    }
+    table.bsf_metabox input.bsf_text_medium {
+        width: 100%;
+    }
+}
+@media(min-width: 767px) and (max-width:1400px ) {
+    .bsf-guide-icon {
+        display: none;
+    }
 }

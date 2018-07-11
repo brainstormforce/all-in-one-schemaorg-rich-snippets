@@ -706,11 +706,11 @@ function rich_snippet_dashboard() {
 											<div class="bsf-testimonial-wrap">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-testimonial-icon">
-													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/bill.jpg").'"/>
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/adam-circle.jpg").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-													<b>Bill Erickson,</b> <span>Erickson Web Consulting</span>
+													<p>I have used every Schema Plugin for WordPress over the last few years, hundreds of dollars invested, and Schema Pro blows them all out of the water. It’s the only schema plugin you need.</p>
+													<b>Adam Preiser,</b> <span>WPCrafter.com</span>
 													</div>
 												</div>
 											</div>
@@ -834,18 +834,8 @@ function rich_snippet_dashboard() {
 		 </div>
 		<div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables">
-	 	<div class="postbox bsf-woocommerce-setting beginner-guide">
-			<h3 class="get_in_touch"><p>'.__("Beginner's Guide","rich-snippets").'</p></h3>
-			<div class="inside">
-				<ul>
-				<li><a href="https://wpschema.com/schema-markup-wordpress/" target="_blnak">The Complete Beginners Guide for<br>Schema markup</a></li>
-				<img class="bsf-guide-icon" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/bsf-guide-icon.png").'"/>
-
-				</ul>
-			</div>
-		</div>
 		<div class="postbox bsf-woocommerce-setting">
-			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
+			<h3 class="get_in_touch">'.__("WooCommerce Configuration","rich-snippets").'</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
 			'.wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ).'
@@ -859,7 +849,7 @@ function rich_snippet_dashboard() {
 					</tr>
 					<tr>
 						<td>
-							<input type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/>
+							<input style="margin-top:10px;" type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/>
 						</td>
 					</tr>
 				</table>
