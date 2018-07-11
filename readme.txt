@@ -3,7 +3,7 @@ Contributors: brainstormforce, yawalkarm
 Donate link: https://www.brainstormforce.com
 Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
 Requires at least: 3.7
-Tested up to: 4.8.1
+Tested up to: 4.9.2
 Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 = What is a Rich Snippet? =
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
-[See Examples of Rich Snippets Here.](https://www.brainstormforce.com/schema-rich-snippets/ "Rich Snippets Examples")
+[See Examples of Rich Snippets Here.](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/?utm_source=wp-org-readme&utm_medium=rich-snippet-example "Rich Snippets Examples")
 
 = How does a Rich Snippet help? =
 - It gives search engines only the important & precise information to display in search result snippets.
