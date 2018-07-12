@@ -90,7 +90,7 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Item Review","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -131,7 +131,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Events","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -180,7 +180,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Person","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -229,7 +229,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Product","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -278,7 +278,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Recipe","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -335,7 +335,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Software Application","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -386,7 +386,7 @@ function rich_snippet_dashboard() {
 							
 							
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Video","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -427,7 +427,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Article","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -476,7 +476,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Service","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -544,7 +544,7 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-3" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Usage Instructions","rich-snippets").'</span></h3>
 								<div class="inside">
 									<img width="95%" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/how-to-use.png").'"/>
@@ -740,7 +740,7 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-5" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 									<h3 class="hndle">'.__("<span>Plugins FAQs</span>","rich-snippets").'</h3>
 									<div class="inside">
 									<ol>	
@@ -780,7 +780,7 @@ function rich_snippet_dashboard() {
 						<div id="postbox-container-11" class="postbox-container">
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
-									<div class="handlediv" title="Click to toggle"><br></div>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">'.__("<span>Customize the look and feel of rich snippet box</span>","rich-snippets").'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
@@ -1165,7 +1165,7 @@ function get_support()
 {
 	$html = '
 		<div class="postbox bsf-contact">
-			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
+			<h3 class="get_in_touch">'.__("Get in touch with the Plugin Developers","rich-snippets").'</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
 				<p> '.__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ).' </p>
