@@ -191,6 +191,3 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ### 1.0 ###
 * Initial Release.
-
-## Upgrade Notice ##
-Note: Minor bug fixes. Update the plugin to enjoy bug free blogging!
