@@ -1,10 +1,10 @@
-# All In One Schema.org Rich Snippets #
-**Contributors:** brainstormforce, yawalkarm  
+# All In One Schema Rich Snippets #
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [yawalkarm](https://profiles.wordpress.org/yawalkarm)  
 **Donate link:** https://www.brainstormforce.com  
 **Tags:** Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing  
 **Requires at least:** 3.7  
-**Tested up to:** 4.7.3
-**Stable tag:** 1.5.2
+**Tested up to:** 4.9.7  
+**Stable tag:** 1.5.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -13,7 +13,7 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 ### What is a Rich Snippet? ###
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
-[See Examples of Rich Snippets Here.](https://www.brainstormforce.com/schema-rich-snippets/ "Rich Snippets Examples")
+[See Examples of Rich Snippets Here.](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/?utm_source=wp-org-readme&utm_medium=rich-snippet-example "Rich Snippets Examples")
 
 ### How does a Rich Snippet help? ###
 - It gives search engines only the important & precise information to display in search result snippets.
@@ -40,7 +40,7 @@ This plugin supports the following types of Schemas:
 * Local Business
 * Books
 ### Want to contribute to the plugin? ###
-**You may now contribute to the plugin on Github:** [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")  
+You may now contribute to the plugin on Github: [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")
 
 ## Installation ##
 
@@ -70,7 +70,16 @@ It is basically a short summary of your page in the search results of Google, Ya
 This plugin currently supports almost all of the content types that are released by Schema.org at one place.
 Review, Event, People, Product, Recipe, Software Application, Video, Articles etc.
 
+## Screenshots ##
+1. Meta box in post-new under the editor screen.
+2. Select content type from dropdown
+3. Fill the details as much as you can
+4. Test the post or page URL in Google Rich Snippets Testing
+
 ## Changelog ##
+
+### 1.5.3 ###
+* Improvement: Updated schema exiting action and enqueue files function.
 
 ### 1.5.2 ###
 * Fix: Frontend Summary box structure validation issue.
@@ -184,4 +193,4 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 * Initial Release.
 
 ## Upgrade Notice ##
-**Note:** Minor bug fixes. Update the plugin to enjoy bug free blogging!  
+Note: Minor bug fixes. Update the plugin to enjoy bug free blogging!
