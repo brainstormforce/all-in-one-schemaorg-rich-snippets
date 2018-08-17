@@ -208,6 +208,7 @@ ol.bsf-li-counter {
 a.bsf-btn:focus {
     outline: none;
     box-shadow: none;
+    color: inherit;
 }
 #postbox-container-17 {
     background: #fff;
