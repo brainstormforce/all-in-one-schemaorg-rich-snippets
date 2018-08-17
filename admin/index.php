@@ -561,9 +561,9 @@ function rich_snippet_dashboard() {
 							<div class="bsf-postbox">
 								<h3 class="bsf-hndle" style="margin-top:0;"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
 								<div class="inside">
-									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular schema markup WordPress plugin!</p>
+									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular WordPress schema markup plugin!</p>
 
-										<p>All-in-one Schema Rich Snippets offers you different schema content types so you can give search engines precise information about your web pages to display in search result snippets. </p>
+										<p>All-in-one Schema Rich Snippets helps you add different schema content types to your site so that you can communicate precise information about your web pages to search engines and get rich snippets.</p>
 										<div class="bsf-xs-separator"></div>
 										<h3>Supported types of Schemas:</h3>
 										<ul class="schema-types">
@@ -584,32 +584,20 @@ function rich_snippet_dashboard() {
 									<h3 class="bsf-hndle"><span>'.__("How it works","rich-snippets").'</span></h3>
 									<div class="inside">
 										<ol class="bsf-li-counter">
-											<li>Install All In One Schema Rich Snippets
-											<p>The All In One Schema Rich Snippets can be installed like any other WordPress plugin. Simply search it through the Add Plugins page and install it on your website.</p></li>
-											<li>Configure The Settings<p>Go to the “Rich Snippets” option in your WordPress dashboard and configure settings and customizations in the respective tabs.</p></li>
-											<li>Add Markup To Pages<p>Edit the pages/posts you wish to add the rich snippets to and scroll down to the “Configure Rich Snippet” meta box seen below.</p></li>
-											<li>Test Your Rich Snippets<p>Open the <a href="https://search.google.com/structured-data/testing-tool/u/0/" target="_blank">Google Structured Testing Tool</a> and fetch your website URL to test the schema markups you’ve just implemented on your webpages.</p></li>
+											<li>Configure The Settings
+											<p>Configure The Settings - Go to the “Rich Snippets” option in your WordPress dashboard and configure the settings and customization options in the respective tabs.</p></li>
+											<li>Add Markup To Pages<p>Add Markup To Pages -Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box seen below.</p></li>
+											<li>Test Your Rich Snippets<p>Test Your Rich Snippets - Open the <a target="_blank" href="https://search.google.com/structured-data/testing-tool/u/0/">Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you added with All In One Schema Rich Snippets.</p></li>
 										</ol>
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
 									<h3 class="bsf-hndle"><span>'.__("Want to Automate Your Schema Markup?","rich-snippets").'</span></h3>
 									<div class="inside">
-										<h3>Meet Schema Pro...</h3>
-										<p>Schema Pro is an advanced schema markup plugin that automates the process of adding schema markups on multiple pages with just a few clicks. Schema Pro is developed using latest JSON LD code which is the latest technology recommended by Google. Therefore, it follows Google guidelines and helps you implement an accurate schema markups that contribute to attractive rich snippets on search engine results pages.</p>
+										<h3>Consider Schema Pro</h3>
+										<p>Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.</p>
 										<h3></h3>
 										<div class="bsf-schema-desc">
-											<div class="bsf-schema-features-1">
-												<div class="bsf-schema-features-wrap">
-													<div class="bsf-schema-features-icon">
-													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/latest.png").'"/>
-													</div>
-													<div class="bsf-schema-features-cont">
-													<h3>Latest and Advanced Technology<h3>
-													<p>Schema Pro uses advanced JSON LD code which makes your schema markup search engine friendly and accurate, <strong>without affecting your the website design.</strong></p>
-													</div>
-												</div>
-											</div>
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
@@ -617,7 +605,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Schema Markup Automation</h3>
-													<p>Schema Pro automates the process of adding schema markups on your website and lets <strong>you implement schema markup on hundreds and thousands of pages in a few clicks.</strong></p>
+													<p>Schema Pro automates the process of adding schema markup on your website. Just configure your markup one time and you can easily apply it to hundreds or thousands of pages.</p>
 													</div>
 												</div>
 											</div>
@@ -628,7 +616,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Complete Schema Implementation</h3>
-													<p>Schema Pro gives you <strong>full benefits of schema markups with organization level and content type schemas.</strong> Implement organization level markups site-wide and content type on actual pages.</p>
+													<p>Schema Pro gives you the full benefits of schema markup with both organization level and content type schemas. Implement organization level markup site-wide and content type on specific pages.</p>
 													</div>
 												</div>
 											</div>
@@ -639,7 +627,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Advanced Targeting Rules</h3>
-													<p>Schema Pro lets you set up advanced targeting rules to <strong>implement relevant schema markups for different post types</strong> by using different schema content types.</p>
+													<p>Schema Pro lets you use pinpoint inclusion/exclusion rules to apply different schema content types on both a post type or individual post level.</p>
 													</div>
 												</div>
 											</div>
@@ -650,7 +638,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Custom Field Support<h3>
-													<p>Schema Pro comes with all the necessary fields along with a support for custom fields. It lets you <strong>map existing custom fields or creating new ones to suit your needs.</strong></p>
+													<p>Schema Pro comes with all the necessary fields for each content type, as well as support for your own custom fields. It lets you map existing custom fields or create new ones to suit your needs.</p>
 													</div>
 												</div>
 											</div>
@@ -661,7 +649,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Accuracy and Testing</h3>
-													<p>Schema Pro lets you implement accurate markups and lets you analyse<strong> your schema implementation instantly so you can rest assured that you’ve implemented it right.</strong></p>
+													<p>Schema Pro lets you implement accurate markup and analyse your schema implementation instantly so you can rest assured that you’ve implemented it right.</p>
 													</div>
 												</div>
 											</div>
@@ -672,7 +660,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Compatibility with Yoast SEO,  ACF, PODS </h3>
-													<p>Schema Pro is compatible with a few third party plugins and <strong>inherits the settings in Yoast SEO and fetches custom fields created using ACF and PODS plugins.</strong></p>
+													<p>Schema Pro is compatible with popular third-party plugins. It can inherit the settings from Yoast SEO and fetch custom fields that you&#39;ve created using the ACF or PODS plugins.</p>
 													</div>
 												</div>
 											</div>
@@ -683,9 +671,9 @@ function rich_snippet_dashboard() {
 									<h3 class="bsf-hndle"><span>'.__("With Schema Pro, you can…","rich-snippets").'</span></h3>
 									<div class="inside">
 										<ol class="bsf-li-counter">
-											<li>Automate Schema markup of the website.</li>
-											<li>Save time implementing Schema markup more faster & more accurate.</li>
-											<li>Target different post types with different Schema types</li>
+											<li>Automate schema markup for your entire website.</li>
+											<li>Implement schema markup faster and more accurately.</li>
+											<li>Target different post types with different Schema types.</li>
 										</ol>
 									</div>
 						</div>
@@ -700,7 +688,7 @@ function rich_snippet_dashboard() {
 													</div>
 													<div class="bsf-schema-features-cont">
 													<p>I have used every Schema Plugin for WordPress over the last few years, hundreds of dollars invested, and Schema Pro blows them all out of the water. It’s the only schema plugin you need.</p>
-													<b>Adam Preiser,</b> <span>WPCrafter.com</span>
+													<b>Adam Preiser,</b> <span>Founder of WPCrafter.com</span>
 													</div>
 												</div>
 											</div>
@@ -711,7 +699,7 @@ function rich_snippet_dashboard() {
 													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/kylevan.png").'"/>
 													</div>
 													<div class="bsf-schema-features-cont">
-													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldnt be any easier to use!</p>
+													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldn&#39;t be any easier to use!</p>
 													<b>Kyle Van Deusen,</b> <span> Owner at ogalweb.com</span>
 													</div>
 												</div>
@@ -723,10 +711,10 @@ function rich_snippet_dashboard() {
 									<div class="inside">
 										<div class="bsf-schema">
 											<div class="bsf-schema-button-wrap">
-												<a href="https://wpschema.com/" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
+												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
 											</div>
 											<div class="bsf-schema-button-wrap">
-												<a href="https://wpschema.com/" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
+												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=editpage" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
 											</div>
 										</div>
 									</div>

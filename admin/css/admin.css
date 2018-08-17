@@ -205,9 +205,6 @@ ol.bsf-li-counter {
     white-space: nowrap;
     box-shadow: none;
 }
-.bsf-schema a:focus {
-    color: #fff;
-}
 a.bsf-btn:focus {
     outline: none;
     box-shadow: none;
