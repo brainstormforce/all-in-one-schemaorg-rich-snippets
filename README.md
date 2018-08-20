@@ -78,6 +78,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ## Changelog ##
 
+### 1.5.4 ###
+* Improvement: Dashboard UI Updated.
+
 ### 1.5.3 ###
 * Improvement: Updated schema exiting action and enqueue files function.
 
