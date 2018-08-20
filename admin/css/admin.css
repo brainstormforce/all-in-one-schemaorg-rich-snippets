@@ -177,7 +177,8 @@ ol.bsf-li-counter {
     color: #fff;
 }
 .btn-btn-purple:hover,
-.btn-btn-purple:active {
+.btn-btn-purple:active,
+.btn-btn-purple:focus {
 	color: #fff;
     background: #f70c62;
     border-color:#f70c62;
@@ -208,7 +209,6 @@ ol.bsf-li-counter {
 a.bsf-btn:focus {
     outline: none;
     box-shadow: none;
-    color: inherit;
 }
 #postbox-container-17 {
     background: #fff;
