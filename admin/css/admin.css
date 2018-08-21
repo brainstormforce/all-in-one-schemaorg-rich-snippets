@@ -96,7 +96,7 @@ html{ display:block !important;}
     padding-top: 20px;
 }
 .schema-type-col-2 {
-    width: 20%;
+    width: 25%;
 }
 .schema-types li {
     list-style-type: disc;
@@ -351,4 +351,7 @@ span.bsf-tooltiptext:after {
 div#tab-5 {
     margin-top: -300px;
     padding-bottom: 300px;
+}
+div#tab-5 div#postbox-container-17 {
+    border: 2px solid #e5e5e5;
 }

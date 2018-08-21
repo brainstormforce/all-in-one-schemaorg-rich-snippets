@@ -558,7 +558,7 @@ function rich_snippet_dashboard() {
 												<li>Event</li>
 											 </div>
 											<div class="schema-type-col-2">
-												<li>People</li>
+												<li>Person</li>
 												<li>Product</li>
 											</div>
 											<div class="schema-type-col-2">
@@ -832,7 +832,7 @@ function rich_snippet_dashboard() {
 		 </div>
 		<div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables">
-		<div class="postbox bsf-woocommerce-setting">
+		<div class="postbox bsf-woocommerce-setting closed">
 			<h3 class="get_in_touch">'.__("WooCommerce Configuration","rich-snippets").'</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
@@ -1172,7 +1172,7 @@ function add_footer_script()
 function get_support()
 {
 	$html = '
-		<div class="postbox bsf-contact">
+		<div class="postbox bsf-contact closed">
 			<h3 class="get_in_touch">'.__("Get in touch with the Plugin Developers","rich-snippets").'</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
