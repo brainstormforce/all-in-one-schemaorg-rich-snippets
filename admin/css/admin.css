@@ -89,6 +89,15 @@ html{ display:block !important;}
 .bsf-schema-features-wrap {
     margin-bottom: 15px;
 }
+.schema-types {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 20px;
+}
+.schema-type-col-2 {
+    width: 20%;
+}
 .schema-types li {
     list-style-type: disc;
     margin-left: 20px;

@@ -79,7 +79,7 @@ function rich_snippet_dashboard() {
 	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
 			<li><a href="#tab-1" class="nav-tab">'.__("Configuration","rich-snippets").'</a></li>
 			<li><a href="#tab-4" class="nav-tab">'.__("Customization","rich-snippets").'</a></li>
-			<li><a href="#tab-2" class="nav-tab">'.__("How to Use?","rich-snippets").'</a></li>
+			
 			<li><a href="#tab-3" class="nav-tab">'.__("FAQs","rich-snippets").'</a></li>
 			<li><a href="#tab-5" class="nav-tab">'.__("Getting Started","rich-snippets").'</a></li>
 		 </ul>
@@ -89,7 +89,7 @@ function rich_snippet_dashboard() {
 				<div id="poststuff">
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox">
+							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Item Review","rich-snippets").'</span></h3>
 								<div class="inside">
@@ -539,21 +539,7 @@ function rich_snippet_dashboard() {
 				</div>	
 			 </div>
 	
-			 <div id="tab-2">
-				<div id="poststuff">
-					<div id="postbox-container-3" class="postbox-container">
-						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>'.__("Usage Instructions","rich-snippets").'</span></h3>
-								<div class="inside">
-									<img width="95%" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/how-to-use.png").'"/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			 
 			 <div id="tab-5">
 				<div id="poststuff">
 					<div id="postbox-container-17" class="postbox-container">
@@ -567,14 +553,22 @@ function rich_snippet_dashboard() {
 										<div class="bsf-xs-separator"></div>
 										<h3>Supported types of Schemas:</h3>
 										<ul class="schema-types">
-											<li>Review</li>
-											<li>Event</li>
-											<li>People</li>
-											<li>Product</li>
-											<li>Recipe</li>
-											<li>Software Application</li>
-											<li>Video</li>
-											<li>Articles</li>
+											 <div class="schema-type-col-2">
+												<li>Review</li>
+												<li>Event</li>
+											 </div>
+											<div class="schema-type-col-2">
+												<li>People</li>
+												<li>Product</li>
+											</div>
+											<div class="schema-type-col-2">
+												<li>Video</li>
+												<li>Articles</li>
+											</div>
+											<div class="schema-type-col-2">
+												<li>Recipe</li>
+												<li>Software Application</li>
+											</div>
 										</ul>
 										<div class="bsf-xs-separator"></div>
 								</div>
@@ -585,9 +579,9 @@ function rich_snippet_dashboard() {
 									<div class="inside">
 										<ol class="bsf-li-counter">
 											<li>Configure The Settings
-											<p>Configure The Settings - Go to the “Rich Snippets” option in your WordPress dashboard and configure the settings and customization options in the respective tabs.</p></li>
-											<li>Add Markup To Pages<p>Add Markup To Pages -Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box seen below.</p></li>
-											<li>Test Your Rich Snippets<p>Test Your Rich Snippets - Open the <a target="_blank" href="https://search.google.com/structured-data/testing-tool/u/0/">Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you added with All In One Schema Rich Snippets.</p></li>
+											<p>Go to the “Rich Snippets” option in your WordPress dashboard and configure the settings and customization options in the respective tabs.</p></li>
+											<li>Add Markup To Pages<p>Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box seen below.</p></li>
+											<li>Test Your Rich Snippets<p>Open the <a target="_blank" href="https://search.google.com/structured-data/testing-tool/u/0/">Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you added with All In One Schema Rich Snippets.</p></li>
 										</ol>
 									</div>
 						</div>
@@ -711,10 +705,10 @@ function rich_snippet_dashboard() {
 									<div class="inside">
 										<div class="bsf-schema">
 											<div class="bsf-schema-button-wrap">
-												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
+												<a href="https://wpschema.com/pricing/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
 											</div>
 											<div class="bsf-schema-button-wrap">
-												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=editpage" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
+												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
 											</div>
 										</div>
 									</div>
