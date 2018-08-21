@@ -723,21 +723,21 @@ function rich_snippet_dashboard() {
 						<div class="meta-box-sortables ui-sortable">
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>Where I can see preview of my search results?</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("Where I can see preview of my search results?","rich-snippets").'</h3>
 										<div class="inside">
 										<p>Check your search result on structured data testing tool <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>Do I have to fill in all the details?</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("Do I have to fill in all the details?","rich-snippets").'</h3>
 										<div class="inside">
 										<p>No. Though some fields are mandatory and required to by Google in order to display rich snippet.</p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>Why does the plugin create extra content at the end of my page / post? Can I simply hide / customise it? It's messing my design!</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("Why does the plugin create extra content at the end of my page / post? Can I simply hide / customise it? It's messing my design!","rich-snippets").'</h3>
 										<div class="inside">
 										<p>We understand you dont like the content that gets displayed on your page / post. However as per the strong recommendation of Google, the MicroData should be clearly visible to the user.</p>
 										<p>Here is a reference link of what Google says. <a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
@@ -746,14 +746,14 @@ function rich_snippet_dashboard() {
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>How does this plugin work with other plugins like WordPress SEO, wooCommerce, etc?</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("How does this plugin work with other plugins like WordPress SEO, wooCommerce, etc?","rich-snippets").'</h3>
 										<div class="inside">
 										<p>Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it give you power to add Rich Snippets MicroData in your pages and posts easily. <br><br>If you find any it conflicting with any other plugin, please do not hesitate to report an issue.</p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>How much time does it take to show up rich snippets for my search results? My search results are still not coming up with rich snippets.</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("How much time does it take to show up rich snippets for my search results? My search results are still not coming up with rich snippets.","rich-snippets").'</h3>
 										<div class="inside">
 										<p>Most probably rich snippets are displayed in for you search results as soon as search engines crawl the MicroData the plugin has created. However it&#39;s totally upto search engines to display rich snippets for your search result (which mostly depends on your website authority)</p>
 										<p>If rich snippets are not appearing in your search results yet, most probably they will start appearing soon as Google / other search engines finds your website more authoritative.</p>
@@ -762,9 +762,9 @@ function rich_snippet_dashboard() {
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>I don't see the feature I want. How can I get it?</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("I don't see the feature I want. How can I get it?","rich-snippets").'</h3>
 										<div class="inside">
-										<p>[Get in touch] with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin to better, we have a couple of options for you -</p>
+										<p>'.__("[Get in touch] with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin to better, we have a couple of options for you","rich-snippets").'</p>
 										<ol>
 											<li> Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you. </li>
 											<li>  Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service. </li>
@@ -773,9 +773,9 @@ function rich_snippet_dashboard() {
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("<span>Is Google Authorship part of your plugin as well?</span>","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("Is Google Authorship part of your plugin as well?","rich-snippets").'</h3>
 										<div class="inside">
-										<p>Unfortunately, not at the moment. Though this is definitely in our roadmap and the development will complete soon. Stay tuned!</p>
+										<p>'.__("Unfortunately, not at the moment. Though this is definitely in our roadmap and the development will complete soon. Stay tuned!","rich-snippets").'</p>
 										</div>
 								</div>
 							</div>
