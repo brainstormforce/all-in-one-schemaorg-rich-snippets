@@ -584,18 +584,18 @@ function rich_snippet_dashboard() {
 									<h3 class="bsf-hndle"><span>'.__("How it works","rich-snippets").'</span></h3>
 									<div class="inside">
 										<ol class="bsf-li-counter">
-											<li>Configure The Settings
-											<p>Go to the “Rich Snippets” option in your WordPress dashboard and configure the settings and customization options in the respective tabs.</p></li>
-											<li>Add Markup To Pages<p>Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box seen below.</p></li>
-											<li>Test Your Rich Snippets<p>Open the <a target="_blank" href="https://search.google.com/structured-data/testing-tool/u/0/">Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you added with All In One Schema Rich Snippets.</p></li>
+											<li>'.__("Configure The Settings","rich-snippets").'
+											<p>'.__("Go to the “Rich Snippets” option in your WordPress dashboard, select your desired schema type under and fill in required details under the Configuration tab. You can use the Customization tab to customize how your rich snippet will look in the front end.","rich-snippets").'<</p></li>
+											<li>'.__("Add Markup To Pages","rich-snippets").'<p>'.__("You can select the pages and posts you wish to display a particular markup on. Edit the respective pages or posts and add the rich snippet within the “Configure Rich Snippet” meta box seen below.","rich-snippets").'</p></li>
+											<li>'.__("Test Your Rich Snippets","rich-snippets").'<p>'.__("Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markups you’ve just implemented on your webpages.","rich-snippets").'</p></li>
 										</ol>
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
 									<h3 class="bsf-hndle"><span>'.__("Want to Automate Your Schema Markup?","rich-snippets").'</span></h3>
 									<div class="inside">
-										<h3>Consider Schema Pro</h3>
-										<p>Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.</p>
+										<h3>'.__("Consider Schema Pro","rich-snippets").'</h3>
+										<p>'.__("Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.","rich-snippets").'</p>
 										<h3></h3>
 										<div class="bsf-schema-desc">
 											<div class="bsf-schema-features-1">
