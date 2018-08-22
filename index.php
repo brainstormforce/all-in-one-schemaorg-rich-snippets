@@ -4,7 +4,7 @@ Plugin Name: All In One Schema Rich Snippets
 Plugin URI: https://www.brainstormforce.com
 Author: Brainstorm Force
 Author URI: https://www.brainstormforce.com
-Description: The All in One Rich Snippets gives the power to the blog author to control the rich snippets to be shown in the search results by the search engines.
+Description: Welcome to the All In One Schema Rich Snippet! You can now easily add schema markup on various pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services etc.
 Version: 1.5.4
 Text Domain: rich-snippets
 License: GPL2

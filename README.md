@@ -1,7 +1,7 @@
 # All In One Schema Rich Snippets #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [yawalkarm](https://profiles.wordpress.org/yawalkarm)  
 **Donate link:** https://www.brainstormforce.com  
-**Tags:** Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing  
+**Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema
 **Requires at least:** 3.7  
 **Tested up to:** 4.9.7  
 **Stable tag:** 1.5.3  
@@ -18,7 +18,7 @@ It is basically a short summary of your page in the search results of Google, Ya
 ### How does a Rich Snippet help? ###
 - It gives search engines only the important & precise information to display in search result snippets.
 - Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
+- [See what difference it makes](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/ "See the difference") in CTR (Click Through Rate)
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 > **Curious, how does this plugin work?**

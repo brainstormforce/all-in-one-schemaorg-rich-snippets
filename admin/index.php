@@ -87,8 +87,8 @@ function rich_snippet_dashboard() {
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
-					<div class="schema-notice">
-					<p>'.__("Select the schema markup or markups that you wish to implement on your website. Click on the particular accordion or accordions below and fill in the necessary details as per the requirements of the specific schema type.", "rich-snippets").'</p>
+					<div class="schema-notice-head">
+					<p>'.__("Choose the schema markup and update the strings you want to display on the front-end.", "rich-snippets").'</p>
 					</div>
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
@@ -538,9 +538,9 @@ function rich_snippet_dashboard() {
 						<!-- Post blox -->		
 							
 						</div>
-					</div>
 					<div class="schema-notice">
-						<p>'.__("Do not want this rich snippet to be seen on the frontend? <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'>Upgrade to Schema Pro now!</a>", "rich-snippets").'</p>
+						<p>'.__("Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", "rich-snippets").'</p>
+					</div>
 					</div>
 				</div>	
 			 </div>
@@ -585,9 +585,9 @@ function rich_snippet_dashboard() {
 									<div class="inside">
 										<ol class="bsf-li-counter">
 											<li>'.__("Configure The Settings","rich-snippets").'
-											<p>'.__("Go to the “Rich Snippets” option in your WordPress dashboard, select your desired schema type under and fill in required details under the Configuration tab. You can use the Customization tab to customize how your rich snippet will look in the front end.","rich-snippets").'<</p></li>
-											<li>'.__("Add Markup To Pages","rich-snippets").'<p>'.__("You can select the pages and posts you wish to display a particular markup on. Edit the respective pages or posts and add the rich snippet within the “Configure Rich Snippet” meta box seen below.","rich-snippets").'</p></li>
-											<li>'.__("Test Your Rich Snippets","rich-snippets").'<p>'.__("Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markups you’ve just implemented on your webpages.","rich-snippets").'</p></li>
+											<p>'.__("Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look.","rich-snippets").'</p></li>
+											<li>'.__("Add Markup To Pages","rich-snippets").'<p>'.__("Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup.","rich-snippets").'</p></li>
+											<li>'.__("Test Your Rich Snippets","rich-snippets").'<p>'.__("Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.","rich-snippets").'</p></li>
 										</ol>
 									</div>
 						</div>
@@ -738,7 +738,7 @@ function rich_snippet_dashboard() {
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">'.__("Do I have to fill in all the details?","rich-snippets").'</h3>
 										<div class="inside">
-										<p>'.__("No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markups you are implementing.","rich-snippets").'</p>
+										<p>'.__("No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing.","rich-snippets").'</p>
 										</div>
 								</div>
 								<div class="postbox closed">
@@ -747,7 +747,7 @@ function rich_snippet_dashboard() {
 										<div class="inside">
 										<p>We understand that you don&#39;t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.</p>
 										<p>Here is a reference link of what Google says. <a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
-										<p> If you still do not want your schema markups to affect your frontend design, you can try <a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" tagre="_blank">Schema Pro</a> - our advanced Schema markup plugin that is built with the latest JSON- LD technology and does not display content in the frontend.</p>
+										<p> If you still do not want your schema markup to affect your frontend design, you can use <a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">Schema Pro</a> - our advanced Schema markup plugin that is built with the latest JSON- LD technology which does not require a content box to be displayed on the front-end.</p>
 										</div>
 								</div>
 								<div class="postbox closed">
@@ -822,7 +822,7 @@ function rich_snippet_dashboard() {
 										</div>
 									</div>
 									<div class="schema-notice">
-										<p>'.__("Do not want this rich snippet to be seen on the frontend? <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'>Upgrade to Schema Pro now!</a>", "rich-snippets").'</p>
+										<p>'.__("Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", "rich-snippets").'</p>
 									</div>
 								</div>
 							</div>
