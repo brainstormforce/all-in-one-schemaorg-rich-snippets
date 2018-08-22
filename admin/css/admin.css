@@ -344,6 +344,9 @@ span.bsf-tooltiptext:after {
         box-sizing: border-box;
         width: 100%;
     }
+    .schema-types {
+        display: block;
+    }
 }
 @media(max-width:1600px ) {
     .bsf-btn-lg {
