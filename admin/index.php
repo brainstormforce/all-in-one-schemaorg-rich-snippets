@@ -87,6 +87,9 @@ function rich_snippet_dashboard() {
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
+					<div class="schema-notice">
+					<p>'.__("Select the schema markup or markups that you wish to implement on your website. Click on the particular accordion or accordions below and fill in the necessary details as per the requirements of the specific schema type.", "rich-snippets").'</p>
+					</div>
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox closed">
@@ -536,6 +539,9 @@ function rich_snippet_dashboard() {
 							
 						</div>
 					</div>
+					<div class="schema-notice">
+						<p>'.__("Do not want this rich snippet to be seen on the frontend? <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'>Upgrade to Schema Pro now!</a>", "rich-snippets").'</p>
+					</div>
 				</div>	
 			 </div>
 	
@@ -723,16 +729,16 @@ function rich_snippet_dashboard() {
 						<div class="meta-box-sortables ui-sortable">
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">'.__("Where I can see preview of my search results?","rich-snippets").'</h3>
+										<h3 class="hndle">'.__("Where can I test my schema markup implementation?","rich-snippets").'</h3>
 										<div class="inside">
-										<p>Check your search result on structured data testing tool <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
+										<p>'.__("You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look.","rich-snippets").' <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">'.__("Do I have to fill in all the details?","rich-snippets").'</h3>
 										<div class="inside">
-										<p>No. Though some fields are mandatory and required to by Google in order to display rich snippet.</p>
+										<p>'.__("No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markups you are implementing.","rich-snippets").'</p>
 										</div>
 								</div>
 								<div class="postbox closed">
@@ -821,6 +827,9 @@ function rich_snippet_dashboard() {
 											</table>
 											</form>
 										</div>
+									</div>
+									<div class="schema-notice">
+										<p>'.__("Do not want this rich snippet to be seen on the frontend? <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'>Upgrade to Schema Pro now!</a>", "rich-snippets").'</p>
 									</div>
 								</div>
 							</div>
