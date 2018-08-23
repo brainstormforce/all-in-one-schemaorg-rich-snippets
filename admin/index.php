@@ -1008,7 +1008,7 @@ function get_support()
 							</select>
 						</td><td></td></tr>
 					<tr><td class="bsf_label"><label for="message"><strong>'.__( 'Your Query in Brief:', 'rich-snippets').'</strong> </label></td>
-						<td rowspan="4"><textarea class="bsf_textarea_small" name="message"></textarea> </td></tr>
+						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
 						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
