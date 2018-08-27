@@ -562,6 +562,7 @@ function rich_snippet_dashboard() {
 											 <div class="schema-type-col-2">
 												<li>Review</li>
 												<li>Event</li>
+												<li>Services</li>
 											 </div>
 											<div class="schema-type-col-2">
 												<li>Person</li>
