@@ -834,8 +834,9 @@ function rich_snippet_dashboard() {
 		 </div>
 		 </div>
 		<div class="postbox-container" id="bsf-postbox-container-1" >
-		<div id="side-sortables">
+		<div id="side-sortables" class="meta-box-sortables ui-sortable">
 		<div class="postbox bsf-woocommerce-setting closed">
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">'.__("WooCommerce Configuration","rich-snippets").'</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
@@ -1176,6 +1177,7 @@ function get_support()
 {
 	$html = '
 		<div class="postbox bsf-contact closed">
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">'.__("Get in touch with the Plugin Developers","rich-snippets").'</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
