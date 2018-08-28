@@ -1060,7 +1060,7 @@ if ( class_exists( 'FLBuilderLoader' ) )
 {
 	add_filter('fl_builder_after_render_content','display_rich_snippet');
 }
-else{ add_filter('the_content','display_rich_snippet'); }
+else{ add_filter('the_content','display_rich_snippet', 20); }
 
 
 require_once(plugin_dir_path( __FILE__ ).'meta-boxes.php');
