@@ -82,6 +82,8 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ### 1.5.4 ###
 * Improvement: Dashboard UI Updated.
+* Fix: Removed publisher logo width-height meta tags.
+* Fix: Removed default border CSS for images in frontend.
 
 ### 1.5.3 ###
 * Improvement: Updated schema exiting action and enqueue files function.
