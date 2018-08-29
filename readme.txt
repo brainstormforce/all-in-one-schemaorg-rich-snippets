@@ -1,15 +1,17 @@
 === All In One Schema Rich Snippets ===
 Contributors: brainstormforce, yawalkarm
 Donate link: https://www.brainstormforce.com
-Tags: Review, Event, People, Product, Recipe, Software Application, Video, Article, rdfa, rich snippet, schema.org, schema, microdata, microformat, SERP, Google, Yahoo, Bing
+Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
-Tested up to: 4.9.7
-Stable tag: 1.5.3
+Tested up to: 4.9.8
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
 
 == Description ==
+
+Welcome to the All In One Schema Rich Snippet! You can now easily add schema markup on various pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services etc.
 
 = What is a Rich Snippet? =
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
@@ -18,7 +20,7 @@ It is basically a short summary of your page in the search results of Google, Ya
 = How does a Rich Snippet help? =
 - It gives search engines only the important & precise information to display in search result snippets.
 - Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
+- [See what difference it makes](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/ "See the difference") in CTR (Click Through Rate)
 - Helps you rank higher in search results
 - Helps Facebook display proper information when users share your links on Facebook
 > **Curious, how does this plugin work?**
@@ -77,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.5.4 =
+* Improvement: Dashboard UI Updated.
 
 = 1.5.3 =
 * Improvement: Updated schema exiting action and enqueue files function.

@@ -42,7 +42,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('Select what this post is about','rich-snippets'), 'value' => '0', ),
 					array( 'name' => __('Item Review','rich-snippets'), 'value' => '1', ),
 					array( 'name' => __('Event','rich-snippets'), 'value' => '2', ),
-					array( 'name' => __('People','rich-snippets'), 'value' => '5', ),
+					array( 'name' => __('Person','rich-snippets'), 'value' => '5', ),
 					array( 'name' => __('Product','rich-snippets'), 'value' => '6', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => '7', ),
 					array( 'name' => __('Software Application','rich-snippets'), 'value' => '8', ),
@@ -268,7 +268,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			// Meta Settings for People
 			array(
-				'name' => __('Rich Snippets - People','rich-snippets'),
+				'name' => __('Rich Snippets - Person','rich-snippets'),
 				'desc' => __('Please provide the following information.','rich-snippets'),
 				'id'   => $prefix . 'people',
 				'class' => 'people',

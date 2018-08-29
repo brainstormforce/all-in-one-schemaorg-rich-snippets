@@ -73,22 +73,27 @@ function rich_snippet_dashboard() {
 	$args_color = get_option('bsf_custom');	
 	echo '<div class="wrap">';
 	echo '<div id="star-icons-32" class="icon32"></div><h2>'.__("All in One Schema.org Rich Snippets - Dashboard","rich-snippets").'</h2>';
-	echo '<div class="clear"></div>'.get_support(1).'<div id="tab-container" class="tab-container">';
-	echo '<ul class="etabs">
-			<li class="tab"><a href="#tab-1">'.__("Configuration","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-4">'.__("Customization","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-2">'.__(" How to Use?","rich-snippets").'</a></li>
-			<li class="tab"><a href="#tab-3">'.__("FAQs","rich-snippets").'</a></li>
+	echo '<div id="post-body" class="columns-2">';
+	echo '<div class="clear"></div>';
+	echo '<div id="bsf-postbox-container-2" class="postbox-container"><div id="tab-container" class="tab-container">';
+	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
+			<li><a href="#tab-1" class="nav-tab">'.__("Configuration","rich-snippets").'</a></li>
+			<li><a href="#tab-4" class="nav-tab">'.__("Customization","rich-snippets").'</a></li>
 			
+			<li><a href="#tab-3" class="nav-tab">'.__("FAQs","rich-snippets").'</a></li>
+			<li><a href="#tab-5" class="nav-tab">'.__("Getting Started","rich-snippets").'</a></li>
 		 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
-					<div id="postbox-container-1" class="postbox-container">
+					<div class="schema-notice-head">
+					<p>'.__("Choose the schema markup and update the strings you want to display on the front-end.", "rich-snippets").'</p>
+					</div>
+					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Item Review","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -129,7 +134,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Events","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -178,7 +183,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Person","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -227,7 +232,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Product","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -276,7 +281,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Recipe","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -333,7 +338,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Software Application","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -384,7 +389,7 @@ function rich_snippet_dashboard() {
 							
 							
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Video","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -425,7 +430,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Article","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -474,7 +479,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<div class="handlediv" title="Click to toggle"><br></div>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>'.__("Service","rich-snippets").'</span></h3>
 								<div class="inside">
 									<div class="table">								
@@ -533,21 +538,187 @@ function rich_snippet_dashboard() {
 						<!-- Post blox -->		
 							
 						</div>
+					<div class="schema-notice">
+						<p>'.__("Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", "rich-snippets").'</p>
+					</div>
 					</div>
 				</div>	
 			 </div>
 	
-			 <div id="tab-2">
+			 
+			 <div id="tab-5">
 				<div id="poststuff">
-					<div id="postbox-container-3" class="postbox-container">
-						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox">
-								<div class="handlediv" title="Click to toggle"><br></div>
-								<h3 class="hndle"><span>'.__("Usage Instructions","rich-snippets").'</span></h3>
+					<div id="postbox-container-17" class="postbox-container">
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
+							<div class="bsf-postbox">
+								<h3 class="bsf-hndle" style="margin-top:0;"><span>'.__("Welcome to All In One Schema Rich Snippets","rich-snippets").'</span></h3>
 								<div class="inside">
-									<img width="95%" src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/how-to-use.png").'"/>
+									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular WordPress schema markup plugin!</p>
+
+										<p>All-in-one Schema Rich Snippets helps you add different schema content types to your site so that you can communicate precise information about your web pages to search engines and get rich snippets.</p>
+										<div class="bsf-xs-separator"></div>
+										<h3>Supported types of Schemas:</h3>
+										<ul class="schema-types">
+											 <div class="schema-type-col-2">
+												<li>Review</li>
+												<li>Event</li>
+												<li>Services</li>
+											 </div>
+											<div class="schema-type-col-2">
+												<li>Person</li>
+												<li>Product</li>
+											</div>
+											<div class="schema-type-col-2">
+												<li>Video</li>
+												<li>Articles</li>
+											</div>
+											<div class="schema-type-col-2">
+												<li>Recipe</li>
+												<li>Software Application</li>
+											</div>
+										</ul>
+										<div class="bsf-xs-separator"></div>
 								</div>
 							</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd">
+									<h3 class="bsf-hndle"><span>'.__("How it works","rich-snippets").'</span></h3>
+									<div class="inside">
+										<ol class="bsf-li-counter">
+											<li>'.__("Configure The Settings","rich-snippets").'
+											<p>'.__("Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look.","rich-snippets").'</p></li>
+											<li>'.__("Add Markup To Pages","rich-snippets").'<p>'.__("Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup.","rich-snippets").'</p></li>
+											<li>'.__("Test Your Rich Snippets","rich-snippets").'<p>'.__("Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.","rich-snippets").'</p></li>
+										</ol>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
+									<h3 class="bsf-hndle"><span>'.__("Want to Automate Your Schema Markup?","rich-snippets").'</span></h3>
+									<div class="inside">
+										<h3>'.__("Consider Schema Pro","rich-snippets").'</h3>
+										<p>'.__("Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.","rich-snippets").'</p>
+										<h3></h3>
+										<div class="bsf-schema-desc">
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/click.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Schema Markup Automation</h3>
+													<p>Schema Pro automates the process of adding schema markup on your website. Just configure your markup one time and you can easily apply it to hundreds or thousands of pages.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/seo.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Complete Schema Implementation</h3>
+													<p>Schema Pro gives you the full benefits of schema markup with both organization level and content type schemas. Implement organization level markup site-wide and content type on specific pages.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/website.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Advanced Targeting Rules</h3>
+													<p>Schema Pro lets you use pinpoint inclusion/exclusion rules to apply different schema content types on both a post type or individual post level.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/custom.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Custom Field Support<h3>
+													<p>Schema Pro comes with all the necessary fields for each content type, as well as support for your own custom fields. It lets you map existing custom fields or create new ones to suit your needs.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/quick.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Accuracy and Testing</h3>
+													<p>Schema Pro lets you implement accurate markup and analyse your schema implementation instantly so you can rest assured that you’ve implemented it right.</p>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-schema-features-1">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-features-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/acf.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<h3>Compatibility with Yoast SEO,  ACF, PODS </h3>
+													<p>Schema Pro is compatible with popular third-party plugins. It can inherit the settings from Yoast SEO and fetch custom fields that you&#39;ve created using the ACF or PODS plugins.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd">
+									<h3 class="bsf-hndle"><span>'.__("With Schema Pro, you can…","rich-snippets").'</span></h3>
+									<div class="inside">
+										<ol class="bsf-li-counter">
+											<li>Automate schema markup for your entire website.</li>
+											<li>Implement schema markup faster and more accurately.</li>
+											<li>Target different post types with different Schema types.</li>
+										</ol>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-even">
+									<h3 class="bsf-hndle"><span>'.__("Testimonials","rich-snippets").'</span></h3>
+									<div class="inside">
+										<div class="bsf-schema">
+											<div class="bsf-testimonial-wrap">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-testimonial-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/adam-circle.jpg").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<p>I have used every Schema Plugin for WordPress over the last few years, hundreds of dollars invested, and Schema Pro blows them all out of the water. It’s the only schema plugin you need.</p>
+													<b>Adam Preiser,</b> <span>Founder of WPCrafter.com</span>
+													</div>
+												</div>
+											</div>
+											<div class="bsf-ls-separator"></div>
+											<div class="bsf-testimonial-wrap">
+												<div class="bsf-schema-features-wrap">
+													<div class="bsf-schema-testimonial-icon">
+													<img src="'.plugins_url("/all-in-one-schemaorg-rich-snippets/images/kylevan.png").'"/>
+													</div>
+													<div class="bsf-schema-features-cont">
+													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldn&#39;t be any easier to use!</p>
+													<b>Kyle Van Deusen,</b> <span> Owner at ogalweb.com</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+						<div class="meta-box-sortables ui-sortable bsf-even-odd testimonial-wraper">
+									<div class="inside">
+										<div class="bsf-schema">
+											<div class="bsf-schema-button-wrap">
+												<a href="https://wpschema.com/pricing/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-purple">Get Schema Pro</a>
+											</div>
+											<div class="bsf-schema-button-wrap">
+												<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=welcome" target="_blank" class="bsf-btn bsf-btn-lg btn-btn-grey">See All Features</a>
+											</div>
+										</div>
+									</div>
 						</div>
 					</div>
 				</div>
@@ -557,36 +728,55 @@ function rich_snippet_dashboard() {
 				<div id="poststuff">
 					<div id="postbox-container-5" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox">
-								<div class="handlediv" title="Click to toggle"><br></div>
-									<h3 class="hndle">'.__("<span>Plugins FAQs</span>","rich-snippets").'</h3>
-									<div class="inside">
-									<ol>	
-										<li><strong>'.__("Where I can see preview of my search results?","rich-snippets").'</strong></li>
-										<p>'.__("Here: <a href='http://www.google.com/webmasters/tools/richsnippets'>http://www.google.com/webmasters/tools/richsnippets</a>","rich-snippets").'</p>
-										<li><strong>'.__("Do I have to fill in all the details?","rich-snippets").'</strong></li>
-										<p>'.__("No. Though some fields are mandatory and required to by Google in order to display rich snippet.","rich-snippets").'</p>
-										<li><strong>'.__("Why does the plugin create extra content at the end of my page / post? Can I simply hide / customise it? It's messing my design! ","rich-snippets").'</strong></li>
-										<p>'.__("We understand you don't like the content that gets displayed on your page / post. However as per the strong recommendation of Google, the MicroData should be clearly visible to the user.","rich-snippets").'</p>
-										<p>'.__("Here is a reference link of what Google says. <a href='https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display'> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a>","rich-snippets").'</p>
-										<p> '.__("If you don't like the default design the content box created by plugin, you can always <a href='?page=rich_snippet_dashboard#tab-4'> customise it </a> or edit CSS located <a target='_blank' title='Click here to edit the css' href='plugin-editor.php?file=all-in-one-schemaorg-rich-snippets/css/style.css&plugin=all-in-one-schemaorg-rich-snippets/index.php'> here </a>or request professional service at $25", "rich-snippets").' </p>
-										<li><strong>'.__(" How does this plugin work with other plugins like WordPress SEO, wooCommerce, etc?","rich-snippets").'</strong></li>
-										<p>'.__('Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it give you power to add Rich Snippets MicroData in your pages and posts easily. <br><br>If you find any it conflicting with any other plugin, please do not hesitate to report an issue.','rich-snippets').'</p>
-										<li><strong>'.__("How much time does it take to show up rich snippets for my search results? My search results are still not coming up with rich snippets.","rich-snippets").'</strong></li>
-										<p>'.__("Most probably rich snippets are displayed in for you search results as soon as search engines crawl the MicroData the plugin has created. However it's totally upto search engines to display rich snippets for your search result (which mostly depends on your website authority)","rich-snippets").'</p>
-										<p>'.__("If rich snippets are not appearing in your search results yet, most probably they will start appearing soon as Google / other search engines finds your website more authoritative.","rich-snippets").'</p>
-										<p>'.__("Meanwhile - you can validate and see preview of your rich snippets on <a href='http://www.google.com/webmasters/tools/richsnippets'>[Google Structured Data Testing Tool here]</a> .","rich-snippets").'</p>
-										
-										<li><strong>'.__(" I don't see the feature I want. How can I get it?","rich-snippets").'</strong></li>
-										<p>'.__("[Get in touch] with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin to better, we have a couple of options for you -","rich-snippets").'</p>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("Where can I test my schema markup implementation?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>'.__("You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look.","rich-snippets").' <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
+										</div>
+								</div>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("Do I have to fill in all the details?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>'.__("No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing.","rich-snippets").'</p>
+										</div>
+								</div>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("Why does the plugin create extra content in the frontend? Can I hide it?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>We understand that you don&#39;t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.</p>
+										<p>Here is a reference link of what Google says. <a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
+										<p> If you still do not want your schema markup to affect your frontend design, you can use <a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">Schema Pro</a> - our advanced Schema markup plugin that is built with the latest JSON- LD technology which does not require a content box to be displayed on the front-end.</p>
+										</div>
+								</div>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily. <br><br>If you come across a conflict with any other plugin, please do not hesitate to report an issue.</p>
+										</div>
+								</div>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("How long will it take to show up rich snippets for my search results?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.</p>
+										<p>If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.</p>
+										<p>Meanwhile - you can validate and see the preview of your rich snippets on <a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">[ Google Structured Data Testing Tool ]</a> .</p>
+										</div>
+								</div>
+								<div class="postbox closed">
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+										<h3 class="hndle">'.__("I don't see the feature I want. How can I get it?","rich-snippets").'</h3>
+										<div class="inside">
+										<p>'.__("<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:","rich-snippets").'</p>
 										<ol>
-											<li> '.__('Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you.', 'rich-snippets').' </li>
-											<li> '.__(' Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service.', 'rich-snippets').' </li>
+											<li>'.__("Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you.","rich-snippets").'</li>
+											<li>'.__("Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service.","rich-snippets").'</li>
 										</ol>
-										<li><strong>'.__("Is Google Authorship part of your plugin as well?","rich-snippets").'</strong></li>
-										<p>'.__("Unfortunately, not at the moment. Though this is definitely in our roadmap and the development will complete soon. Stay tuned!","rich-snippets").'</p>
-									</ol>
-									</div>
+										</div>
 								</div>
 							</div>
 						</div>
@@ -598,7 +788,7 @@ function rich_snippet_dashboard() {
 						<div id="postbox-container-11" class="postbox-container">
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
-									<div class="handlediv" title="Click to toggle"><br></div>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">'.__("<span>Customize the look and feel of rich snippet box</span>","rich-snippets").'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
@@ -632,6 +822,9 @@ function rich_snippet_dashboard() {
 											</form>
 										</div>
 									</div>
+									<div class="schema-notice">
+										<p>'.__("Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", "rich-snippets").'</p>
+									</div>
 								</div>
 							</div>
 					</div>
@@ -639,8 +832,12 @@ function rich_snippet_dashboard() {
 			</div>
 						
 		 </div>
-	 	<div class="postbox bsf-woocommerce-setting" style=" width: 36%; float: right; ">
-			<h3 class="get_in_touch"><p>'.__("WooCommerce Configuration","rich-snippets").'</p></h3>
+		 </div>
+		<div class="postbox-container" id="bsf-postbox-container-1" >
+		<div id="side-sortables" class="meta-box-sortables ui-sortable">
+		<div class="postbox bsf-woocommerce-setting closed">
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+			<h3 class="get_in_touch">'.__("WooCommerce Configuration","rich-snippets").'</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
 			'.wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ).'
@@ -654,13 +851,13 @@ function rich_snippet_dashboard() {
 					</tr>
 					<tr>
 						<td>
-							<input type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/>
+							<input style="margin-top:10px;" type="submit" class="button-primary" name="setting_submit" value="'.__("Update ").'"/>
 						</td>
 					</tr>
 				</table>
 			</form>
 			</div>
-		</div>
+		</div>'.get_support(1).'
 	</div>';
 	echo '
 <script src="'.plugin_dir_url( __FILE__ ).'js/jquery.easytabs.min.js'.'"></script>
@@ -979,8 +1176,9 @@ function add_footer_script()
 function get_support()
 {
 	$html = '
-		<div class="postbox bsf-contact" style=" width: 36%; float: right; ">
-			<h3 class="get_in_touch"><p>'.__("Get in touch with the Plugin Developers","rich-snippets").'</p></h3>
+		<div class="postbox bsf-contact closed">
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+			<h3 class="get_in_touch">'.__("Get in touch with the Plugin Developers","rich-snippets").'</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
 				<p> '.__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ).' </p>
@@ -1003,13 +1201,16 @@ function get_support()
 							</select>
 						</td><td></td></tr>
 					<tr><td class="bsf_label"><label for="message"><strong>'.__( 'Your Query in Brief:', 'rich-snippets').'</strong> </label></td>
-						<td rowspan="4"><textarea class="bsf_textarea_small" name="message"></textarea> </td></tr>
+						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
 						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
 				</table>
 			</form>
 			</div>
+		</div>
+		</div>
+		</div>
 		</div>
 	';
 	return $html;
