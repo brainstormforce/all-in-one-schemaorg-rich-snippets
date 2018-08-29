@@ -1,10 +1,10 @@
 # All In One Schema Rich Snippets #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [yawalkarm](https://profiles.wordpress.org/yawalkarm)  
 **Donate link:** https://www.brainstormforce.com  
-**Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema
+**Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema  
 **Requires at least:** 3.7  
-**Tested up to:** 4.9.7  
-**Stable tag:** 1.5.3  
+**Tested up to:** 4.9.8  
+**Stable tag:** 1.5.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
