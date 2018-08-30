@@ -11,7 +11,7 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 ## Description ##
 
-Get eye catching results in search engines with the most popular schema markup plugin. Easy implementation of schema types like Review, Events, Recipes, Article, Products, Services etc
+Get eye-catching results in search engines with the most popular schema markup plugin. Easy implementation of schema types like Reviews, Events, Recipes, Articles, Products, Services etc.
 
 ### What is a Rich Snippet? ###
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
