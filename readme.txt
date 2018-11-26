@@ -4,7 +4,7 @@ Donate link: https://www.brainstormforce.com
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
 Tested up to: 4.9.8
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.5.5 =
+* Fix: Collision with Page Builder by SiteOrigin.
 
 = 1.5.4 =
 * Improvement: Dashboard UI Updated.
