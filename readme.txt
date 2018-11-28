@@ -81,7 +81,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.5.5 =
-* Fix: Collision with Page Builder by SiteOrigin.
+* Fix: Schema markup displayed before the post content or hidden when page content is built using a page builder plugin.
 
 = 1.5.4 =
 * Improvement: Dashboard UI Updated.
