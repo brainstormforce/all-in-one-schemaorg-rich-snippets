@@ -1,5 +1,5 @@
 # All In One Schema Rich Snippets #
-**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce), [yawalkarm](https://profiles.wordpress.org/yawalkarm)  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)
 **Donate link:** https://www.brainstormforce.com  
 **Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema  
 **Requires at least:** 3.7  
