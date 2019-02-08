@@ -1,9 +1,9 @@
 === All In One Schema Rich Snippets ===
-Contributors: brainstormforce, yawalkarm
-Donate link: https://www.brainstormforce.com
+Contributors: brainstormforce
+Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
-Tested up to: 5.0
+Tested up to: 5.1
 Stable tag: 1.5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
