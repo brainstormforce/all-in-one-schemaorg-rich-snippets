@@ -828,7 +828,7 @@ function display_rich_snippet($content) {
 						$article .= '<div class="snippet-label-img">'.esc_attr( stripslashes(  $args_article['article_publisher_logo'] ) ).'</div>';
 
 					$article .= '<div class="snippet-data-img publisher-logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
-					$article .= '<img width="180" src="'.esc_url( $article_publisher_logo ).'"/>';
+					$article .= '<img width="180" src="'.esc_url( $article_publisher_logo ).'" alt="'.esc_attr( $article_publisher ).'" />';
 					$article .=	'<meta itemprop="url" content="'.esc_attr( $article_publisher_logo ).'">';
 					$article .=	'</div>';
 				}
