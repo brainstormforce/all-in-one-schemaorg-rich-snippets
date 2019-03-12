@@ -80,7 +80,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
-= 1.5.6 =
+= 1.5.7 =
 * Improvement: Updated plugin name - `All In One Schema Rich Snippets` to `Schema - All In One Schema Rich Snippets`.
 
 = 1.5.6 =
