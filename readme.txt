@@ -1,10 +1,10 @@
-=== All In One Schema Rich Snippets ===
+=== Schema - All In One Schema Rich Snippets ===
 Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
 Tested up to: 5.1
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.5.6 =
+* Improvement: Updated plugin name - `All In One Schema Rich Snippets` to `Schema - All In One Schema Rich Snippets`.
 
 = 1.5.6 =
 * Improvement: Updated product availability strings according to the Google requirement.
