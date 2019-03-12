@@ -1,4 +1,4 @@
-=== All In One Schema Rich Snippets ===
+=== Schema - All In One Schema Rich Snippets ===
 Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
@@ -81,6 +81,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.5.6 =
+* Improvement: Updated plugin name - `All In One Schema Rich Snippets` to `Schema - All In One Schema Rich Snippets`.
 * Improvement: Updated product availability strings according to the Google requirement.
 * Improvement: Added alt tag to the publisher image for SEMrush plugin compatibility.
 
