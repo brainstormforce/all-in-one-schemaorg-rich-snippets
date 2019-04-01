@@ -765,6 +765,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array('name' => __('Enable','rich-snippets'), 'value' => 'enable'),
 				),
 			),
+			array(
+				'name' => __('Price Range','rich-snippets'),
+				'desc' => __('.','rich-snippets'),
+				'id'   => $prefix . 'service_price_range',
+				'class' => 'service',
+				'type' => 'text_medium',
+			),
 		),
 	);
 	// Add other metaboxes as needed

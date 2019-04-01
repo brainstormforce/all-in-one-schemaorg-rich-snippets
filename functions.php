@@ -867,6 +867,7 @@ function display_rich_snippet($content) {
 		$service_cur = get_post_meta( $post->ID, '_bsf_service_cur', true );
 		$service_rating = get_post_meta( $post->ID, '_bsf_service_rating', true );
 		$service_rating_switch = get_post_meta( $post->ID, '_bsf_service_rating_switch', true );
+		$service_price_range = get_post_meta( $post->ID, '_bsf_service_price_range', true );
 		$service_channel = get_permalink( $post->ID );
 		$service_url_link = $args_service['service_url_link'] != ''? $args_service['service_url_link'] : "Click Here For More Info";
 
@@ -940,6 +941,8 @@ function display_rich_snippet($content) {
 							if(trim($service_telephone) != "")
 							$service .= '<span itemprop="telephone"> Telephone No.'.esc_attr( $service_telephone ).'</span>';
 							$service .= '</div>';
+							if(trim($service_price_range) != "")
+							$service .= '<meta itemprop="priceRange" name="price range" content="'.esc_attr( $service_price_range ).'">';
 							$service .= '</div>
 							<div class="snippet-clear"></div>';
 			}
