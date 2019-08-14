@@ -939,6 +939,7 @@ function display_rich_snippet($content) {
 							$service .= '<span itemprop="postalCode">'.esc_attr( $service_postal_code ).'</span>,<br/>';
 							if(trim($service_telephone) != "")
 							$service .= '<span itemprop="telephone"> Telephone No.'.esc_attr( $service_telephone ).'</span>';
+							if(trim($service_street) != "")
 							$service .= '</div>';
 							$service .= '</div>
 							<div class="snippet-clear"></div>';
