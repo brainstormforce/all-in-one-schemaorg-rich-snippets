@@ -79,11 +79,13 @@ function display_rich_snippet($content) {
 				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_reviewer'] ) )."</div>";
 			$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $reviewer ) )."</span></div></span>";
 		}
-		if(isset($args_review['review_date']))
-		{
-			if( $args_review['review_date'] != "")
-				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['review_date'] ) ) ."</div>";
-			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".get_the_time( 'c' )."'>".esc_attr( $post_date )."</time></div>";
+		if ( apply_filters( 'aiosrs_review_time_enabled', true ) ) {
+			if(isset($args_review['review_date']))
+			{
+				if( $args_review['review_date'] != "")
+					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['review_date'] ) ) ."</div>";
+				$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='".get_the_time( 'c' )."'>".esc_attr( $post_date )."</time></div>";
+			}
 		}
 		if(trim($item) != "")
 		{
