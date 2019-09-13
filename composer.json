@@ -6,5 +6,19 @@
         "wp-coding-standards/wpcs": "^0.14.0"
     },
     "require": {
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+            "echo committing as $(git config user.name)",
+            "sh bin/block-commits-with-merge-conflict.sh"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+        "post-update-cmd": "vendor/bin/cghooks update",
+        "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+        "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
     }
 }
