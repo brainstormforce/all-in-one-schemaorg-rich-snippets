@@ -8,7 +8,6 @@ notifications:
   email:
     on_success: never
     on_failure: change
-    slack: bsf-bots:RDGCoMDDxnlCvnUfvhq8pQ36
 
 cache:
   - composer
