@@ -1,12 +1,19 @@
 jQuery(document).ready(function() {
 	var selected = jQuery("#_bsf_post_type").val();
+	var item_type = jQuery("#_bsf_item_review_type").val();
 	if(selected == "0")
 		hidden();
 	else
 		expand_default(selected);
+
+	if(item_type == "0")
+		item_hidden();
+	else
+		item_expand_default(item_type);
+	
 //Function to hide all the snippet blocks
 function hidden() {
-	jQuery(".review").hide();	
+	jQuery(".review").hide();
 	jQuery(".events").hide();
 	jQuery(".music").hide();
 	jQuery(".organization").hide();
@@ -17,8 +24,17 @@ function hidden() {
 	jQuery(".video").hide();
 	jQuery(".article").hide();
 	jQuery(".service").hide();
-
 }
+
+//Function to hide all the item review snippet blocks
+	function item_hidden() {
+		jQuery(".pro_name").hide();
+	}
+// Function to display the all items
+	function display_item_hidden() {
+		jQuery(".pro_name").show();
+	}
+
 //Function to expand the updated snippet block
 function expand_default(selected) {
 	hidden();
@@ -72,47 +88,74 @@ function expand_default(selected) {
 		var type=jQuery(this).val();
 		if(type == '1')
 		{
+			display_item_hidden();
 			jQuery(".review").show(500);
 		} 
 		else if(type == '2')
 		{
+			item_hidden();
 			jQuery(".events").show(500);
 		}
 		else if(type == '3')
 		{
+			item_hidden();
 			jQuery(".music").show(500);
 		}
 		else if(type == '4')
 		{
+			item_hidden();
 			jQuery(".organization").show(500);
 		}
 		else if(type == '5')
 		{
+			item_hidden();
 			jQuery(".people").show(500);
 		}
 		else if(type == '6')
 		{
+			item_hidden();
 			jQuery(".product").show(500);
 		}
 		else if(type == '7')
 		{
+			item_hidden();
 			jQuery(".recipes").show(500);
 		}
 		else if(type == '8')
 		{
+			item_hidden();
 			jQuery(".software").show(500);
 		}
 		else if(type == '9')
 		{
+			item_hidden();
 			jQuery(".video").show(500);
 		}
 		else if(type == '10')
 		{
+			item_hidden();
 			jQuery(".article").show(500);
 		}
 		else if(type == '11')
 		{
+			item_hidden();
 			jQuery(".service").show(500);
 		}
+	});
+	//Function to expand the item review updated snippet block
+	function item_expand_default(item_type) {
+		item_hidden();
+		if(item_type == 'item_product')
+		{
+			jQuery(".pro_name").show(500);
+		}
+	}
+    jQuery("#_bsf_item_review_type").change(function() {
+		item_hidden();
+		var type=jQuery(this).val();
+		if(type == 'item_product')
+		{
+			jQuery(".pro_name").show(500);
+		} 
 	});
 });
