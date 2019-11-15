@@ -69,6 +69,17 @@ function display_rich_snippet($content) {
 			$review .= '<div class="snippet-title" style="background:'.esc_attr($args_color["snippet_title_bg"] ).'; color:'.esc_attr($args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr($args_color["snippet_border"] ).';">'.esc_attr(stripslashes( $args_review['review_title'] ) ).'</div>';
 		$review .= '<div class="snippet-markup" itemscope itemtype="http://schema.org/Review">';
 		$item = get_post_meta( $post->ID, '_bsf_item_name', true );
+		$item_review_type = get_post_meta( $post->ID, '_bsf_item_review_type', true );
+		$item_event_name = get_post_meta( $post->ID, '_bsf_item_event_name', true );
+		$item_event_start_date = get_post_meta( $post->ID, '_bsf_item_event_start_date', true );
+		$item_event_org = get_post_meta( $post->ID, '_bsf_item_event_organization', true );
+		$item_event_street = get_post_meta( $post->ID, '_bsf_item_event_street', true );	
+		$item_event_local = get_post_meta( $post->ID, '_bsf_item_event_local', true );	
+		$item_event_region = get_post_meta( $post->ID, '_bsf_item_event_region', true );
+		$item_event_postal_code = get_post_meta( $post->ID, '_bsf_item_event_postal_code', true );
+		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
+		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
+		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
@@ -89,7 +100,53 @@ function display_rich_snippet($content) {
 		{
 			if( $args_review['item_name'] != "")
 				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_name'] ) )."</div>";
-			$review .= "<div class='snippet-data'> <span itemprop='itemReviewed'>".esc_attr($item )."</span></div>";
+			$review .= "<div class='snippet-data'> <span itemprop='name'>".esc_attr($item )."</span></div>";
+		}
+		if(trim($item_review_type) != "")
+		{
+			if('item_software' == $item_review_type){
+				$item_soft = get_option('bsf_software');
+				if( $item_soft['software_name'] != "") {
+					$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">';
+					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+					$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_soft_name ) )."</span></div>";
+					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+					$review .= " <div class='snippet-data'><span itemprop='operatingSystem'>".esc_attr( stripslashes( $item_os_name ) )."</span></div>";
+					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
+					$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div></span>";
+				}
+			}
+			if('item_event' == $item_review_type){
+				$item_event = get_option('bsf_event');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Event">';
+					if(trim($item_event_name) != ""){
+						if( $item_event['event_title'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['event_title'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_event_name ) )."</span></div>";
+					}
+					if(trim($item_event_start_date) != ""){
+						if($item_event['start_time'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['start_time'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='startDate' datetime='".esc_attr( $item_event_start_date )."T00:00-00:00'>".esc_attr( $item_event_start_date )."</span></div>";
+					}
+					if(trim($item_event_org != "")){
+						if( $item_event['event_location'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['event_location'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='location' itemscope itemtype='http://schema.org/Place'><span itemprop='name'>".esc_attr( stripslashes( $item_event_org ) )."</span>,";
+						if(trim($item_event_street) != "")
+						$review .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+											  <span itemprop="streetAddress">'.esc_attr( $item_event_street ).'</span>,';
+						if(trim($item_event_local) != "")
+							$review .= '<span itemprop="addressLocality">'.esc_attr( $item_event_local ).'</span>,';
+						if(trim($item_event_region) != "")
+							$review .= '<span itemprop="addressRegion">'.esc_attr( $item_event_region ).'</span>';
+						if(trim($item_event_postal_code) != "")
+							$review .= '-<span itemprop="postalCode">'.esc_attr( $item_event_postal_code ).'</span>';
+						$review .= '</span>';
+						$review .="</span></div>";
+					}
+				$review .= "</span>";
+			}
 		}
 		if(trim($rating) != "")
 		{
