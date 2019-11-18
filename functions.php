@@ -77,6 +77,10 @@ function display_rich_snippet($content) {
 		$item_event_local = get_post_meta( $post->ID, '_bsf_item_event_local', true );	
 		$item_event_region = get_post_meta( $post->ID, '_bsf_item_event_region', true );
 		$item_event_postal_code = get_post_meta( $post->ID, '_bsf_item_event_postal_code', true );
+		$item_pro_name = get_post_meta( $post->ID, '_bsf_item_pro_name', true );
+		$item_pro_price = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
+		$item_pro_cur = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
+		$item_pro_status = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
 		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
 		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
 		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
@@ -144,6 +148,46 @@ function display_rich_snippet($content) {
 							$review .= '-<span itemprop="postalCode">'.esc_attr( $item_event_postal_code ).'</span>';
 						$review .= '</span>';
 						$review .="</span></div>";
+					}
+				$review .= "</span>";
+			}
+			if('item_product' == $item_review_type){
+				$item_product = get_option('bsf_product');
+				if(trim($item_pro_status) == "out_of_stock"){
+					$item_pro_status = 'OutOfStock';
+					$availability = "Out of Stock";
+				}
+				else if(trim($item_pro_status) == "in_stock"){
+					$item_pro_status = 'InStock';
+					$availability = "Available in Stock";
+				}
+				else if(trim($item_pro_status) == "instore_only"){
+					$item_pro_status = 'InStoreOnly';
+					$availability = "Available in Store Only";
+				}
+				else if(trim($item_pro_status) == "preorder"){
+					$availability = "Pre-Order Only";
+				}
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">';
+					if(trim($item_pro_name) != ""){
+						if( $item_product['product_name'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_product['product_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_pro_name ) )."</span></div>";
+					}
+					if(trim($item_pro_price)){
+
+						if($item_product['product_price'] != "")
+							$review .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label">'.esc_attr( stripslashes( $item_product['product_price'] ) ).'</div>';
+						$review .= '<div class="snippet-data"> 
+						<span itemprop="priceCurrency">'.esc_attr( $item_pro_cur ).'</span><span itemprop="price">'.' '.esc_attr( $item_pro_price ).'</span></div>';
+
+						if(trim($item_pro_status) != "")
+						{
+							if($item_product['product_avail'] != "")
+								$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_product['product_avail'] ) ).'</div>';
+							$review .= ' <div class="snippet-data"> <span itemprop="availability" content="'.esc_attr( $item_pro_status ).'">'.esc_attr( $availability ).'</span></span></div>';
+						}
+						$review .= '</div>';
 					}
 				$review .= "</span>";
 			}

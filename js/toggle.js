@@ -30,6 +30,7 @@ function hidden() {
 function item_hidden() {
 	jQuery(".soft_item_type").hide();
 	jQuery(".event_item_type").hide();
+	jQuery(".product_item_type").hide();
 
 }
 
@@ -143,6 +144,10 @@ function expand_default(selected) {
 		{
 			jQuery(".event_item_type").show(500);
 		}
+		if(item_type == 'item_product')
+		{
+			jQuery(".product_item_type").show(500);
+		}
 	}
     jQuery("#_bsf_item_review_type").change(function() {
 		item_hidden();
@@ -154,6 +159,10 @@ function expand_default(selected) {
 		if(type == 'item_event')
 		{
 			jQuery(".event_item_type").show(500);
+		}
+		if(type == 'item_product')
+		{
+			jQuery(".product_item_type").show(500);
 		} 
 	});
 });
