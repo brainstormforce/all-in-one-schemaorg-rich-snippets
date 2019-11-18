@@ -81,6 +81,7 @@ function display_rich_snippet($content) {
 		$item_pro_price = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
 		$item_pro_cur = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
 		$item_pro_status = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
+		$item_recp_name = get_post_meta( $post->ID, '_bsf_item_recipes_name', true );
 		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
 		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
 		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
@@ -188,6 +189,17 @@ function display_rich_snippet($content) {
 							$review .= ' <div class="snippet-data"> <span itemprop="availability" content="'.esc_attr( $item_pro_status ).'">'.esc_attr( $availability ).'</span></span></div>';
 						}
 						$review .= '</div>';
+					}
+				$review .= "</span>";
+			}
+			if('item_recipe' == $item_review_type){
+				$item_recipe = get_option('bsf_recipe');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Recipe">';
+					if(trim($item_recp_name)){
+						if( $item_recipe['recipe_name'] != "") {
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_recipe['recipe_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_recp_name ) )."</span></div>";
+						}
 					}
 				$review .= "</span>";
 			}

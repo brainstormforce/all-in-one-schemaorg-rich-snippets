@@ -83,7 +83,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'options' => array(
 					array( 'name' => __('Select Item type','rich-snippets'), 'value' => '0', ),
 					array( 'name' => __('Event','rich-snippets'), 'value' => 'item_event', ),
-					array( 'name' => __('Person','rich-snippets'), 'value' => 'item_person', ),
 					array( 'name' => __('Product','rich-snippets'), 'value' => 'item_product', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => 'item_recipe', ),
 					array( 'name' => __('Software Application','rich-snippets'), 'value' => 'item_software', ),
@@ -173,6 +172,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array('name' => __('In Store Only','rich-snippets'), 'value' => 'instore_only'),
 					array('name' => __('Pre-Order','rich-snippets'), 'value' => 'preorder'),
 				),
+			),
+			array(
+				'name' => __('Recipe Name ','rich-snippets'),
+				'desc' => __('Enter the recipe name.','rich-snippets'),
+				'id'   => $prefix . 'item_recipes_name',
+				'class' => 'recipes_item_type',
+				'type' => 'text_medium',
 			),
 			array(
 				'name' => __('Software Name','rich-snippets'),
