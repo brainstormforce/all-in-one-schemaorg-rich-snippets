@@ -86,6 +86,8 @@ function display_rich_snippet($content) {
 		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
 		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
 		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
+		$item_video_title = get_post_meta( $post->ID, '_bsf_item_video_title', true );
+		$item_video_desc = get_post_meta( $post->ID, '_bsf_item_video_desc', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
@@ -230,6 +232,16 @@ function display_rich_snippet($content) {
 					if( trim( $item_app_name ) ){
 						$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div>";
+					}
+				$review .= "</span>";
+			}
+			if('item_video' == $item_review_type){
+				$item_video = get_option('bsf_video');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/VideoObject">';
+					if( trim ( $item_video_title ) ){
+						if( $item_video['video_title'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_video['video_title'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_video_title ) )."</span></div>";
 					}
 				$review .= "</span>";
 			}

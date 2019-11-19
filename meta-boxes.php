@@ -86,6 +86,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('Product','rich-snippets'), 'value' => 'item_product', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => 'item_recipe', ),
 					array( 'name' => __('Software Application','rich-snippets'), 'value' => 'item_software', ),
+					array( 'name' => __('Video','rich-snippets'), 'value' => 'item_video', ),
 				),
 			),
 			array(
@@ -220,6 +221,20 @@ function bsf_metaboxes( array $meta_boxes ) {
 					array( 'name' => __('','rich-snippets'), 'value' => '4', ),
 					array( 'name' => __('','rich-snippets'), 'value' => '5', ),
 				),
+			),
+			array(
+				'name' => __('Video Title','rich-snippets'),
+				'desc' => __('Enter the title for this video','rich-snippets'),
+				'id'   => $prefix . 'item_video_title',
+				'class' => 'video_item_type',
+				'type' => 'text',
+			),
+			array(
+				'name' => __('Video Description','rich-snippets'),
+				'desc' => __('Enter the brief description for this video','rich-snippets'),
+				'id'   => $prefix . 'item_video_desc',
+				'class' => 'video_item_type',
+				'type' => 'textarea_small',
 			),
 			// Meta Settings for Events		
 			array(

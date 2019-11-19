@@ -32,6 +32,7 @@ function item_hidden() {
 	jQuery(".event_item_type").hide();
 	jQuery(".product_item_type").hide();
 	jQuery(".recipes_item_type").hide();
+	jQuery(".video_item_type").hide();
 }
 
 //Function to expand the updated snippet block
@@ -155,6 +156,10 @@ function expand_default(selected) {
 		{
 			jQuery(".recipes_item_type").show(500);
 		}
+		if(item_type == 'item_video')
+		{
+			jQuery(".video_item_type").show(500);
+		}
 	}
     jQuery("#_bsf_item_review_type").change(function() {
 		item_hidden();
@@ -174,6 +179,10 @@ function expand_default(selected) {
 		if(type == 'item_recipe')
 		{
 			jQuery(".recipes_item_type").show(500);
+		}
+		if(type == 'item_video')
+		{
+			jQuery(".video_item_type").show(500);
 		}
 	});
 });
