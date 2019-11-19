@@ -81,12 +81,11 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class'   => 'item_type review',
 				'type'    => 'select',
 				'options' => array(
-					array( 'name' => __('Select Item type','rich-snippets'), 'value' => '0', ),
+					array( 'name' => __('Select Item type','rich-snippets'), 'value' => 'none', ),
 					array( 'name' => __('Event','rich-snippets'), 'value' => 'item_event', ),
 					array( 'name' => __('Product','rich-snippets'), 'value' => 'item_product', ),
 					array( 'name' => __('Recipe','rich-snippets'), 'value' => 'item_recipe', ),
 					array( 'name' => __('Software Application','rich-snippets'), 'value' => 'item_software', ),
-					array( 'name' => __('Video','rich-snippets'), 'value' => 'item_video', ),
 				),
 			),
 			array(

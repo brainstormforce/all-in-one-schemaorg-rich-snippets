@@ -87,6 +87,9 @@ function expand_default(selected) {
 		hidden();
 		item_hidden();
 		var type=jQuery(this).val();
+		if(type == '1' && 'none' != item_type ){
+			item_expand_default(item_type);
+		}
 		if(type == '1')
 		{
 			jQuery(".review").show(500);
