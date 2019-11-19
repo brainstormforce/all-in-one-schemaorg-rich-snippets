@@ -129,18 +129,6 @@ function display_rich_snippet($content) {
 		}
 		if(trim($item_review_type) != "")
 		{
-			if('item_software' == $item_review_type){
-				$item_soft = get_option('bsf_software');
-				if( $item_soft['software_name'] != "") {
-					$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">';
-					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
-					$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_soft_name ) )."</span></div>";
-					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
-					$review .= " <div class='snippet-data'><span itemprop='operatingSystem'>".esc_attr( stripslashes( $item_os_name ) )."</span></div>";
-					$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
-					$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div></span>";
-				}
-			}
 			if('item_event' == $item_review_type){
 				$item_event = get_option('bsf_event');
 				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Event">';
@@ -223,6 +211,25 @@ function display_rich_snippet($content) {
 					$review .= "</div>";
 					if(trim($item_recp_photo)){
 						$review .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
+					}
+				$review .= "</span>";
+			}
+			if('item_software' == $item_review_type){
+				$item_soft = get_option('bsf_software');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">';
+					if( trim( $item_soft_name ) ){
+						if( $item_soft['software_name'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_soft_name ) )."</span></div>";
+					}
+					if( trim( $item_os_name ) ){
+						if( $item_soft['software_name'] )
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='operatingSystem'>".esc_attr( stripslashes( $item_os_name ) )."</span></div>";
+					}
+					if( trim( $item_app_name ) ){
+						$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div>";
 					}
 				$review .= "</span>";
 			}
