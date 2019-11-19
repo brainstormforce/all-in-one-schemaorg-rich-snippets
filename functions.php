@@ -82,12 +82,16 @@ function display_rich_snippet($content) {
 		$item_pro_cur = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
 		$item_pro_status = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
 		$item_recp_name = get_post_meta( $post->ID, '_bsf_item_recipes_name', true );
+		$item_recp_photo = get_post_meta( $post->ID, '_bsf_item_recipes_photo', true );
 		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
 		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
 		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
+		if('item_recipe' == $item_review_type){
+			$review .= '<div class="aio-info">';
+		}
 		if(trim($reviewer) != "")
 		{
 			if($args_review['item_reviewer'] != "")
@@ -106,6 +110,22 @@ function display_rich_snippet($content) {
 			if( $args_review['item_name'] != "")
 				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_name'] ) )."</div>";
 			$review .= "<div class='snippet-data'> <span itemprop='name'>".esc_attr($item )."</span></div>";
+		}
+		if(trim($rating) != "")
+		{
+			if( $args_review['item_rating'] != "")
+				$review .= "<div class='snippet-label'>".esc_attr(stripslashes(  $args_review['item_rating'] ) )."</div>";
+			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".esc_attr( $rating )."</span></span><span class='star-img'>";
+			for($i = 1; $i<=ceil($rating); $i++)
+			{
+				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">';
+			}
+			for($j = 0; $j<=5-ceil($rating); $j++)
+			{
+				if($j)
+					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
+			}
+			$review .= '</span></div>';
 		}
 		if(trim($item_review_type) != "")
 		{
@@ -196,30 +216,16 @@ function display_rich_snippet($content) {
 				$item_recipe = get_option('bsf_recipe');
 				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Recipe">';
 					if(trim($item_recp_name)){
-						if( $item_recipe['recipe_name'] != "") {
+						if( $item_recipe['recipe_name'] != "") 
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_recipe['recipe_name'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_recp_name ) )."</span></div>";
-						}
+					}
+					$review .= "</div>";
+					if(trim($item_recp_photo)){
+						$review .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
 					}
 				$review .= "</span>";
 			}
-		}
-		if(trim($rating) != "")
-		{
-			if( $args_review['item_rating'] != "")
-				$review .= "<div class='snippet-label'>".esc_attr(stripslashes(  $args_review['item_rating'] ) )."</div>";
-			
-			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".esc_attr( $rating )."</span></span><span class='star-img'>";
-			for($i = 1; $i<=ceil($rating); $i++)
-			{
-				$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/1star.png" alt="1star">';
-			}
-			for($j = 0; $j<=5-ceil($rating); $j++)
-			{
-				if($j)
-					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
-			}
-			$review .= '</span></div>';
 		}
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";

@@ -181,6 +181,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text_medium',
 			),
 			array(
+				'name' => __('Recipe Photo','rich-snippets'),
+				'desc' => __('Upload or Select recipe photo. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'item_recipes_photo',
+				'class' => 'recipes_item_type',
+				'type' => 'file',
+			),
+			array(
 				'name' => __('Software Name','rich-snippets'),
 				'desc' => __('Enter the Software name.','rich-snippets'),
 				'id'   => $prefix . 'item_soft_name',
