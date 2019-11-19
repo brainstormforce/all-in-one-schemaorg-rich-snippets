@@ -243,6 +243,11 @@ function display_rich_snippet($content) {
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_video['video_title'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_video_title ) )."</span></div>";
 					}
+					if(trim($item_video_desc) != ""){
+						if($item_video['video_desc'] != "" )
+							$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_video['video_desc'] ) ).'</div>';
+						$review .= '<div class="snippet-data"><p itemprop="description">'.esc_attr( htmlspecialchars_decode( $item_video_desc ) ).'</p></div>';
+					}
 				$review .= "</span>";
 			}
 		}
