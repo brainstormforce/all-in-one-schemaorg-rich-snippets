@@ -88,11 +88,18 @@ function display_rich_snippet($content) {
 		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
 		$item_video_title = get_post_meta( $post->ID, '_bsf_item_video_title', true );
 		$item_video_desc = get_post_meta( $post->ID, '_bsf_item_video_desc', true );
+		$item_video_thumb = get_post_meta( $post->ID, '_bsf_item_video_thumb', true );
+		$item_video_date = get_post_meta( $post->ID, '_bsf_item_video_date', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
-		if('item_recipe' == $item_review_type){
-			$review .= '<div class="aio-info">';
+
+		if(trim($item_review_type) != "") {
+			if('item_recipe' == $item_review_type )
+				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
+			if('item_video' == $item_review_type)
+				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_video_thumb ).'" alt="Video Image"/></div>';
+		$review .= '<div class="aio-info">';
 		}
 		if(trim($reviewer) != "")
 		{
@@ -185,7 +192,7 @@ function display_rich_snippet($content) {
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_product['product_name'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_pro_name ) )."</span></div>";
 					}
-					if(trim($item_pro_price)){
+					if(trim($item_pro_price) != ""){
 
 						if($item_product['product_price'] != "")
 							$review .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label">'.esc_attr( stripslashes( $item_product['product_price'] ) ).'</div>';
@@ -205,31 +212,30 @@ function display_rich_snippet($content) {
 			if('item_recipe' == $item_review_type){
 				$item_recipe = get_option('bsf_recipe');
 				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Recipe">';
-					if(trim($item_recp_name)){
+					if(trim($item_recp_name) != ""){
 						if( $item_recipe['recipe_name'] != "") 
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_recipe['recipe_name'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_recp_name ) )."</span></div>";
 					}
-					$review .= "</div>";
-					if(trim($item_recp_photo)){
-						$review .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
+					if(trim($item_recp_photo) != ""){
+						$review .= '<meta itemprop="image" content="'.esc_attr( $item_recp_photo ).'">';
 					}
-				$review .= "</span>";
+				$review .= "</span></div>";
 			}
 			if('item_software' == $item_review_type){
 				$item_soft = get_option('bsf_software');
 				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">';
-					if( trim( $item_soft_name ) ){
+					if( trim( $item_soft_name ) != "" ){
 						if( $item_soft['software_name'] != "")
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_soft_name ) )."</span></div>";
 					}
-					if( trim( $item_os_name ) ){
+					if( trim( $item_os_name ) != "" ){
 						if( $item_soft['software_name'] )
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='operatingSystem'>".esc_attr( stripslashes( $item_os_name ) )."</span></div>";
 					}
-					if( trim( $item_app_name ) ){
+					if( trim( $item_app_name ) != "" ){
 						$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
 						$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div>";
 					}
@@ -238,17 +244,25 @@ function display_rich_snippet($content) {
 			if('item_video' == $item_review_type){
 				$item_video = get_option('bsf_video');
 				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/VideoObject">';
-					if( trim ( $item_video_title ) ){
+					if( trim ( $item_video_title ) != "" ){
 						if( $item_video['video_title'] != "")
 							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_video['video_title'] ) )."</div>";
-						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_video_title ) )."</span></div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_video_title ) )."</span></div><div class='snippet-clear'></div>";
 					}
-					if(trim($item_video_desc) != ""){
+					if(trim( $item_video_desc ) != "" ){
 						if($item_video['video_desc'] != "" )
-							$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_video['video_desc'] ) ).'</div>';
-						$review .= '<div class="snippet-data"><p itemprop="description">'.esc_attr( htmlspecialchars_decode( $item_video_desc ) ).'</p></div>';
+							$review .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $item_video['video_desc'] ) ).'</div>';
+						$review .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $item_video_desc ) ).'</span></div>';
 					}
-				$review .= "</span>";
+					if(trim( $item_video_date ) != "" ){
+						if($item_video['video_date'] != "" )
+							$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_video['video_date'] ) ).'</div>';
+						$review .= "<div class='snippet-data'><span itemprop='uploadDate'>".esc_attr( stripslashes( $item_video_date ) )."</span></div>";
+					}
+					if(trim($item_video_thumb) != ""){
+						$review .= '<meta itemprop="thumbnailUrl" content="'.esc_attr( $item_video_thumb ).'">';
+					}
+				$review .= "</span></div>";
 			}
 		}
 		$review .= "</div> 

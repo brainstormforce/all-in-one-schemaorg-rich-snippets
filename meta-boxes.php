@@ -209,20 +209,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type' => 'text',
 			),
 			array(
-				'name'    => __('Your Rating','rich-snippets'),
-				'desc'    => __('&nbsp;&nbsp;Rate this item (1-5)','rich-snippets'),
-				'id'      => $prefix . 'rating',
-				'class'   => 'star review',
-				'type'    => 'radio',
-				'options' => array(
-					array( 'name' => __('','rich-snippets'), 'value' => '1', ),
-					array( 'name' => __('','rich-snippets'), 'value' => '2', ),
-					array( 'name' => __('','rich-snippets'), 'value' => '3', ),
-					array( 'name' => __('','rich-snippets'), 'value' => '4', ),
-					array( 'name' => __('','rich-snippets'), 'value' => '5', ),
-				),
-			),
-			array(
 				'name' => __('Video Title','rich-snippets'),
 				'desc' => __('Enter the title for this video','rich-snippets'),
 				'id'   => $prefix . 'item_video_title',
@@ -235,6 +221,34 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'item_video_desc',
 				'class' => 'video_item_type',
 				'type' => 'textarea_small',
+			),
+			array(
+				'name' => __('Video Thumbnail','rich-snippets'),
+				'desc' => __('Upload or select video thumbnail from gallery. Medium size is recommended (300px X 300px)','rich-snippets'),
+				'id'   => $prefix . 'item_video_thumb',
+				'class' => 'video_item_type',
+				'type' => 'file',
+			),
+			array(
+				'name' => __('Upload Date','rich-snippets'),
+				'desc' => __('Provide the date when the video is uploaded','rich-snippets'),
+				'id'   => $prefix . 'item_video_date',
+				'class' => 'video_item_type',
+				'type' => 'text_date',
+			),
+			array(
+				'name'    => __('Your Rating','rich-snippets'),
+				'desc'    => __('&nbsp;&nbsp;Rate this item (1-5)','rich-snippets'),
+				'id'      => $prefix . 'rating',
+				'class'   => 'star review',
+				'type'    => 'radio',
+				'options' => array(
+					array( 'name' => __('','rich-snippets'), 'value' => '1', ),
+					array( 'name' => __('','rich-snippets'), 'value' => '2', ),
+					array( 'name' => __('','rich-snippets'), 'value' => '3', ),
+					array( 'name' => __('','rich-snippets'), 'value' => '4', ),
+					array( 'name' => __('','rich-snippets'), 'value' => '5', ),
+				),
 			),
 			// Meta Settings for Events		
 			array(
