@@ -94,13 +94,14 @@ function display_rich_snippet($content) {
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
 
-		if(trim($item_review_type) != "") {
-			if('item_recipe' == $item_review_type )
+			if('item_recipe' == $item_review_type ){
 				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
-			if('item_video' == $item_review_type)
+				$review .= '<div class="aio-info">';
+			}
+			if('item_video' == $item_review_type){
 				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_video_thumb ).'" alt="Video Image"/></div>';
-		$review .= '<div class="aio-info">';
-		}
+				$review .= '<div class="aio-info">';
+			}
 		if(trim($reviewer) != "")
 		{
 			if($args_review['item_reviewer'] != "")
