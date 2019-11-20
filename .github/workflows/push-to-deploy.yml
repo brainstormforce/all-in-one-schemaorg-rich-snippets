@@ -14,7 +14,7 @@ jobs:
         npm install
         npm run build
     - name: WordPress Plugin Deploy
-      uses: Nikschavan/action-wordpress-plugin-deploy@develop
+      uses: 10up/action-wordpress-plugin-deploy@master
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
