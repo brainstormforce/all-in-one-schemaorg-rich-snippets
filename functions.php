@@ -69,9 +69,39 @@ function display_rich_snippet($content) {
 			$review .= '<div class="snippet-title" style="background:'.esc_attr($args_color["snippet_title_bg"] ).'; color:'.esc_attr($args_color["snippet_title_color"] ).'; border-bottom:1px solid '.esc_attr($args_color["snippet_border"] ).';">'.esc_attr(stripslashes( $args_review['review_title'] ) ).'</div>';
 		$review .= '<div class="snippet-markup" itemscope itemtype="http://schema.org/Review">';
 		$item = get_post_meta( $post->ID, '_bsf_item_name', true );
+		$item_review_type = get_post_meta( $post->ID, '_bsf_item_review_type', true );
+		$item_event_name = get_post_meta( $post->ID, '_bsf_item_event_name', true );
+		$item_event_start_date = get_post_meta( $post->ID, '_bsf_item_event_start_date', true );
+		$item_event_org = get_post_meta( $post->ID, '_bsf_item_event_organization', true );
+		$item_event_street = get_post_meta( $post->ID, '_bsf_item_event_street', true );	
+		$item_event_local = get_post_meta( $post->ID, '_bsf_item_event_local', true );	
+		$item_event_region = get_post_meta( $post->ID, '_bsf_item_event_region', true );
+		$item_event_postal_code = get_post_meta( $post->ID, '_bsf_item_event_postal_code', true );
+		$item_pro_name = get_post_meta( $post->ID, '_bsf_item_pro_name', true );
+		$item_pro_price = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
+		$item_pro_cur = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
+		$item_pro_status = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
+		$item_recp_name = get_post_meta( $post->ID, '_bsf_item_recipes_name', true );
+		$item_recp_photo = get_post_meta( $post->ID, '_bsf_item_recipes_photo', true );
+		$item_soft_name = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
+		$item_os_name = get_post_meta( $post->ID, '_bsf_item_os_name', true );
+		$item_app_name = get_post_meta( $post->ID, '_bsf_item_app_name', true );
+		$item_video_title = get_post_meta( $post->ID, '_bsf_item_video_title', true );
+		$item_video_desc = get_post_meta( $post->ID, '_bsf_item_video_desc', true );
+		$item_video_thumb = get_post_meta( $post->ID, '_bsf_item_video_thumb', true );
+		$item_video_date = get_post_meta( $post->ID, '_bsf_item_video_date', true );
 		$rating = get_post_meta( $post->ID, '_bsf_rating', true );
 		$reviewer = get_post_meta( $post->ID, '_bsf_item_reviewer', true);
 		$post_date = get_the_date('Y-m-d');
+
+			if('item_recipe' == $item_review_type ){
+				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_recp_photo ).'" alt="recipe image"/></div>';
+				$review .= '<div class="aio-info">';
+			}
+			if('item_video' == $item_review_type){
+				$review .= '<div class="snippet-image"><img width="180" src="'.esc_url( $item_video_thumb ).'" alt="Video Image"/></div>';
+				$review .= '<div class="aio-info">';
+			}
 		if(trim($reviewer) != "")
 		{
 			if($args_review['item_reviewer'] != "")
@@ -89,13 +119,12 @@ function display_rich_snippet($content) {
 		{
 			if( $args_review['item_name'] != "")
 				$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $args_review['item_name'] ) )."</div>";
-			$review .= "<div class='snippet-data'> <span itemprop='itemReviewed'>".esc_attr($item )."</span></div>";
+			$review .= "<div class='snippet-data'> <span itemprop='name'>".esc_attr($item )."</span></div>";
 		}
 		if(trim($rating) != "")
 		{
 			if( $args_review['item_rating'] != "")
 				$review .= "<div class='snippet-label'>".esc_attr(stripslashes(  $args_review['item_rating'] ) )."</div>";
-			
 			$review .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>".esc_attr( $rating )."</span></span><span class='star-img'>";
 			for($i = 1; $i<=ceil($rating); $i++)
 			{
@@ -107,6 +136,135 @@ function display_rich_snippet($content) {
 					$review .= '<img src="'.plugin_dir_url(__FILE__) .'images/gray.png" alt="gray">'; 
 			}
 			$review .= '</span></div>';
+		}
+		if(trim($item_review_type) != "")
+		{
+			if('item_event' == $item_review_type){
+				$item_event = get_option('bsf_event');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Event">';
+					if(trim($item_event_name) != ""){
+						if( $item_event['event_title'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['event_title'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_event_name ) )."</span></div>";
+					}
+					if(trim($item_event_start_date) != ""){
+						if($item_event['start_time'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['start_time'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='startDate' datetime='".esc_attr( $item_event_start_date )."T00:00-00:00'>".esc_attr( $item_event_start_date )."</span></div>";
+					}
+					if(trim($item_event_org != "")){
+						if( $item_event['event_location'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_event['event_location'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='location' itemscope itemtype='http://schema.org/Place'><span itemprop='name'>".esc_attr( stripslashes( $item_event_org ) )."</span>,";
+						if(trim($item_event_street) != "")
+						$review .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+											  <span itemprop="streetAddress">'.esc_attr( $item_event_street ).'</span>,';
+						if(trim($item_event_local) != "")
+							$review .= '<span itemprop="addressLocality">'.esc_attr( $item_event_local ).'</span>,';
+						if(trim($item_event_region) != "")
+							$review .= '<span itemprop="addressRegion">'.esc_attr( $item_event_region ).'</span>';
+						if(trim($item_event_postal_code) != "")
+							$review .= '-<span itemprop="postalCode">'.esc_attr( $item_event_postal_code ).'</span>';
+						$review .= '</span>';
+						$review .="</span></div>";
+					}
+				$review .= "</span>";
+			}
+			if('item_product' == $item_review_type){
+				$item_product = get_option('bsf_product');
+				if(trim($item_pro_status) == "out_of_stock"){
+					$item_pro_status = 'OutOfStock';
+					$availability = "Out of Stock";
+				}
+				else if(trim($item_pro_status) == "in_stock"){
+					$item_pro_status = 'InStock';
+					$availability = "Available in Stock";
+				}
+				else if(trim($item_pro_status) == "instore_only"){
+					$item_pro_status = 'InStoreOnly';
+					$availability = "Available in Store Only";
+				}
+				else if(trim($item_pro_status) == "preorder"){
+					$availability = "Pre-Order Only";
+				}
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">';
+					if(trim($item_pro_name) != ""){
+						if( $item_product['product_name'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_product['product_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_pro_name ) )."</span></div>";
+					}
+					if(trim($item_pro_price) != ""){
+
+						if($item_product['product_price'] != "")
+							$review .= '<div class="offer_sec" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><div class="snippet-label">'.esc_attr( stripslashes( $item_product['product_price'] ) ).'</div>';
+						$review .= '<div class="snippet-data"> 
+						<span itemprop="priceCurrency">'.esc_attr( $item_pro_cur ).'</span><span itemprop="price">'.' '.esc_attr( $item_pro_price ).'</span></div>';
+
+						if(trim($item_pro_status) != "")
+						{
+							if($item_product['product_avail'] != "")
+								$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_product['product_avail'] ) ).'</div>';
+							$review .= ' <div class="snippet-data"> <span itemprop="availability" content="'.esc_attr( $item_pro_status ).'">'.esc_attr( $availability ).'</span></span></div>';
+						}
+						$review .= '</div>';
+					}
+				$review .= "</span>";
+			}
+			if('item_recipe' == $item_review_type){
+				$item_recipe = get_option('bsf_recipe');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Recipe">';
+					if(trim($item_recp_name) != ""){
+						if( $item_recipe['recipe_name'] != "") 
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_recipe['recipe_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_recp_name ) )."</span></div>";
+					}
+					if(trim($item_recp_photo) != ""){
+						$review .= '<meta itemprop="image" content="'.esc_attr( $item_recp_photo ).'">';
+					}
+				$review .= "</span></div>";
+			}
+			if('item_software' == $item_review_type){
+				$item_soft = get_option('bsf_software');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/SoftwareApplication">';
+					if( trim( $item_soft_name ) != "" ){
+						if( $item_soft['software_name'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_soft_name ) )."</span></div>";
+					}
+					if( trim( $item_os_name ) != "" ){
+						if( $item_soft['software_name'] )
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_soft['software_name'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='operatingSystem'>".esc_attr( stripslashes( $item_os_name ) )."</span></div>";
+					}
+					if( trim( $item_app_name ) != "" ){
+						$review .= "<div class='snippet-label'>".esc_attr(stripslashes( 'Software Category' ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='applicationCategory'>".esc_attr( stripslashes( $item_app_name ) )."</span></div>";
+					}
+				$review .= "</span>";
+			}
+			if('item_video' == $item_review_type){
+				$item_video = get_option('bsf_video');
+				$review .= '<span itemprop="itemReviewed" itemscope itemtype="https://schema.org/VideoObject">';
+					if( trim ( $item_video_title ) != "" ){
+						if( $item_video['video_title'] != "")
+							$review .= "<div class='snippet-label'>".esc_attr(stripslashes( $item_video['video_title'] ) )."</div>";
+						$review .= " <div class='snippet-data'><span itemprop='name'>".esc_attr( stripslashes( $item_video_title ) )."</span></div><div class='snippet-clear'></div>";
+					}
+					if(trim( $item_video_desc ) != "" ){
+						if($item_video['video_desc'] != "" )
+							$review .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $item_video['video_desc'] ) ).'</div>';
+						$review .= '<div class="snippet-data-img"><span itemprop="description">'.esc_attr( htmlspecialchars_decode( $item_video_desc ) ).'</span></div>';
+					}
+					if(trim( $item_video_date ) != "" ){
+						if($item_video['video_date'] != "" )
+							$review .= '<div class="snippet-label">'.esc_attr( stripslashes( $item_video['video_date'] ) ).'</div>';
+						$review .= "<div class='snippet-data'><span itemprop='uploadDate'>".esc_attr( stripslashes( $item_video_date ) )."</span></div>";
+					}
+					if(trim($item_video_thumb) != ""){
+						$review .= '<meta itemprop="thumbnailUrl" content="'.esc_attr( $item_video_thumb ).'">';
+					}
+				$review .= "</span></div>";
+			}
 		}
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
