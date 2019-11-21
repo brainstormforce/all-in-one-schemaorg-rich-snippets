@@ -82,7 +82,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 = 1.6.0 =
 - New: Added ItemReviewed types in Review schema.
-- Fix: Review schema given an error “Thing is not a known valid target type for the item reviewed the property.
+- Fix: error "Thing is not a known valid target type for the item reviewed the property" in the review schema.
 
 = 1.5.6 =
 - Improvement: Updated plugin name - `All In One Schema Rich Snippets` to `Schema - All In One Schema Rich Snippets`.
