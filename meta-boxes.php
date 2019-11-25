@@ -637,7 +637,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 			array(
 				'name' => __('Ingredients','rich-snippets'),
-				'desc' => __('Enter the ingredients used','rich-snippets'),
+				'desc' => __('Enter ingredients used separated by commas (ingredient 1, ingredient 2, etc)','rich-snippets'),
 				'id'   => $prefix . 'recipes_ingredient',
 				'class' => 'recipes',
 				'type' => 'text_medium',

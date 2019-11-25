@@ -679,11 +679,17 @@ function display_rich_snippet($content) {
 		{
 			if($args_recipe['recipe_name'] != "")
 				$recipe .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_recipe['recipe_name'] ) ).'</div>';
+
 				
 			$recipe .= '<div class="snippet-data-img"><span itemprop="name">'.esc_attr( $recipes_name ).'</span></div>
-			<meta itemprop="description" content="'.esc_attr( htmlspecialchars_decode( $recipes_desc ) ).'" >
-			<meta itemprop="recipeIngredient" content="'.esc_attr( $recipes_ingredient ).'" >
-			<div itemprop="nutrition"
+			<meta itemprop="description" content="'.esc_attr( htmlspecialchars_decode( $recipes_desc ) ).'" >';
+
+			$arr_recipes_ingredient = explode(',',$recipes_ingredient);
+			foreach ($arr_recipes_ingredient as $ingredient) {
+				$recipe .= '<meta itemprop="recipeIngredient" content="'.$ingredient.'" >';
+			}			
+			
+			$recipe .= '<div itemprop="nutrition"
 		    itemscope itemtype="http://schema.org/NutritionInformation">
 		    <meta itemprop="calories" content="'.esc_attr( $recipes_nutrition ).'" ></div>
 			<div class="snippet-clear"></div>';
