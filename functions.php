@@ -1264,7 +1264,14 @@ function bsf_update_rating()
 	
 	$postid = esc_attr( $_POST['post_id'] );
 	
-	$prev_data = get_post_meta($postid,'post-rating',true);
+	$prev_data = get_post_meta( $postid, 'post-rating', false );
+
+	foreach ( $prev_data as $data ) {
+		if ( $ip == $data['user_ip'] ) {
+			$prev_data = $data;
+			break;
+		}
+	}
 	
 	$user_rating = array('post_id' => $postid, 'user_ip' => $ip, 'user_rating' => $stars);
 	
