@@ -1,10 +1,5 @@
 html{ display:block !important;}
 .etabs { margin: 0; padding: 0; }
-.tab { display: inline-block; zoom:1; *display:inline; background: #fff; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; font-weight:bold; }
-.tab a { box-shadow: none; font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; text-decoration:none; color:rgb(175, 175, 175); }
-.tab a:hover { text-decoration: none; color:#0073aa; }
-.tab a.active { font-weight: bold; text-decoration:none; color:#333; }
-.tab.active a:hover { text-decoration: none; color:#0073aa; }
 .tab-container { width: 95%; }
 .get_in_touch { margin: 10px; font-size: 14px;cursor: pointer;}
 #bsf-postbox-container-2 {width: 65%;}
