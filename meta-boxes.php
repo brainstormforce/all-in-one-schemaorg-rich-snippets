@@ -542,7 +542,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'product_name',
 				'class' => 'product',
 				'type' => 'text_medium',
-			),			
+			),	
+			array(
+				'name' => __('Product GTIN/ASIN/MPN','rich-snippets'),
+				'desc' => __('Enter the products ID','rich-snippets'),
+				'id'   => $prefix . 'product_id',
+				'class' => 'product',
+				'type' => 'text_medium',
+			),		
 			array(
 				'name' => __('Product Image','rich-snippets'),
 				'desc' => __('Upload the product image or select from library. Medium size is recommended (300px X 300px)','rich-snippets'),

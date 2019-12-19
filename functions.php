@@ -541,6 +541,7 @@ function display_rich_snippet($content) {
 		$product_rating = get_post_meta( $post->ID, '_bsf_product_rating', true);
 		$product_brand = get_post_meta( $post->ID, '_bsf_product_brand', true);
 		$product_name = get_post_meta( $post->ID, '_bsf_product_name', true);
+		$product_id = get_post_meta( $post->ID, '_bsf_product_id', true);
 		$product_image = get_post_meta($post->ID, '_bsf_product_image', true);
 		$product_cat = get_post_meta($post->ID, '_bsf_product_cat', true);
 		$product_price = get_post_meta($post->ID, '_bsf_product_price', true);
@@ -612,6 +613,12 @@ function display_rich_snippet($content) {
 			if($args_product['product_name'] != "")
 				$product .= '<div class="snippet-label-img">'.esc_attr( stripslashes( $args_product['product_name'] ) ).'</div>';
 			$product .= ' <div class="snippet-data-img"> <span itemprop="name">'.esc_attr( $product_name ).'</span></div><div class="snippet-clear"></div>';
+		}
+
+		if(trim($product_id) != "")
+		{
+			if($args_product['product_id'] != "")
+				$product .= '<meta itemprop="mpn" content="'.esc_attr( $product_id ).'" />';
 		}
 
 		

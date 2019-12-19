@@ -49,6 +49,7 @@ function add_product_option()
 		'snippet_title'	=>	__('Summary','rich-snippets'),
 		'product_rating'   =>	__('Author Rating','rich-snippets'),
 		'product_brand'	=>	__('Brand Name','rich-snippets'),
+		'product_id'	=>	__('Product GTIN/ASIN/MPN','rich-snippets'),
 		'product_name'	 =>	__('Product Name','rich-snippets'),
 		'product_agr'	  =>	__('Aggregate Rating','rich-snippets'),
 		'product_price'	=>	__('Price','rich-snippets'),
