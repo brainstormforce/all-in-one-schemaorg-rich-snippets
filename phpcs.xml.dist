@@ -5,6 +5,12 @@
 	<rule ref="PHPCompatibility"/>
 	<config name="testVersion" value="5.2-"/>
 
+	<rule ref="PHPCompatibility">
+	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
+		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+	
+	</rule>
+
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 
