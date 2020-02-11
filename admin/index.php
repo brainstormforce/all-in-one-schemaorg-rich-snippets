@@ -1058,39 +1058,39 @@ function displayStatus( $status ) {
 	}
 }
 if ( isset( $_GET['action'] ) ) {
-	if ( esc_attr( $_GET['action'] ) == 'reset' ) {
+	if ( 'reset' == esc_attr( $_GET['action'] ) ) {
 		$option_to_reset = esc_attr( $_GET['options'] );
-		if ( $option_to_reset == 'review' ) {
+		if ( 'review' == $option_to_reset ) {
 			delete_option( 'bsf_review' );
 		}
-		if ( $option_to_reset == 'event' ) {
+		if ( 'event' == $option_to_reset ) {
 			delete_option( 'bsf_event' );
 		}
-		if ( $option_to_reset == 'person' ) {
+		if ( 'person' == $option_to_reset ) {
 			delete_option( 'bsf_person' );
 		}
 
-		if ( $option_to_reset == 'product' ) {
+		if ( 'product' == $option_to_reset ) {
 			delete_option( 'bsf_product' );
 		}
-		if ( $option_to_reset == 'recipe' ) {
+		if ( 'recipe' == $option_to_reset ) {
 			delete_option( 'bsf_recipe' );
 		}
-		if ( $option_to_reset == 'software' ) {
+		if ( 'software' == $option_to_reset ) {
 			delete_option( 'bsf_software' );
 		}
-		if ( $option_to_reset == 'video' ) {
+		if ( 'video' == $option_to_reset ) {
 			delete_option( 'bsf_video' );
 		}
 
-		if ( $option_to_reset == 'article' ) {
+		if ( 'article' == $option_to_reset ) {
 			delete_option( 'bsf_article' );
 		}
-		if ( $option_to_reset == 'service' ) {
+		if ( 'service' == $option_to_reset ) {
 			delete_option( 'bsf_service' );
 		}
 
-		if ( $option_to_reset == 'color' ) {
+		if ( 'color' == $option_to_reset ) {
 			delete_option( 'bsf_custom' );
 		}
 
@@ -1099,34 +1099,34 @@ if ( isset( $_GET['action'] ) ) {
 }
 function bsf_reset_options( $option_to_reset ) {
 	require_once( dirname( __FILE__ ) . '/../settings.php' );
-	if ( $option_to_reset == 'review' ) {
+	if ( 'review' == $option_to_reset ) {
 		add_review_option();
 	}
-	if ( $option_to_reset == 'event' ) {
+	if ( 'event' == $option_to_reset ) {
 		add_event_option();
 	}
-	if ( $option_to_reset == 'person' ) {
+	if ( 'person' == $option_to_reset ) {
 		add_person_option();
 	}
-	if ( $option_to_reset == 'product' ) {
+	if ( 'product' == $option_to_reset ) {
 		add_product_option();
 	}
-	if ( $option_to_reset == 'recipe' ) {
+	if ( 'recipe' == $option_to_reset ) {
 		add_recipe_option();
 	}
-	if ( $option_to_reset == 'software' ) {
+	if ( 'software' == $option_to_reset ) {
 		add_software_option();
 	}
-	if ( $option_to_reset == 'video' ) {
+	if ( 'video' == $option_to_reset ) {
 		add_video_option();
 	}
-	if ( $option_to_reset == 'article' ) {
+	if ( 'article' == $option_to_reset ) {
 		add_article_option();
 	}
-	if ( $option_to_reset == 'service' ) {
+	if ( 'service' == $option_to_reset ) {
 		add_service_option();
 	}
-	if ( $option_to_reset == 'color' ) {
+	if ( 'color' == $option_to_reset ) {
 		add_color_option();
 	}
 
