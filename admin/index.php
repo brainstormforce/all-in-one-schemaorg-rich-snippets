@@ -901,8 +901,8 @@ function rich_snippet_dashboard() {
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		$args = null;
 		if ( isset( $_POST['woocommerce_option'] ) ) {
@@ -918,8 +918,8 @@ if ( isset( $_POST['setting_submit'] ) ) {
 if ( isset( $_POST['item_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'review_title', 'item_reviewer', 'review_date', 'item_name', 'item_rating' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -933,8 +933,8 @@ if ( isset( $_POST['item_submit'] ) ) {
 if ( isset( $_POST['event_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'event_title', 'event_location', 'event_performer', 'start_time', 'end_time', 'event_desc', 'events_price' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -948,8 +948,8 @@ if ( isset( $_POST['event_submit'] ) ) {
 if ( isset( $_POST['person_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'person_name', 'person_nickname', 'person_job_title', 'person_website', 'person_company', 'person_address' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -963,8 +963,8 @@ if ( isset( $_POST['person_submit'] ) ) {
 if ( isset( $_POST['product_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'product_rating', 'product_brand', 'product_name', 'product_agr', 'product_price', 'product_avail' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -978,8 +978,8 @@ if ( isset( $_POST['product_submit'] ) ) {
 if ( isset( $_POST['recipe_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'recipe_name', 'author_name', 'recipe_pub', 'recipe_prep', 'recipe_cook', 'recipe_time', 'recipe_desc', 'recipe_rating' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -993,8 +993,8 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 if ( isset( $_POST['software_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'software_rating', 'software_agr', 'software_price', 'software_name', 'software_os', 'software_website' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -1008,8 +1008,8 @@ if ( isset( $_POST['software_submit'] ) ) {
 if ( isset( $_POST['video_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'video_title', 'video_desc', 'video_time', 'video_date' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -1023,8 +1023,8 @@ if ( isset( $_POST['video_submit'] ) ) {
 if ( isset( $_POST['article_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'article_name', 'article_author', 'article_desc', 'article_image', 'article_publisher', 'article_publisher_logo' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
@@ -1038,8 +1038,8 @@ if ( isset( $_POST['article_submit'] ) ) {
 if ( isset( $_POST['service_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' )
 		) {
-		   print 'Sorry, your nonce did not verify.';
-		   exit;
+		print 'Sorry, your nonce did not verify.';
+		exit;
 	} else {
 		foreach ( array( 'snippet_title', 'service_type', 'service_area', 'service_desc', 'service_provider_name', 'provider_location', 'service_rating', 'service_channel', 'service_url_link' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
