@@ -1139,18 +1139,18 @@ function add_footer_script() {
 		{
 			var data = jQuery("#bsf_css_editor").serialize();
 			var form_data = "action=bsf_submit_color&" + data;
-		  //alert(form_data);
+		//alert(form_data);
 			jQuery.post(ajaxurl, form_data,
 				function (response) {
 					alert(response);
 				}
 			);
 		});
-	   jQuery("#support_form").submit(function()
+	    jQuery("#support_form").submit(function()
 		{
 			var data = jQuery("#support_form").serialize();
 			var form_data = "action=bsf_submit_request&" + data;
-		 // alert(form_data);
+		// alert(form_data);
 			jQuery.post(ajaxurl, form_data,
 				function (response) {
 					alert(response);
