@@ -1,10 +1,19 @@
 <?php
-// Start object buffering to supress warning messages
+/**
+ * Start object buffering to supress warning messages.
+ *
+ * @package Schema - All In One Schema Rich Snippets.
+ */
+
 ob_start();
 if ( is_admin() ) {
 	add_action( 'admin_footer', 'add_footer_script' );
 }
-// enqueues the scripts and styles in admin dashboard
+/**
+ * Enqueues the styles in admin dashboard.
+ *
+ * @return void
+ */
 function bsf_admin_styles() {
 	wp_enqueue_style( 'star_style' );
 	wp_enqueue_style( 'meta_style' );
@@ -12,12 +21,21 @@ function bsf_admin_styles() {
 		wp_enqueue_script( 'jquery-ui-core' );
 	wp_enqueue_script( 'bsf_jquery_star' );
 }
+/**
+ * Enqueues the scripts in admin dashboard.
+ *
+ * @return void
+ */
 function add_the_script() {
 	wp_enqueue_script( 'postbox' );
 	wp_enqueue_style( 'admin_style' );
 }
 add_action( 'admin_print_scripts', 'add_the_script' );
-// The Main Admin Dashboard for Rich Snippets Plugin
+/**
+ * The Main Admin Dashboard for Rich Snippets Plugin.
+ *
+ * @return void
+ */
 function rich_snippet_dashboard() {
 	$plugins_url = plugins_url();
 	if ( ! get_option( 'bsf_woocom_init_setting' ) ) {
@@ -878,7 +896,7 @@ function rich_snippet_dashboard() {
    	});
 </script>';
 }
-// Update options
+// Update options.
 
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' )
