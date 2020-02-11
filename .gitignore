@@ -19,3 +19,4 @@ phpcs-full.log
 
 # Ignore Composer's directories
 vendor/
+

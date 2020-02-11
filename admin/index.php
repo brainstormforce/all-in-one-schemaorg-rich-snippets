@@ -1050,6 +1050,11 @@ if ( isset( $_POST['service_submit'] ) ) {
 		displayStatus( $status );
 	}
 }
+/**
+ * Display status.
+ *
+ * @param  string $status .
+ */
 function displayStatus( $status ) {
 	if ( $status ) {
 		echo '<div class="updated"><p>' . __( 'Success! Your changes were successfully saved!', 'rich-snippets' ) . '</p></div>';
@@ -1097,6 +1102,11 @@ if ( isset( $_GET['action'] ) ) {
 		bsf_reset_options( $option_to_reset );
 	}
 }
+/**
+ * BSF reset option.
+ *
+ * @param  string $option_to_reset .
+ */
 function bsf_reset_options( $option_to_reset ) {
 	require_once( dirname( __FILE__ ) . '/../settings.php' );
 	if ( 'review' == $option_to_reset ) {
@@ -1132,6 +1142,9 @@ function bsf_reset_options( $option_to_reset ) {
 
 	header( 'location:?page=rich_snippet_dashboard' );
 }
+/**
+ * Add footer script.
+ */
 function add_footer_script() {
 	?>
 	<script type="text/javascript">
@@ -1146,7 +1159,7 @@ function add_footer_script() {
 				}
 			);
 		});
-	    jQuery("#support_form").submit(function()
+		jQuery("#support_form").submit(function()
 		{
 			var data = jQuery("#support_form").serialize();
 			var form_data = "action=bsf_submit_request&" + data;
@@ -1160,6 +1173,9 @@ function add_footer_script() {
 		});
 	</script>
 <?php }
+/**
+ * Get support.
+ */
 function get_support() {
 	$html = '
 		<div class="postbox bsf-contact closed">
