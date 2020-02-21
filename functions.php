@@ -44,7 +44,7 @@ function aiosrs_enque() {
 }
 
 function bsf_initialize_bsf_meta_boxes() {
-	if ( ! class_exists( 'bsf_Meta_Box' ) ) {
+	if ( ! class_exists( 'Bsf_Meta_Box' ) ) {
 		require_once plugin_dir_path( __FILE__ ) . 'init.php';
 	}
 }
