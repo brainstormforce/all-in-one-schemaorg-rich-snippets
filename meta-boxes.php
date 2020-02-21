@@ -1,7 +1,17 @@
 <?php
-// Metabox for review
+/**
+ * Meta Boxes.
+ *
+ * @package AIOSRS.
+ */
+
+/**
+ * Metabox for review.
+ *
+ * @param array $meta_boxes Meta Boxes.
+ */
 function bsf_metaboxes( array $meta_boxes ) {
-	// Start with an underscore to hide fields from custom fields list
+	// Start with an underscore to hide fields from custom fields list.
 	$prefix     = '_bsf_';
 	$post_types = get_post_types( '', 'names' );
 
@@ -26,14 +36,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => 'review_metabox',
 		'title'      => __( 'Configure Rich Snippet', 'rich-snippets' ),
-		'pages'      => $required_post_type, // $post_types, //array( 'post','page' ), // Custom Post types
+		'pages'      => $required_post_type,
 		'context'    => 'normal',
 		'priority'   => 'high',
-		'show_names' => true, // Show field names on the left
+		'show_names' => true, // Show field names on the left.
 		'fields'     => array(
 			array(
-				'name'    => __( '', 'rich-snippets' ),
-				'desc'    => __( '', 'rich-snippets' ),
+				'name'    => '',
+				'desc'    => '',
 				'id'      => $prefix . 'post_type',
 				'class'   => 'snippet-type',
 				'type'    => 'select',
@@ -81,7 +91,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 
 				),
 			),
-			// Meta Settings for Item Review
+			// Meta Settings for Item Review.
 			array(
 				'name'  => __( 'Rich Snippets - Item Review', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -158,28 +168,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Street Address', 'rich-snippets' ),
 				'id'    => $prefix . 'item_event_street',
 				'class' => 'event_item_type',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Locality', 'rich-snippets' ),
 				'id'    => $prefix . 'item_event_local',
 				'class' => 'event_item_type',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Region', 'rich-snippets' ),
 				'id'    => $prefix . 'item_event_region',
 				'class' => 'event_item_type',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Postal Code', 'rich-snippets' ),
 				'id'    => $prefix . 'item_event_postal_code',
 				'class' => 'event_item_type',
@@ -306,28 +316,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'    => 'radio',
 				'options' => array(
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '1',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '2',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '3',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '4',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '5',
 					),
 				),
 			),
-			// Meta Settings for Events
+			// Meta Settings for Events.
 			array(
 				'name'  => __( 'Rich Snippets - Events', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -350,28 +360,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Street Address', 'rich-snippets' ),
 				'id'    => $prefix . 'event_street',
 				'class' => 'events',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Locality', 'rich-snippets' ),
 				'id'    => $prefix . 'event_local',
 				'class' => 'events',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Region', 'rich-snippets' ),
 				'id'    => $prefix . 'event_region',
 				'class' => 'events',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Postal Code', 'rich-snippets' ),
 				'id'    => $prefix . 'event_postal_code',
 				'class' => 'events',
@@ -419,7 +429,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'events',
 				'type'  => 'text',
 			),
-			// Meta Settings for Music
+			// Meta Settings for Music.
 			array(
 				'name'  => __( 'Rich Snippets - Music', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -427,7 +437,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'music',
 				'type'  => 'title',
 			),
-			// Meta Settings for Organization
+			// Meta Settings for Organization.
 			array(
 				'name'  => __( 'Rich Snippets - Organization', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -464,28 +474,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Locality.', 'rich-snippets' ),
 				'id'    => $prefix . 'organization_local',
 				'class' => 'organization',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Region.', 'rich-snippets' ),
 				'id'    => $prefix . 'organization_region',
 				'class' => 'organization',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Postal Code', 'rich-snippets' ),
 				'id'    => $prefix . 'organization_zip',
 				'class' => 'organization',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Country Name', 'rich-snippets' ),
 				'id'    => $prefix . 'organization_country',
 				'class' => 'organization',
@@ -499,13 +509,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Longitude.', 'rich-snippets' ),
 				'id'    => $prefix . 'organization_longitude',
 				'class' => 'organization',
 				'type'  => 'text_medium',
 			),
-			// Meta Settings for People
+			// Meta Settings for People.
 			array(
 				'name'  => __( 'Rich Snippets - Person', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -563,28 +573,28 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Enter Locality', 'rich-snippets' ),
 				'id'    => $prefix . 'people_local',
 				'class' => 'people',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Region', 'rich-snippets' ),
 				'id'    => $prefix . 'people_region',
 				'class' => 'people',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Postal Code', 'rich-snippets' ),
 				'id'    => $prefix . 'people_postal',
 				'class' => 'people',
 				'type'  => 'text_medium',
 			),
 
-			// Meta Settings for Products
+			// Meta Settings for Products.
 			array(
 				'name'  => __( 'Rich Snippets - Products', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -600,23 +610,23 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'    => 'radio',
 				'options' => array(
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '1',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '2',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '3',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '4',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '5',
 					),
 				),
@@ -684,7 +694,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 						'value' => 'preorder',
 					),
 				),
-			),          // Meta Settings for Recipes
+			),          // Meta Settings for Recipes.
 			array(
 				'name'  => __( 'Rich Snippets - Recipes', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -714,14 +724,14 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_small',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Cook Time. (Format: 1H30M. H - Hours, M - Minutes )', 'rich-snippets' ),
 				'id'    => $prefix . 'recipes_cooktime',
 				'class' => 'recipes',
 				'type'  => 'text_small',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Total Time  (Format: 1H30M. H - Hours, M - Minutes )', 'rich-snippets' ),
 				'id'    => $prefix . 'recipes_totaltime',
 				'class' => 'recipes',
@@ -755,7 +765,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'recipes',
 				'type'  => 'file',
 			),
-			// Meta Settings for Software Application
+			// Meta Settings for Software Application.
 			array(
 				'name'  => __( 'Rich Snippets - Software Application', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -771,23 +781,23 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'    => 'radio',
 				'options' => array(
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '1',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '2',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '3',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '4',
 					),
 					array(
-						'name'  => __( '', 'rich-snippets' ),
+						'name'  => '',
 						'value' => '5',
 					),
 				),
@@ -840,7 +850,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'id'    => $prefix . 'software_landing',
 				'class' => 'software',
 				'type'  => 'text',
-			),          // Meta Settings for Video
+			),          // Meta Settings for Video.
 			array(
 				'name'  => __( 'Rich Snippets - Videos', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -899,7 +909,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'video',
 				'type'  => 'text_date',
 			),
-			// Meta Settings for Article
+			// Meta Settings for Article.
 			array(
 				'name'  => __( 'Rich Snippets - Article', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -950,7 +960,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'file',
 			),
 
-			// Meta Settings for Service
+			// Meta Settings for Service.
 			array(
 				'name'  => __( 'Rich Snippets - Service', 'rich-snippets' ),
 				'desc'  => __( 'Please provide the following information.', 'rich-snippets' ),
@@ -1001,21 +1011,21 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Locality', 'rich-snippets' ),
 				'id'    => $prefix . 'service_local',
 				'class' => 'service',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Region', 'rich-snippets' ),
 				'id'    => $prefix . 'service_region',
 				'class' => 'service',
 				'type'  => 'text_medium',
 			),
 			array(
-				'name'  => __( '', 'rich-snippets' ),
+				'name'  => '',
 				'desc'  => __( 'Postal Code', 'rich-snippets' ),
 				'id'    => $prefix . 'service_postal_code',
 				'class' => 'service',
@@ -1054,7 +1064,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 			),
 		),
 	);
-	// Add other metaboxes as needed
+	// Add other metaboxes as needed.
 	return $meta_boxes;
 }
 
