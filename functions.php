@@ -1293,8 +1293,8 @@ function display_rating() {
 
 		global $post;
 		$rating  = '<span class="ratings"><div class="star-blocks">';
-		$rating .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">';
-		$rating .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce' );
+		$rating .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">'; 
+		$rating .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce', true, false );
 		$rating .= '<input type="radio" name="star-review" class="star star-1" value="1"/>';
 		$rating .= '<input type="radio" name="star-review" class="star star-2" value="2"/>';
 		$rating .= '<input type="radio" name="star-review" class="star star-3" value="3"/>';
@@ -1332,6 +1332,7 @@ function bsf_display_rating( $n ) {
 		global $post;
 		$rating        = '<span class="ratings"><div class="star-blocks">';
 		$rating       .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">';
+		$rating       .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce', true, false );
 		$rating       .= '<input type="radio" name="star-review" class="star star-1" value="1" ';
 	1 == $n ? $rating .= ' checked="checked"/>' : $rating .= '/>';
 		$rating       .= '<input type="radio" name="star-review" class="star star-2" value="2" ';
