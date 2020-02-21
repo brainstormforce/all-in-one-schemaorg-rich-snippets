@@ -1,5 +1,13 @@
 <?php
-// Function to add review option for settings
+/**
+ * Settings.
+ *
+ * @package AIOSRS.
+ */
+
+/**
+ * Function to add review option for settings.
+ */
 function add_review_option() {
 	$review_opt = array(
 		'review_title'  => __( 'Summary', 'rich-snippets' ),
@@ -11,7 +19,9 @@ function add_review_option() {
 	add_option( 'bsf_review', $review_opt );
 }
 
-// Function to add event option for settings
+/**
+ * Function to add event option for settings.
+ */
 function add_event_option() {
 	$event_opt = array(
 		'snippet_title'  => __( 'Summary', 'rich-snippets' ),
@@ -25,7 +35,9 @@ function add_event_option() {
 	add_option( 'bsf_event', $event_opt );
 }
 
-// Function to add person option for settings
+/**
+ *  Function to add person option for settings.
+ */
 function add_person_option() {
 	$person_opt = array(
 		'snippet_title'    => __( 'Summary', 'rich-snippets' ),
@@ -39,21 +51,25 @@ function add_person_option() {
 	add_option( 'bsf_person', $person_opt );
 }
 
-// Function to add product option for settings
+/**
+ *  Function to add product option for settings.
+ */
 function add_product_option() {
-	 $product_opt = array(
-		 'snippet_title'  => __( 'Summary', 'rich-snippets' ),
-		 'product_rating' => __( 'Author Rating', 'rich-snippets' ),
-		 'product_brand'  => __( 'Brand Name', 'rich-snippets' ),
-		 'product_name'   => __( 'Product Name', 'rich-snippets' ),
-		 'product_agr'    => __( 'Aggregate Rating', 'rich-snippets' ),
-		 'product_price'  => __( 'Price', 'rich-snippets' ),
-		 'product_avail'  => __( 'Product Availability', 'rich-snippets' ),
-	 );
-	 add_option( 'bsf_product', $product_opt );
+	$product_opt = array(
+		'snippet_title'  => __( 'Summary', 'rich-snippets' ),
+		'product_rating' => __( 'Author Rating', 'rich-snippets' ),
+		'product_brand'  => __( 'Brand Name', 'rich-snippets' ),
+		'product_name'   => __( 'Product Name', 'rich-snippets' ),
+		'product_agr'    => __( 'Aggregate Rating', 'rich-snippets' ),
+		'product_price'  => __( 'Price', 'rich-snippets' ),
+		'product_avail'  => __( 'Product Availability', 'rich-snippets' ),
+	);
+	add_option( 'bsf_product', $product_opt );
 }
 
-// Function to add recipe option for settings
+/**
+ *  Function to add recipe option for settings.
+ */
 function add_recipe_option() {
 	$recipe_opt = array(
 		'snippet_title'     => __( 'Summary', 'rich-snippets' ),
@@ -71,7 +87,9 @@ function add_recipe_option() {
 	add_option( 'bsf_recipe', $recipe_opt );
 }
 
-// Function to add software option for settings
+/**
+ *  Function to add software option for settings.
+ */
 function add_software_option() {
 	$software_opt = array(
 		'snippet_title'    => __( 'Summary', 'rich-snippets' ),
@@ -85,7 +103,9 @@ function add_software_option() {
 	add_option( 'bsf_software', $software_opt );
 }
 
-// Function to add video option for settings
+/**
+ *  Function to add video option for settings.
+ */
 function add_video_option() {
 	$video_opt = array(
 		'snippet_title' => __( 'Summary', 'rich-snippets' ),
@@ -96,38 +116,43 @@ function add_video_option() {
 	);
 	add_option( 'bsf_video', $video_opt );
 }
-// Function to add article option for settings
+/**
+ *  Function to add article option for settings.
+ */
 function add_article_option() {
-	 $article_opt = array(
-		 'snippet_title'          => __( 'Summary', 'rich-snippets' ),
-		 'article_name'           => __( 'Article Name', 'rich-snippets' ),
-		 'article_author'         => __( 'Author', 'rich-snippets' ),
-		 'article_desc'           => __( 'Description', 'rich-snippets' ),
-		 'article_image'          => __( 'Image', 'rich-snippets' ),
-		 'article_publisher'      => __( 'Publisher Name', 'rich-snippets' ),
-		 'article_publisher_logo' => __( 'Publisher Logo', 'rich-snippets' ),
+	$article_opt = array(
+		'snippet_title'          => __( 'Summary', 'rich-snippets' ),
+		'article_name'           => __( 'Article Name', 'rich-snippets' ),
+		'article_author'         => __( 'Author', 'rich-snippets' ),
+		'article_desc'           => __( 'Description', 'rich-snippets' ),
+		'article_image'          => __( 'Image', 'rich-snippets' ),
+		'article_publisher'      => __( 'Publisher Name', 'rich-snippets' ),
+		'article_publisher_logo' => __( 'Publisher Logo', 'rich-snippets' ),
 
-	 );
-	 add_option( 'bsf_article', $article_opt );
+	);
+	add_option( 'bsf_article', $article_opt );
 }
-// Function to add article option for settings
+/**
+ *  Function to add article option for settings.
+ */
 function add_service_option() {
-	 $service_opt = array(
-		 'snippet_title'         => __( 'Summary', 'rich-snippets' ),
-		 'service_type'          => __( 'Service Type', 'rich-snippets' ),
-		 'service_area'          => __( 'Area', 'rich-snippets' ),
-		 'service_desc'          => __( 'Description', 'rich-snippets' ),
-		 'service_channel'       => __( 'URL', 'rich-snippets' ),
-		 'service_url_link'      => __( 'Click Here For More Info', 'rich-snippets' ),
-		 'service_rating'        => __( 'User Rating', 'rich-snippets' ),
-		 'service_provider_name' => __( 'Provider Name', 'rich-snippets' ),
-		 'provider_location'     => __( 'Location', 'rich-snippets' ),
-		 'service_telephone'     => __( 'Provider telephone number', 'rich-snippets' ),
-		// 'service_price'	=>	__('Price Range','rich-snippets')
-	 );
-	 add_option( 'bsf_service', $service_opt );
+	$service_opt = array(
+		'snippet_title'         => __( 'Summary', 'rich-snippets' ),
+		'service_type'          => __( 'Service Type', 'rich-snippets' ),
+		'service_area'          => __( 'Area', 'rich-snippets' ),
+		'service_desc'          => __( 'Description', 'rich-snippets' ),
+		'service_channel'       => __( 'URL', 'rich-snippets' ),
+		'service_url_link'      => __( 'Click Here For More Info', 'rich-snippets' ),
+		'service_rating'        => __( 'User Rating', 'rich-snippets' ),
+		'service_provider_name' => __( 'Provider Name', 'rich-snippets' ),
+		'provider_location'     => __( 'Location', 'rich-snippets' ),
+		'service_telephone'     => __( 'Provider telephone number', 'rich-snippets' ),
+	);
+	add_option( 'bsf_service', $service_opt );
 }
-// Function for customization
+/**
+ *  Function for customization
+ */
 function add_color_option() {
 	$color_opt = array(
 		'snippet_box_bg'      => '#F5F5F5',
@@ -139,7 +164,9 @@ function add_color_option() {
 	add_option( 'bsf_custom', $color_opt );
 }
 
-// Function for customization
+/**
+ *  Function for customization
+ */
 function add_woo_commerce_option() {
 	if ( ! get_option( 'bsf_woocom_init_setting' ) ) {
 
