@@ -110,7 +110,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Item Review', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_review_form" method="post">
 										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. '
@@ -152,7 +152,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Events', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_event_form" method="post">
 										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. ' 
@@ -202,7 +202,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Person', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'rich-snippets' ) ) . '</p>
 										<form id="bsf_person_form" method="post">
 										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. '
@@ -252,7 +252,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Product', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __ ( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_product_form" method="post">
 										' . wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 										. '
@@ -302,7 +302,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Recipe', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_recipe_form" method="post">
 										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. '
@@ -360,7 +360,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Software Application', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_software_form" method="post">
 										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. '
@@ -412,7 +412,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Video', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_video_form" method="post">
 										' . wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' )//phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 										. '
@@ -454,7 +454,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Article', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_article_form" method="post">
 										' . wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 										. '
@@ -504,7 +504,7 @@ function rich_snippet_dashboard() {
 								<h3 class="hndle"><span>' . esc_html__( 'Service', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'rich-snippets' ) ) . '</p>
 										<form id="bsf_service_form" method="post">
 										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
 										. '
@@ -561,7 +561,7 @@ function rich_snippet_dashboard() {
 							
 						</div>
 					<div class="schema-notice">
-						<p>' . esc_html__( "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
+						<p>' . wp_kses_post( __( "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) ) . '</p>
 					</div>
 					</div>
 				</div>	
@@ -881,7 +881,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . esc_html( get_support( 1 ) ) . '
+		</div>' . get_support( 1 ) . '
 	</div>';
 	echo '
 <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
