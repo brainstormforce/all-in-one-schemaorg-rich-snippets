@@ -675,7 +675,7 @@ function display_rich_snippet( $content ) {
 		$count              = rating_count();
 		$agregate           = average_rating();
 		if ( '' != trim( $recipes_photo ) ) {
-			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="' . esc_url( $recipes_photo ) . '" alt="recipe image"/></div>';
+			$recipe .= '<div class="snippet-image"><img width="180" itemprop="image" src="'.esc_url( $recipes_photo ).'" alt="recipe image"/><meta itemprop="image" content="'.esc_url( $recipes_photo ).'"></div>';
 		} else {
 			$recipe .= '<script type="text/javascript">
 				jQuery(document).ready(function() {
