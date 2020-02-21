@@ -1,16 +1,19 @@
 <?php
+/**
+ * Plugin Name: Schema - All In One Schema Rich Snippets
+ * Plugin URI: https://www.brainstormforce.com
+ * Author: Brainstorm Force
+ * Author URI: https://www.brainstormforce.com
+ * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
+ * Version: 1.6.0
+ * Text Domain: rich-snippets
+ * License: GPL2
+ *
+ * @package AIOSRS.
+ * */
+
 /*
-Plugin Name: Schema - All In One Schema Rich Snippets
-Plugin URI: https://www.brainstormforce.com
-Author: Brainstorm Force
-Author URI: https://www.brainstormforce.com
-Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services etc.
-Version: 1.6.0
-Text Domain: rich-snippets
-License: GPL2
-*/
-/*
-  Copyright 2013 Schema - All In One Schema Rich Snippets (email : info@bsf.io)
+Copyright 2013 Schema - All In One Schema Rich Snippets (email : info@bsf.io)
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
 	published by the Free Software Foundation.
@@ -23,14 +26,19 @@ License: GPL2
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 if ( ! class_exists( 'RichSnippets' ) ) {
+	/**
+	 * RichSnippets
+	 */
 	class RichSnippets {
-
-		function __construct() {
-			// Constructor
+		/**
+		 * Initiator
+		 */
+		public function __construct() {
+			// Constructor.
 			register_activation_hook( __FILE__, array( $this, 'register_bsf_settings' ) );
 			add_action( 'admin_init', array( $this, 'aiosrs_admin_redirect' ) );
 			add_action( 'admin_head', array( $this, 'star_icons' ) );
-			// Add Admin Menu
+			// Add Admin Menu.
 			add_action( 'admin_menu', array( $this, 'register_custom_menu_page' ) );
 			add_action( 'admin_init', array( $this, 'set_styles' ) );
 
@@ -44,12 +52,14 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_action( 'wp_ajax_bsf_submit_request', array( $this, 'submit_request' ) );
 
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color' ) );
-			// Admin bar menu
+			// Admin bar menu.
 			add_action( 'admin_bar_menu', array( $this, 'aiosrs_admin_bar' ), 100 );
 		}
 
-		// admin bar menu
-		function aiosrs_admin_bar() {
+		/**
+		 * Admin bar menu.
+		 */
+		public function aiosrs_admin_bar() {
 			global $wp_admin_bar;
 			$actual_link = esc_url( "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" );
 			if ( ! is_super_admin() || ! is_admin_bar_showing() ) {
@@ -66,21 +76,32 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				);
 			}
 		}
-		function register_custom_menu_page() {
-			require_once( plugin_dir_path( __FILE__ ) . 'admin/index.php' );
+		/**
+		 * Register_custom_menu_page.
+		 */
+		public function register_custom_menu_page() {
+			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
 			$page = add_menu_page( 'All in One Rich Snippets Dashboard', 'Rich Snippets', 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
-			// Call the function to print the stylesheets and javascripts in only this plugins admin area
+			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
 		}
-		// Add settings link on plugin page
-		function bsf_settings_link( $links ) {
+		/**
+		 * Add settings link on plugin page.
+		 *
+		 * @param string $links Links.
+		 */
+		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
 			return $links;
 		}
-		// print the star rating style on post edit page
-		function post_enqueue( $hook ) {
+		/**
+		 *  Print the star rating style on post edit page.
+		 *
+		 * @param string $hook Hook.
+		 */
+		public function post_enqueue( $hook ) {
 			if ( 'post.php' != $hook ) {
 				return;
 			}
@@ -100,10 +121,15 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			if ( ! function_exists( 'vc_map' ) ) {
-				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', null, '1.0' );
 			}
 		}
-		function post_new_enqueue( $hook ) {
+		/**
+		 *  Post_new_enqueue.
+		 *
+		 * @param string $hook Hook.
+		 */
+		public function post_new_enqueue( $hook ) {
 			if ( 'post-new.php' != $hook ) {
 				return;
 			}
@@ -123,46 +149,58 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			wp_enqueue_script( 'bsf-scripts-media' );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			if ( ! function_exists( 'vc_map' ) ) {
-				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css' );
+				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', null, 1.0 );
 			}
 		}
-		// Initialize the metabox class
-		function wp_initialize_bsf_meta_boxes() {
+		/**
+		 * Initialize the metabox class.
+		 */
+		public function wp_initialize_bsf_meta_boxes() {
 			if ( ! class_exists( 'bsf_Meta_Box' ) ) {
-				require_once( plugin_dir_path( __FILE__ ) . 'init.php' );
+				require_once plugin_dir_path( __FILE__ ) . 'init.php';
 			}
 		}
-		function set_styles() {
-			wp_register_style( 'star_style', plugins_url( '/css/jquery.rating.css', __FILE__ ) );
-			wp_register_style( 'meta_style', plugins_url( 'admin/css/style.css', __FILE__ ) );
+		/**
+		 * Set_styles.
+		 */
+		public function set_styles() {
+			wp_register_style( 'star_style', plugins_url( '/css/jquery.rating.css', __FILE__ ), null, '1.0' );
+			wp_register_style( 'meta_style', plugins_url( 'admin/css/style.css', __FILE__ ), null, '1.0' );
 
-			wp_register_style( 'admin_style', plugins_url( 'admin/css/admin.css', __FILE__ ) );
-			wp_register_script( 'bsf_jquery_star', plugins_url( '/js/jquery.rating.min.js', __FILE__ ) );
-			wp_register_script( 'bsf_toggle', plugins_url( '/js/toggle.js', __FILE__ ) );
+			wp_register_style( 'admin_style', plugins_url( 'admin/css/admin.css', __FILE__ ), null, '1.0' );
+			wp_register_script( 'bsf_jquery_star', plugins_url( '/js/jquery.rating.min.js', __FILE__ ), null, '1.0' );
+			wp_register_script( 'bsf_toggle', plugins_url( '/js/toggle.js', __FILE__ ), null, '1.0' );
 		}
-		// Define icon styles for the custom post type
-		function star_icons() {
+		/**
+		 * Define icon styles for the custom post type.
+		 */
+		public function star_icons() {
 			?>
 		<style>
 			#toplevel_page_rich_snippet_dashboard .wp-menu-image {
-				background: url(<?php echo plugins_url( '/images/star.png', __FILE__ ); ?>) no-repeat !important;
+				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat !important;
 			}
 			#toplevel_page_rich_snippet_dashboard:hover .wp-menu-image, #toplevel_page_rich_snippet_dashboard.wp-has-current-submenu .wp-menu-image {
-				background: url(<?php echo plugins_url( '/images/star.png', __FILE__ ); ?>) no-repeat 0 -32px !important;
+				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#toplevel_page_rich_snippet_dashboard .current .wp-menu-image, #toplevel_page_rich_snippet_dashboard.wp-has-current-submenu .wp-menu-image {
-				background: url(<?php echo plugins_url( '/images/star.png', __FILE__ ); ?>) no-repeat 0 -32px !important;
+				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
-			#star-icons-32.icon32 {background: url(<?php echo plugins_url( '/images/gray-32.png', __FILE__ ); ?>) no-repeat;}
+			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
 		</style>
 		<?php }
-		/* Translation */
-		function rich_snippet_translation() {
-			// Load Translation File
+		/**
+		 * Translation.
+		 */
+		public function rich_snippet_translation() {
+			// Load Translation File.
 			load_plugin_textdomain( 'rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
 		}
-		function register_bsf_settings() {
-			require_once( plugin_dir_path( __FILE__ ) . 'settings.php' );
+		/**
+		 * Register_bsf_settings.
+		 */
+		public function register_bsf_settings() {
+			require_once plugin_dir_path( __FILE__ ) . 'settings.php';
 			add_woo_commerce_option();
 			add_review_option();
 			add_event_option();
@@ -177,33 +215,48 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_option( 'aisrs_do_activation_redirect', true );
 
 		}
-		function aiosrs_admin_redirect() {
+		/**
+		 * Aiosrs_admin_redirect.
+		 */
+		public function aiosrs_admin_redirect() {
 			$main_url = esc_url( admin_url() );
 			if ( get_option( 'aisrs_do_activation_redirect', false ) ) {
 				delete_option( 'aisrs_do_activation_redirect' );
 				wp_redirect( $main_url . '/admin.php?page=rich_snippet_dashboard#tab-5' );
 			}
 		}
-		function submit_request() {
-			 $to      = 'Brainstorm Force <support@bsf.io>';
-			$from     = sanitize_email( $_POST['email'] );
-			$site     = esc_url( $_POST['site_url'] );
-			$sub      = sanitize_text_field( $_POST['subject'] );
-			$message  = esc_html( $_POST['message'] );
-			$name     = sanitize_text_field( $_POST['name'] );
-			$post_url = esc_url( $_POST['post_url'] );
+		/**
+		 * Submit_request.
+		 */
+		public function submit_request() {
+			$to       = 'Brainstorm Force <support@bsf.io>';
+			$from     = '';
+			$site     = '';
+			$sub      = '';
+			$message  = '';
+			$post_url = '';
+			$name     = '';
+			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
 
-			if ( $sub == 'question' ) {
+				$from     = sanitize_email( $_POST['email'] );
+				$site     = esc_url( $_POST['site_url'] );
+				$sub      = sanitize_text_field( $_POST['subject'] );
+				$message  = esc_html( $_POST['message'] );
+				$name     = sanitize_text_field( $_POST['name'] );
+				$post_url = esc_url( $_POST['post_url'] );
+			}
+
+			if ( 'question' == $sub ) {
 				$subject = '[AIOSRS] New question received from ' . $name;
-			} elseif ( $sub == 'bug' ) {
+			} elseif ( 'bug' == $sub ) {
 				$subject = '[AIOSRS] New bug found by ' . $name;
-			} elseif ( $sub == 'help' ) {
+			} elseif ( 'help' == $sub ) {
 				$subject = '[AIOSRS] New help request received from ' . $name;
-			} elseif ( $sub == 'professional' ) {
+			} elseif ( 'professional' == $sub ) {
 				$subject = '[AIOSRS] New service quote request received from ' . $name;
-			} elseif ( $sub == 'contribute' ) {
+			} elseif ( 'contribute' == $sub ) {
 				$subject = '[AIOSRS] New development contribution request by ' . $name;
-			} elseif ( $sub == 'other' ) {
+			} elseif ( 'other' == $sub ) {
 				$subject = '[AIOSRS] New contact request received from ' . $name;
 			}
 
@@ -246,18 +299,21 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			echo mail( $to, $subject, $html, $headers ) ? _e( 'Thank you!', 'rich-snippets' ) : _e( 'Something went wrong!', 'rich-snippets' );
+			echo mail( $to, $subject, $html, $headers ) ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
 
 			die();
 		}
-		function submit_color() {
+		/**
+		 * Submit_color.
+		 */
+		public function submit_color() {
 			if ( ! current_user_can( 'manage_options' ) ) {
 				// return if current user is not allowed to manage options.
 				return;
 			} else {
 				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
 				) {
-					print 'Sorry, your nonce did not verify.';
+					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
 				} else {
 					$snippet_box_bg   = esc_attr( $_POST['snippet_box_bg'] );
@@ -272,26 +328,32 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? _e( 'Settings saved !', 'rich-snippets' ) : _e( 'Error occured. Satings were not saved !', 'rich-snippets' );
+					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Satings were not saved !', 'rich-snippets' );
 
 					die();
 				}
 			}
 		}
-		function iris_enqueue_scripts() {
-			   wp_enqueue_script( 'wp-color-picker' );
-				// load the minified version of custom script
+		/**
+		 * Iris_enqueue_scripts.
+		 */
+		public function iris_enqueue_scripts() {
+			wp_enqueue_script( 'wp-color-picker' );
+				// load the minified version of custom script.
 				wp_enqueue_script( 'cp_custom', plugins_url( 'js/cp-script.min.js', __FILE__ ), array( 'jquery', 'wp-color-picker' ), '1.1', true );
 				wp_enqueue_style( 'wp-color-picker' );
 		}
-		function bsf_color_scripts() {
+		/**
+		 * Bsf_color_scripts.
+		 */
+		public function bsf_color_scripts() {
 			global $wp_version;
 			$bsf_script_array = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox' );
 
-			// styles required for cmb
+			// styles required for cmb.
 			$bsf_style_array = array( 'thickbox' );
 
-			// if we're 3.5 or later, user wp-color-picker
+			// if we're 3.5 or later, user wp-color-picker.
 			if ( 3.5 <= $wp_version ) {
 
 				$bsf_script_array[] = 'wp-color-picker';
@@ -299,7 +361,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			} else {
 
-				// otherwise use the older 'farbtastic'
+				// otherwise use the older 'farbtastic'.
 				$bsf_script_array[] = 'farbtastic';
 				$bsf_style_array[]  = 'farbtastic';
 
@@ -307,10 +369,10 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 	}
 }
-	require_once( plugin_dir_path( __FILE__ ) . 'functions.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
 	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
-// Instantiating the Class
+// Instantiating the Class.
 if ( class_exists( 'RichSnippets' ) ) {
-	$RichSnippets = new RichSnippets();
+	$richsnippets = new RichSnippets();
 }
 ?>

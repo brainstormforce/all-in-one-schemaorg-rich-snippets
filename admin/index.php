@@ -1177,12 +1177,14 @@ function add_footer_script() {
  * Get support.
  */
 function get_support() {
+	
 	$html = '
 		<div class="postbox bsf-contact closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">' . __( 'Get in touch with the Plugin Developers', 'rich-snippets' ) . '</h3>
 			<div class="inside">
-			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
+			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">'
+			. wp_nonce_field( 'aiosrs_support_form', 'aiosrs_support_form_nonce' ) . '
 				<p> ' . __( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ) . ' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
 					<tr><td><label for="name"><strong>' . __( 'Your Name:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
