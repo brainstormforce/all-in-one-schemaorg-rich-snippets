@@ -10,6 +10,8 @@
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
 		<exclude name="Generic.Files.OneClassPerFile.MultipleFound" />
+		<exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited" />
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
 	
 	</rule>
 

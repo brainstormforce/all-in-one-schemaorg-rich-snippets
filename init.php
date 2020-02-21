@@ -46,12 +46,13 @@ if ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) ) {
  * Create meta boxes.
  */
 class Bsf_Meta_Box {
+ //phpcs:ignore:Generic.Files.OneObjectStructurePerFile.MultipleFound
 	/**
 	 * Meta Box.
 	 *
 	 * @var $_meta_box.
 	 */
-	protected $_meta_box;
+	protected $_meta_box; //phpcs:ignore:PSR2.Classes.PropertyDeclaration.Underscore
 	/**
 	 * Initiator.
 	 *
@@ -119,10 +120,10 @@ class Bsf_Meta_Box {
 			return $display;
 		}
 		// If we're showing it based on ID, get the current ID.
-		if ( isset( $_GET['post'] ) ) { // phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-			$post_id = sanitize_text_field( $_GET['post'] );// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-		} elseif ( isset( $_POST['post_ID'] ) ) {// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-			$post_id = sanitize_text_field( $_POST['post_ID'] );// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
+		if ( isset( $_GET['post'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
+			$post_id = sanitize_text_field( $_GET['post'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
+		} elseif ( isset( $_POST['post_ID'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Missing
+			$post_id = sanitize_text_field( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 		}
 		if ( ! isset( $post_id ) ) {
 			return false;
@@ -148,10 +149,10 @@ class Bsf_Meta_Box {
 			return $display;
 		}
 		// Get the current ID.
-		if ( isset( $_GET['post'] ) ) { // phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-			$post_id = esc_attr( $_GET['post'] );// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-		} elseif ( isset( $_POST['post_ID'] ) ) {// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
-			$post_id = esc_attr( $_POST['post_ID'] );// phpcs: ignore WordPress.CSRF.NonceVerification.NoNonceVerification.
+		if ( isset( $_GET['post'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
+			$post_id = esc_attr( $_GET['post'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
+		} elseif ( isset( $_POST['post_ID'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Missing
+			$post_id = esc_attr( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 		}
 		if ( ! ( isset( $post_id ) || is_page() ) ) {
 			return false;
@@ -220,11 +221,11 @@ class Bsf_Meta_Box {
 					echo '<input class="bsf_text_small bsf_datepicker ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</span>';
 					break;
 				case 'text_date_timestamp':
-					echo '<input class="bsf_text_small bsf_datepicker ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( date( 'm\/d\/Y', $meta ) ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</span>';
+					echo '<input class="bsf_text_small bsf_datepicker ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( gmdate( 'm\/d\/Y', $meta ) ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</span>';
 					break;
 				case 'text_datetime_timestamp':
-					echo '<input class="bsf_text_small bsf_datepicker ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '[date]" id="', esc_attr( $field['id'] ), '_date" value="', '' !== $meta ? esc_attr( date( 'm\/d\/Y', $meta ) ) : esc_attr( $field['std'] ), '" />';
-					echo '<input class="bsf_timepicker text_time ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '[time]" id="', esc_attr( $field['id'] ), '_time" value="', '' !== $meta ? esc_attr( date( 'h:i A', $meta ) ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'" >', esc_attr( $field['desc'] ), '</span>';
+					echo '<input class="bsf_text_small bsf_datepicker ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '[date]" id="', esc_attr( $field['id'] ), '_date" value="', '' !== $meta ? esc_attr( gmdate( 'm\/d\/Y', $meta ) ) : esc_attr( $field['std'] ), '" />';
+					echo '<input class="bsf_timepicker text_time ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '[time]" id="', esc_attr( $field['id'] ), '_time" value="', '' !== $meta ? esc_attr( gmdate( 'h:i A', $meta ) ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'" >', esc_attr( $field['desc'] ), '</span>';
 					break;
 				case 'text_time':
 					echo '<input class="bsf_timepicker text_time ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</span>';
@@ -470,7 +471,7 @@ class Bsf_Meta_Box {
 				$new = wp_set_object_terms( $post_id, $new, $field['taxonomy'] );
 			}
 			if ( ( 'textarea' == $field['type'] ) || ( 'textarea_small' == $field['type'] ) ) {
-				$new = htmlspecialchars( $new );
+				$new = htmlspecialchars( $new ); //phpcs:ignore:PHPCompatibility.ParameterValues.NewHTMLEntitiesEncodingDefault.NotSet
 			}
 			if ( ( 'textarea_code' == $field['type'] ) ) {
 				$new = htmlspecialchars_decode( $new );
@@ -540,8 +541,8 @@ function bsf_scripts( $hook ) {
 			$bsf_script_array[] = 'farbtastic';
 			$bsf_style_array[]  = 'farbtastic';
 		}
-		wp_register_script( 'bsf-timepicker', BSF_META_BOX_URL . 'js/jquery.timePicker.min.js' );
-		wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', $bsf_script_array, '0.9.1' );
+		wp_register_script( 'bsf-timepicker', BSF_META_BOX_URL . 'js/jquery.timePicker.min.js', false ); //phpcs:ignore:WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', $bsf_script_array, '0.9.1', false );
 		wp_localize_script(
 			'bsf-scripts',
 			'bsf_ajax_data',
@@ -552,7 +553,7 @@ function bsf_scripts( $hook ) {
 		);
 		wp_enqueue_script( 'bsf-timepicker' );
 		wp_enqueue_script( 'bsf-scripts' );
-		wp_register_style( 'bsf-styles', BSF_META_BOX_URL . 'admin/css/style.css', $bsf_style_array );
+		wp_register_style( 'bsf-styles', BSF_META_BOX_URL . 'admin/css/style.css', $bsf_style_array ); //phpcs:ignore:WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		wp_enqueue_style( 'bsf-styles' );
 	}
 }
