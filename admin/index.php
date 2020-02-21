@@ -610,7 +610,7 @@ function rich_snippet_dashboard() {
 											<li>' . esc_html__( 'Configure The Settings', 'rich-snippets' ) . '
 											<p>' . esc_html__( 'Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look.', 'rich-snippets' ) . '</p></li>
 											<li>' . esc_html__( 'Add Markup To Pages', 'rich-snippets' ) . '<p>' . esc_html__( 'Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup.', 'rich-snippets' ) . '</p></li>
-											<li>' . esc_html__( 'Test Your Rich Snippets', 'rich-snippets' ) . '<p>' . esc_html__( "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.", 'rich-snippets' ) . '</p></li>
+											<li>' . esc_html__( 'Test Your Rich Snippets', 'rich-snippets' ) . '<p>' . wp_kses_post( __( "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.", 'rich-snippets' ) ) . '</p></li>
 										</ol>
 									</div>
 						</div>
@@ -618,7 +618,7 @@ function rich_snippet_dashboard() {
 									<h3 class="bsf-hndle"><span>' . esc_html__( 'Want to Automate Your Schema Markup?', 'rich-snippets' ) . '</span></h3>
 									<div class="inside">
 										<h3>' . esc_html__( 'Consider Schema Pro', 'rich-snippets' ) . '</h3>
-										<p>' . esc_html__( 'Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.', 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( 'Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.', 'rich-snippets' ) ) . '</p>
 										<h3></h3>
 										<div class="bsf-schema-desc">
 											<div class="bsf-schema-features-1">
@@ -793,7 +793,7 @@ function rich_snippet_dashboard() {
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( "I don't see the feature I want. How can I get it?", 'rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>' . esc_html__( "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:", 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:", 'rich-snippets' ) ) . '</p>
 										<ol>
 											<li>' . esc_html__( 'Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you.', 'rich-snippets' ) . '</li>
 											<li>' . esc_html__( 'Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service.', 'rich-snippets' ) . '</li>
@@ -811,7 +811,7 @@ function rich_snippet_dashboard() {
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . esc_html__( '<span>Customize the look and feel of rich snippet box</span>', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . wp_kses_post( __( '<span>Customize the look and feel of rich snippet box</span>', 'rich-snippets' ) ) . '</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
 											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped  
@@ -846,7 +846,7 @@ function rich_snippet_dashboard() {
 										</div>
 									</div>
 									<div class="schema-notice">
-										<p>' . esc_html__( "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
+										<p>' . wp_kses_post( __( "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) ) . '</p>
 									</div>
 								</div>
 							</div>
