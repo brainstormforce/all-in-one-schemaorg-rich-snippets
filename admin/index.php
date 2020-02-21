@@ -881,7 +881,8 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . get_support( 1 ) . '
+		</div>' . get_support( 1 ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+		. '
 	</div>';
 	echo '
 <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript

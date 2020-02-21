@@ -222,7 +222,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$main_url = esc_url( admin_url() );
 			if ( get_option( 'aisrs_do_activation_redirect', false ) ) {
 				delete_option( 'aisrs_do_activation_redirect' );
-				wp_redirect( $main_url . '/admin.php?page=rich_snippet_dashboard#tab-5' );
+				wp_safe_redirect( $main_url . '/admin.php?page=rich_snippet_dashboard#tab-5' );
 			}
 		}
 		/**

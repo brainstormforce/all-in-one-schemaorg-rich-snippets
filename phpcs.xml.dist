@@ -12,7 +12,7 @@
 		<exclude name="Generic.Files.OneClassPerFile.MultipleFound" />
 		<exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited" />
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
-	
+		<exclude name="Generic.Files.OneObjectStructurePerFile.MultipleFound" />
 	</rule>
 
 	<rule ref="WordPress-Core" />
