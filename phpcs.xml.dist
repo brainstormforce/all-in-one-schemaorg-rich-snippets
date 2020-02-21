@@ -8,6 +8,8 @@
 	<rule ref="PHPCompatibility">
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="Generic.Files.OneClassPerFile.MultipleFound" />
 	
 	</rule>
 

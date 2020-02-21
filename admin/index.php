@@ -85,60 +85,61 @@ function rich_snippet_dashboard() {
 
 	$args_color = get_option( 'bsf_custom' );
 	echo '<div class="wrap">';
-	echo '<div id="star-icons-32" class="icon32"></div><h2>' . __( 'All in One Schema.org Rich Snippets - Dashboard', 'rich-snippets' ) . '</h2>';
+	echo '<div id="star-icons-32" class="icon32"></div><h2>' . esc_html__( 'All in One Schema.org Rich Snippets - Dashboard', 'rich-snippets' ) . '</h2>';
 	echo '<div id="post-body" class="columns-2">';
 	echo '<div class="clear"></div>';
 	echo '<div id="bsf-postbox-container-2" class="postbox-container"><div id="tab-container" class="tab-container">';
 	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
-			<li><a href="#tab-1" class="nav-tab">' . __( 'Configuration', 'rich-snippets' ) . '</a></li>
-			<li><a href="#tab-4" class="nav-tab">' . __( 'Customization', 'rich-snippets' ) . '</a></li>
+			<li><a href="#tab-1" class="nav-tab">' . esc_html__( 'Configuration', 'rich-snippets' ) . '</a></li>
+			<li><a href="#tab-4" class="nav-tab">' . esc_html__( 'Customization', 'rich-snippets' ) . '</a></li>
 			
-			<li><a href="#tab-3" class="nav-tab">' . __( 'FAQs', 'rich-snippets' ) . '</a></li>
-			<li><a href="#tab-5" class="nav-tab">' . __( 'Getting Started', 'rich-snippets' ) . '</a></li>
+			<li><a href="#tab-3" class="nav-tab">' . esc_html__( 'FAQs', 'rich-snippets' ) . '</a></li>
+			<li><a href="#tab-5" class="nav-tab">' . esc_html__( 'Getting Started', 'rich-snippets' ) . '</a></li>
 		 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
 				<div id="poststuff">
 					<div class="schema-notice-head">
-					<p>' . __( 'Choose the schema markup and update the strings you want to display on the front-end.', 'rich-snippets' ) . '</p>
+					<p>' . esc_html__( 'Choose the schema markup and update the strings you want to display on the front-end.', 'rich-snippets' ) . '</p>
 					</div>
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Item Review', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Item Review', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_review_form" method="post">
-										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="review_title" value="' . stripslashes( $args_review['review_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="review_title" value="' . esc_attr( stripslashes( $args_review['review_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Reviewer :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_reviewer" value="' . stripslashes( $args_review['item_reviewer'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Reviewer :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="item_reviewer" value="' . esc_attr( stripslashes( $args_review['item_reviewer'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Review Date :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="review_date" value="' . stripslashes( $args_review['review_date'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Review Date :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="review_date" value="' . esc_attr( stripslashes( $args_review['review_date'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Item Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_name" value="' . stripslashes( $args_review['item_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Item Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="item_name" value="' . esc_attr( stripslashes( $args_review['item_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Item Ratings :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="item_rating" value="' . stripslashes( $args_review['item_rating'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Item Ratings :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="item_rating" value="' . esc_attr( stripslashes( $args_review['item_rating'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="item_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=review">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="item_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=review">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -148,46 +149,47 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Events', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Events', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_event_form" method="post">
-										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. ' 
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_event['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_event['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Event Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_title" value="' . stripslashes( $args_event['event_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Event Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="event_title" value="' . esc_attr( stripslashes( $args_event['event_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Event Location :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_location" value="' . stripslashes( $args_event['event_location'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Event Location :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="event_location" value="' . esc_attr( stripslashes( $args_event['event_location'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Start Time :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="start_time" value="' . stripslashes( $args_event['start_time'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Start Time :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="start_time" value="' . esc_attr( stripslashes( $args_event['start_time'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'End Time :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="end_time" value="' . stripslashes( $args_event['end_time'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'End Time :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="end_time" value="' . esc_attr( stripslashes( $args_event['end_time'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Description :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="event_desc" value="' . stripslashes( $event_desc ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Description :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="event_desc" value="' . esc_attr( stripslashes( $event_desc ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Ticket Promotion :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . stripslashes( $args_event['events_price'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Ticket Promotion :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . esc_attr( stripslashes( $args_event['events_price'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="event_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=event">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="event_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=event">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -197,46 +199,47 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Person', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Person', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'rich-snippets' ) . '</p>
 										<form id="bsf_person_form" method="post">
-										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_person['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_person['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( "Person's Name :", 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_name" value="' . stripslashes( $args_person['person_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( "Person's Name :", 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_name" value="' . esc_attr( stripslashes( $args_person['person_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Nickname :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_nickname" value="' . stripslashes( $args_person['person_nickname'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Nickname :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_nickname" value="' . esc_attr( stripslashes( $args_person['person_nickname'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Job Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_job_title" value="' . stripslashes( $args_person['person_job_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Job Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_job_title" value="' . esc_attr( stripslashes( $args_person['person_job_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Homepage :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_website" value="' . stripslashes( $args_person['person_website'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Homepage :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_website" value="' . esc_attr( stripslashes( $args_person['person_website'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Company Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_company" value="' . stripslashes( $args_person['person_company'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Company Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_company" value="' . esc_attr( stripslashes( $args_person['person_company'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Address :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="person_address" value="' . stripslashes( $args_person['person_address'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Address :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="person_address" value="' . esc_attr( stripslashes( $args_person['person_address'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="person_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=person">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="person_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=person">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -246,46 +249,47 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Product', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Product', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_product_form" method="post">
-										' . wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_product['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_product['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Author Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_rating" value="' . stripslashes( $args_product['product_rating'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Author Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_rating" value="' . esc_attr( stripslashes( $args_product['product_rating'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Brand Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_brand" value="' . stripslashes( $args_product['product_brand'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Brand Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_brand" value="' . esc_attr( stripslashes( $args_product['product_brand'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Product Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_name" value="' . stripslashes( $args_product['product_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Product Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_name" value="' . esc_attr( stripslashes( $args_product['product_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_agr" value="' . stripslashes( $args_product['product_agr'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_agr" value="' . esc_attr( stripslashes( $args_product['product_agr'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Price :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_price" value="' . stripslashes( $args_product['product_price'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Price :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_price" value="' . esc_attr( stripslashes( $args_product['product_price'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Product Availability :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="product_avail" value="' . stripslashes( $args_product['product_avail'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Product Availability :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="product_avail" value="' . esc_attr( stripslashes( $args_product['product_avail'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="product_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=product">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="product_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=product">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -295,54 +299,55 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Recipe', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Recipe', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_recipe_form" method="post">
-										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_recipe['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_recipe['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Recipe Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_name" value="' . stripslashes( $args_recipe['recipe_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Recipe Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_name" value="' . esc_attr( stripslashes( $args_recipe['recipe_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Author Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="author_name" value="' . stripslashes( $author_name ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Author Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="author_name" value="' . esc_attr( stripslashes( $author_name ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Published On : ', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_pub" value="' . stripslashes( $args_recipe['recipe_pub'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Published On : ', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_pub" value="' . esc_attr( stripslashes( $args_recipe['recipe_pub'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Preparation Time:', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_prep" value="' . stripslashes( $args_recipe['recipe_prep'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Preparation Time:', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_prep" value="' . esc_attr( stripslashes( $args_recipe['recipe_prep'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Cook Time :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_cook" value="' . stripslashes( $args_recipe['recipe_cook'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Cook Time :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_cook" value="' . esc_attr( stripslashes( $args_recipe['recipe_cook'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Total Time :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_time" value="' . stripslashes( $args_recipe['recipe_time'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Total Time :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_time" value="' . esc_attr( stripslashes( $args_recipe['recipe_time'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Description :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="' . stripslashes( $recipe_desc ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Description :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_desc" value="' . esc_attr( stripslashes( $recipe_desc ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Average Rating:', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="recipe_rating" value="' . stripslashes( $args_recipe['recipe_rating'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Average Rating:', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="recipe_rating" value="' . esc_attr( stripslashes( $args_recipe['recipe_rating'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="recipe_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=recipe">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="recipe_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=recipe">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -352,46 +357,47 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Software Application', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Software Application', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_software_form" method="post">
-										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_soft['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_soft['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Author Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_rating" value="' . stripslashes( $args_soft['software_rating'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Author Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_rating" value="' . esc_attr( stripslashes( $args_soft['software_rating'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . stripslashes( $args_soft['software_agr'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . esc_attr( stripslashes( $args_soft['software_agr'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Software Price :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_price" value="' . stripslashes( $args_soft['software_price'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Software Price :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_price" value="' . esc_attr( stripslashes( $args_soft['software_price'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Software Name:', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_name" value="' . stripslashes( $args_soft['software_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Software Name:', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_name" value="' . esc_attr( stripslashes( $args_soft['software_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Operating System :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_os" value="' . stripslashes( $args_soft['software_os'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Operating System :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_os" value="' . esc_attr( stripslashes( $args_soft['software_os'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Landing Page:', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_website" value="' . stripslashes( $args_soft['software_website'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Landing Page:', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_website" value="' . esc_attr( stripslashes( $args_soft['software_website'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="software_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=software">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="software_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=software">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -403,38 +409,39 @@ function rich_snippet_dashboard() {
 							
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Video', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Video', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_video_form" method="post">
-										' . wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' )//phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_video['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_video['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Video Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_title" value="' . stripslashes( $args_video['video_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Video Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="video_title" value="' . esc_attr( stripslashes( $args_video['video_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Description :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_desc" value="' . stripslashes( $args_video['video_desc'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Description :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="video_desc" value="' . esc_attr( stripslashes( $args_video['video_desc'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Video Duration :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_time" value="' . stripslashes( $args_video['video_time'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Video Duration :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="video_time" value="' . esc_attr( stripslashes( $args_video['video_time'] ) ) . '"/></td>
 													</tr>													
 													<tr>
-														<td align="right"><strong><label>' . __( 'Video Upload Date :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="video_date" value="' . stripslashes( $args_video['video_date'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Video Upload Date :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="video_date" value="' . esc_attr( stripslashes( $args_video['video_date'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="video_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=video">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="video_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=video">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -444,46 +451,47 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Article', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Article', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_article_form" method="post">
-										' . wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_article['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_article['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Article Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_name" value="' . stripslashes( $args_article['article_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Article Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_name" value="' . esc_attr( stripslashes( $args_article['article_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Author :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_author" value="' . stripslashes( $args_article['article_author'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Author :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_author" value="' . esc_attr( stripslashes( $args_article['article_author'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Description :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_desc" value="' . stripslashes( $args_article['article_desc'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Description :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_desc" value="' . esc_attr( stripslashes( $args_article['article_desc'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Image :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_image" value="' . stripslashes( $args_article['article_image'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Image :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_image" value="' . esc_attr( stripslashes( $args_article['article_image'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Publisher :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . stripslashes( $args_article['article_publisher'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Publisher :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . esc_attr( stripslashes( $args_article['article_publisher'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Publisher Logo :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . stripslashes( $args_article['article_publisher_logo'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Publisher Logo :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . esc_attr( stripslashes( $args_article['article_publisher_logo'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="article_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=article">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="article_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=article">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -493,54 +501,55 @@ function rich_snippet_dashboard() {
 							</div>
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h3 class="hndle"><span>' . __( 'Service', 'rich-snippets' ) . '</span></h3>
+								<h3 class="hndle"><span>' . esc_html__( 'Service', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">								
-										<p>' . __( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'rich-snippets' ) . '</p>
 										<form id="bsf_service_form" method="post">
-										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) . '
+										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+										. '
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . stripslashes( $args_service['snippet_title'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Rich Snippet Title :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="snippet_title" value="' . esc_attr( stripslashes( $args_service['snippet_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Service Type :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_type" value="' . stripslashes( $args_service['service_type'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Service Type :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_type" value="' . esc_attr( stripslashes( $args_service['service_type'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Area :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_area" value="' . stripslashes( $args_service['service_area'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Area :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_area" value="' . esc_attr( stripslashes( $args_service['service_area'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Description :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_desc" value="' . stripslashes( $args_service['service_desc'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Description :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_desc" value="' . esc_attr( stripslashes( $args_service['service_desc'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Provider Name :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="' . stripslashes( $args_service['service_provider_name'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Provider Name :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_provider_name" value="' . esc_attr( stripslashes( $args_service['service_provider_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Provider Location :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="provider_location" value="' . stripslashes( $provider_location ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Provider Location :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="provider_location" value="' . esc_attr( stripslashes( $provider_location ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'URL :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_channel" value="' . stripslashes( $args_service['service_channel'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'URL :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_channel" value="' . esc_attr( stripslashes( $args_service['service_channel'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'URL Text :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_url_link" value="' . stripslashes( $args_service['service_url_link'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'URL Text :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_url_link" value="' . esc_attr( stripslashes( $args_service['service_url_link'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . __( 'Service Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="service_rating" value="' . stripslashes( $args_service['service_rating'] ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Service Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="service_rating" value="' . esc_attr( stripslashes( $args_service['service_rating'] ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="service_submit" value="' . __( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=service">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="service_submit" value="' . esc_html__( 'Update ' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=service">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -552,7 +561,7 @@ function rich_snippet_dashboard() {
 							
 						</div>
 					<div class="schema-notice">
-						<p>' . __( "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
+						<p>' . esc_html__( "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
 					</div>
 					</div>
 				</div>	
@@ -564,7 +573,7 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-17" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
 							<div class="bsf-postbox">
-								<h3 class="bsf-hndle" style="margin-top:0;"><span>' . __( 'Welcome to All In One Schema Rich Snippets', 'rich-snippets' ) . '</span></h3>
+								<h3 class="bsf-hndle" style="margin-top:0;"><span>' . esc_html__( 'Welcome to All In One Schema Rich Snippets', 'rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<p>Thank you for choosing All-in-one Schema Rich Snippets - the most popular WordPress schema markup plugin!</p>
 
@@ -595,27 +604,27 @@ function rich_snippet_dashboard() {
 							</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-odd">
-									<h3 class="bsf-hndle"><span>' . __( 'How it works', 'rich-snippets' ) . '</span></h3>
+									<h3 class="bsf-hndle"><span>' . esc_html__( 'How it works', 'rich-snippets' ) . '</span></h3>
 									<div class="inside">
 										<ol class="bsf-li-counter">
-											<li>' . __( 'Configure The Settings', 'rich-snippets' ) . '
-											<p>' . __( 'Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look.', 'rich-snippets' ) . '</p></li>
-											<li>' . __( 'Add Markup To Pages', 'rich-snippets' ) . '<p>' . __( 'Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup.', 'rich-snippets' ) . '</p></li>
-											<li>' . __( 'Test Your Rich Snippets', 'rich-snippets' ) . '<p>' . __( "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.", 'rich-snippets' ) . '</p></li>
+											<li>' . esc_html__( 'Configure The Settings', 'rich-snippets' ) . '
+											<p>' . esc_html__( 'Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look.', 'rich-snippets' ) . '</p></li>
+											<li>' . esc_html__( 'Add Markup To Pages', 'rich-snippets' ) . '<p>' . esc_html__( 'Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup.', 'rich-snippets' ) . '</p></li>
+											<li>' . esc_html__( 'Test Your Rich Snippets', 'rich-snippets' ) . '<p>' . esc_html__( "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages.", 'rich-snippets' ) . '</p></li>
 										</ol>
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
-									<h3 class="bsf-hndle"><span>' . __( 'Want to Automate Your Schema Markup?', 'rich-snippets' ) . '</span></h3>
+									<h3 class="bsf-hndle"><span>' . esc_html__( 'Want to Automate Your Schema Markup?', 'rich-snippets' ) . '</span></h3>
 									<div class="inside">
-										<h3>' . __( 'Consider Schema Pro', 'rich-snippets' ) . '</h3>
-										<p>' . __( 'Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.', 'rich-snippets' ) . '</p>
+										<h3>' . esc_html__( 'Consider Schema Pro', 'rich-snippets' ) . '</h3>
+										<p>' . esc_html__( 'Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site.', 'rich-snippets' ) . '</p>
 										<h3></h3>
 										<div class="bsf-schema-desc">
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/click.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/click.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Schema Markup Automation</h3>
@@ -626,7 +635,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/seo.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/seo.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Complete Schema Implementation</h3>
@@ -637,7 +646,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/website.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/website.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Advanced Targeting Rules</h3>
@@ -648,7 +657,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/custom.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/custom.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Custom Field Support<h3>
@@ -659,7 +668,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/quick.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/quick.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Accuracy and Testing</h3>
@@ -670,7 +679,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/acf.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/acf.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Compatibility with Yoast SEO,  ACF, PODS </h3>
@@ -682,7 +691,7 @@ function rich_snippet_dashboard() {
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-odd">
-									<h3 class="bsf-hndle"><span>' . __( 'With Schema Pro, you can…', 'rich-snippets' ) . '</span></h3>
+									<h3 class="bsf-hndle"><span>' . esc_html__( 'With Schema Pro, you can…', 'rich-snippets' ) . '</span></h3>
 									<div class="inside">
 										<ol class="bsf-li-counter">
 											<li>Automate schema markup for your entire website.</li>
@@ -692,13 +701,13 @@ function rich_snippet_dashboard() {
 									</div>
 						</div>
 						<div class="meta-box-sortables ui-sortable bsf-even-even">
-									<h3 class="bsf-hndle"><span>' . __( 'Testimonials', 'rich-snippets' ) . '</span></h3>
+									<h3 class="bsf-hndle"><span>' . esc_html__( 'Testimonials', 'rich-snippets' ) . '</span></h3>
 									<div class="inside">
 										<div class="bsf-schema">
 											<div class="bsf-testimonial-wrap">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-testimonial-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/adam-circle.jpg' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/adam-circle.jpg' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<p>I have used every Schema Plugin for WordPress over the last few years, hundreds of dollars invested, and Schema Pro blows them all out of the water. It’s the only schema plugin you need.</p>
@@ -710,7 +719,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-testimonial-wrap">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-testimonial-icon">
-													<img src="' . plugins_url( '/all-in-one-schemaorg-rich-snippets/images/kylevan.png' ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/kylevan.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldn&#39;t be any easier to use!</p>
@@ -743,21 +752,21 @@ function rich_snippet_dashboard() {
 						<div class="meta-box-sortables ui-sortable">
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( 'Where can I test my schema markup implementation?', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( 'Where can I test my schema markup implementation?', 'rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>' . __( 'You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look.', 'rich-snippets' ) . ' <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
+										<p>' . esc_html__( 'You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look.', 'rich-snippets' ) . ' <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( 'Do I have to fill in all the details?', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( 'Do I have to fill in all the details?', 'rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>' . __( 'No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing.', 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing.', 'rich-snippets' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( 'Why does the plugin create extra content in the frontend? Can I hide it?', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( 'Why does the plugin create extra content in the frontend? Can I hide it?', 'rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>We understand that you don&#39;t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.</p>
 										<p>Here is a reference link of what Google says. <a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
@@ -766,14 +775,14 @@ function rich_snippet_dashboard() {
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( 'Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( 'Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?', 'rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily. <br><br>If you come across a conflict with any other plugin, please do not hesitate to report an issue.</p>
 										</div>
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( 'How long will it take to show up rich snippets for my search results?', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( 'How long will it take to show up rich snippets for my search results?', 'rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.</p>
 										<p>If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.</p>
@@ -782,12 +791,12 @@ function rich_snippet_dashboard() {
 								</div>
 								<div class="postbox closed">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( "I don't see the feature I want. How can I get it?", 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( "I don't see the feature I want. How can I get it?", 'rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>' . __( "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:", 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:", 'rich-snippets' ) . '</p>
 										<ol>
-											<li>' . __( 'Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you.', 'rich-snippets' ) . '</li>
-											<li>' . __( 'Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service.', 'rich-snippets' ) . '</li>
+											<li>' . esc_html__( 'Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you.', 'rich-snippets' ) . '</li>
+											<li>' . esc_html__( 'Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service.', 'rich-snippets' ) . '</li>
 										</ol>
 										</div>
 								</div>
@@ -802,41 +811,42 @@ function rich_snippet_dashboard() {
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . __( '<span>Customize the look and feel of rich snippet box</span>', 'rich-snippets' ) . '</h3>
+										<h3 class="hndle">' . esc_html__( '<span>Customize the look and feel of rich snippet box</span>', 'rich-snippets' ) . '</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
-											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) . '
+											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped  
+											. '
 											<table class="bsf_metabox">
 												<tr>
-													<th> <label for="snippet_box_bg"> ' . __( 'Box Background ', 'rich-snippets' ) . ' </label> </th>
-													<td> <input type="text" name="snippet_box_bg" id="snippet_box_bg" value="' . stripslashes( $args_color['snippet_box_bg'] ) . '"  class="snippet_box_bg" /> </td>
+													<th> <label for="snippet_box_bg"> ' . esc_html__( 'Box Background ', 'rich-snippets' ) . ' </label> </th>
+													<td> <input type="text" name="snippet_box_bg" id="snippet_box_bg" value="' . esc_attr( stripslashes( $args_color['snippet_box_bg'] ) ) . '"  class="snippet_box_bg" /> </td>
 												</tr>
 												<tr>
-													<th> <label for="snippet_title_bg"> ' . __( 'Title Background', 'rich-snippets' ) . ' </label> </th>
-													<td> <input type="text" name="snippet_title_bg" id="snippet_title_bg" value="' . stripslashes( $args_color['snippet_title_bg'] ) . '"  class="snippet_title_bg" /> </td>
+													<th> <label for="snippet_title_bg"> ' . esc_html__( 'Title Background', 'rich-snippets' ) . ' </label> </th>
+													<td> <input type="text" name="snippet_title_bg" id="snippet_title_bg" value="' . esc_attr( stripslashes( $args_color['snippet_title_bg'] ) ) . '"  class="snippet_title_bg" /> </td>
 												</tr>
 												<tr>
-													<th> <label for="snippet_border"> ' . __( 'Border Color', 'rich-snippets' ) . ' </label> </th>
-													<td> <input type="text" name="snippet_border" id="snippet_border" value="' . stripslashes( $args_color['snippet_border'] ) . '"  class="snippet_border" /> </td>
+													<th> <label for="snippet_border"> ' . esc_html__( 'Border Color', 'rich-snippets' ) . ' </label> </th>
+													<td> <input type="text" name="snippet_border" id="snippet_border" value="' . esc_attr( stripslashes( $args_color['snippet_border'] ) ) . '"  class="snippet_border" /> </td>
 												</tr>
 												<tr>
-													<th> <label for="snippet_title_color"> ' . __( 'Title Color', 'rich-snippets' ) . ' </label> </th>
-													<td> <input type="text" name="snippet_title_color" id="snippet_title_color" value="' . stripslashes( $args_color['snippet_title_color'] ) . '"  class="snippet_title_color" /> </td>
+													<th> <label for="snippet_title_color"> ' . esc_html__( 'Title Color', 'rich-snippets' ) . ' </label> </th>
+													<td> <input type="text" name="snippet_title_color" id="snippet_title_color" value="' . esc_attr( stripslashes( $args_color['snippet_title_color'] ) ) . '"  class="snippet_title_color" /> </td>
 												</tr>
 												<tr>
-													<th> <label for="snippet_box_color"> ' . __( 'Snippet Text Color', 'rich-snippets' ) . ' </label> </th>
-													<td> <input type="text" name="snippet_box_color" id="snippet_box_color" value="' . stripslashes( $args_color['snippet_box_color'] ) . '"  class="snippet_box_color" /> </td>
+													<th> <label for="snippet_box_color"> ' . esc_html__( 'Snippet Text Color', 'rich-snippets' ) . ' </label> </th>
+													<td> <input type="text" name="snippet_box_color" id="snippet_box_color" value="' . esc_attr( stripslashes( $args_color['snippet_box_color'] ) ) . '"  class="snippet_box_color" /> </td>
 												</tr>
 												<tr>
 													<td></td>
-													<td><input id="submit_colors" class="button-primary" type="submit" value="Update Colors" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color">' . __( 'Reset ', 'rich-snippets' ) . '</a></td>
+													<td><input id="submit_colors" class="button-primary" type="submit" value="Update Colors" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color">' . esc_html__( 'Reset ', 'rich-snippets' ) . '</a></td>
 												</tr>
 											</table>
 											</form>
 										</div>
 									</div>
 									<div class="schema-notice">
-										<p>' . __( "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
+										<p>' . esc_html__( "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>", 'rich-snippets' ) . '</p>
 									</div>
 								</div>
 							</div>
@@ -850,31 +860,34 @@ function rich_snippet_dashboard() {
 		<div id="side-sortables" class="meta-box-sortables ui-sortable">
 		<div class="postbox bsf-woocommerce-setting closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-			<h3 class="get_in_touch">' . __( 'WooCommerce Configuration', 'rich-snippets' ) . '</h3>
+			<h3 class="get_in_touch">' . esc_html__( 'WooCommerce Configuration', 'rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
-			' . wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ) . '
-				<p> ' . __( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'rich-snippets' ) . ' </p>
-				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
+			' . wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ) //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped 
+			. '
+				<p> ' . esc_html__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'rich-snippets' ) . ' </p>
+				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
 					<tr>
 						<td>
-							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" ' . $woo_setting . ' />
+							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" ' . esc_attr( $woo_setting ) . ' />
 							<label for="woocommerce_option">Enable schema on WooCommerce products</label>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input style="margin-top:10px;" type="submit" class="button-primary" name="setting_submit" value="' . __( 'Update ' ) . '"/>
+							<input style="margin-top:10px;" type="submit" class="button-primary" name="setting_submit" value="' . esc_html__( 'Update ' ) . '"/>
 						</td>
 					</tr>
 				</table>
 			</form>
 			</div>
-		</div>' . get_support( 1 ) . '
+		</div>' . esc_html( get_support( 1 ) ) . '
 	</div>';
 	echo '
-<script src="' . plugin_dir_url( __FILE__ ) . 'js/jquery.easytabs.min.js' . '"></script>
-<script src="' . plugin_dir_url( __FILE__ ) . 'js/jquery.hashchange.min.js' . '"></script>
+<script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
+	. 'js/jquery.easytabs.min.js"></script>
+<script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
+	. 'js/jquery.hashchange.min.js"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
 	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
@@ -897,7 +910,6 @@ function rich_snippet_dashboard() {
 </script>';
 }
 // Update options.
-
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' )
 		) {
@@ -912,7 +924,7 @@ if ( isset( $_POST['setting_submit'] ) ) {
 		}
 		update_option( 'bsf_woocom_init_setting', 'done' );
 		$status = update_option( 'bsf_woocom_setting', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['item_submit'] ) ) {
@@ -927,7 +939,7 @@ if ( isset( $_POST['item_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_review', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['event_submit'] ) ) {
@@ -942,7 +954,7 @@ if ( isset( $_POST['event_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_event', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['person_submit'] ) ) {
@@ -957,7 +969,7 @@ if ( isset( $_POST['person_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_person', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['product_submit'] ) ) {
@@ -972,7 +984,7 @@ if ( isset( $_POST['product_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_product', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['recipe_submit'] ) ) {
@@ -987,7 +999,7 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_recipe', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['software_submit'] ) ) {
@@ -1002,7 +1014,7 @@ if ( isset( $_POST['software_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_software', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['video_submit'] ) ) {
@@ -1017,7 +1029,7 @@ if ( isset( $_POST['video_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_video', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['article_submit'] ) ) {
@@ -1032,7 +1044,7 @@ if ( isset( $_POST['article_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_article', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 if ( isset( $_POST['service_submit'] ) ) {
@@ -1047,7 +1059,7 @@ if ( isset( $_POST['service_submit'] ) ) {
 			}
 		}
 		$status = update_option( 'bsf_service', $args );
-		displayStatus( $status );
+		display_status( $status );
 	}
 }
 /**
@@ -1055,11 +1067,11 @@ if ( isset( $_POST['service_submit'] ) ) {
  *
  * @param  string $status .
  */
-function displayStatus( $status ) {
+function display_status( $status ) {
 	if ( $status ) {
-		echo '<div class="updated"><p>' . __( 'Success! Your changes were successfully saved!', 'rich-snippets' ) . '</p></div>';
+		echo '<div class="updated"><p>' . esc_html__( 'Success! Your changes were successfully saved!', 'rich-snippets' ) . '</p></div>';
 	} else {
-		echo '<div class="error"><p>' . __( 'Sorry, Your changes are not saved!', 'rich-snippets' ) . '</p></div>';
+		echo '<div class="error"><p>' . esc_html__( 'Sorry, Your changes are not saved!', 'rich-snippets' ) . '</p></div>';
 	}
 }
 if ( isset( $_GET['action'] ) ) {
@@ -1108,7 +1120,7 @@ if ( isset( $_GET['action'] ) ) {
  * @param  string $option_to_reset .
  */
 function bsf_reset_options( $option_to_reset ) {
-	require_once( dirname( __FILE__ ) . '/../settings.php' );
+	require_once dirname( esc_html__FILEesc_html__ ) . '/../settings.php';
 	if ( 'review' == $option_to_reset ) {
 		add_review_option();
 	}
@@ -1177,23 +1189,23 @@ function add_footer_script() {
  * Get support.
  */
 function get_support() {
-	
+
 	$html = '
 		<div class="postbox bsf-contact closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-			<h3 class="get_in_touch">' . __( 'Get in touch with the Plugin Developers', 'rich-snippets' ) . '</h3>
+			<h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">'
 			. wp_nonce_field( 'aiosrs_support_form', 'aiosrs_support_form_nonce' ) . '
-				<p> ' . __( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ) . ' </p>
+				<p> ' . esc_html__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ) . ' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
-					<tr><td><label for="name"><strong>' . __( 'Your Name:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
+					<tr><td><label for="name"><strong>' . esc_html__( 'Your Name:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
 						<td><input required="required" type="text" class="bsf_text_medium" name="name" /></td></tr>
-					<tr><td><label for="email"><strong>' . __( 'Your Email:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
+					<tr><td><label for="email"><strong>' . esc_html__( 'Your Email:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
 						<td><input required="required" type="text" class="bsf_text_medium" name="email" /></td></tr>
-					<tr><td><label for="post_url"><strong>' . __( 'Reference URL:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
+					<tr><td><label for="post_url"><strong>' . esc_html__( 'Reference URL:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
 						<td><input required="required" type="text" class="bsf_text_medium" name="post_url" /></td></tr>
-					<tr><td><label for="subject"><strong>' . __( 'Subject:', 'rich-snippets' ) . '</strong> </label></td>
+					<tr><td><label for="subject"><strong>' . esc_html__( 'Subject:', 'rich-snippets' ) . '</strong> </label></td>
 						<td>
 							<select class="select_full" name="subject"> 
 								<option value="question"> I have a question </option>
@@ -1204,7 +1216,7 @@ function get_support() {
 								<option value="other">  Other </option>								
 							</select>
 						</td><td></td></tr>
-					<tr><td class="bsf_label"><label for="message"><strong>' . __( 'Your Query in Brief:', 'rich-snippets' ) . '</strong> </label></td>
+					<tr><td class="bsf_label"><label for="message"><strong>' . esc_html__( 'Your Query in Brief:', 'rich-snippets' ) . '</strong> </label></td>
 						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
