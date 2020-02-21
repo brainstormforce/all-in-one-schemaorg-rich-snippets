@@ -80,6 +80,10 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.1 =
+- Fix - Tabs conflict with Astra theme.
+- Fix - Star-rating CSS issues with themes.
+
 = 1.6.0 =
 - New: Added ItemReviewed types in Review schema.
 - Fix: error "Thing is not a known valid target type for the item reviewed the property" in the review schema.

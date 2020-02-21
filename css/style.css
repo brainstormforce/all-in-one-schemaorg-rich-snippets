@@ -101,6 +101,7 @@
 	margin: -2px 2px;
 	border: none !important;
 	padding: 0 !important;
+    display: inline-block;
 }
 .rating-count {
 	font-weight:bold;
