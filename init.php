@@ -209,10 +209,10 @@ class Bsf_Meta_Box {
 
 			switch ( $field['type'] ) {
 				case 'text':
-					echo '<input class="', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ),  '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" />','<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">',  wp_kses_post($field['desc']) , '</p>';
+					echo '<input class="', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ),  '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" />','<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">',  wp_kses_post( $field['desc'] ) , '</p>';
 					break;
 				case 'text_small':
-					echo '<input class="bsf_text_small ', esc_attr( $field['class'] ),'" type="text" name="',esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">',  wp_kses_post($field['desc']), '</span>';
+					echo '<input class="bsf_text_small ', esc_attr( $field['class'] ),'" type="text" name="',esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">',  wp_kses_post( $field['desc'] ), '</span>';
 					break;
 				case 'text_medium':
 					echo '<input class="bsf_text_medium ', esc_attr( $field['class'] ),'" type="text" name="',esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" /><span class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</span>';
