@@ -217,7 +217,7 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="person_name" value="' . esc_attr( stripslashes( $args_person['person_name'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'Nickname :', 'rich-snippets' ) . '</label></strong></td>
+														<td align="right"><strong><label>' . esc_html__( 'Nick Name :', 'rich-snippets' ) . '</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="person_nickname" value="' . esc_attr( stripslashes( $args_person['person_nickname'] ) ) . '"/></td>
 													</tr>
 													<tr>
@@ -225,7 +225,7 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="person_job_title" value="' . esc_attr( stripslashes( $args_person['person_job_title'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'Homepage :', 'rich-snippets' ) . '</label></strong></td>
+														<td align="right"><strong><label>' . esc_html__( 'Home page :', 'rich-snippets' ) . '</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="person_website" value="' . esc_attr( stripslashes( $args_person['person_website'] ) ) . '"/></td>
 													</tr>
 													<tr>
