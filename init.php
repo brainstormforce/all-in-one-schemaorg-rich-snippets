@@ -393,7 +393,7 @@ class Bsf_Meta_Box {
 					echo '<input class="bsf_upload_file ', esc_attr( $field['class'] ),' ' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $input_type_url ) . '" size="45" id="', esc_attr( $field['id'] ), '" name="', esc_attr( $field['id'] ), '" value="', esc_attr( $meta ), '" />';
 					echo '<input class="bsf_upload_button button ', esc_attr( $field['class'] ),'" id="', esc_attr( $field['id'] ), '_id" type="button" value="Upload File" />';
 					echo '<input class="bsf_upload_file_id ', esc_attr( $field['class'] ),'" type="hidden" id="',esc_attr( $field['id'] ), '" name="', esc_attr( $field['id'] ), '_id" value="', esc_attr( get_post_meta( $post->ID, $field['id'] . '_id', true ) ), '" />';
-					echo '<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</p>';
+					echo '<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', wp_kses_post( $field['desc'] ), '</p>';
 					echo '<div id="', esc_attr( $field['id'] ), '_status" class="bsf_media_status ', esc_attr( $field['class'] ),'">';
 					if ( '' != $meta ) {
 						$check_image = preg_match( '/(^.*\.jpg|jpeg|png|gif|ico*)/i', $meta );
