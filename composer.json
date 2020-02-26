@@ -2,11 +2,10 @@
     "name": "brainstormforce/all-in-one-schemaorg-rich-snippets",
     "description": "Get eye catching results in search engines with the most popular schema markup plugin.",
     "require-dev": {
-        "brainmaestro/composer-git-hooks": "^2.6",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-        "squizlabs/php_codesniffer": "^3.2",
-        "wimg/php-compatibility": "^8.0",
-        "wp-coding-standards/wpcs": "^0.14.0"
+      "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+      "wp-coding-standards/wpcs": "2.2.1",
+      "phpcompatibility/phpcompatibility-wp": "2.1.0",
+      "brainmaestro/composer-git-hooks": "^2.6"
     },
     "require": {
     },
