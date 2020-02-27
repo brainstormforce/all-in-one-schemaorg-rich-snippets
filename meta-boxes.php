@@ -1045,23 +1045,6 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'class' => 'service',
 				'type'  => 'text_medium',
 			),
-			array(
-				'name'    => __( 'Enable/Disable Rating', 'rich-snippets' ),
-				'desc'    => __( '.', 'rich-snippets' ),
-				'id'      => $prefix . 'service_rating_switch',
-				'class'   => 'service',
-				'type'    => 'select',
-				'options' => array(
-					array(
-						'name'  => __( 'Disable', 'rich-snippets' ),
-						'value' => '',
-					),
-					array(
-						'name'  => __( 'Enable', 'rich-snippets' ),
-						'value' => 'enable',
-					),
-				),
-			),
 		),
 	);
 	// Add other metaboxes as needed.

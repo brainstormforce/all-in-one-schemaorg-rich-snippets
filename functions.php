@@ -1008,17 +1008,12 @@ function display_rich_snippet( $content ) {
 		$service_telephone               = get_post_meta( $post->ID, '_bsf_service_telephone', true );
 		$service_price                   = get_post_meta( $post->ID, '_bsf_service_price', true );
 		$service_cur                     = get_post_meta( $post->ID, '_bsf_service_cur', true );
-		$service_rating                  = get_post_meta( $post->ID, '_bsf_service_rating', true );
-		$service_rating_switch           = get_post_meta( $post->ID, '_bsf_service_rating_switch', true );
 		$service_channel                 = get_permalink( $post->ID );
 		$service_url_link                = '' != $args_service['service_url_link'] ? $args_service['service_url_link'] : 'Click Here For More Info';
 
 			$service .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 		if ( '' != $args_service['snippet_title'] ) {
 			$service .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_service['snippet_title'] ) );
-			if ( 'enable' == $service_rating_switch ) {
-				$service .= bsf_do_rating();
-			}
 			$service .= '</div>';
 		}
 			$service .= '<div itemscope itemtype="https://schema.org/Service">';
@@ -1034,16 +1029,6 @@ function display_rich_snippet( $content ) {
 				</script>';
 		}
 			$service .= '<div class="aio-info">';
-
-		if ( average_rating() > 0 ) {
-			if ( '' != $args_service['service_rating'] ) {
-				$service .= '<div class="aggregate_sec" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">';
-				$service .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_service['service_rating'] ) ) . '</div>';
-				$service .= '<div class="snippet-data-img">';
-				$service .= '<span itemprop="ratingValue">' . average_rating() . '</span>';
-				$service .= ' based on <span class="rating-count" itemprop="reviewCount">' . rating_count() . '</span> votes </span></div></div><div class="snippet-clear"></div>';
-			}
-		}
 
 		if ( '' != trim( $service_type ) ) {
 			if ( '' != $args_service['service_type'] ) {
