@@ -81,8 +81,11 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.6.1 =
-- Fix - Tabs conflict with Astra theme.
-- Fix - Star-rating CSS issues with themes.
+- Improvement - Compatibility with the latest WordPress PHP_CodeSniffer rules.
+- Improvement - Updated the Schema URL to the https instead of HTTP.
+- Fix - Tabs conflict with the Astra theme.
+- Fix - Image field is required error showing in the Recipe schema.
+- Fix - Remove the support for Rating in the service schema as per the new Google update.
 
 = 1.6.0 =
 - New: Added ItemReviewed types in Review schema.
