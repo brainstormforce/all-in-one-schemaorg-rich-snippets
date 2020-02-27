@@ -1,0 +1,1455 @@
+# Copyright (C) 2020 Brainstorm Force
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
+"POT-Creation-Date: 2020-02-27 06:43:26+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: admin/index.php:88
+msgid "All in One Schema.org Rich Snippets - Dashboard"
+msgstr ""
+
+#: admin/index.php:93
+msgid "Configuration"
+msgstr ""
+
+#: admin/index.php:94
+msgid "Customization"
+msgstr ""
+
+#: admin/index.php:96
+msgid "FAQs"
+msgstr ""
+
+#: admin/index.php:97
+msgid "Getting Started"
+msgstr ""
+
+#: admin/index.php:104
+msgid ""
+"Choose the schema markup and update the strings you want to display on the "
+"front-end."
+msgstr ""
+
+#: admin/index.php:110 meta-boxes.php:56
+msgid "Item Review"
+msgstr ""
+
+#: admin/index.php:113
+msgid ""
+"Strings to be displayed on frontend for <strong>Item Review Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:120 admin/index.php:162 admin/index.php:212
+#: admin/index.php:262 admin/index.php:312 admin/index.php:370
+#: admin/index.php:422 admin/index.php:464 admin/index.php:514
+msgid "Rich Snippet Title :"
+msgstr ""
+
+#: admin/index.php:124
+msgid "Reviewer :"
+msgstr ""
+
+#: admin/index.php:128
+msgid "Review Date :"
+msgstr ""
+
+#: admin/index.php:132
+msgid "Item Name :"
+msgstr ""
+
+#: admin/index.php:136
+msgid "Item Ratings :"
+msgstr ""
+
+#: admin/index.php:142 admin/index.php:192 admin/index.php:242
+#: admin/index.php:292 admin/index.php:350 admin/index.php:400
+#: admin/index.php:444 admin/index.php:494 admin/index.php:552
+#: admin/index.php:878
+msgid "Update "
+msgstr ""
+
+#: admin/index.php:142 admin/index.php:192 admin/index.php:242
+#: admin/index.php:292 admin/index.php:350 admin/index.php:400
+#: admin/index.php:444 admin/index.php:494 admin/index.php:552
+#: admin/index.php:842
+msgid "Reset "
+msgstr ""
+
+#: admin/index.php:152
+msgid "Events"
+msgstr ""
+
+#: admin/index.php:155
+msgid ""
+"Strings to be displayed on frontend for <strong>Events Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:166
+msgid "Event Title :"
+msgstr ""
+
+#: admin/index.php:170
+msgid "Event Location :"
+msgstr ""
+
+#: admin/index.php:174
+msgid "Start Time :"
+msgstr ""
+
+#: admin/index.php:178
+msgid "End Time :"
+msgstr ""
+
+#: admin/index.php:182 admin/index.php:340 admin/index.php:430
+#: admin/index.php:476 admin/index.php:526
+msgid "Description :"
+msgstr ""
+
+#: admin/index.php:186
+msgid "Ticket Promotion :"
+msgstr ""
+
+#: admin/index.php:202 meta-boxes.php:64
+msgid "Person"
+msgstr ""
+
+#: admin/index.php:205
+msgid ""
+"Strings to be displayed on frontend for <strong>Person's Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:216
+msgid "Person's Name :"
+msgstr ""
+
+#: admin/index.php:220
+msgid "Nick Name :"
+msgstr ""
+
+#: admin/index.php:224
+msgid "Job Title :"
+msgstr ""
+
+#: admin/index.php:228
+msgid "Home page :"
+msgstr ""
+
+#: admin/index.php:232
+msgid "Company Name :"
+msgstr ""
+
+#: admin/index.php:236
+msgid "Address :"
+msgstr ""
+
+#: admin/index.php:252 meta-boxes.php:68 meta-boxes.php:132
+msgid "Product"
+msgstr ""
+
+#: admin/index.php:255
+msgid ""
+"Strings to be displayed on frontend for <strong>Product Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:266 admin/index.php:374
+msgid "Author Rating :"
+msgstr ""
+
+#: admin/index.php:270
+msgid "Brand Name :"
+msgstr ""
+
+#: admin/index.php:274
+msgid "Product Name :"
+msgstr ""
+
+#: admin/index.php:278 admin/index.php:378
+msgid "User Rating :"
+msgstr ""
+
+#: admin/index.php:282
+msgid "Price :"
+msgstr ""
+
+#: admin/index.php:286
+msgid "Product Availability :"
+msgstr ""
+
+#: admin/index.php:302 meta-boxes.php:72 meta-boxes.php:136
+msgid "Recipe"
+msgstr ""
+
+#: admin/index.php:305
+msgid ""
+"Strings to be displayed on frontend for <strong>Recipe Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:316
+msgid "Recipe Name :"
+msgstr ""
+
+#: admin/index.php:320
+msgid "Author Name :"
+msgstr ""
+
+#: admin/index.php:324
+msgid "Published On : "
+msgstr ""
+
+#: admin/index.php:328
+msgid "Preparation Time:"
+msgstr ""
+
+#: admin/index.php:332
+msgid "Cook Time :"
+msgstr ""
+
+#: admin/index.php:336
+msgid "Total Time :"
+msgstr ""
+
+#: admin/index.php:344
+msgid "Average Rating:"
+msgstr ""
+
+#: admin/index.php:360 meta-boxes.php:76 meta-boxes.php:140
+msgid "Software Application"
+msgstr ""
+
+#: admin/index.php:363
+msgid ""
+"Strings to be displayed on frontend for <strong>Software Application Rich "
+"Snippets &mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:382
+msgid "Software Price :"
+msgstr ""
+
+#: admin/index.php:386
+msgid "Software Name:"
+msgstr ""
+
+#: admin/index.php:390
+msgid "Operating System :"
+msgstr ""
+
+#: admin/index.php:394
+msgid "Landing Page:"
+msgstr ""
+
+#: admin/index.php:412 meta-boxes.php:80 meta-boxes.php:144 meta-boxes.php:883
+msgid "Video"
+msgstr ""
+
+#: admin/index.php:415
+msgid ""
+"Strings to be displayed on frontend for <strong>Video Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:426
+msgid "Video Title :"
+msgstr ""
+
+#: admin/index.php:434
+msgid "Video Duration :"
+msgstr ""
+
+#: admin/index.php:438
+msgid "Video Upload Date :"
+msgstr ""
+
+#: admin/index.php:454 meta-boxes.php:84
+msgid "Article"
+msgstr ""
+
+#: admin/index.php:457
+msgid ""
+"Strings to be displayed on frontend for <strong>Article Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:468
+msgid "Article Name :"
+msgstr ""
+
+#: admin/index.php:472
+msgid "Author :"
+msgstr ""
+
+#: admin/index.php:480
+msgid "Image :"
+msgstr ""
+
+#: admin/index.php:484
+msgid "Publisher :"
+msgstr ""
+
+#: admin/index.php:488
+msgid "Publisher Logo :"
+msgstr ""
+
+#: admin/index.php:504 meta-boxes.php:88
+msgid "Service"
+msgstr ""
+
+#: admin/index.php:507
+msgid ""
+"Strings to be displayed on frontend for <strong>Service Rich Snippets "
+"&mdash;</strong>"
+msgstr ""
+
+#: admin/index.php:518
+msgid "Service Type :"
+msgstr ""
+
+#: admin/index.php:522
+msgid "Area :"
+msgstr ""
+
+#: admin/index.php:530
+msgid "Provider Name :"
+msgstr ""
+
+#: admin/index.php:534
+msgid "Provider Location :"
+msgstr ""
+
+#: admin/index.php:538
+msgid "URL :"
+msgstr ""
+
+#: admin/index.php:542
+msgid "URL Text :"
+msgstr ""
+
+#: admin/index.php:546
+msgid "Service Rating :"
+msgstr ""
+
+#: admin/index.php:564
+msgid ""
+"Need some more schema types with automation to implement schema markup? Get "
+"the latest and premium schema markup plugin to automate the process of "
+"adding schema markup on your entire website. <br><a "
+"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_"
+"medium=configure' target='_blank'> Know more about Schema Pro.</a>"
+msgstr ""
+
+#: admin/index.php:576
+msgid "Welcome to All In One Schema Rich Snippets"
+msgstr ""
+
+#: admin/index.php:607
+msgid "How it works"
+msgstr ""
+
+#: admin/index.php:610
+msgid "Configure The Settings"
+msgstr ""
+
+#: admin/index.php:611
+msgid ""
+"Go to the “Rich Snippets” option in your WordPress dashboard. Under the "
+"Configuration tab, select your desired schema type and update the strings "
+"you want to display on the front-end. You can use the Customization tab to "
+"manage how your rich snippet content box will look."
+msgstr ""
+
+#: admin/index.php:612
+msgid "Add Markup To Pages"
+msgstr ""
+
+#: admin/index.php:612
+msgid ""
+"Edit the posts or pages where you wish to add rich snippets and scroll down "
+"to the “Configure Rich Snippet” meta box to add schema markup."
+msgstr ""
+
+#: admin/index.php:613
+msgid "Test Your Rich Snippets"
+msgstr ""
+
+#: admin/index.php:613
+msgid ""
+"Google Structured Data Testing is a widely used online tool to test "
+"structured data. Open the <a "
+"href='https://search.google.com/structured-data/testing-tool/u/0/' "
+"target='_blank'>Google Structured Testing Tool</a> and fetch your website "
+"URL to test the schema markup you’ve just implemented on your webpages."
+msgstr ""
+
+#: admin/index.php:618
+msgid "Want to Automate Your Schema Markup?"
+msgstr ""
+
+#: admin/index.php:620
+msgid "Consider Schema Pro"
+msgstr ""
+
+#: admin/index.php:621
+msgid ""
+"Schema Pro is an advanced schema markup plugin that automates the process "
+"of adding schema markup on multiple pages with just a few clicks. Schema "
+"Pro uses  JSON-LD markup, which is the latest technology recommended by "
+"Google. With it, you can kick those front-end content boxes to the curb "
+"and<b> get rich snippets without displaying any new human-readable "
+"content</b> on your site."
+msgstr ""
+
+#: admin/index.php:694
+msgid "With Schema Pro, you can…"
+msgstr ""
+
+#: admin/index.php:704
+msgid "Testimonials"
+msgstr ""
+
+#: admin/index.php:755
+msgid "Where can I test my schema markup implementation?"
+msgstr ""
+
+#: admin/index.php:757
+msgid ""
+"You can use the standard Google Structured Data Testing Tool to test your "
+"schema markup implementation. You can also take a look at the preview of "
+"how your search result might look."
+msgstr ""
+
+#: admin/index.php:762
+msgid "Do I have to fill in all the details?"
+msgstr ""
+
+#: admin/index.php:764
+msgid ""
+"No. But, every schema type has some fields that HAVE to be filled as stated "
+"by Google. Therefore, it is recommended to fill these required fields in "
+"the schema markup you are implementing."
+msgstr ""
+
+#: admin/index.php:769
+msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
+msgstr ""
+
+#: admin/index.php:778
+msgid ""
+"Does the plugin work with other plugins like WordPress SEO, WooCommerce, "
+"etc?"
+msgstr ""
+
+#: admin/index.php:785
+msgid "How long will it take to show up rich snippets for my search results?"
+msgstr ""
+
+#: admin/index.php:794
+msgid "I don't see the feature I want. How can I get it?"
+msgstr ""
+
+#: admin/index.php:796
+msgid ""
+"<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> "
+"with us to ask if this feature is in our development roadmap. If it is not "
+"in our roadmap, and if you still think this feature would make the plugin "
+"better, we have a couple of options for you:"
+msgstr ""
+
+#: admin/index.php:798
+msgid ""
+"Code the new feature if you are a developer and submit your code. If we "
+"include this feature in our releases, credits will be given to you."
+msgstr ""
+
+#: admin/index.php:799
+msgid ""
+"Offer a sponsorship to get this feature done for all plugin users OR "
+"request a professional customisation service."
+msgstr ""
+
+#: admin/index.php:814
+msgid "<span>Customize the look and feel of rich snippet box</span>"
+msgstr ""
+
+#: admin/index.php:821
+msgid "Box Background "
+msgstr ""
+
+#: admin/index.php:825
+msgid "Title Background"
+msgstr ""
+
+#: admin/index.php:829
+msgid "Border Color"
+msgstr ""
+
+#: admin/index.php:833
+msgid "Title Color"
+msgstr ""
+
+#: admin/index.php:837
+msgid "Snippet Text Color"
+msgstr ""
+
+#: admin/index.php:849
+msgid ""
+"Don&#39;t want to add a content box on the front-end? Get the latest and "
+"premium schema markup plugin that adds Google recommended JSON-LD "
+"structured data format without the content box. <a "
+"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_"
+"medium=customize' target='_blank'> Know more about Schema Pro.</a>"
+msgstr ""
+
+#: admin/index.php:863
+msgid "WooCommerce Configuration"
+msgstr ""
+
+#: admin/index.php:868
+msgid ""
+"WooCommerce comes with Schema.org code by default and using our plugin on "
+"WooCommerce product pages does will add duplicate schema so it is not "
+"recommended. If you could still like to enable our plugin on WooCommerce "
+"products, please enable this option."
+msgstr ""
+
+#: admin/index.php:1073
+msgid "Success! Your changes were successfully saved!"
+msgstr ""
+
+#: admin/index.php:1075
+msgid "Sorry, Your changes are not saved!"
+msgstr ""
+
+#: admin/index.php:1197
+msgid "Get in touch with the Plugin Developers"
+msgstr ""
+
+#: admin/index.php:1201
+msgid ""
+"Just fill out the form below and your message will be emailed to the Plugin "
+"Developers."
+msgstr ""
+
+#: admin/index.php:1203
+msgid "Your Name:"
+msgstr ""
+
+#: admin/index.php:1205
+msgid "Your Email:"
+msgstr ""
+
+#: admin/index.php:1207
+msgid "Reference URL:"
+msgstr ""
+
+#: admin/index.php:1209
+msgid "Subject:"
+msgstr ""
+
+#: admin/index.php:1220
+msgid "Your Query in Brief:"
+msgstr ""
+
+#: functions.php:1241
+msgid "Error adding your rating"
+msgstr ""
+
+#: functions.php:1241
+msgid "Ratings added successfully !"
+msgstr ""
+
+#: functions.php:1271
+msgid "Error updating your rating"
+msgstr ""
+
+#: functions.php:1271
+msgid "Ratings updated successfully !"
+msgstr ""
+
+#: index.php:302
+msgid "Thank you!"
+msgstr ""
+
+#: index.php:302
+msgid "Something went wrong!"
+msgstr ""
+
+#: index.php:331
+msgid "Settings saved !"
+msgstr ""
+
+#: index.php:331
+msgid "Error occured. Settings were not saved !"
+msgstr ""
+
+#: init.php:645
+msgid "Please Try Again"
+msgstr ""
+
+#: init.php:660
+msgid "Remove Embed"
+msgstr ""
+
+#: init.php:666
+#. translators: %s: $fallback
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: meta-boxes.php:38
+msgid "Configure Rich Snippet"
+msgstr ""
+
+#: meta-boxes.php:52
+msgid "Select what this post is about"
+msgstr ""
+
+#: meta-boxes.php:60 meta-boxes.php:128 settings.php:28
+msgid "Event"
+msgstr ""
+
+#: meta-boxes.php:96
+msgid "Rich Snippets - Item Review"
+msgstr ""
+
+#: meta-boxes.php:97 meta-boxes.php:343 meta-boxes.php:435 meta-boxes.php:443
+#: meta-boxes.php:521 meta-boxes.php:600 meta-boxes.php:700 meta-boxes.php:771
+#: meta-boxes.php:856 meta-boxes.php:915 meta-boxes.php:966
+msgid "Please provide the following information."
+msgstr ""
+
+#: meta-boxes.php:103
+msgid "Reviewer&rsquo;s Name "
+msgstr ""
+
+#: meta-boxes.php:104
+msgid "Enter the name of Item Reviewer or The Post Author."
+msgstr ""
+
+#: meta-boxes.php:110
+msgid "Item to be reviewed"
+msgstr ""
+
+#: meta-boxes.php:111
+msgid "Enter the name of the item, you are writing review about."
+msgstr ""
+
+#: meta-boxes.php:117
+msgid "Item Review Type"
+msgstr ""
+
+#: meta-boxes.php:118
+msgid "Select the item to be reviewed."
+msgstr ""
+
+#: meta-boxes.php:124
+msgid "Select Item type"
+msgstr ""
+
+#: meta-boxes.php:150
+msgid "Event Name"
+msgstr ""
+
+#: meta-boxes.php:151
+msgid "Enter the Event name."
+msgstr ""
+
+#: meta-boxes.php:157
+msgid "Event Start Date "
+msgstr ""
+
+#: meta-boxes.php:158 meta-boxes.php:399
+msgid "Provide the Event Start Date."
+msgstr ""
+
+#: meta-boxes.php:164
+msgid "Event Location "
+msgstr ""
+
+#: meta-boxes.php:165 meta-boxes.php:357
+msgid "Location Name Here"
+msgstr ""
+
+#: meta-boxes.php:172 meta-boxes.php:364 meta-boxes.php:1008
+msgid "Street Address"
+msgstr ""
+
+#: meta-boxes.php:179 meta-boxes.php:371 meta-boxes.php:1015
+msgid "Locality"
+msgstr ""
+
+#: meta-boxes.php:186 meta-boxes.php:378 meta-boxes.php:584 meta-boxes.php:1022
+msgid "Region"
+msgstr ""
+
+#: meta-boxes.php:193 meta-boxes.php:385 meta-boxes.php:492 meta-boxes.php:591
+#: meta-boxes.php:1029
+msgid "Postal Code"
+msgstr ""
+
+#: meta-boxes.php:199 meta-boxes.php:642 settings.php:62
+msgid "Product Name"
+msgstr ""
+
+#: meta-boxes.php:200
+msgid "Enter the Product name."
+msgstr ""
+
+#: meta-boxes.php:206 meta-boxes.php:656
+msgid "Product Price"
+msgstr ""
+
+#: meta-boxes.php:207 meta-boxes.php:657
+msgid "Enter the product Price."
+msgstr ""
+
+#: meta-boxes.php:213 meta-boxes.php:419 meta-boxes.php:663
+msgid "Currency "
+msgstr ""
+
+#: meta-boxes.php:214 meta-boxes.php:420 meta-boxes.php:664 meta-boxes.php:814
+msgid ""
+"Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a "
+"href=\"http://www.science.co.il/International/Currency-Codes.asp\" "
+"target=\"_blank\"> Know you currency code</a>"
+msgstr ""
+
+#: meta-boxes.php:220 meta-boxes.php:670
+msgid "Availability"
+msgstr ""
+
+#: meta-boxes.php:221 meta-boxes.php:671
+msgid "Select the products availability."
+msgstr ""
+
+#: meta-boxes.php:227 meta-boxes.php:677
+msgid "__ Please Select __"
+msgstr ""
+
+#: meta-boxes.php:231 meta-boxes.php:681
+msgid "Out of Stock"
+msgstr ""
+
+#: meta-boxes.php:235 meta-boxes.php:685
+msgid "In Stock"
+msgstr ""
+
+#: meta-boxes.php:239 meta-boxes.php:689
+msgid "In Store Only"
+msgstr ""
+
+#: meta-boxes.php:243 meta-boxes.php:693
+msgid "Pre-Order"
+msgstr ""
+
+#: meta-boxes.php:249 meta-boxes.php:706
+msgid "Recipe Name "
+msgstr ""
+
+#: meta-boxes.php:250 meta-boxes.php:707
+msgid "Enter the recipe name."
+msgstr ""
+
+#: meta-boxes.php:256 meta-boxes.php:762
+msgid "Recipe Photo"
+msgstr ""
+
+#: meta-boxes.php:257 meta-boxes.php:763
+msgid "Upload or Select recipe photo. Medium size is recommended (300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:263 settings.php:99
+msgid "Software Name"
+msgstr ""
+
+#: meta-boxes.php:264
+msgid "Enter the Software name."
+msgstr ""
+
+#: meta-boxes.php:270
+msgid "Software Operating System"
+msgstr ""
+
+#: meta-boxes.php:271
+msgid "Enter the Operating System name."
+msgstr ""
+
+#: meta-boxes.php:277
+msgid "Software Application Category"
+msgstr ""
+
+#: meta-boxes.php:278
+msgid "Enter the Application Category name."
+msgstr ""
+
+#: meta-boxes.php:284 meta-boxes.php:862
+msgid "Video Title"
+msgstr ""
+
+#: meta-boxes.php:285 meta-boxes.php:863
+msgid "Enter the title for this video"
+msgstr ""
+
+#: meta-boxes.php:291 meta-boxes.php:869
+msgid "Video Description"
+msgstr ""
+
+#: meta-boxes.php:292 meta-boxes.php:870
+msgid "Enter the brief description for this video"
+msgstr ""
+
+#: meta-boxes.php:298 meta-boxes.php:876
+msgid "Video Thumbnail"
+msgstr ""
+
+#: meta-boxes.php:299 meta-boxes.php:877
+msgid ""
+"Upload or select video thumbnail from gallery. Medium size is recommended "
+"(300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:305 meta-boxes.php:906 settings.php:115
+msgid "Upload Date"
+msgstr ""
+
+#: meta-boxes.php:306 meta-boxes.php:907
+msgid "Provide the date when the video is uploaded"
+msgstr ""
+
+#: meta-boxes.php:312 meta-boxes.php:606
+msgid "Your Rating"
+msgstr ""
+
+#: meta-boxes.php:313
+msgid "&nbsp;&nbsp;Rate this item (1-5)"
+msgstr ""
+
+#: meta-boxes.php:342
+msgid "Rich Snippets - Events"
+msgstr ""
+
+#: meta-boxes.php:349
+msgid "Event Title "
+msgstr ""
+
+#: meta-boxes.php:350
+msgid "What would be the name of the event?"
+msgstr ""
+
+#: meta-boxes.php:356
+msgid "Location "
+msgstr ""
+
+#: meta-boxes.php:391
+msgid "Description "
+msgstr ""
+
+#: meta-boxes.php:392
+msgid "Describe the event in short."
+msgstr ""
+
+#: meta-boxes.php:398
+msgid "Start Date "
+msgstr ""
+
+#: meta-boxes.php:405
+msgid "End Date "
+msgstr ""
+
+#: meta-boxes.php:406
+msgid "Provide the Event End Date."
+msgstr ""
+
+#: meta-boxes.php:412 settings.php:33
+msgid "Offer Price"
+msgstr ""
+
+#: meta-boxes.php:413
+msgid "Enter the ticket Price."
+msgstr ""
+
+#: meta-boxes.php:426
+msgid "Url "
+msgstr ""
+
+#: meta-boxes.php:427
+msgid "Url of buy ticket page"
+msgstr ""
+
+#: meta-boxes.php:434
+msgid "Rich Snippets - Music"
+msgstr ""
+
+#: meta-boxes.php:442
+msgid "Rich Snippets - Organization"
+msgstr ""
+
+#: meta-boxes.php:449
+msgid "Organization Name "
+msgstr ""
+
+#: meta-boxes.php:450
+msgid "Enter the Company or Organization Name."
+msgstr ""
+
+#: meta-boxes.php:456
+msgid "Website URL "
+msgstr ""
+
+#: meta-boxes.php:457
+msgid "Enter the Organization homepage url."
+msgstr ""
+
+#: meta-boxes.php:463
+msgid "Contact No. "
+msgstr ""
+
+#: meta-boxes.php:464
+msgid "Enter the Telephone No."
+msgstr ""
+
+#: meta-boxes.php:470
+msgid "Address "
+msgstr ""
+
+#: meta-boxes.php:471
+msgid "Street Name."
+msgstr ""
+
+#: meta-boxes.php:478
+msgid "Locality."
+msgstr ""
+
+#: meta-boxes.php:485
+msgid "Region."
+msgstr ""
+
+#: meta-boxes.php:499
+msgid "Country Name"
+msgstr ""
+
+#: meta-boxes.php:505
+msgid "GEO Location"
+msgstr ""
+
+#: meta-boxes.php:506
+msgid ""
+"Latitude. <a "
+"href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" "
+"target=\"_blank\">Find Here.</a>"
+msgstr ""
+
+#: meta-boxes.php:513
+msgid "Longitude."
+msgstr ""
+
+#: meta-boxes.php:520
+msgid "Rich Snippets - Person"
+msgstr ""
+
+#: meta-boxes.php:527
+msgid "Person&lsquo;s Name"
+msgstr ""
+
+#: meta-boxes.php:528
+msgid "Enter the relative person&lsquo;s name."
+msgstr ""
+
+#: meta-boxes.php:534 settings.php:45
+msgid "Nickname"
+msgstr ""
+
+#: meta-boxes.php:535
+msgid "Enter the nickname (if any)."
+msgstr ""
+
+#: meta-boxes.php:541
+msgid "Photograph"
+msgstr ""
+
+#: meta-boxes.php:542
+msgid ""
+"Upload the photo or select from media library. Medium size is recommended "
+"(300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:548
+msgid "Job Title "
+msgstr ""
+
+#: meta-boxes.php:549
+msgid "Enter job title."
+msgstr ""
+
+#: meta-boxes.php:555
+msgid "Homepage URL"
+msgstr ""
+
+#: meta-boxes.php:556
+msgid "Enter homepage URL(if any)."
+msgstr ""
+
+#: meta-boxes.php:562
+msgid "Company / Organization"
+msgstr ""
+
+#: meta-boxes.php:563
+msgid "Enter Company or Organization name in affiliation."
+msgstr ""
+
+#: meta-boxes.php:569 settings.php:49
+msgid "Address"
+msgstr ""
+
+#: meta-boxes.php:570
+msgid "Enter Street"
+msgstr ""
+
+#: meta-boxes.php:577
+msgid "Enter Locality"
+msgstr ""
+
+#: meta-boxes.php:599
+msgid "Rich Snippets - Products"
+msgstr ""
+
+#: meta-boxes.php:607
+msgid "Rate this product or aggregate rating."
+msgstr ""
+
+#: meta-boxes.php:635 settings.php:61
+msgid "Brand Name"
+msgstr ""
+
+#: meta-boxes.php:636
+msgid "Enter the products brand name"
+msgstr ""
+
+#: meta-boxes.php:643
+msgid "Enter the product name."
+msgstr ""
+
+#: meta-boxes.php:649
+msgid "Product Image"
+msgstr ""
+
+#: meta-boxes.php:650
+msgid ""
+"Upload the product image or select from library. Medium size is recommended "
+"(300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:699
+msgid "Rich Snippets - Recipes"
+msgstr ""
+
+#: meta-boxes.php:713
+msgid "Author Name "
+msgstr ""
+
+#: meta-boxes.php:714
+msgid "Enter the Author name."
+msgstr ""
+
+#: meta-boxes.php:720
+msgid "Time Required "
+msgstr ""
+
+#: meta-boxes.php:721
+msgid "Preperation time  (Format: 1H30M. H - Hours, M - Minutes )"
+msgstr ""
+
+#: meta-boxes.php:728
+msgid "Cook Time. (Format: 1H30M. H - Hours, M - Minutes )"
+msgstr ""
+
+#: meta-boxes.php:735
+msgid "Total Time  (Format: 1H30M. H - Hours, M - Minutes )"
+msgstr ""
+
+#: meta-boxes.php:741 settings.php:30 settings.php:82 settings.php:113
+#: settings.php:127 settings.php:143
+msgid "Description"
+msgstr ""
+
+#: meta-boxes.php:742
+msgid "Describe the recipe in short."
+msgstr ""
+
+#: meta-boxes.php:748 meta-boxes.php:749 settings.php:83
+msgid "Nutrition"
+msgstr ""
+
+#: meta-boxes.php:755 settings.php:84
+msgid "Ingredients"
+msgstr ""
+
+#: meta-boxes.php:756
+msgid "Enter the ingredients used"
+msgstr ""
+
+#: meta-boxes.php:770
+msgid "Rich Snippets - Software Application"
+msgstr ""
+
+#: meta-boxes.php:777
+msgid "Software Rating"
+msgstr ""
+
+#: meta-boxes.php:778
+msgid "Rate this software."
+msgstr ""
+
+#: meta-boxes.php:806 settings.php:64 settings.php:98
+msgid "Price"
+msgstr ""
+
+#: meta-boxes.php:807
+msgid "Enter the Price of Software"
+msgstr ""
+
+#: meta-boxes.php:813
+msgid "Currency"
+msgstr ""
+
+#: meta-boxes.php:820
+msgid "Software Name "
+msgstr ""
+
+#: meta-boxes.php:821
+msgid "Enter the Software Name."
+msgstr ""
+
+#: meta-boxes.php:827 settings.php:100
+msgid "Operating System"
+msgstr ""
+
+#: meta-boxes.php:828
+msgid "Enter the software Operating System."
+msgstr ""
+
+#: meta-boxes.php:834
+msgid "Application Category"
+msgstr ""
+
+#: meta-boxes.php:835
+msgid "Like Game, Multimedia"
+msgstr ""
+
+#: meta-boxes.php:841
+msgid "Software Image"
+msgstr ""
+
+#: meta-boxes.php:842
+msgid ""
+"Upload or select image of software. Medium size is recommended (300px X "
+"300px)"
+msgstr ""
+
+#: meta-boxes.php:848 settings.php:101
+msgid "Landing Page"
+msgstr ""
+
+#: meta-boxes.php:849
+msgid "Enter the landing page url for software"
+msgstr ""
+
+#: meta-boxes.php:855
+msgid "Rich Snippets - Videos"
+msgstr ""
+
+#: meta-boxes.php:884
+msgid ""
+"Upload Video or enter the video file url<br>Example: <br> "
+"http://www.example.com/video123.flv<br>A URL pointing to the actual video "
+"media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, "
+".avi, .flv, or other video file format"
+msgstr ""
+
+#: meta-boxes.php:891
+msgid "Embed Video"
+msgstr ""
+
+#: meta-boxes.php:892
+msgid ""
+"A URL pointing to a player for the specific video. Usually this is the "
+"information in the src element of an &lt;embed&gt;tag. <br>Example: "
+"<br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: "
+"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add "
+"only one url either in \"Video\" or \"Embed Video\" field. Dont use "
+"both.</h3></div>"
+msgstr ""
+
+#: meta-boxes.php:899
+msgid "Video Duration"
+msgstr ""
+
+#: meta-boxes.php:900
+msgid "Enter the duration for this video"
+msgstr ""
+
+#: meta-boxes.php:914
+msgid "Rich Snippets - Article"
+msgstr ""
+
+#: meta-boxes.php:921
+msgid "Article Image"
+msgstr ""
+
+#: meta-boxes.php:922 meta-boxes.php:957 meta-boxes.php:973
+msgid ""
+"Upload or select image from gallery. Medium size is recommended (300px X "
+"300px)"
+msgstr ""
+
+#: meta-boxes.php:928 settings.php:125
+msgid "Article Name"
+msgstr ""
+
+#: meta-boxes.php:929
+msgid "Enter the name for this article"
+msgstr ""
+
+#: meta-boxes.php:935 meta-boxes.php:993
+msgid "Short Description"
+msgstr ""
+
+#: meta-boxes.php:936
+msgid "Enter the brief description about this article (About 30 Words)"
+msgstr ""
+
+#: meta-boxes.php:942 settings.php:126
+msgid "Author"
+msgstr ""
+
+#: meta-boxes.php:943
+msgid "Enter the author name for this article"
+msgstr ""
+
+#: meta-boxes.php:949
+msgid "Publisher - Orgnization"
+msgstr ""
+
+#: meta-boxes.php:950
+msgid "Enter the publisher name for this article"
+msgstr ""
+
+#: meta-boxes.php:956 settings.php:130
+msgid "Publisher Logo"
+msgstr ""
+
+#: meta-boxes.php:965
+msgid "Rich Snippets - Service"
+msgstr ""
+
+#: meta-boxes.php:972 settings.php:128
+msgid "Image"
+msgstr ""
+
+#: meta-boxes.php:979 settings.php:141
+msgid "Service Type"
+msgstr ""
+
+#: meta-boxes.php:980
+msgid "Enter the service type"
+msgstr ""
+
+#: meta-boxes.php:986
+msgid "Service Served Area"
+msgstr ""
+
+#: meta-boxes.php:987
+msgid "Enter the area where service is available"
+msgstr ""
+
+#: meta-boxes.php:994
+msgid "Enter the description about service (About 30 Words)"
+msgstr ""
+
+#: meta-boxes.php:1000 settings.php:147
+msgid "Provider Name"
+msgstr ""
+
+#: meta-boxes.php:1001
+msgid "Enter the service provider name"
+msgstr ""
+
+#: meta-boxes.php:1007 settings.php:29 settings.php:148
+msgid "Location"
+msgstr ""
+
+#: meta-boxes.php:1035
+msgid "Provider Location Image"
+msgstr ""
+
+#: meta-boxes.php:1036
+msgid ""
+"Upload the provider location image or select from library. Medium size is "
+"recommended (300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:1042
+msgid "Telephone"
+msgstr ""
+
+#: meta-boxes.php:1043
+msgid "Telephone number"
+msgstr ""
+
+#: settings.php:13 settings.php:27 settings.php:43 settings.php:59
+#: settings.php:75 settings.php:95 settings.php:111 settings.php:124
+#: settings.php:140
+msgid "Summary"
+msgstr ""
+
+#: settings.php:14
+msgid "Reviewer"
+msgstr ""
+
+#: settings.php:15
+msgid "Review Date"
+msgstr ""
+
+#: settings.php:16
+msgid "Reviewed Item"
+msgstr ""
+
+#: settings.php:17 settings.php:60 settings.php:96
+msgid "Author Rating"
+msgstr ""
+
+#: settings.php:31
+msgid "Starting on"
+msgstr ""
+
+#: settings.php:32
+msgid "Ending on"
+msgstr ""
+
+#: settings.php:44
+msgid "Name"
+msgstr ""
+
+#: settings.php:46
+msgid "Job Title"
+msgstr ""
+
+#: settings.php:47
+msgid "Website"
+msgstr ""
+
+#: settings.php:48
+msgid "Company"
+msgstr ""
+
+#: settings.php:63 settings.php:97
+msgid "Aggregate Rating"
+msgstr ""
+
+#: settings.php:65
+msgid "Product Availability"
+msgstr ""
+
+#: settings.php:76
+msgid "Recipe Name"
+msgstr ""
+
+#: settings.php:77
+msgid "Author Name"
+msgstr ""
+
+#: settings.php:78
+msgid "Published On"
+msgstr ""
+
+#: settings.php:79
+msgid "Preparation Time"
+msgstr ""
+
+#: settings.php:80
+msgid "Cook Time"
+msgstr ""
+
+#: settings.php:81
+msgid "Total Time"
+msgstr ""
+
+#: settings.php:85
+msgid "Average Rating"
+msgstr ""
+
+#: settings.php:112
+msgid "Title"
+msgstr ""
+
+#: settings.php:114
+msgid "Duration"
+msgstr ""
+
+#: settings.php:129
+msgid "Publisher Name"
+msgstr ""
+
+#: settings.php:142
+msgid "Area"
+msgstr ""
+
+#: settings.php:144
+msgid "URL"
+msgstr ""
+
+#: settings.php:145
+msgid "Click Here For More Info"
+msgstr ""
+
+#: settings.php:146
+msgid "User Rating"
+msgstr ""
+
+#: settings.php:149
+msgid "Provider telephone number"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Schema - All In One Schema Rich Snippets"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.brainstormforce.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Welcome to the Schema - All In One Schema Rich Snippets! You can now easily "
+"add schema markup on various * pages and posts of your website. Implement "
+"schema types such as Review, Events, Recipes, Article, Products, Services * "
+"*etc."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Brainstorm Force"
+msgstr ""

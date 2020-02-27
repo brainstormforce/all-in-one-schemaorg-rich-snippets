@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
 Tested up to: 5.3
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,13 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.6.1 =
+- Improvement - Compatibility with the latest WordPress PHP_CodeSniffer rules.
+- Improvement - Updated the Schema URL to the https instead of HTTP.
+- Fix - Tabs conflict with the Astra theme.
+- Fix - Image field is required error showing in the Recipe schema.
+- Fix - Remove the support for Rating in the service schema as per the new Google update.
 
 = 1.6.0 =
 - New: Added ItemReviewed types in Review schema.
