@@ -299,7 +299,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			echo mail( $to, $subject, $html, $headers ) ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
+			echo mail( $to, $subject, $html, $headers ) ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
 
 			die();
 		}
@@ -328,7 +328,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
+					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'all-in-one-schemaorg-rich-snippets' );
 
 					die();
 				}

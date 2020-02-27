@@ -1238,7 +1238,7 @@ function bsf_add_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating' ) : esc_html_e( 'Ratings added successfully !' );
+	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'all-in-one-schemaorg-rich-snippets' );
 	die();
 }
 /**
@@ -1268,7 +1268,7 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating' ) : esc_html_e( 'Ratings updated successfully !' );
+	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'all-in-one-schemaorg-rich-snippets' );
 	die();
 }
 /**
