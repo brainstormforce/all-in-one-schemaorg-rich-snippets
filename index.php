@@ -370,6 +370,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 	}
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics.php';
 	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 // Instantiating the Class.
 if ( class_exists( 'RichSnippets' ) ) {
