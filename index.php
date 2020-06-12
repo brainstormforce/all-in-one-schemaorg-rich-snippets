@@ -370,6 +370,10 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 	}
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
+	if ( is_admin() ){
+		// Load Astra Notices library.
+		require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
+	}
 	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics.php';
 	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 // Instantiating the Class.
