@@ -81,7 +81,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.6.2 =
-- new - Users can now share non-personal usage data to help us test and develop better products.
+- New - Users can now share non-personal usage data to help us test and develop better products. (https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking)
 
 = 1.6.1 =
 - Improvement - Compatibility with the latest WordPress PHP_CodeSniffer rules.
