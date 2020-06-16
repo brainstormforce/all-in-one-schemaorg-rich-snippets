@@ -431,7 +431,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			foreach ( $plugins as $plugin_file ) {
 
-				$plugin_folder = explode( "/", $plugin_file );
+				$plugin_folder = explode( '/', $plugin_file );
 				$plugin_folder = $plugin_folder[0];
 				if ( $plugin_folder === $plugin_slug ) {
 					$plugin_path = WP_PLUGIN_DIR . '/' . $plugin_file;
