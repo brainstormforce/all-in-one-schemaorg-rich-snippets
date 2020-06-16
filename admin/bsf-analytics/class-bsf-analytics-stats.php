@@ -194,7 +194,6 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		private function get_curl_version() {
-			$curl = array();
 			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version(); // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_version
 			}

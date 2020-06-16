@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     },	
                     {	
                         src: 'assets/css/unminified/style-rtl.css',	
-                        dest: 'assets/css/minified/style.min-rtl.css',	
+                        dest: 'assets/css/minified/style-rtl.min.css',
                     },
                 ]
             }

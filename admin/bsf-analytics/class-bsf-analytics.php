@@ -33,7 +33,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function __construct() {
 
 			define( 'BSF_ANALYTICS_FILE', __FILE__ );
-			define( 'BSF_ANALYTICS_VERSION', '1.0.1' );
+			define( 'BSF_ANALYTICS_VERSION', '1.0.2' );
 			define( 'BSF_ANALYTICS_PATH', dirname( __FILE__ ) );
 			define( 'BSF_ANALYTICS_URI', $this->bsf_analytics_url() );
 
@@ -430,7 +430,10 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			foreach ( $plugins as $plugin_file ) {
-				if ( 0 === strpos( $plugin_file, $plugin_slug ) ) {
+
+				$plugin_folder = explode( "/", $plugin_file );
+				$plugin_folder = $plugin_folder[0];
+				if ( $plugin_folder === $plugin_slug ) {
 					$plugin_path = WP_PLUGIN_DIR . '/' . $plugin_file;
 					$plugin_data = get_plugin_data( $plugin_path );
 					return $plugin_data['Name'];
