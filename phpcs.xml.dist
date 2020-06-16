@@ -3,7 +3,7 @@
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
 	<rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="5.2-"/>
+	<config name="testVersion" value="5.4-"/>
 
 	<rule ref="PHPCompatibility">
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />

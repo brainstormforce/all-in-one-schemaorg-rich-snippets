@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.0\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2020-02-27 06:43:26+00:00\n"
+"POT-Creation-Date: 2020-06-16 10:45:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,6 +24,50 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: admin/bsf-analytics/class-bsf-analytics.php:183
+#. translators: %s product name
+msgid ""
+"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
+"collect non-sensitive diagnostic data and usage information. "
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:186
+msgid "This will be applicable for all sites from the network."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:210
+#. translators: %s usage doc link
+msgid " Know More."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:217
+msgid "Yes! Allow it"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:225
+msgid "No Thanks"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:294
+msgid "Every two days"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:348
+msgid "Usage Tracking"
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:380
+msgid "Allow Brainstorm Force products to track non-sensitive usage tracking data."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:383
+msgid " This will be applicable for all sites from the network."
+msgstr ""
+
+#: admin/bsf-analytics/class-bsf-analytics.php:388
+msgid "Learn More."
+msgstr ""
 
 #: admin/index.php:88
 msgid "All in One Schema.org Rich Snippets - Dashboard"
@@ -618,6 +662,10 @@ msgstr ""
 #: init.php:666
 #. translators: %s: $fallback
 msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: lib/notices/class-astra-notices.php:125
+msgid "WordPress Nonce not validated."
 msgstr ""
 
 #: meta-boxes.php:38
