@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.6.2
+ * Version: 1.6.3
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -374,7 +374,23 @@ if ( is_admin() ) {
 	// Load Astra Notices library.
 	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 }
-	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics.php';
+			// BSF Analytics library.
+			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+				require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+			}
+
+			$bsf_analytics = BSF_Analytics_Loader::get_instance();
+
+			$bsf_analytics->set_entity(
+				array(
+					'bsf' => array(
+						'product_name'    => 'All In One Schema Rich Snippets',
+						'path'            => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+						'author'          => 'Brainstorm Force',
+						'time_to_display' => '+24 hours',
+					),
+				)
+			);
 	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 // Instantiating the Class.
 if ( class_exists( 'RichSnippets' ) ) {
