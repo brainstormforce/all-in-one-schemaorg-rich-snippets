@@ -387,9 +387,9 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 }
 			// BSF Analytics library.
-			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
-				require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
-			}
+if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+}
 
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
@@ -403,9 +403,9 @@ if ( is_admin() ) {
 					),
 				)
 			);
-	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
-// Instantiating the Class.
-if ( class_exists( 'RichSnippets' ) ) {
-	$richsnippets = new RichSnippets();
-}
-?>
+			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
+			// Instantiating the Class.
+			if ( class_exists( 'RichSnippets' ) ) {
+				$richsnippets = new RichSnippets();
+			}
+			?>
