@@ -328,11 +328,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
 				} else {
-					$snippet_box_bg   = esc_attr( sanitize_text_field( $_POST['snippet_box_bg'] ) );
-					$snippet_title_bg = esc_attr( sanitize_text_field( $_POST['snippet_title_bg'] ) );
-					$border_color     = esc_attr( sanitize_text_field( $_POST['snippet_border'] ) );
-					$title_color      = esc_attr( sanitize_text_field( $_POST['snippet_title_color'] ) );
-					$box_color        = esc_attr( sanitize_text_field( $_POST['snippet_box_color'] ) );
+					$snippet_box_bg   = sanitize_text_field( $_POST['snippet_box_bg'] );
+					$snippet_title_bg = sanitize_text_field( $_POST['snippet_title_bg'] );
+					$border_color     = sanitize_text_field( $_POST['snippet_border'] );
+					$title_color      = sanitize_text_field( $_POST['snippet_title_color'] );
+					$box_color        = sanitize_text_field( $_POST['snippet_box_color'] );
 					$color_opt        = array(
 						'snippet_box_bg'      => $snippet_box_bg,
 						'snippet_title_bg'    => $snippet_title_bg,
