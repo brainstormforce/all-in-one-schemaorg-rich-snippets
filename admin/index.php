@@ -1121,7 +1121,7 @@ if ( isset( $_GET['action'] ) ) {
  * @param  string $option_to_reset .
  */
 function bsf_reset_options( $option_to_reset ) {
-	require_once dirname( esc_html__FILEesc_html__ ) . '/../settings.php';
+	require_once AIOSRS_PRO_DIR . '/settings.php';
 	if ( 'review' == $option_to_reset ) {
 		add_review_option();
 	}

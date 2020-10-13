@@ -38,6 +38,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			register_activation_hook( __FILE__, array( $this, 'register_bsf_settings' ) );
 			add_action( 'admin_init', array( $this, 'aiosrs_admin_redirect' ) );
 			add_action( 'admin_head', array( $this, 'star_icons' ) );
+			$this->define_constants();
 			// Add Admin Menu.
 			add_action( 'admin_menu', array( $this, 'register_custom_menu_page' ) );
 			add_action( 'admin_init', array( $this, 'set_styles' ) );
@@ -54,6 +55,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color' ) );
 			// Admin bar menu.
 			add_action( 'admin_bar_menu', array( $this, 'aiosrs_admin_bar' ), 100 );
+		}
+
+		/**
+		 * Defines all constants
+		 */
+		public function define_constants() {
+			define( 'AIOSRS_PRO_FILE', __FILE__ );
+			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_VER', '1.6.3' );
 		}
 
 		/**
