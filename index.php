@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.6.3
+ * Version: 1.6.4
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -38,6 +38,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			register_activation_hook( __FILE__, array( $this, 'register_bsf_settings' ) );
 			add_action( 'admin_init', array( $this, 'aiosrs_admin_redirect' ) );
 			add_action( 'admin_head', array( $this, 'star_icons' ) );
+			$this->define_constants();
 			// Add Admin Menu.
 			add_action( 'admin_menu', array( $this, 'register_custom_menu_page' ) );
 			add_action( 'admin_init', array( $this, 'set_styles' ) );
@@ -54,6 +55,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color' ) );
 			// Admin bar menu.
 			add_action( 'admin_bar_menu', array( $this, 'aiosrs_admin_bar' ), 100 );
+		}
+
+		/**
+		 * Defines all constants
+		 */
+		public function define_constants() {
+			define( 'AIOSRS_PRO_FILE', __FILE__ );
+			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
+			define( 'AIOSRS_PRO_VER', '1.6.4' );
 		}
 
 		/**
@@ -316,11 +328,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
 				} else {
-					$snippet_box_bg   = esc_attr( $_POST['snippet_box_bg'] );
-					$snippet_title_bg = esc_attr( $_POST['snippet_title_bg'] );
-					$border_color     = esc_attr( $_POST['snippet_border'] );
-					$title_color      = esc_attr( $_POST['snippet_title_color'] );
-					$box_color        = esc_attr( $_POST['snippet_box_color'] );
+					$snippet_box_bg   = sanitize_text_field( $_POST['snippet_box_bg'] );
+					$snippet_title_bg = sanitize_text_field( $_POST['snippet_title_bg'] );
+					$border_color     = sanitize_text_field( $_POST['snippet_border'] );
+					$title_color      = sanitize_text_field( $_POST['snippet_title_color'] );
+					$box_color        = sanitize_text_field( $_POST['snippet_box_color'] );
 					$color_opt        = array(
 						'snippet_box_bg'      => $snippet_box_bg,
 						'snippet_title_bg'    => $snippet_title_bg,
@@ -375,9 +387,9 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 }
 			// BSF Analytics library.
-			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
-				require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
-			}
+if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+}
 
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
@@ -391,9 +403,9 @@ if ( is_admin() ) {
 					),
 				)
 			);
-	add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
-// Instantiating the Class.
-if ( class_exists( 'RichSnippets' ) ) {
-	$richsnippets = new RichSnippets();
-}
-?>
+			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
+			// Instantiating the Class.
+			if ( class_exists( 'RichSnippets' ) ) {
+				$richsnippets = new RichSnippets();
+			}
+			?>

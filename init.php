@@ -506,7 +506,7 @@ class Bsf_Meta_Box {
 				$name = esc_attr( $field['id'] ) . '_id';
 				$old  = get_post_meta( $post_id, $name, ! $field['multiple'] /* If multicheck this can be multiple values */ );
 				if ( isset( $field['save_id'] ) && $field['save_id'] ) {
-					$new = isset( $_POST[ $name ] ) ? esc_attr( $_POST[ $name ] ) : null;
+					$new = isset( $_POST[ $name ] ) ? sanitize_text_field( $_POST[ $name ] ) : null;
 				} else {
 					$new = '';
 				}

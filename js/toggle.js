@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
 		hidden();
 	else
 		expand_default(selected);
-	jQuery( window ).load(function() {
+	jQuery(window).on('load',function () {
 		if(item_type == "none")
 			item_hidden();
 		else if(selected != "1" && item_type != "none")

@@ -3,8 +3,8 @@ Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
-Tested up to: 5.5
-Stable tag: 1.6.3
+Tested up to: 5.5.1
+Stable tag: 1.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,11 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.6.4 =
+- Improvement - Hardened the security of the plugin.
+- Fixed - Reset functionality was not working in the backend settings.
+- Fixed - Console warning jquery-fn-load-is-deprecated.
 
 = 1.6.3 =
 - Improvement - Compatibility with WordPress 5.5.
