@@ -80,6 +80,11 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.4 =
+- Improvement - Hardened the security of the plugin.
+- Fixed - Reset functionality was not working in the backend settings.
+- Fixed - Console warning jquery-fn-load-is-deprecated.
+
 = 1.6.3 =
 - Improvement - Compatibility with WordPress 5.5.
 - Improvement - Updated the Hashchange jquery.
