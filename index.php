@@ -124,6 +124,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
+			wp_enqueue_script( 'bsf_jquery_form' );
 			wp_enqueue_script( 'bsf_toggle' );
 			wp_enqueue_style( 'star_style' );
 			wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', '', '0.9.1' );
@@ -152,6 +153,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'bsf_jquery_star' );
+			wp_enqueue_script( 'bsf_jquery_form' );
 			wp_enqueue_script( 'bsf_toggle' );
 			wp_enqueue_style( 'star_style' );
 			wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', '', '0.9.1' );
@@ -181,6 +183,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			wp_register_style( 'admin_style', plugins_url( 'admin/css/admin.css', __FILE__ ), null, '1.0' );
 			wp_register_script( 'bsf_jquery_star', plugins_url( '/js/jquery.rating.min.js', __FILE__ ), null, '1.0' );
+			wp_register_script( 'bsf_jquery_form', plugins_url( '/js/jquery.form.min.js', __FILE__ ), null, '1.0' );
 			wp_register_script( 'bsf_toggle', plugins_url( '/js/toggle.js', __FILE__ ), null, '1.0' );
 		}
 		/**

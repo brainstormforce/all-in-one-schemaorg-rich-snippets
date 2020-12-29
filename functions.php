@@ -47,6 +47,7 @@ function aiosrs_check_snippet_existence() {
 function aiosrs_enque() {
 	wp_enqueue_style( 'rating_style', plugin_dir_url( __FILE__ ) . 'css/jquery.rating.css', null, '1.0' );
 	wp_enqueue_script( 'jquery_rating', plugin_dir_url( __FILE__ ) . 'js/jquery.rating.min.js', array( 'jquery' ), null, false ); //phpcs:ignore:WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	wp_enqueue_script( 'jquery_form', plugin_dir_url( __FILE__ ) . 'js/jquery.form.min.js', array( 'jquery' ), null, false ); //phpcs:ignore:WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	wp_register_style( 'bsf_style', plugins_url( '/css/style.css', __FILE__ ), null, '1.0' );
 	wp_enqueue_style( 'bsf_style' );
 }
