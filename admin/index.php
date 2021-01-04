@@ -20,6 +20,7 @@ function bsf_admin_styles() {
 	wp_enqueue_script( 'bsf_jquery' );
 		wp_enqueue_script( 'jquery-ui-core' );
 	wp_enqueue_script( 'bsf_jquery_star' );
+	wp_enqueue_script( 'bsf_jquery_form' );
 }
 /**
  * Enqueues the scripts in admin dashboard.
