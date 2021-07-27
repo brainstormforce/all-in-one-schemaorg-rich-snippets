@@ -1,0 +1,39 @@
+name: PHPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+      name: PHPCS
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: 7.4
+            coverage: none
+            tools: composer, cs2pr
+
+        - name: Get Composer cache directory
+          id: composer-cache
+          run: |
+            echo "::set-output name=dir::$(composer config cache-files-dir)"
+        - name: Setup cache
+          uses: pat-s/always-upload-cache@v2.1.5
+          with:
+            path: ${{ steps.composer-cache.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-composer-
+
+        - name: Install dependencies
+          run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+        - name: PHPCS check
+          uses: chekalsky/phpcs-action@v1
+          with:
+            enable_warnings: true
+            phpcs_bin_path: './vendor/bin/phpcs'
