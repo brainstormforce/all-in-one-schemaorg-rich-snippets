@@ -1,26 +1,25 @@
 {
     "name": "brainstormforce/all-in-one-schemaorg-rich-snippets",
     "description": "Get eye catching results in search engines with the most popular schema markup plugin.",
+    "require": {},
     "require-dev": {
-      "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-      "wp-coding-standards/wpcs": "2.2.1",
-      "phpcompatibility/phpcompatibility-wp": "2.1.0",
-      "brainmaestro/composer-git-hooks": "^2.6"
-    },
-    "require": {
+        "brainmaestro/composer-git-hooks": "^2.6",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "wp-coding-standards/wpcs": "^2.2"
     },
     "extra": {
         "hooks": {
             "pre-commit": [
-            "echo committing as $(git config user.name)",
-            "sh bin/block-commits-with-merge-conflict.sh"
+                "echo committing as $(git config user.name)",
+                "sh bin/block-commits-with-merge-conflict.sh"
             ]
         }
     },
     "scripts": {
         "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
         "post-update-cmd": "vendor/bin/cghooks update",
-        "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
-        "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
+        "format": "phpcbf --standard=phpcs.xml.dist",
+        "lint": "phpcs --standard=phpcs.xml.dist"
     }
 }
