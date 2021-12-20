@@ -22,3 +22,4 @@ vendor/
 
 # ignore PHPStorm extra directories
 .vscode
+config.bat
