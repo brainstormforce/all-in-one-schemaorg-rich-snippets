@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.5 =
+- Fixed - Code updated according to coding standard.
+
 = 1.6.4 =
 - Improvement - Hardened the security of the plugin.
 - Fixed - Reset functionality was not working in the backend settings.
