@@ -811,7 +811,8 @@ function rich_snippet_dashboard() {
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle">' . wp_kses_post( __( '<span>Customize the look and feel of rich snippet box</span>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</h3>
+										<h3 class="hndle">' . wp_kses_post( __( '<span>Customize the look and feel of rich snippet box</span>', 'all-in-one-schemaorg-rich-snippets' ) ) . //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
+										'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
 											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped  
