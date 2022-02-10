@@ -21,4 +21,5 @@ phpcs-full.log
 vendor/
 
 # ignore PHPStorm extra directories
-.vscode
+.vscodecghooks.lock
+

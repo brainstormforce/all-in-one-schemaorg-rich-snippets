@@ -92,7 +92,7 @@ function rich_snippet_dashboard() {
 	echo '<ul class="nav-tab-wrapper bsf-tab-wraper">
 			<li><a href="#tab-1" class="nav-tab">' . esc_html__( 'Configuration', 'all-in-one-schemaorg-rich-snippets' ) . '</a></li>
 			<li><a href="#tab-4" class="nav-tab">' . esc_html__( 'Customization', 'all-in-one-schemaorg-rich-snippets' ) . '</a></li>
-
+			
 			<li><a href="#tab-3" class="nav-tab">' . esc_html__( 'FAQs', 'all-in-one-schemaorg-rich-snippets' ) . '</a></li>
 			<li><a href="#tab-5" class="nav-tab">' . esc_html__( 'Getting Started', 'all-in-one-schemaorg-rich-snippets' ) . '</a></li>
 		 </ul>
@@ -112,7 +112,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_review_form" method="post">
-										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 										. '
 											<table class="bsf_metabox">
 												<tbody>
@@ -154,8 +154,8 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_event_form" method="post">
-										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+										. ' 
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -201,10 +201,10 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Person', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_person_form" method="post">
-										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 										. '
 											<table class="bsf_metabox">
 												<tbody>
@@ -251,7 +251,7 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Product', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_product_form" method="post">
 										' . wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -301,10 +301,10 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Recipe', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_recipe_form" method="post">
-										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 										. '
 											<table class="bsf_metabox">
 												<tbody>
@@ -359,10 +359,10 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Software Application', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_software_form" method="post">
-										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 										. '
 											<table class="bsf_metabox">
 												<tbody>
@@ -405,13 +405,13 @@ function rich_snippet_dashboard() {
 									</div>
 								</div>
 							</div>
-
-
+							
+							
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Video', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_video_form" method="post">
 										' . wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' )//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -433,7 +433,7 @@ function rich_snippet_dashboard() {
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Video Duration :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="video_time" value="' . esc_attr( stripslashes( $args_video['video_time'] ) ) . '"/></td>
-													</tr>
+													</tr>													
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Video Upload Date :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
 														<td><input class="bsf_text_medium" type="text" name="video_date" value="' . esc_attr( stripslashes( $args_video['video_date'] ) ) . '"/></td>
@@ -453,7 +453,7 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Article', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_article_form" method="post">
 										' . wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -503,10 +503,10 @@ function rich_snippet_dashboard() {
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Service', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
-									<div class="table">
+									<div class="table">								
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_service_form" method="post">
-										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 										. '
 											<table class="bsf_metabox">
 												<tbody>
@@ -557,17 +557,17 @@ function rich_snippet_dashboard() {
 									</div>
 								</div>
 							</div>
-						<!-- Post blox -->
-
+						<!-- Post blox -->		
+							
 						</div>
 					<div class="schema-notice">
 						<p>' . wp_kses_post( __( "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>", 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 					</div>
 					</div>
-				</div>
+				</div>	
 			 </div>
-
-
+	
+			 
 			 <div id="tab-5">
 				<div id="poststuff">
 					<div id="postbox-container-17" class="postbox-container">
@@ -745,7 +745,7 @@ function rich_snippet_dashboard() {
 					</div>
 				</div>
 			</div>
-
+	
 			 <div id="tab-3">
 				<div id="poststuff">
 					<div id="postbox-container-5" class="postbox-container">
@@ -811,10 +811,11 @@ function rich_snippet_dashboard() {
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-										<h3 class="hndle"><span>' . wp_kses_post( __( 'Customize the look and feel of rich snippet box', 'all-in-one-schemaorg-rich-snippets' ) ) . '</span></h3>
+										<h3 class="hndle">' . wp_kses_post( __( '<span>Customize the look and feel of rich snippet box</span>', 'all-in-one-schemaorg-rich-snippets' ) ) . //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
+										'</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
-											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped  
 											. '
 											<table class="bsf_metabox">
 												<tr>
@@ -853,7 +854,7 @@ function rich_snippet_dashboard() {
 					</div>
 				</div>
 			</div>
-
+						
 		 </div>
 		 </div>
 		<div class="postbox-container" id="bsf-postbox-container-1" >
@@ -863,7 +864,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch">' . esc_html__( 'WooCommerce Configuration', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
-			' . wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			' . wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 			. '
 				<p> ' . esc_html__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'all-in-one-schemaorg-rich-snippets' ) . ' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
@@ -881,7 +882,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . get_support( 1 ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		</div>' . get_support( 1 ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 		. '
 	</div>';
 	echo '
@@ -1208,13 +1209,13 @@ function get_support() {
 						<td><input required="required" type="text" class="bsf_text_medium" name="post_url" /></td></tr>
 					<tr><td><label for="subject"><strong>' . esc_html__( 'Subject:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong> </label></td>
 						<td>
-							<select class="select_full" name="subject">
+							<select class="select_full" name="subject"> 
 								<option value="question"> I have a question </option>
 								<option value="bug"> I found a bug </option>
 								<option value="help"> I need help </option>
 								<option value="professional">  I need professional service </option>
 								<option value="contribute"> I want to contribute my code</option>
-								<option value="other">  Other </option>
+								<option value="other">  Other </option>								
 							</select>
 						</td><td></td></tr>
 					<tr><td class="bsf_label"><label for="message"><strong>' . esc_html__( 'Your Query in Brief:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong> </label></td>
