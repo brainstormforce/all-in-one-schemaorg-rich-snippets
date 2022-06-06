@@ -3,7 +3,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema  
 **Requires at least:** 3.7  
-**Tested up to:** 5.9  
+**Tested up to:** 6.0  
 **Stable tag:** 1.6.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -79,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+
+### 1.6.5 ###
+- Fixed - Code updated according to coding standard.
 
 ### 1.6.4 ###
 - Improvement - Hardened the security of the plugin.
