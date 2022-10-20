@@ -95,6 +95,7 @@ function display_rich_snippet( $content ) {
 		$item_pro_price         = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
 		$item_pro_cur           = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
 		$item_pro_status        = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
+		$item_pro_photo         = get_post_meta( $post->ID, '_bsf_item_pro_product_image', true );
 		$item_recp_name         = get_post_meta( $post->ID, '_bsf_item_recipes_name', true );
 		$item_recp_photo        = get_post_meta( $post->ID, '_bsf_item_recipes_photo', true );
 		$item_soft_name         = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
@@ -115,6 +116,11 @@ function display_rich_snippet( $content ) {
 		if ( 'item_video' == $item_review_type ) {
 			$review .= '<div class="snippet-image"><img width="180" src="' . esc_url( $item_video_thumb ) . '" alt="Video Image"/></div>';
 			$review .= '<div class="aio-info">';
+		}
+		if ( 'item_product' == $item_review_type ) {
+			$review .= '<div class="snippet-image"><img width="180" src="' . esc_url( $item_pro_photo ) . '" alt="Product Image"/></div>';
+			$review .= '<div class="aio-info">';
+
 		}
 		if ( '' != trim( $reviewer ) ) {
 			if ( '' != $args_review['item_reviewer'] ) {
@@ -210,6 +216,9 @@ function display_rich_snippet( $content ) {
 						$review .= "<div class='snippet-label'>" . esc_attr( stripslashes( $item_product['product_name'] ) ) . '</div>';
 					}
 					$review .= " <div class='snippet-data'><span itemprop='name'>" . esc_attr( stripslashes( $item_pro_name ) ) . '</span></div>';
+					if ( '' != trim( $item_pro_photo ) ) {
+						$review .= '<meta itemprop="image" content="' . esc_attr( $item_pro_photo ) . '">';
+					}
 				}
 				if ( '' != trim( $item_pro_price ) ) {
 
@@ -416,7 +425,7 @@ function display_rich_snippet( $content ) {
 		$org_latitude  = get_post_meta( $post->ID, '_bsf_organization_latitude', true );
 		$org_longitude = get_post_meta( $post->ID, '_bsf_organization_longitude', true );
 		if ( '' != trim( $org_name ) ) {
-			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_nam ) . '</span></div>';
+			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_name ) . '</span></div>';
 		}
 		if ( '' != trim( $org_url ) ) {
 			$organization .= 'Website : <a href="' . esc_url( $org_url ) . '" rel="v:url">' . esc_attr( $org_url ) . '</a></div>';

@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.6 =
+- Fixed - Added image field in the product review schema.
+
 = 1.6.5 =
 - Fixed - Code updated according to coding standard.
 

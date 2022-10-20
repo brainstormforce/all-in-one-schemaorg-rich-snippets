@@ -21,5 +21,10 @@
         "post-update-cmd": "vendor/bin/cghooks update",
         "format": "phpcbf --standard=phpcs.xml.dist",
         "lint": "phpcs --standard=phpcs.xml.dist"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
