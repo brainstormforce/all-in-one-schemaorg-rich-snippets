@@ -95,7 +95,7 @@ function display_rich_snippet( $content ) {
 		$item_pro_price         = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
 		$item_pro_cur           = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
 		$item_pro_status        = get_post_meta( $post->ID, '_bsf_item_pro_status', true );
-		$item_pro_photo        = get_post_meta( $post->ID, '_bsf_item_pro_product_image', true );
+		$item_pro_photo         = get_post_meta( $post->ID, '_bsf_item_pro_product_image', true );
 		$item_recp_name         = get_post_meta( $post->ID, '_bsf_item_recipes_name', true );
 		$item_recp_photo        = get_post_meta( $post->ID, '_bsf_item_recipes_photo', true );
 		$item_soft_name         = get_post_meta( $post->ID, '_bsf_item_soft_name', true );
