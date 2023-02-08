@@ -139,7 +139,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="item_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=review&nonce=' . wp_create_nonce( 'aiosrs_item_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="item_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=review&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_item_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -189,7 +189,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="event_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=event&nonce=' . wp_create_nonce( 'aiosrs_event_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="event_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=event&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_event_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -239,7 +239,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="person_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=person&nonce=' . wp_create_nonce( 'aiosrs_person_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="person_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=person&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_person_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -289,7 +289,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="product_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=product&nonce=' . wp_create_nonce( 'aiosrs_product_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="product_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=product&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_product_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -347,7 +347,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="recipe_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=recipe&nonce=' . wp_create_nonce( 'aiosrs_recipe_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="recipe_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=recipe&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_recipe_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -397,7 +397,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="software_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=software&nonce=' . wp_create_nonce( 'aiosrs_software_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="software_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=software&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_software_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -441,7 +441,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="video_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=video&nonce=' . wp_create_nonce( 'aiosrs_video_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="video_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=video&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_video_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -491,7 +491,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="article_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=article&nonce=' . wp_create_nonce( 'aiosrs_article_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="article_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=article&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_article_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -549,7 +549,7 @@ function rich_snippet_dashboard() {
 													<tr><td colspan="2"></td></tr>
 													<tr>
 														<td></td>
-														<td><input type="submit" class="button-primary" name="service_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=service&nonce=' . wp_create_nonce( 'aiosrs_service_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+														<td><input type="submit" class="button-primary" name="service_submit" value="' . esc_html__( 'Update ', 'all-in-one-schemaorg-rich-snippets' ) . '"/>&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=service&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_service_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 													</tr>
 												</tbody>
 											</table>
@@ -840,7 +840,7 @@ function rich_snippet_dashboard() {
 												</tr>
 												<tr>
 													<td></td>
-													<td><input id="submit_colors" class="button-primary" type="submit" value="Update Colors" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color&nonce=' . wp_create_nonce( 'aiosrs_color_nonce' ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+													<td><input id="submit_colors" class="button-primary" type="submit" value="Update Colors" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_color_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 												</tr>
 											</table>
 											</form>
