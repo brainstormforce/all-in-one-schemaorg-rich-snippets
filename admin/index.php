@@ -913,7 +913,7 @@ function rich_snippet_dashboard() {
 }
 // Update options.
 if ( isset( $_POST['setting_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' )
+	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -930,7 +930,7 @@ if ( isset( $_POST['setting_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['item_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' )
+	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' || ! current_user_can( 'manage_options' ) )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -945,7 +945,7 @@ if ( isset( $_POST['item_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['event_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' )
+	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -960,7 +960,7 @@ if ( isset( $_POST['event_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['person_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' )
+	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -975,7 +975,7 @@ if ( isset( $_POST['person_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['product_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' )
+	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -990,7 +990,7 @@ if ( isset( $_POST['product_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['recipe_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' )
+	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -1005,7 +1005,7 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['software_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' )
+	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -1020,7 +1020,7 @@ if ( isset( $_POST['software_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['video_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' )
+	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -1035,7 +1035,7 @@ if ( isset( $_POST['video_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['article_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' )
+	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -1050,7 +1050,7 @@ if ( isset( $_POST['article_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['service_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' )
+	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
