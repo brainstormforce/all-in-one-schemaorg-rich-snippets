@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
 Tested up to: 6.1
-Stable tag: 1.6.5
+Stable tag: 1.6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -35,7 +35,7 @@ This plugin supports the following types of Schemas:
 * Recipe
 * Software Application
 * Video
-* Articles 
+* Articles
 
 = Future release would include - =
 * Breadcrumbs
@@ -51,7 +51,7 @@ You may now contribute to the plugin on Github: [All in one Schema.org Rich Snip
 = Through FTP =
 1. Upload the plugin into `wp-content/plugins` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. That's It. 
+3. That's It.
 Now go and create a new post. There you will find a meta box, select the type of post from dropdown and fill out the details, publish the post.
 Google will start showing rich snippets in the search results, as soon as your post is crawled.
 
@@ -79,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.6.6 =
+- Props to Patchstack for reporting security issues. Those are fixed in this release. Plus we've hardened security in other areas of the plugin.
 
 = 1.6.5 =
 - Fixed - Code updated according to coding standard.
@@ -143,12 +146,12 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 - Fix: WooCommerce Support Added
 
 = 1.4.2 =
-- Improvement: Added company/organization and address in people schema. 
-- Improvement: Added nutrition & ingredients in recipe schema. 
-- Improvement: Added software image & operating system in software application schema. 
-- Improvement: Added video description in software application schema. 
-- Improvement: Added author, publisher - organization and publisher logo in article schema. 
-- Improvement: Added provider location, provider location image, and telephone in service schema. 
+- Improvement: Added company/organization and address in people schema.
+- Improvement: Added nutrition & ingredients in recipe schema.
+- Improvement: Added software image & operating system in software application schema.
+- Improvement: Added video description in software application schema.
+- Improvement: Added author, publisher - organization and publisher logo in article schema.
+- Improvement: Added provider location, provider location image, and telephone in service schema.
 - Improvement: Changes admin bar test rich snippet redirect link to the structured data testing tool.
 - Fix: removed all error in schema according to structured data testing tool.
 
