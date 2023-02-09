@@ -112,8 +112,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_review_form" method="post">
-										' . wp_nonce_field( 'snippet_review_form_action', 'snippet_review_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_review_nonce_field" name="snippet_review_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_review_form_action' ) ) . '" />
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -154,8 +153,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_event_form" method="post">
-										' . wp_nonce_field( 'snippet_event_form_action', 'snippet_event_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_event_nonce_field" name="snippet_event_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_event_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -204,8 +202,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>", 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_person_form" method="post">
-										' . wp_nonce_field( 'snippet_person_form_action', 'snippet_person_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_person_nonce_field" name="snippet_person_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_person_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -254,8 +251,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_product_form" method="post">
-										' . wp_nonce_field( 'snippet_product_form_action', 'snippet_product_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_product_nonce_field" name="snippet_product_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_product_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -304,8 +300,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_recipe_form" method="post">
-										' . wp_nonce_field( 'snippet_recipe_form_action', 'snippet_recipe_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_recipe_nonce_field" name="snippet_recipe_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_recipe_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -362,8 +357,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_software_form" method="post">
-										' . wp_nonce_field( 'snippet_soft_app_form_action', 'snippet_soft_app_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_soft_app_nonce_field" name="snippet_soft_app_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_soft_app_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -414,8 +408,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_video_form" method="post">
-										' . wp_nonce_field( 'snippet_video_form_action', 'snippet_video_nonce_field' )//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_video_nonce_field" name="snippet_video_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_video_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -456,8 +449,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_article_form" method="post">
-										' . wp_nonce_field( 'snippet_article_form_action', 'snippet_article_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_article_nonce_field" name="snippet_article_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_article_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -506,8 +498,7 @@ function rich_snippet_dashboard() {
 									<div class="table">
 										<p>' . wp_kses_post( __( 'Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>', 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
 										<form id="bsf_service_form" method="post">
-										' . wp_nonce_field( 'snippet_service_form_action', 'snippet_service_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										. '
+										<input type="hidden" id="snippet_service_nonce_field" name="snippet_service_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_service_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tbody>
 													<tr>
@@ -815,8 +806,7 @@ function rich_snippet_dashboard() {
 										. '</h3>
 										<div class="inside">
 											<form id="bsf_css_editor" method="post" onsubmit="return false;" action="">
-											' . wp_nonce_field( 'snippet_color_form_action', 'snippet_color_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											. '
+											<input type="hidden" id="snippet_color_nonce_field" name="snippet_color_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_color_form_action' ) ) . '">
 											<table class="bsf_metabox">
 												<tr>
 													<th> <label for="snippet_box_bg"> ' . esc_html__( 'Box Background ', 'all-in-one-schemaorg-rich-snippets' ) . ' </label> </th>
@@ -864,8 +854,7 @@ function rich_snippet_dashboard() {
 			<h3 class="get_in_touch">' . esc_html__( 'WooCommerce Configuration', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
-			' . wp_nonce_field( 'snippet_woocommerce_form_action', 'snippet_woocommerce_nonce_field' ) //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			. '
+			<input type="hidden" id="snippet_woocommerce_nonce_field" name="snippet_woocommerce_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_woocommerce_form_action' ) ) . '">
 				<p> ' . esc_html__( 'WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option.', 'all-in-one-schemaorg-rich-snippets' ) . ' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
 					<tr>
@@ -930,8 +919,7 @@ if ( isset( $_POST['setting_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['item_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' || ! current_user_can( 'manage_options' ) )
-		) {
+	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' ) || ! current_user_can( 'manage_options' ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
@@ -1197,8 +1185,8 @@ function get_support() {
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 			<div class="inside">
-			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">'
-			. wp_nonce_field( 'aiosrs_support_form', 'aiosrs_support_form_nonce' ) . '
+			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
+			<input type="hidden" id="aiosrs_support_form_nonce" name="aiosrs_support_form_nonce" value="' . esc_attr( wp_create_nonce( 'aiosrs_support_form' ) ) . '" />
 				<p> ' . esc_html__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'all-in-one-schemaorg-rich-snippets' ) . ' </p>
 				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
 					<tr><td><label for="name"><strong>' . esc_html__( 'Your Name:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
