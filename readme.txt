@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.7 =
+- Fixed - Customizer not loading when All In One Schema Rich Snippets plugin is active.
+
 = 1.6.6 =
 - Props to Patchstack for reporting security issues. Those are fixed in this release. Plus we've hardened security in other areas of the plugin.
 
