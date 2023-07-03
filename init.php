@@ -588,7 +588,7 @@ add_filter( 'get_media_item_args', 'bsf_force_send' );
 function bsf_force_send( $args ) {
 
 	if ( ! isset( $_GET['bsf_file_upload_nonce'] ) || ! wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) ) {
-		return;
+		return $args;
 	}
 	// if the Gallery tab is opened from a custom meta box field, add Insert Into Post button.
 	if ( isset( $_GET['bsf_force_send'] ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
