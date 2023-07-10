@@ -3,8 +3,8 @@ Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
-Tested up to: 6.2
-Stable tag: 1.6.6
+Tested up to: 6.2.2
+Stable tag: 1.6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.6.7 =
+- Fixed - Customizer not loading when All In One Schema Rich Snippets plugin is active.
 
 = 1.6.6 =
 - Props to Patchstack for reporting security issues. Those are fixed in this release. Plus we've hardened security in other areas of the plugin.
