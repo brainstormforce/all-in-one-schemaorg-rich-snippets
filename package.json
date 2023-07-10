@@ -4,7 +4,7 @@
   "main": "Gruntfile.js",
   "author": "Brainstorm Force",
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-wp-i18n": "^1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1",
     "js-yaml": ">=3.13.1",
