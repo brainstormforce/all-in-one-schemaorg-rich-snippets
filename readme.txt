@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.8 =
+- Fixed - Ratings not visible on single product pages with Divi theme.
+
 = 1.6.7 =
 - Fixed - Customizer not loading when All In One Schema Rich Snippets plugin is active.
 
