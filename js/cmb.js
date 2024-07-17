@@ -68,14 +68,14 @@
                 $('#' + formfield + '_id').val("");
             });
             
-            $('.bsf_upload_button').live('click', function () {
+            $('.bsf_upload_button').on('click', function () {
                 var buttonLabel;
                 formfield = $(this).prev('input').attr('name');
                 buttonLabel = 'Use as ' + $('label[for=' + formfield + ']').text();
                 tb_show('', 'media-upload.php?post_id=' + $('#post_ID').val() + '&type=file&bsf_force_send=true&bsf_send_label=' + buttonLabel + '&TB_iframe=true&bsf_file_upload_nonce=' + bsf_ajax_data.ajax_nonce );
                 return false;
             });
-            $('.bsf_remove_file_button').live('click', function () {
+            $('.bsf_remove_file_button').on('click', function () {
                 formfield = $(this).attr('rel');
                 $('input#' + formfield).val('');
                 $('input#' + formfield + '_id').val('');
