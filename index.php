@@ -314,7 +314,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			$result = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
+			$result  .= wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
 			echo $result ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
 
 			die();
