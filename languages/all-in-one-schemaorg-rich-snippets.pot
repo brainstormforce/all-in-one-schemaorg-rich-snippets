@@ -1,15 +1,15 @@
-# Copyright (C) 2020 Brainstorm Force
+# Copyright (C) 2024 Brainstorm Force
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.4\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.9\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2020-10-14 07:30:50+00:00\n"
+"POT-Creation-Date: 2024-07-18 05:47:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -102,300 +102,300 @@ msgid ""
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:120 admin/index.php:162 admin/index.php:212
-#: admin/index.php:262 admin/index.php:312 admin/index.php:370
-#: admin/index.php:422 admin/index.php:464 admin/index.php:514
+#: admin/index.php:119 admin/index.php:160 admin/index.php:209
+#: admin/index.php:258 admin/index.php:307 admin/index.php:364
+#: admin/index.php:415 admin/index.php:456 admin/index.php:505
 msgid "Rich Snippet Title :"
 msgstr ""
 
-#: admin/index.php:124
+#: admin/index.php:123
 msgid "Reviewer :"
 msgstr ""
 
-#: admin/index.php:128
+#: admin/index.php:127
 msgid "Review Date :"
 msgstr ""
 
-#: admin/index.php:132
+#: admin/index.php:131
 msgid "Item Name :"
 msgstr ""
 
-#: admin/index.php:136
+#: admin/index.php:135
 msgid "Item Ratings :"
 msgstr ""
 
-#: admin/index.php:142 admin/index.php:192 admin/index.php:242
-#: admin/index.php:292 admin/index.php:350 admin/index.php:400
-#: admin/index.php:444 admin/index.php:494 admin/index.php:552
-#: admin/index.php:878
+#: admin/index.php:141 admin/index.php:190 admin/index.php:239
+#: admin/index.php:288 admin/index.php:345 admin/index.php:394
+#: admin/index.php:437 admin/index.php:486 admin/index.php:543
+#: admin/index.php:868
 msgid "Update "
 msgstr ""
 
-#: admin/index.php:142 admin/index.php:192 admin/index.php:242
-#: admin/index.php:292 admin/index.php:350 admin/index.php:400
-#: admin/index.php:444 admin/index.php:494 admin/index.php:552
-#: admin/index.php:842
+#: admin/index.php:141 admin/index.php:190 admin/index.php:239
+#: admin/index.php:288 admin/index.php:345 admin/index.php:394
+#: admin/index.php:437 admin/index.php:486 admin/index.php:543
+#: admin/index.php:833
 msgid "Reset "
 msgstr ""
 
-#: admin/index.php:152
+#: admin/index.php:151
 msgid "Events"
 msgstr ""
 
-#: admin/index.php:155
+#: admin/index.php:154
 msgid ""
 "Strings to be displayed on frontend for <strong>Events Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:166
+#: admin/index.php:164
 msgid "Event Title :"
 msgstr ""
 
-#: admin/index.php:170
+#: admin/index.php:168
 msgid "Event Location :"
 msgstr ""
 
-#: admin/index.php:174
+#: admin/index.php:172
 msgid "Start Time :"
 msgstr ""
 
-#: admin/index.php:178
+#: admin/index.php:176
 msgid "End Time :"
 msgstr ""
 
-#: admin/index.php:182 admin/index.php:340 admin/index.php:430
-#: admin/index.php:476 admin/index.php:526
+#: admin/index.php:180 admin/index.php:335 admin/index.php:423
+#: admin/index.php:468 admin/index.php:517
 msgid "Description :"
 msgstr ""
 
-#: admin/index.php:186
+#: admin/index.php:184
 msgid "Ticket Promotion :"
 msgstr ""
 
-#: admin/index.php:202 meta-boxes.php:64
+#: admin/index.php:200 meta-boxes.php:64
 msgid "Person"
 msgstr ""
 
-#: admin/index.php:205
+#: admin/index.php:203
 msgid ""
 "Strings to be displayed on frontend for <strong>Person's Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:216
+#: admin/index.php:213
 msgid "Person's Name :"
 msgstr ""
 
-#: admin/index.php:220
+#: admin/index.php:217
 msgid "Nick Name :"
 msgstr ""
 
-#: admin/index.php:224
+#: admin/index.php:221
 msgid "Job Title :"
 msgstr ""
 
-#: admin/index.php:228
+#: admin/index.php:225
 msgid "Home page :"
 msgstr ""
 
-#: admin/index.php:232
+#: admin/index.php:229
 msgid "Company Name :"
 msgstr ""
 
-#: admin/index.php:236
+#: admin/index.php:233
 msgid "Address :"
 msgstr ""
 
-#: admin/index.php:252 meta-boxes.php:68 meta-boxes.php:132
+#: admin/index.php:249 meta-boxes.php:68 meta-boxes.php:132
 msgid "Product"
 msgstr ""
 
-#: admin/index.php:255
+#: admin/index.php:252
 msgid ""
 "Strings to be displayed on frontend for <strong>Product Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:266 admin/index.php:374
+#: admin/index.php:262 admin/index.php:368
 msgid "Author Rating :"
 msgstr ""
 
-#: admin/index.php:270
+#: admin/index.php:266
 msgid "Brand Name :"
 msgstr ""
 
-#: admin/index.php:274
+#: admin/index.php:270
 msgid "Product Name :"
 msgstr ""
 
-#: admin/index.php:278 admin/index.php:378
+#: admin/index.php:274 admin/index.php:372
 msgid "User Rating :"
 msgstr ""
 
-#: admin/index.php:282
+#: admin/index.php:278
 msgid "Price :"
 msgstr ""
 
-#: admin/index.php:286
+#: admin/index.php:282
 msgid "Product Availability :"
 msgstr ""
 
-#: admin/index.php:302 meta-boxes.php:72 meta-boxes.php:136
+#: admin/index.php:298 meta-boxes.php:72 meta-boxes.php:136
 msgid "Recipe"
 msgstr ""
 
-#: admin/index.php:305
+#: admin/index.php:301
 msgid ""
 "Strings to be displayed on frontend for <strong>Recipe Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:316
+#: admin/index.php:311
 msgid "Recipe Name :"
 msgstr ""
 
-#: admin/index.php:320
+#: admin/index.php:315
 msgid "Author Name :"
 msgstr ""
 
-#: admin/index.php:324
+#: admin/index.php:319
 msgid "Published On : "
 msgstr ""
 
-#: admin/index.php:328
+#: admin/index.php:323
 msgid "Preparation Time:"
 msgstr ""
 
-#: admin/index.php:332
+#: admin/index.php:327
 msgid "Cook Time :"
 msgstr ""
 
-#: admin/index.php:336
+#: admin/index.php:331
 msgid "Total Time :"
 msgstr ""
 
-#: admin/index.php:344
+#: admin/index.php:339
 msgid "Average Rating:"
 msgstr ""
 
-#: admin/index.php:360 meta-boxes.php:76 meta-boxes.php:140
+#: admin/index.php:355 meta-boxes.php:76 meta-boxes.php:140
 msgid "Software Application"
 msgstr ""
 
-#: admin/index.php:363
+#: admin/index.php:358
 msgid ""
 "Strings to be displayed on frontend for <strong>Software Application Rich "
 "Snippets &mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:382
+#: admin/index.php:376
 msgid "Software Price :"
 msgstr ""
 
-#: admin/index.php:386
+#: admin/index.php:380
 msgid "Software Name:"
 msgstr ""
 
-#: admin/index.php:390
+#: admin/index.php:384
 msgid "Operating System :"
 msgstr ""
 
-#: admin/index.php:394
+#: admin/index.php:388
 msgid "Landing Page:"
 msgstr ""
 
-#: admin/index.php:412 meta-boxes.php:80 meta-boxes.php:144 meta-boxes.php:883
+#: admin/index.php:406 meta-boxes.php:80 meta-boxes.php:144 meta-boxes.php:883
 msgid "Video"
 msgstr ""
 
-#: admin/index.php:415
+#: admin/index.php:409
 msgid ""
 "Strings to be displayed on frontend for <strong>Video Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:426
+#: admin/index.php:419
 msgid "Video Title :"
 msgstr ""
 
-#: admin/index.php:434
+#: admin/index.php:427
 msgid "Video Duration :"
 msgstr ""
 
-#: admin/index.php:438
+#: admin/index.php:431
 msgid "Video Upload Date :"
 msgstr ""
 
-#: admin/index.php:454 meta-boxes.php:84
+#: admin/index.php:447 meta-boxes.php:84
 msgid "Article"
 msgstr ""
 
-#: admin/index.php:457
+#: admin/index.php:450
 msgid ""
 "Strings to be displayed on frontend for <strong>Article Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:468
+#: admin/index.php:460
 msgid "Article Name :"
 msgstr ""
 
-#: admin/index.php:472
+#: admin/index.php:464
 msgid "Author :"
 msgstr ""
 
-#: admin/index.php:480
+#: admin/index.php:472
 msgid "Image :"
 msgstr ""
 
-#: admin/index.php:484
+#: admin/index.php:476
 msgid "Publisher :"
 msgstr ""
 
-#: admin/index.php:488
+#: admin/index.php:480
 msgid "Publisher Logo :"
 msgstr ""
 
-#: admin/index.php:504 meta-boxes.php:88
+#: admin/index.php:496 meta-boxes.php:88
 msgid "Service"
 msgstr ""
 
-#: admin/index.php:507
+#: admin/index.php:499
 msgid ""
 "Strings to be displayed on frontend for <strong>Service Rich Snippets "
 "&mdash;</strong>"
 msgstr ""
 
-#: admin/index.php:518
+#: admin/index.php:509
 msgid "Service Type :"
 msgstr ""
 
-#: admin/index.php:522
+#: admin/index.php:513
 msgid "Area :"
 msgstr ""
 
-#: admin/index.php:530
+#: admin/index.php:521
 msgid "Provider Name :"
 msgstr ""
 
-#: admin/index.php:534
+#: admin/index.php:525
 msgid "Provider Location :"
 msgstr ""
 
-#: admin/index.php:538
+#: admin/index.php:529
 msgid "URL :"
 msgstr ""
 
-#: admin/index.php:542
+#: admin/index.php:533
 msgid "URL Text :"
 msgstr ""
 
-#: admin/index.php:546
+#: admin/index.php:537
 msgid "Service Rating :"
 msgstr ""
 
-#: admin/index.php:564
+#: admin/index.php:555
 msgid ""
 "Need some more schema types with automation to implement schema markup? Get "
 "the latest and premium schema markup plugin to automate the process of "
@@ -404,19 +404,19 @@ msgid ""
 "medium=configure' target='_blank'> Know more about Schema Pro.</a>"
 msgstr ""
 
-#: admin/index.php:576
+#: admin/index.php:567
 msgid "Welcome to All In One Schema Rich Snippets"
 msgstr ""
 
-#: admin/index.php:607
+#: admin/index.php:598
 msgid "How it works"
 msgstr ""
 
-#: admin/index.php:610
+#: admin/index.php:601
 msgid "Configure The Settings"
 msgstr ""
 
-#: admin/index.php:611
+#: admin/index.php:602
 msgid ""
 "Go to the “Rich Snippets” option in your WordPress dashboard. Under the "
 "Configuration tab, select your desired schema type and update the strings "
@@ -424,21 +424,21 @@ msgid ""
 "manage how your rich snippet content box will look."
 msgstr ""
 
-#: admin/index.php:612
+#: admin/index.php:603
 msgid "Add Markup To Pages"
 msgstr ""
 
-#: admin/index.php:612
+#: admin/index.php:603
 msgid ""
 "Edit the posts or pages where you wish to add rich snippets and scroll down "
 "to the “Configure Rich Snippet” meta box to add schema markup."
 msgstr ""
 
-#: admin/index.php:613
+#: admin/index.php:604
 msgid "Test Your Rich Snippets"
 msgstr ""
 
-#: admin/index.php:613
+#: admin/index.php:604
 msgid ""
 "Google Structured Data Testing is a widely used online tool to test "
 "structured data. Open the <a "
@@ -447,15 +447,15 @@ msgid ""
 "URL to test the schema markup you’ve just implemented on your webpages."
 msgstr ""
 
-#: admin/index.php:618
+#: admin/index.php:609
 msgid "Want to Automate Your Schema Markup?"
 msgstr ""
 
-#: admin/index.php:620
+#: admin/index.php:611
 msgid "Consider Schema Pro"
 msgstr ""
 
-#: admin/index.php:621
+#: admin/index.php:612
 msgid ""
 "Schema Pro is an advanced schema markup plugin that automates the process "
 "of adding schema markup on multiple pages with just a few clicks. Schema "
@@ -465,55 +465,55 @@ msgid ""
 "content</b> on your site."
 msgstr ""
 
-#: admin/index.php:694
+#: admin/index.php:685
 msgid "With Schema Pro, you can…"
 msgstr ""
 
-#: admin/index.php:704
+#: admin/index.php:695
 msgid "Testimonials"
 msgstr ""
 
-#: admin/index.php:755
+#: admin/index.php:746
 msgid "Where can I test my schema markup implementation?"
 msgstr ""
 
-#: admin/index.php:757
+#: admin/index.php:748
 msgid ""
 "You can use the standard Google Structured Data Testing Tool to test your "
 "schema markup implementation. You can also take a look at the preview of "
 "how your search result might look."
 msgstr ""
 
-#: admin/index.php:762
+#: admin/index.php:753
 msgid "Do I have to fill in all the details?"
 msgstr ""
 
-#: admin/index.php:764
+#: admin/index.php:755
 msgid ""
 "No. But, every schema type has some fields that HAVE to be filled as stated "
 "by Google. Therefore, it is recommended to fill these required fields in "
 "the schema markup you are implementing."
 msgstr ""
 
-#: admin/index.php:769
+#: admin/index.php:760
 msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
 msgstr ""
 
-#: admin/index.php:778
+#: admin/index.php:769
 msgid ""
 "Does the plugin work with other plugins like WordPress SEO, WooCommerce, "
 "etc?"
 msgstr ""
 
-#: admin/index.php:785
+#: admin/index.php:776
 msgid "How long will it take to show up rich snippets for my search results?"
 msgstr ""
 
-#: admin/index.php:794
+#: admin/index.php:785
 msgid "I don't see the feature I want. How can I get it?"
 msgstr ""
 
-#: admin/index.php:796
+#: admin/index.php:787
 msgid ""
 "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> "
 "with us to ask if this feature is in our development roadmap. If it is not "
@@ -521,43 +521,43 @@ msgid ""
 "better, we have a couple of options for you:"
 msgstr ""
 
-#: admin/index.php:798
+#: admin/index.php:789
 msgid ""
 "Code the new feature if you are a developer and submit your code. If we "
 "include this feature in our releases, credits will be given to you."
 msgstr ""
 
-#: admin/index.php:799
+#: admin/index.php:790
 msgid ""
 "Offer a sponsorship to get this feature done for all plugin users OR "
 "request a professional customisation service."
 msgstr ""
 
-#: admin/index.php:814
+#: admin/index.php:805
 msgid "<span>Customize the look and feel of rich snippet box</span>"
 msgstr ""
 
-#: admin/index.php:821
+#: admin/index.php:812
 msgid "Box Background "
 msgstr ""
 
-#: admin/index.php:825
+#: admin/index.php:816
 msgid "Title Background"
 msgstr ""
 
-#: admin/index.php:829
+#: admin/index.php:820
 msgid "Border Color"
 msgstr ""
 
-#: admin/index.php:833
+#: admin/index.php:824
 msgid "Title Color"
 msgstr ""
 
-#: admin/index.php:837
+#: admin/index.php:828
 msgid "Snippet Text Color"
 msgstr ""
 
-#: admin/index.php:849
+#: admin/index.php:840
 msgid ""
 "Don&#39;t want to add a content box on the front-end? Get the latest and "
 "premium schema markup plugin that adds Google recommended JSON-LD "
@@ -566,11 +566,11 @@ msgid ""
 "medium=customize' target='_blank'> Know more about Schema Pro.</a>"
 msgstr ""
 
-#: admin/index.php:863
+#: admin/index.php:854
 msgid "WooCommerce Configuration"
 msgstr ""
 
-#: admin/index.php:868
+#: admin/index.php:858
 msgid ""
 "WooCommerce comes with Schema.org code by default and using our plugin on "
 "WooCommerce product pages does will add duplicate schema so it is not "
@@ -578,41 +578,41 @@ msgid ""
 "products, please enable this option."
 msgstr ""
 
-#: admin/index.php:1073
+#: admin/index.php:1062
 msgid "Success! Your changes were successfully saved!"
 msgstr ""
 
-#: admin/index.php:1075
+#: admin/index.php:1064
 msgid "Sorry, Your changes are not saved!"
 msgstr ""
 
-#: admin/index.php:1197
+#: admin/index.php:1186
 msgid "Get in touch with the Plugin Developers"
 msgstr ""
 
-#: admin/index.php:1201
+#: admin/index.php:1190
 msgid ""
 "Just fill out the form below and your message will be emailed to the Plugin "
 "Developers."
 msgstr ""
 
-#: admin/index.php:1203
+#: admin/index.php:1192
 msgid "Your Name:"
 msgstr ""
 
-#: admin/index.php:1205
+#: admin/index.php:1194
 msgid "Your Email:"
 msgstr ""
 
-#: admin/index.php:1207
+#: admin/index.php:1196
 msgid "Reference URL:"
 msgstr ""
 
-#: admin/index.php:1209
+#: admin/index.php:1198
 msgid "Subject:"
 msgstr ""
 
-#: admin/index.php:1220
+#: admin/index.php:1209
 msgid "Your Query in Brief:"
 msgstr ""
 
@@ -632,19 +632,19 @@ msgstr ""
 msgid "Ratings updated successfully !"
 msgstr ""
 
-#: index.php:314
+#: index.php:318
 msgid "Thank you!"
 msgstr ""
 
-#: index.php:314
+#: index.php:318
 msgid "Something went wrong!"
 msgstr ""
 
-#: index.php:343
+#: index.php:347
 msgid "Settings saved !"
 msgstr ""
 
-#: index.php:343
+#: index.php:347
 msgid "Error occured. Settings were not saved !"
 msgstr ""
 

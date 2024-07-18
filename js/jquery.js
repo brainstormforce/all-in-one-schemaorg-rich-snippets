@@ -2212,7 +2212,6 @@ if ( !jQuery.support.optSelected ) {
 		get: function( elem ) {
 			var parent = elem.parentNode;
 			if ( parent ) {
-				parent.selectedIndex;
 				// Make sure that it also works with optgroups, see #5701
 				if ( parent.parentNode ) {
 					parent.parentNode.selectedIndex;
@@ -4694,7 +4693,7 @@ jQuery.fn.extend({
 			len = this.length;
 		if ( typeof selector !== "string" ) {
 			self = this;
-			return this.pushStack( jQuery( selector ).filter(function() {
+			return this.pushStack( jQuery( selector ).filter(() => {
 				for ( i = 0; i < len; i++ ) {
 					if ( jQuery.contains( self[ i ], this ) ) {
 						return true;
@@ -4976,7 +4975,7 @@ jQuery.fn.extend({
 			if ( this[0].parentNode ) {
 				wrap.insertBefore( this[0] );
 			}
-			wrap.map(function() {
+			wrap.map(() => {
 				var elem = this;
 				while ( elem.firstChild && elem.firstChild.nodeType === 1 ) {
 					elem = elem.firstChild;
@@ -5195,7 +5194,7 @@ jQuery.fn.extend({
 				if ( hasScripts ) {
 					doc = scripts[ scripts.length - 1 ].ownerDocument;
 					// Reenable scripts
-					jQuery.map( scripts, restoreScript );
+					var mappedScripts = jQuery.map( scripts, restoreScript );
 					// Evaluate executable scripts on first document insertion
 					for ( i = 0; i < hasScripts; i++ ) {
 						node = scripts[ i ];
@@ -5737,7 +5736,7 @@ jQuery.extend({
 				type = "number";
 			}
 			// Make sure that NaN and null values aren't set. See: #7116
-			if ( value == null || type === "number" && isNaN( value ) ) {
+			if ( value == null || type === "number" && Number.isNaN( value ) ) {
 				return;
 			}
 			// If a number was passed in, add 'px' to the (except for certain CSS properties)
@@ -6135,19 +6134,19 @@ jQuery.fn.extend({
 		return jQuery.param( this.serializeArray() );
 	},
 	serializeArray: function() {
-		return this.map(function(){
+		return this.map((i, elem) => {
 			// Can add propHook for "elements" to filter or add form elements
 			var elements = jQuery.prop( this, "elements" );
 			return elements ? jQuery.makeArray( elements ) : this;
 		})
-		.filter(function(){
+		.filter(() => {
 			var type = this.type;
 			// Use .is(":disabled") so that fieldset[disabled] works
 			return this.name && !jQuery( this ).is( ":disabled" ) &&
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !manipulation_rcheckableType.test( type ) );
 		})
-		.map(function( i, elem ){
+		.map((i, elem) => {
 			var val = jQuery( this ).val();
 			return val == null ?
 				null :

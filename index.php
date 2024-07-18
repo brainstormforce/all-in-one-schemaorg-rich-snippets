@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.6.8
+ * Version: 1.6.9
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -68,7 +68,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.6.8' );
+			define( 'AIOSRS_PRO_VER', '1.6.9' );
 		}
 
 		/**
@@ -314,7 +314,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			echo mail( $to, $subject, $html, $headers ) ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
+			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
+			echo $result ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
 
 			die();
 		}
