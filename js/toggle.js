@@ -6,9 +6,7 @@ jQuery(document).ready(function() {
 	else
 		expand_default(selected);
 	jQuery(window).on('load',function () {
-		if(item_type == "none") {
-			item_hidden();
-		} else if(selected != "1" && item_type != "none") {
+		if(item_type == "none" || (selected != "1" && item_type != "none")) {
 			item_hidden();
 		} else {
 			item_expand_default(item_type);
