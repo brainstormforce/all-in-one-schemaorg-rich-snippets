@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.8.1 =
+- Improvement: Fixed security audit issues.
+
 = 1.6.8 =
 - Fixed - Ratings not visible on single product pages with Divi theme.
 
