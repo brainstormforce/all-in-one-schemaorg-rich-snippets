@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.9.1 =
+- Fixed: Resolved url redirect issue for Test Rich Snippets button.
+
 = 1.6.9 =
 - Improvement: Improved plugin codebase for better security.
 
