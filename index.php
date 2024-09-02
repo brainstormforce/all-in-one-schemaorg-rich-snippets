@@ -76,7 +76,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function aiosrs_admin_bar() {
 			global $wp_admin_bar;
-			$actual_link = esc_url( "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" );
 			if ( ! is_super_admin() || ! is_admin_bar_showing() ) {
 				return;
 			}
@@ -85,7 +84,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 					array(
 						'id'    => 'aiosrs',
 						'title' => 'Test Rich Snippets',
-						'href'  => 'https://search.google.com/structured-data/testing-tool#url=' . $actual_link,
+						'href'  => 'https://validator.schema.org/',
 						'meta'  => array( 'target' => '_blank' ),
 					)
 				);
