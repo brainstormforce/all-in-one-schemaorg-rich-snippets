@@ -1,0 +1,37 @@
+# Start command: composer update --classmap-authoritative && vendor/bin/phpstan analyze
+
+includes:
+	- phpstan-baseline.neon # Baseline to ignore error temporary
+	# https://github.com/phpstan/phpstan/blob/master/conf/bleedingEdge.neon
+	# - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+	# - phar://phpstan.phar/conf/bleedingEdge.neon
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+	# - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+parameters:
+	level: 9
+	inferPrivatePropertyTypeFromConstructor: true
+	treatPhpDocTypesAsCertain: false
+	scanFiles:
+	bootstrapFiles:
+		- vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+		- tests/php/stubs/aiosrs-stubs.php
+	paths:
+		- admin
+		- assets
+		- inc
+		- languages
+
+	ignoreErrors:
+		- '#Call to an undefined method [a-zA-Z0-9\\_]+\:\:add_control\(\).$#'
+		- '#Call to an undefined method [^\s]+\.$#'
+		- '#Call to method [^\s]+ on an unknown class Elementor\\[^\s]+\.$#'
+		- '#Cannot access [^\s]+#'
+		- '#Parameter [^\s]+#'
+		- '#Function [^\s]+ not found.#'
+		- '#Access to an undefined property [^\s]+#'  
+		- '#Static property [^\s]+#'
+		- '#Call to static method [^\s]+#'
+		- '#Offset [^\s]+#'
+		- '#Access to [^\s]+#'
+		- '#Strict comparison using \=\=\= between ''no'' and true will always evaluate to false.#'
+
