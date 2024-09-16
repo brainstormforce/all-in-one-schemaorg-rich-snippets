@@ -17,9 +17,8 @@ parameters:
 		- tests/php/stubs/aiosrs-stubs.php
 	paths:
 		- admin
-		- assets
-		- inc
-		- languages
+
+
 
 	ignoreErrors:
 		- '#Call to an undefined method [a-zA-Z0-9\\_]+\:\:add_control\(\).$#'
@@ -34,4 +33,5 @@ parameters:
 		- '#Offset [^\s]+#'
 		- '#Access to [^\s]+#'
 		- '#Strict comparison using \=\=\= between ''no'' and true will always evaluate to false.#'
+		
 

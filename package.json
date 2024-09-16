@@ -5,6 +5,7 @@
   "author": "Brainstorm Force",
   "devDependencies": {
     "grunt": "^1.6.1",
+    "grunt-cli": "^1.5.0",
     "grunt-contrib-compress": "^2.0.0",
     "grunt-wp-i18n": "^1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1",
