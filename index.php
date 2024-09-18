@@ -62,6 +62,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 		/**
 		 * Defines all constants
+		 * 
+		 * @return void
 		 */
 		public function define_constants() {
 			define( 'AIOSRS_PRO_FILE', __FILE__ );
@@ -73,6 +75,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 		/**
 		 * Admin bar menu.
+		 * 
+		 * @return void
 		 */
 		public function aiosrs_admin_bar() {
 			global $wp_admin_bar;
@@ -93,6 +97,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Register_custom_menu_page.
+		 * 
+		 * @return void
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
@@ -105,6 +111,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Add settings link on plugin page.
 		 *
 		 * @param string $links Links.
+		 * @return array
 		 */
 		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
@@ -115,6 +122,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 *  Print the star rating style on post edit page.
 		 *
 		 * @param string $hook Hook.
+		 * 
+		 * @return void
 		 */
 		public function post_enqueue( $hook ) {
 			if ( 'post.php' != $hook ) {
@@ -143,6 +152,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 *  Post_new_enqueue.
 		 *
 		 * @param string $hook Hook.
+		 * 
+		 * @return void
 		 */
 		public function post_new_enqueue( $hook ) {
 			if ( 'post-new.php' != $hook ) {
@@ -169,6 +180,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Initialize the metabox class.
+		 * 
+		 * @return void
 		 */
 		public function wp_initialize_bsf_meta_boxes() {
 			if ( ! class_exists( 'Bsf_Meta_Box' ) ) {
@@ -177,6 +190,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Set_styles.
+		 * 
+		 * @return void
 		 */
 		public function set_styles() {
 			wp_register_style( 'star_style', plugins_url( '/css/jquery.rating.css', __FILE__ ), null, '1.0' );
@@ -188,6 +203,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Define icon styles for the custom post type.
+		 * 
+		 * @return void
 		 */
 		public function star_icons() {
 			?>
@@ -206,6 +223,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		<?php }
 		/**
 		 * Translation.
+		 * 
+		 * @return void
 		 */
 		public function rich_snippet_translation() {
 			// Load Translation File.
@@ -213,6 +232,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Register_bsf_settings.
+		 * 
+		 * @return void
 		 */
 		public function register_bsf_settings() {
 			require_once plugin_dir_path( __FILE__ ) . 'settings.php';
@@ -232,6 +253,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Aiosrs_admin_redirect.
+		 * 
+		 * @return void
 		 */
 		public function aiosrs_admin_redirect() {
 			$main_url = esc_url( admin_url() );
@@ -242,6 +265,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Submit_request.
+		 * 
+		 * @return void
 		 */
 		public function submit_request() {
 			$to       = 'Brainstorm Force <support@bsf.io>';
@@ -251,6 +276,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$message  = '';
 			$post_url = '';
 			$name     = '';
+			$subject  = ''; // Initialize $subject
+
 			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
 
 				$from     = sanitize_email( $_POST['email'] );
@@ -321,6 +348,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Submit_color.
+		 * 
+		 * @return void
 		 */
 		public function submit_color() {
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -352,6 +381,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Iris_enqueue_scripts.
+		 * 
+		 * @return void
 		 */
 		public function iris_enqueue_scripts() {
 			wp_enqueue_script( 'wp-color-picker' );
@@ -361,6 +392,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Bsf_color_scripts.
+		 * 
+		 * @return void
 		 */
 		public function bsf_color_scripts() {
 			global $wp_version;

@@ -67,6 +67,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Setup actions for admin notice style and analytics cron event.
 		 *
 		 * @since 1.0.4
+		 * 
+		 * @return void
 		 */
 		public function set_actions() {
 
@@ -115,15 +117,17 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
 			$css_ext  = ( SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
-			$css_uri = BSF_ANALYTICS_URI . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
+			$css_uri = (defined('BSF_ANALYTICS_URI') ? BSF_ANALYTICS_URI : '') . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
 
-			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, BSF_ANALYTICS_VERSION, 'all' );
+			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, (defined('BSF_ANALYTICS_VERSION') ? BSF_ANALYTICS_VERSION : ''), 'all' );
 		}
 
 		/**
 		 * Send analytics API call.
 		 *
 		 * @since 1.0.0
+		 * 
+		 * @return void
 		 */
 		public function send() {
 			wp_remote_post(
@@ -185,7 +189,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Display admin notice for usage tracking.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
+
 		public function option_notice() {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -267,6 +273,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Process usage tracking opt out.
 		 *
 		 * @since 1.0.0
+		 * 
+		 * @return void
 		 */
 		public function handle_optin_optout() {
 
@@ -308,6 +316,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $source source of analytics.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function optin( $source ) {
 			update_site_option( $source . '_analytics_optin', 'yes' );
@@ -318,6 +327,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param string $source source of analytics.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function optout( $source ) {
 			update_site_option( $source . '_analytics_optin', 'no' );
@@ -327,6 +337,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Load analytics stat class.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		private function includes() {
 			require_once __DIR__ . '/class-bsf-analytics-stats.php';
@@ -336,6 +347,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Register usage tracking option in General settings page.
 		 *
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function register_usage_tracking_setting() {
 
@@ -377,6 +389,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param bool $input Option value.
 		 * @since 1.0.0
+		 * @return string
 		 */
 		public function sanitize_option( $input ) {
 
@@ -392,6 +405,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 *
 		 * @param array $args arguments to field.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function render_settings_field_html( $args ) {
 			?>
@@ -418,7 +432,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Set analytics installed time in option.
 		 *
 		 * @param string $source source of analytics.
-		 * @return string $time analytics installed time.
+		 * @return string|mixed $time analytics installed time.
 		 * @since 1.0.0
 		 */
 		private function get_analytics_install_time( $source ) {
@@ -440,6 +454,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $value value of option.
 		 * @param string $option Option name.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function update_analytics_option_callback( $old_value, $value, $option ) {
 			if ( is_multisite() ) {
@@ -453,6 +468,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $option Option name.
 		 * @param string $value value of option.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function add_analytics_option_callback( $option, $value ) {
 			if ( is_multisite() ) {
@@ -464,6 +480,8 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analaytics track event if tracking is enabled.
 		 *
 		 * @since 1.0.0
+		 * 
+		 * @return void
 		 */
 		public function maybe_track_analytics() {
 
@@ -486,6 +504,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @param string $option name of option.
 		 * @param string $value value of option.
 		 * @since 1.0.0
+		 * @return void
 		 */
 		public function add_option_to_network( $option, $value ) {
 
