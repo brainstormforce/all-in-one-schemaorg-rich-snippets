@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.9\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.10\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2024-07-18 05:47:27+00:00\n"
+"POT-Creation-Date: 2024-09-19 08:31:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -616,35 +616,35 @@ msgstr ""
 msgid "Your Query in Brief:"
 msgstr ""
 
-#: functions.php:1241
+#: functions.php:1269
 msgid "Error adding your rating"
 msgstr ""
 
-#: functions.php:1241
+#: functions.php:1269
 msgid "Ratings added successfully !"
 msgstr ""
 
-#: functions.php:1271
+#: functions.php:1299
 msgid "Error updating your rating"
 msgstr ""
 
-#: functions.php:1271
+#: functions.php:1299
 msgid "Ratings updated successfully !"
 msgstr ""
 
-#: index.php:318
+#: index.php:317
 msgid "Thank you!"
 msgstr ""
 
-#: index.php:318
+#: index.php:317
 msgid "Something went wrong!"
 msgstr ""
 
-#: index.php:347
+#: index.php:346
 msgid "Settings saved !"
 msgstr ""
 
-#: index.php:347
+#: index.php:346
 msgid "Error occured. Settings were not saved !"
 msgstr ""
 
