@@ -284,6 +284,7 @@ function display_rich_snippet( $content ) {
 						$review .= '<div class="snippet-label">' . esc_attr( stripslashes( $item_video['video_date'] ) ) . '</div>';
 					}
 					$review .= "<div class='snippet-data'><span itemprop='uploadDate'>" . esc_attr( stripslashes( $item_video_date ) ) . '</span></div>';
+					echo $item_video_date;
 				}
 				if ( '' != trim( $item_video_thumb ) ) {
 					$review .= '<meta itemprop="thumbnailUrl" content="' . esc_attr( $item_video_thumb ) . '">';
@@ -890,10 +891,23 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="embedURL" content="' . esc_attr( $video_emb_url ) . '">';
 		}
 		if ( '' != trim( $video_duration ) ) {
-			$video .= '<meta itemprop="duration" content="' . esc_attr( $video_duration ) . '">';
-		}
+			// Assuming $video_duration is in a human-readable format like "1:30:45" (H:M:S)
+			$duration_parts = explode( ':', $video_duration );
+		
+			// Build the ISO 8601 format
+			$hours = isset( $duration_parts[0] ) ? $duration_parts[0] : 0;
+			$minutes = isset( $duration_parts[1] ) ? $duration_parts[1] : 0;
+			$seconds = isset( $duration_parts[2] ) ? $duration_parts[2] : 0;
+		
+			// Construct the ISO 8601 duration string
+			$iso_duration = 'PT' . ( $hours > 0 ? $hours . 'H' : '' ) . ( $minutes > 0 ? $minutes . 'M' : '' ) . ( $seconds > 0 ? $seconds . 'S' : '' );
+		
+			// Add the meta tag with the correct duration format
+			$video .= '<meta itemprop="duration" content="' . esc_attr( $iso_duration ) . '">';
+		}		
 		if ( '' != trim( $video_date ) ) {
 			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $video_date ) . '">';
+			error_log(print_r($video_date, true));
 		}
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
