@@ -6,9 +6,138 @@ parameters:
 			count: 1
 			path: test
 
-
 		#common errors
 
 		- '#type has no value type specified in iterable type array\.$#'
 		- '#with no value type specified in iterable type array\.$#'
 		- "#^While loop condition is always true\\.$#"
+
+		-
+			message: "#^Property BSF_Analytics_Loader\\:\\:\\$analytics_version \\(float\\) does not accept default value of type string\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: "#^Property BSF_Analytics_Loader\\:\\:\\$analytics_version \\(float\\) does not accept mixed\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: "#^Property BSF_Analytics_Loader\\:\\:\\$entities type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: "#^Method BSF_Analytics_Stats\\:\\:format_plugin\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
+
+		-
+			message: "#^Method BSF_Analytics_Stats\\:\\:get_active_plugins\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
+
+		-
+			message: "#^Method BSF_Analytics_Stats\\:\\:get_default_stats\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
+
+		-
+			message: "#^Method BSF_Analytics_Stats\\:\\:get_stats\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
+
+		-
+			message: "#^Property BSF_Analytics_Stats\\:\\:\\$plugins type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:__construct\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:render_settings_field_html\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Property BSF_Analytics\\:\\:\\$entities type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: functions.php
+
+		-
+			message: "#^Function bsf_do_rating\\(\\) should return string but return statement is missing\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function get_previous_rating\\(\\) has parameter \\$haystack with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Filter callback return statement is missing\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:bsf_settings_link\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Argument of an invalid type array\\<int, WP_Term\\>\\|WP_Error supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Argument of an invalid type array\\<int, int\\|string\\|WP_Term\\>\\|string\\|WP_Error supplied for foreach, only iterables are supported\\.$#"
+			count: 3
+			path: init.php
+
+		-
+			message: "#^Cannot assign offset 'show_on' to string\\.$#"
+			count: 2
+			path: init.php
+
+		-
+			message: "#^Function bsf_force_send\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Function bsf_force_send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box\\:\\:save\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$_meta_box\\.\\)\\: Unexpected token \"\\$_meta_box\", expected type at offset 34$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Property Bsf_Meta_Box\\:\\:\\$_meta_box has no type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Function bsf_metaboxes\\(\\) has parameter \\$meta_boxes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: meta-boxes.php
+
+		-
+			message: "#^Function bsf_metaboxes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: meta-boxes.php
