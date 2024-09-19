@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, Microdata, schema
 Requires at least: 3.7
 Tested up to: 6.6
-Stable tag: 1.6.9
+Stable tag: 1.6.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
