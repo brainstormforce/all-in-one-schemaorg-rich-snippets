@@ -7,6 +7,7 @@
     "grunt": "^1.6.1",
     "grunt-wp-i18n": "^1.0.3",
     "grunt-wp-readme-to-markdown": "~2.0.1",
+    "grunt-zip": "^1.0.0",
     "js-yaml": ">=3.13.1",
     "minimist": ">=1.2.3"
   }
