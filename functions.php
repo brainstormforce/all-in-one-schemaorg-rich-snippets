@@ -905,7 +905,19 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="duration" content="' . esc_attr( $iso_duration ) . '">';
 		}		
 		if ( '' != trim( $video_date ) ) {
-			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $video_date ) . '">';
+			try {
+				// Create a DateTime object from the $video_date string
+				$datetime = new DateTime($video_date, new DateTimeZone('UTC')); // Set the timezone, adjust as needed
+		
+				// Format the date to ISO 8601 with timezone
+				$iso_date = $datetime->format(DateTime::ATOM); // Outputs ISO 8601 with timezone info
+		
+				// Add the uploadDate field to the $video string
+				$video .= '<meta itemprop="uploadDate" content="' . esc_attr($iso_date) . '">';
+			} catch (Exception $e) {
+				// Handle exceptions if the date format is invalid
+				error_log('Invalid date format for video upload date: ' . $video_date);
+			}
 		}
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
