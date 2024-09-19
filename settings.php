@@ -7,6 +7,8 @@
 
 /**
  * Function to add review option for settings.
+ * 
+ * @return void
  */
 function add_review_option() {
 	$review_opt = array(
@@ -21,6 +23,8 @@ function add_review_option() {
 
 /**
  * Function to add event option for settings.
+ * 
+ * @return void
  */
 function add_event_option() {
 	$event_opt = array(
@@ -37,6 +41,8 @@ function add_event_option() {
 
 /**
  *  Function to add person option for settings.
+ * 
+ * @return void
  */
 function add_person_option() {
 	$person_opt = array(
@@ -53,6 +59,8 @@ function add_person_option() {
 
 /**
  *  Function to add product option for settings.
+ * 
+ * @return void
  */
 function add_product_option() {
 	$product_opt = array(
@@ -69,6 +77,8 @@ function add_product_option() {
 
 /**
  *  Function to add recipe option for settings.
+ * 
+ * @return void
  */
 function add_recipe_option() {
 	$recipe_opt = array(
@@ -89,6 +99,8 @@ function add_recipe_option() {
 
 /**
  *  Function to add software option for settings.
+ * 
+ * @return void
  */
 function add_software_option() {
 	$software_opt = array(
@@ -105,6 +117,8 @@ function add_software_option() {
 
 /**
  *  Function to add video option for settings.
+ * 
+ * @return void
  */
 function add_video_option() {
 	$video_opt = array(
@@ -118,6 +132,8 @@ function add_video_option() {
 }
 /**
  *  Function to add article option for settings.
+ * 
+ * @return void
  */
 function add_article_option() {
 	$article_opt = array(
@@ -134,6 +150,8 @@ function add_article_option() {
 }
 /**
  *  Function to add article option for settings.
+ * 
+ * @return void
  */
 function add_service_option() {
 	$service_opt = array(
@@ -152,6 +170,8 @@ function add_service_option() {
 }
 /**
  *  Function for customization
+ * 
+ * @return void
  */
 function add_color_option() {
 	$color_opt = array(
@@ -166,6 +186,8 @@ function add_color_option() {
 
 /**
  *  Function for customization
+ * 
+ * @return void
  */
 function add_woo_commerce_option() {
 	if ( ! get_option( 'bsf_woocom_init_setting' ) ) {

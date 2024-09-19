@@ -27,6 +27,8 @@ add_action( 'wp_head', 'add_ajax_library' );
 add_action( 'wp', 'aiosrs_check_snippet_existence' );
 /**
  * Aiosrs_check_snippet_existence.
+ * 
+ * @return void
  */
 function aiosrs_check_snippet_existence() {
 	global $post;
@@ -43,6 +45,8 @@ function aiosrs_check_snippet_existence() {
 }
 /**
  * Aiosrs_enque.
+ * 
+ * @return void
  */
 function aiosrs_enque() {
 	wp_enqueue_style( 'rating_style', plugin_dir_url( __FILE__ ) . 'css/jquery.rating.css', null, '1.0' );
@@ -52,6 +56,8 @@ function aiosrs_enque() {
 }
 /**
  * Bsf_initialize_bsf_meta_boxes.
+ * 
+ * @return void
  */
 function bsf_initialize_bsf_meta_boxes() {
 	if ( ! class_exists( 'Bsf_Meta_Box' ) ) {
@@ -62,6 +68,8 @@ function bsf_initialize_bsf_meta_boxes() {
  * Function to display the rich snippet output below the content.
  *
  * @param string $content Content.
+ * 
+ * @return string
  */
 function display_rich_snippet( $content ) {
 	global $post;
@@ -192,6 +200,8 @@ function display_rich_snippet( $content ) {
 			}
 			if ( 'item_product' == $item_review_type ) {
 				$item_product = get_option( 'bsf_product' );
+				// Set a default value for $availability.
+				$availability = '';
 				if ( 'out_of_stock' == trim( $item_pro_status ) ) {
 					$item_pro_status = 'OutOfStock';
 					$availability    = 'Out of Stock';
@@ -416,7 +426,7 @@ function display_rich_snippet( $content ) {
 		$org_latitude  = get_post_meta( $post->ID, '_bsf_organization_latitude', true );
 		$org_longitude = get_post_meta( $post->ID, '_bsf_organization_longitude', true );
 		if ( '' != trim( $org_name ) ) {
-			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_nam ) . '</span></div>';
+			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_name ) . '</span></div>';
 		}
 		if ( '' != trim( $org_url ) ) {
 			$organization .= 'Website : <a href="' . esc_url( $org_url ) . '" rel="v:url">' . esc_attr( $org_url ) . '</a></div>';
@@ -554,6 +564,8 @@ function display_rich_snippet( $content ) {
 		global $post;
 		$args_product = get_option( 'bsf_product' );
 		$product      = '';
+		// Set a default value for $availability.
+		$availability = '';
 		$product     .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 		if ( '' != $args_product['snippet_title'] ) {
 			$product .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_product['snippet_title'] ) );
@@ -1113,6 +1125,8 @@ add_filter( 'the_content', 'display_rich_snippet', 90 );
 require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
  * Get_the_ip.
+ * 
+ * @return string
  */
 function get_the_ip() {
 	if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
@@ -1125,6 +1139,8 @@ function get_the_ip() {
 }
 /**
  * Average_rating.
+ * 
+ * @return float|string
  */
 function average_rating() {
 	global $post;
@@ -1153,6 +1169,8 @@ function average_rating() {
 }
 /**
  * Rating_count.
+ * 
+ * @return int
  */
 function rating_count() {
 	global $post;
@@ -1162,6 +1180,8 @@ function rating_count() {
 }
 /**
  * Bsf_do_rating.
+ * 
+ * @return string
  */
 function bsf_do_rating() {
 	global $post;
@@ -1192,6 +1212,7 @@ function bsf_do_rating() {
  * @param string $needle Needle.
  * @param array  $haystack Haystack.
  * @param bool   $strict Strict.
+ * @return string|false
  */
 function get_previous_rating( $needle, $haystack, $strict = false ) {
 	foreach ( $haystack as $item ) {
@@ -1203,6 +1224,8 @@ function get_previous_rating( $needle, $haystack, $strict = false ) {
 }
 /**
  * Add_ajax_library.
+ * 
+ * @return void
  */
 function add_ajax_library() {
 
@@ -1214,6 +1237,8 @@ function add_ajax_library() {
 }
 /**
  * Bsf_add_rating.
+ * 
+ * @return void
  */
 function bsf_add_rating() {
 
@@ -1243,6 +1268,8 @@ function bsf_add_rating() {
 }
 /**
  * Bsf_update_rating.
+ * 
+ * @return void
  */
 function bsf_update_rating() {
 
@@ -1273,6 +1300,8 @@ function bsf_update_rating() {
 }
 /**
  * Display_rating.
+ * 
+ * @return string
  */
 function display_rating() {
 
@@ -1311,6 +1340,8 @@ function display_rating() {
  * Bsf_display_rating.
  *
  * @param string $n N.
+ * 
+ * @return string
  */
 function bsf_display_rating( $n ) {
 
