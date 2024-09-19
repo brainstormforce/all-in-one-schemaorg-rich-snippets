@@ -906,8 +906,11 @@ function display_rich_snippet( $content ) {
 		}		
 		if ( '' != trim( $video_date ) ) {
 			try {
+				// Get the server's timezone
+				$timezone = date_default_timezone_get();
+		
 				// Create a DateTime object from the $video_date string
-				$datetime = new DateTime($video_date, new DateTimeZone('UTC')); // Set the timezone, adjust as needed
+				$datetime = new DateTime($video_date, new DateTimeZone($timezone)); // Set the timezone to the server's timezone
 		
 				// Format the date to ISO 8601 with timezone
 				$iso_date = $datetime->format(DateTime::ATOM); // Outputs ISO 8601 with timezone info
