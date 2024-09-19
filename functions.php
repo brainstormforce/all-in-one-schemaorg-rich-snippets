@@ -890,10 +890,35 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="embedURL" content="' . esc_attr( $video_emb_url ) . '">';
 		}
 		if ( '' != trim( $video_duration ) ) {
-			$video .= '<meta itemprop="duration" content="' . esc_attr( $video_duration ) . '">';
+			$duration_parts = explode( ':', $video_duration );
+
+			// Build the ISO 8601 format.
+			$hours   = isset( $duration_parts[0] ) ? $duration_parts[0] : 0;
+			$minutes = isset( $duration_parts[1] ) ? $duration_parts[1] : 0;
+			$seconds = isset( $duration_parts[2] ) ? $duration_parts[2] : 0;
+
+			// Construct the ISO 8601 duration string.
+			$iso_duration = 'PT' . ( $hours > 0 ? $hours . 'H' : '' ) . ( $minutes > 0 ? $minutes . 'M' : '' ) . ( $seconds > 0 ? $seconds . 'S' : '' );
+
+			// Add the meta tag with the correct duration format.
+			$video .= '<meta itemprop="duration" content="' . esc_attr( $iso_duration ) . '">';
 		}
 		if ( '' != trim( $video_date ) ) {
-			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $video_date ) . '">';
+			try {
+				// Get the server's timezone.
+				$timezone = date_default_timezone_get();
+
+				// Create a DateTime object from the $video_date string.
+				$datetime = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
+
+				// Format the date to ISO 8601 with timezone.
+				$iso_date = $datetime->format( DateTime::ATOM ); // Outputs ISO 8601 with timezone info.
+
+				// Add the uploadDate field to the $video string.
+				$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $iso_date ) . '">';
+			} catch ( Exception $e ) {
+				return;
+			}
 		}
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
