@@ -81,7 +81,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 == Changelog ==
 
 = 1.6.10 =
-- Fixed: Added the uploadDate field to the $video string in the correct ISO 8601 format with timezone.
+- Fixed: Corrected the uploadDate format as per ISO 8601 standards with timezone.
 - Fixed: Resolved url redirect issue for Test Rich Snippets button.
 
 = 1.6.9 =

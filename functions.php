@@ -917,10 +917,7 @@ function display_rich_snippet( $content ) {
 				// Add the uploadDate field to the $video string.
 				$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $iso_date ) . '">';
 			} catch ( Exception $e ) {
-				// Handle exceptions if the date format is invalid.
-				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					wp_die( 'Invalid date format for video upload date: ' . esc_html( $video_date ) );
-				}
+				return;
 			}
 		}
 		$video .= '</div>
