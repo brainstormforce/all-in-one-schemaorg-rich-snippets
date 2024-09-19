@@ -891,7 +891,6 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="embedURL" content="' . esc_attr( $video_emb_url ) . '">';
 		}
 		if ( '' != trim( $video_duration ) ) {
-			// Assuming $video_duration is in a human-readable format like "1:30:45" (H:M:S)
 			$duration_parts = explode( ':', $video_duration );
 		
 			// Build the ISO 8601 format
@@ -907,7 +906,6 @@ function display_rich_snippet( $content ) {
 		}		
 		if ( '' != trim( $video_date ) ) {
 			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $video_date ) . '">';
-			error_log(print_r($video_date, true));
 		}
 		$video .= '</div>
 				</div></div><div class="snippet-clear"></div>';
