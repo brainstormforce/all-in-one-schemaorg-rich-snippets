@@ -299,6 +299,19 @@ span.bsf-tooltiptext:after {
     outline: none;
     box-shadow: none;
 }
+.bsf-panel .meta-box-sortables .postbox .handlediv{
+    float:right;
+    border-bottom: 1px solid #ccd0d4;
+}
+.bsf-panel .meta-box-sortables .postbox .hndle{
+    border-bottom: 1px solid #ccd0d4;
+}
+.bsf-woocommerce-setting .handlediv, .bsf-contact .handlediv{
+    float:right;
+}
+.postbox.bsf-woocommerce-setting.closed, .postbox.bsf-contact.closed{
+    border-bottom: 1px solid #ccd0d4;
+}
 @media(max-width:768px){
 	#bsf-postbox-container-2 {
 	    width: 100%;

@@ -1,11 +1,13 @@
 {
   "name": "all-in-one-schemaorg-rich-snippets",
-  "version": "1.5.2",
+  "version": "1.6.9",
   "main": "Gruntfile.js",
   "author": "Brainstorm Force",
   "devDependencies": {
-    "grunt": "~1.0.3",
+    "grunt": "^1.6.1",
     "grunt-wp-i18n": "^1.0.3",
-    "grunt-wp-readme-to-markdown": "~2.0.1"
+    "grunt-wp-readme-to-markdown": "~2.0.1",
+    "js-yaml": ">=3.13.1",
+    "minimist": ">=1.2.3"
   }
 }

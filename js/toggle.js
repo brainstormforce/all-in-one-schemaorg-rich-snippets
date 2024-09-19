@@ -5,13 +5,12 @@ jQuery(document).ready(function() {
 		hidden();
 	else
 		expand_default(selected);
-	jQuery( window ).load(function() {
-		if(item_type == "none")
+	jQuery(window).on('load',function () {
+		if(item_type == "none" || (selected != "1" && item_type != "none")) {
 			item_hidden();
-		else if(selected != "1" && item_type != "none")
-			item_hidden();
-		else
+		} else {
 			item_expand_default(item_type);
+		}
 	});
 
 //Function to hide all the snippet blocks

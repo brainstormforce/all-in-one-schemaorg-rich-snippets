@@ -1,0 +1,34 @@
+name: PHPCS check
+
+# Run the deployment only when code is committed to the branch.
+on: pull_request
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
+
+jobs:
+  phpcs:
+      name: PHPCS
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: 7.4
+            coverage: none
+            tools: composer, cs2pr
+
+        - name: Install composer dependencies
+          run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+
+        - name: Run phpcs
+          id: phpcs
+          if: always()
+          run: ./vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
