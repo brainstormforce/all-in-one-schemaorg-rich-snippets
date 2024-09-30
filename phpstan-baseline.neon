@@ -11,7 +11,7 @@ parameters:
 		- '#type has no value type specified in iterable type array\.$#'
 		- '#with no value type specified in iterable type array\.$#'
 		- "#^While loop condition is always true\\.$#"
-
+		
 		-
 			message: "#^Property BSF_Analytics_Loader\\:\\:\\$analytics_version \\(float\\) does not accept default value of type string\\.$#"
 			count: 1
@@ -74,6 +74,11 @@ parameters:
 
 		-
 			message: "#^Function bsf_do_rating\\(\\) should return string but return statement is missing\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function display_rich_snippet\\(\\) should return string but empty return statement found\\.$#"
 			count: 1
 			path: functions.php
 
