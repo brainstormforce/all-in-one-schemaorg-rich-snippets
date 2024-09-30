@@ -1,73 +1,90 @@
-module.exports = function( grunt ) {
-
-	'use strict';
+module.exports = function (grunt) {
+	"use strict";
 
 	// Project configuration
-	grunt.initConfig( {
-
-		pkg: grunt.file.readJSON( 'package.json' ),
+	grunt.initConfig({
+		pkg: grunt.file.readJSON("package.json"),
 
 		addtextdomain: {
 			options: {
-				textdomain: 'all-in-one-schemaorg-rich-snippets',
+				textdomain: "all-in-one-schemaorg-rich-snippets",
 			},
 			update_all_domains: {
 				options: {
-					updateDomains: true
+					updateDomains: true,
 				},
-				src: [ '*.php', '**/*.php', '!\.git/**/*', '!bin/**/*', '!node_modules/**/*', '!tests/**/*' ]
-			}
+				src: [
+					"*.php",
+					"**/*.php",
+					"!.git/**/*",
+					"!bin/**/*",
+					"!node_modules/**/*",
+					"!tests/**/*",
+				],
+			},
 		},
 
 		wp_readme_to_markdown: {
 			your_target: {
 				files: {
-					'README.md': 'readme.txt'
-				}
+					"README.md": "readme.txt",
+				},
 			},
 		},
 
 		makepot: {
 			target: {
 				options: {
-					domainPath: '/languages',
-					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					mainFile: 'index.php',
-					potFilename: 'all-in-one-schemaorg-rich-snippets.pot',
+					domainPath: "/languages",
+					exclude: [".git/*", "bin/*", "node_modules/*", "tests/*"],
+					mainFile: "index.php",
+					potFilename: "all-in-one-schemaorg-rich-snippets.pot",
 					potHeaders: {
 						poedit: true,
-						'x-poedit-keywordslist': true
+						"x-poedit-keywordslist": true,
 					},
-					type: 'wp-plugin',
-					updateTimestamp: true
-				}
-			}
+					type: "wp-plugin",
+					updateTimestamp: true,
+				},
+			},
 		},
 
 		compress: {
 			main: {
 				options: {
-					archive: 'all-in-one-schemaorg-rich-snippets.zip'
+					archive: "all-in-one-schemaorg-rich-snippets.zip",
 				},
 				files: [
-					{ 
-						src: [ '**/*', '!node_modules/**', '!tests/**', '!.git/**', '!bin/**' ],
-						dest: '/'
-					}
-				]
-			}
-		}
+					{
+						src: [
+							"**/*",
+							"!node_modules/**",
+							"!tests/**",
+							"!.git/**",
+							"!bin/**",
+						],
+						dest: "/",
+					},
+				],
+			},
+		},
+	});
 
-	} );
+	grunt.loadNpmTasks("grunt-wp-i18n");
+	grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+	grunt.loadNpmTasks("grunt-contrib-compress");
 
-	grunt.loadNpmTasks( 'grunt-wp-i18n' );
-	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
-	grunt.loadNpmTasks( 'grunt-contrib-compress' );
+	grunt.registerTask("i18n", ["addtextdomain", "makepot"]);
+	grunt.registerTask("readme", ["wp_readme_to_markdown"]);
+	grunt.registerTask("zip", ["compress"]); // Add this line to register the zip task
 
-	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
-	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
-	grunt.registerTask( 'zip', ['compress'] ); // Add this line to register the zip task
+	grunt.loadNpmTasks("grunt-wp-i18n");
+	grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
+	grunt.loadNpmTasks("grunt-zip"); // Use grunt-zip instead
 
-	grunt.util.linefeed = '\n';
+	grunt.registerTask("i18n", ["addtextdomain", "makepot"]);
+	grunt.registerTask("readme", ["wp_readme_to_markdown"]);
+	grunt.registerTask("release", ["zip:release"]); // Add release command
 
+	grunt.util.linefeed = "\n";
 };
