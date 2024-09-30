@@ -23,7 +23,7 @@ class Bsf_Meta_Box_Validate {
 	 * Check_text.
 	 *
 	 * @param string $text Text.
-	 * 
+	 *
 	 * @return bool
 	 */
 	public function check_text( $text ) {
@@ -83,7 +83,7 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Add_post_enctype.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function add_post_enctype() {
@@ -97,7 +97,7 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Add metaboxes.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function add() {
@@ -120,7 +120,7 @@ class Bsf_Meta_Box {
 	 *
 	 * @param string $display Display.
 	 * @param string $meta_box Meta Box.
-	 * 
+	 *
 	 * @return string|bool
 	 */
 	public function add_for_id( $display, $meta_box ) {
@@ -151,7 +151,7 @@ class Bsf_Meta_Box {
 	 *
 	 * @param string $display Display.
 	 * @param string $meta_box Meta Box.
-	 * 
+	 *
 	 * @return string|bool
 	 */
 	public function add_for_page_template( $display, $meta_box ) {
@@ -186,7 +186,7 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Show fields.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function show() {
@@ -422,7 +422,7 @@ class Bsf_Meta_Box {
 							echo '</div>';
 						} else {
 							 // Initialize $title with a default value.
-							 $title = '';
+							 $title      = '';
 							$parts       = explode( '/', $meta );
 							$parts_count = count( $parts );
 							for ( $i = 0; $i < $parts_count; ++$i ) {
@@ -545,7 +545,7 @@ class Bsf_Meta_Box {
  * Adding scripts and styles
  *
  * @param string $hook Hook.
- * 
+ *
  * @return void
  */
 function bsf_scripts( $hook ) {
@@ -584,7 +584,7 @@ function bsf_scripts( $hook ) {
 add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
 /**
  * Bsf_editor_footer_scripts.
- * 
+ *
  * @return void
  */
 function bsf_editor_footer_scripts() { ?>
@@ -660,7 +660,7 @@ function bsf_force_send( $args ) {
 add_action( 'wp_ajax_bsf_oembed_handler', 'bsf_oembed_ajax_results' );
 /**
  * Handles our oEmbed ajax request.
- * 
+ *
  * @return void
  */
 function bsf_oembed_ajax_results() {

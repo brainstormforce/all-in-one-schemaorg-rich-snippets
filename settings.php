@@ -7,7 +7,7 @@
 
 /**
  * Function to add review option for settings.
- * 
+ *
  * @return void
  */
 function add_review_option() {
@@ -23,7 +23,7 @@ function add_review_option() {
 
 /**
  * Function to add event option for settings.
- * 
+ *
  * @return void
  */
 function add_event_option() {
@@ -41,7 +41,7 @@ function add_event_option() {
 
 /**
  *  Function to add person option for settings.
- * 
+ *
  * @return void
  */
 function add_person_option() {
@@ -59,7 +59,7 @@ function add_person_option() {
 
 /**
  *  Function to add product option for settings.
- * 
+ *
  * @return void
  */
 function add_product_option() {
@@ -77,7 +77,7 @@ function add_product_option() {
 
 /**
  *  Function to add recipe option for settings.
- * 
+ *
  * @return void
  */
 function add_recipe_option() {
@@ -99,7 +99,7 @@ function add_recipe_option() {
 
 /**
  *  Function to add software option for settings.
- * 
+ *
  * @return void
  */
 function add_software_option() {
@@ -117,7 +117,7 @@ function add_software_option() {
 
 /**
  *  Function to add video option for settings.
- * 
+ *
  * @return void
  */
 function add_video_option() {
@@ -132,7 +132,7 @@ function add_video_option() {
 }
 /**
  *  Function to add article option for settings.
- * 
+ *
  * @return void
  */
 function add_article_option() {
@@ -150,7 +150,7 @@ function add_article_option() {
 }
 /**
  *  Function to add article option for settings.
- * 
+ *
  * @return void
  */
 function add_service_option() {
@@ -170,7 +170,7 @@ function add_service_option() {
 }
 /**
  *  Function for customization
- * 
+ *
  * @return void
  */
 function add_color_option() {
@@ -186,7 +186,7 @@ function add_color_option() {
 
 /**
  *  Function for customization
- * 
+ *
  * @return void
  */
 function add_woo_commerce_option() {

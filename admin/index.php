@@ -1065,7 +1065,7 @@ if ( isset( $_POST['service_submit'] ) ) {
  * Display status.
  *
  * @param  string $status .
- * 
+ *
  * @return void
  */
 function display_status( $status ) {
@@ -1119,7 +1119,7 @@ if ( isset( $_GET['action'] ) ) {
  * BSF reset option.
  *
  * @param  string $option_to_reset .
- * 
+ *
  * @return void
  */
 function bsf_reset_options( $option_to_reset ) {
@@ -1162,7 +1162,7 @@ function bsf_reset_options( $option_to_reset ) {
 }
 /**
  * Add footer script.
- * 
+ *
  * @return void
  */
 function add_footer_script() {
@@ -1196,7 +1196,7 @@ function add_footer_script() {
 
 /**
  * Get support.
- * 
+ *
  * @return string
  */
 function get_support() {

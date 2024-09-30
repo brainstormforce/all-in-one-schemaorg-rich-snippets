@@ -67,7 +67,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Setup actions for admin notice style and analytics cron event.
 		 *
 		 * @since 1.0.4
-		 * 
+		 *
 		 * @return void
 		 */
 		public function set_actions() {
@@ -117,16 +117,16 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
 			$css_ext  = ( SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
-			$css_uri = (defined('BSF_ANALYTICS_URI') ? BSF_ANALYTICS_URI : '') . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
+			$css_uri = ( defined( 'BSF_ANALYTICS_URI' ) ? BSF_ANALYTICS_URI : '' ) . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
 
-			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, (defined('BSF_ANALYTICS_VERSION') ? BSF_ANALYTICS_VERSION : ''), 'all' );
+			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, ( defined( 'BSF_ANALYTICS_VERSION' ) ? BSF_ANALYTICS_VERSION : '' ), 'all' );
 		}
 
 		/**
 		 * Send analytics API call.
 		 *
 		 * @since 1.0.0
-		 * 
+		 *
 		 * @return void
 		 */
 		public function send() {
@@ -191,7 +191,6 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * @since 1.0.0
 		 * @return void
 		 */
-
 		public function option_notice() {
 
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -273,7 +272,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Process usage tracking opt out.
 		 *
 		 * @since 1.0.0
-		 * 
+		 *
 		 * @return void
 		 */
 		public function handle_optin_optout() {
@@ -480,7 +479,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Send analaytics track event if tracking is enabled.
 		 *
 		 * @since 1.0.0
-		 * 
+		 *
 		 * @return void
 		 */
 		public function maybe_track_analytics() {

@@ -27,7 +27,7 @@ add_action( 'wp_head', 'add_ajax_library' );
 add_action( 'wp', 'aiosrs_check_snippet_existence' );
 /**
  * Aiosrs_check_snippet_existence.
- * 
+ *
  * @return void
  */
 function aiosrs_check_snippet_existence() {
@@ -45,7 +45,7 @@ function aiosrs_check_snippet_existence() {
 }
 /**
  * Aiosrs_enque.
- * 
+ *
  * @return void
  */
 function aiosrs_enque() {
@@ -56,7 +56,7 @@ function aiosrs_enque() {
 }
 /**
  * Bsf_initialize_bsf_meta_boxes.
- * 
+ *
  * @return void
  */
 function bsf_initialize_bsf_meta_boxes() {
@@ -68,7 +68,7 @@ function bsf_initialize_bsf_meta_boxes() {
  * Function to display the rich snippet output below the content.
  *
  * @param string $content Content.
- * 
+ *
  * @return string
  */
 function display_rich_snippet( $content ) {
@@ -1125,7 +1125,7 @@ add_filter( 'the_content', 'display_rich_snippet', 90 );
 require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
  * Get_the_ip.
- * 
+ *
  * @return string
  */
 function get_the_ip() {
@@ -1139,7 +1139,7 @@ function get_the_ip() {
 }
 /**
  * Average_rating.
- * 
+ *
  * @return float|string
  */
 function average_rating() {
@@ -1169,7 +1169,7 @@ function average_rating() {
 }
 /**
  * Rating_count.
- * 
+ *
  * @return int
  */
 function rating_count() {
@@ -1180,7 +1180,7 @@ function rating_count() {
 }
 /**
  * Bsf_do_rating.
- * 
+ *
  * @return string
  */
 function bsf_do_rating() {
@@ -1224,7 +1224,7 @@ function get_previous_rating( $needle, $haystack, $strict = false ) {
 }
 /**
  * Add_ajax_library.
- * 
+ *
  * @return void
  */
 function add_ajax_library() {
@@ -1237,7 +1237,7 @@ function add_ajax_library() {
 }
 /**
  * Bsf_add_rating.
- * 
+ *
  * @return void
  */
 function bsf_add_rating() {
@@ -1268,7 +1268,7 @@ function bsf_add_rating() {
 }
 /**
  * Bsf_update_rating.
- * 
+ *
  * @return void
  */
 function bsf_update_rating() {
@@ -1300,7 +1300,7 @@ function bsf_update_rating() {
 }
 /**
  * Display_rating.
- * 
+ *
  * @return string
  */
 function display_rating() {
@@ -1340,7 +1340,7 @@ function display_rating() {
  * Bsf_display_rating.
  *
  * @param string $n N.
- * 
+ *
  * @return string
  */
 function bsf_display_rating( $n ) {

@@ -62,7 +62,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 		/**
 		 * Defines all constants
-		 * 
+		 *
 		 * @return void
 		 */
 		public function define_constants() {
@@ -75,7 +75,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 		/**
 		 * Admin bar menu.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function aiosrs_admin_bar() {
@@ -97,7 +97,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Register_custom_menu_page.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function register_custom_menu_page() {
@@ -122,7 +122,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 *  Print the star rating style on post edit page.
 		 *
 		 * @param string $hook Hook.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function post_enqueue( $hook ) {
@@ -152,7 +152,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 *  Post_new_enqueue.
 		 *
 		 * @param string $hook Hook.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function post_new_enqueue( $hook ) {
@@ -180,7 +180,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Initialize the metabox class.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function wp_initialize_bsf_meta_boxes() {
@@ -190,7 +190,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Set_styles.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function set_styles() {
@@ -203,7 +203,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Define icon styles for the custom post type.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function star_icons() {
@@ -223,7 +223,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		<?php }
 		/**
 		 * Translation.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function rich_snippet_translation() {
@@ -232,7 +232,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Register_bsf_settings.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function register_bsf_settings() {
@@ -253,7 +253,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Aiosrs_admin_redirect.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function aiosrs_admin_redirect() {
@@ -265,7 +265,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Submit_request.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function submit_request() {
@@ -348,7 +348,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Submit_color.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function submit_color() {
@@ -381,7 +381,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Iris_enqueue_scripts.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function iris_enqueue_scripts() {
@@ -392,7 +392,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 		/**
 		 * Bsf_color_scripts.
-		 * 
+		 *
 		 * @return void
 		 */
 		public function bsf_color_scripts() {

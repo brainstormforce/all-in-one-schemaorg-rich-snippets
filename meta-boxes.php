@@ -9,7 +9,7 @@
  * Metabox for review.
  *
  * @param array $meta_boxes Meta Boxes.
- * 
+ *
  * @return array
  */
 function bsf_metaboxes( array $meta_boxes ) {
