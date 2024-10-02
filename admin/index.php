@@ -923,7 +923,7 @@ if ( isset( $_POST['item_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'review_title', 'item_reviewer', 'review_date', 'item_name', 'item_rating' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -939,7 +939,7 @@ if ( isset( $_POST['event_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'event_title', 'event_location', 'event_performer', 'start_time', 'end_time', 'event_desc', 'events_price' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -955,7 +955,7 @@ if ( isset( $_POST['person_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'person_name', 'person_nickname', 'person_job_title', 'person_website', 'person_company', 'person_address' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -971,7 +971,7 @@ if ( isset( $_POST['product_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'product_rating', 'product_brand', 'product_name', 'product_agr', 'product_price', 'product_avail' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -987,7 +987,7 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'recipe_name', 'author_name', 'recipe_pub', 'recipe_prep', 'recipe_cook', 'recipe_time', 'recipe_desc', 'recipe_rating' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -1003,7 +1003,7 @@ if ( isset( $_POST['software_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'software_rating', 'software_agr', 'software_price', 'software_name', 'software_os', 'software_website' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -1019,7 +1019,7 @@ if ( isset( $_POST['video_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'video_title', 'video_desc', 'video_time', 'video_date' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -1035,7 +1035,7 @@ if ( isset( $_POST['article_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'article_name', 'article_author', 'article_desc', 'article_image', 'article_publisher', 'article_publisher_logo' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
@@ -1051,7 +1051,7 @@ if ( isset( $_POST['service_submit'] ) ) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
 	} else {
-		$args = array(); // Defining the $args variable
+		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'service_type', 'service_area', 'service_desc', 'service_provider_name', 'provider_location', 'service_rating', 'service_channel', 'service_url_link' ) as $option ) {
 			if ( isset( $_POST[ $option ] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
