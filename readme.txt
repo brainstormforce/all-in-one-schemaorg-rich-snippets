@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.10.1 =
+- Fixed: Improved code quality syntax and security checks for better coding standards and practices.
+
 = 1.6.10 =
 - Fixed: Corrected the uploadDate format as per ISO 8601 standards with timezone.
 - Fixed: Resolved url redirect issue for Test Rich Snippets button.

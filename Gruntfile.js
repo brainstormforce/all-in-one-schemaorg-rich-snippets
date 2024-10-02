@@ -78,13 +78,5 @@ module.exports = function (grunt) {
 	grunt.registerTask("readme", ["wp_readme_to_markdown"]);
 	grunt.registerTask("zip", ["compress"]); // Add this line to register the zip task
 
-	grunt.loadNpmTasks("grunt-wp-i18n");
-	grunt.loadNpmTasks("grunt-wp-readme-to-markdown");
-	grunt.loadNpmTasks("grunt-zip"); // Use grunt-zip instead
-
-	grunt.registerTask("i18n", ["addtextdomain", "makepot"]);
-	grunt.registerTask("readme", ["wp_readme_to_markdown"]);
-	grunt.registerTask("release", ["zip:release"]); // Add release command
-
 	grunt.util.linefeed = "\n";
 };
