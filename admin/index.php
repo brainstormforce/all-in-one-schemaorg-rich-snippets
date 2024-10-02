@@ -1117,7 +1117,6 @@ if ( isset( $_GET['action'] ) ) {
  * BSF reset option.
  *
  * @param  string $option_to_reset .
-
  */
 function bsf_reset_options( $option_to_reset ) {
 	if ( ! defined( 'AIOSRS_PRO_DIR' ) ) {

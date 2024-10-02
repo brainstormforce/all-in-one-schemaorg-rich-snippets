@@ -242,7 +242,7 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 			return $timezone_string;
 		}
 
-		$offset = (float) get_option( 'gmt_offset' );
+		$offset  = (float) get_option( 'gmt_offset' );
 		$hours   = (int) $offset;
 		$minutes = ( $offset - $hours );
 
