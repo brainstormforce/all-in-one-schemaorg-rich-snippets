@@ -904,20 +904,22 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="duration" content="' . esc_attr( $iso_duration ) . '">';
 		}
 		if ( '' != trim( $video_date ) ) {
-			try {
-				// Get the server's timezone.
-				$timezone = date_default_timezone_get();
+			// Get the server timezone.
+			$timezone = date_default_timezone_get();
 
-				// Create a DateTime object from the $video_date string.
-				$datetime = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
-
-				// Format the date to ISO 8601 with timezone.
-				$iso_date = $datetime->format( DateTime::ATOM ); // Outputs ISO 8601 with timezone info.
-
-				// Add the uploadDate field to the $video string.
-				$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $iso_date ) . '">';
-			} catch ( Exception $e ) {
+			// Check if $video_date is set and valid.
+			if ( empty( $video_date ) ) {
 				return;
+			}
+			// Ensure $timezone is set.
+			if ( ! isset( $timezone ) ) {
+				return;
+			}
+			// Create a DateTime object from the $video_date string.
+			try {
+				$datetime = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
+			} catch ( Exception $e ) {
+				echo 'Error creating DateTime object: ' . esc_html( $e->getMessage() );
 			}
 		}
 		$video .= '</div>
