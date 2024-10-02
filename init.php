@@ -23,8 +23,6 @@ class Bsf_Meta_Box_Validate {
 	 * Check_text.
 	 *
 	 * @param string $text Text.
-	 *
-	 * @return bool
 	 */
 	public function check_text( $text ) {
 		if ( 'hello' != $text ) {
@@ -83,8 +81,6 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Add_post_enctype.
-	 *
-	 * @return void
 	 */
 	public function add_post_enctype() {
 		echo '
@@ -97,8 +93,6 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Add metaboxes.
-	 *
-	 * @return void
 	 */
 	public function add() {
 		$this->_meta_box['context']  = empty( $this->_meta_box['context'] ) ? 'normal' : $this->_meta_box['context'];
@@ -120,8 +114,6 @@ class Bsf_Meta_Box {
 	 *
 	 * @param string $display Display.
 	 * @param string $meta_box Meta Box.
-	 *
-	 * @return string|bool
 	 */
 	public function add_for_id( $display, $meta_box ) {
 		if ( 'id' !== $meta_box['show_on']['key'] ) {
@@ -151,8 +143,6 @@ class Bsf_Meta_Box {
 	 *
 	 * @param string $display Display.
 	 * @param string $meta_box Meta Box.
-	 *
-	 * @return string|bool
 	 */
 	public function add_for_page_template( $display, $meta_box ) {
 
@@ -169,8 +159,7 @@ class Bsf_Meta_Box {
 			$post_id = esc_attr( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 		}
 
-		// Ensure $post_id is defined or the function is called on a page.
-		if ( ! ( $post_id || is_page() ) ) {
+		if ( ! ( isset( $post_id ) || is_page() ) ) {
 			return false;
 		}
 		// Get current template.
@@ -186,8 +175,6 @@ class Bsf_Meta_Box {
 	}
 	/**
 	 * Show fields.
-	 *
-	 * @return void
 	 */
 	public function show() {
 		global $post;
@@ -537,7 +524,6 @@ class Bsf_Meta_Box {
 				}
 			}
 		}
-		return $post_id;
 
 	}
 }
@@ -545,8 +531,6 @@ class Bsf_Meta_Box {
  * Adding scripts and styles
  *
  * @param string $hook Hook.
- *
- * @return void
  */
 function bsf_scripts( $hook ) {
 	global $wp_version;
@@ -584,8 +568,6 @@ function bsf_scripts( $hook ) {
 add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
 /**
  * Bsf_editor_footer_scripts.
- *
- * @return void
  */
 function bsf_editor_footer_scripts() { ?>
 	<?php
@@ -610,7 +592,6 @@ add_filter( 'get_media_item_args', 'bsf_force_send' );
  * Bsf_force_send.
  *
  * @param array $args Arguments.
- * @return array
  */
 function bsf_force_send( $args ) {
 
@@ -660,8 +641,6 @@ function bsf_force_send( $args ) {
 add_action( 'wp_ajax_bsf_oembed_handler', 'bsf_oembed_ajax_results' );
 /**
  * Handles our oEmbed ajax request.
- *
- * @return void
  */
 function bsf_oembed_ajax_results() {
 	// verify our nonce.

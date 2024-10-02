@@ -11,7 +11,6 @@ parameters:
 		- '#type has no value type specified in iterable type array\.$#'
 		- '#with no value type specified in iterable type array\.$#'
 		- "#^While loop condition is always true\\.$#"
-		
 		-
 			message: "#^Property BSF_Analytics_Loader\\:\\:\\$analytics_version \\(float\\) does not accept default value of type string\\.$#"
 			count: 1
@@ -26,6 +25,11 @@ parameters:
 			message: "#^Property BSF_Analytics_Loader\\:\\:\\$entities type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: admin/bsf-analytics/class-bsf-analytics-loader.php
+
+		-
+			message: "#^Cannot cast mixed to float\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics-stats.php
 
 		-
 			message: "#^Method BSF_Analytics_Stats\\:\\:format_plugin\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -58,7 +62,77 @@ parameters:
 			path: admin/bsf-analytics/class-bsf-analytics.php
 
 		-
+			message: "#^Method BSF_Analytics\\:\\:add_analytics_option_callback\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:add_option_to_network\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:handle_optin_optout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:includes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:maybe_track_analytics\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:optin\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:option_notice\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:optout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:register_usage_tracking_setting\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:render_settings_field_html\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
 			message: "#^Method BSF_Analytics\\:\\:render_settings_field_html\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:sanitize_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:send\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:set_actions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/bsf-analytics/class-bsf-analytics.php
+
+		-
+			message: "#^Method BSF_Analytics\\:\\:update_analytics_option_callback\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: admin/bsf-analytics/class-bsf-analytics.php
 
@@ -68,8 +142,58 @@ parameters:
 			path: admin/bsf-analytics/class-bsf-analytics.php
 
 		-
+			message: "#^Function add_footer_script\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/index.php
+
+		-
+			message: "#^Function bsf_reset_options\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/index.php
+
+		-
+			message: "#^Function display_status\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/index.php
+
+		-
+			message: "#^Function get_support\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: admin/index.php
+
+		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
+			path: functions.php
+
+		-
+			message: "#^Function add_ajax_library\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function aiosrs_check_snippet_existence\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function aiosrs_enque\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function average_rating\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function bsf_add_rating\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function bsf_display_rating\\(\\) has no return type specified\\.$#"
+			count: 1
 			path: functions.php
 
 		-
@@ -78,7 +202,27 @@ parameters:
 			path: functions.php
 
 		-
-			message: "#^Function display_rich_snippet\\(\\) should return string but empty return statement found\\.$#"
+			message: "#^Function bsf_initialize_bsf_meta_boxes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function bsf_update_rating\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function display_rating\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function display_rich_snippet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function get_previous_rating\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: functions.php
 
@@ -88,12 +232,92 @@ parameters:
 			path: functions.php
 
 		-
-			message: "#^Filter callback return statement is missing\\.$#"
+			message: "#^Function get_the_ip\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Function rating_count\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:aiosrs_admin_bar\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: index.php
 
 		-
-			message: "#^Method RichSnippets\\:\\:bsf_settings_link\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method RichSnippets\\:\\:aiosrs_admin_redirect\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:bsf_color_scripts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:bsf_settings_link\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:define_constants\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:iris_enqueue_scripts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:post_enqueue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:post_new_enqueue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:register_bsf_settings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:register_custom_menu_page\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:rich_snippet_translation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:set_styles\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:star_icons\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:submit_color\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:submit_request\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: index.php
+
+		-
+			message: "#^Method RichSnippets\\:\\:wp_initialize_bsf_meta_boxes\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: index.php
 
@@ -113,12 +337,47 @@ parameters:
 			path: init.php
 
 		-
+			message: "#^Function bsf_editor_footer_scripts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Function bsf_force_send\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
 			message: "#^Function bsf_force_send\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: init.php
 
 		-
-			message: "#^Function bsf_force_send\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Function bsf_oembed_ajax_results\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Function bsf_scripts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box\\:\\:add\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box\\:\\:add_for_id\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box\\:\\:add_for_page_template\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box\\:\\:add_post_enctype\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: init.php
 
@@ -128,7 +387,17 @@ parameters:
 			path: init.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$_meta_box\\.\\)\\: Unexpected token \"\\$_meta_box\", expected type at offset 34$#"
+			message: "#^Method Bsf_Meta_Box\\:\\:show\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^Method Bsf_Meta_Box_Validate\\:\\:check_text\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: init.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$_meta_box\\.\\)\\: Unexpected token \"\\$_meta_box\", expected type at offset 31$#"
 			count: 1
 			path: init.php
 
@@ -138,11 +407,66 @@ parameters:
 			path: init.php
 
 		-
+			message: "#^Function bsf_metaboxes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: meta-boxes.php
+
+		-
 			message: "#^Function bsf_metaboxes\\(\\) has parameter \\$meta_boxes with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: meta-boxes.php
 
 		-
-			message: "#^Function bsf_metaboxes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Function add_article_option\\(\\) has no return type specified\\.$#"
 			count: 1
-			path: meta-boxes.php
+			path: settings.php
+
+		-
+			message: "#^Function add_color_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_event_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_person_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_product_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_recipe_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_review_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_service_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_software_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_video_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php
+
+		-
+			message: "#^Function add_woo_commerce_option\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: settings.php

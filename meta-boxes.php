@@ -9,8 +9,6 @@
  * Metabox for review.
  *
  * @param array $meta_boxes Meta Boxes.
- *
- * @return array
  */
 function bsf_metaboxes( array $meta_boxes ) {
 	// Start with an underscore to hide fields from custom fields list.
