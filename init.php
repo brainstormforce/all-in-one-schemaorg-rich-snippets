@@ -369,7 +369,7 @@ class Bsf_Meta_Box {
 					echo '<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</p>';
 						$args            = array(
 							'post_type'   => 'attachment',
-							'numberposts' => null,
+							'numberposts' => null, // phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_numberposts
 							'post_status' => null,
 							'post_parent' => $post->ID,
 						);
