@@ -30669,7 +30669,7 @@ namespace eftec\bladeone {
 	 */
 	trait BladeOneHtmlBootstrap {
 
-		use \eftec\bladeone\BladeOneHtml {
+		use \ eftec\bladeone\BladeOneHtml {
 			\eftec\bladeone\BladeOneHtml::select as selectParent;
 			\eftec\bladeone\BladeOneHtml::input as inputParent;
 			\eftec\bladeone\BladeOneHtml::commandButton as commandButtonParent;
