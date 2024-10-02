@@ -839,114 +839,114 @@ function display_rich_snippet( $content ) {
 		return ( is_single() || is_page() ) ? $content . $software : $content;
 	} elseif ( '9' == $type ) {
 		global $post;
-$args_video = get_option('bsf_video');
-$video      = '';
+		$args_video = get_option( 'bsf_video' );
+		$video      = '';
 
-// Generate the schema structure
-$video_title   = get_post_meta($post->ID, '_bsf_video_title', true);
-$video_desc    = get_post_meta($post->ID, '_bsf_video_desc', true);
-$video_thumb   = get_post_meta($post->ID, '_bsf_video_thumb', true);
-$video_url     = get_post_meta($post->ID, '_bsf_video_url', true);
-$video_emb_url = get_post_meta($post->ID, '_bsf_video_emb_url', true);
-$video_duration = get_post_meta($post->ID, '_bsf_video_duration', true);
-$video_date     = get_post_meta($post->ID, '_bsf_video_date', true);
+		// Generate the schema structure.
+		$video_title    = get_post_meta( $post->ID, '_bsf_video_title', true );
+		$video_desc     = get_post_meta( $post->ID, '_bsf_video_desc', true );
+		$video_thumb    = get_post_meta( $post->ID, '_bsf_video_thumb', true );
+		$video_url      = get_post_meta( $post->ID, '_bsf_video_url', true );
+		$video_emb_url  = get_post_meta( $post->ID, '_bsf_video_emb_url', true );
+		$video_duration = get_post_meta( $post->ID, '_bsf_video_duration', true );
+		$video_date     = get_post_meta( $post->ID, '_bsf_video_date', true );
 
-// Set default timezone and handle video date
-if ('' != trim($video_date)) {
-    // Get the server timezone
-    $timezone = date_default_timezone_get();
+		// Set default timezone and handle video date.
+		if ( '' != trim( $video_date ) ) {
+			// Get the server timezone.
+			$timezone = date_default_timezone_get();
 
-    // Check if $video_date is set and valid
-    if (!empty($video_date)) {
-        // Ensure $timezone is set
-        if (isset($timezone)) {
-            try {
-                // Create a DateTime object from the $video_date string
-                $datetime = new DateTime($video_date, new DateTimeZone($timezone)); // Set the timezone to the server's timezone
-                $uploadDate = $datetime->format('Y-m-d\TH:i:sP');
-            } catch (Exception $e) {
-                echo 'Error creating DateTime object: ' . esc_html($e->getMessage());
-                return;
-            }
-        }
-    }
-}
+			// Check if $video_date is set and valid.
+			if ( ! empty( $video_date ) ) {
+				// Ensure $timezone is set.
+				if ( isset( $timezone ) ) {
+					try {
+						// Create a DateTime object from the $video_date string.
+						$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
+						$uploadDate = $datetime->format( 'Y-m-d\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+					} catch ( Exception $e ) {
+						echo 'Error creating DateTime object: ' . esc_html( $e->getMessage() );
+						return;
+					}
+				}
+			}
+		}
 
-// Calculate ISO 8601 duration from $video_duration
-$iso_duration = '';
-if ('' != trim($video_duration)) {
-    $duration_parts = explode(':', $video_duration);
-    $hours   = isset($duration_parts[0]) ? $duration_parts[0] : 0;
-    $minutes = isset($duration_parts[1]) ? $duration_parts[1] : 0;
-    $seconds = isset($duration_parts[2]) ? $duration_parts[2] : 0;
+		// Calculate ISO 8601 duration from $video_duration.
+		$iso_duration = '';
+		if ( '' != trim( $video_duration ) ) {
+			$duration_parts = explode( ':', $video_duration );
+			$hours          = isset( $duration_parts[0] ) ? $duration_parts[0] : 0;
+			$minutes        = isset( $duration_parts[1] ) ? $duration_parts[1] : 0;
+			$seconds        = isset( $duration_parts[2] ) ? $duration_parts[2] : 0;
 
-    $iso_duration = 'PT' . ($hours > 0 ? $hours . 'H' : '') . ($minutes > 0 ? $minutes . 'M' : '') . ($seconds > 0 ? $seconds . 'S' : '');
-}
+			$iso_duration = 'PT' . ( $hours > 0 ? $hours . 'H' : '' ) . ( $minutes > 0 ? $minutes . 'M' : '' ) . ( $seconds > 0 ? $seconds . 'S' : '' );
+		}
 
-// Prepare schema array
-$schema = array(
-    '@context'    => 'https://schema.org',
-    '@type'       => 'VideoObject',
-    'name'        => $video_title,
-    'description' => $video_desc,
-    'thumbnailUrl' => $video_thumb,
-    'contentUrl'  => $video_url,
-    'embedUrl'    => $video_emb_url,
-    'uploadDate'  => $uploadDate,
-    'duration'    => $iso_duration,
-);
+		// Prepare schema array.
+		$schema = array(
+			'@context'     => 'https://schema.org',
+			'@type'        => 'VideoObject',
+			'name'         => $video_title,
+			'description'  => $video_desc,
+			'thumbnailUrl' => $video_thumb,
+			'contentUrl'   => $video_url,
+			'embedUrl'     => $video_emb_url,
+			'uploadDate'   => $uploadDate, // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+			'duration'     => $iso_duration,
+		);
 
-// Output the schema as JSON-LD only once
-$video .= '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+		// Output the schema as JSON-LD only once.
+		$video .= '<script type="application/ld+json">' . json_encode( $schema ) . '</script>'; // phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode
 
-// Start the video rendering logic
-$video .= '<div id="snippet-box" class="snippet-type-' . esc_attr($type) . '" style="background:' . esc_attr($args_color['snippet_box_bg']) . '; color:' . esc_attr($args_color['snippet_box_color']) . '; border:1px solid ' . esc_attr($args_color['snippet_border']) . ';">';
+		// Start the video rendering logic.
+		$video .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
-if ('' != $args_video['snippet_title']) {
-    $video .= '<div class="snippet-title" style="background:' . esc_attr($args_color['snippet_title_bg']) . '; color:' . esc_attr($args_color['snippet_title_color']) . '; border-bottom:1px solid ' . esc_attr($args_color['snippet_border']) . ';">' . esc_attr(stripslashes($args_video['snippet_title'])) . '</div>';
-}
+		if ( '' != $args_video['snippet_title'] ) {
+			$video .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_video['snippet_title'] ) ) . '</div>';
+		}
 
-if ('' != trim($video_url)) {
-    $video .= '<div class="snippet-image"><a href="' . esc_url($video_url) . '"><img width="180" src="' . esc_url($video_thumb) . '" alt="' . esc_attr($video_title) . '"></a></div>';
-} elseif ('' != trim($video_emb_url)) {
-    $video .= '<div class="snippet-image"><a href="' . esc_url($video_emb_url) . '"><img width="180" src="' . esc_url($video_thumb) . '" alt="' . esc_attr($video_title) . '"></a></div>';
-} else {
-    $video .= '<script type="text/javascript">
+		if ( '' != trim( $video_url ) ) {
+			$video .= '<div class="snippet-image"><a href="' . esc_url( $video_url ) . '"><img width="180" src="' . esc_url( $video_thumb ) . '" alt="' . esc_attr( $video_title ) . '"></a></div>';
+		} elseif ( '' != trim( $video_emb_url ) ) {
+			$video .= '<div class="snippet-image"><a href="' . esc_url( $video_emb_url ) . '"><img width="180" src="' . esc_url( $video_thumb ) . '" alt="' . esc_attr( $video_title ) . '"></a></div>';
+		} else {
+			$video .= '<script type="text/javascript">
         jQuery(document).ready(function() {
             jQuery(".snippet-label-img").addClass("snippet-clear");
         });
     </script>';
-}
+		}
 
-$video .= '<div class="aio-info" style="padding-top:10px">';
-if ('' != trim($video_title)) {
-    if ('' != $args_video['video_title']) {
-        $video .= '<div class="snippet-label-img">' . esc_attr(stripslashes($args_video['video_title'])) . '</div>';
-    }
-    $video .= '<div class="snippet-data-img"><span itemprop="name">' . esc_attr($video_title) . '</span></div><div class="snippet-clear"></div>';
-}
-if ('' != trim($video_desc)) {
-    if ('' != $args_video['video_desc']) {
-        $video .= '<div class="snippet-label-img">' . esc_attr(stripslashes($args_video['video_desc'])) . '</div>';
-    }
-    $video .= '<div class="snippet-data-img"> <p itemprop="description">' . esc_attr(htmlspecialchars_decode($video_desc)) . '</p></div><div class="snippet-clear"></div>';
-}
-if ('' != trim($video_thumb)) {
-    $video .= '<meta itemprop="thumbnailUrl" content="' . esc_attr($video_thumb) . '">';
-}
-if ('' != trim($video_url)) {
-    $video .= '<meta itemprop="contentUrl" content="' . esc_attr($video_url) . '">';
-} elseif ('' != trim($video_emb_url)) {
-    $video .= '<meta itemprop="embedURL" content="' . esc_attr($video_emb_url) . '">';
-}
-if ('' != trim($video_duration)) {
-    $video .= '<meta itemprop="duration" content="' . esc_attr($iso_duration) . '">';
-}
-if ('' != trim($video_date)) {
-    $video .= '<meta itemprop="uploadDate" content="' . esc_attr($uploadDate) . '">';
-}
+		$video .= '<div class="aio-info" style="padding-top:10px">';
+		if ( '' != trim( $video_title ) ) {
+			if ( '' != $args_video['video_title'] ) {
+				$video .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_video['video_title'] ) ) . '</div>';
+			}
+			$video .= '<div class="snippet-data-img"><span itemprop="name">' . esc_attr( $video_title ) . '</span></div><div class="snippet-clear"></div>';
+		}
+		if ( '' != trim( $video_desc ) ) {
+			if ( '' != $args_video['video_desc'] ) {
+				$video .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_video['video_desc'] ) ) . '</div>';
+			}
+			$video .= '<div class="snippet-data-img"> <p itemprop="description">' . esc_attr( htmlspecialchars_decode( $video_desc ) ) . '</p></div><div class="snippet-clear"></div>';
+		}
+		if ( '' != trim( $video_thumb ) ) {
+			$video .= '<meta itemprop="thumbnailUrl" content="' . esc_attr( $video_thumb ) . '">';
+		}
+		if ( '' != trim( $video_url ) ) {
+			$video .= '<meta itemprop="contentUrl" content="' . esc_attr( $video_url ) . '">';
+		} elseif ( '' != trim( $video_emb_url ) ) {
+			$video .= '<meta itemprop="embedURL" content="' . esc_attr( $video_emb_url ) . '">';
+		}
+		if ( '' != trim( $video_duration ) ) {
+			$video .= '<meta itemprop="duration" content="' . esc_attr( $iso_duration ) . '">';
+		}
+		if ( '' != trim( $video_date ) ) {
+			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $uploadDate ) . '">'; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+		}
 
-$video .= '</div></div></div><div class="snippet-clear"></div>';
+		$video .= '</div></div></div><div class="snippet-clear"></div>';
 
 		return ( is_single() || is_page() ) ? $content . $video : $content;
 	} elseif ( '10' == $type ) {
