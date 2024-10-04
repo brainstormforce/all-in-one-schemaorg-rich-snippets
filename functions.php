@@ -702,7 +702,7 @@ function display_rich_snippet( $content ) {
 				$recipe .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_recipe['author_name'] ) ) . '</div>';
 			}
 
-			$recipe .= '<div class="snippet-data-img"><span itemprop="author">' . esc_attr( $authors_name ) . '</span></div><div class="snippet-clear"></div>';
+			$recipe .= '<div class="snippet-data-img"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">' . esc_attr( $authors_name ) . '</span></span></div><div class="snippet-clear"></div>';
 		}
 		$recipe .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_recipe['recipe_pub'] ) ) . ' </div><div class="snippet-data-img"><time datetime="' . get_the_time( 'c' ) . '" itemprop="datePublished">' . get_the_date( 'Y-m-d' ) . '</time></div><div class="snippet-clear"></div>';
 		if ( '' != trim( $recipes_preptime ) ) {
