@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="3.10.3">
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/functions.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/init.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/NamingConventions/PrefixAllGlobalsSniff.php on line 280&#10;The error originated in the WordPress.NamingConventions.PrefixAllGlobals sniff on line 280." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/settings.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/NamingConventions/PrefixAllGlobalsSniff.php on line 280&#10;The error originated in the WordPress.NamingConventions.PrefixAllGlobals sniff on line 280." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/index.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/admin/index.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/admin/bsf-analytics/class-bsf-analytics-stats.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/admin/bsf-analytics/class-bsf-analytics.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/admin/bsf-analytics/class-bsf-analytics-loader.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/meta-boxes.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/NamingConventions/PrefixAllGlobalsSniff.php on line 280&#10;The error originated in the WordPress.NamingConventions.PrefixAllGlobals sniff on line 280." source="Internal.Exception"/>
+</file>
+<file name="/Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/lib/notices/class-astra-notices.php">
+ <error line="1" column="1" severity="error" message="An error occurred during processing; checking has been aborted. The error message was: trim(): Passing null to parameter #1 ($string) of type string is deprecated in /Users/akshayurankar/Local Sites/aiosrstesting/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php on line 194&#10;The error originated in the WordPress.WP.I18n sniff on line 194." source="Internal.Exception"/>
+</file>
+</checkstyle>
+
