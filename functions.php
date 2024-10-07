@@ -839,6 +839,11 @@ function display_rich_snippet( $content ) {
 		return ( is_single() || is_page() ) ? $content . $software : $content;
 	} elseif ( '9' == $type ) {
 		global $post;
+
+		if ( ! isset( $post->ID ) ) {
+			return;
+		}
+
 		$args_video = get_option( 'bsf_video' );
 		$video      = '';
 
@@ -853,24 +858,21 @@ function display_rich_snippet( $content ) {
 
 		// Set default timezone and handle video date.
 		if ( '' != trim( $video_date ) ) {
-			// Get the server timezone.
-			$timezone = date_default_timezone_get();
+    	// Get the server timezone.
+    	$timezone = date_default_timezone_get();
 
-			// Check if $video_date is set and valid.
-			if ( ! empty( $video_date ) ) {
-				// Ensure $timezone is set.
-				if ( isset( $timezone ) ) {
-					try {
-						// Create a DateTime object from the $video_date string.
-						$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
-						$uploadDate = $datetime->format( 'Y-m-d\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
-					} catch ( Exception $e ) {
-						echo 'Error creating DateTime object: ' . esc_html( $e->getMessage() );
-						return;
-					}
-				}
-			}
-		}
+    	// Check if $video_date is set and valid, and $timezone is set.
+    	if ( ! empty( $video_date ) && isset( $timezone ) ) {
+        try {
+            // Create a DateTime object from the $video_date string.
+            $datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
+            $uploadDate = $datetime->format( 'Y-m-d\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+        } catch ( Exception $e ) {
+            echo sprintf( __( 'Error creating DateTime object: %s', 'text-domain' ), esc_html( $e->getMessage() ) );
+            return;
+        }
+    }
+}
 
 		// Calculate ISO 8601 duration from $video_duration.
 		$iso_duration = '';
