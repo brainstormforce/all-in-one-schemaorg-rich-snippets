@@ -80,7 +80,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ## Changelog ##
 
-### 1.6.10.1 ###
+### 1.6.10.1 - Development Version ###
 - Fixed: Improved code quality syntax and security checks for better coding standards and practices.
 
 ### 1.6.10 ###
