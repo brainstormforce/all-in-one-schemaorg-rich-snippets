@@ -82,6 +82,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 = 1.6.10.1 - Development Version. =
 - Fixed: Improved code quality syntax and security checks for better coding standards and practices.
+- Fixed: Video Upload Date issue.
 
 = 1.6.10 =
 - Fixed: Corrected the uploadDate format as per ISO 8601 standards with timezone.
