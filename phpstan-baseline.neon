@@ -1,4 +1,4 @@
-parameters:
+parameters:	
 	reportUnmatchedIgnoredErrors: false
 	ignoreErrors:
 		-
@@ -11,6 +11,7 @@ parameters:
 		- '#type has no value type specified in iterable type array\.$#'
 		- '#with no value type specified in iterable type array\.$#'
 		- "#^While loop condition is always true\\.$#"
+		
 		-
 			message: "#^Property BSF_Analytics_Loader\\:\\:\\$analytics_version \\(float\\) does not accept default value of type string\\.$#"
 			count: 1
@@ -242,6 +243,16 @@ parameters:
 			path: functions.php
 
 		-
+			message: "#^Variable \\$timezone in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: functions.php
+
+		-
+			message: "#^Variable \\$uploadDate might not be defined\\.$#"
+			count: 2
+			path: functions.php
+
+		-
 			message: "#^Method RichSnippets\\:\\:aiosrs_admin_bar\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: index.php
@@ -397,7 +408,7 @@ parameters:
 			path: init.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(\\$_meta_box\\.\\)\\: Unexpected token \"\\$_meta_box\", expected type at offset 31$#"
+			message: "#^PHPDoc tag @var has invalid value \\(\\$_meta_box\\.\\)\\: Unexpected token \"\\$_meta_box\", expected type at offset 34$#"
 			count: 1
 			path: init.php
 
