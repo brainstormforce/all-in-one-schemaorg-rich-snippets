@@ -115,9 +115,9 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			$file_rtl = ( is_rtl() ) ? '-rtl' : '';
 			$css_ext  = ( SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
-			$css_uri = BSF_ANALYTICS_URI . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
+			$css_uri = ( defined( 'BSF_ANALYTICS_URI' ) ? BSF_ANALYTICS_URI : '' ) . '/assets/css/' . $dir_name . '/style' . $file_rtl . $css_ext;
 
-			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, BSF_ANALYTICS_VERSION, 'all' );
+			wp_enqueue_style( 'bsf-analytics-admin-style', $css_uri, false, ( defined( 'BSF_ANALYTICS_VERSION' ) ? BSF_ANALYTICS_VERSION : '' ), 'all' );
 		}
 
 		/**
@@ -418,7 +418,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		 * Set analytics installed time in option.
 		 *
 		 * @param string $source source of analytics.
-		 * @return string $time analytics installed time.
+		 * @return string|mixed $time analytics installed time.
 		 * @since 1.0.0
 		 */
 		private function get_analytics_install_time( $source ) {

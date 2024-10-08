@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.6.10
+ * Version: 1.6.11
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -68,7 +68,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.6.10' );
+			define( 'AIOSRS_PRO_VER', '1.6.11' );
 		}
 
 		/**
@@ -250,6 +250,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$message  = '';
 			$post_url = '';
 			$name     = '';
+			$subject  = ''; // Initialize $subject.
+
 			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
 
 				$from     = sanitize_email( $_POST['email'] );

@@ -105,7 +105,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		/**
 		 * Get installed PHP version.
 		 *
-		 * @return float PHP version.
+		 * @return string PHP version.
 		 * @since 1.0.0
 		 */
 		private function get_php_version() {
@@ -232,7 +232,7 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 	/**
 	 * Get timezone string.
 	 *
-	 * @return string timezone string.
+	 * @return mixed timezone string.
 	 * @since 1.0.0
 	 */
 	function wp_timezone_string() {
