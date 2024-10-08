@@ -80,7 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ## Changelog ##
 
-### 1.6.10.1 ###
+### 1.6.11 ###
+- Fixed: Improved code quality syntax and security checks for better coding standards and practices.
+- Fixed: Recipe - Author type fix.
 - Fixed: Video Upload Date issue.
 
 ### 1.6.10 ###

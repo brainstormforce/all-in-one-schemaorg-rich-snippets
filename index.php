@@ -250,6 +250,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$message  = '';
 			$post_url = '';
 			$name     = '';
+			$subject  = ''; // Initialize $subject.
+
 			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
 
 				$from     = sanitize_email( $_POST['email'] );

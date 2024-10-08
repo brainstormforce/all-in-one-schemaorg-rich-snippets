@@ -192,6 +192,8 @@ function display_rich_snippet( $content ) {
 			}
 			if ( 'item_product' == $item_review_type ) {
 				$item_product = get_option( 'bsf_product' );
+				// Set a default value for $availability.
+				$availability = '';
 				if ( 'out_of_stock' == trim( $item_pro_status ) ) {
 					$item_pro_status = 'OutOfStock';
 					$availability    = 'Out of Stock';
@@ -416,7 +418,7 @@ function display_rich_snippet( $content ) {
 		$org_latitude  = get_post_meta( $post->ID, '_bsf_organization_latitude', true );
 		$org_longitude = get_post_meta( $post->ID, '_bsf_organization_longitude', true );
 		if ( '' != trim( $org_name ) ) {
-			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_nam ) . '</span></div>';
+			$organization .= 'Organization Name : <span property="v:name">' . esc_attr( $org_name ) . '</span></div>';
 		}
 		if ( '' != trim( $org_url ) ) {
 			$organization .= 'Website : <a href="' . esc_url( $org_url ) . '" rel="v:url">' . esc_attr( $org_url ) . '</a></div>';
@@ -554,6 +556,8 @@ function display_rich_snippet( $content ) {
 		global $post;
 		$args_product = get_option( 'bsf_product' );
 		$product      = '';
+		// Set a default value for $availability.
+		$availability = '';
 		$product     .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 		if ( '' != $args_product['snippet_title'] ) {
 			$product .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_product['snippet_title'] ) );
@@ -1215,6 +1219,8 @@ function rating_count() {
 }
 /**
  * Bsf_do_rating.
+ *
+ * @return string
  */
 function bsf_do_rating() {
 	global $post;

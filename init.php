@@ -145,6 +145,10 @@ class Bsf_Meta_Box {
 	 * @param string $meta_box Meta Box.
 	 */
 	public function add_for_page_template( $display, $meta_box ) {
+
+		// Default value for $post_id to avoid undefined variable.
+		$post_id = null;
+
 		if ( 'page-template' !== $meta_box['show_on']['key'] ) {
 			return $display;
 		}
@@ -154,6 +158,7 @@ class Bsf_Meta_Box {
 		} elseif ( isset( $_POST['post_ID'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 			$post_id = esc_attr( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 		}
+
 		if ( ! ( isset( $post_id ) || is_page() ) ) {
 			return false;
 		}
@@ -403,6 +408,8 @@ class Bsf_Meta_Box {
 							echo '<a href="#" class="bsf_remove_file_button ', esc_attr( $field['class'] ),'" rel="', esc_attr( $field['id'] ), '">Remove Image</a>';
 							echo '</div>';
 						} else {
+							// Initialize $title with a default value.
+							$title       = '';
 							$parts       = explode( '/', $meta );
 							$parts_count = count( $parts );
 							for ( $i = 0; $i < $parts_count; ++$i ) {
@@ -517,6 +524,7 @@ class Bsf_Meta_Box {
 				}
 			}
 		}
+
 	}
 }
 /**
