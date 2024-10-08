@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.10\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.11\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2024-09-19 08:31:10+00:00\n"
+"POT-Creation-Date: 2024-10-08 06:50:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -578,85 +578,90 @@ msgid ""
 "products, please enable this option."
 msgstr ""
 
-#: admin/index.php:1062
+#: admin/index.php:1071
 msgid "Success! Your changes were successfully saved!"
 msgstr ""
 
-#: admin/index.php:1064
+#: admin/index.php:1073
 msgid "Sorry, Your changes are not saved!"
 msgstr ""
 
-#: admin/index.php:1186
+#: admin/index.php:1199
 msgid "Get in touch with the Plugin Developers"
 msgstr ""
 
-#: admin/index.php:1190
+#: admin/index.php:1203
 msgid ""
 "Just fill out the form below and your message will be emailed to the Plugin "
 "Developers."
 msgstr ""
 
-#: admin/index.php:1192
+#: admin/index.php:1205
 msgid "Your Name:"
 msgstr ""
 
-#: admin/index.php:1194
+#: admin/index.php:1207
 msgid "Your Email:"
 msgstr ""
 
-#: admin/index.php:1196
+#: admin/index.php:1209
 msgid "Reference URL:"
 msgstr ""
 
-#: admin/index.php:1198
+#: admin/index.php:1211
 msgid "Subject:"
 msgstr ""
 
-#: admin/index.php:1209
+#: admin/index.php:1222
 msgid "Your Query in Brief:"
 msgstr ""
 
-#: functions.php:1269
+#: functions.php:876
+#. Translators: %s is the error message from the exception.
+msgid "Error creating DateTime object: %s"
+msgstr ""
+
+#: functions.php:1300
 msgid "Error adding your rating"
 msgstr ""
 
-#: functions.php:1269
+#: functions.php:1300
 msgid "Ratings added successfully !"
 msgstr ""
 
-#: functions.php:1299
+#: functions.php:1330
 msgid "Error updating your rating"
 msgstr ""
 
-#: functions.php:1299
+#: functions.php:1330
 msgid "Ratings updated successfully !"
 msgstr ""
 
-#: index.php:317
+#: index.php:319
 msgid "Thank you!"
 msgstr ""
 
-#: index.php:317
+#: index.php:319
 msgid "Something went wrong!"
 msgstr ""
 
-#: index.php:346
+#: index.php:348
 msgid "Settings saved !"
 msgstr ""
 
-#: index.php:346
+#: index.php:348
 msgid "Error occured. Settings were not saved !"
 msgstr ""
 
-#: init.php:645
+#: init.php:653
 msgid "Please Try Again"
 msgstr ""
 
-#: init.php:660
+#: init.php:668
 msgid "Remove Embed"
 msgstr ""
 
-#: init.php:666
+#: init.php:674
 #. translators: %s: $fallback
 msgid "No oEmbed Results Found for %s. View more info at"
 msgstr ""
@@ -1477,6 +1482,14 @@ msgstr ""
 
 #: settings.php:149
 msgid "Provider telephone number"
+msgstr ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:247
+msgid "Inactive Widgets"
+msgstr ""
+
+#: vendor/wp-cli/wp-cli/php/utils-wp.php:250
+msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
