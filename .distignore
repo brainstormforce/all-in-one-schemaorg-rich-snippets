@@ -17,6 +17,9 @@ package.json
 package-lock.json
 phpunit.xml
 phpunit.xml.dist
+phpstan-baseline.neon
+phpstan.neon
+stubs-generator.php
 multisite.xml
 multisite.xml.dist
 phpcs.xml
