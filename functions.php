@@ -617,6 +617,11 @@ function display_rich_snippet( $content ) {
 		$product .= '<span itemprop="ratingValue">' . average_rating() . '</span>';
 		$product .= ' based on <span class="rating-count" itemprop="reviewCount">' . rating_count() . '</span> votes </span></div></div><div class="snippet-clear"></div>';
 
+		$product .= '<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+		$product .= '<meta itemprop="contentUrl" content="' . esc_url( $product_image ) . '">';
+		$product .= '<link itemprop="url" href="' . esc_url( $product_image ) . '">';
+		$product .= '</div>';
+
 		if ( '' != trim( $product_brand ) ) {
 			if ( '' != $args_product['product_brand'] ) {
 				$product .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_product['product_brand'] ) ) . '</div>';

@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
+= 1.6.10.1 =
+- Fixed: Product image schema error in Product schema.
+
 = 1.6.10 =
 - Fixed: Corrected the uploadDate format as per ISO 8601 standards with timezone.
 - Fixed: Resolved url redirect issue for Test Rich Snippets button.
