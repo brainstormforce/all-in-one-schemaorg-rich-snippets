@@ -23,3 +23,4 @@ vendor/
 # ignore PHPStorm extra directories
 .vscodecghooks.lock
 
+config.bat
