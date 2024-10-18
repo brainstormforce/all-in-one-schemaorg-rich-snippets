@@ -236,9 +236,6 @@ function display_rich_snippet( $content ) {
 					$review .= '</div>';
 				}
 
-				// if ( '' != trim( $item_pro_image ) ) {
-				// $review .= '<div class="snippet-image"><img width="180" src="' . esc_url( $item_pro_image ) . '" itemprop="image" alt="product image" /></div>';
-				// }
 				if ( '' != trim( $item_pro_image ) ) {
 					$review .= '<meta itemprop="image" content="' . esc_attr( $item_pro_image ) . '">';
 				}
