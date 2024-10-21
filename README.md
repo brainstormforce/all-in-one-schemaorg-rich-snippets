@@ -1,10 +1,10 @@
 # Schema - All In One Schema Rich Snippets #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)  
 **Donate link:** https://www.paypal.me/BrainstormForce  
-**Tags:** schema markup, structured data, rich snippets, schema.org, Microdata, schema  
+**Tags:** schema markup, structured data, rich snippets, schema.org, schema  
 **Requires at least:** 3.7  
 **Tested up to:** 6.6  
-**Stable tag:** 1.6.11  
+**Stable tag:** 1.6.12  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,10 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+
+### 1.6.12 ###
+- Improvement: Added Product Image field in Review Schema.
+- Improvement: Updated plugin metadata tags to improve search optimization.
 
 ### 1.6.11 ###
 - Fixed: Improved code quality syntax and security checks for better coding standards and practices.

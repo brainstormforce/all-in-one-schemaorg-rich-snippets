@@ -91,6 +91,7 @@ function display_rich_snippet( $content ) {
 		$item_event_local       = get_post_meta( $post->ID, '_bsf_item_event_local', true );
 		$item_event_region      = get_post_meta( $post->ID, '_bsf_item_event_region', true );
 		$item_event_postal_code = get_post_meta( $post->ID, '_bsf_item_event_postal_code', true );
+		$item_pro_image         = get_post_meta( $post->ID, '_bsf_item_pro_image', true );
 		$item_pro_name          = get_post_meta( $post->ID, '_bsf_item_pro_name', true );
 		$item_pro_price         = get_post_meta( $post->ID, '_bsf_item_pro_price', true );
 		$item_pro_cur           = get_post_meta( $post->ID, '_bsf_item_pro_cur', true );
@@ -110,6 +111,10 @@ function display_rich_snippet( $content ) {
 
 		if ( 'item_recipe' == $item_review_type ) {
 			$review .= '<div class="snippet-image"><img width="180" src="' . esc_url( $item_recp_photo ) . '" alt="recipe image"/></div>';
+			$review .= '<div class="aio-info">';
+		}
+		if ( 'item_product' == $item_review_type ) {
+			$review .= '<div class="snippet-image"><img width="180" src="' . esc_url( $item_pro_image ) . '" alt="recipe image"/></div>';
 			$review .= '<div class="aio-info">';
 		}
 		if ( 'item_video' == $item_review_type ) {
@@ -213,6 +218,7 @@ function display_rich_snippet( $content ) {
 					}
 					$review .= " <div class='snippet-data'><span itemprop='name'>" . esc_attr( stripslashes( $item_pro_name ) ) . '</span></div>';
 				}
+
 				if ( '' != trim( $item_pro_price ) ) {
 
 					if ( '' != $item_product['product_price'] ) {
@@ -229,7 +235,12 @@ function display_rich_snippet( $content ) {
 					}
 					$review .= '</div>';
 				}
-				$review .= '</span>';
+
+				if ( '' != trim( $item_pro_image ) ) {
+					$review .= '<meta itemprop="image" content="' . esc_attr( $item_pro_image ) . '">';
+				}
+
+				$review .= '</span></div>';
 			}
 			if ( 'item_recipe' == $item_review_type ) {
 				$item_recipe = get_option( 'bsf_recipe' );

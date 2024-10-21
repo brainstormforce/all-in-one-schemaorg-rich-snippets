@@ -203,6 +203,13 @@ function bsf_metaboxes( array $meta_boxes ) {
 				'type'  => 'text',
 			),
 			array(
+				'name'  => __( 'Product Image', 'all-in-one-schemaorg-rich-snippets' ),
+				'desc'  => __( 'Upload the product image or select from library. Medium size is recommended (300px X 300px)', 'all-in-one-schemaorg-rich-snippets' ),
+				'id'    => $prefix . 'item_pro_image',
+				'class' => 'product_item_type',
+				'type'  => 'file',
+			),
+			array(
 				'name'  => __( 'Product Price', 'all-in-one-schemaorg-rich-snippets' ),
 				'desc'  => __( 'Enter the product Price.', 'all-in-one-schemaorg-rich-snippets' ),
 				'id'    => $prefix . 'item_pro_price',

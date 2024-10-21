@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.11\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.12\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2024-10-08 06:50:17+00:00\n"
+"POT-Creation-Date: 2024-10-21 05:48:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Landing Page:"
 msgstr ""
 
-#: admin/index.php:406 meta-boxes.php:80 meta-boxes.php:144 meta-boxes.php:883
+#: admin/index.php:406 meta-boxes.php:80 meta-boxes.php:144 meta-boxes.php:890
 msgid "Video"
 msgstr ""
 
@@ -616,24 +616,24 @@ msgstr ""
 msgid "Your Query in Brief:"
 msgstr ""
 
-#: functions.php:876
+#: functions.php:887
 #. Translators: %s is the error message from the exception.
 msgid "Error creating DateTime object: %s"
 msgstr ""
 
-#: functions.php:1300
+#: functions.php:1311
 msgid "Error adding your rating"
 msgstr ""
 
-#: functions.php:1300
+#: functions.php:1311
 msgid "Ratings added successfully !"
 msgstr ""
 
-#: functions.php:1330
+#: functions.php:1341
 msgid "Error updating your rating"
 msgstr ""
 
-#: functions.php:1330
+#: functions.php:1341
 msgid "Ratings updated successfully !"
 msgstr ""
 
@@ -686,9 +686,9 @@ msgstr ""
 msgid "Rich Snippets - Item Review"
 msgstr ""
 
-#: meta-boxes.php:97 meta-boxes.php:343 meta-boxes.php:435 meta-boxes.php:443
-#: meta-boxes.php:521 meta-boxes.php:600 meta-boxes.php:700 meta-boxes.php:771
-#: meta-boxes.php:856 meta-boxes.php:915 meta-boxes.php:966
+#: meta-boxes.php:97 meta-boxes.php:350 meta-boxes.php:442 meta-boxes.php:450
+#: meta-boxes.php:528 meta-boxes.php:607 meta-boxes.php:707 meta-boxes.php:778
+#: meta-boxes.php:863 meta-boxes.php:922 meta-boxes.php:973
 msgid "Please provide the following information."
 msgstr ""
 
@@ -732,7 +732,7 @@ msgstr ""
 msgid "Event Start Date "
 msgstr ""
 
-#: meta-boxes.php:158 meta-boxes.php:399
+#: meta-boxes.php:158 meta-boxes.php:406
 msgid "Provide the Event Start Date."
 msgstr ""
 
@@ -740,28 +740,28 @@ msgstr ""
 msgid "Event Location "
 msgstr ""
 
-#: meta-boxes.php:165 meta-boxes.php:357
+#: meta-boxes.php:165 meta-boxes.php:364
 msgid "Location Name Here"
 msgstr ""
 
-#: meta-boxes.php:172 meta-boxes.php:364 meta-boxes.php:1008
+#: meta-boxes.php:172 meta-boxes.php:371 meta-boxes.php:1015
 msgid "Street Address"
 msgstr ""
 
-#: meta-boxes.php:179 meta-boxes.php:371 meta-boxes.php:1015
+#: meta-boxes.php:179 meta-boxes.php:378 meta-boxes.php:1022
 msgid "Locality"
 msgstr ""
 
-#: meta-boxes.php:186 meta-boxes.php:378 meta-boxes.php:584 meta-boxes.php:1022
+#: meta-boxes.php:186 meta-boxes.php:385 meta-boxes.php:591 meta-boxes.php:1029
 msgid "Region"
 msgstr ""
 
-#: meta-boxes.php:193 meta-boxes.php:385 meta-boxes.php:492 meta-boxes.php:591
-#: meta-boxes.php:1029
+#: meta-boxes.php:193 meta-boxes.php:392 meta-boxes.php:499 meta-boxes.php:598
+#: meta-boxes.php:1036
 msgid "Postal Code"
 msgstr ""
 
-#: meta-boxes.php:199 meta-boxes.php:642 settings.php:62
+#: meta-boxes.php:199 meta-boxes.php:649 settings.php:62
 msgid "Product Name"
 msgstr ""
 
@@ -770,469 +770,469 @@ msgid "Enter the Product name."
 msgstr ""
 
 #: meta-boxes.php:206 meta-boxes.php:656
-msgid "Product Price"
+msgid "Product Image"
 msgstr ""
 
 #: meta-boxes.php:207 meta-boxes.php:657
+msgid ""
+"Upload the product image or select from library. Medium size is recommended "
+"(300px X 300px)"
+msgstr ""
+
+#: meta-boxes.php:213 meta-boxes.php:663
+msgid "Product Price"
+msgstr ""
+
+#: meta-boxes.php:214 meta-boxes.php:664
 msgid "Enter the product Price."
 msgstr ""
 
-#: meta-boxes.php:213 meta-boxes.php:419 meta-boxes.php:663
+#: meta-boxes.php:220 meta-boxes.php:426 meta-boxes.php:670
 msgid "Currency "
 msgstr ""
 
-#: meta-boxes.php:214 meta-boxes.php:420 meta-boxes.php:664 meta-boxes.php:814
+#: meta-boxes.php:221 meta-boxes.php:427 meta-boxes.php:671 meta-boxes.php:821
 msgid ""
 "Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a "
 "href=\"http://www.science.co.il/International/Currency-Codes.asp\" "
 "target=\"_blank\"> Know you currency code</a>"
 msgstr ""
 
-#: meta-boxes.php:220 meta-boxes.php:670
+#: meta-boxes.php:227 meta-boxes.php:677
 msgid "Availability"
 msgstr ""
 
-#: meta-boxes.php:221 meta-boxes.php:671
+#: meta-boxes.php:228 meta-boxes.php:678
 msgid "Select the products availability."
 msgstr ""
 
-#: meta-boxes.php:227 meta-boxes.php:677
+#: meta-boxes.php:234 meta-boxes.php:684
 msgid "__ Please Select __"
 msgstr ""
 
-#: meta-boxes.php:231 meta-boxes.php:681
+#: meta-boxes.php:238 meta-boxes.php:688
 msgid "Out of Stock"
 msgstr ""
 
-#: meta-boxes.php:235 meta-boxes.php:685
+#: meta-boxes.php:242 meta-boxes.php:692
 msgid "In Stock"
 msgstr ""
 
-#: meta-boxes.php:239 meta-boxes.php:689
+#: meta-boxes.php:246 meta-boxes.php:696
 msgid "In Store Only"
 msgstr ""
 
-#: meta-boxes.php:243 meta-boxes.php:693
+#: meta-boxes.php:250 meta-boxes.php:700
 msgid "Pre-Order"
 msgstr ""
 
-#: meta-boxes.php:249 meta-boxes.php:706
+#: meta-boxes.php:256 meta-boxes.php:713
 msgid "Recipe Name "
 msgstr ""
 
-#: meta-boxes.php:250 meta-boxes.php:707
+#: meta-boxes.php:257 meta-boxes.php:714
 msgid "Enter the recipe name."
 msgstr ""
 
-#: meta-boxes.php:256 meta-boxes.php:762
+#: meta-boxes.php:263 meta-boxes.php:769
 msgid "Recipe Photo"
 msgstr ""
 
-#: meta-boxes.php:257 meta-boxes.php:763
+#: meta-boxes.php:264 meta-boxes.php:770
 msgid "Upload or Select recipe photo. Medium size is recommended (300px X 300px)"
 msgstr ""
 
-#: meta-boxes.php:263 settings.php:99
+#: meta-boxes.php:270 settings.php:99
 msgid "Software Name"
 msgstr ""
 
-#: meta-boxes.php:264
+#: meta-boxes.php:271
 msgid "Enter the Software name."
 msgstr ""
 
-#: meta-boxes.php:270
+#: meta-boxes.php:277
 msgid "Software Operating System"
 msgstr ""
 
-#: meta-boxes.php:271
+#: meta-boxes.php:278
 msgid "Enter the Operating System name."
 msgstr ""
 
-#: meta-boxes.php:277
+#: meta-boxes.php:284
 msgid "Software Application Category"
 msgstr ""
 
-#: meta-boxes.php:278
+#: meta-boxes.php:285
 msgid "Enter the Application Category name."
 msgstr ""
 
-#: meta-boxes.php:284 meta-boxes.php:862
+#: meta-boxes.php:291 meta-boxes.php:869
 msgid "Video Title"
 msgstr ""
 
-#: meta-boxes.php:285 meta-boxes.php:863
+#: meta-boxes.php:292 meta-boxes.php:870
 msgid "Enter the title for this video"
 msgstr ""
 
-#: meta-boxes.php:291 meta-boxes.php:869
+#: meta-boxes.php:298 meta-boxes.php:876
 msgid "Video Description"
 msgstr ""
 
-#: meta-boxes.php:292 meta-boxes.php:870
+#: meta-boxes.php:299 meta-boxes.php:877
 msgid "Enter the brief description for this video"
 msgstr ""
 
-#: meta-boxes.php:298 meta-boxes.php:876
+#: meta-boxes.php:305 meta-boxes.php:883
 msgid "Video Thumbnail"
 msgstr ""
 
-#: meta-boxes.php:299 meta-boxes.php:877
+#: meta-boxes.php:306 meta-boxes.php:884
 msgid ""
 "Upload or select video thumbnail from gallery. Medium size is recommended "
 "(300px X 300px)"
 msgstr ""
 
-#: meta-boxes.php:305 meta-boxes.php:906 settings.php:115
+#: meta-boxes.php:312 meta-boxes.php:913 settings.php:115
 msgid "Upload Date"
 msgstr ""
 
-#: meta-boxes.php:306 meta-boxes.php:907
+#: meta-boxes.php:313 meta-boxes.php:914
 msgid "Provide the date when the video is uploaded"
 msgstr ""
 
-#: meta-boxes.php:312 meta-boxes.php:606
+#: meta-boxes.php:319 meta-boxes.php:613
 msgid "Your Rating"
 msgstr ""
 
-#: meta-boxes.php:313
+#: meta-boxes.php:320
 msgid "&nbsp;&nbsp;Rate this item (1-5)"
 msgstr ""
 
-#: meta-boxes.php:342
+#: meta-boxes.php:349
 msgid "Rich Snippets - Events"
 msgstr ""
 
-#: meta-boxes.php:349
+#: meta-boxes.php:356
 msgid "Event Title "
 msgstr ""
 
-#: meta-boxes.php:350
+#: meta-boxes.php:357
 msgid "What would be the name of the event?"
 msgstr ""
 
-#: meta-boxes.php:356
+#: meta-boxes.php:363
 msgid "Location "
 msgstr ""
 
-#: meta-boxes.php:391
+#: meta-boxes.php:398
 msgid "Description "
 msgstr ""
 
-#: meta-boxes.php:392
+#: meta-boxes.php:399
 msgid "Describe the event in short."
 msgstr ""
 
-#: meta-boxes.php:398
+#: meta-boxes.php:405
 msgid "Start Date "
 msgstr ""
 
-#: meta-boxes.php:405
+#: meta-boxes.php:412
 msgid "End Date "
 msgstr ""
 
-#: meta-boxes.php:406
+#: meta-boxes.php:413
 msgid "Provide the Event End Date."
 msgstr ""
 
-#: meta-boxes.php:412 settings.php:33
+#: meta-boxes.php:419 settings.php:33
 msgid "Offer Price"
 msgstr ""
 
-#: meta-boxes.php:413
+#: meta-boxes.php:420
 msgid "Enter the ticket Price."
 msgstr ""
 
-#: meta-boxes.php:426
+#: meta-boxes.php:433
 msgid "Url "
 msgstr ""
 
-#: meta-boxes.php:427
+#: meta-boxes.php:434
 msgid "Url of buy ticket page"
 msgstr ""
 
-#: meta-boxes.php:434
+#: meta-boxes.php:441
 msgid "Rich Snippets - Music"
 msgstr ""
 
-#: meta-boxes.php:442
+#: meta-boxes.php:449
 msgid "Rich Snippets - Organization"
 msgstr ""
 
-#: meta-boxes.php:449
+#: meta-boxes.php:456
 msgid "Organization Name "
 msgstr ""
 
-#: meta-boxes.php:450
+#: meta-boxes.php:457
 msgid "Enter the Company or Organization Name."
 msgstr ""
 
-#: meta-boxes.php:456
+#: meta-boxes.php:463
 msgid "Website URL "
 msgstr ""
 
-#: meta-boxes.php:457
+#: meta-boxes.php:464
 msgid "Enter the Organization homepage url."
 msgstr ""
 
-#: meta-boxes.php:463
+#: meta-boxes.php:470
 msgid "Contact No. "
 msgstr ""
 
-#: meta-boxes.php:464
+#: meta-boxes.php:471
 msgid "Enter the Telephone No."
 msgstr ""
 
-#: meta-boxes.php:470
+#: meta-boxes.php:477
 msgid "Address "
 msgstr ""
 
-#: meta-boxes.php:471
+#: meta-boxes.php:478
 msgid "Street Name."
 msgstr ""
 
-#: meta-boxes.php:478
+#: meta-boxes.php:485
 msgid "Locality."
 msgstr ""
 
-#: meta-boxes.php:485
+#: meta-boxes.php:492
 msgid "Region."
 msgstr ""
 
-#: meta-boxes.php:499
+#: meta-boxes.php:506
 msgid "Country Name"
 msgstr ""
 
-#: meta-boxes.php:505
+#: meta-boxes.php:512
 msgid "GEO Location"
 msgstr ""
 
-#: meta-boxes.php:506
+#: meta-boxes.php:513
 msgid ""
 "Latitude. <a "
 "href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" "
 "target=\"_blank\">Find Here.</a>"
 msgstr ""
 
-#: meta-boxes.php:513
+#: meta-boxes.php:520
 msgid "Longitude."
 msgstr ""
 
-#: meta-boxes.php:520
+#: meta-boxes.php:527
 msgid "Rich Snippets - Person"
 msgstr ""
 
-#: meta-boxes.php:527
+#: meta-boxes.php:534
 msgid "Person&lsquo;s Name"
 msgstr ""
 
-#: meta-boxes.php:528
+#: meta-boxes.php:535
 msgid "Enter the relative person&lsquo;s name."
 msgstr ""
 
-#: meta-boxes.php:534 settings.php:45
+#: meta-boxes.php:541 settings.php:45
 msgid "Nickname"
 msgstr ""
 
-#: meta-boxes.php:535
+#: meta-boxes.php:542
 msgid "Enter the nickname (if any)."
 msgstr ""
 
-#: meta-boxes.php:541
+#: meta-boxes.php:548
 msgid "Photograph"
 msgstr ""
 
-#: meta-boxes.php:542
+#: meta-boxes.php:549
 msgid ""
 "Upload the photo or select from media library. Medium size is recommended "
 "(300px X 300px)"
 msgstr ""
 
-#: meta-boxes.php:548
+#: meta-boxes.php:555
 msgid "Job Title "
 msgstr ""
 
-#: meta-boxes.php:549
+#: meta-boxes.php:556
 msgid "Enter job title."
 msgstr ""
 
-#: meta-boxes.php:555
+#: meta-boxes.php:562
 msgid "Homepage URL"
 msgstr ""
 
-#: meta-boxes.php:556
+#: meta-boxes.php:563
 msgid "Enter homepage URL(if any)."
 msgstr ""
 
-#: meta-boxes.php:562
+#: meta-boxes.php:569
 msgid "Company / Organization"
 msgstr ""
 
-#: meta-boxes.php:563
+#: meta-boxes.php:570
 msgid "Enter Company or Organization name in affiliation."
 msgstr ""
 
-#: meta-boxes.php:569 settings.php:49
+#: meta-boxes.php:576 settings.php:49
 msgid "Address"
 msgstr ""
 
-#: meta-boxes.php:570
+#: meta-boxes.php:577
 msgid "Enter Street"
 msgstr ""
 
-#: meta-boxes.php:577
+#: meta-boxes.php:584
 msgid "Enter Locality"
 msgstr ""
 
-#: meta-boxes.php:599
+#: meta-boxes.php:606
 msgid "Rich Snippets - Products"
 msgstr ""
 
-#: meta-boxes.php:607
+#: meta-boxes.php:614
 msgid "Rate this product or aggregate rating."
 msgstr ""
 
-#: meta-boxes.php:635 settings.php:61
+#: meta-boxes.php:642 settings.php:61
 msgid "Brand Name"
 msgstr ""
 
-#: meta-boxes.php:636
+#: meta-boxes.php:643
 msgid "Enter the products brand name"
 msgstr ""
 
-#: meta-boxes.php:643
+#: meta-boxes.php:650
 msgid "Enter the product name."
 msgstr ""
 
-#: meta-boxes.php:649
-msgid "Product Image"
-msgstr ""
-
-#: meta-boxes.php:650
-msgid ""
-"Upload the product image or select from library. Medium size is recommended "
-"(300px X 300px)"
-msgstr ""
-
-#: meta-boxes.php:699
+#: meta-boxes.php:706
 msgid "Rich Snippets - Recipes"
 msgstr ""
 
-#: meta-boxes.php:713
+#: meta-boxes.php:720
 msgid "Author Name "
 msgstr ""
 
-#: meta-boxes.php:714
+#: meta-boxes.php:721
 msgid "Enter the Author name."
 msgstr ""
 
-#: meta-boxes.php:720
+#: meta-boxes.php:727
 msgid "Time Required "
 msgstr ""
 
-#: meta-boxes.php:721
+#: meta-boxes.php:728
 msgid "Preperation time  (Format: 1H30M. H - Hours, M - Minutes )"
 msgstr ""
 
-#: meta-boxes.php:728
+#: meta-boxes.php:735
 msgid "Cook Time. (Format: 1H30M. H - Hours, M - Minutes )"
 msgstr ""
 
-#: meta-boxes.php:735
+#: meta-boxes.php:742
 msgid "Total Time  (Format: 1H30M. H - Hours, M - Minutes )"
 msgstr ""
 
-#: meta-boxes.php:741 settings.php:30 settings.php:82 settings.php:113
+#: meta-boxes.php:748 settings.php:30 settings.php:82 settings.php:113
 #: settings.php:127 settings.php:143
 msgid "Description"
 msgstr ""
 
-#: meta-boxes.php:742
+#: meta-boxes.php:749
 msgid "Describe the recipe in short."
 msgstr ""
 
-#: meta-boxes.php:748 meta-boxes.php:749 settings.php:83
+#: meta-boxes.php:755 meta-boxes.php:756 settings.php:83
 msgid "Nutrition"
 msgstr ""
 
-#: meta-boxes.php:755 settings.php:84
+#: meta-boxes.php:762 settings.php:84
 msgid "Ingredients"
 msgstr ""
 
-#: meta-boxes.php:756
+#: meta-boxes.php:763
 msgid "Enter the ingredients used"
 msgstr ""
 
-#: meta-boxes.php:770
+#: meta-boxes.php:777
 msgid "Rich Snippets - Software Application"
 msgstr ""
 
-#: meta-boxes.php:777
+#: meta-boxes.php:784
 msgid "Software Rating"
 msgstr ""
 
-#: meta-boxes.php:778
+#: meta-boxes.php:785
 msgid "Rate this software."
 msgstr ""
 
-#: meta-boxes.php:806 settings.php:64 settings.php:98
+#: meta-boxes.php:813 settings.php:64 settings.php:98
 msgid "Price"
 msgstr ""
 
-#: meta-boxes.php:807
+#: meta-boxes.php:814
 msgid "Enter the Price of Software"
 msgstr ""
 
-#: meta-boxes.php:813
+#: meta-boxes.php:820
 msgid "Currency"
 msgstr ""
 
-#: meta-boxes.php:820
+#: meta-boxes.php:827
 msgid "Software Name "
 msgstr ""
 
-#: meta-boxes.php:821
+#: meta-boxes.php:828
 msgid "Enter the Software Name."
 msgstr ""
 
-#: meta-boxes.php:827 settings.php:100
+#: meta-boxes.php:834 settings.php:100
 msgid "Operating System"
 msgstr ""
 
-#: meta-boxes.php:828
+#: meta-boxes.php:835
 msgid "Enter the software Operating System."
 msgstr ""
 
-#: meta-boxes.php:834
+#: meta-boxes.php:841
 msgid "Application Category"
 msgstr ""
 
-#: meta-boxes.php:835
+#: meta-boxes.php:842
 msgid "Like Game, Multimedia"
 msgstr ""
 
-#: meta-boxes.php:841
+#: meta-boxes.php:848
 msgid "Software Image"
 msgstr ""
 
-#: meta-boxes.php:842
+#: meta-boxes.php:849
 msgid ""
 "Upload or select image of software. Medium size is recommended (300px X "
 "300px)"
 msgstr ""
 
-#: meta-boxes.php:848 settings.php:101
+#: meta-boxes.php:855 settings.php:101
 msgid "Landing Page"
 msgstr ""
 
-#: meta-boxes.php:849
+#: meta-boxes.php:856
 msgid "Enter the landing page url for software"
 msgstr ""
 
-#: meta-boxes.php:855
+#: meta-boxes.php:862
 msgid "Rich Snippets - Videos"
 msgstr ""
 
-#: meta-boxes.php:884
+#: meta-boxes.php:891
 msgid ""
 "Upload Video or enter the video file url<br>Example: <br> "
 "http://www.example.com/video123.flv<br>A URL pointing to the actual video "
@@ -1240,11 +1240,11 @@ msgid ""
 ".avi, .flv, or other video file format"
 msgstr ""
 
-#: meta-boxes.php:891
+#: meta-boxes.php:898
 msgid "Embed Video"
 msgstr ""
 
-#: meta-boxes.php:892
+#: meta-boxes.php:899
 msgid ""
 "A URL pointing to a player for the specific video. Usually this is the "
 "information in the src element of an &lt;embed&gt;tag. <br>Example: "
@@ -1254,119 +1254,119 @@ msgid ""
 "both.</h3></div>"
 msgstr ""
 
-#: meta-boxes.php:899
+#: meta-boxes.php:906
 msgid "Video Duration"
 msgstr ""
 
-#: meta-boxes.php:900
+#: meta-boxes.php:907
 msgid "Enter the duration for this video"
 msgstr ""
 
-#: meta-boxes.php:914
+#: meta-boxes.php:921
 msgid "Rich Snippets - Article"
 msgstr ""
 
-#: meta-boxes.php:921
+#: meta-boxes.php:928
 msgid "Article Image"
 msgstr ""
 
-#: meta-boxes.php:922 meta-boxes.php:957 meta-boxes.php:973
+#: meta-boxes.php:929 meta-boxes.php:964 meta-boxes.php:980
 msgid ""
 "Upload or select image from gallery. Medium size is recommended (300px X "
 "300px)"
 msgstr ""
 
-#: meta-boxes.php:928 settings.php:125
+#: meta-boxes.php:935 settings.php:125
 msgid "Article Name"
 msgstr ""
 
-#: meta-boxes.php:929
+#: meta-boxes.php:936
 msgid "Enter the name for this article"
 msgstr ""
 
-#: meta-boxes.php:935 meta-boxes.php:993
+#: meta-boxes.php:942 meta-boxes.php:1000
 msgid "Short Description"
 msgstr ""
 
-#: meta-boxes.php:936
+#: meta-boxes.php:943
 msgid "Enter the brief description about this article (About 30 Words)"
 msgstr ""
 
-#: meta-boxes.php:942 settings.php:126
+#: meta-boxes.php:949 settings.php:126
 msgid "Author"
 msgstr ""
 
-#: meta-boxes.php:943
+#: meta-boxes.php:950
 msgid "Enter the author name for this article"
 msgstr ""
 
-#: meta-boxes.php:949
+#: meta-boxes.php:956
 msgid "Publisher - Orgnization"
 msgstr ""
 
-#: meta-boxes.php:950
+#: meta-boxes.php:957
 msgid "Enter the publisher name for this article"
 msgstr ""
 
-#: meta-boxes.php:956 settings.php:130
+#: meta-boxes.php:963 settings.php:130
 msgid "Publisher Logo"
 msgstr ""
 
-#: meta-boxes.php:965
+#: meta-boxes.php:972
 msgid "Rich Snippets - Service"
 msgstr ""
 
-#: meta-boxes.php:972 settings.php:128
+#: meta-boxes.php:979 settings.php:128
 msgid "Image"
 msgstr ""
 
-#: meta-boxes.php:979 settings.php:141
+#: meta-boxes.php:986 settings.php:141
 msgid "Service Type"
 msgstr ""
 
-#: meta-boxes.php:980
+#: meta-boxes.php:987
 msgid "Enter the service type"
 msgstr ""
 
-#: meta-boxes.php:986
+#: meta-boxes.php:993
 msgid "Service Served Area"
 msgstr ""
 
-#: meta-boxes.php:987
+#: meta-boxes.php:994
 msgid "Enter the area where service is available"
 msgstr ""
 
-#: meta-boxes.php:994
+#: meta-boxes.php:1001
 msgid "Enter the description about service (About 30 Words)"
 msgstr ""
 
-#: meta-boxes.php:1000 settings.php:147
+#: meta-boxes.php:1007 settings.php:147
 msgid "Provider Name"
 msgstr ""
 
-#: meta-boxes.php:1001
+#: meta-boxes.php:1008
 msgid "Enter the service provider name"
 msgstr ""
 
-#: meta-boxes.php:1007 settings.php:29 settings.php:148
+#: meta-boxes.php:1014 settings.php:29 settings.php:148
 msgid "Location"
 msgstr ""
 
-#: meta-boxes.php:1035
+#: meta-boxes.php:1042
 msgid "Provider Location Image"
 msgstr ""
 
-#: meta-boxes.php:1036
+#: meta-boxes.php:1043
 msgid ""
 "Upload the provider location image or select from library. Medium size is "
 "recommended (300px X 300px)"
 msgstr ""
 
-#: meta-boxes.php:1042
+#: meta-boxes.php:1049
 msgid "Telephone"
 msgstr ""
 
-#: meta-boxes.php:1043
+#: meta-boxes.php:1050
 msgid "Telephone number"
 msgstr ""
 
