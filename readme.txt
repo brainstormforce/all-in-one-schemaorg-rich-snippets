@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, schema
 Requires at least: 3.7
 Tested up to: 6.6
-Stable tag: 1.6.11
+Stable tag: 1.6.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -80,7 +80,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 == Changelog ==
 
-= 1.6.11.1 =
+= 1.6.12 =
 - Improvement: Added Product Image field in Review Schema.
 - Improvement: Updated plugin metadata tags to improve search optimization.
 
