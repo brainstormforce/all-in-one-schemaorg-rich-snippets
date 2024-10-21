@@ -81,8 +81,8 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 ## Changelog ##
 
 ### 1.6.11.1 ###
-- Improvement: Updated plugin metadata tags to improve search optimization.
 - Improvement: Added Product Image field in Review Schema.
+- Improvement: Updated plugin metadata tags to improve search optimization.
 
 ### 1.6.11 ###
 - Fixed: Improved code quality syntax and security checks for better coding standards and practices.
