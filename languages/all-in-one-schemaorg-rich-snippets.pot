@@ -2,10 +2,10 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.12\n"
+"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.6.13\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2024-10-21 05:48:14+00:00\n"
+"POT-Creation-Date: 2024-11-19 04:26:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1482,14 +1482,6 @@ msgstr ""
 
 #: settings.php:149
 msgid "Provider telephone number"
-msgstr ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:247
-msgid "Inactive Widgets"
-msgstr ""
-
-#: vendor/wp-cli/wp-cli/php/utils-wp.php:250
-msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
