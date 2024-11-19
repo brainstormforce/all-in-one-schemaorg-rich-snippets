@@ -3,8 +3,8 @@ Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, structured data, rich snippets, schema.org, schema
 Requires at least: 3.7
-Tested up to: 6.6
-Stable tag: 1.6.12
+Tested up to: 6.7
+Stable tag: 1.6.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perfectly with Google, Bing, Yahoo & Facebook.
@@ -79,6 +79,10 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+
+= 1.6.13 =
+- Improvement: Compatibility with WordPress 6.7.
+- Improvement: Updated the video uploadDate field to use the d-m-y format.
 
 = 1.6.12 =
 - Improvement: Added Product Image field in Review Schema.

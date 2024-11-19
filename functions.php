@@ -881,7 +881,7 @@ function display_rich_snippet( $content ) {
 				try {
 					// Create a DateTime object from the $video_date string.
 					$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
-					$uploadDate = $datetime->format( 'Y-m-d\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
+					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
 					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'all-in-one-schemaorg-rich-snippets' ), esc_html( $e->getMessage() ) ) );
