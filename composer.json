@@ -12,7 +12,8 @@
         "php-stubs/generator": "^0.8.4",
         "phpunit/phpunit": "^10.5",
         "wp-cli/wp-cli": "^2.11",
-        "squizlabs/php_codesniffer": "^3.10"
+        "squizlabs/php_codesniffer": "^3.10",
+        "nunomaduro/phpinsights": "^2.12"
     },
     "extra": {
         "hooks": {

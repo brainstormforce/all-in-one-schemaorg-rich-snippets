@@ -8,21 +8,20 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit();
+	exit;
 }
 
 /**
  * Class BSF_Analytics_Loader.
  */
 class BSF_Analytics_Loader {
-
 	/**
 	 * Analytics Entities.
 	 *
 	 * @access private
 	 * @var array Entities array.
 	 */
-	private $entities = array();
+	private $entities = [];
 
 	/**
 	 * Analytics Version.
@@ -49,23 +48,23 @@ class BSF_Analytics_Loader {
 	private static $instance = null;
 
 	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		add_action( 'init', [ $this, 'load_analytics' ] );
+	}
+
+	/**
 	 * Get instace of class.
 	 *
 	 * @return object
 	 */
 	public static function get_instance() {
-		if ( null === self::$instance ) {
+		if ( self::$instance === null ) {
 			self::$instance = new self();
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		add_action( 'init', array( $this, 'load_analytics' ) );
 	}
 
 	/**
@@ -74,7 +73,7 @@ class BSF_Analytics_Loader {
 	 * @param string $data Entity attributes data.
 	 * @return void
 	 */
-	public function set_entity( $data ) {
+	public function set_entity( $data ): void {
 		array_push( $this->entities, $data );
 	}
 
@@ -83,8 +82,8 @@ class BSF_Analytics_Loader {
 	 *
 	 * @return void
 	 */
-	public function load_analytics() {
-		$unique_entities = array();
+	public function load_analytics(): void {
+		$unique_entities = [];
 
 		if ( ! empty( $this->entities ) ) {
 			foreach ( $this->entities as $entity ) {
