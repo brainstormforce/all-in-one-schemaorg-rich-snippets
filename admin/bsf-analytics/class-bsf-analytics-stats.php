@@ -14,7 +14,6 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 	 * BSF analytics stat class.
 	 */
 	class BSF_Analytics_Stats {
-
 		/**
 		 * Active plugins.
 		 *
@@ -40,7 +39,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		public static function instance() {
-			if ( null === self::$instance ) {
+			if ( self::$instance === null ) {
 				self::$instance = new self();
 			}
 
@@ -58,13 +57,31 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		}
 
 		/**
+		 * Format plugin data.
+		 *
+		 * @param string $plugin plugin.
+		 * @return array formatted plugin data.
+		 * @since 1.0.0
+		 */
+		public function format_plugin( $plugin ) {
+			return [
+				'name'        => html_entity_decode( $plugin['Name'], ENT_COMPAT, 'UTF-8' ),
+				'url'         => $plugin['PluginURI'],
+				'version'     => $plugin['Version'],
+				'slug'        => $plugin['TextDomain'],
+				'author_name' => html_entity_decode( wp_strip_all_tags( $plugin['Author'] ), ENT_COMPAT, 'UTF-8' ),
+				'author_url'  => $plugin['AuthorURI'],
+			];
+		}
+
+		/**
 		 * Retrieve stats for site.
 		 *
 		 * @return array stats data.
 		 * @since 1.0.0
 		 */
 		private function get_default_stats() {
-			return array(
+			return [
 				'graupi_version'         => defined( 'BSF_UPDATER_VERSION' ) ? BSF_UPDATER_VERSION : false,
 				'domain_name'            => get_site_url(),
 				'php_os'                 => PHP_OS,
@@ -99,7 +116,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				'active_theme'           => get_template(),
 				'active_stylesheet'      => get_stylesheet(),
-			);
+			];
 		}
 
 		/**
@@ -148,28 +165,10 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				$plugins       = wp_get_active_and_valid_plugins();
 				$plugins       = array_map( 'get_plugin_data', $plugins );
-				$this->plugins = array_map( array( $this, 'format_plugin' ), $plugins );
+				$this->plugins = array_map( [ $this, 'format_plugin' ], $plugins );
 			}
 
 			return $this->plugins;
-		}
-
-		/**
-		 * Format plugin data.
-		 *
-		 * @param string $plugin plugin.
-		 * @return array formatted plugin data.
-		 * @since 1.0.0
-		 */
-		public function format_plugin( $plugin ) {
-			return array(
-				'name'        => html_entity_decode( $plugin['Name'], ENT_COMPAT, 'UTF-8' ),
-				'url'         => $plugin['PluginURI'],
-				'version'     => $plugin['Version'],
-				'slug'        => $plugin['TextDomain'],
-				'author_name' => html_entity_decode( wp_strip_all_tags( $plugin['Author'] ), ENT_COMPAT, 'UTF-8' ),
-				'author_url'  => $plugin['AuthorURI'],
-			);
 		}
 
 		/**
@@ -179,12 +178,12 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		 * @since 1.0.0
 		 */
 		private function get_curl_ssl_version() {
-			$curl = array();
+			$curl = [];
 			if ( function_exists( 'curl_version' ) ) {
 				$curl = curl_version(); // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_version
 			}
 
-			return isset( $curl['ssl_version'] ) ? $curl['ssl_version'] : false;
+			return $curl['ssl_version'] ?? false;
 		}
 
 		/**
@@ -198,7 +197,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 				$curl = curl_version(); // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_version
 			}
 
-			return isset( $curl['version'] ) ? $curl['version'] : false;
+			return $curl['version'] ?? false;
 		}
 
 		/**
@@ -244,13 +243,11 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 
 		$offset  = (float) get_option( 'gmt_offset' );
 		$hours   = (int) $offset;
-		$minutes = ( $offset - $hours );
+		$minutes = $offset - $hours;
 
-		$sign      = ( $offset < 0 ) ? '-' : '+';
-		$abs_hour  = abs( $hours );
-		$abs_mins  = abs( $minutes * 60 );
-		$tz_offset = sprintf( '%s%02d:%02d', $sign, $abs_hour, $abs_mins );
-
-		return $tz_offset;
+		$sign     = $offset < 0 ? '-' : '+';
+		$abs_hour = abs( $hours );
+		$abs_mins = abs( $minutes * 60 );
+		return sprintf( '%s%02d:%02d', $sign, $abs_hour, $abs_mins );
 	}
 }

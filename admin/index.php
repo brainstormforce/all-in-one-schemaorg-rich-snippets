@@ -14,7 +14,7 @@ if ( is_admin() ) {
  *
  * @return void
  */
-function bsf_admin_styles() {
+function bsf_admin_styles(): void {
 	wp_enqueue_style( 'star_style' );
 	wp_enqueue_style( 'meta_style' );
 	wp_enqueue_script( 'bsf_jquery' );
@@ -26,7 +26,7 @@ function bsf_admin_styles() {
  *
  * @return void
  */
-function add_the_script() {
+function add_the_script(): void {
 	wp_enqueue_script( 'postbox' );
 	wp_enqueue_style( 'admin_style' );
 }
@@ -36,7 +36,7 @@ add_action( 'admin_print_scripts', 'add_the_script' );
  *
  * @return void
  */
-function rich_snippet_dashboard() {
+function rich_snippet_dashboard(): void {
 	$plugins_url = plugins_url();
 	if ( ! get_option( 'bsf_woocom_init_setting' ) ) {
 		$args_woocom = true;
@@ -904,169 +904,169 @@ function rich_snippet_dashboard() {
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
+	}
 		$args = null;
-		if ( isset( $_POST['woocommerce_option'] ) ) {
-			$args = true;
-		} else {
-			$args = false;
-		}
+	if ( isset( $_POST['woocommerce_option'] ) ) {
+		$args = true;
+	} else {
+		$args = false;
+	}
 		update_option( 'bsf_woocom_init_setting', 'done' );
 		$status = update_option( 'bsf_woocom_setting', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['item_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' ) || ! current_user_can( 'manage_options' ) ) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'review_title', 'item_reviewer', 'review_date', 'item_name', 'item_rating' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'review_title', 'item_reviewer', 'review_date', 'item_name', 'item_rating' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_review', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['event_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'event_title', 'event_location', 'event_performer', 'start_time', 'end_time', 'event_desc', 'events_price' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'event_title', 'event_location', 'event_performer', 'start_time', 'end_time', 'event_desc', 'events_price' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_event', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['person_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'person_name', 'person_nickname', 'person_job_title', 'person_website', 'person_company', 'person_address' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'person_name', 'person_nickname', 'person_job_title', 'person_website', 'person_company', 'person_address' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_person', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['product_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'product_rating', 'product_brand', 'product_name', 'product_agr', 'product_price', 'product_avail' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'product_rating', 'product_brand', 'product_name', 'product_agr', 'product_price', 'product_avail' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_product', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['recipe_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'recipe_name', 'author_name', 'recipe_pub', 'recipe_prep', 'recipe_cook', 'recipe_time', 'recipe_desc', 'recipe_rating' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'recipe_name', 'author_name', 'recipe_pub', 'recipe_prep', 'recipe_cook', 'recipe_time', 'recipe_desc', 'recipe_rating' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_recipe', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['software_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'software_rating', 'software_agr', 'software_price', 'software_name', 'software_os', 'software_website' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'software_rating', 'software_agr', 'software_price', 'software_name', 'software_os', 'software_website' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_software', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['video_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'video_title', 'video_desc', 'video_time', 'video_date' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'video_title', 'video_desc', 'video_time', 'video_date' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_video', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['article_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'article_name', 'article_author', 'article_desc', 'article_image', 'article_publisher', 'article_publisher_logo' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'article_name', 'article_author', 'article_desc', 'article_image', 'article_publisher', 'article_publisher_logo' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_article', $args );
 		display_status( $status );
-	}
+
 }
 if ( isset( $_POST['service_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
+		echo 'Sorry, your nonce did not verify.';
 		exit;
-	} else {
-		$args = array(); // Defining the $args variable.
-		foreach ( array( 'snippet_title', 'service_type', 'service_area', 'service_desc', 'service_provider_name', 'provider_location', 'service_rating', 'service_channel', 'service_url_link' ) as $option ) {
-			if ( isset( $_POST[ $option ] ) ) {
-				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
-			}
+	}
+		$args = []; // Defining the $args variable.
+	foreach ( [ 'snippet_title', 'service_type', 'service_area', 'service_desc', 'service_provider_name', 'provider_location', 'service_rating', 'service_channel', 'service_url_link' ] as $option ) {
+		if ( isset( $_POST[ $option ] ) ) {
+			$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 		}
+	}
 		$status = update_option( 'bsf_service', $args );
 		display_status( $status );
-	}
+
 }
 /**
  * Display status.
  *
  * @param  string $status .
  */
-function display_status( $status ) {
+function display_status( $status ): void {
 	if ( $status ) {
 		echo '<div class="updated"><p>' . esc_html__( 'Success! Your changes were successfully saved!', 'all-in-one-schemaorg-rich-snippets' ) . '</p></div>';
 	} else {
@@ -1074,39 +1074,39 @@ function display_status( $status ) {
 	}
 }
 if ( isset( $_GET['action'] ) ) {
-	if ( 'reset' == esc_attr( $_GET['action'] ) && isset( $_GET['nonce'] ) && current_user_can( 'manage_options' ) ) {
+	if ( esc_attr( $_GET['action'] ) === 'reset' && isset( $_GET['nonce'] ) && current_user_can( 'manage_options' ) ) {
 		$option_to_reset = esc_attr( $_GET['options'] );
-		if ( 'review' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_item_nonce' ) ) {
+		if ( $option_to_reset === 'review' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_item_nonce' ) ) {
 			delete_option( 'bsf_review' );
 		}
-		if ( 'event' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_event_nonce' ) ) {
+		if ( $option_to_reset === 'event' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_event_nonce' ) ) {
 			delete_option( 'bsf_event' );
 		}
-		if ( 'person' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_person_nonce' ) ) {
+		if ( $option_to_reset === 'person' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_person_nonce' ) ) {
 			delete_option( 'bsf_person' );
 		}
 
-		if ( 'product' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_product_nonce' ) ) {
+		if ( $option_to_reset === 'product' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_product_nonce' ) ) {
 			delete_option( 'bsf_product' );
 		}
-		if ( 'recipe' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_recipe_nonce' ) ) {
+		if ( $option_to_reset === 'recipe' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_recipe_nonce' ) ) {
 			delete_option( 'bsf_recipe' );
 		}
-		if ( 'software' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_software_nonce' ) ) {
+		if ( $option_to_reset === 'software' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_software_nonce' ) ) {
 			delete_option( 'bsf_software' );
 		}
-		if ( 'video' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_video_nonce' ) ) {
+		if ( $option_to_reset === 'video' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_video_nonce' ) ) {
 			delete_option( 'bsf_video' );
 		}
 
-		if ( 'article' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_article_nonce' ) ) {
+		if ( $option_to_reset === 'article' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_article_nonce' ) ) {
 			delete_option( 'bsf_article' );
 		}
-		if ( 'service' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_service_nonce' ) ) {
+		if ( $option_to_reset === 'service' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_service_nonce' ) ) {
 			delete_option( 'bsf_service' );
 		}
 
-		if ( 'color' == $option_to_reset && wp_verify_nonce( $_GET['nonce'], 'aiosrs_color_nonce' ) ) {
+		if ( $option_to_reset === 'color' && wp_verify_nonce( $_GET['nonce'], 'aiosrs_color_nonce' ) ) {
 			delete_option( 'bsf_custom' );
 		}
 
@@ -1118,39 +1118,39 @@ if ( isset( $_GET['action'] ) ) {
  *
  * @param  string $option_to_reset .
  */
-function bsf_reset_options( $option_to_reset ) {
+function bsf_reset_options( $option_to_reset ): void {
 	if ( ! defined( 'AIOSRS_PRO_DIR' ) ) {
 		define( 'AIOSRS_PRO_DIR', '' );
 	}
 	require_once AIOSRS_PRO_DIR . '/settings.php';
-	if ( 'review' == $option_to_reset ) {
+	if ( $option_to_reset === 'review' ) {
 		add_review_option();
 	}
-	if ( 'event' == $option_to_reset ) {
+	if ( $option_to_reset === 'event' ) {
 		add_event_option();
 	}
-	if ( 'person' == $option_to_reset ) {
+	if ( $option_to_reset === 'person' ) {
 		add_person_option();
 	}
-	if ( 'product' == $option_to_reset ) {
+	if ( $option_to_reset === 'product' ) {
 		add_product_option();
 	}
-	if ( 'recipe' == $option_to_reset ) {
+	if ( $option_to_reset === 'recipe' ) {
 		add_recipe_option();
 	}
-	if ( 'software' == $option_to_reset ) {
+	if ( $option_to_reset === 'software' ) {
 		add_software_option();
 	}
-	if ( 'video' == $option_to_reset ) {
+	if ( $option_to_reset === 'video' ) {
 		add_video_option();
 	}
-	if ( 'article' == $option_to_reset ) {
+	if ( $option_to_reset === 'article' ) {
 		add_article_option();
 	}
-	if ( 'service' == $option_to_reset ) {
+	if ( $option_to_reset === 'service' ) {
 		add_service_option();
 	}
-	if ( 'color' == $option_to_reset ) {
+	if ( $option_to_reset === 'color' ) {
 		add_color_option();
 	}
 
@@ -1159,7 +1159,7 @@ function bsf_reset_options( $option_to_reset ) {
 /**
  * Add footer script.
  */
-function add_footer_script() {
+function add_footer_script(): void {
 	?>
 	<script type="text/javascript">
 		jQuery("#submit_colors").click(function()
@@ -1193,7 +1193,7 @@ function add_footer_script() {
  */
 function get_support() {
 
-	$html = '
+	return '
 		<div class="postbox bsf-contact closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
@@ -1232,6 +1232,5 @@ function get_support() {
 		</div>
 		</div>
 	';
-	return $html;
 }
 ?>
