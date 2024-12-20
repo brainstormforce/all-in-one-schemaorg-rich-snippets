@@ -1,9 +1,10 @@
 # Schema - All In One Schema Rich Snippets #
-**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)  
+**Contributors:** [@brainstormforce](https://profiles.wordpress.org/@brainstormforce)  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** schema markup, structured data, rich snippets, schema.org, schema  
 **Requires at least:** 3.7  
 **Tested up to:** 6.7  
+**Requires PHP:** 5.5  
 **Stable tag:** 1.6.13  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -13,21 +14,26 @@ Boost CTR. Improve SEO & Rankings. Supports most of the content type. Works perf
 
 Get eye catching results in search engines with the most popular schema markup plugin. Easy implementation of schema types like Review, Events, Recipes, Article, Products, Services etc
 
+---
+
 ### What is a Rich Snippet? ###
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
 [See Examples of Rich Snippets Here.](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/?utm_source=wp-org-readme&utm_medium=rich-snippet-example "Rich Snippets Examples")
 
+---
+
 ### How does a Rich Snippet help? ###
-- It gives search engines only the important & precise information to display in search result snippets.
-- Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/ "See the difference") in CTR (Click Through Rate)
-- Helps you rank higher in search results
-- Helps Facebook display proper information when users share your links on Facebook
-> **Curious, how does this plugin work?**
+* It gives search engines only the important & precise information to display in search result snippets.
+* Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
+* [See what difference it makes](https://wpschema.com/free-rich-snippets-schema-plugin-for-wordpress/ "See the difference") in CTR (Click Through Rate)
+* Helps you rank higher in search results
+* Helps Facebook display proper information when users share your links on Facebook
 
+---
 
-### Supported Content Types - ###
+### Supported Content Types ###
 This plugin supports the following types of Schemas:
+
 * Review
 * Event
 * People
@@ -37,38 +43,49 @@ This plugin supports the following types of Schemas:
 * Video
 * Articles
 
+---
+
 ### Future release would include - ###
+
 * Breadcrumbs
 * Local Business
 * Books
+
 ### Want to contribute to the plugin? ###
+
 You may now contribute to the plugin on Github: [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")
 
 ## Installation ##
 
 ### Through Dashboard ###
-1. Go to Plugins -> Add New -> Search for "All in One Schema.org Rich Snippets" Or Upload the plugins zip file
+1. Hover over the "Plugins" menu in the sidebar
+1. From the submenu, click on the "Add New Plugin" button 
+1. Search for "All In One Schema Rich Snippets" Or Upload the plugins zip file
+
 ### Through FTP ###
-1. Upload the plugin into `wp-content/plugins` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. That's It.
-Now go and create a new post. There you will find a meta box, select the type of post from dropdown and fill out the details, publish the post.
+1. Upload the plugin into the `wp-content/plugins` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. That's It.
+
+Now you can create a new post. There you will find a meta box, select the type of post from the dropdown and fill out the details, publish the post.
+
 Google will start showing rich snippets in the search results, as soon as your post is crawled.
 
 You can test the rich snippet on Google Webmasters Rich Snippets Testing Tool
 
 ## Frequently Asked Questions ##
 
-### What is a Rich Snippet? ###
-It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
-### How does a Rich Snippet help? ###
-- It gives search engines only the important & precise information to display in search result snippets.
-- Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
-- [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
-- Helps you rank higher in search results
-- Helps Facebook display proper information when users share your links on Facebook
+### What is a rich snippet? ###
+It is a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.
 
-### Which Content Types are Supported? ###
+### How does a rich snippet help? ###
+*  It gives search engines only the important & precise information to display in search result snippets.
+*  Rich Snippets are very interactive (photos, star ratings, price, author, etc.) to let you stand out from competition
+* [See what difference it makes](https://www.brainstormforce.com/schema-rich-snippets/ "See the difference") in CTR (Click Through Rate)
+* Helps you rank higher in search results
+* Helps Facebook display proper information when users share your links on Facebook
+
+### Which content types are supported? ###
 This plugin currently supports almost all of the content types that are released by Schema.org at one place.
 Review, Event, People, Product, Recipe, Software Application, Video, Articles etc.
 
