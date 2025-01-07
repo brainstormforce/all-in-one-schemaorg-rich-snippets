@@ -11,47 +11,38 @@ msgstr ""
 "PO-Revision-Date: 2025-01-07T15:08:36+00:00\n"
 "Language: \n"
 
-#: index.php
 #. Plugin Name of the plugin
+#: index.php
 msgid "Schema - All In One Schema Rich Snippets"
 msgstr "Schema - Alles in einem Schema Rich Snippets"
 
-#: index.php
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: index.php
 msgid "https://www.brainstormforce.com"
 msgstr "https://www.brainstormforce.com"
 
-#: index.php
 #. Description of the plugin
-msgid ""
-"Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and "
-"posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
-msgstr ""
-"Willkommen bei Schema - Alles in einem Schema Rich Snippets! Sie können jetzt ganz einfach Schema-Markup auf "
-"verschiedenen * Seiten und Beiträgen Ihrer Website hinzufügen. Implementieren Sie Schema-Typen wie Bewertung, "
-"Veranstaltungen, Rezepte, Artikel, Produkte, Dienstleistungen * * usw."
-
 #: index.php
+msgid "Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
+msgstr "Willkommen bei Schema - Alles in einem Schema Rich Snippets! Sie können jetzt ganz einfach Schema-Markup auf verschiedenen * Seiten und Beiträgen Ihrer Website hinzufügen. Implementieren Sie Schema-Typen wie Bewertung, Veranstaltungen, Rezepte, Artikel, Produkte, Dienstleistungen * * usw."
+
 #. Author of the plugin
+#: index.php
 msgid "Brainstorm Force"
 msgstr "Brainstorm Force"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:211
 #. translators: %s product name
-msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
-"information. "
-msgstr ""
-"Möchten Sie helfen, <strong>%1s</strong> noch großartiger zu machen? Lassen Sie uns nicht sensible Diagnosedaten und "
-"Nutzungsinformationen sammeln."
+#: admin/bsf-analytics/class-bsf-analytics.php:211
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Möchten Sie helfen, <strong>%1s</strong> noch großartiger zu machen? Lassen Sie uns nicht sensible Diagnosedaten und Nutzungsinformationen sammeln."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:214
 msgid "This will be applicable for all sites from the network."
 msgstr "Dies gilt für alle Seiten im Netzwerk."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:238
 #. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:238
 msgid " Know More."
 msgstr "Mehr erfahren."
 
@@ -67,8 +58,8 @@ msgstr "Nein danke"
 msgid "Usage Tracking"
 msgstr "Nutzungsverfolgung"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:403
 #. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:403
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr "Erlauben Sie %s Produkten, nicht sensible Nutzungsverfolgungsdaten zu verfolgen."
 
@@ -426,16 +417,8 @@ msgid "Service Rating :"
 msgstr "Dienstbewertung :"
 
 #: admin/index.php:555
-msgid ""
-"Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin "
-"to automate the process of adding schema markup on your entire website. <br><a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more "
-"about Schema Pro.</a>"
-msgstr ""
-"Brauchen Sie noch mehr Schema-Typen mit Automatisierung, um Schema-Markup zu implementieren? Holen Sie sich das neueste "
-"und Premium-Schema-Markup-Plugin, um den Prozess des Hinzufügens von Schema-Markup auf Ihrer gesamten Website zu "
-"automatisieren. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' "
-"target='_blank'> Erfahren Sie mehr über Schema Pro.</a>"
+msgid "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>"
+msgstr "Brauchen Sie noch mehr Schema-Typen mit Automatisierung, um Schema-Markup zu implementieren? Holen Sie sich das neueste und Premium-Schema-Markup-Plugin, um den Prozess des Hinzufügens von Schema-Markup auf Ihrer gesamten Website zu automatisieren. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Erfahren Sie mehr über Schema Pro.</a>"
 
 #: admin/index.php:567
 msgid "Welcome to All In One Schema Rich Snippets"
@@ -450,41 +433,24 @@ msgid "Configure The Settings"
 msgstr "Die Einstellungen konfigurieren"
 
 #: admin/index.php:602
-msgid ""
-"Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema "
-"type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your "
-"rich snippet content box will look."
-msgstr ""
-"Gehen Sie zu der Option „Rich Snippets“ in Ihrem WordPress-Dashboard. Wählen Sie im Tab „Konfiguration“ den gewünschten "
-"Schema-Typ aus und aktualisieren Sie die Strings, die Sie auf der Frontend anzeigen möchten. Sie können den Tab "
-"„Anpassung“ verwenden, um zu verwalten, wie Ihr Rich Snippet-Inhaltsfeld aussehen wird."
+msgid "Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look."
+msgstr "Gehen Sie zu der Option „Rich Snippets“ in Ihrem WordPress-Dashboard. Wählen Sie im Tab „Konfiguration“ den gewünschten Schema-Typ aus und aktualisieren Sie die Strings, die Sie auf der Frontend anzeigen möchten. Sie können den Tab „Anpassung“ verwenden, um zu verwalten, wie Ihr Rich Snippet-Inhaltsfeld aussehen wird."
 
 #: admin/index.php:603
 msgid "Add Markup To Pages"
 msgstr "Markup zu Seiten hinzufügen"
 
 #: admin/index.php:603
-msgid ""
-"Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to "
-"add schema markup."
-msgstr ""
-"Bearbeiten Sie die Beiträge oder Seiten, auf denen Sie Rich Snippets hinzufügen möchten, und scrollen Sie nach unten "
-"zum Meta-Box „Rich Snippet konfigurieren“, um Schema-Markup hinzuzufügen."
+msgid "Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup."
+msgstr "Bearbeiten Sie die Beiträge oder Seiten, auf denen Sie Rich Snippets hinzufügen möchten, und scrollen Sie nach unten zum Meta-Box „Rich Snippet konfigurieren“, um Schema-Markup hinzuzufügen."
 
 #: admin/index.php:604
 msgid "Test Your Rich Snippets"
 msgstr "Testen Sie Ihre Rich Snippets"
 
 #: admin/index.php:604
-msgid ""
-"Google Structured Data Testing is a widely used online tool to test structured data. Open the <a "
-"href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> "
-"and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
-msgstr ""
-"Das Google Structured Data Testing ist ein weit verbreitetes Online-Tool zum Testen strukturierter Daten. Öffnen Sie "
-"das <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing "
-"Tool</a> und holen Sie sich die URL Ihrer Website, um das Schema-Markup zu testen, das Sie gerade auf Ihren Webseiten "
-"implementiert haben."
+msgid "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
+msgstr "Das Google Structured Data Testing ist ein weit verbreitetes Online-Tool zum Testen strukturierter Daten. Öffnen Sie das <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> und holen Sie sich die URL Ihrer Website, um das Schema-Markup zu testen, das Sie gerade auf Ihren Webseiten implementiert haben."
 
 #: admin/index.php:609
 msgid "Want to Automate Your Schema Markup?"
@@ -495,16 +461,8 @@ msgid "Consider Schema Pro"
 msgstr "Erwägen Sie Schema Pro"
 
 #: admin/index.php:612
-msgid ""
-"Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages "
-"with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, "
-"you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new "
-"human-readable content</b> on your site."
-msgstr ""
-"Schema Pro ist ein fortschrittliches Schema-Markup-Plugin, das den Prozess des Hinzufügens von Schema-Markup auf "
-"mehreren Seiten mit nur wenigen Klicks automatisiert. Schema Pro verwendet JSON-LD-Markup, das die neueste Technologie "
-"ist, die von Google empfohlen wird. Damit können Sie diese Frontend-Inhaltsfelder loswerden und <b>reiche Snippets "
-"erhalten, ohne neue menschenlesbare Inhalte auf Ihrer Website anzuzeigen</b>."
+msgid "Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site."
+msgstr "Schema Pro ist ein fortschrittliches Schema-Markup-Plugin, das den Prozess des Hinzufügens von Schema-Markup auf mehreren Seiten mit nur wenigen Klicks automatisiert. Schema Pro verwendet JSON-LD-Markup, das die neueste Technologie ist, die von Google empfohlen wird. Damit können Sie diese Frontend-Inhaltsfelder loswerden und <b>reiche Snippets erhalten, ohne neue menschenlesbare Inhalte auf Ihrer Website anzuzeigen</b>."
 
 #: admin/index.php:685
 msgid "With Schema Pro, you can…"
@@ -519,24 +477,16 @@ msgid "Where can I test my schema markup implementation?"
 msgstr "Wo kann ich meine Schema-Markup-Implementierung testen?"
 
 #: admin/index.php:748
-msgid ""
-"You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also "
-"take a look at the preview of how your search result might look."
-msgstr ""
-"Sie können das standardmäßige Google Structured Data Testing Tool verwenden, um Ihre Schema-Markup-Implementierung zu "
-"testen. Sie können auch einen Blick auf die Vorschau werfen, wie Ihr Suchergebnis aussehen könnte."
+msgid "You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look."
+msgstr "Sie können das standardmäßige Google Structured Data Testing Tool verwenden, um Ihre Schema-Markup-Implementierung zu testen. Sie können auch einen Blick auf die Vorschau werfen, wie Ihr Suchergebnis aussehen könnte."
 
 #: admin/index.php:753
 msgid "Do I have to fill in all the details?"
 msgstr "Muss ich alle Details ausfüllen?"
 
 #: admin/index.php:755
-msgid ""
-"No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to "
-"fill these required fields in the schema markup you are implementing."
-msgstr ""
-"Nein. Aber jeder Schema-Typ hat einige Felder, die ausgefüllt werden müssen, wie von Google angegeben. Daher wird "
-"empfohlen, diese erforderlichen Felder im Schema-Markup, das Sie implementieren, auszufüllen."
+msgid "No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing."
+msgstr "Nein. Aber jeder Schema-Typ hat einige Felder, die ausgefüllt werden müssen, wie von Google angegeben. Daher wird empfohlen, diese erforderlichen Felder im Schema-Markup, das Sie implementieren, auszufüllen."
 
 #: admin/index.php:760
 msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
@@ -555,28 +505,16 @@ msgid "I don't see the feature I want. How can I get it?"
 msgstr "Ich sehe nicht die Funktion, die ich möchte. Wie kann ich sie bekommen?"
 
 #: admin/index.php:787
-msgid ""
-"<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our "
-"development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we "
-"have a couple of options for you:"
-msgstr ""
-"<a href='https://wpschema.com/contact/' target='_blank'>Nehmen Sie Kontakt</a> mit uns auf, um zu fragen, ob diese "
-"Funktion auf unserem Entwicklungsfahrplan steht. Wenn sie nicht auf unserem Fahrplan steht und Sie trotzdem denken, "
-"dass diese Funktion das Plugin verbessern würde, haben wir ein paar Optionen für Sie:"
+msgid "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:"
+msgstr "<a href='https://wpschema.com/contact/' target='_blank'>Nehmen Sie Kontakt</a> mit uns auf, um zu fragen, ob diese Funktion auf unserem Entwicklungsfahrplan steht. Wenn sie nicht auf unserem Fahrplan steht und Sie trotzdem denken, dass diese Funktion das Plugin verbessern würde, haben wir ein paar Optionen für Sie:"
 
 #: admin/index.php:789
-msgid ""
-"Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits "
-"will be given to you."
-msgstr ""
-"Codieren Sie die neue Funktion, wenn Sie ein Entwickler sind, und reichen Sie Ihren Code ein. Wenn wir diese Funktion "
-"in unsere Veröffentlichungen aufnehmen, werden Ihnen die Credits gegeben."
+msgid "Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you."
+msgstr "Codieren Sie die neue Funktion, wenn Sie ein Entwickler sind, und reichen Sie Ihren Code ein. Wenn wir diese Funktion in unsere Veröffentlichungen aufnehmen, werden Ihnen die Credits gegeben."
 
 #: admin/index.php:790
 msgid "Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service."
-msgstr ""
-"Bieten Sie eine Finanzierung an, um diese Funktion für alle Plugin-Nutzer zu realisieren ODER beantragen Sie einen "
-"professionellen Anpassungsservice."
+msgstr "Bieten Sie eine Finanzierung an, um diese Funktion für alle Plugin-Nutzer zu realisieren ODER beantragen Sie einen professionellen Anpassungsservice."
 
 #: admin/index.php:805
 msgid "<span>Customize the look and feel of rich snippet box</span>"
@@ -603,30 +541,16 @@ msgid "Snippet Text Color"
 msgstr "Farbe des Snippet-Textes"
 
 #: admin/index.php:840
-msgid ""
-"Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google "
-"recommended JSON-LD structured data format without the content box. <a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more "
-"about Schema Pro.</a>"
-msgstr ""
-"Möchten Sie kein Inhaltsfeld im Frontend hinzufügen? Holen Sie sich das neueste und Premium-Schema-Markup-Plugin, das "
-"das von Google empfohlene JSON-LD-Format für strukturierte Daten ohne das Inhaltsfeld hinzufügt. <a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'>Erfahren Sie "
-"mehr über Schema Pro.</a>"
+msgid "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>"
+msgstr "Möchten Sie kein Inhaltsfeld im Frontend hinzufügen? Holen Sie sich das neueste und Premium-Schema-Markup-Plugin, das das von Google empfohlene JSON-LD-Format für strukturierte Daten ohne das Inhaltsfeld hinzufügt. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'>Erfahren Sie mehr über Schema Pro.</a>"
 
 #: admin/index.php:854
 msgid "WooCommerce Configuration"
 msgstr "WooCommerce-Konfiguration"
 
 #: admin/index.php:858
-msgid ""
-"WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add "
-"duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please "
-"enable this option."
-msgstr ""
-"WooCommerce kommt standardmäßig mit Schema.org-Code, und die Verwendung unseres Plugins auf WooCommerce-Produktseiten "
-"würde doppeltes Schema hinzufügen, daher wird dies nicht empfohlen. Wenn Sie unser Plugin dennoch für "
-"WooCommerce-Produkte aktivieren möchten, aktivieren Sie bitte diese Option."
+msgid "WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option."
+msgstr "WooCommerce kommt standardmäßig mit Schema.org-Code, und die Verwendung unseres Plugins auf WooCommerce-Produktseiten würde doppeltes Schema hinzufügen, daher wird dies nicht empfohlen. Wenn Sie unser Plugin dennoch für WooCommerce-Produkte aktivieren möchten, aktivieren Sie bitte diese Option."
 
 #: admin/index.php:1071
 msgid "Success! Your changes were successfully saved!"
@@ -664,8 +588,8 @@ msgstr "Betreff:"
 msgid "Your Query in Brief:"
 msgstr "Ihre Anfrage in Kürze:"
 
-#: functions.php:887
 #. Translators: %s is the error message from the exception.
+#: functions.php:887
 msgid "Error creating DateTime object: %s"
 msgstr "Fehler beim Erstellen des DateTime-Objekts: %s"
 
@@ -709,8 +633,8 @@ msgstr "Bitte versuchen Sie es erneut"
 msgid "Remove Embed"
 msgstr "Embed entfernen"
 
-#: init.php:674
 #. translators: %s: $fallback
+#: init.php:674
 msgid "No oEmbed Results Found for %s. View more info at"
 msgstr "Keine oEmbed-Ergebnisse für %s gefunden. Weitere Informationen anzeigen unter"
 
@@ -871,12 +795,8 @@ msgstr "Währung"
 #: meta-boxes.php:427
 #: meta-boxes.php:671
 #: meta-boxes.php:821
-msgid ""
-"Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a "
-"href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
-msgstr ""
-"Geben Sie den Währungscode ein (z.B. USD, INR, AUD, EUR, GBP). <a "
-"href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\">Erfahren Sie Ihren Währungscode</a>"
+msgid "Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
+msgstr "Geben Sie den Währungscode ein (z.B. USD, INR, AUD, EUR, GBP). <a href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\">Erfahren Sie Ihren Währungscode</a>"
 
 #: meta-boxes.php:227
 #: meta-boxes.php:677
@@ -986,9 +906,7 @@ msgstr "Video-Vorschaubild"
 #: meta-boxes.php:306
 #: meta-boxes.php:884
 msgid "Upload or select video thumbnail from gallery. Medium size is recommended (300px X 300px)"
-msgstr ""
-"Laden Sie ein Video-Vorschaubild hoch oder wählen Sie es aus der Galerie aus. Mittlere Größe wird empfohlen (300px x "
-"300px)"
+msgstr "Laden Sie ein Video-Vorschaubild hoch oder wählen Sie es aus der Galerie aus. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:312
 #: meta-boxes.php:913
@@ -1343,30 +1261,16 @@ msgid "Rich Snippets - Videos"
 msgstr "Rich Snippets - Videos"
 
 #: meta-boxes.php:891
-msgid ""
-"Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the "
-"actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file "
-"format"
-msgstr ""
-"Laden Sie das Video hoch oder geben Sie die URL der Videodatei ein<br>Beispiel:<br> "
-"http://www.example.com/video123.flv<br>Eine URL, die auf die tatsächliche Videodatei verweist. Diese Datei sollte im "
-"Format .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv oder einem anderen Videoformat vorliegen"
+msgid "Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file format"
+msgstr "Laden Sie das Video hoch oder geben Sie die URL der Videodatei ein<br>Beispiel:<br> http://www.example.com/video123.flv<br>Eine URL, die auf die tatsächliche Videodatei verweist. Diese Datei sollte im Format .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv oder einem anderen Videoformat vorliegen"
 
 #: meta-boxes.php:898
 msgid "Embed Video"
 msgstr "Video einbetten"
 
 #: meta-boxes.php:899
-msgid ""
-"A URL pointing to a player for the specific video. Usually this is the information in the src element of an "
-"&lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: "
-"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed "
-"Video\" field. Dont use both.</h3></div>"
-msgstr ""
-"Eine URL, die auf einen Player für das spezifische Video verweist. Normalerweise handelt es sich um die Informationen "
-"im src-Element eines &lt;embed&gt;-Tags. <br>Beispiel: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk "
-"<br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Fügen Sie nur eine URL entweder "
-"im Feld \"Video\" oder \"Video einbetten\" hinzu. Verwenden Sie nicht beide.</h3></div>"
+msgid "A URL pointing to a player for the specific video. Usually this is the information in the src element of an &lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed Video\" field. Dont use both.</h3></div>"
+msgstr "Eine URL, die auf einen Player für das spezifische Video verweist. Normalerweise handelt es sich um die Informationen im src-Element eines &lt;embed&gt;-Tags. <br>Beispiel: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Fügen Sie nur eine URL entweder im Feld \"Video\" oder \"Video einbetten\" hinzu. Verwenden Sie nicht beide.</h3></div>"
 
 #: meta-boxes.php:906
 msgid "Video Duration"
@@ -1481,9 +1385,7 @@ msgstr "Bild des Anbieterstandorts"
 
 #: meta-boxes.php:1043
 msgid "Upload the provider location image or select from library. Medium size is recommended (300px X 300px)"
-msgstr ""
-"Laden Sie das Bild des Anbieterstandorts hoch oder wählen Sie es aus der Bibliothek aus. Mittlere Größe wird empfohlen "
-"(300px X 300px)"
+msgstr "Laden Sie das Bild des Anbieterstandorts hoch oder wählen Sie es aus der Bibliothek aus. Mittlere Größe wird empfohlen (300px X 300px)"
 
 #: meta-boxes.php:1049
 msgid "Telephone"

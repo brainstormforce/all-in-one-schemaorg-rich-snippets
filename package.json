@@ -24,6 +24,7 @@
     "i18n:json": "wp i18n make-json languages --no-purge",
     "i18n:gptpo:nl": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-nl_NL.po --lang nl --verbose",
     "i18n:gptpo:fr": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-fr_FR.po --lang fr --verbose",
-    "i18n:gptpo:de": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-de_DE.po --lang de --verbose"
+    "i18n:gptpo:de": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-de_DE.po --lang de --verbose",
+    "i18n:gptpo:es": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-es_ES.po --lang es --verbose"
   }
 }
