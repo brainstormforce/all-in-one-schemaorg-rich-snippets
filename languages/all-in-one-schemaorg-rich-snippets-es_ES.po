@@ -74,7 +74,7 @@ msgstr "Permitir que los productos %s rastreen datos de seguimiento de uso no se
 
 #: admin/bsf-analytics/class-bsf-analytics.php:406
 msgid " This will be applicable for all sites from the network."
-msgstr " Esto será aplicable para todos los sitios de la red."
+msgstr "Esto será aplicable para todos los sitios de la red."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:411
 msgid "Learn More."
@@ -152,7 +152,7 @@ msgstr "Calificaciones del Artículo :"
 #: admin/index.php:543
 #: admin/index.php:868
 msgid "Update "
-msgstr "Actualizar "
+msgstr "Actualizar"
 
 #: admin/index.php:141
 #: admin/index.php:190
@@ -165,7 +165,7 @@ msgstr "Actualizar "
 #: admin/index.php:543
 #: admin/index.php:833
 msgid "Reset "
-msgstr "Restablecer "
+msgstr "Restablecer"
 
 #: admin/index.php:151
 msgid "Events"
@@ -292,7 +292,7 @@ msgstr "Nombre del Autor :"
 
 #: admin/index.php:319
 msgid "Published On : "
-msgstr "Publicado el : "
+msgstr "Publicado el :"
 
 #: admin/index.php:323
 msgid "Preparation Time:"
@@ -349,24 +349,24 @@ msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de
 
 #: admin/index.php:419
 msgid "Video Title :"
-msgstr ""
+msgstr "Título del video :"
 
 #: admin/index.php:427
 msgid "Video Duration :"
-msgstr ""
+msgstr "Duración del video :"
 
 #: admin/index.php:431
 msgid "Video Upload Date :"
-msgstr ""
+msgstr "Fecha de carga del video :"
 
 #: admin/index.php:447
 #: meta-boxes.php:84
 msgid "Article"
-msgstr ""
+msgstr "Artículo"
 
 #: admin/index.php:450
 msgid "Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Cadenas que se mostrarán en el frontend para <strong>Fragmentos enriquecidos de artículos &mdash;</strong>"
 
 #: admin/index.php:460
 msgid "Article Name :"
@@ -1049,11 +1049,11 @@ msgstr "Proporciona la fecha de finalización del evento."
 #: meta-boxes.php:419
 #: settings.php:33
 msgid "Offer Price"
-msgstr ""
+msgstr "Precio de oferta"
 
 #: meta-boxes.php:420
 msgid "Enter the ticket Price."
-msgstr ""
+msgstr "Ingrese el precio del boleto."
 
 #: meta-boxes.php:433
 msgid "Url "
