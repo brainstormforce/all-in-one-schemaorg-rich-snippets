@@ -11,47 +11,38 @@ msgstr ""
 "PO-Revision-Date: 2025-01-07T13:10:28+00:00\n"
 "Language: \n"
 
-#: index.php
 #. Plugin Name of the plugin
+#: index.php
 msgid "Schema - All In One Schema Rich Snippets"
 msgstr "Schéma - Tous en un Schéma Rich Snippets"
 
-#: index.php
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: index.php
 msgid "https://www.brainstormforce.com"
 msgstr "https://www.brainstormforce.com"
 
-#: index.php
 #. Description of the plugin
-msgid ""
-"Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and "
-"posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
-msgstr ""
-"Bienvenue dans le Schéma - Tous en un Schéma Rich Snippets ! Vous pouvez maintenant facilement ajouter des balises de "
-"schéma sur diverses * pages et articles de votre site web. Implémentez des types de schéma tels que Avis, Événements, "
-"Recettes, Article, Produits, Services * *etc."
-
 #: index.php
+msgid "Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
+msgstr "Bienvenue dans le Schéma - Tous en un Schéma Rich Snippets ! Vous pouvez maintenant facilement ajouter des balises de schéma sur diverses * pages et articles de votre site web. Implémentez des types de schéma tels que Avis, Événements, Recettes, Article, Produits, Services * *etc."
+
 #. Author of the plugin
+#: index.php
 msgid "Brainstorm Force"
 msgstr "Brainstorm Force"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:211
 #. translators: %s product name
-msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
-"information. "
-msgstr ""
-"Vous souhaitez aider à rendre <strong>%1s</strong> encore plus génial ? Permettez-nous de collecter des données de "
-"diagnostic non sensibles et des informations d'utilisation."
+#: admin/bsf-analytics/class-bsf-analytics.php:211
+msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
+msgstr "Vous souhaitez aider à rendre <strong>%1s</strong> encore plus génial ? Permettez-nous de collecter des données de diagnostic non sensibles et des informations d'utilisation."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:214
 msgid "This will be applicable for all sites from the network."
 msgstr "Cela sera applicable à tous les sites du réseau."
 
-#: admin/bsf-analytics/class-bsf-analytics.php:238
 #. translators: %s usage doc link
+#: admin/bsf-analytics/class-bsf-analytics.php:238
 msgid " Know More."
 msgstr "En savoir plus."
 
@@ -67,8 +58,8 @@ msgstr "Non merci"
 msgid "Usage Tracking"
 msgstr "Suivi d'utilisation"
 
-#: admin/bsf-analytics/class-bsf-analytics.php:403
 #. translators: %s Product title
+#: admin/bsf-analytics/class-bsf-analytics.php:403
 msgid "Allow %s products to track non-sensitive usage tracking data."
 msgstr "Autoriser les produits %s à suivre des données de suivi d'utilisation non sensibles."
 
@@ -426,16 +417,8 @@ msgid "Service Rating :"
 msgstr "Évaluation du service :"
 
 #: admin/index.php:555
-msgid ""
-"Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin "
-"to automate the process of adding schema markup on your entire website. <br><a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more "
-"about Schema Pro.</a>"
-msgstr ""
-"Besoin de plus de types de schémas avec automatisation pour mettre en œuvre le balisage de schéma ? Obtenez le dernier "
-"plugin de balisage de schéma premium pour automatiser le processus d'ajout de balisage de schéma sur l'ensemble de "
-"votre site Web. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' "
-"target='_blank'> En savoir plus sur Schema Pro.</a>"
+msgid "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>"
+msgstr "Besoin de plus de types de schémas avec automatisation pour mettre en œuvre le balisage de schéma ? Obtenez le dernier plugin de balisage de schéma premium pour automatiser le processus d'ajout de balisage de schéma sur l'ensemble de votre site Web. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> En savoir plus sur Schema Pro.</a>"
 
 #: admin/index.php:567
 msgid "Welcome to All In One Schema Rich Snippets"
@@ -450,41 +433,24 @@ msgid "Configure The Settings"
 msgstr "Configurer les paramètres"
 
 #: admin/index.php:602
-msgid ""
-"Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema "
-"type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your "
-"rich snippet content box will look."
-msgstr ""
-"Allez dans l'option “Rich Snippets” de votre tableau de bord WordPress. Sous l'onglet Configuration, sélectionnez votre "
-"type de schéma souhaité et mettez à jour les chaînes que vous souhaitez afficher sur le front-end. Vous pouvez utiliser "
-"l'onglet Personnalisation pour gérer l'apparence de votre boîte de contenu de rich snippet."
+msgid "Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look."
+msgstr "Allez dans l'option “Rich Snippets” de votre tableau de bord WordPress. Sous l'onglet Configuration, sélectionnez votre type de schéma souhaité et mettez à jour les chaînes que vous souhaitez afficher sur le front-end. Vous pouvez utiliser l'onglet Personnalisation pour gérer l'apparence de votre boîte de contenu de rich snippet."
 
 #: admin/index.php:603
 msgid "Add Markup To Pages"
 msgstr "Ajouter du balisage aux pages"
 
 #: admin/index.php:603
-msgid ""
-"Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to "
-"add schema markup."
-msgstr ""
-"Modifiez les articles ou les pages où vous souhaitez ajouter des rich snippets et faites défiler vers le bas jusqu'à la "
-"boîte méta “Configurer Rich Snippet” pour ajouter le balisage de schéma."
+msgid "Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup."
+msgstr "Modifiez les articles ou les pages où vous souhaitez ajouter des rich snippets et faites défiler vers le bas jusqu'à la boîte méta “Configurer Rich Snippet” pour ajouter le balisage de schéma."
 
 #: admin/index.php:604
 msgid "Test Your Rich Snippets"
 msgstr "Testez vos rich snippets"
 
 #: admin/index.php:604
-msgid ""
-"Google Structured Data Testing is a widely used online tool to test structured data. Open the <a "
-"href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> "
-"and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
-msgstr ""
-"Google Structured Data Testing est un outil en ligne largement utilisé pour tester les données structurées. Ouvrez le "
-"<a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing "
-"Tool</a> et récupérez l'URL de votre site Web pour tester le balisage de schéma que vous venez d'implémenter sur vos "
-"pages Web."
+msgid "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
+msgstr "Google Structured Data Testing est un outil en ligne largement utilisé pour tester les données structurées. Ouvrez le <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> et récupérez l'URL de votre site Web pour tester le balisage de schéma que vous venez d'implémenter sur vos pages Web."
 
 #: admin/index.php:609
 msgid "Want to Automate Your Schema Markup?"
@@ -495,16 +461,8 @@ msgid "Consider Schema Pro"
 msgstr "Considérez Schema Pro"
 
 #: admin/index.php:612
-msgid ""
-"Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages "
-"with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, "
-"you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new "
-"human-readable content</b> on your site."
-msgstr ""
-"Schema Pro est un plugin de balisage de schéma avancé qui automatise le processus d'ajout de balisage de schéma sur "
-"plusieurs pages en quelques clics. Schema Pro utilise le balisage JSON-LD, qui est la dernière technologie recommandée "
-"par Google. Avec cela, vous pouvez jeter ces boîtes de contenu front-end à la poubelle et <b> obtenir des rich snippets "
-"sans afficher de nouveau contenu lisible par l'homme</b> sur votre site."
+msgid "Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site."
+msgstr "Schema Pro est un plugin de balisage de schéma avancé qui automatise le processus d'ajout de balisage de schéma sur plusieurs pages en quelques clics. Schema Pro utilise le balisage JSON-LD, qui est la dernière technologie recommandée par Google. Avec cela, vous pouvez jeter ces boîtes de contenu front-end à la poubelle et <b> obtenir des rich snippets sans afficher de nouveau contenu lisible par l'homme</b> sur votre site."
 
 #: admin/index.php:685
 msgid "With Schema Pro, you can…"
@@ -519,24 +477,16 @@ msgid "Where can I test my schema markup implementation?"
 msgstr "Où puis-je tester mon implémentation de balisage de schéma ?"
 
 #: admin/index.php:748
-msgid ""
-"You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also "
-"take a look at the preview of how your search result might look."
-msgstr ""
-"Vous pouvez utiliser l'outil standard de test de données structurées de Google pour tester votre implémentation de "
-"balisage de schéma. Vous pouvez également jeter un œil à l'aperçu de l'apparence de votre résultat de recherche."
+msgid "You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look."
+msgstr "Vous pouvez utiliser l'outil standard de test de données structurées de Google pour tester votre implémentation de balisage de schéma. Vous pouvez également jeter un œil à l'aperçu de l'apparence de votre résultat de recherche."
 
 #: admin/index.php:753
 msgid "Do I have to fill in all the details?"
 msgstr "Dois-je remplir tous les détails ?"
 
 #: admin/index.php:755
-msgid ""
-"No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to "
-"fill these required fields in the schema markup you are implementing."
-msgstr ""
-"Non. Mais, chaque type de schéma a certains champs qui DOIVENT être remplis comme indiqué par Google. Par conséquent, "
-"il est recommandé de remplir ces champs obligatoires dans le balisage de schéma que vous implémentez."
+msgid "No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing."
+msgstr "Non. Mais, chaque type de schéma a certains champs qui DOIVENT être remplis comme indiqué par Google. Par conséquent, il est recommandé de remplir ces champs obligatoires dans le balisage de schéma que vous implémentez."
 
 #: admin/index.php:760
 msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
@@ -555,28 +505,16 @@ msgid "I don't see the feature I want. How can I get it?"
 msgstr "Je ne vois pas la fonctionnalité que je veux. Comment puis-je l'obtenir ?"
 
 #: admin/index.php:787
-msgid ""
-"<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our "
-"development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we "
-"have a couple of options for you:"
-msgstr ""
-"<a href='https://wpschema.com/contact/' target='_blank'>Contactez-nous</a> pour demander si cette fonctionnalité est "
-"dans notre feuille de route de développement. Si elle n'est pas dans notre feuille de route, et si vous pensez toujours "
-"que cette fonctionnalité améliorerait le plugin, nous avons quelques options pour vous :"
+msgid "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:"
+msgstr "<a href='https://wpschema.com/contact/' target='_blank'>Contactez-nous</a> pour demander si cette fonctionnalité est dans notre feuille de route de développement. Si elle n'est pas dans notre feuille de route, et si vous pensez toujours que cette fonctionnalité améliorerait le plugin, nous avons quelques options pour vous :"
 
 #: admin/index.php:789
-msgid ""
-"Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits "
-"will be given to you."
-msgstr ""
-"Codez la nouvelle fonctionnalité si vous êtes développeur et soumettez votre code. Si nous incluons cette "
-"fonctionnalité dans nos versions, des crédits vous seront attribués."
+msgid "Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you."
+msgstr "Codez la nouvelle fonctionnalité si vous êtes développeur et soumettez votre code. Si nous incluons cette fonctionnalité dans nos versions, des crédits vous seront attribués."
 
 #: admin/index.php:790
 msgid "Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service."
-msgstr ""
-"Offrez un parrainage pour réaliser cette fonctionnalité pour tous les utilisateurs du plugin OU demandez un service de "
-"personnalisation professionnel."
+msgstr "Offrez un parrainage pour réaliser cette fonctionnalité pour tous les utilisateurs du plugin OU demandez un service de personnalisation professionnel."
 
 #: admin/index.php:805
 msgid "<span>Customize the look and feel of rich snippet box</span>"
@@ -603,30 +541,16 @@ msgid "Snippet Text Color"
 msgstr "Couleur du texte de l'extrait"
 
 #: admin/index.php:840
-msgid ""
-"Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google "
-"recommended JSON-LD structured data format without the content box. <a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more "
-"about Schema Pro.</a>"
-msgstr ""
-"Vous ne voulez pas ajouter de boîte de contenu sur le frontend ? Obtenez le dernier plugin de balisage schema premium "
-"qui ajoute le format de données structurées JSON-LD recommandé par Google sans la boîte de contenu. <a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> En savoir plus "
-"sur Schema Pro.</a>"
+msgid "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>"
+msgstr "Vous ne voulez pas ajouter de boîte de contenu sur le frontend ? Obtenez le dernier plugin de balisage schema premium qui ajoute le format de données structurées JSON-LD recommandé par Google sans la boîte de contenu. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> En savoir plus sur Schema Pro.</a>"
 
 #: admin/index.php:854
 msgid "WooCommerce Configuration"
 msgstr "Configuration de WooCommerce"
 
 #: admin/index.php:858
-msgid ""
-"WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add "
-"duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please "
-"enable this option."
-msgstr ""
-"WooCommerce est livré avec du code Schema.org par défaut et l'utilisation de notre plugin sur les pages de produits "
-"WooCommerce ajoutera un schéma dupliqué, il n'est donc pas recommandé. Si vous souhaitez toujours activer notre plugin "
-"sur les produits WooCommerce, veuillez activer cette option."
+msgid "WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option."
+msgstr "WooCommerce est livré avec du code Schema.org par défaut et l'utilisation de notre plugin sur les pages de produits WooCommerce ajoutera un schéma dupliqué, il n'est donc pas recommandé. Si vous souhaitez toujours activer notre plugin sur les produits WooCommerce, veuillez activer cette option."
 
 #: admin/index.php:1071
 msgid "Success! Your changes were successfully saved!"
@@ -664,8 +588,8 @@ msgstr "Objet :"
 msgid "Your Query in Brief:"
 msgstr "Votre question en bref :"
 
-#: functions.php:887
 #. Translators: %s is the error message from the exception.
+#: functions.php:887
 msgid "Error creating DateTime object: %s"
 msgstr "Erreur lors de la création de l'objet DateTime : %s"
 
@@ -709,8 +633,8 @@ msgstr "Veuillez réessayer"
 msgid "Remove Embed"
 msgstr "Supprimer l'intégration"
 
-#: init.php:674
 #. translators: %s: $fallback
+#: init.php:674
 msgid "No oEmbed Results Found for %s. View more info at"
 msgstr "Aucun résultat oEmbed trouvé pour %s. Voir plus d'infos à"
 
@@ -871,9 +795,7 @@ msgstr ""
 #: meta-boxes.php:427
 #: meta-boxes.php:671
 #: meta-boxes.php:821
-msgid ""
-"Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a "
-"href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
+msgid "Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
 msgstr ""
 
 #: meta-boxes.php:227
@@ -1339,30 +1261,16 @@ msgid "Rich Snippets - Videos"
 msgstr "Rich Snippets - Vidéos"
 
 #: meta-boxes.php:891
-msgid ""
-"Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the "
-"actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file "
-"format"
-msgstr ""
-"Téléchargez la vidéo ou entrez l'URL du fichier vidéo<br>Exemple : <br> http://www.example.com/video123.flv<br>Une URL "
-"pointant vers le fichier multimédia vidéo réel. Ce fichier doit être au format .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, "
-".avi, .flv ou autre format de fichier vidéo"
+msgid "Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file format"
+msgstr "Téléchargez la vidéo ou entrez l'URL du fichier vidéo<br>Exemple : <br> http://www.example.com/video123.flv<br>Une URL pointant vers le fichier multimédia vidéo réel. Ce fichier doit être au format .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv ou autre format de fichier vidéo"
 
 #: meta-boxes.php:898
 msgid "Embed Video"
 msgstr "Intégrer la vidéo"
 
 #: meta-boxes.php:899
-msgid ""
-"A URL pointing to a player for the specific video. Usually this is the information in the src element of an "
-"&lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: "
-"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed "
-"Video\" field. Dont use both.</h3></div>"
-msgstr ""
-"Une URL pointant vers un lecteur pour la vidéo spécifique. En général, il s'agit des informations dans l'élément src "
-"d'une balise &lt;embed&gt;. <br>Exemple : <br>Youtube : https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion : "
-"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Ajoutez uniquement une URL soit dans le champ "
-"\"Vidéo\" soit dans le champ \"Intégrer la vidéo\". N'utilisez pas les deux.</h3></div>"
+msgid "A URL pointing to a player for the specific video. Usually this is the information in the src element of an &lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed Video\" field. Dont use both.</h3></div>"
+msgstr "Une URL pointant vers un lecteur pour la vidéo spécifique. En général, il s'agit des informations dans l'élément src d'une balise &lt;embed&gt;. <br>Exemple : <br>Youtube : https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion : http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Ajoutez uniquement une URL soit dans le champ \"Vidéo\" soit dans le champ \"Intégrer la vidéo\". N'utilisez pas les deux.</h3></div>"
 
 #: meta-boxes.php:906
 msgid "Video Duration"
@@ -1477,9 +1385,7 @@ msgstr "Image de l'emplacement du fournisseur"
 
 #: meta-boxes.php:1043
 msgid "Upload the provider location image or select from library. Medium size is recommended (300px X 300px)"
-msgstr ""
-"Téléchargez l'image de l'emplacement du fournisseur ou sélectionnez-la dans la bibliothèque. Une taille moyenne est "
-"recommandée (300px X 300px)"
+msgstr "Téléchargez l'image de l'emplacement du fournisseur ou sélectionnez-la dans la bibliothèque. Une taille moyenne est recommandée (300px X 300px)"
 
 #: meta-boxes.php:1049
 msgid "Telephone"
