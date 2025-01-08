@@ -80,6 +80,9 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 
 ## Changelog ##
 
+### 1.6.13.1 ###
+- Improvement: AIOSRS now supports five additional languages—Dutch, French, Spanish, German enhancing accessibility for our global audience.
+
 ### 1.6.13 ###
 - Improvement: Compatibility with WordPress 6.7.
 - Improvement: Updated the video uploadDate field to use the d-m-y format.
