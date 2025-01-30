@@ -871,7 +871,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . get_support() //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		</div>' . wp_kses_post( get_support() )
 		. '
 	</div>';
 	echo '
