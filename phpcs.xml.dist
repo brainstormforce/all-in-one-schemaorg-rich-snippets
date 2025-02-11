@@ -31,6 +31,7 @@
 	<exclude-pattern>*/stubs/*</exclude-pattern>
 	<exclude-pattern>*/stubs-generator.php*</exclude-pattern>
 	<exclude-pattern>*/lib/nps-survey/*</exclude-pattern>
+	<exclude-pattern>*/lib/class-aiosrs-nps-survey.php/*</exclude-pattern>
 
 
 </ruleset>
