@@ -1377,6 +1377,42 @@ function display_rating() {
 	$rating     .= $script;
 	return $rating;
 }
+
+/**
+ * Render All In One Schema Rich Snippets NPS Survey Notice.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function show_nps_notice() {
+    if ( class_exists( 'Nps_Survey' ) ) {
+        \Nps_Survey::show_nps_notice(
+            'nps-survey-all-in-one-schema',
+            array(
+                'show_if'          => true, // Add your display conditions.
+                'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
+                'display_after'    => 0,
+                'plugin_slug'      => 'all-in-one-schema',
+                'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
+                'message'          => array(
+                    // Step 1 i.e rating input.
+                    'logo'                  => esc_url( plugins_url( '/images/icon.png', __FILE__ ) ),
+                    'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
+                    'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
+                    // Step 2A i.e. positive.
+                    'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'rich-snippets' ),
+                    'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets/reviews/#new-post' ),
+                    // Step 2B i.e. negative.
+                    'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
+                    'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
+                ),
+            )
+        );
+    }
+}
+
+add_action( 'admin_footer', 'show_nps_notice' );
+
 /**
  * Bsf_display_rating.
  *
