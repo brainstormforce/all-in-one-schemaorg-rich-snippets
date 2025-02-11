@@ -81,6 +81,7 @@ Review, Event, People, Product, Recipe, Software Application, Video, Articles et
 ## Changelog ##
 
 ### 1.6.13.1 ###
+- Improvement: Added support for NPS Survey.
 - Improvement: Enhanced the codebase to strengthen security measures.
 
 ### 1.6.13 ###
