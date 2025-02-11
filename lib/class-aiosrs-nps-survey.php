@@ -59,13 +59,13 @@ if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) :
 
 			// Is file exist?
 			if ( is_file( $file ) ) {
-				
+
 				$file_data = json_decode( file_get_contents( $file ), true );
-				
+
 				global $nps_survey_version, $nps_survey_init;
-				
+
 				$path = realpath( dirname( __FILE__ ) . '/nps-survey/nps-survey.php' );
-				
+
 				$version = isset( $file_data['nps-survey'] ) ? $file_data['nps-survey'] : 0;
 
 				if ( null === $nps_survey_version ) {
