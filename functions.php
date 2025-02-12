@@ -1390,13 +1390,13 @@ function show_nps_notice() {
 			'nps-survey-all-in-one-schema',
 			array(
 				'show_if'          => true, // Add your display conditions.
-				'dismiss_timespan' => 2 * WEEK_IN_SECONDS,
-				'display_after'    => 0,
+				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
+				'display_after'    => 2 * WEEK_IN_SECONDS,
 				'plugin_slug'      => 'all-in-one-schema',
 				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
 				'message'          => array(
 					// Step 1 i.e rating input.
-					'logo'                  => esc_url( plugins_url( '/images/icon.png', __FILE__ ) ),
+					'logo'                  => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
 					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
 					// Step 2A i.e. positive.
