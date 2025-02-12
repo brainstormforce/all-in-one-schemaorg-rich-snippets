@@ -1,9 +1,10 @@
 {
   "name": "all-in-one-schemaorg-rich-snippets",
-  "version": "1.6.13",
+  "version": "1.7.0",
   "main": "Gruntfile.js",
   "author": "Brainstorm Force",
   "devDependencies": {
+    "gpt-po": "^1.2.0",
     "grunt": "^1.6.1",
     "grunt-cli": "^1.5.0",
     "grunt-contrib-compress": "^2.0.0",
@@ -12,5 +13,15 @@
     "grunt-zip": "^1.0.0",
     "js-yaml": ">=3.13.1",
     "minimist": ">=1.2.3"
+  },
+  "dependencies": {
+    "@wordpress/scripts": "^1.0.0"
+  },
+  "scripts": {
+    "i18n": "grunt i18n && wp i18n make-pot . --exclude='node_modules,vendor,tests,artifact' languages/all-in-one-schemaorg-rich-snippets.pot --domain=all-in-one-schemaorg-rich-snippets --debug",
+    "i18n:po": "wp i18n update-po languages/all-in-one-schemaorg-rich-snippets.pot",
+    "i18n:mo": "wp i18n make-mo languages",
+    "i18n:json": "wp i18n make-json languages --no-purge",
+    "i18n:gptpo:nl": "gpt-po translate --po languages/all-in-one-schemaorg-rich-snippets-nl_NL.po --lang nl --verbose"
   }
 }
