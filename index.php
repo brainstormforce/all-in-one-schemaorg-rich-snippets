@@ -395,6 +395,10 @@ if ( is_admin() ) {
 if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 }
+	// Load the NPS Survey library.
+if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'lib/class-aiosrs-nps-survey.php';
+}
 
 			$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
