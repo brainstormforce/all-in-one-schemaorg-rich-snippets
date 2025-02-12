@@ -871,7 +871,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . wp_kses_post( get_support() )
+		</div>' . ( get_support() )
 		. '
 	</div>';
 	echo '
