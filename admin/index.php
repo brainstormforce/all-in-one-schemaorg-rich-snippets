@@ -871,7 +871,7 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . ( get_support() )
+		</div>' . wp_kses_post( get_support() )
 		. '
 	</div>';
 	echo '
@@ -1192,7 +1192,6 @@ function add_footer_script() {
  * Get support.
  */
 function get_support() {
-
 	$allowed_html = array(
 		'div'      => array(
 			'class' => array(),
@@ -1248,44 +1247,60 @@ function get_support() {
 	);
 
 	$html = '
-		<div class="postbox bsf-contact closed">
-			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-			<h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
-			<div class="inside">
-			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
-			<input type="hidden" id="aiosrs_support_form_nonce" name="aiosrs_support_form_nonce" value="' . esc_attr( wp_create_nonce( 'aiosrs_support_form' ) ) . '" />
-				<p> ' . esc_html__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'all-in-one-schemaorg-rich-snippets' ) . ' </p>
-				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
-					<tr><td><label for="name"><strong>' . esc_html__( 'Your Name:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
-						<td><input required="required" type="text" class="bsf_text_medium" name="name" /></td></tr>
-					<tr><td><label for="email"><strong>' . esc_html__( 'Your Email:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
-						<td><input required="required" type="text" class="bsf_text_medium" name="email" /></td></tr>
-					<tr><td><label for="post_url"><strong>' . esc_html__( 'Reference URL:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
-						<td><input required="required" type="text" class="bsf_text_medium" name="post_url" /></td></tr>
-					<tr><td><label for="subject"><strong>' . esc_html__( 'Subject:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong> </label></td>
-						<td>
-							<select class="select_full" name="subject">
-								<option value="question"> I have a question </option>
-								<option value="bug"> I found a bug </option>
-								<option value="help"> I need help </option>
-								<option value="professional">  I need professional service </option>
-								<option value="contribute"> I want to contribute my code</option>
-								<option value="other">  Other </option>
-							</select>
-						</td><td></td></tr>
-					<tr><td class="bsf_label"><label for="message"><strong>' . esc_html__( 'Your Query in Brief:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong> </label></td>
-						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
-						<tr></tr> <tr></tr> <tr></tr>
-					<tr><td></td>
-						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
-				</table>
-			</form>
-			</div>
-		</div>
-		</div>
-		</div>
-		</div>
-	';
+        <div class="postbox bsf-contact closed">
+            <button type="button" class="handlediv" aria-expanded="false">
+                <span class="screen-reader-text">Toggle panel: Frontend Options</span>
+                <span class="toggle-indicator" aria-hidden="true"></span>
+            </button>
+            <h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
+            <div class="inside">
+            <form name="support" id="support_form" action="" method="post" onsubmit="return false;">
+                <input type="hidden" id="aiosrs_support_form_nonce" name="aiosrs_support_form_nonce" value="' . esc_attr( wp_create_nonce( 'aiosrs_support_form' ) ) . '" />
+                <p> ' . esc_html__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'all-in-one-schemaorg-rich-snippets' ) . ' </p>
+                <table class="bsf_metabox">
+                    <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" />
+                    <tr>
+                        <td><label for="name"><strong>' . esc_html__( 'Your Name:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong></label></td>
+                        <td><input required="required" type="text" class="bsf_text_medium" name="name" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email"><strong>' . esc_html__( 'Your Email:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong></label></td>
+                        <td><input required="required" type="text" class="bsf_text_medium" name="email" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="post_url"><strong>' . esc_html__( 'Reference URL:', 'all-in-one-schemaorg-rich-snippets' ) . '<span style="color:red;"> *</span></strong></label></td>
+                        <td><input required="required" type="text" class="bsf_text_medium" name="post_url" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="subject"><strong>' . esc_html__( 'Subject:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong></label></td>
+                        <td>
+                            <select class="select_full" name="subject">
+                                <option value="question">I have a question</option>
+                                <option value="bug">I found a bug</option>
+                                <option value="help">I need help</option>
+                                <option value="professional">I need professional service</option>
+                                <option value="contribute">I want to contribute my code</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bsf_label"><label for="message"><strong>' . esc_html__( 'Your Query in Brief:', 'all-in-one-schemaorg-rich-snippets' ) . '</strong></label></td>
+                        <td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea></td>
+                    </tr>
+                    <tr></tr> <tr></tr> <tr></tr>
+                    <tr>
+                        <td></td>
+                        <td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+        </div>
+    ';
+
 	return wp_kses( $html, $allowed_html );
 }
+
+echo '<ul class="nav-tab-wrapper bsf-tab-wraper"></ul>' . get_support() . '<div></div>';
 ?>
