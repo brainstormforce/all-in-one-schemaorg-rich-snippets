@@ -1194,23 +1194,58 @@ function add_footer_script() {
 function get_support() {
 
 	$allowed_html = array(
-        'div'    => array('class' => array(), 'id' => array()),
-        'button' => array('type' => array(), 'class' => array(), 'aria-expanded' => array()),
-        'span'   => array('class' => array(), 'aria-hidden' => array()),
-        'h3'     => array('class' => array()),
-        'form'   => array('name' => array(), 'id' => array(), 'action' => array(), 'method' => array(), 'onsubmit' => array()),
-        'input'  => array('type' => array(), 'name' => array(), 'class' => array(), 'value' => array(), 'required' => array(), 'id' => array()),
-        'label'  => array('for' => array(), 'strong' => array()),
-        'strong' => array(),
-        'p'      => array(),
-        'table'  => array('class' => array()),
-        'tr'     => array(),
-        'td'     => array('class' => array()),
-        'select' => array('class' => array(), 'name' => array()),
-        'option' => array('value' => array()),
-        'textarea' => array('class' => array(), 'name' => array(), 'required' => array(), 'rows' => array(), 'cols' => array()),
-        'ul'     => array('class' => array()),
-    );
+		'div'      => array(
+			'class' => array(),
+			'id'    => array(),
+		),
+		'button'   => array(
+			'type'          => array(),
+			'class'         => array(),
+			'aria-expanded' => array(),
+		),
+		'span'     => array(
+			'class'       => array(),
+			'aria-hidden' => array(),
+		),
+		'h3'       => array( 'class' => array() ),
+		'form'     => array(
+			'name'     => array(),
+			'id'       => array(),
+			'action'   => array(),
+			'method'   => array(),
+			'onsubmit' => array(),
+		),
+		'input'    => array(
+			'type'     => array(),
+			'name'     => array(),
+			'class'    => array(),
+			'value'    => array(),
+			'required' => array(),
+			'id'       => array(),
+		),
+		'label'    => array(
+			'for'    => array(),
+			'strong' => array(),
+		),
+		'strong'   => array(),
+		'p'        => array(),
+		'table'    => array( 'class' => array() ),
+		'tr'       => array(),
+		'td'       => array( 'class' => array() ),
+		'select'   => array(
+			'class' => array(),
+			'name'  => array(),
+		),
+		'option'   => array( 'value' => array() ),
+		'textarea' => array(
+			'class'    => array(),
+			'name'     => array(),
+			'required' => array(),
+			'rows'     => array(),
+			'cols'     => array(),
+		),
+		'ul'       => array( 'class' => array() ),
+	);
 
 	$html = '
 		<div class="postbox bsf-contact closed">
@@ -1251,6 +1286,6 @@ function get_support() {
 		</div>
 		</div>
 	';
-	return wp_kses($html, $allowed_html);
+	return wp_kses( $html, $allowed_html );
 }
 ?>
