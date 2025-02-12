@@ -871,63 +871,63 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-		</div>' . wp_kses(
-								get_support(),
-								array(
-									'div'      => array(
-										'class' => array(),
-										'id'    => array(),
-									),
-									'button'   => array(
-										'type'          => array(),
-										'class'         => array(),
-										'aria-expanded' => array(),
-									),
-									'span'     => array(
-										'class'       => array(),
-										'aria-hidden' => array(),
-									),
-									'h3'       => array( 'class' => array() ),
-									'form'     => array(
-										'name'     => array(),
-										'id'       => array(),
-										'action'   => array(),
-										'method'   => array(),
-										'onsubmit' => array(),
-									),
-									'input'    => array(
-										'type'     => array(),
-										'name'     => array(),
-										'class'    => array(),
-										'value'    => array(),
-										'required' => array(),
-										'id'       => array(),
-									),
-									'label'    => array(
-										'for'    => array(),
-										'strong' => array(),
-									),
-									'strong'   => array(),
-									'p'        => array(),
-									'table'    => array( 'class' => array() ),
-									'tr'       => array(),
-									'td'       => array( 'class' => array() ),
-									'select'   => array(
-										'class' => array(),
-										'name'  => array(),
-									),
-									'option'   => array( 'value' => array() ),
-									'textarea' => array(
-										'class'    => array(),
-										'name'     => array(),
-										'required' => array(),
-										'rows'     => array(),
-										'cols'     => array(),
-									),
-									'ul'       => array( 'class' => array() ),
-								)
-							)
-	. '
+	</div>';
+
+	$allowed_html = array(
+		'div'      => array(
+			'class' => array(),
+			'id'    => array(),
+		),
+		'button'   => array(
+			'type'          => array(),
+			'class'         => array(),
+			'aria-expanded' => array(),
+		),
+		'span'     => array(
+			'class'       => array(),
+			'aria-hidden' => array(),
+		),
+		'h3'       => array( 'class' => array() ),
+		'form'     => array(
+			'name'     => array(),
+			'id'       => array(),
+			'action'   => array(),
+			'method'   => array(),
+			'onsubmit' => array(),
+		),
+		'input'    => array(
+			'type'     => array(),
+			'name'     => array(),
+			'class'    => array(),
+			'value'    => array(),
+			'required' => array(),
+			'id'       => array(),
+		),
+		'label'    => array(
+			'for'    => array(),
+			'strong' => array(),
+		),
+		'strong'   => array(),
+		'p'        => array(),
+		'table'    => array( 'class' => array() ),
+		'tr'       => array(),
+		'td'       => array( 'class' => array() ),
+		'select'   => array(
+			'class' => array(),
+			'name'  => array(),
+		),
+		'option'   => array( 'value' => array() ),
+		'textarea' => array(
+			'class'    => array(),
+			'name'     => array(),
+			'required' => array(),
+			'rows'     => array(),
+			'cols'     => array(),
+		),
+		'ul'       => array( 'class' => array() ),
+	);
+
+	echo wp_kses( get_support(), $allowed_html ) . '
 </div>';
 	echo '
 <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
