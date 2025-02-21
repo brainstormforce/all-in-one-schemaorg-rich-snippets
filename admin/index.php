@@ -760,8 +760,8 @@ function rich_snippet_dashboard() {
 										<h3 class="hndle">' . esc_html__( 'Why does the plugin create extra content in the frontend? Can I hide it?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>' . esc_html__( 'We understand that you don\'t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
-										<p>' . esc_html__('Here is a reference link of what Google says: ', 'all-in-one-schemaorg-rich-snippets') . '<a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
-										<p>' . sprintf(esc_html__( 'If you still do not want your schema markup to affect your frontend design, you can use %1$sSchema Pro%2$s - our advanced Schema markup plugin that is built with the latest JSON-LD technology which does not require a content box to be displayed on the front-end.', 'all-in-one-schemaorg-rich-snippets' ),'<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">','</a>') . '</p>
+										<p>' . esc_html__( 'Here is a reference link of what Google says: ', 'all-in-one-schemaorg-rich-snippets' ) . '<a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
+										<p>' . sprintf( esc_html__( 'If you still do not want your schema markup to affect your frontend design, you can use %1$sSchema Pro%2$s - our advanced Schema markup plugin that is built with the latest JSON-LD technology which does not require a content box to be displayed on the front-end.', 'all-in-one-schemaorg-rich-snippets' ), '<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">', '</a>' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
@@ -777,7 +777,7 @@ function rich_snippet_dashboard() {
 										<div class="inside">
 										<p>' . esc_html__( 'We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
 										<p>' . esc_html__( 'If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
-										<p>' . sprintf(esc_html__( 'Meanwhile - you can validate and see the preview of your rich snippets on %1$s[ Google Structured Data Testing Tool ]%2$s.', 'all-in-one-schemaorg-rich-snippets' ),'<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">','</a>') . '</p>
+										<p>' . sprintf( esc_html__( 'Meanwhile - you can validate and see the preview of your rich snippets on %1$s[ Google Structured Data Testing Tool ]%2$s.', 'all-in-one-schemaorg-rich-snippets' ), '<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">', '</a>' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
