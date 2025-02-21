@@ -208,7 +208,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 				}
 
 				/* translators: %s product name */
-				$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'all-in-one-schemaorg-rich-snippets' );
+				$notice_string = wp_kses_post(__( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'all-in-one-schemaorg-rich-snippets' ));
 
 				if ( is_multisite() ) {
 					$notice_string .= __( 'This will be applicable for all sites from the network.', 'all-in-one-schemaorg-rich-snippets' );

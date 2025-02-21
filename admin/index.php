@@ -106,7 +106,7 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-2" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Item Review', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -147,7 +147,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Events', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -196,7 +196,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Person', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -245,7 +245,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Product', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -294,7 +294,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Recipe', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -351,7 +351,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Software Application', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -402,7 +402,7 @@ function rich_snippet_dashboard() {
 
 
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Video', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -443,7 +443,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Article', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -492,7 +492,7 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 							<div class="postbox closed">
-								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Service', 'all-in-one-schemaorg-rich-snippets' ) . '</span></h3>
 								<div class="inside">
 									<div class="table">
@@ -742,46 +742,46 @@ function rich_snippet_dashboard() {
 					<div id="postbox-container-5" class="postbox-container">
 						<div class="meta-box-sortables ui-sortable">
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'Where can I test my schema markup implementation?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>' . esc_html__( 'You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look.', 'all-in-one-schemaorg-rich-snippets' ) . ' <a href="http://www.google.com/webmasters/tools/richsnippets" target="_blank">Click Here.</a></p>
 										</div>
 								</div>
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'Do I have to fill in all the details?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>' . esc_html__( 'No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'Why does the plugin create extra content in the frontend? Can I hide it?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>We understand that you don&#39;t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.</p>
-										<p>Here is a reference link of what Google says. <a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
-										<p> If you still do not want your schema markup to affect your frontend design, you can use <a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">Schema Pro</a> - our advanced Schema markup plugin that is built with the latest JSON- LD technology which does not require a content box to be displayed on the front-end.</p>
+										<p>' . esc_html__( 'We understand that you don\'t like the content that gets displayed on your page / post. However, as per the strong recommendation of Google, MicroData should be clearly visible to the user.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
+										<p>' . esc_html__('Here is a reference link of what Google says: ', 'all-in-one-schemaorg-rich-snippets') . '<a href="https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display" target="_blank"> https://sites.google.com/site/webmasterhelpforum/en/faq-rich-snippets#display</a></p>
+										<p>' . sprintf(esc_html__( 'If you still do not want your schema markup to affect your frontend design, you can use %1$sSchema Pro%2$s - our advanced Schema markup plugin that is built with the latest JSON-LD technology which does not require a content box to be displayed on the front-end.', 'all-in-one-schemaorg-rich-snippets' ),'<a href="https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=faq" target="_blank">','</a>') . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily. <br><br>If you come across a conflict with any other plugin, please do not hesitate to report an issue.</p>
+										<p>' . esc_html__( 'Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily.', 'all-in-one-schemaorg-rich-snippets' ) . '<br><br>' . esc_html__( 'If you come across a conflict with any other plugin, please do not hesitate to report an issue.', 'all-in-one-schemaorg-rich-snippets', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'How long will it take to show up rich snippets for my search results?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.</p>
-										<p>If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.</p>
-										<p>Meanwhile - you can validate and see the preview of your rich snippets on <a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">[ Google Structured Data Testing Tool ]</a> .</p>
+										<p>' . esc_html__( 'We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
+										<p>' . sprintf(esc_html__( 'Meanwhile - you can validate and see the preview of your rich snippets on %1$s[ Google Structured Data Testing Tool ]%2$s.', 'all-in-one-schemaorg-rich-snippets' ),'<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">','</a>') . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( "I don't see the feature I want. How can I get it?", 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
 										<p>' . wp_kses_post( __( "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:", 'all-in-one-schemaorg-rich-snippets' ) ) . '</p>
@@ -801,7 +801,7 @@ function rich_snippet_dashboard() {
 						<div id="postbox-container-11" class="postbox-container">
 							<div class="meta-box-sortables ui-sortable">
 								<div class="postbox">
-									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . wp_kses_post( __( '<span>Customize the look and feel of rich snippet box</span>', 'all-in-one-schemaorg-rich-snippets' ) ) //phpcs:ignore WordPress.WP.I18n.NoHtmlWrappedStrings
 										. '</h3>
 										<div class="inside">
@@ -830,7 +830,7 @@ function rich_snippet_dashboard() {
 												</tr>
 												<tr>
 													<td></td>
-													<td><input id="submit_colors" class="button-primary" type="submit" value="Update Colors" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_color_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
+													<td><input id="submit_colors" class="button-primary" type="submit" value="' . esc_attr__( 'Update Colors', 'all-in-one-schemaorg-rich-snippets' ) . '" />&nbsp;&nbsp;&nbsp;<a class="button-primary" href="?page=rich_snippet_dashboard&amp;action=reset&options=color&nonce=' . esc_attr( wp_create_nonce( 'aiosrs_color_nonce' ) ) . '">' . esc_html__( 'Reset ', 'all-in-one-schemaorg-rich-snippets' ) . '</a></td>
 												</tr>
 											</table>
 											</form>
@@ -850,7 +850,7 @@ function rich_snippet_dashboard() {
 		<div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables" class="meta-box-sortables ui-sortable">
 		<div class="postbox bsf-woocommerce-setting closed">
-			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">' . esc_html__( 'WooCommerce Configuration', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form id="bsf_css_editor" method="post" action="">
@@ -860,7 +860,7 @@ function rich_snippet_dashboard() {
 					<tr>
 						<td>
 							<input type="checkbox" name="woocommerce_option" id="woocommerce_option" value="1" ' . esc_attr( $woo_setting ) . ' />
-							<label for="woocommerce_option">Enable schema on WooCommerce products</label>
+							<label for="woocommerce_option">' . esc_html__( 'Enable schema on WooCommerce products', 'all-in-one-schemaorg-rich-snippets' ) . '</label>
 						</td>
 					</tr>
 					<tr>
@@ -1250,7 +1250,7 @@ function get_support() {
 
 	$html = '
 		<div class="postbox bsf-contact closed">
-			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">Toggle panel: Frontend Options</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 			<h3 class="get_in_touch">' . esc_html__( 'Get in touch with the Plugin Developers', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 			<div class="inside">
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
@@ -1278,7 +1278,7 @@ function get_support() {
 						<td rowspan="4"><textarea class="bsf_textarea_small" name="message" required></textarea> </td></tr>
 						<tr></tr> <tr></tr> <tr></tr>
 					<tr><td></td>
-						<td><input id="submit_request" class="button-primary" type="submit" value="Submit Request" /> <span id="status"></span></td></tr>
+						<input id="submit_request" class="button-primary" type="submit" value="' . esc_attr__( 'Submit Request', 'all-in-one-schemaorg-rich-snippets' ) . '" /> <span id="status"></span></td></tr>
 				</table>
 			</form>
 			</div>

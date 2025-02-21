@@ -6,7 +6,7 @@
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
  * Version: 1.7.0
- * Text Domain: rich-snippets
+ * Text Domain: all-in-one-schemaorg-rich-snippets
  * License: GPL2
  *
  * @package AIOSRS.
@@ -95,7 +95,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( 'All in One Rich Snippets Dashboard', 'Rich Snippets', 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'all-in-one-schemaorg-rich-snippets' ), __( 'Rich Snippets', 'all-in-one-schemaorg-rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -208,7 +208,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function rich_snippet_translation() {
 			// Load Translation File.
-			load_plugin_textdomain( 'rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
+			load_plugin_textdomain( 'all-in-one-schemaorg-rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
 		}
 		/**
 		 * Register_bsf_settings.
