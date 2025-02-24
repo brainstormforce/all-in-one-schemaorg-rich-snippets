@@ -31,6 +31,7 @@
 	<exclude-pattern>*/stubs/*</exclude-pattern>
 	<exclude-pattern>*/stubs-generator.php*</exclude-pattern>
 	<exclude-pattern>*/lib/*</exclude-pattern>
+	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
 
 
 </ruleset>
