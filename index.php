@@ -407,10 +407,10 @@ $bsf_analytics = BSF_Analytics_Loader::get_instance();
 $bsf_analytics->set_entity(
 	array(
 		'bsf' => array(
-			'product_name'    => 'All In One Schema Rich Snippets',
-			'path'            => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
-			'author'          => 'Brainstorm Force',
-			'time_to_display' => '+24 hours',
+			'product_name'        => 'All In One Schema Rich Snippets',
+			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+			'author'              => 'Brainstorm Force',
+			'time_to_display'     => '+24 hours',
 			'deactivation_survey' => array(
 				array(
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
@@ -419,7 +419,7 @@ $bsf_analytics->set_entity(
 					'plugin_version'    => '1.7.0',
 					'popup_title'       => __( 'Quick Feedback', 'all-in-one-schemaorg-rich-snippets' ),
 					'support_url'       => 'https://wpschema.com/contact/',
-					'popup_description' => __( 'If you have a moment, please share why you are deactivating Schema Pro:', 'all-in-one-schemaorg-rich-snippets' ),
+					'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'all-in-one-schemaorg-rich-snippets' ),
 					'show_on_screens'   => array( 'plugins' ),
 				),
 			),
@@ -428,7 +428,7 @@ $bsf_analytics->set_entity(
 );
 			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 			// Instantiating the Class.
-			if ( class_exists( 'RichSnippets' ) ) {
-				$richsnippets = new RichSnippets();
-			}
-			?>
+if ( class_exists( 'RichSnippets' ) ) {
+	$richsnippets = new RichSnippets();
+}
+?>
