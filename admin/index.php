@@ -768,7 +768,7 @@ function rich_snippet_dashboard() {
 									<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'all-in-one-schemaorg-rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 										<h3 class="hndle">' . esc_html__( 'Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?', 'all-in-one-schemaorg-rich-snippets' ) . '</h3>
 										<div class="inside">
-										<p>' . esc_html__( 'Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily.', 'all-in-one-schemaorg-rich-snippets' ) . '<br><br>' . esc_html__( 'If you come across a conflict with any other plugin, please do not hesitate to report an issue.', 'all-in-one-schemaorg-rich-snippets', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
+										<p>' . esc_html__( 'Well, the plugin works perfectly with most of the other plugins as the only thing "All in One Schema.org Rich Snippets" does is - it gives you power to add Rich Snippets MicroData to your pages and posts easily.', 'all-in-one-schemaorg-rich-snippets' ) . '<br><br>' . esc_html__( 'If you come across a conflict with any other plugin, please do not hesitate to report an issue.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
 										</div>
 								</div>
 								<div class="postbox closed">
@@ -777,7 +777,7 @@ function rich_snippet_dashboard() {
 										<div class="inside">
 										<p>' . esc_html__( 'We cannot assure the time it will take to display a rich snippet for your search results. This is completely dependent on when your website is crawled by the search engine. However, there are many more factors, such as your website authority that contribute to the time taken for your website to be crawled and a rich snippet displayed.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
 										<p>' . esc_html__( 'If rich snippets are not appearing in your search results as of yet, most probably they might start appearing as soon as Google or other search engines find your website more authoritative.', 'all-in-one-schemaorg-rich-snippets' ) . '</p>
-										<p>' . sprintf( esc_html__( 'Meanwhile - you can validate and see the preview of your rich snippets on %1$s[ Google Structured Data Testing Tool ]%2$s.', 'all-in-one-schemaorg-rich-snippets' ), '<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">', '</a>' ) . '</p>
+										<p>' . sprintf( esc_html__( 'Meanwhile - you can validate and see the preview of your rich snippets on %1$s[ Google Structured Data Testing Tool ]%2$s.', 'all-in-one-schemaorg-rich-snippets' ), '<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">', '</a>' ) . '</p> 
 										</div>
 								</div>
 								<div class="postbox closed">
