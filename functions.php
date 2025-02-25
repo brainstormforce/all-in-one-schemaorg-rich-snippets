@@ -1392,7 +1392,7 @@ function show_nps_notice() {
 				'show_if'          => true, // Add your display conditions.
 				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
 				'display_after'    => 2 * WEEK_IN_SECONDS,
-				'plugin_slug'      => 'rich-snippets',
+				'plugin_slug'      => 'all-in-one-schemaorg-rich-snippets',
 				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
 				'message'          => array(
 					// Step 1 i.e rating input.

@@ -14,7 +14,7 @@ Improve SEO, elevate rankings and Boost CTR. Supports different types of content
 == Description ==
 Get eye-catching results in search engines with the most popular schema markup plugin. Easy implementation of schema types like Review, Events, Recipes, Article, Products, Services etc
 
-[Try Live Demo of All In One Schema Rich Snippets](https://zipwp.org/plugins/rich-snippets/)
+[Try Live Demo of All In One Schema Rich Snippets](https://zipwp.org/plugins/all-in-one-schemaorg-rich-snippets/)
 
 = What is a Rich Snippet? =
 It is basically a short summary of your page in the search results of Google, Yahoo, Bing and sometimes in the News feed of Facebook in nice format with star ratings, author photo, image, etc.

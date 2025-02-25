@@ -1,5 +1,5 @@
 {
-    "name": "brainstormforce/rich-snippets",
+    "name": "brainstormforce/all-in-one-schemaorg-rich-snippets",
     "description": "Get eye catching results in search engines with the most popular schema markup plugin.",
     "require-dev": {
         "brainmaestro/composer-git-hooks": "^2.6",
