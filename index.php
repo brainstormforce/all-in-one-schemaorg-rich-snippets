@@ -413,7 +413,7 @@ $bsf_analytics->set_entity(
 			'time_to_display'     => '+24 hours',
 			'deactivation_survey' => array(
 				array(
-					'id'                => 'deactivation-survey-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
+					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_slug'       => 'rich-snippets', // <your-plugin-slug>
 					'plugin_version'    => '1.7.0',

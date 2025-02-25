@@ -1401,7 +1401,7 @@ function show_nps_notice() {
 					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
 					// Step 2A i.e. positive.
 					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'rich-snippets' ),
-					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/rich-snippets/reviews/#new-post' ),
+					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets/reviews/#new-post' ),
 					// Step 2B i.e. negative.
 					'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
 					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
