@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
 		addtextdomain: {
 			options: {
-				textdomain: "all-in-one-schemaorg-rich-snippets",
+				textdomain: "rich-snippets",
 			},
 			update_all_domains: {
 				options: {
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
 					domainPath: "/languages",
 					exclude: [".git/*", "bin/*", "node_modules/*", "tests/*"],
 					mainFile: "index.php",
-					potFilename: "all-in-one-schemaorg-rich-snippets.pot",
+					potFilename: "rich-snippets.pot",
 					potHeaders: {
 						poedit: true,
 						"x-poedit-keywordslist": true,
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: "all-in-one-schemaorg-rich-snippets.zip",
+					archive: "rich-snippets.zip",
 				},
 				files: [
 					{

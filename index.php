@@ -6,7 +6,7 @@
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
  * Version: 1.7.0
- * Text Domain: all-in-one-schemaorg-rich-snippets
+ * Text Domain: rich-snippets
  * License: GPL2
  *
  * @package AIOSRS.
@@ -95,7 +95,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'all-in-one-schemaorg-rich-snippets' ), __( 'Rich Snippets', 'all-in-one-schemaorg-rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -208,7 +208,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function rich_snippet_translation() {
 			// Load Translation File.
-			load_plugin_textdomain( 'all-in-one-schemaorg-rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
+			load_plugin_textdomain( 'rich-snippets', false, basename( dirname( __FILE__ ) ) . '/lang/' );
 		}
 		/**
 		 * Register_bsf_settings.
@@ -316,7 +316,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
 			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
+			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
 
 			die();
 		}
@@ -345,7 +345,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'all-in-one-schemaorg-rich-snippets' );
+					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
 
 					die();
 				}
@@ -413,13 +413,13 @@ $bsf_analytics->set_entity(
 			'time_to_display'     => '+24 hours',
 			'deactivation_survey' => array(
 				array(
-					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
+					'id'                => 'deactivation-survey-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets', // <your-plugin-slug>
+					'plugin_slug'       => 'rich-snippets', // <your-plugin-slug>
 					'plugin_version'    => '1.7.0',
-					'popup_title'       => __( 'Quick Feedback', 'all-in-one-schemaorg-rich-snippets' ),
+					'popup_title'       => __( 'Quick Feedback', 'rich-snippets' ),
 					'support_url'       => 'https://wpschema.com/contact/',
-					'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'all-in-one-schemaorg-rich-snippets' ),
+					'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'rich-snippets' ),
 					'show_on_screens'   => array( 'plugins' ),
 				),
 			),

@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			$nonce               = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'all-in-one-schemaorg-rich-snippets' ) );
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'rich-snippets' ) );
 			}
 
 			// Valid inputs?

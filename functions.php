@@ -884,7 +884,7 @@ function display_rich_snippet( $content ) {
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'all-in-one-schemaorg-rich-snippets' ), esc_html( $e->getMessage() ) ) );
+					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
 					return;
 				}
 			}
@@ -1308,7 +1308,7 @@ function bsf_add_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'all-in-one-schemaorg-rich-snippets' );
+	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'rich-snippets' );
 	die();
 }
 /**
@@ -1338,7 +1338,7 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'all-in-one-schemaorg-rich-snippets' );
+	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'rich-snippets' );
 	die();
 }
 /**
@@ -1392,19 +1392,19 @@ function show_nps_notice() {
 				'show_if'          => true, // Add your display conditions.
 				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
 				'display_after'    => 2 * WEEK_IN_SECONDS,
-				'plugin_slug'      => 'all-in-one-schema',
+				'plugin_slug'      => 'rich-snippets',
 				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
 				'message'          => array(
 					// Step 1 i.e rating input.
 					'logo'                  => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'all-in-one-schemaorg-rich-snippets' ),
-					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'all-in-one-schemaorg-rich-snippets' ),
+					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
+					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
 					// Step 2A i.e. positive.
-					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'all-in-one-schemaorg-rich-snippets' ),
-					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets/reviews/#new-post' ),
+					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'rich-snippets' ),
+					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/rich-snippets/reviews/#new-post' ),
 					// Step 2B i.e. negative.
-					'plugin_rating_title'   => __( 'Thank you for your feedback', 'all-in-one-schemaorg-rich-snippets' ),
-					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'all-in-one-schemaorg-rich-snippets' ),
+					'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
+					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
 				),
 			)
 		);
