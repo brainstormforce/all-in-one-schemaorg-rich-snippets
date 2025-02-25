@@ -38,7 +38,7 @@ module.exports = function (grunt) {
 					domainPath: "/languages",
 					exclude: [".git/*", "bin/*", "node_modules/*", "tests/*"],
 					mainFile: "index.php",
-					potFilename: "rich-snippets.pot",
+					potFilename: "all-in-one-schemaorg-rich-snippets.pot",
 					potHeaders: {
 						poedit: true,
 						"x-poedit-keywordslist": true,
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: "rich-snippets.zip",
+					archive: "all-in-one-schemaorg-rich-snippets.zip",
 				},
 				files: [
 					{
