@@ -415,7 +415,7 @@ $bsf_analytics->set_entity(
 				array(
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets', 
+					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
 					'plugin_version'    => '1.7.0',
 					'popup_title'       => __( 'Quick Feedback', 'rich-snippets' ),
 					'support_url'       => 'https://wpschema.com/contact/',
