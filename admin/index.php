@@ -615,7 +615,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/click.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/click.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Schema Markup Automation</h3>
@@ -626,7 +626,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/seo.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/seo.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Complete Schema Implementation</h3>
@@ -637,7 +637,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/website.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/website.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Advanced Targeting Rules</h3>
@@ -648,7 +648,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/custom.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/custom.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Custom Field Support<h3>
@@ -659,7 +659,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/quick.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/quick.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Accuracy and Testing</h3>
@@ -670,7 +670,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-schema-features-1">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-features-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/acf.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/acf.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<h3>Compatibility with Yoast SEO,  ACF, PODS </h3>
@@ -698,7 +698,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-testimonial-wrap">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-testimonial-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/adam-circle.jpg' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/adam-circle.jpg' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<p>I have used every Schema Plugin for WordPress over the last few years, hundreds of dollars invested, and Schema Pro blows them all out of the water. It’s the only schema plugin you need.</p>
@@ -710,7 +710,7 @@ function rich_snippet_dashboard() {
 											<div class="bsf-testimonial-wrap">
 												<div class="bsf-schema-features-wrap">
 													<div class="bsf-schema-testimonial-icon">
-													<img src="' . esc_url( plugins_url( '/rich-snippets/images/kylevan.png' ) ) . '"/>
+													<img src="' . esc_url( plugins_url( '/all-in-one-schemaorg-rich-snippets/images/kylevan.png' ) ) . '"/>
 													</div>
 													<div class="bsf-schema-features-cont">
 													<p>Schema Pro has unlocked a powerful set of tools that produced results almost immediately. As a non-coder, a solution like this allows me to set up and stand out against the competition- and it couldn&#39;t be any easier to use!</p>
