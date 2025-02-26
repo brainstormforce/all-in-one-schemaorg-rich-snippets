@@ -884,7 +884,7 @@ function display_rich_snippet( $content ) {
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'all-in-one-schemaorg-rich-snippets' ), esc_html( $e->getMessage() ) ) );
+					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
 					return;
 				}
 			}
@@ -1308,7 +1308,7 @@ function bsf_add_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'all-in-one-schemaorg-rich-snippets' );
+	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'rich-snippets' );
 	die();
 }
 /**
@@ -1338,7 +1338,7 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'all-in-one-schemaorg-rich-snippets' );
+	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'rich-snippets' );
 	die();
 }
 /**
@@ -1392,7 +1392,7 @@ function show_nps_notice() {
 				'show_if'          => true, // Add your display conditions.
 				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
 				'display_after'    => 2 * WEEK_IN_SECONDS,
-				'plugin_slug'      => 'all-in-one-schema',
+				'plugin_slug'      => 'all-in-one-schemaorg-rich-snippets',
 				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
 				'message'          => array(
 					// Step 1 i.e rating input.

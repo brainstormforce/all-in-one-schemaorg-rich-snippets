@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
 		addtextdomain: {
 			options: {
-				textdomain: "all-in-one-schemaorg-rich-snippets",
+				textdomain: "rich-snippets",
 			},
 			update_all_domains: {
 				options: {

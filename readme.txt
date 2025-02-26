@@ -83,6 +83,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 == Changelog ==
 
+= 1.7.0.1 =
+- Improved security and updated the slug for better compatibility.
+
 = 1.7.0 =
 - New: Added NPS Survey to gather your valuable feedback for All In One Schema Rich Snippets.
 - Improvement: Enhanced the codebase to strengthen security measures.
