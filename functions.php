@@ -347,7 +347,7 @@ function display_rich_snippet( $content ) {
 
 		if ( '' != trim( $event_title ) ) {
 			if ( $args_event['event_title'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_title'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_title'] ) ) . '</span>';
 			}
 			$event .= ' <div class="snippet-data-img">​<span itemprop="name">' . esc_attr( $event_title ) . '</span></div>
 			<meta itemprop="url" content="' . esc_attr( $event_ticket_url ) . '">
@@ -355,7 +355,7 @@ function display_rich_snippet( $content ) {
 		}
 		if ( '' != trim( $event_org ) ) {
 			if ( '' != $args_event['event_location'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_location'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_location'] ) ) . '</span>';
 			}
 			$event .= ' <div class="snippet-data-img"> 
 				​<span itemprop="location" itemscope itemtype="https://schema.org/Place">
@@ -381,27 +381,27 @@ function display_rich_snippet( $content ) {
 
 		if ( '' != trim( $event_start_date ) ) {
 			if ( '' != $args_event['start_time'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['start_time'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['start_time'] ) ) . '</span>';
 			}
 
 			$event .= ' <div class="snippet-data-img"> <span itemprop="startDate" datetime="' . esc_attr( $event_start_date ) . 'T00:00-00:00">' . esc_attr( $event_start_date ) . '</span></div><div class="snippet-clear"></div>';
 		}
 		if ( '' != trim( $event_end_date ) ) {
 			if ( '' != $args_event['end_time'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['end_time'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['end_time'] ) ) . '</span>';
 			}
 			$event .= ' <div class="snippet-data-img"> <span itemprop="endDate" datetime="' . esc_attr( $event_end_date ) . 'T00:00-00:00">' . esc_attr( $event_end_date ) . '</span></div><div class="snippet-clear"></div>';
 		}
 		if ( '' != trim( $event_description ) ) {
 			if ( '' != $args_event['event_desc'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_desc'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_desc'] ) ) . '</span>';
 			}
 			$event .= ' <div class="snippet-data-img"> <span itemprop="description">' . esc_attr( htmlspecialchars_decode( $event_description ) ) . '</span></div><div class="snippet-clear"></div>';
 		}
 
 		if ( '' != trim( $event_price ) ) {
 			if ( '' != $args_event['events_price'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['events_price'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['events_price'] ) ) . '</span>';
 			}
 			$event .= '<div class="snippet-data-img"> <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 			<span itemprop="priceCurrency">' . esc_attr( $event_cur ) . '</span><span itemprop="price">  ' . esc_attr( $event_price ) . '</span><br><a itemprop="url" href="' . esc_url( $event_ticket_url ) . '">Buy Tickets</a></div><div class="snippet-clear"></div>';
