@@ -86,7 +86,6 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 ### 1.7.0.1 ###
 - Improved security and updated the slug for better compatibility.
 - Improved accessibility compliance across the plugin.
-- This update addressed a security bug. Please make sure you are using the latest version on your website.
 
 ### 1.7.0 ###
 - New: Added NPS Survey to gather your valuable feedback for All In One Schema Rich Snippets.
