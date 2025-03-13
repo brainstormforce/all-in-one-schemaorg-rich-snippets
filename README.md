@@ -83,7 +83,7 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 ## Changelog ##
 
-### 1.7.0.1 ###
+### 1.7.1 ###
 - Improved security and updated the slug for better compatibility.
 - This update includes important security fixes, improved accessibility compliance, and ensures a consistent text domain throughout the plugin.
 
