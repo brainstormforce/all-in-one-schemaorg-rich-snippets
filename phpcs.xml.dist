@@ -13,6 +13,7 @@
 		<exclude name="WordPress.WP.GlobalVariablesOverride.Prohibited" />
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
 		<exclude name="Generic.Files.OneObjectStructurePerFile.MultipleFound" />
+		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
 	</rule>
 
 	<rule ref="WordPress-Core" />
@@ -31,6 +32,7 @@
 	<exclude-pattern>*/stubs/*</exclude-pattern>
 	<exclude-pattern>*/stubs-generator.php*</exclude-pattern>
 	<exclude-pattern>*/lib/*</exclude-pattern>
+	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
 
 
 </ruleset>
