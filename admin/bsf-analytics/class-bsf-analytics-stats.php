@@ -68,7 +68,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 				'graupi_version'         => defined( 'BSF_UPDATER_VERSION' ) ? BSF_UPDATER_VERSION : false,
 				'domain_name'            => get_site_url(),
 				'php_os'                 => PHP_OS,
-				'server_software'        => isset( $_SERVER['SERVER_SOFTWARE'] ) ? filter_var( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ), FILTER_SANITIZE_STRING ) : '',
+				'server_software'        => isset( $_SERVER['SERVER_SOFTWARE'] ) ? wp_kses( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ), [] ) : '',
 				'mysql_version'          => $this->get_mysql_version(),
 				'php_version'            => $this->get_php_version(),
 				'php_max_input_vars'     => ini_get( 'max_input_vars' ), // phpcs:ignore:PHPCompatibility.IniDirectives.NewIniDirectives.max_input_varsFound
@@ -85,6 +85,8 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				'wp_version'             => get_bloginfo( 'version' ),
 				'user_count'             => $this->get_user_count(),
+				'posts_count'            => wp_count_posts()->publish,
+				'page_count'             => wp_count_posts( 'page' )->publish,
 				'site_language'          => get_locale(),
 				'timezone'               => wp_timezone_string(),
 				'is_ssl'                 => is_ssl(),
@@ -105,7 +107,7 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 		/**
 		 * Get installed PHP version.
 		 *
-		 * @return string PHP version.
+		 * @return float PHP version.
 		 * @since 1.0.0
 		 */
 		private function get_php_version() {
@@ -232,7 +234,7 @@ if ( ! function_exists( 'wp_timezone_string' ) ) {
 	/**
 	 * Get timezone string.
 	 *
-	 * @return mixed timezone string.
+	 * @return string timezone string.
 	 * @since 1.0.0
 	 */
 	function wp_timezone_string() {

@@ -1,0 +1,41 @@
+Version 1.0.7 - 13-01-2025
+- Improvement:
+  - Enhanced core loading mechanism to prevent potential plugin conflicts.
+	-	Refactored codebase to adhere to core coding standards, improving overall readability and maintainability.
+	-	Updated popup UI to prevent external overlapping issues, ensuring better user experience.
+- New:
+  - Introduced internal filters to provide flexibility in customizing rating submission data.
+
+Version 1.0.6 - 31-12-2024
+- Improvement:
+  - Optimized performance by preventing unnecessary markup loading on screens where specific screen IDs are provided.
+- Fix:
+  - Resolved console errors that occurred during popup dismissal, ensuring smoother user interaction.
+
+Version 1.0.5 - 19-12-2024
+- New:
+  - Introduced a configuration option to display pop-up on the dashboards of specific plugins.
+- Improvement:
+  - Enhanced mobile responsiveness of the popup.
+- Fix:
+  - Corrected popup positioning in RTL (Right-to-Left) layouts.
+  - Resolved overlap issues between the popup and other elements in Spectra.
+
+Version 1.0.4 - 13-12-2024  
+- Improvement: Optimized file loading to prevent duplicate loads, enhancing performance.
+
+Version 1.0.3 - 10-12-2024
+- Fix: Fixed library update issue.
+
+Version 1.0.2 - 09-12-2024
+- Improvement: NPS popup will now be permanently dismissed when closed for the second time.
+- Improvement: Added an option to customize the rate button text for plugins/themes.
+- Fix: Resolved CSS conflicts with other plugins.
+
+Version 1.0.1 - 20-11-2024
+- New: Added filter to 'nps_survey_allowed_screens' to allow custom screens.
+- New: Added filter to 'nps_survey_build_url' update build url for themes.
+
+Version 1.0.0 - 23-09-2024
+- New: Initial release.  
+ 
