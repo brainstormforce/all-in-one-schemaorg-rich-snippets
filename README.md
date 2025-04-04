@@ -3,7 +3,7 @@
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** schema markup, structured data, rich snippets, schema.org, schema  
 **Requires at least:** 3.7  
-**Tested up to:** 6.7  
+**Tested up to:** 6.8  
 **Stable tag:** 1.7.0  
 **Requires PHP:** 7.4  
 **License:** GPLv2 or later  
