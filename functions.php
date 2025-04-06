@@ -306,7 +306,7 @@ function display_rich_snippet( $content ) {
 		$review .= "</div> 
 			</div><div style='clear:both;'></div>";
 
-		return ( is_single() || is_page() ) ? $content . $review : $content;
+		return is_single() || is_page() ? $content . $review : $content;
 	}
 	if ( $type === '2' ) {
 		global $post;
@@ -412,7 +412,7 @@ function display_rich_snippet( $content ) {
 			<meta itemprop="description" content="Event">
 			<div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $event : $content;
+		return is_single() || is_page() ? $content . $event : $content;
 	}
 	if ( $type === '4' ) {
 		global $post;
@@ -471,7 +471,7 @@ function display_rich_snippet( $content ) {
 		}
 		$organization .= '</div><div style="clear:both;"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $organization : $content;
+		return is_single() || is_page() ? $content . $organization : $content;
 	}
 	if ( $type === '5' ) {
 		global $post;
@@ -564,7 +564,7 @@ function display_rich_snippet( $content ) {
 		}
 		$people .= '</div>
 				</div></div><div class="snippet-clear"></div>';
-		return ( is_single() || is_page() ) ? $content . $people : $content;
+		return is_single() || is_page() ? $content . $people : $content;
 	}
 	if ( $type === '6' ) {
 		global $post;
@@ -666,7 +666,7 @@ function display_rich_snippet( $content ) {
 		$product .= '</div>
 			</div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $product : $content;
+		return is_single() || is_page() ? $content . $product : $content;
 	}
 	if ( $type === '7' ) {
 		global $post;
@@ -759,7 +759,7 @@ function display_rich_snippet( $content ) {
 		$recipe .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $recipe : $content;
+		return is_single() || is_page() ? $content . $recipe : $content;
 	}
 	if ( $type === '8' ) {
 		global $post;
@@ -856,7 +856,7 @@ function display_rich_snippet( $content ) {
 		$software .= '</div>
 				</div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $software : $content;
+		return is_single() || is_page() ? $content . $software : $content;
 	}
 	if ( $type === '9' ) {
 		global $post;
@@ -972,7 +972,7 @@ function display_rich_snippet( $content ) {
 
 		$video .= '</div></div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $video : $content;
+		return is_single() || is_page() ? $content . $video : $content;
 	}
 	if ( $type === '10' ) {
 		global $post;
@@ -1065,7 +1065,7 @@ function display_rich_snippet( $content ) {
 				$article .= '</div>
 					</div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $article : $content;
+		return is_single() || is_page() ? $content . $article : $content;
 	}
 	if ( $type === '11' ) {
 		global $post;
@@ -1176,10 +1176,9 @@ function display_rich_snippet( $content ) {
 
 			$service .= '</div></div></div><div class="snippet-clear"></div>';
 
-		return ( is_single() || is_page() ) ? $content . $service : $content;
+		return is_single() || is_page() ? $content . $service : $content;
 	}
 		return $content;
-
 }
 
 add_filter( 'the_content', 'display_rich_snippet', 90 );
@@ -1196,7 +1195,6 @@ function get_the_ip() {
 		return $_SERVER['HTTP_CLIENT_IP'];
 	}
 		return $_SERVER['REMOTE_ADDR'];
-
 }
 /**
  * Average_rating.
@@ -1219,12 +1217,11 @@ function average_rating() {
 
 		}
 		// round the average to the nearast 1/2 point.
-		return  round( $average_rating / $counter * 2, 0 ) / 2 ;
+		return round( $average_rating / $counter * 2, 0 ) / 2;
 
 	}
 		// no ratings.
 		return 'no rating';
-
 }
 /**
  * Rating_count.
@@ -1257,8 +1254,7 @@ function bsf_do_rating() {
 		if ( in_array( $ip, $ip_array ) ) {
 			$rating = get_previous_rating( $ip, $data );
 
-			$stars = bsf_display_rating( $rating );
-			return $stars;
+			return bsf_display_rating( $rating );
 		}
 	} else {
 		return display_rating();
@@ -1382,8 +1378,7 @@ function display_rating() {
 				});
 			</script>
 			';
-	$rating     .= $script;
-	return $rating;
+	return $rating     . $script;
 }
 /**
  * Bsf_display_rating.
@@ -1425,6 +1420,5 @@ function bsf_display_rating( $n ) {
 				});
 			</script>
 			';
-	$rating           .= $script;
-	return $rating;
+	return $rating           . $script;
 }
