@@ -347,7 +347,7 @@ function display_rich_snippet( $content ) {
 
 		if ( trim( $event_title ) !== '' ) {
 			if ( $args_event['event_title'] ) {
-				$event .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_title'] ) ) . '</div>';
+				$event .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_event['event_title'] ) ) . '</span>';
 			}
 			$event .= ' <div class="snippet-data-img">​<span itemprop="name">' . esc_attr( $event_title ) . '</span></div>
 			<meta itemprop="url" content="' . esc_attr( $event_ticket_url ) . '">
@@ -537,7 +537,7 @@ function display_rich_snippet( $content ) {
 			if ( $args_person['person_company'] !== '' ) {
 				$people .= '<div itemprop="affiliation" itemscope itemtype="https://schema.org/Organization">';
 			}
-				$people .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_person['person_company'] ) ) . '</div> ';
+				$people .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_person['person_company'] ) ) . '</span> ';
 			$people     .= '<div class="snippet-data-img"> <span itemprop="name">' . esc_attr( $people_company ) . '</span></div><div class="snippet-clear"></div>';
 			$people     .= '</div>';
 		}
@@ -890,7 +890,7 @@ function display_rich_snippet( $content ) {
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'all-in-one-schemaorg-rich-snippets' ), esc_html( $e->getMessage() ) ) );
+					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
 					return;
 				}
 			}
@@ -1036,7 +1036,7 @@ function display_rich_snippet( $content ) {
 				$article .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
 			}
 
-			$article .= '<div class="snippet-label-img">' . esc_attr( stripslashes( $args_article['article_publisher'] ) ) . '</div>';
+			$article .= '<span class="snippet-label-img">' . esc_attr( stripslashes( $args_article['article_publisher'] ) ) . '</span>';
 
 			$article .= '<div class="snippet-data-img">
 							<span itemprop="name">' . esc_attr( $article_publisher ) . '</span>
@@ -1380,6 +1380,42 @@ function display_rating() {
 			';
 	return $rating     . $script;
 }
+
+/**
+ * Render All In One Schema Rich Snippets NPS Survey Notice.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function show_nps_notice() {
+	if ( class_exists( 'Nps_Survey' ) ) {
+		\Nps_Survey::show_nps_notice(
+			'nps-survey-all-in-one-schema',
+			array(
+				'show_if'          => true, // Add your display conditions.
+				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
+				'display_after'    => 2 * WEEK_IN_SECONDS,
+				'plugin_slug'      => 'all-in-one-schemaorg-rich-snippets',
+				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
+				'message'          => array(
+					// Step 1 i.e rating input.
+					'logo'                  => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
+					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
+					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
+					// Step 2A i.e. positive.
+					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'rich-snippets' ),
+					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets/reviews/#new-post' ),
+					// Step 2B i.e. negative.
+					'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
+					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
+				),
+			)
+		);
+	}
+}
+
+add_action( 'admin_footer', 'show_nps_notice' );
+
 /**
  * Bsf_display_rating.
  *

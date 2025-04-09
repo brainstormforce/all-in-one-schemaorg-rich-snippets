@@ -649,7 +649,7 @@ function bsf_oembed_ajax_results(): void {
 	// sanitize our search string.
 	$oembed_string = sanitize_text_field( $_REQUEST['oembed_url'] );
 	if ( empty( $oembed_string ) ) {
-		$return = '<p class="ui-state-error-text">' . __( 'Please Try Again', 'all-in-one-schemaorg-rich-snippets' ) . '</p>';
+		$return = '<p class="ui-state-error-text">' . __( 'Please Try Again', 'rich-snippets' ) . '</p>';
 		$found  = 'not found';
 	} else {
 		global $wp_embed;
@@ -664,13 +664,13 @@ function bsf_oembed_ajax_results(): void {
 		$fallback = $wp_embed->maybe_make_link( $oembed_url );
 		if ( $check_embed && $check_embed !== $fallback ) {
 			// Embed data.
-			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $_REQUEST['field_id'] ) . '">' . __( 'Remove Embed', 'all-in-one-schemaorg-rich-snippets' ) . '</a></div>';
+			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $_REQUEST['field_id'] ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
 			// set our response id.
 			$found = 'found';
 		} else {
 			// error info when no oEmbeds were found.
 			/* translators: %s: $fallback */
-			$return = '<p class="ui-state-error-text">' . sprintf( __( 'No oEmbed Results Found for %s. View more info at', 'all-in-one-schemaorg-rich-snippets' ), $fallback ) . ' <a href="http://codex.wordpress.org/Embeds" target="_blank">codex.wordpress.org/Embeds</a>.</p>';
+			$return = '<p class="ui-state-error-text">' . sprintf( __( 'No oEmbed Results Found for %s. View more info at', 'rich-snippets' ), $fallback ) . ' <a href="http://codex.wordpress.org/Embeds" target="_blank">codex.wordpress.org/Embeds</a>.</p>';
 			// set our response id.
 			$found = 'not found';
 		}

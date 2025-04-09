@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.6.13
+ * Version: 1.7.1
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -68,7 +68,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.6.13' );
+			define( 'AIOSRS_PRO_VER', '1.7.1' );
 		}
 
 		/**
@@ -95,7 +95,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page(): void {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( 'All in One Rich Snippets Dashboard', 'Rich Snippets', 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, [ $this, 'iris_enqueue_scripts' ] );
@@ -315,7 +315,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
 			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Something went wrong!', 'all-in-one-schemaorg-rich-snippets' );
+			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
 
 			die;
 		}
@@ -389,26 +389,44 @@ if ( is_admin() ) {
 	// Load Astra Notices library.
 	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 }
-			// BSF Analytics library.
+
+	// Load the NPS Survey library.
+if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'lib/class-aiosrs-nps-survey.php';
+}
+
+
+// BSF Analytics library.
 if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 }
+$bsf_analytics = BSF_Analytics_Loader::get_instance();
 
-			$bsf_analytics = BSF_Analytics_Loader::get_instance();
-
-			$bsf_analytics->set_entity(
-				[
-					'bsf' => [
-						'product_name'    => 'All In One Schema Rich Snippets',
-						'path'            => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
-						'author'          => 'Brainstorm Force',
-						'time_to_display' => '+24 hours',
-					],
-				]
-			);
+$bsf_analytics->set_entity(
+	array(
+		'bsf' => array(
+			'product_name'        => 'All In One Schema Rich Snippets',
+			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+			'author'              => 'Brainstorm Force',
+			'time_to_display'     => '+24 hours',
+			'deactivation_survey' => array(
+				array(
+					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
+					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
+					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
+					'plugin_version'    => '1.7.1',
+					'popup_title'       => __( 'Quick Feedback', 'rich-snippets' ),
+					'support_url'       => 'https://wpschema.com/contact/',
+					'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'rich-snippets' ),
+					'show_on_screens'   => array( 'plugins' ),
+				),
+			),
+		),
+	)
+);
 			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 			// Instantiating the Class.
-			if ( class_exists( 'RichSnippets' ) ) {
-				$richsnippets = new RichSnippets();
-			}
-			?>
+if ( class_exists( 'RichSnippets' ) ) {
+	$richsnippets = new RichSnippets();
+}
+?>
