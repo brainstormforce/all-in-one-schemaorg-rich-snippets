@@ -357,6 +357,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			// Loads all the modules.
 			require_once __DIR__ . '/modules/deactivation-survey/classes/class-deactivation-survey-feedback.php';
+			require_once __DIR__ . '/modules/utm-analytics.php';
 		}
 
 		/**

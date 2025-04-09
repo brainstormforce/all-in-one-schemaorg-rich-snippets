@@ -3,7 +3,7 @@
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
 	<rule ref="PHPCompatibility"/>
-	<config name="testVersion" value="5.4-"/>
+	<config name="testVersion" value="7.4-"/>
 
 	<rule ref="PHPCompatibility">
 	 	<exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
@@ -16,9 +16,20 @@
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
 	</rule>
 
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Core">
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+	</rule>
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
+	
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+		<type>warning</type>
+	</rule>
+
+	<!-- Enforce short array syntax -->
+   	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+       		<severity>0</severity>
+   	</rule>
 
 	<!-- Check all PHP files in directory tree by default. -->
 	<arg name="extensions" value="php"/>
@@ -31,6 +42,7 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/stubs/*</exclude-pattern>
 	<exclude-pattern>*/stubs-generator.php*</exclude-pattern>
+	<exclude-pattern>phpinsights.php</exclude-pattern>
 	<exclude-pattern>*/lib/*</exclude-pattern>
 	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
 
