@@ -327,11 +327,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				// return if current user is not allowed to manage options.
 				return;
 			}
-				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
+			if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
 				) {
-					echo esc_attr( 'Sorry, your nonce did not verify.' );
-					exit;
-				}
+				echo esc_attr( 'Sorry, your nonce did not verify.' );
+				exit;
+			}
 					$snippet_box_bg   = sanitize_text_field( $_POST['snippet_box_bg'] );
 					$snippet_title_bg = sanitize_text_field( $_POST['snippet_title_bg'] );
 					$border_color     = sanitize_text_field( $_POST['snippet_border'] );
@@ -403,14 +403,14 @@ if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 $bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 $bsf_analytics->set_entity(
-	array(
-		'bsf' => array(
+	[
+		'bsf' => [
 			'product_name'        => 'All In One Schema Rich Snippets',
 			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
 			'author'              => 'Brainstorm Force',
 			'time_to_display'     => '+24 hours',
-			'deactivation_survey' => array(
-				array(
+			'deactivation_survey' => [
+				[
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
@@ -418,11 +418,11 @@ $bsf_analytics->set_entity(
 					'popup_title'       => __( 'Quick Feedback', 'rich-snippets' ),
 					'support_url'       => 'https://wpschema.com/contact/',
 					'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'rich-snippets' ),
-					'show_on_screens'   => array( 'plugins' ),
-				),
-			),
-		),
-	)
+					'show_on_screens'   => [ 'plugins' ],
+				],
+			],
+		],
+	]
 );
 			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 			// Instantiating the Class.

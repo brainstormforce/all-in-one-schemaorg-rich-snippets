@@ -1378,7 +1378,7 @@ function display_rating() {
 				});
 			</script>
 			';
-	return $rating     . $script;
+	return $rating . $script;
 }
 
 /**
@@ -1391,13 +1391,13 @@ function show_nps_notice() {
 	if ( class_exists( 'Nps_Survey' ) ) {
 		\Nps_Survey::show_nps_notice(
 			'nps-survey-all-in-one-schema',
-			array(
+			[
 				'show_if'          => true, // Add your display conditions.
 				'dismiss_timespan' => 30 * DAY_IN_SECONDS,
 				'display_after'    => 2 * WEEK_IN_SECONDS,
 				'plugin_slug'      => 'all-in-one-schemaorg-rich-snippets',
-				'show_on_screens'  => array( 'toplevel_page_rich_snippet_dashboard' ),
-				'message'          => array(
+				'show_on_screens'  => [ 'toplevel_page_rich_snippet_dashboard' ],
+				'message'          => [
 					// Step 1 i.e rating input.
 					'logo'                  => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
@@ -1408,8 +1408,8 @@ function show_nps_notice() {
 					// Step 2B i.e. negative.
 					'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
 					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
-				),
-			)
+				],
+			]
 		);
 	}
 }
@@ -1424,24 +1424,24 @@ add_action( 'admin_footer', 'show_nps_notice' );
 function bsf_display_rating( $n ) {
 
 		global $post;
-		$rating        = '<span class="ratings"><div class="star-blocks">';
-		$rating       .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">';
-		$rating       .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce', true, false );
-		$rating       .= '<input type="radio" name="star-review" class="star star-1" value="1" ';
+		$rating         = '<span class="ratings"><div class="star-blocks">';
+		$rating        .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">';
+		$rating        .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce', true, false );
+		$rating        .= '<input type="radio" name="star-review" class="star star-1" value="1" ';
 	$n === 1 ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating       .= '<input type="radio" name="star-review" class="star star-2" value="2" ';
+		$rating        .= '<input type="radio" name="star-review" class="star star-2" value="2" ';
 	$n === 2 ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating       .= '<input type="radio" name="star-review" class="star star-3" value="3" ';
+		$rating        .= '<input type="radio" name="star-review" class="star star-3" value="3" ';
 	$n === 3 ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating       .= '<input type="radio" name="star-review" class="star star-4" value="4" ';
+		$rating        .= '<input type="radio" name="star-review" class="star star-4" value="4" ';
 	$n === 4 ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating       .= '<input type="radio" name="star-review" class="star star-5" value="5" ';
+		$rating        .= '<input type="radio" name="star-review" class="star star-5" value="5" ';
 	$n === 5 ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating       .= '<input type="hidden" name="ip" value="' . get_the_ip() . '" />';
-		$rating       .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
-		$rating       .= '</form>';
-		$rating       .= '</div></span>';
-		$script        = '<script type="text/javascript">
+		$rating        .= '<input type="hidden" name="ip" value="' . get_the_ip() . '" />';
+		$rating        .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
+		$rating        .= '</form>';
+		$rating        .= '</div></span>';
+		$script         = '<script type="text/javascript">
 				jQuery("#bsf-rating").click(function()
 				{
 					var data = jQuery("#bsf-rating").serialize();
@@ -1456,5 +1456,5 @@ function bsf_display_rating( $n ) {
 				});
 			</script>
 			';
-	return $rating           . $script;
+	return $rating . $script;
 }
