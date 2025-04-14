@@ -1,0 +1,30 @@
+{
+	"name": "brainstormforce/bsf-analytics",
+	"description": "Library to gather non sensitive analytics data to enhance bsf products.",
+	"type": "wordpress-plugin",
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"wp-coding-standards/wpcs": "2.2.1",
+		"phpcompatibility/phpcompatibility-wp": "2.1.0",
+		"brainmaestro/composer-git-hooks": "^2.6"
+	},
+	"scripts": {
+		"format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+		"lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source",
+		"post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+		"post-update-cmd": "vendor/bin/cghooks update"
+	},
+	"extra": {
+	  "hooks": {
+		"pre-commit": [
+			"echo committing as $(git config user.name)",
+			"sh bin/block-commits-with-merge-conflict.sh"
+		]
+	  }
+	},
+	"config": {
+	  "allow-plugins": {
+		"dealerdirect/phpcodesniffer-composer-installer": true
+	  }
+	}
+}
