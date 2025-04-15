@@ -16,9 +16,6 @@
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
 	</rule>
 
-	<rule ref="WordPress-Core">
-		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
-	</rule>
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
 	
