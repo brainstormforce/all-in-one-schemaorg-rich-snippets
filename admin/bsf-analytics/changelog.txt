@@ -1,0 +1,2 @@
+v1.1.12 - 24-March-2025
+- Improvement: Added `suremails` and `latepoint` slugs to UTM analytics.
