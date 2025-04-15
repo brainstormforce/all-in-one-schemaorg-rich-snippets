@@ -84,7 +84,7 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 == Changelog ==
 
 = 1.7.2 =
-- Improvement: Integrated PHP Insights for automated code quality analysis.
+- Improvement: Enhanced code quality and overall plugin performance
 
 = 1.7.1 =
 - Improved security and updated the slug for better compatibility.
