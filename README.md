@@ -1,7 +1,7 @@
 # Schema - All In One Schema Rich Snippets #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce)  
 **Donate link:** https://www.paypal.me/BrainstormForce  
-**Tags:** schema markup, structured data, rich snippets, schema.org, schema  
+**Tags:** schema markup, rich snippets, wordpress seo, structured data, google search results  
 **Requires at least:** 3.7  
 **Tested up to:** 6.8  
 **Stable tag:** 1.7.1  
