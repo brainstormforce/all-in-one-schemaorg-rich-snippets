@@ -1,7 +1,7 @@
 === Schema - All In One Schema Rich Snippets ===
 Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
-Tags: schema markup, structured data, rich snippets, schema.org, schema
+Tags: Schema Markup, Rich Snippets, WordPress SEO, Structured Data, Google Search Results
 Requires at least: 3.7
 Tested up to: 6.8
 Stable tag: 1.7.1
