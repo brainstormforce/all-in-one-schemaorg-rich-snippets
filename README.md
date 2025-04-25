@@ -4,7 +4,7 @@
 **Tags:** google search results, schema markup, rich snippets, wordpress seo, structured data  
 **Requires at least:** 3.7  
 **Tested up to:** 6.8  
-**Stable tag:** 1.7.1  
+**Stable tag:** 1.7.2  
 **Requires PHP:** 7.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -82,6 +82,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+
+### 1.7.2 ###
+- Fixed: Resolved the issue for function _load_textdomain_just_in_time was called incorrectly in WP 6.8.
 
 ### 1.7.1 ###
 - Improved security and updated the slug for better compatibility.
