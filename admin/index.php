@@ -182,7 +182,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Ticket Promotion :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . esc_attr( stripslashes( $args_event['events_price'] ) ) . '"/></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . esc_attr( stripslashes( isset( $args_event['events_price'] ) ? $args_event['events_price'] : '' ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -370,7 +370,7 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . esc_attr( stripslashes( $args_soft['software_agr'] ) ) . '"/></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . esc_attr( stripslashes( isset( $args_soft['software_agr'] ) ? $args_soft['software_agr'] : '' ) ) . '"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Software Price :', 'rich-snippets' ) . '</label></strong></td>
@@ -474,11 +474,11 @@ function rich_snippet_dashboard() {
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Publisher :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . esc_attr( stripslashes( $args_article['article_publisher'] ) ) . '"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . esc_attr( stripslashes( isset( $args_article['article_publisher'] ) ? $args_article['article_publisher'] : '' ) ) . '"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Publisher Logo :', 'rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . esc_attr( stripslashes( $args_article['article_publisher_logo'] ) ) . '"/></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . esc_attr( stripslashes( isset( $args_article['article_publisher_logo'] ) ? $args_article['article_publisher_logo'] : '' ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
