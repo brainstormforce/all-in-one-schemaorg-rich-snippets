@@ -899,7 +899,7 @@ function rich_snippet_dashboard() {
 			</form>
 			</div>
         </div>';
-         '<div id="tab-6">
+			'<div id="tab-6">
                 <div id="poststuff">
                         <div id="postbox-container-18" class="postbox-container">
                                 <div class="postbox">
@@ -925,67 +925,67 @@ function rich_snippet_dashboard() {
                 </div>
         </div>';
 
-        $allowed_html = array(
-                'div'      => array(
-                        'class' => array(),
-                        'id'    => array(),
-                ),
-		'button'   => array(
-			'type'          => array(),
-			'class'         => array(),
-			'aria-expanded' => array(),
-		),
-		'span'     => array(
-			'class'       => array(),
-			'aria-hidden' => array(),
-		),
-		'h3'       => array( 'class' => array() ),
-		'form'     => array(
-			'name'     => array(),
-			'id'       => array(),
-			'action'   => array(),
-			'method'   => array(),
-			'onsubmit' => array(),
-		),
-		'input'    => array(
-			'type'     => array(),
-			'name'     => array(),
-			'class'    => array(),
-			'value'    => array(),
-			'required' => array(),
-			'id'       => array(),
-		),
-		'label'    => array(
-			'for'    => array(),
-			'strong' => array(),
-		),
-		'strong'   => array(),
-		'p'        => array(),
-		'table'    => array( 'class' => array() ),
-		'tr'       => array(),
-		'td'       => array( 'class' => array() ),
-		'select'   => array(
-			'class' => array(),
-			'name'  => array(),
-		),
-		'option'   => array( 'value' => array() ),
-		'textarea' => array(
-			'class'    => array(),
-			'name'     => array(),
-			'required' => array(),
-			'rows'     => array(),
-			'cols'     => array(),
-		),
-		'ul'       => array( 'class' => array() ),
-	);
+		$allowed_html = array(
+			'div'      => array(
+				'class' => array(),
+				'id'    => array(),
+			),
+			'button'   => array(
+				'type'          => array(),
+				'class'         => array(),
+				'aria-expanded' => array(),
+			),
+			'span'     => array(
+				'class'       => array(),
+				'aria-hidden' => array(),
+			),
+			'h3'       => array( 'class' => array() ),
+			'form'     => array(
+				'name'     => array(),
+				'id'       => array(),
+				'action'   => array(),
+				'method'   => array(),
+				'onsubmit' => array(),
+			),
+			'input'    => array(
+				'type'     => array(),
+				'name'     => array(),
+				'class'    => array(),
+				'value'    => array(),
+				'required' => array(),
+				'id'       => array(),
+			),
+			'label'    => array(
+				'for'    => array(),
+				'strong' => array(),
+			),
+			'strong'   => array(),
+			'p'        => array(),
+			'table'    => array( 'class' => array() ),
+			'tr'       => array(),
+			'td'       => array( 'class' => array() ),
+			'select'   => array(
+				'class' => array(),
+				'name'  => array(),
+			),
+			'option'   => array( 'value' => array() ),
+			'textarea' => array(
+				'class'    => array(),
+				'name'     => array(),
+				'required' => array(),
+				'rows'     => array(),
+				'cols'     => array(),
+			),
+			'ul'       => array( 'class' => array() ),
+		);
 
-	echo wp_kses( get_support(), $allowed_html ) . '
+		echo wp_kses( get_support(), $allowed_html ) . '
 </div>';
-	echo '
+		echo '
 <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
-	. 'js/jquery.easytabs.min.js"></script>
+		. 'js/jquery.easytabs.min.js"></script>
 <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
-	. 'js/jquery.hashchange.min.js"></script>
+		. 'js/jquery.hashchange.min.js"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
 	jQuery("#postbox-container-1").css({"width":"87%","padding-right":"2%"});
@@ -1165,19 +1165,19 @@ if ( isset( $_POST['service_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-        $status = update_option( 'bsf_service', $args );
-        display_status( $status );
-        }
+		$status = update_option( 'bsf_service', $args );
+		display_status( $status );
+	}
 }
 if ( isset( $_POST['aiosrs_advanced_submit'] ) ) {
-        if ( ! isset( $_POST['aiosrs_advanced_nonce_field'] ) || ! wp_verify_nonce( $_POST['aiosrs_advanced_nonce_field'], 'aiosrs_advanced_form_action' ) || ! current_user_can( 'manage_options' ) ) {
-                print 'Sorry, your nonce did not verify.';
-                exit;
-        } else {
-                $value  = isset( $_POST['aiosrs_analytics_optin'] ) ? 'yes' : 'no';
-                $status = update_option( 'aiosrs_analytics_optin', $value );
-                display_status( $status );
-        }
+	if ( ! isset( $_POST['aiosrs_advanced_nonce_field'] ) || ! wp_verify_nonce( $_POST['aiosrs_advanced_nonce_field'], 'aiosrs_advanced_form_action' ) || ! current_user_can( 'manage_options' ) ) {
+			print 'Sorry, your nonce did not verify.';
+			exit;
+	} else {
+			$value  = isset( $_POST['aiosrs_analytics_optin'] ) ? 'yes' : 'no';
+			$status = update_option( 'aiosrs_analytics_optin', $value );
+			display_status( $status );
+	}
 }
 /**
  * Display status.
