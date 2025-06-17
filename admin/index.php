@@ -971,11 +971,12 @@ function rich_snippet_dashboard() {
 	jQuery("#postbox-container-7").css("width","35%");
 	jQuery("#postbox-container-8").css("width","35%");
 	jQuery("#postbox-container-9").css("width","35%");
-	jQuery("#postbox-container-10").css("width","35%");
-	jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
-	jQuery(".postbox h3").click( function() {
-   		jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
-   	});
+        jQuery("#postbox-container-10").css("width","35%");
+        jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
+        jQuery("#postbox-container-18").css("width","35%");
+        jQuery(".postbox h3").click( function() {
+                jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
+        });
 	jQuery(".handlediv").click( function() {
    		jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
    	});
