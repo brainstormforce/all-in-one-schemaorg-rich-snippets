@@ -857,8 +857,7 @@ function rich_snippet_dashboard() {
                                                                         <table class="bsf_metabox">
        <tr>
                <td>
-                       <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable feature', 'rich-snippets' ) . '</label>
-                       <div class="bsf-tooltip"><span class="dashicons dashicons-info"></span><span class="bsf-tooltiptext">' . esc_html__( 'Share anonymous usage data to help improve the plugin.', 'rich-snippets' ) . '</span></div>
+                       <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable Anonymous Analytics', 'rich-snippets' ) . '</label>
                        <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
                </td>
        </tr>
