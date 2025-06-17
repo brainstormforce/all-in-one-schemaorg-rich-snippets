@@ -50,6 +50,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
                         add_action( 'admin_init', array( $this, 'aiosrs_maybe_migrate_analytics_tracking' ) );
 
+                        add_action( 'admin_init', array( $this, 'aiosrs_remove_general_usage_tracking_field' ), 15 );
+
 			add_filter( 'plugins_loaded', array( $this, 'rich_snippet_translation' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_new_enqueue' ) );
@@ -402,6 +404,24 @@ if ( ! class_exists( 'RichSnippets' ) ) {
                                         update_option( 'aiosrs_analytics_installed_time', $time );
                                 }
                         }
+                }
+
+                /**
+                 * Remove usage tracking checkbox from WordPress General settings.
+                 *
+                 * @since 1.7.2
+                 * @return void
+                 */
+                public function aiosrs_remove_general_usage_tracking_field() {
+                        global $wp_settings_fields;
+
+                        $field_id = 'aiosrs-analytics-optin';
+
+                        if ( isset( $wp_settings_fields['general']['default'][ $field_id ] ) ) {
+                                unset( $wp_settings_fields['general']['default'][ $field_id ] );
+                        }
+
+                        unregister_setting( 'general', 'aiosrs_analytics_optin' );
                 }
         }
 }
