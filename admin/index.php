@@ -844,11 +844,37 @@ function rich_snippet_dashboard() {
 							</div>
 					</div>
 				</div>
-			</div>
+                        </div>
 
-		 </div>
-		 </div>
-		<div class="postbox-container" id="bsf-postbox-container-1" >
+                        <div id="tab-6">
+                                <div id="poststuff">
+                                        <div id="postbox-container-18" class="postbox-container">
+                                                <div class="postbox">
+                                                        <h3 class="hndle"><span>' . esc_html__( 'Advanced Settings', 'rich-snippets' ) . '</span></h3>
+                                                        <div class="inside">
+                                                                <form id="aiosrs_advanced_form" method="post">
+                                                                        <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
+                                                                        <table class="bsf_metabox">
+                                                                                <tr>
+                                                                                        <td>
+                                                                                                <input type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+                                                                                                <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable feature', 'rich-snippets' ) . '</label>
+                                                                                        </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <td><input type="submit" class="button-primary" name="aiosrs_advanced_submit" value="' . esc_html__( 'Save', 'rich-snippets' ) . '" /></td>
+                                                                                </tr>
+                                                                        </table>
+                                                                </form>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                 </div>
+                 </div>
+                <div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables" class="meta-box-sortables ui-sortable">
 		<div class="postbox bsf-woocommerce-setting closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
