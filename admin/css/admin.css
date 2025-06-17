@@ -29,7 +29,24 @@ html{ display:block !important;}
 }
 div#tab-1 p,
 div#tab-4 p,
-div#tab-3 p {
+div#tab-3 p,
+div#tab-6 p{
+    font-size: 14px;
+}
+
+.schema-notice {
+    border: 1px dashed #23282d45;
+    padding: 2px 15px;
+    margin: 0 5px;
+}
+
+.panel-container.bsf-panel .updated p,
+.panel-container.bsf-panel .error p {
+    font-size: 14px;
+}
+
+.panel-container.bsf-panel .updated p,
+.panel-container.bsf-panel .error p {
     font-size: 14px;
 }
 .schema-notice {
