@@ -899,7 +899,7 @@ function rich_snippet_dashboard() {
 			</form>
 			</div>
         </div>';
-        echo '<div id="tab-6">
+         '<div id="tab-6">
                 <div id="poststuff">
                         <div id="postbox-container-18" class="postbox-container">
                                 <div class="postbox">
