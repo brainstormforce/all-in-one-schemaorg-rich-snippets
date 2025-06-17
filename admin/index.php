@@ -855,12 +855,13 @@ function rich_snippet_dashboard() {
                                                                 <form id="aiosrs_advanced_form" method="post">
                                                                         <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
                                                                         <table class="bsf_metabox">
-                                                                                <tr>
-                                                                                        <td>
-                                                                                                <input type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
-                                                                                                <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable feature', 'rich-snippets' ) . '</label>
-                                                                                        </td>
-                                                                                </tr>
+       <tr>
+               <td>
+                       <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable feature', 'rich-snippets' ) . '</label>
+                       <div class="bsf-tooltip"><span class="dashicons dashicons-info"></span><span class="bsf-tooltiptext">' . esc_html__( 'Share anonymous usage data to help improve the plugin.', 'rich-snippets' ) . '</span></div>
+                       <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+               </td>
+       </tr>
                                                                                 <tr>
                                                                                         <td><input type="submit" class="button-primary" name="aiosrs_advanced_submit" value="' . esc_html__( 'Save', 'rich-snippets' ) . '" /></td>
                                                                                 </tr>
@@ -899,7 +900,7 @@ function rich_snippet_dashboard() {
 			</form>
 			</div>
         </div>';
-        echo '<div id="tab-6">
+         '<div id="tab-6">
                 <div id="poststuff">
                         <div id="postbox-container-18" class="postbox-container">
                                 <div class="postbox">
@@ -999,7 +1000,7 @@ function rich_snippet_dashboard() {
 	jQuery("#postbox-container-9").css("width","35%");
         jQuery("#postbox-container-10").css("width","35%");
         jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
-        jQuery("#postbox-container-18").css("width","35%");
+        jQuery("#postbox-container-18").css({"width":"87%"});
         jQuery(".postbox h3").click( function() {
                 jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
         });
