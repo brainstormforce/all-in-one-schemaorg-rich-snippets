@@ -850,7 +850,7 @@ function rich_snippet_dashboard() {
                                 <div id="poststuff">
                                         <div id="postbox-container-18" class="postbox-container">
                                                 <div class="postbox">
-                                                        <h3 class="hndle"><span>' . esc_html__( 'Enable Anonymous Analytics', 'rich-snippets' ) . '</span></h3>
+                                                        <h3 class="hndle"><span>' . esc_html__( 'Help Us Improve Your Experience.', 'rich-snippets' ) . '</span></h3>
                                                         <div class="inside">
                                                                 <form id="aiosrs_advanced_form" method="post">
                                                                         <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
