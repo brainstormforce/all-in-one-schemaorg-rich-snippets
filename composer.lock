@@ -399,7 +399,7 @@
             },
             "require-dev": {
                 "composer/composer": "^1.10.27 || ^2.7",
-                "composer/semver": "^1.7.2 || ^3.4.0",
+                "composer/semver": "^1.7.3 || ^3.4.0",
                 "phpstan/phpstan": "^1.11",
                 "phpstan/phpstan-phpunit": "^1",
                 "symfony/phpunit-bridge": "^7.1.1",
