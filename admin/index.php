@@ -850,19 +850,19 @@ function rich_snippet_dashboard() {
                                 <div id="poststuff">
                                         <div id="postbox-container-18" class="postbox-container">
                                                 <div class="postbox">
-                                                        <h3 class="hndle"><span>' . esc_html__( 'Advanced Settings', 'rich-snippets' ) . '</span></h3>
+                                                        <h3 class="hndle"><span>' . esc_html__( 'Enable Anonymous Analytics', 'rich-snippets' ) . '</span></h3>
                                                         <div class="inside">
                                                                 <form id="aiosrs_advanced_form" method="post">
                                                                         <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
                                                                         <table class="bsf_metabox">
        <tr>
-               <td>
-                       <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable Anonymous Analytics', 'rich-snippets' ) . '</label>
-                       <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
-               </td>
+              <td style="display: flex; width: 565px;">
+    <label for="aiosrs_analytics_optin">' . wp_kses_post( __( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>', 'rich-snippets' ) ) . '</label>
+    <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+</td>
        </tr>
                                                                                 <tr>
-                                                                                        <td><input type="submit" class="button-primary" name="aiosrs_advanced_submit" value="' . esc_html__( 'Save', 'rich-snippets' ) . '" /></td>
+                                                                                        <td><input type="submit" class="button-primary" name="aiosrs_advanced_submit" value="' . esc_html__( 'Save', 'rich-snippets' ) . '" style="margin-top: 15px;" /></td>
                                                                                 </tr>
                                                                         </table>
                                                                 </form>
