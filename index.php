@@ -46,7 +46,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_action( 'admin_menu', array( $this, 'register_custom_menu_page' ) );
 			add_action( 'admin_init', array( $this, 'set_styles' ) );
 
-			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ) );
+                        add_action( 'admin_init', array( $this, 'bsf_color_scripts' ) );
+
+                        add_action( 'admin_init', array( $this, 'aiosrs_maybe_migrate_analytics_tracking' ) );
 
 			add_filter( 'plugins_loaded', array( $this, 'rich_snippet_translation' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue' ) );
@@ -363,8 +365,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		/**
 		 * Bsf_color_scripts.
 		 */
-		public function bsf_color_scripts() {
-			global $wp_version;
+                public function bsf_color_scripts() {
+                        global $wp_version;
 			$bsf_script_array = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox' );
 
 			// styles required for cmb.
@@ -382,9 +384,26 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				$bsf_script_array[] = 'farbtastic';
 				$bsf_style_array[]  = 'farbtastic';
 
-			}
-		}
-	}
+                        }
+                }
+
+                /**
+                 * Migrate analytics tracking option from old bsf key to new one.
+                 *
+                 * @return void
+                 */
+                public function aiosrs_maybe_migrate_analytics_tracking() {
+                        $old_tracking = get_option( 'bsf_analytics_optin', false );
+                        $new_tracking = get_option( 'aiosrs_analytics_optin', false );
+                        if ( 'yes' === $old_tracking && false === $new_tracking ) {
+                                update_option( 'aiosrs_analytics_optin', 'yes' );
+                                $time = get_option( 'bsf_analytics_installed_time' );
+                                if ( $time ) {
+                                        update_option( 'aiosrs_analytics_installed_time', $time );
+                                }
+                        }
+                }
+        }
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
 if ( is_admin() ) {
@@ -405,8 +424,8 @@ if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 $bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 $bsf_analytics->set_entity(
-	array(
-		'bsf' => array(
+        array(
+                'aiosrs' => array(
 			'product_name'        => 'All In One Schema Rich Snippets',
 			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
 			'author'              => 'Brainstorm Force',
