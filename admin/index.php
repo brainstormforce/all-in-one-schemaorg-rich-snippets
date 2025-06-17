@@ -94,8 +94,9 @@ function rich_snippet_dashboard() {
 			<li><a href="#tab-4" class="nav-tab">' . esc_html__( 'Customization', 'rich-snippets' ) . '</a></li>
 
 			<li><a href="#tab-3" class="nav-tab">' . esc_html__( 'FAQs', 'rich-snippets' ) . '</a></li>
-			<li><a href="#tab-5" class="nav-tab">' . esc_html__( 'Getting Started', 'rich-snippets' ) . '</a></li>
-		 </ul>
+                        <li><a href="#tab-5" class="nav-tab">' . esc_html__( 'Getting Started', 'rich-snippets' ) . '</a></li>
+                        <li><a href="#tab-6" class="nav-tab">' . esc_html__( 'Advanced Settings', 'rich-snippets' ) . '</a></li>
+                 </ul>
 		 <div class="clear"></div>
 		 <div class="panel-container bsf-panel">
 			 <div id="tab-1">
@@ -843,11 +844,38 @@ function rich_snippet_dashboard() {
 							</div>
 					</div>
 				</div>
-			</div>
+                        </div>
 
-		 </div>
-		 </div>
-		<div class="postbox-container" id="bsf-postbox-container-1" >
+                        <div id="tab-6">
+                                <div id="poststuff">
+                                        <div id="postbox-container-18" class="postbox-container">
+                                                <div class="postbox">
+                                                        <h3 class="hndle"><span>' . esc_html__( 'Advanced Settings', 'rich-snippets' ) . '</span></h3>
+                                                        <div class="inside">
+                                                                <form id="aiosrs_advanced_form" method="post">
+                                                                        <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
+                                                                        <table class="bsf_metabox">
+       <tr>
+               <td>
+                       <label for="aiosrs_analytics_optin">' . esc_html__( 'Enable feature', 'rich-snippets' ) . '</label>
+                       <div class="bsf-tooltip"><span class="dashicons dashicons-info"></span><span class="bsf-tooltiptext">' . esc_html__( 'Share anonymous usage data to help improve the plugin.', 'rich-snippets' ) . '</span></div>
+                       <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+               </td>
+       </tr>
+                                                                                <tr>
+                                                                                        <td><input type="submit" class="button-primary" name="aiosrs_advanced_submit" value="' . esc_html__( 'Save', 'rich-snippets' ) . '" /></td>
+                                                                                </tr>
+                                                                        </table>
+                                                                </form>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                 </div>
+                 </div>
+                <div class="postbox-container" id="bsf-postbox-container-1" >
 		<div id="side-sortables" class="meta-box-sortables ui-sortable">
 		<div class="postbox bsf-woocommerce-setting closed">
 			<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
@@ -871,13 +899,13 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-	</div>';
+        </div>';
 
-	$allowed_html = array(
-		'div'      => array(
-			'class' => array(),
-			'id'    => array(),
-		),
+        $allowed_html = array(
+                'div'      => array(
+                        'class' => array(),
+                        'id'    => array(),
+                ),
 		'button'   => array(
 			'type'          => array(),
 			'class'         => array(),
@@ -945,11 +973,12 @@ function rich_snippet_dashboard() {
 	jQuery("#postbox-container-7").css("width","35%");
 	jQuery("#postbox-container-8").css("width","35%");
 	jQuery("#postbox-container-9").css("width","35%");
-	jQuery("#postbox-container-10").css("width","35%");
-	jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
-	jQuery(".postbox h3").click( function() {
-   		jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
-   	});
+        jQuery("#postbox-container-10").css("width","35%");
+        jQuery("#postbox-container-11").css({"width":"87%","padding-right":"2%"});
+        jQuery("#postbox-container-18").css({"width":"87%","padding-right":"2%"});
+        jQuery(".postbox h3").click( function() {
+                jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
+        });
 	jQuery(".handlediv").click( function() {
    		jQuery(jQuery(this).parent().get(0)).toggleClass("closed");
    	});
@@ -1112,9 +1141,20 @@ if ( isset( $_POST['service_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_service', $args );
-		display_status( $status );
-	}
+        $status = update_option( 'bsf_service', $args );
+        display_status( $status );
+        }
+}
+if ( isset( $_POST['aiosrs_advanced_submit'] ) ) {
+        if ( ! isset( $_POST['aiosrs_advanced_nonce_field'] ) || ! wp_verify_nonce( $_POST['aiosrs_advanced_nonce_field'], 'aiosrs_advanced_form_action' ) || ! current_user_can( 'manage_options' ) ) {
+                print 'Sorry, your nonce did not verify.';
+                exit;
+        } else {
+                $value  = isset( $_POST['aiosrs_analytics_optin'] ) ? 'yes' : 'no';
+                $status = update_option( 'aiosrs_analytics_optin', $value );
+                display_status( $status );
+                echo '<script type="text/javascript">setTimeout(function(){ location.reload(); }, 3000);</script>';
+        }
 }
 /**
  * Display status.

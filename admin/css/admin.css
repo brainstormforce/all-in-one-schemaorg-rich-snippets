@@ -32,6 +32,13 @@ div#tab-4 p,
 div#tab-3 p {
     font-size: 14px;
 }
+div#tab-6 p {
+    font-size: 14px;
+}
+.panel-container.bsf-panel .updated p,
+.panel-container.bsf-panel .error p {
+    font-size: 14px;
+}
 .schema-notice {
     border: 1px dashed #23282d45;
     padding: 2px 15px;
