@@ -46,7 +46,7 @@
     },
     "require": {
         "wp-cli/wp-cli-bundle": "^2.11", 
-        "php": "^7.4",
+        "php": "^8.4.3",
         "composer/composer": "^2.7",
         "brainstormforce/nps-survey": "^1",
         "composer/installers": "*",
