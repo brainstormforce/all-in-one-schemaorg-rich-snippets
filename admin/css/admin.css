@@ -306,11 +306,13 @@ span.bsf-tooltiptext:after {
 .bsf-panel .meta-box-sortables .postbox .hndle{
     border-bottom: 1px solid #ccd0d4;
 }
-.bsf-woocommerce-setting .handlediv, .bsf-contact .handlediv{
+.bsf-woocommerce-setting .handlediv,
+.bsf-analytics-setting .handlediv,
+.bsf-contact .handlediv{
     float:right;
 }
-.postbox.bsf-woocommerce-setting.closed, .postbox.bsf-contact.closed{
-    border-bottom: 1px solid #ccd0d4;
+.postbox.bsf-woocommerce-setting.closed, .postbox.bsf-analytics-setting.closed, .postbox.bsf-contact.closed{
+    border-bottom: 1px solid #CCD0D4;
 }
 @media(max-width:768px){
 	#bsf-postbox-container-2 {
