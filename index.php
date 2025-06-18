@@ -48,6 +48,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ) );
 
+			add_action( 'admin_init', array( $this, 'aiosrs_maybe_migrate_analytics_tracking' ) );
+
 			add_filter( 'plugins_loaded', array( $this, 'rich_snippet_translation' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_new_enqueue' ) );
@@ -384,6 +386,23 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			}
 		}
+
+			/**
+			 * Migrate analytics tracking option from old bsf key to new one.
+			 *
+			 * @return void
+			 */
+			public function aiosrs_maybe_migrate_analytics_tracking() {
+				$old_tracking = get_option( 'bsf_analytics_optin', false );
+				$new_tracking = get_option( 'aiosrs_analytics_optin', false );
+				if ( 'yes' === $old_tracking && false === $new_tracking ) {
+					update_option( 'aiosrs_analytics_optin', 'yes' );
+					$time = get_option( 'bsf_analytics_installed_time' );
+					if ( $time ) {
+						update_option( 'aiosrs_analytics_installed_time', $time );
+					}
+				}
+			}
 	}
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
@@ -406,7 +425,7 @@ $bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 $bsf_analytics->set_entity(
 	array(
-		'bsf' => array(
+		'aiosrs' => array(
 			'product_name'        => 'All In One Schema Rich Snippets',
 			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
 			'author'              => 'Brainstorm Force',
@@ -423,6 +442,7 @@ $bsf_analytics->set_entity(
 					'show_on_screens'   => array( 'plugins' ),
 				),
 			),
+			'hide_optin_checkbox' => true,
 		),
 	)
 );
