@@ -84,7 +84,7 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 ## Changelog ##
 
 ### 1.7.3 ###
-- Improvement: Optimized codebase and improved code quality.
+- Improvement: Refactored and optimized the codebase to improve code quality.
 
 ### 1.7.2 ###
 - Fixed: Resolved the issue for function _load_textdomain_just_in_time was called incorrectly in WP 6.8.
