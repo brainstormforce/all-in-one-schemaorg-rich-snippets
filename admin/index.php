@@ -883,7 +883,7 @@ function rich_snippet_dashboard() {
                                                                         <input type="hidden" name="aiosrs_advanced_nonce_field" value="' . esc_attr( wp_create_nonce( 'aiosrs_advanced_form_action' ) ) . '" />
                                                                         <table class="bsf_metabox">
        <tr>
-              <td style="display: flex; width: 565px;">
+              <td style="display: flex;">
     <label for="aiosrs_analytics_optin">' . wp_kses_post( __( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>', 'rich-snippets' ) ) . '</label>
     <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
 </td>
