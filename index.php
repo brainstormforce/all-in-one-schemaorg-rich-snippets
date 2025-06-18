@@ -445,7 +445,7 @@ $bsf_analytics = BSF_Analytics_Loader::get_instance();
 
 $bsf_analytics->set_entity(
 	array(
-		'bsf' => array(
+		'aiosrs' => array(
 			'product_name'        => 'All In One Schema Rich Snippets',
 			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
 			'author'              => 'Brainstorm Force',
@@ -462,6 +462,7 @@ $bsf_analytics->set_entity(
 					'show_on_screens'   => array( 'plugins' ),
 				),
 			),
+			'hide_optin_checkbox' => true,
 		),
 	)
 );
