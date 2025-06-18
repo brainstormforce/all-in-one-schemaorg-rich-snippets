@@ -159,12 +159,14 @@
 			} else if ( e.target.classList.contains( 'activate' ) ) {
 				this.deactivateUrl = e.target.href;
 
-				// Don't show for Child Themes.
+				// Don't show for Child Themes if parent theme is active & Parent Theme if child theme is active.
 				if (
 					-1 !==
 					this.deactivateUrl.indexOf(
 						`stylesheet=${ udsVars?._current_theme }-child`
-					)
+					) ||
+					-1 !==
+					this.deactivateUrl.indexOf(`stylesheet=${udsVars?._current_theme}&`)
 				) {
 					return;
 				}
