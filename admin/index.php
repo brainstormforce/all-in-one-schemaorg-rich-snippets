@@ -868,12 +868,10 @@ function rich_snippet_dashboard() {
 							<input style="margin-top:10px;" type="submit" class="button-primary" name="setting_submit" value="' . esc_html__( 'Update ', 'rich-snippets' ) . '"/>
 						</td>
 					</tr>
-				</table>
-			</form>
-			</div>
-	
-	
-			</div>
+</table>
+</form>
+</div>
+</div>';
         $allowed_html = array(
                 'div'      => array(
                         'class' => array(),
