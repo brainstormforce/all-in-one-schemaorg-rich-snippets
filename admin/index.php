@@ -883,7 +883,7 @@ function rich_snippet_dashboard() {
                 <table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
                     <tr>
                         <td>
-                            <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+                            <input type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
                             <label for="analytics_option">' . esc_html__( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ', 'rich-snippets' ) . '</label>
                             <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>
                         </td>
