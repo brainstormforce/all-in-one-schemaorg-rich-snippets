@@ -392,17 +392,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			 *
 			 * @return void
 			 */
-			public function aiosrs_maybe_migrate_analytics_tracking() {
-				$old_tracking = get_option( 'bsf_analytics_optin', false );
-				$new_tracking = get_option( 'aiosrs_analytics_optin', false );
-				if ( 'yes' === $old_tracking && false === $new_tracking ) {
-					update_option( 'aiosrs_analytics_optin', 'yes' );
-					$time = get_option( 'bsf_analytics_installed_time' );
-					if ( $time ) {
-						update_option( 'aiosrs_analytics_installed_time', $time );
-					}
+		public function aiosrs_maybe_migrate_analytics_tracking() {
+			$old_tracking = get_option( 'bsf_analytics_optin', false );
+			$new_tracking = get_option( 'aiosrs_analytics_optin', false );
+			if ( 'yes' === $old_tracking && false === $new_tracking ) {
+				update_option( 'aiosrs_analytics_optin', 'yes' );
+				$time = get_option( 'bsf_analytics_installed_time' );
+				if ( $time ) {
+					update_option( 'aiosrs_analytics_installed_time', $time );
 				}
 			}
+		}
 	}
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
