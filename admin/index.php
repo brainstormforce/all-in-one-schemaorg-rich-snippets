@@ -876,7 +876,7 @@ function rich_snippet_dashboard() {
 			</div>
 			<div class="postbox bsf-analytics-setting closed">
             <button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-            <h3 class="get_in_touch">' . esc_html__( 'Help Us Improve Your Experience.', 'rich-snippets' ) . '</h3>
+            <h3 class="get_in_touch">' . esc_html__( 'Help Us Improve Your Experience', 'rich-snippets' ) . '</h3>
             <div class="inside">
             <form id="bsf_css_editor" method="post" action="">
             <input type="hidden" id="snippet_analytics_nonce_field" name="snippet_analytics_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_analytics_form_action' ) ) . '">
