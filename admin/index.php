@@ -874,35 +874,11 @@ function rich_snippet_dashboard() {
 	
 	
 			</div>
-			<div class="postbox bsf-analytics-setting closed">
-            <button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
-            <h3 class="get_in_touch">' . esc_html__( 'Help Us Improve Your Experience.', 'rich-snippets' ) . '</h3>
-            <div class="inside">
-            <form id="bsf_css_editor" method="post" action="">
-            <input type="hidden" id="snippet_analytics_nonce_field" name="snippet_analytics_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_analytics_form_action' ) ) . '">
-                <table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
-                    <tr>
-                        <td>
-                            <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
-                            <label for="analytics_option">' . esc_html__( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ', 'rich-snippets' ) . '</label>
-                            <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input style="margin-top:10px;" type="submit" class="button-primary" name="setting_analytics_submit" value="' . esc_html__( 'Save ', 'rich-snippets' ) . '"/>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            </div>
-        </div>';
-
-	$allowed_html = array(
-		'div'      => array(
-			'class' => array(),
-			'id'    => array(),
-		),
+        $allowed_html = array(
+                'div'      => array(
+                        'class' => array(),
+                        'id'    => array(),
+                ),
 		'button'   => array(
 			'type'          => array(),
 			'class'         => array(),
@@ -952,12 +928,37 @@ function rich_snippet_dashboard() {
 		'ul'       => array( 'class' => array() ),
 	);
 
-	echo wp_kses( get_support(), $allowed_html ) . '
+        echo wp_kses( get_support(), $allowed_html ) . '
 </div>';
-	echo '
-<script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
-	. 'js/jquery.easytabs.min.js"></script>
-<script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
+
+        echo '<div class="postbox bsf-analytics-setting closed">
+            <button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+            <h3 class="get_in_touch">' . esc_html__( 'Help Us Improve Your Experience.', 'rich-snippets' ) . '</h3>
+            <div class="inside">
+            <form id="bsf_css_editor" method="post" action="">
+            <input type="hidden" id="snippet_analytics_nonce_field" name="snippet_analytics_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_analytics_form_action' ) ) . '">
+                <table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
+                    <tr>
+                        <td>
+                            <input style="margin-left:10px;" type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+                            <label for="analytics_option">' . esc_html__( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ', 'rich-snippets' ) . '</label>
+                            <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input style="margin-top:10px;" type="submit" class="button-primary" name="setting_analytics_submit" value="' . esc_html__( 'Save ', 'rich-snippets' ) . '"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+        </div>';
+
+        echo '
+        <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
+        . 'js/jquery.easytabs.min.js"></script>
+        <script src="' . esc_url( plugin_dir_url( __FILE__ ) ) //phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
 	. 'js/jquery.hashchange.min.js"></script>
 <script language="javascript">
 	jQuery("#tab-container").easytabs();
