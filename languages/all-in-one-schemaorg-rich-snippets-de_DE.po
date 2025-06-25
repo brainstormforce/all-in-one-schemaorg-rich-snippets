@@ -1,111 +1,108 @@
-# Copyright (C) 2025 Brainstorm Force
-# This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Schema - All In One Schema Rich Snippets 1.7.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.2.0\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-01-07T16:43:09+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
-"X-Domain: all-in-one-schemaorg-rich-snippets\n"
+"POT-Creation-Date: 2025-01-07T15:08:36+00:00\n"
+"PO-Revision-Date: 2025-01-07T15:08:36+00:00\n"
+"Language: \n"
 
 #. Plugin Name of the plugin
 #: index.php
 msgid "Schema - All In One Schema Rich Snippets"
-msgstr ""
+msgstr "Schema - Alles in einem Schema Rich Snippets"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
 #: index.php
 msgid "https://www.brainstormforce.com"
-msgstr ""
+msgstr "https://www.brainstormforce.com"
 
 #. Description of the plugin
 #: index.php
 msgid "Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
-msgstr ""
+msgstr "Willkommen bei Schema - Alles in einem Schema Rich Snippets! Sie können jetzt ganz einfach Schema-Markup auf verschiedenen * Seiten und Beiträgen Ihrer Website hinzufügen. Implementieren Sie Schema-Typen wie Bewertung, Veranstaltungen, Rezepte, Artikel, Produkte, Dienstleistungen * * usw."
 
 #. Author of the plugin
 #: index.php
 msgid "Brainstorm Force"
-msgstr ""
+msgstr "Brainstorm Force"
 
 #. translators: %s product name
 #: admin/bsf-analytics/class-bsf-analytics.php:211
 msgid "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. "
-msgstr ""
+msgstr "Möchten Sie helfen, <strong>%1s</strong> noch großartiger zu machen? Lassen Sie uns nicht sensible Diagnosedaten und Nutzungsinformationen sammeln."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:214
 msgid "This will be applicable for all sites from the network."
-msgstr ""
+msgstr "Dies gilt für alle Seiten im Netzwerk."
 
 #. translators: %s usage doc link
 #: admin/bsf-analytics/class-bsf-analytics.php:238
 msgid " Know More."
-msgstr ""
+msgstr "Mehr erfahren."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:246
 msgid "Yes! Allow it"
-msgstr ""
+msgstr "Ja! Erlauben Sie es"
 
 #: admin/bsf-analytics/class-bsf-analytics.php:255
 msgid "No Thanks"
-msgstr ""
+msgstr "Nein danke"
 
 #: admin/bsf-analytics/class-bsf-analytics.php:359
 msgid "Usage Tracking"
-msgstr ""
+msgstr "Nutzungsverfolgung"
 
 #. translators: %s Product title
 #: admin/bsf-analytics/class-bsf-analytics.php:403
 msgid "Allow %s products to track non-sensitive usage tracking data."
-msgstr ""
+msgstr "Erlauben Sie %s Produkten, nicht sensible Nutzungsverfolgungsdaten zu verfolgen."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:406
 msgid " This will be applicable for all sites from the network."
-msgstr ""
+msgstr "Dies gilt für alle Seiten im Netzwerk."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:411
 msgid "Learn More."
-msgstr ""
+msgstr "Mehr erfahren."
 
 #: admin/index.php:88
 msgid "All in One Schema.org Rich Snippets - Dashboard"
-msgstr ""
+msgstr "Alles in einem Schema.org Rich Snippets - Dashboard"
 
 #: admin/index.php:93
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #: admin/index.php:94
 msgid "Customization"
-msgstr ""
+msgstr "Anpassung"
 
 #: admin/index.php:96
 msgid "FAQs"
-msgstr ""
+msgstr "Häufig gestellte Fragen"
 
 #: admin/index.php:97
 msgid "Getting Started"
-msgstr ""
+msgstr "Erste Schritte"
 
 #: admin/index.php:104
 msgid "Choose the schema markup and update the strings you want to display on the front-end."
-msgstr ""
+msgstr "Wählen Sie das Schema-Markup aus und aktualisieren Sie die Texte, die Sie auf der Frontend anzeigen möchten."
 
 #: admin/index.php:110
 #: meta-boxes.php:56
 msgid "Item Review"
-msgstr ""
+msgstr "Artikelbewertung"
 
 #: admin/index.php:113
 msgid "Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Artikelbewertung Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:119
 #: admin/index.php:160
@@ -117,23 +114,23 @@ msgstr ""
 #: admin/index.php:456
 #: admin/index.php:505
 msgid "Rich Snippet Title :"
-msgstr ""
+msgstr "Titel der Rich Snippet :"
 
 #: admin/index.php:123
 msgid "Reviewer :"
-msgstr ""
+msgstr "Rezensent :"
 
 #: admin/index.php:127
 msgid "Review Date :"
-msgstr ""
+msgstr "Bewertungsdatum :"
 
 #: admin/index.php:131
 msgid "Item Name :"
-msgstr ""
+msgstr "Artikelname :"
 
 #: admin/index.php:135
 msgid "Item Ratings :"
-msgstr ""
+msgstr "Artikelbewertungen :"
 
 #: admin/index.php:141
 #: admin/index.php:190
@@ -146,7 +143,7 @@ msgstr ""
 #: admin/index.php:543
 #: admin/index.php:868
 msgid "Update "
-msgstr ""
+msgstr "Aktualisieren"
 
 #: admin/index.php:141
 #: admin/index.php:190
@@ -159,31 +156,31 @@ msgstr ""
 #: admin/index.php:543
 #: admin/index.php:833
 msgid "Reset "
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: admin/index.php:151
 msgid "Events"
-msgstr ""
+msgstr "Veranstaltungen"
 
 #: admin/index.php:154
 msgid "Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Veranstaltungen Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:164
 msgid "Event Title :"
-msgstr ""
+msgstr "Titel der Veranstaltung :"
 
 #: admin/index.php:168
 msgid "Event Location :"
-msgstr ""
+msgstr "Veranstaltungsort :"
 
 #: admin/index.php:172
 msgid "Start Time :"
-msgstr ""
+msgstr "Beginnzeit :"
 
 #: admin/index.php:176
 msgid "End Time :"
-msgstr ""
+msgstr "Endzeit :"
 
 #: admin/index.php:180
 #: admin/index.php:335
@@ -191,477 +188,477 @@ msgstr ""
 #: admin/index.php:468
 #: admin/index.php:517
 msgid "Description :"
-msgstr ""
+msgstr "Beschreibung :"
 
 #: admin/index.php:184
 msgid "Ticket Promotion :"
-msgstr ""
+msgstr "Ticketpromotion :"
 
 #: admin/index.php:200
 #: meta-boxes.php:64
 msgid "Person"
-msgstr ""
+msgstr "Person"
 
 #: admin/index.php:203
 msgid "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Personen Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:213
 msgid "Person's Name :"
-msgstr ""
+msgstr "Name der Person :"
 
 #: admin/index.php:217
 msgid "Nick Name :"
-msgstr ""
+msgstr "Spitzname :"
 
 #: admin/index.php:221
 msgid "Job Title :"
-msgstr ""
+msgstr "Berufsbezeichnung :"
 
 #: admin/index.php:225
 msgid "Home page :"
-msgstr ""
+msgstr "Startseite :"
 
 #: admin/index.php:229
 msgid "Company Name :"
-msgstr ""
+msgstr "Firmenname :"
 
 #: admin/index.php:233
 msgid "Address :"
-msgstr ""
+msgstr "Adresse :"
 
 #: admin/index.php:249
 #: meta-boxes.php:68
 #: meta-boxes.php:132
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #: admin/index.php:252
 msgid "Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Produkt Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:262
 #: admin/index.php:368
 msgid "Author Rating :"
-msgstr ""
+msgstr "Autorbewertung :"
 
 #: admin/index.php:266
 msgid "Brand Name :"
-msgstr ""
+msgstr "Markenname :"
 
 #: admin/index.php:270
 msgid "Product Name :"
-msgstr ""
+msgstr "Produktname :"
 
 #: admin/index.php:274
 #: admin/index.php:372
 msgid "User Rating :"
-msgstr ""
+msgstr "Benutzerbewertung :"
 
 #: admin/index.php:278
 msgid "Price :"
-msgstr ""
+msgstr "Preis :"
 
 #: admin/index.php:282
 msgid "Product Availability :"
-msgstr ""
+msgstr "Produktverfügbarkeit :"
 
 #: admin/index.php:298
 #: meta-boxes.php:72
 #: meta-boxes.php:136
 msgid "Recipe"
-msgstr ""
+msgstr "Rezept"
 
 #: admin/index.php:301
 msgid "Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Rezept Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:311
 msgid "Recipe Name :"
-msgstr ""
+msgstr "Rezeptname :"
 
 #: admin/index.php:315
 msgid "Author Name :"
-msgstr ""
+msgstr "Autorname :"
 
 #: admin/index.php:319
 msgid "Published On : "
-msgstr ""
+msgstr "Veröffentlicht am :"
 
 #: admin/index.php:323
 msgid "Preparation Time:"
-msgstr ""
+msgstr "Vorbereitungszeit:"
 
 #: admin/index.php:327
 msgid "Cook Time :"
-msgstr ""
+msgstr "Kochzeit :"
 
 #: admin/index.php:331
 msgid "Total Time :"
-msgstr ""
+msgstr "Gesamtzeit :"
 
 #: admin/index.php:339
 msgid "Average Rating:"
-msgstr ""
+msgstr "Durchschnittliche Bewertung:"
 
 #: admin/index.php:355
 #: meta-boxes.php:76
 #: meta-boxes.php:140
 msgid "Software Application"
-msgstr ""
+msgstr "Softwareanwendung"
 
 #: admin/index.php:358
 msgid "Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Softwareanwendung Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:376
 msgid "Software Price :"
-msgstr ""
+msgstr "Softwarepreis :"
 
 #: admin/index.php:380
 msgid "Software Name:"
-msgstr ""
+msgstr "Softwarename:"
 
 #: admin/index.php:384
 msgid "Operating System :"
-msgstr ""
+msgstr "Betriebssystem :"
 
 #: admin/index.php:388
 msgid "Landing Page:"
-msgstr ""
+msgstr "Landing Page:"
 
 #: admin/index.php:406
 #: meta-boxes.php:80
 #: meta-boxes.php:144
 #: meta-boxes.php:890
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: admin/index.php:409
 msgid "Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf dem Frontend für <strong>Video Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:419
 msgid "Video Title :"
-msgstr ""
+msgstr "Video Titel :"
 
 #: admin/index.php:427
 msgid "Video Duration :"
-msgstr ""
+msgstr "Videodauer :"
 
 #: admin/index.php:431
 msgid "Video Upload Date :"
-msgstr ""
+msgstr "Hochladedatum des Videos :"
 
 #: admin/index.php:447
 #: meta-boxes.php:84
 msgid "Article"
-msgstr ""
+msgstr "Artikel"
 
 #: admin/index.php:450
 msgid "Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf der Frontend für <strong>Artikel Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:460
 msgid "Article Name :"
-msgstr ""
+msgstr "Artikelname :"
 
 #: admin/index.php:464
 msgid "Author :"
-msgstr ""
+msgstr "Autor :"
 
 #: admin/index.php:472
 msgid "Image :"
-msgstr ""
+msgstr "Bild :"
 
 #: admin/index.php:476
 msgid "Publisher :"
-msgstr ""
+msgstr "Verleger :"
 
 #: admin/index.php:480
 msgid "Publisher Logo :"
-msgstr ""
+msgstr "Verlegerlogo :"
 
 #: admin/index.php:496
 #: meta-boxes.php:88
 msgid "Service"
-msgstr ""
+msgstr "Dienst"
 
 #: admin/index.php:499
 msgid "Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>"
-msgstr ""
+msgstr "Strings, die auf der Frontend für <strong>Dienst Rich Snippets &mdash;</strong> angezeigt werden sollen"
 
 #: admin/index.php:509
 msgid "Service Type :"
-msgstr ""
+msgstr "Diensttyp :"
 
 #: admin/index.php:513
 msgid "Area :"
-msgstr ""
+msgstr "Bereich :"
 
 #: admin/index.php:521
 msgid "Provider Name :"
-msgstr ""
+msgstr "Anbietername :"
 
 #: admin/index.php:525
 msgid "Provider Location :"
-msgstr ""
+msgstr "Anbieterstandort :"
 
 #: admin/index.php:529
 msgid "URL :"
-msgstr ""
+msgstr "URL :"
 
 #: admin/index.php:533
 msgid "URL Text :"
-msgstr ""
+msgstr "URL-Text :"
 
 #: admin/index.php:537
 msgid "Service Rating :"
-msgstr ""
+msgstr "Dienstbewertung :"
 
 #: admin/index.php:555
 msgid "Need some more schema types with automation to implement schema markup? Get the latest and premium schema markup plugin to automate the process of adding schema markup on your entire website. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more about Schema Pro.</a>"
-msgstr ""
+msgstr "Brauchen Sie noch mehr Schema-Typen mit Automatisierung, um Schema-Markup zu implementieren? Holen Sie sich das neueste und Premium-Schema-Markup-Plugin, um den Prozess des Hinzufügens von Schema-Markup auf Ihrer gesamten Website zu automatisieren. <br><a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Erfahren Sie mehr über Schema Pro.</a>"
 
 #: admin/index.php:567
 msgid "Welcome to All In One Schema Rich Snippets"
-msgstr ""
+msgstr "Willkommen bei All In One Schema Rich Snippets"
 
 #: admin/index.php:598
 msgid "How it works"
-msgstr ""
+msgstr "Wie es funktioniert"
 
 #: admin/index.php:601
 msgid "Configure The Settings"
-msgstr ""
+msgstr "Die Einstellungen konfigurieren"
 
 #: admin/index.php:602
 msgid "Go to the “Rich Snippets” option in your WordPress dashboard. Under the Configuration tab, select your desired schema type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your rich snippet content box will look."
-msgstr ""
+msgstr "Gehen Sie zu der Option „Rich Snippets“ in Ihrem WordPress-Dashboard. Wählen Sie im Tab „Konfiguration“ den gewünschten Schema-Typ aus und aktualisieren Sie die Strings, die Sie auf der Frontend anzeigen möchten. Sie können den Tab „Anpassung“ verwenden, um zu verwalten, wie Ihr Rich Snippet-Inhaltsfeld aussehen wird."
 
 #: admin/index.php:603
 msgid "Add Markup To Pages"
-msgstr ""
+msgstr "Markup zu Seiten hinzufügen"
 
 #: admin/index.php:603
 msgid "Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to add schema markup."
-msgstr ""
+msgstr "Bearbeiten Sie die Beiträge oder Seiten, auf denen Sie Rich Snippets hinzufügen möchten, und scrollen Sie nach unten zum Meta-Box „Rich Snippet konfigurieren“, um Schema-Markup hinzuzufügen."
 
 #: admin/index.php:604
 msgid "Test Your Rich Snippets"
-msgstr ""
+msgstr "Testen Sie Ihre Rich Snippets"
 
 #: admin/index.php:604
 msgid "Google Structured Data Testing is a widely used online tool to test structured data. Open the <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
-msgstr ""
+msgstr "Das Google Structured Data Testing ist ein weit verbreitetes Online-Tool zum Testen strukturierter Daten. Öffnen Sie das <a href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> und holen Sie sich die URL Ihrer Website, um das Schema-Markup zu testen, das Sie gerade auf Ihren Webseiten implementiert haben."
 
 #: admin/index.php:609
 msgid "Want to Automate Your Schema Markup?"
-msgstr ""
+msgstr "Möchten Sie Ihr Schema-Markup automatisieren?"
 
 #: admin/index.php:611
 msgid "Consider Schema Pro"
-msgstr ""
+msgstr "Erwägen Sie Schema Pro"
 
 #: admin/index.php:612
 msgid "Schema Pro is an advanced schema markup plugin that automates the process of adding schema markup on multiple pages with just a few clicks. Schema Pro uses  JSON-LD markup, which is the latest technology recommended by Google. With it, you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new human-readable content</b> on your site."
-msgstr ""
+msgstr "Schema Pro ist ein fortschrittliches Schema-Markup-Plugin, das den Prozess des Hinzufügens von Schema-Markup auf mehreren Seiten mit nur wenigen Klicks automatisiert. Schema Pro verwendet JSON-LD-Markup, das die neueste Technologie ist, die von Google empfohlen wird. Damit können Sie diese Frontend-Inhaltsfelder loswerden und <b>reiche Snippets erhalten, ohne neue menschenlesbare Inhalte auf Ihrer Website anzuzeigen</b>."
 
 #: admin/index.php:685
 msgid "With Schema Pro, you can…"
-msgstr ""
+msgstr "Mit Schema Pro können Sie…"
 
 #: admin/index.php:695
 msgid "Testimonials"
-msgstr ""
+msgstr "Testimonials"
 
 #: admin/index.php:746
 msgid "Where can I test my schema markup implementation?"
-msgstr ""
+msgstr "Wo kann ich meine Schema-Markup-Implementierung testen?"
 
 #: admin/index.php:748
 msgid "You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also take a look at the preview of how your search result might look."
-msgstr ""
+msgstr "Sie können das standardmäßige Google Structured Data Testing Tool verwenden, um Ihre Schema-Markup-Implementierung zu testen. Sie können auch einen Blick auf die Vorschau werfen, wie Ihr Suchergebnis aussehen könnte."
 
 #: admin/index.php:753
 msgid "Do I have to fill in all the details?"
-msgstr ""
+msgstr "Muss ich alle Details ausfüllen?"
 
 #: admin/index.php:755
 msgid "No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to fill these required fields in the schema markup you are implementing."
-msgstr ""
+msgstr "Nein. Aber jeder Schema-Typ hat einige Felder, die ausgefüllt werden müssen, wie von Google angegeben. Daher wird empfohlen, diese erforderlichen Felder im Schema-Markup, das Sie implementieren, auszufüllen."
 
 #: admin/index.php:760
 msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
-msgstr ""
+msgstr "Warum erstellt das Plugin zusätzlichen Inhalt im Frontend? Kann ich ihn ausblenden?"
 
 #: admin/index.php:769
 msgid "Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?"
-msgstr ""
+msgstr "Funktioniert das Plugin mit anderen Plugins wie WordPress SEO, WooCommerce usw.?"
 
 #: admin/index.php:776
 msgid "How long will it take to show up rich snippets for my search results?"
-msgstr ""
+msgstr "Wie lange wird es dauern, bis die Rich Snippets für meine Suchergebnisse angezeigt werden?"
 
 #: admin/index.php:785
 msgid "I don't see the feature I want. How can I get it?"
-msgstr ""
+msgstr "Ich sehe nicht die Funktion, die ich möchte. Wie kann ich sie bekommen?"
 
 #: admin/index.php:787
 msgid "<a href='https://wpschema.com/contact/' target='_blank'>Get in touch</a> with us to ask if this feature is in our development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we have a couple of options for you:"
-msgstr ""
+msgstr "<a href='https://wpschema.com/contact/' target='_blank'>Nehmen Sie Kontakt</a> mit uns auf, um zu fragen, ob diese Funktion auf unserem Entwicklungsfahrplan steht. Wenn sie nicht auf unserem Fahrplan steht und Sie trotzdem denken, dass diese Funktion das Plugin verbessern würde, haben wir ein paar Optionen für Sie:"
 
 #: admin/index.php:789
 msgid "Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits will be given to you."
-msgstr ""
+msgstr "Codieren Sie die neue Funktion, wenn Sie ein Entwickler sind, und reichen Sie Ihren Code ein. Wenn wir diese Funktion in unsere Veröffentlichungen aufnehmen, werden Ihnen die Credits gegeben."
 
 #: admin/index.php:790
 msgid "Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service."
-msgstr ""
+msgstr "Bieten Sie eine Finanzierung an, um diese Funktion für alle Plugin-Nutzer zu realisieren ODER beantragen Sie einen professionellen Anpassungsservice."
 
 #: admin/index.php:805
 msgid "<span>Customize the look and feel of rich snippet box</span>"
-msgstr ""
+msgstr "<span>Passen Sie das Aussehen und das Gefühl des Rich Snippet-Box an</span>"
 
 #: admin/index.php:812
 msgid "Box Background "
-msgstr ""
+msgstr "Hintergrund der Box"
 
 #: admin/index.php:816
 msgid "Title Background"
-msgstr ""
+msgstr "Hintergrund des Titels"
 
 #: admin/index.php:820
 msgid "Border Color"
-msgstr ""
+msgstr "Randfarbe"
 
 #: admin/index.php:824
 msgid "Title Color"
-msgstr ""
+msgstr "Titel-Farbe"
 
 #: admin/index.php:828
 msgid "Snippet Text Color"
-msgstr ""
+msgstr "Farbe des Snippet-Textes"
 
 #: admin/index.php:840
 msgid "Don&#39;t want to add a content box on the front-end? Get the latest and premium schema markup plugin that adds Google recommended JSON-LD structured data format without the content box. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more about Schema Pro.</a>"
-msgstr ""
+msgstr "Möchten Sie kein Inhaltsfeld im Frontend hinzufügen? Holen Sie sich das neueste und Premium-Schema-Markup-Plugin, das das von Google empfohlene JSON-LD-Format für strukturierte Daten ohne das Inhaltsfeld hinzufügt. <a href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'>Erfahren Sie mehr über Schema Pro.</a>"
 
 #: admin/index.php:854
 msgid "WooCommerce Configuration"
-msgstr ""
+msgstr "WooCommerce-Konfiguration"
 
 #: admin/index.php:858
 msgid "WooCommerce comes with Schema.org code by default and using our plugin on WooCommerce product pages does will add duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please enable this option."
-msgstr ""
+msgstr "WooCommerce kommt standardmäßig mit Schema.org-Code, und die Verwendung unseres Plugins auf WooCommerce-Produktseiten würde doppeltes Schema hinzufügen, daher wird dies nicht empfohlen. Wenn Sie unser Plugin dennoch für WooCommerce-Produkte aktivieren möchten, aktivieren Sie bitte diese Option."
 
 #: admin/index.php:1071
 msgid "Success! Your changes were successfully saved!"
-msgstr ""
+msgstr "Erfolg! Ihre Änderungen wurden erfolgreich gespeichert!"
 
 #: admin/index.php:1073
 msgid "Sorry, Your changes are not saved!"
-msgstr ""
+msgstr "Entschuldigung, Ihre Änderungen wurden nicht gespeichert!"
 
 #: admin/index.php:1199
 msgid "Get in touch with the Plugin Developers"
-msgstr ""
+msgstr "Nehmen Sie Kontakt mit den Plugin-Entwicklern auf"
 
 #: admin/index.php:1203
 msgid "Just fill out the form below and your message will be emailed to the Plugin Developers."
-msgstr ""
+msgstr "Füllen Sie einfach das untenstehende Formular aus, und Ihre Nachricht wird an die Plugin-Entwickler per E-Mail gesendet."
 
 #: admin/index.php:1205
 msgid "Your Name:"
-msgstr ""
+msgstr "Ihr Name:"
 
 #: admin/index.php:1207
 msgid "Your Email:"
-msgstr ""
+msgstr "Ihre E-Mail:"
 
 #: admin/index.php:1209
 msgid "Reference URL:"
-msgstr ""
+msgstr "Referenz-URL:"
 
 #: admin/index.php:1211
 msgid "Subject:"
-msgstr ""
+msgstr "Betreff:"
 
 #: admin/index.php:1222
 msgid "Your Query in Brief:"
-msgstr ""
+msgstr "Ihre Anfrage in Kürze:"
 
 #. Translators: %s is the error message from the exception.
 #: functions.php:887
 msgid "Error creating DateTime object: %s"
-msgstr ""
+msgstr "Fehler beim Erstellen des DateTime-Objekts: %s"
 
 #: functions.php:1311
 msgid "Error adding your rating"
-msgstr ""
+msgstr "Fehler beim Hinzufügen Ihrer Bewertung"
 
 #: functions.php:1311
 msgid "Ratings added successfully !"
-msgstr ""
+msgstr "Bewertungen erfolgreich hinzugefügt!"
 
 #: functions.php:1341
 msgid "Error updating your rating"
-msgstr ""
+msgstr "Fehler beim Aktualisieren Ihrer Bewertung"
 
 #: functions.php:1341
 msgid "Ratings updated successfully !"
-msgstr ""
+msgstr "Bewertungen erfolgreich aktualisiert!"
 
 #: index.php:319
 msgid "Thank you!"
-msgstr ""
+msgstr "Danke!"
 
 #: index.php:319
 msgid "Something went wrong!"
-msgstr ""
+msgstr "Etwas ist schiefgelaufen!"
 
 #: index.php:348
 msgid "Settings saved !"
-msgstr ""
+msgstr "Einstellungen gespeichert!"
 
 #: index.php:348
 msgid "Error occured. Settings were not saved !"
-msgstr ""
+msgstr "Fehler aufgetreten. Einstellungen wurden nicht gespeichert!"
 
 #: init.php:653
 msgid "Please Try Again"
-msgstr ""
+msgstr "Bitte versuchen Sie es erneut"
 
 #: init.php:668
 msgid "Remove Embed"
-msgstr ""
+msgstr "Embed entfernen"
 
 #. translators: %s: $fallback
 #: init.php:674
 msgid "No oEmbed Results Found for %s. View more info at"
-msgstr ""
+msgstr "Keine oEmbed-Ergebnisse für %s gefunden. Weitere Informationen anzeigen unter"
 
 #: lib/notices/class-astra-notices.php:125
 msgid "WordPress Nonce not validated."
-msgstr ""
+msgstr "WordPress Nonce nicht validiert."
 
 #: meta-boxes.php:38
 msgid "Configure Rich Snippet"
-msgstr ""
+msgstr "Rich Snippet konfigurieren"
 
 #: meta-boxes.php:52
 msgid "Select what this post is about"
-msgstr ""
+msgstr "Wählen Sie aus, worum es in diesem Beitrag geht"
 
 #: meta-boxes.php:60
 #: meta-boxes.php:128
 #: settings.php:28
 msgid "Event"
-msgstr ""
+msgstr "Ereignis"
 
 #: meta-boxes.php:96
 msgid "Rich Snippets - Item Review"
-msgstr ""
+msgstr "Rich Snippets - Artikelbewertung"
 
 #: meta-boxes.php:97
 #: meta-boxes.php:350
@@ -675,80 +672,80 @@ msgstr ""
 #: meta-boxes.php:922
 #: meta-boxes.php:973
 msgid "Please provide the following information."
-msgstr ""
+msgstr "Bitte geben Sie die folgenden Informationen an."
 
 #: meta-boxes.php:103
 msgid "Reviewer&rsquo;s Name "
-msgstr ""
+msgstr "Name des Bewerters"
 
 #: meta-boxes.php:104
 msgid "Enter the name of Item Reviewer or The Post Author."
-msgstr ""
+msgstr "Geben Sie den Namen des Artikelbewerters oder des Beitragsautors ein."
 
 #: meta-boxes.php:110
 msgid "Item to be reviewed"
-msgstr ""
+msgstr "Zu bewertender Artikel"
 
 #: meta-boxes.php:111
 msgid "Enter the name of the item, you are writing review about."
-msgstr ""
+msgstr "Geben Sie den Namen des Artikels ein, über den Sie eine Bewertung schreiben."
 
 #: meta-boxes.php:117
 msgid "Item Review Type"
-msgstr ""
+msgstr "Art der Artikelbewertung"
 
 #: meta-boxes.php:118
 msgid "Select the item to be reviewed."
-msgstr ""
+msgstr "Wählen Sie den zu bewertenden Artikel aus."
 
 #: meta-boxes.php:124
 msgid "Select Item type"
-msgstr ""
+msgstr "Artikeltyp auswählen"
 
 #: meta-boxes.php:150
 msgid "Event Name"
-msgstr ""
+msgstr "Ereignisname"
 
 #: meta-boxes.php:151
 msgid "Enter the Event name."
-msgstr ""
+msgstr "Geben Sie den Namen des Ereignisses ein."
 
 #: meta-boxes.php:157
 msgid "Event Start Date "
-msgstr ""
+msgstr "Startdatum des Ereignisses"
 
 #: meta-boxes.php:158
 #: meta-boxes.php:406
 msgid "Provide the Event Start Date."
-msgstr ""
+msgstr "Geben Sie das Startdatum des Ereignisses an."
 
 #: meta-boxes.php:164
 msgid "Event Location "
-msgstr ""
+msgstr "Ereignisort"
 
 #: meta-boxes.php:165
 #: meta-boxes.php:364
 msgid "Location Name Here"
-msgstr ""
+msgstr "Standortname hier"
 
 #: meta-boxes.php:172
 #: meta-boxes.php:371
 #: meta-boxes.php:1015
 msgid "Street Address"
-msgstr ""
+msgstr "Straßenadresse"
 
 #: meta-boxes.php:179
 #: meta-boxes.php:378
 #: meta-boxes.php:1022
 msgid "Locality"
-msgstr ""
+msgstr "Ort"
 
 #: meta-boxes.php:186
 #: meta-boxes.php:385
 #: meta-boxes.php:591
 #: meta-boxes.php:1029
 msgid "Region"
-msgstr ""
+msgstr "Region"
 
 #: meta-boxes.php:193
 #: meta-boxes.php:392
@@ -756,412 +753,412 @@ msgstr ""
 #: meta-boxes.php:598
 #: meta-boxes.php:1036
 msgid "Postal Code"
-msgstr ""
+msgstr "Postleitzahl"
 
 #: meta-boxes.php:199
 #: meta-boxes.php:649
 #: settings.php:62
 msgid "Product Name"
-msgstr ""
+msgstr "Produktname"
 
 #: meta-boxes.php:200
 msgid "Enter the Product name."
-msgstr ""
+msgstr "Geben Sie den Produktnamen ein."
 
 #: meta-boxes.php:206
 #: meta-boxes.php:656
 msgid "Product Image"
-msgstr ""
+msgstr "Produktbild"
 
 #: meta-boxes.php:207
 #: meta-boxes.php:657
 msgid "Upload the product image or select from library. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie das Produktbild hoch oder wählen Sie aus der Bibliothek. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:213
 #: meta-boxes.php:663
 msgid "Product Price"
-msgstr ""
+msgstr "Produktpreis"
 
 #: meta-boxes.php:214
 #: meta-boxes.php:664
 msgid "Enter the product Price."
-msgstr ""
+msgstr "Geben Sie den Produktpreis ein."
 
 #: meta-boxes.php:220
 #: meta-boxes.php:426
 #: meta-boxes.php:670
 msgid "Currency "
-msgstr ""
+msgstr "Währung"
 
 #: meta-boxes.php:221
 #: meta-boxes.php:427
 #: meta-boxes.php:671
 #: meta-boxes.php:821
 msgid "Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
-msgstr ""
+msgstr "Geben Sie den Währungscode ein (z.B. USD, INR, AUD, EUR, GBP). <a href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\">Erfahren Sie Ihren Währungscode</a>"
 
 #: meta-boxes.php:227
 #: meta-boxes.php:677
 msgid "Availability"
-msgstr ""
+msgstr "Verfügbarkeit"
 
 #: meta-boxes.php:228
 #: meta-boxes.php:678
 msgid "Select the products availability."
-msgstr ""
+msgstr "Wählen Sie die Verfügbarkeit der Produkte aus."
 
 #: meta-boxes.php:234
 #: meta-boxes.php:684
 msgid "__ Please Select __"
-msgstr ""
+msgstr "__ Bitte auswählen __"
 
 #: meta-boxes.php:238
 #: meta-boxes.php:688
 msgid "Out of Stock"
-msgstr ""
+msgstr "Nicht auf Lager"
 
 #: meta-boxes.php:242
 #: meta-boxes.php:692
 msgid "In Stock"
-msgstr ""
+msgstr "Auf Lager"
 
 #: meta-boxes.php:246
 #: meta-boxes.php:696
 msgid "In Store Only"
-msgstr ""
+msgstr "Nur im Geschäft"
 
 #: meta-boxes.php:250
 #: meta-boxes.php:700
 msgid "Pre-Order"
-msgstr ""
+msgstr "Vorbestellung"
 
 #: meta-boxes.php:256
 #: meta-boxes.php:713
 msgid "Recipe Name "
-msgstr ""
+msgstr "Rezeptname"
 
 #: meta-boxes.php:257
 #: meta-boxes.php:714
 msgid "Enter the recipe name."
-msgstr ""
+msgstr "Geben Sie den Rezeptnamen ein."
 
 #: meta-boxes.php:263
 #: meta-boxes.php:769
 msgid "Recipe Photo"
-msgstr ""
+msgstr "Rezeptfoto"
 
 #: meta-boxes.php:264
 #: meta-boxes.php:770
 msgid "Upload or Select recipe photo. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie ein Rezeptfoto hoch oder wählen Sie es aus. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:270
 #: settings.php:99
 msgid "Software Name"
-msgstr ""
+msgstr "Software-Name"
 
 #: meta-boxes.php:271
 msgid "Enter the Software name."
-msgstr ""
+msgstr "Geben Sie den Software-Namen ein."
 
 #: meta-boxes.php:277
 msgid "Software Operating System"
-msgstr ""
+msgstr "Betriebssystem der Software"
 
 #: meta-boxes.php:278
 msgid "Enter the Operating System name."
-msgstr ""
+msgstr "Geben Sie den Namen des Betriebssystems ein."
 
 #: meta-boxes.php:284
 msgid "Software Application Category"
-msgstr ""
+msgstr "Kategorie der Softwareanwendung"
 
 #: meta-boxes.php:285
 msgid "Enter the Application Category name."
-msgstr ""
+msgstr "Geben Sie den Namen der Anwendungs-Kategorie ein."
 
 #: meta-boxes.php:291
 #: meta-boxes.php:869
 msgid "Video Title"
-msgstr ""
+msgstr "Videotitel"
 
 #: meta-boxes.php:292
 #: meta-boxes.php:870
 msgid "Enter the title for this video"
-msgstr ""
+msgstr "Geben Sie den Titel für dieses Video ein"
 
 #: meta-boxes.php:298
 #: meta-boxes.php:876
 msgid "Video Description"
-msgstr ""
+msgstr "Videobeschreibung"
 
 #: meta-boxes.php:299
 #: meta-boxes.php:877
 msgid "Enter the brief description for this video"
-msgstr ""
+msgstr "Geben Sie die kurze Beschreibung für dieses Video ein"
 
 #: meta-boxes.php:305
 #: meta-boxes.php:883
 msgid "Video Thumbnail"
-msgstr ""
+msgstr "Video-Vorschaubild"
 
 #: meta-boxes.php:306
 #: meta-boxes.php:884
 msgid "Upload or select video thumbnail from gallery. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie ein Video-Vorschaubild hoch oder wählen Sie es aus der Galerie aus. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:312
 #: meta-boxes.php:913
 #: settings.php:115
 msgid "Upload Date"
-msgstr ""
+msgstr "Hochladedatum"
 
 #: meta-boxes.php:313
 #: meta-boxes.php:914
 msgid "Provide the date when the video is uploaded"
-msgstr ""
+msgstr "Geben Sie das Datum an, an dem das Video hochgeladen wurde"
 
 #: meta-boxes.php:319
 #: meta-boxes.php:613
 msgid "Your Rating"
-msgstr ""
+msgstr "Ihre Bewertung"
 
 #: meta-boxes.php:320
 msgid "&nbsp;&nbsp;Rate this item (1-5)"
-msgstr ""
+msgstr "&nbsp;&nbsp;Bewerten Sie diesen Artikel (1-5)"
 
 #: meta-boxes.php:349
 msgid "Rich Snippets - Events"
-msgstr ""
+msgstr "Rich Snippets - Veranstaltungen"
 
 #: meta-boxes.php:356
 msgid "Event Title "
-msgstr ""
+msgstr "Veranstaltungstitel"
 
 #: meta-boxes.php:357
 msgid "What would be the name of the event?"
-msgstr ""
+msgstr "Wie würde der Name der Veranstaltung lauten?"
 
 #: meta-boxes.php:363
 msgid "Location "
-msgstr ""
+msgstr "Standort"
 
 #: meta-boxes.php:398
 msgid "Description "
-msgstr ""
+msgstr "Beschreibung"
 
 #: meta-boxes.php:399
 msgid "Describe the event in short."
-msgstr ""
+msgstr "Beschreiben Sie die Veranstaltung kurz."
 
 #: meta-boxes.php:405
 msgid "Start Date "
-msgstr ""
+msgstr "Startdatum"
 
 #: meta-boxes.php:412
 msgid "End Date "
-msgstr ""
+msgstr "Enddatum"
 
 #: meta-boxes.php:413
 msgid "Provide the Event End Date."
-msgstr ""
+msgstr "Geben Sie das Enddatum der Veranstaltung an."
 
 #: meta-boxes.php:419
 #: settings.php:33
 msgid "Offer Price"
-msgstr ""
+msgstr "Angebotspreis"
 
 #: meta-boxes.php:420
 msgid "Enter the ticket Price."
-msgstr ""
+msgstr "Geben Sie den Ticketpreis ein."
 
 #: meta-boxes.php:433
 msgid "Url "
-msgstr ""
+msgstr "URL"
 
 #: meta-boxes.php:434
 msgid "Url of buy ticket page"
-msgstr ""
+msgstr "URL der Ticketkaufseite"
 
 #: meta-boxes.php:441
 msgid "Rich Snippets - Music"
-msgstr ""
+msgstr "Rich Snippets - Musik"
 
 #: meta-boxes.php:449
 msgid "Rich Snippets - Organization"
-msgstr ""
+msgstr "Rich Snippets - Organisation"
 
 #: meta-boxes.php:456
 msgid "Organization Name "
-msgstr ""
+msgstr "Name der Organisation"
 
 #: meta-boxes.php:457
 msgid "Enter the Company or Organization Name."
-msgstr ""
+msgstr "Geben Sie den Namen des Unternehmens oder der Organisation ein."
 
 #: meta-boxes.php:463
 msgid "Website URL "
-msgstr ""
+msgstr "Website-URL"
 
 #: meta-boxes.php:464
 msgid "Enter the Organization homepage url."
-msgstr ""
+msgstr "Geben Sie die URL der Homepage der Organisation ein."
 
 #: meta-boxes.php:470
 msgid "Contact No. "
-msgstr ""
+msgstr "Kontakt-Nr."
 
 #: meta-boxes.php:471
 msgid "Enter the Telephone No."
-msgstr ""
+msgstr "Geben Sie die Telefonnummer ein."
 
 #: meta-boxes.php:477
 msgid "Address "
-msgstr ""
+msgstr "Adresse"
 
 #: meta-boxes.php:478
 msgid "Street Name."
-msgstr ""
+msgstr "Straßenname."
 
 #: meta-boxes.php:485
 msgid "Locality."
-msgstr ""
+msgstr "Ort."
 
 #: meta-boxes.php:492
 msgid "Region."
-msgstr ""
+msgstr "Region."
 
 #: meta-boxes.php:506
 msgid "Country Name"
-msgstr ""
+msgstr "Landname"
 
 #: meta-boxes.php:512
 msgid "GEO Location"
-msgstr ""
+msgstr "GEO-Standort"
 
 #: meta-boxes.php:513
 msgid "Latitude. <a href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">Find Here.</a>"
-msgstr ""
+msgstr "Breitengrad. <a href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">Hier finden.</a>"
 
 #: meta-boxes.php:520
 msgid "Longitude."
-msgstr ""
+msgstr "Längengrad."
 
 #: meta-boxes.php:527
 msgid "Rich Snippets - Person"
-msgstr ""
+msgstr "Rich Snippets - Person"
 
 #: meta-boxes.php:534
 msgid "Person&lsquo;s Name"
-msgstr ""
+msgstr "Name der Person"
 
 #: meta-boxes.php:535
 msgid "Enter the relative person&lsquo;s name."
-msgstr ""
+msgstr "Geben Sie den Namen der betreffenden Person ein."
 
 #: meta-boxes.php:541
 #: settings.php:45
 msgid "Nickname"
-msgstr ""
+msgstr "Spitzname"
 
 #: meta-boxes.php:542
 msgid "Enter the nickname (if any)."
-msgstr ""
+msgstr "Geben Sie den Spitznamen ein (falls vorhanden)."
 
 #: meta-boxes.php:548
 msgid "Photograph"
-msgstr ""
+msgstr "Foto"
 
 #: meta-boxes.php:549
 msgid "Upload the photo or select from media library. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie das Foto hoch oder wählen Sie aus der Mediathek. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:555
 msgid "Job Title "
-msgstr ""
+msgstr "Berufsbezeichnung"
 
 #: meta-boxes.php:556
 msgid "Enter job title."
-msgstr ""
+msgstr "Geben Sie die Berufsbezeichnung ein."
 
 #: meta-boxes.php:562
 msgid "Homepage URL"
-msgstr ""
+msgstr "Homepage-URL"
 
 #: meta-boxes.php:563
 msgid "Enter homepage URL(if any)."
-msgstr ""
+msgstr "Geben Sie die Homepage-URL ein (falls vorhanden)."
 
 #: meta-boxes.php:569
 msgid "Company / Organization"
-msgstr ""
+msgstr "Unternehmen / Organisation"
 
 #: meta-boxes.php:570
 msgid "Enter Company or Organization name in affiliation."
-msgstr ""
+msgstr "Geben Sie den Namen des Unternehmens oder der Organisation in der Zugehörigkeit ein."
 
 #: meta-boxes.php:576
 #: settings.php:49
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: meta-boxes.php:577
 msgid "Enter Street"
-msgstr ""
+msgstr "Geben Sie die Straße ein"
 
 #: meta-boxes.php:584
 msgid "Enter Locality"
-msgstr ""
+msgstr "Geben Sie den Ort ein"
 
 #: meta-boxes.php:606
 msgid "Rich Snippets - Products"
-msgstr ""
+msgstr "Rich Snippets - Produkte"
 
 #: meta-boxes.php:614
 msgid "Rate this product or aggregate rating."
-msgstr ""
+msgstr "Bewerten Sie dieses Produkt oder aggregierte Bewertung."
 
 #: meta-boxes.php:642
 #: settings.php:61
 msgid "Brand Name"
-msgstr ""
+msgstr "Markenname"
 
 #: meta-boxes.php:643
 msgid "Enter the products brand name"
-msgstr ""
+msgstr "Geben Sie den Markennamen des Produkts ein"
 
 #: meta-boxes.php:650
 msgid "Enter the product name."
-msgstr ""
+msgstr "Geben Sie den Produktnamen ein."
 
 #: meta-boxes.php:706
 msgid "Rich Snippets - Recipes"
-msgstr ""
+msgstr "Rich Snippets - Rezepte"
 
 #: meta-boxes.php:720
 msgid "Author Name "
-msgstr ""
+msgstr "Autorname"
 
 #: meta-boxes.php:721
 msgid "Enter the Author name."
-msgstr ""
+msgstr "Geben Sie den Namen des Autors ein."
 
 #: meta-boxes.php:727
 msgid "Time Required "
-msgstr ""
+msgstr "Benötigte Zeit"
 
 #: meta-boxes.php:728
 msgid "Preperation time  (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr ""
+msgstr "Vorbereitungszeit (Format: 1H30M. H - Stunden, M - Minuten)"
 
 #: meta-boxes.php:735
 msgid "Cook Time. (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr ""
+msgstr "Kochzeit (Format: 1H30M. H - Stunden, M - Minuten)"
 
 #: meta-boxes.php:742
 msgid "Total Time  (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr ""
+msgstr "Gesamtzeit (Format: 1H30M. H - Stunden, M - Minuten)"
 
 #: meta-boxes.php:748
 #: settings.php:30
@@ -1170,233 +1167,233 @@ msgstr ""
 #: settings.php:127
 #: settings.php:143
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: meta-boxes.php:749
 msgid "Describe the recipe in short."
-msgstr ""
+msgstr "Beschreiben Sie das Rezept kurz."
 
 #: meta-boxes.php:755
 #: meta-boxes.php:756
 #: settings.php:83
 msgid "Nutrition"
-msgstr ""
+msgstr "Ernährung"
 
 #: meta-boxes.php:762
 #: settings.php:84
 msgid "Ingredients"
-msgstr ""
+msgstr "Zutaten"
 
 #: meta-boxes.php:763
 msgid "Enter the ingredients used"
-msgstr ""
+msgstr "Geben Sie die verwendeten Zutaten ein"
 
 #: meta-boxes.php:777
 msgid "Rich Snippets - Software Application"
-msgstr ""
+msgstr "Rich Snippets - Softwareanwendung"
 
 #: meta-boxes.php:784
 msgid "Software Rating"
-msgstr ""
+msgstr "Softwarebewertung"
 
 #: meta-boxes.php:785
 msgid "Rate this software."
-msgstr ""
+msgstr "Bewerten Sie diese Software."
 
 #: meta-boxes.php:813
 #: settings.php:64
 #: settings.php:98
 msgid "Price"
-msgstr ""
+msgstr "Preis"
 
 #: meta-boxes.php:814
 msgid "Enter the Price of Software"
-msgstr ""
+msgstr "Geben Sie den Preis der Software ein"
 
 #: meta-boxes.php:820
 msgid "Currency"
-msgstr ""
+msgstr "Währung"
 
 #: meta-boxes.php:827
 msgid "Software Name "
-msgstr ""
+msgstr "Softwarename"
 
 #: meta-boxes.php:828
 msgid "Enter the Software Name."
-msgstr ""
+msgstr "Geben Sie den Namen der Software ein."
 
 #: meta-boxes.php:834
 #: settings.php:100
 msgid "Operating System"
-msgstr ""
+msgstr "Betriebssystem"
 
 #: meta-boxes.php:835
 msgid "Enter the software Operating System."
-msgstr ""
+msgstr "Geben Sie das Betriebssystem der Software ein."
 
 #: meta-boxes.php:841
 msgid "Application Category"
-msgstr ""
+msgstr "Anwendungskategorie"
 
 #: meta-boxes.php:842
 msgid "Like Game, Multimedia"
-msgstr ""
+msgstr "Wie Spiel, Multimedia"
 
 #: meta-boxes.php:848
 msgid "Software Image"
-msgstr ""
+msgstr "Softwarebild"
 
 #: meta-boxes.php:849
 msgid "Upload or select image of software. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie ein Bild der Software hoch oder wählen Sie es aus. Mittlere Größe wird empfohlen (300px x 300px)"
 
 #: meta-boxes.php:855
 #: settings.php:101
 msgid "Landing Page"
-msgstr ""
+msgstr "Landing Page"
 
 #: meta-boxes.php:856
 msgid "Enter the landing page url for software"
-msgstr ""
+msgstr "Geben Sie die URL der Landing Page für die Software ein"
 
 #: meta-boxes.php:862
 msgid "Rich Snippets - Videos"
-msgstr ""
+msgstr "Rich Snippets - Videos"
 
 #: meta-boxes.php:891
 msgid "Upload Video or enter the video file url<br>Example: <br> http://www.example.com/video123.flv<br>A URL pointing to the actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file format"
-msgstr ""
+msgstr "Laden Sie das Video hoch oder geben Sie die URL der Videodatei ein<br>Beispiel:<br> http://www.example.com/video123.flv<br>Eine URL, die auf die tatsächliche Videodatei verweist. Diese Datei sollte im Format .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv oder einem anderen Videoformat vorliegen"
 
 #: meta-boxes.php:898
 msgid "Embed Video"
-msgstr ""
+msgstr "Video einbetten"
 
 #: meta-boxes.php:899
 msgid "A URL pointing to a player for the specific video. Usually this is the information in the src element of an &lt;embed&gt;tag. <br>Example: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed Video\" field. Dont use both.</h3></div>"
-msgstr ""
+msgstr "Eine URL, die auf einen Player für das spezifische Video verweist. Normalerweise handelt es sich um die Informationen im src-Element eines &lt;embed&gt;-Tags. <br>Beispiel: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Fügen Sie nur eine URL entweder im Feld \"Video\" oder \"Video einbetten\" hinzu. Verwenden Sie nicht beide.</h3></div>"
 
 #: meta-boxes.php:906
 msgid "Video Duration"
-msgstr ""
+msgstr "Videodauer"
 
 #: meta-boxes.php:907
 msgid "Enter the duration for this video"
-msgstr ""
+msgstr "Geben Sie die Dauer für dieses Video ein"
 
 #: meta-boxes.php:921
 msgid "Rich Snippets - Article"
-msgstr ""
+msgstr "Rich Snippets - Artikel"
 
 #: meta-boxes.php:928
 msgid "Article Image"
-msgstr ""
+msgstr "Artikelbild"
 
 #: meta-boxes.php:929
 #: meta-boxes.php:964
 #: meta-boxes.php:980
 msgid "Upload or select image from gallery. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie ein Bild hoch oder wählen Sie ein Bild aus der Galerie aus. Mittlere Größe wird empfohlen (300px X 300px)"
 
 #: meta-boxes.php:935
 #: settings.php:125
 msgid "Article Name"
-msgstr ""
+msgstr "Artikelname"
 
 #: meta-boxes.php:936
 msgid "Enter the name for this article"
-msgstr ""
+msgstr "Geben Sie den Namen für diesen Artikel ein"
 
 #: meta-boxes.php:942
 #: meta-boxes.php:1000
 msgid "Short Description"
-msgstr ""
+msgstr "Kurze Beschreibung"
 
 #: meta-boxes.php:943
 msgid "Enter the brief description about this article (About 30 Words)"
-msgstr ""
+msgstr "Geben Sie die kurze Beschreibung zu diesem Artikel ein (Etwa 30 Wörter)"
 
 #: meta-boxes.php:949
 #: settings.php:126
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: meta-boxes.php:950
 msgid "Enter the author name for this article"
-msgstr ""
+msgstr "Geben Sie den Autorennamen für diesen Artikel ein"
 
 #: meta-boxes.php:956
 msgid "Publisher - Orgnization"
-msgstr ""
+msgstr "Verlag - Organisation"
 
 #: meta-boxes.php:957
 msgid "Enter the publisher name for this article"
-msgstr ""
+msgstr "Geben Sie den Verlagsnamen für diesen Artikel ein"
 
 #: meta-boxes.php:963
 #: settings.php:130
 msgid "Publisher Logo"
-msgstr ""
+msgstr "Verlagslogo"
 
 #: meta-boxes.php:972
 msgid "Rich Snippets - Service"
-msgstr ""
+msgstr "Rich Snippets - Dienst"
 
 #: meta-boxes.php:979
 #: settings.php:128
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #: meta-boxes.php:986
 #: settings.php:141
 msgid "Service Type"
-msgstr ""
+msgstr "Diensttyp"
 
 #: meta-boxes.php:987
 msgid "Enter the service type"
-msgstr ""
+msgstr "Geben Sie den Diensttyp ein"
 
 #: meta-boxes.php:993
 msgid "Service Served Area"
-msgstr ""
+msgstr "Bereich, in dem der Dienst angeboten wird"
 
 #: meta-boxes.php:994
 msgid "Enter the area where service is available"
-msgstr ""
+msgstr "Geben Sie den Bereich ein, in dem der Dienst verfügbar ist"
 
 #: meta-boxes.php:1001
 msgid "Enter the description about service (About 30 Words)"
-msgstr ""
+msgstr "Geben Sie die Beschreibung des Dienstes ein (Etwa 30 Wörter)"
 
 #: meta-boxes.php:1007
 #: settings.php:147
 msgid "Provider Name"
-msgstr ""
+msgstr "Anbietername"
 
 #: meta-boxes.php:1008
 msgid "Enter the service provider name"
-msgstr ""
+msgstr "Geben Sie den Namen des Dienstanbieters ein"
 
 #: meta-boxes.php:1014
 #: settings.php:29
 #: settings.php:148
 msgid "Location"
-msgstr ""
+msgstr "Standort"
 
 #: meta-boxes.php:1042
 msgid "Provider Location Image"
-msgstr ""
+msgstr "Bild des Anbieterstandorts"
 
 #: meta-boxes.php:1043
 msgid "Upload the provider location image or select from library. Medium size is recommended (300px X 300px)"
-msgstr ""
+msgstr "Laden Sie das Bild des Anbieterstandorts hoch oder wählen Sie es aus der Bibliothek aus. Mittlere Größe wird empfohlen (300px X 300px)"
 
 #: meta-boxes.php:1049
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 #: meta-boxes.php:1050
 msgid "Telephone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: settings.php:13
 #: settings.php:27
@@ -1408,115 +1405,115 @@ msgstr ""
 #: settings.php:124
 #: settings.php:140
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: settings.php:14
 msgid "Reviewer"
-msgstr ""
+msgstr "Rezensent"
 
 #: settings.php:15
 msgid "Review Date"
-msgstr ""
+msgstr "Bewertungsdatum"
 
 #: settings.php:16
 msgid "Reviewed Item"
-msgstr ""
+msgstr "Bewerteter Artikel"
 
 #: settings.php:17
 #: settings.php:60
 #: settings.php:96
 msgid "Author Rating"
-msgstr ""
+msgstr "Autorbewertung"
 
 #: settings.php:31
 msgid "Starting on"
-msgstr ""
+msgstr "Beginn am"
 
 #: settings.php:32
 msgid "Ending on"
-msgstr ""
+msgstr "Ende am"
 
 #: settings.php:44
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: settings.php:46
 msgid "Job Title"
-msgstr ""
+msgstr "Berufsbezeichnung"
 
 #: settings.php:47
 msgid "Website"
-msgstr ""
+msgstr "Webseite"
 
 #: settings.php:48
 msgid "Company"
-msgstr ""
+msgstr "Unternehmen"
 
 #: settings.php:63
 #: settings.php:97
 msgid "Aggregate Rating"
-msgstr ""
+msgstr "Aggregierte Bewertung"
 
 #: settings.php:65
 msgid "Product Availability"
-msgstr ""
+msgstr "Produktverfügbarkeit"
 
 #: settings.php:76
 msgid "Recipe Name"
-msgstr ""
+msgstr "Rezeptname"
 
 #: settings.php:77
 msgid "Author Name"
-msgstr ""
+msgstr "Autorname"
 
 #: settings.php:78
 msgid "Published On"
-msgstr ""
+msgstr "Veröffentlicht am"
 
 #: settings.php:79
 msgid "Preparation Time"
-msgstr ""
+msgstr "Vorbereitungszeit"
 
 #: settings.php:80
 msgid "Cook Time"
-msgstr ""
+msgstr "Kochzeit"
 
 #: settings.php:81
 msgid "Total Time"
-msgstr ""
+msgstr "Gesamtzeit"
 
 #: settings.php:85
 msgid "Average Rating"
-msgstr ""
+msgstr "Durchschnittliche Bewertung"
 
 #: settings.php:112
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: settings.php:114
 msgid "Duration"
-msgstr ""
+msgstr "Dauer"
 
 #: settings.php:129
 msgid "Publisher Name"
-msgstr ""
+msgstr "Verlagsname"
 
 #: settings.php:142
 msgid "Area"
-msgstr ""
+msgstr "Bereich"
 
 #: settings.php:144
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: settings.php:145
 msgid "Click Here For More Info"
-msgstr ""
+msgstr "Klicken Sie hier für weitere Informationen"
 
 #: settings.php:146
 msgid "User Rating"
-msgstr ""
+msgstr "Benutzerbewertung"
 
 #: settings.php:149
 msgid "Provider telephone number"
-msgstr ""
+msgstr "Telefonnummer des Anbieters"
