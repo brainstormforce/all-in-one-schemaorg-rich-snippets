@@ -121,17 +121,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			if ( 'post.php' != $hook ) {
 				return;
 			}
-			$current_admin_screen     = get_current_screen();
-			
+			$current_admin_screen = get_current_screen();
+
 			// Default exclusions for WooCommerce and other problematic post types.
-			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
 			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
-			
+
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
 				return;
 			}
-			
-			// Additional check for WooCommerce products to prevent conflicts
+
+			// Additional check for WooCommerce products to prevent conflicts.
 			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
@@ -158,16 +158,16 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			if ( 'post-new.php' != $hook ) {
 				return;
 			}
-			$current_admin_screen     = get_current_screen();
-			
+			$current_admin_screen = get_current_screen();
+
 			// Default exclusions for WooCommerce and other problematic post types.
-			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
 			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
-			
+
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
 				return;
 			}
-			
+
 			// Additional check for WooCommerce products to prevent conflicts.
 			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
@@ -221,7 +221,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
-		
 		</style>
 		<?php }
 		/**
