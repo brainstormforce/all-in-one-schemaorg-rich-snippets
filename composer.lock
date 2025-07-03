@@ -58,16 +58,16 @@
         },
         {
             "name": "brainstormforce/nps-survey",
-            "version": "1.0.7",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/nps-survey.git",
-                "reference": "544b2b5afdd11bd2f4bfb6cdfa8a692c23502664"
+                "reference": "bfb5d127550281c3a788d0d05abf14cbc0d329ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/544b2b5afdd11bd2f4bfb6cdfa8a692c23502664",
-                "reference": "544b2b5afdd11bd2f4bfb6cdfa8a692c23502664",
+                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/bfb5d127550281c3a788d0d05abf14cbc0d329ef",
+                "reference": "bfb5d127550281c3a788d0d05abf14cbc0d329ef",
                 "shasum": ""
             },
             "require-dev": {
@@ -111,10 +111,10 @@
             },
             "description": "NPS Survey Plugin",
             "support": {
-                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.7",
+                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.11",
                 "issues": "https://github.com/brainstormforce/nps-survey/issues"
             },
-            "time": "2025-01-14T06:03:52+00:00"
+            "time": "2025-06-27T06:00:28+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1264,16 +1264,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.17.0",
+            "version": "v1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5"
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5",
-                "reference": "3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/465810689c477fbba17f4f949b75e4d0bdab13ea",
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea",
                 "shasum": ""
             },
             "require": {
@@ -1286,7 +1286,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17.0-dev"
+                    "dev-master": "1.17.2-dev"
                 }
             },
             "autoload": {
@@ -1307,9 +1307,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.17.0"
+                "source": "https://github.com/mck89/peast/tree/v1.17.2"
             },
-            "time": "2025-03-07T19:44:14+00:00"
+            "time": "2025-07-01T09:30:45+00:00"
         },
         {
             "name": "nb/oxymel",
