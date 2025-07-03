@@ -123,7 +123,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			$current_admin_screen     = get_current_screen();
 			
-			// Default exclusions for WooCommerce and other problematic post types
+			// Default exclusions for WooCommerce and other problematic post types.
 			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
 			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
 			
@@ -160,7 +160,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			$current_admin_screen     = get_current_screen();
 			
-			// Default exclusions for WooCommerce and other problematic post types
+			// Default exclusions for WooCommerce and other problematic post types.
 			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
 			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
 			
@@ -168,7 +168,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				return;
 			}
 			
-			// Additional check for WooCommerce products to prevent conflicts
+			// Additional check for WooCommerce products to prevent conflicts.
 			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
