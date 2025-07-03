@@ -221,12 +221,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
-			
-			/* Emergency fix for WooCommerce product pages */
-			body.post-type-product {
-				display: block !important;
-				visibility: visible !important;
-			}
+		
 		</style>
 		<?php }
 		/**
