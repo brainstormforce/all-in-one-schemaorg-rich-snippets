@@ -122,8 +122,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				return;
 			}
 			$current_admin_screen     = get_current_screen();
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			
+			// Default exclusions for WooCommerce and other problematic post types
+			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
+			
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
+				return;
+			}
+			
+			// Additional check for WooCommerce products to prevent conflicts
+			if ( $current_admin_screen->post_type === 'product' ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -150,8 +159,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				return;
 			}
 			$current_admin_screen     = get_current_screen();
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			
+			// Default exclusions for WooCommerce and other problematic post types
+			$default_exclusions = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
+			
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
+				return;
+			}
+			
+			// Additional check for WooCommerce products to prevent conflicts
+			if ( $current_admin_screen->post_type === 'product' ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -203,6 +221,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
+			
+			/* Emergency fix for WooCommerce product pages */
+			body.post-type-product {
+				display: block !important;
+				visibility: visible !important;
+			}
 		</style>
 		<?php }
 		/**

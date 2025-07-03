@@ -83,6 +83,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 == Changelog ==
 
+### 1.7.4 ###
+- Fixed: WooCommerce product editor compatibility - Added exclusions for WooCommerce post types to prevent script conflicts.
+
 = 1.7.3 =
 - Improvement: Refactored and optimized the codebase to improve code quality.
 
