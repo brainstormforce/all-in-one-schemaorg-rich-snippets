@@ -1,5 +1,14 @@
 jQuery(document).ready(function() {
-	var selected = jQuery("#_bsf_post_type").val();
+	// Safety check: Don't run on WooCommerce product pages
+	if (jQuery('body').hasClass('post-type-product') || jQuery('#product-type').length > 0) {
+		return;
+	}
+	
+	// Additional safety check: Only run if schema elements exist
+	if (!jQuery("#_bsf_post_type").length) {
+		return;
+	}
+		var selected = jQuery("#_bsf_post_type").val();
 	var item_type = jQuery("#_bsf_item_review_type").val();
 	if(selected == "0")
 		hidden();

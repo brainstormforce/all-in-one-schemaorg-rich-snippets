@@ -1,3 +1,19 @@
+Version 1.0.11 - 27-06-2025
+- Improvement:
+  - Improved core class loading to avoid duplicate declarations and ensure stability.
+
+Version 1.0.10 - 26-06-2025
+- Improvement:
+  - Updated rating submission endpoint.
+
+Version 1.0.9 - 24-06-2025
+- Improvement:
+  - Improved library loading conditions to prevent conflicts.
+
+Version 1.0.8 - 18-06-2025
+- Dev:
+  - Updated API domain to 'https://metrics.brainstormforce.com/' for improved performance and reliability.
+
 Version 1.0.7 - 13-01-2025
 - Improvement:
   - Enhanced core loading mechanism to prevent potential plugin conflicts.
