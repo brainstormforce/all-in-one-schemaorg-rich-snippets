@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, rich snippets, wordpress seo, structured data, google search
 Requires at least: 3.7
 Tested up to: 6.8
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,7 +84,7 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 == Changelog ==
 
 ### 1.7.4 ###
-- Fixed: WooCommerce product editor compatibility - Added exclusions for WooCommerce post types to prevent script conflicts.
+- Fixed: WooCommerce product editor compatibility - Added exclusions for WooCommerce post types.
 
 = 1.7.3 =
 - Improvement: Refactored and optimized the codebase to improve code quality.
