@@ -132,7 +132,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			
 			// Additional check for WooCommerce products to prevent conflicts
-			if ( $current_admin_screen->post_type === 'product' ) {
+			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -169,7 +169,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			
 			// Additional check for WooCommerce products to prevent conflicts
-			if ( $current_admin_screen->post_type === 'product' ) {
+			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
