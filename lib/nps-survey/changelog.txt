@@ -1,3 +1,7 @@
+Version 1.0.12 - 16-07-2025
+- Improvement:
+  - Refactored rating prompt logic to allow disabling the WordPress rating functionality, ensuring a non-discriminatory and guideline-compliant user experience.
+
 Version 1.0.11 - 27-06-2025
 - Improvement:
   - Improved core class loading to avoid duplicate declarations and ensure stability.
