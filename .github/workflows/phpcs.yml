@@ -1,7 +1,10 @@
 name: PHPCS check
 
 # Run the deployment only when code is committed to the branch.
-on: pull_request
+on: 
+  pull_request:
+  push:
+    branches: [ main, master, develop ]
 
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
@@ -25,8 +28,26 @@ jobs:
             coverage: none
             tools: composer, cs2pr
 
+        - name: Get composer cache directory
+          id: composer-cache
+          run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+        - name: Cache composer dependencies
+          uses: actions/cache@v2
+          with:
+            path: ${{ steps.composer-cache.outputs.dir }}
+            key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+            restore-keys: ${{ runner.os }}-composer-
+
         - name: Install composer dependencies
-          run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+          run: |
+            composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+            composer install --prefer-dist --no-suggest --no-progress
+
+        - name: Verify PHPCS installation
+          run: |
+            ls -la vendor/bin/
+            ./vendor/bin/phpcs --version
 
         - name: Run phpcs
           id: phpcs
