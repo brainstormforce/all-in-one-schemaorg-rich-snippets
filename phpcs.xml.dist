@@ -16,6 +16,101 @@
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
 	</rule>
 
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+    <properties>
+        <property name="forbiddenFunctions" type="array">
+            <element key="eval" value="Avoid using eval() — it allows execution of arbitrary PHP code and leads to remote code execution (RCE). Consider refactoring your logic to avoid dynamic evaluation."/>
+            <element key="assert" value="Avoid using assert() — behaves like eval() when given a string and can lead to RCE. Use conditional checks directly."/>
+            <element key="create_function" value="Avoid using create_function() — internally uses eval(), which is dangerous. Use anonymous functions instead."/>
+            <element key="preg_replace" value="Avoid using preg_replace() with the /e modifier — it allows execution of arbitrary PHP code and leads to critical security vulnerabilities such as RCE. Use preg_replace_callback() instead."/>
+            <!--             <element key="include" value="Avoid using include with untrusted input — may lead to Local or Remote File Inclusion (LFI/RFI). Validate and sanitize paths or use autoloaders."/>-->
+            <!--             <element key="include_once" value="Avoid using include_once with untrusted input — may lead to LFI/RFI. Use autoloaders or validated paths."/>-->
+            <!--             <element key="require" value="Avoid using require with untrusted input — may lead to LFI/RFI. Validate file paths strictly."/>-->
+            <!--             <element key="require_once" value="Avoid using require_once with untrusted input — may lead to LFI/RFI. Use autoloaders or strict path validation."/>-->
+            <!--             <element key="unserialize" value="Avoid using unserialize() on untrusted data — it leads to PHP Object Injection. Use json_decode() with trusted JSON instead."/>-->
+            <!--             <element key="maybe_unserialize" value="Avoid using maybe_unserialize() with untrusted input — subject to the same vulnerabilities as unserialize()."/>-->
+            <!--             <element key="base64_decode" value="Avoid using base64_decode() to hide or obfuscate data — it may be used to bypass filters. Prefer explicit and transparent encoding/decoding."/>-->
+            <element key="exec" value="Avoid using exec() — executes shell commands and leads to command injection vulnerabilities. Use process control functions with strict sanitization only if necessary."/>
+            <element key="shell_exec" value="Avoid using shell_exec() — exposes your application to command injection risks. Use safer alternatives or escape all inputs thoroughly."/>
+            <element key="system" value="Avoid using system() — can execute arbitrary system commands. Very dangerous if used with user input."/>
+            <element key="passthru" value="Avoid using passthru() — runs system-level commands and can be exploited for command injection."/>
+            <element key="popen" value="Avoid using popen() — opens a process pipe which can be exploited. Use proc_open() with caution if absolutely necessary."/>
+            <element key="proc_open" value="Avoid using proc_open() — complex function that can lead to RCE or command injection if mishandled."/>
+            <element key="proc_close" value="Avoid using proc_close() — related to proc_open(), which is dangerous if user input is involved."/>
+            <element key="proc_nice" value="Avoid using proc_nice() — changes process priority and could be abused."/>
+            <element key="proc_terminate" value="Avoid using proc_terminate() — interacts with system processes. Use only if trusted input and context are ensured."/>
+            <element key="pcntl_exec" value="Avoid using pcntl_exec() — forks and replaces the process; risky for production environments."/>
+            <element key="fsockopen" value="Avoid using fsockopen() with user input — can be used to perform SSRF attacks."/>
+            <element key="pfsockopen" value="Avoid using pfsockopen() — similar to fsockopen(), risky with user-controlled hosts or ports."/>
+            <element key="phpinfo" value="Avoid using phpinfo() in production — exposes sensitive server configuration information."/>
+            <element key="extract" value="Avoid using extract() — overwrites existing variables and leads to security issues. Use associative arrays instead."/>
+            <element key="parse_str" value="Avoid using parse_str() — can overwrite variables in the current symbol table. Use parse_url() and parse_str() into a separate array."/>
+            <element key="ini_set" value="Avoid using ini_set() to modify runtime settings unsafely. Changes may weaken security mechanisms."/>
+            <element key="ini_alter" value="Avoid using ini_alter() — modifies php.ini settings and can reduce protection if misused."/>
+            <element key="putenv" value="Avoid using putenv() — changes environment variables at runtime and can affect system behavior."/>
+            <!--             <element key="mail" value="Avoid using mail() — prone to email header injection. Use a well-maintained library like PHPMailer or Symfony Mailer."/>-->
+            <!--             <element key="$wpdb->query" value="Avoid using raw $wpdb->query with dynamic SQL — leads to SQL injection. Use $wpdb->prepare() or abstraction layers."/>-->
+            <!-- POSIX -->
+            <element key="getmyuid" value="Avoid using getmyuid() — exposes user identity info, rarely needed in secure apps."/>
+            <element key="leak" value="Avoid using leak() — deprecated and dangerous. Leads to memory leaks."/>
+            <element key="listen" value="Avoid using listen() — may be part of vulnerable network socket code."/>
+            <element key="diskfreespace" value="Avoid using diskfreespace() — reveals server storage info."/>
+            <element key="tmpfile" value="Avoid using tmpfile() without cleanup — may leak sensitive data to disk."/>
+            <element key="link" value="Avoid using link() — may create unexpected hard links; dangerous with user input."/>
+            <element key="dl" value="Avoid using dl() — enables dynamic loading of extensions at runtime and is dangerous."/>
+            <element key="highlight_file" value="Avoid using highlight_file() — reveals code, leading to information disclosure."/>
+            <element key="source" value="Avoid using source — not a valid PHP function; possibly a typo."/>
+            <element key="show_source" value="Avoid using show_source() — exposes raw source code to the browser."/>
+            <element key="fpassthru" value="Avoid using fpassthru() — used to dump file contents; dangerous with user-controlled paths."/>
+            <element key="virtual" value="Avoid using virtual() — used in Apache for server-side includes, may execute unintended logic."/>
+            <element key="posix_ctermid" value="Avoid using posix_ctermid() — reveals terminal device paths."/>
+            <element key="posix_getcwd" value="Avoid using posix_getcwd() — reveals current directory path."/>
+            <element key="posix_getegid" value="Avoid using posix_getegid() — exposes process group IDs."/>
+            <element key="posix_geteuid" value="Avoid using posix_geteuid() — exposes user IDs."/>
+            <element key="posix_getgid" value="Avoid using posix_getgid() — exposes group IDs."/>
+            <element key="posix_getgrgid" value="Avoid using posix_getgrgid() — exposes system group info."/>
+            <element key="posix_getgrnam" value="Avoid using posix_getgrnam() — exposes system group info."/>
+            <element key="posix_getgroups" value="Avoid using posix_getgroups() — reveals system group memberships."/>
+            <element key="posix_getlogin" value="Avoid using posix_getlogin() — exposes the current login name."/>
+            <element key="posix_getpgid" value="Avoid using posix_getpgid() — exposes process IDs."/>
+            <element key="posix_getpgrp" value="Avoid using posix_getpgrp() — exposes process group IDs."/>
+            <element key="posix_getpid" value="Avoid using posix_getpid() — reveals process IDs."/>
+            <element key="posix_getppid" value="Avoid using posix_getppid() — reveals parent process IDs."/>
+            <element key="posix_getpwuid" value="Avoid using posix_getpwuid() — reveals user info."/>
+            <element key="posix_getrlimit" value="Avoid using posix_getrlimit() — reveals system resource limits."/>
+            <element key="posix_getsid" value="Avoid using posix_getsid() — exposes session IDs."/>
+            <element key="posix_getuid" value="Avoid using posix_getuid() — exposes user IDs."/>
+            <element key="posix_isatty" value="Avoid using posix_isatty() — limited use, potentially risky."/>
+            <element key="posix_kill" value="Avoid using posix_kill() — sends signals to processes. Dangerous if misused."/>
+            <element key="posix_mkfifo" value="Avoid using posix_mkfifo() — creates named pipes; can be abused."/>
+            <element key="posix_setegid" value="Avoid using posix_setegid() — changes effective group ID; risky."/>
+            <element key="posix_seteuid" value="Avoid using posix_seteuid() — changes effective user ID; risky."/>
+            <element key="posix_setgid" value="Avoid using posix_setgid() — changes group ID; rarely safe."/>
+            <element key="posix_setpgid" value="Avoid using posix_setpgid() — manipulates process groups."/>
+            <element key="posix_setsid" value="Avoid using posix_setsid() — creates new session; rarely needed."/>
+            <element key="posix_setuid" value="Avoid using posix_setuid() — changes user ID; major security risk."/>
+            <element key="posix_times" value="Avoid using posix_times() — returns process times; rarely relevant."/>
+            <element key="posix_ttyname" value="Avoid using posix_ttyname() — reveals terminal device names."/>
+            <element key="posix_uname" value="Avoid using posix_uname() — exposes system-level details."/>
+            <element key="socket_accept" value="Avoid using socket_accept() — dangerous with custom TCP/IP logic."/>
+            <element key="socket_bind" value="Avoid using socket_bind() — binds to ports and may expose services."/>
+            <element key="socket_clear_error" value="Avoid using socket_clear_error() — low-level socket call."/>
+            <element key="socket_close" value="Avoid using socket_close() — low-level function, rarely needed."/>
+            <element key="socket_connect" value="Avoid using socket_connect() — potentially dangerous if remote host is user-controlled."/>
+            <element key="symlink" value="Avoid using symlink() — can create filesystem links in unsafe locations."/>
+            <element key="socket_listen" value="Avoid using socket_listen() — opens services that may be exploited."/>
+            <element key="socket_create_listen" value="Avoid using socket_create_listen() — creates open listening ports."/>
+            <element key="socket_read" value="Avoid using socket_read() — risky if improperly validated."/>
+            <element key="socket_create_pair" value="Avoid using socket_create_pair() — rarely needed in web apps."/>
+            <element key="stream_socket_server" value="Avoid using stream_socket_server() — opens custom servers and may be exploited."/>
+            <element key="set_time_limit" value="Avoid using set_time_limit() — may override execution limits."/>
+            <element key="ignore_user_abort" value="Avoid using ignore_user_abort() — continues execution even if client disconnects; risky for long-running scripts."/>
+            <element key="escapeshellcmd" value="Avoid using escapeshellcmd() — may offer false sense of security. Better to avoid shell commands entirely."/>
+        </property>
+    </properties>
+</rule>
+
+
 	<rule ref="WordPress-Core" />
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />
