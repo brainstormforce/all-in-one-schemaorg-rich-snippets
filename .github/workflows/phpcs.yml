@@ -26,7 +26,18 @@ jobs:
             tools: composer, cs2pr
 
         - name: Install composer dependencies
-          run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+          run: |
+            composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+            composer install --prefer-dist --no-suggest --no-progress --no-interaction
+            
+        - name: Verify phpcs installation
+          run: |
+            if [ ! -f "./vendor/bin/phpcs" ]; then
+              echo "phpcs not found, listing vendor/bin contents:"
+              ls -la ./vendor/bin/ || echo "vendor/bin directory not found"
+              echo "Installing phpcs directly as fallback:"
+              composer require --dev squizlabs/php_codesniffer --no-interaction
+            fi
 
         - name: Run phpcs
           id: phpcs
