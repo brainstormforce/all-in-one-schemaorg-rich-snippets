@@ -13,7 +13,7 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 	/**
 	 * Plugin_Loader
 	 *
-	 * @since X.X.X
+	 * @since 1.0.0
 	 */
 	class NPS_Survey_Plugin_Loader {
 		/**
@@ -21,14 +21,14 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 		 *
 		 * @access private
 		 * @var object Class Instance.
-		 * @since X.X.X
+		 * @since 1.0.0
 		 */
 		private static $instance;
 
 		/**
 		 * Constructor
 		 *
-		 * @since X.X.X
+		 * @since 1.0.0
 		 */
 		public function __construct() {
 
@@ -39,7 +39,7 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 		/**
 		 * Initiator
 		 *
-		 * @since X.X.X
+		 * @since 1.0.0
 		 * @return object initialized object of class.
 		 */
 		public static function get_instance() {
@@ -76,6 +76,7 @@ if ( ! class_exists( 'NPS_Survey_Plugin_Loader' ) ) {
 
 			// if the file redable, include it.
 			if ( is_readable( $file ) ) {
+				// nosemgrep audit.php.lang.security.file.inclusion-arg - To allow the theme or plugin on WooCommerce Marketplace.
 				require_once $file;
 			}
 		}
