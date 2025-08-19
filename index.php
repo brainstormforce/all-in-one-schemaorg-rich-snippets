@@ -37,7 +37,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Initiator
 		 */
 		public function __construct() {
-			// Constructor - only register activation hook and init action
+			// Constructor - only register activation hook and init action.
 			register_activation_hook( __FILE__, array( $this, 'register_bsf_settings' ) );
 			add_action( 'init', array( $this, 'aiosrs_load_plugin' ) );
 		}
@@ -46,10 +46,10 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Load plugin functionality on init hook
 		 */
 		public function aiosrs_load_plugin() {
-			// Load translations first
+			// Load translations first.
 			$this->rich_snippet_translation();
 
-			// Then load all other functionality
+			// Then load all other functionality.
 			add_action( 'admin_init', array( $this, 'aiosrs_admin_redirect' ) );
 			add_action( 'admin_head', array( $this, 'star_icons' ) );
 			$this->define_constants();
@@ -73,7 +73,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			// Admin bar menu.
 			add_action( 'admin_bar_menu', array( $this, 'aiosrs_admin_bar' ), 100 );
 
-			// Initialize analytics and other components
+			// Initialize analytics and other components.
 			$this->init_analytics();
 		}
 
@@ -247,25 +247,25 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 			$mofile = $domain . '-' . $locale . '.mo';
 
-			// Try to load from wp-content/languages/plugins first (WordPress managed translations)
+			// Try to load from wp-content/languages/plugins first (WordPress managed translations).
 			$global_mofile = WP_LANG_DIR . '/plugins/' . $mofile;
 			if ( file_exists( $global_mofile ) ) {
 				load_textdomain( $domain, $global_mofile );
 			}
 
-			// Load from plugin's languages directory
+			// Load from plugin's languages directory.
 			load_plugin_textdomain(
 				$domain,
 				false,
 				dirname( plugin_basename( __FILE__ ) ) . '/languages/'
 			);
 
-			// Refresh stored translations when language changes
+			// Refresh stored translations when language changes.
 			$current_locale = get_locale();
 			$stored_locale  = get_option( 'aiosrs_current_locale', '' );
 
 			if ( $current_locale !== $stored_locale ) {
-				// Language has changed, refresh translations
+				// Language has changed, refresh translations.
 				if ( function_exists( 'refresh_snippet_translations' ) ) {
 					refresh_snippet_translations();
 				}
@@ -468,7 +468,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Initialize analytics and other components
 		 */
 		public function init_analytics() {
-			// Load required files
+			// Load required files.
 			require_once plugin_dir_path( __FILE__ ) . 'functions.php';
 
 			if ( is_admin() ) {
@@ -478,14 +478,14 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				}
 			}
 
-			// Initialize BSF Analytics if the files exist
+			// Initialize BSF Analytics if the files exist.
 			$analytics_loader_path = plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
 			if ( file_exists( $analytics_loader_path ) ) {
 				if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 					require_once $analytics_loader_path;
 				}
 
-				// Try to initialize the analytics loader safely
+				// Try to initialize the analytics loader safely.
 				try {
 					if ( class_exists( 'BSF_Analytics_Loader' ) ) {
 						$bsf_analytics_loader = BSF_Analytics_Loader::get_instance();
@@ -520,12 +520,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						}
 					}
 				} catch ( Exception $e ) {
-					// Silently handle any analytics initialization errors
-					error_log( 'AIOSRS Analytics initialization error: ' . $e->getMessage() );
+					// Silently handle any analytics initialization errors.
+					return;
 				}
 			}
 
-			// Add the meta boxes filter
+			// Add the meta boxes filter.
 			if ( function_exists( 'bsf_metaboxes' ) ) {
 				add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 			}
@@ -536,11 +536,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function handle_translation_refresh() {
 			if ( isset( $_GET['aiosrs_refresh_translations'] ) &&
-				 isset( $_GET['nonce'] ) &&
-				 wp_verify_nonce( $_GET['nonce'], 'aiosrs_refresh_translations' ) &&
-				 current_user_can( 'manage_options' ) ) {
+				isset( $_GET['nonce'] ) &&
+				wp_verify_nonce( $_GET['nonce'], 'aiosrs_refresh_translations' ) &&
+				current_user_can( 'manage_options' ) ) {
 
-				// Include functions.php to access the refresh function
+				// Include functions.php to access the refresh function.
 				require_once plugin_dir_path( __FILE__ ) . 'functions.php';
 
 				if ( function_exists( 'refresh_snippet_translations' ) ) {
@@ -555,8 +555,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function translation_refresh_notice() {
 			echo '<div class="notice notice-success is-dismissible"><p>' .
-				 esc_html__( 'Rich Snippets translations have been refreshed for the current language!', 'all-in-one-schemaorg-rich-snippets' ) .
-				 '</p></div>';
+				esc_html__( 'Rich Snippets translations have been refreshed for the current language!', 'all-in-one-schemaorg-rich-snippets' ) .
+				'</p></div>';
 		}
 	}
 }
