@@ -7,14 +7,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-06T18:18:01+00:00\n"
-"PO-Revision-Date: 2024-12-06T18:18:01+00:00\n"
+"POT-Creation-Date: 2025-01-07T16:43:21+00:00\n"
+"PO-Revision-Date: 2025-01-07T16:43:21+00:00\n"
 "Language: \n"
 
 #: index.php
 #. Plugin Name of the plugin
 msgid "Schema - All In One Schema Rich Snippets"
-msgstr "Schema - Alles-in-één Schema Rich Snippets"
+msgstr "Esquema - Todos en Uno Esquema Rich Snippets"
 
 #: index.php
 #. Plugin URI of the plugin
@@ -28,9 +28,9 @@ msgid ""
 "Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and "
 "posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc."
 msgstr ""
-"Welkom bij de Schema - Alles-in-één Schema Rich Snippets! Je kunt nu eenvoudig schema markup toevoegen op verschillende "
-"* pagina's en berichten van je website. Implementeer schema types zoals Review, Evenementen, Recepten, Artikel, "
-"Producten, Diensten * *enz."
+"¡Bienvenido al Esquema - Todos en Uno Esquema Rich Snippets! Ahora puedes agregar fácilmente marcado de esquema en "
+"varias * páginas y publicaciones de tu sitio web. Implementa tipos de esquema como Reseña, Eventos, Recetas, Artículo, "
+"Productos, Servicios * *etc."
 
 #: index.php
 #. Author of the plugin
@@ -43,75 +43,75 @@ msgid ""
 "Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage "
 "information. "
 msgstr ""
-"Wil je helpen om <strong>%1s</strong> nog beter te maken? Laat ons niet-gevoelige diagnostische gegevens en "
-"gebruiksinformatie verzamelen."
+"¿Quieres ayudar a hacer <strong>%1s</strong> aún más increíble? Permítenos recopilar datos de diagnóstico no sensibles "
+"e información de uso."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:214
 msgid "This will be applicable for all sites from the network."
-msgstr "Dit is van toepassing op alle sites van het netwerk."
+msgstr "Esto será aplicable para todos los sitios de la red."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:238
 #. translators: %s usage doc link
 msgid " Know More."
-msgstr "Meer weten."
+msgstr "Saber más."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:246
 msgid "Yes! Allow it"
-msgstr "Ja! Sta het toe"
+msgstr "¡Sí! Permitirlo"
 
 #: admin/bsf-analytics/class-bsf-analytics.php:255
 msgid "No Thanks"
-msgstr "Nee bedankt"
+msgstr "No, gracias"
 
 #: admin/bsf-analytics/class-bsf-analytics.php:359
 msgid "Usage Tracking"
-msgstr "Gebruikstracering"
+msgstr "Seguimiento de uso"
 
 #: admin/bsf-analytics/class-bsf-analytics.php:403
 #. translators: %s Product title
 msgid "Allow %s products to track non-sensitive usage tracking data."
-msgstr "Sta %s producten toe om niet-gevoelige gebruikstraceringgegevens te volgen."
+msgstr "Permitir que los productos %s rastreen datos de seguimiento de uso no sensibles."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:406
 msgid " This will be applicable for all sites from the network."
-msgstr "Dit is van toepassing op alle sites van het netwerk."
+msgstr "Esto será aplicable para todos los sitios de la red."
 
 #: admin/bsf-analytics/class-bsf-analytics.php:411
 msgid "Learn More."
-msgstr "Leer meer."
+msgstr "Aprender más."
 
 #: admin/index.php:88
 msgid "All in One Schema.org Rich Snippets - Dashboard"
-msgstr "Alles-in-één Schema.org Rich Snippets - Dashboard"
+msgstr "Todos en Uno Esquema.org Rich Snippets - Panel de control"
 
 #: admin/index.php:93
 msgid "Configuration"
-msgstr "Configuratie"
+msgstr "Configuración"
 
 #: admin/index.php:94
 msgid "Customization"
-msgstr "Aanpassing"
+msgstr "Personalización"
 
 #: admin/index.php:96
 msgid "FAQs"
-msgstr "Veelgestelde vragen"
+msgstr "Preguntas frecuentes"
 
 #: admin/index.php:97
 msgid "Getting Started"
-msgstr "Aan de slag"
+msgstr "Comenzando"
 
 #: admin/index.php:104
 msgid "Choose the schema markup and update the strings you want to display on the front-end."
-msgstr "Kies de schema markup en werk de teksten bij die je op de voorkant wilt weergeven."
+msgstr "Elige el marcado de esquema y actualiza las cadenas que deseas mostrar en el front-end."
 
 #: admin/index.php:110
 #: meta-boxes.php:56
 msgid "Item Review"
-msgstr "Itembeoordeling"
+msgstr "Reseña del artículo"
 
 #: admin/index.php:113
 msgid "Strings to be displayed on frontend for <strong>Item Review Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Item Review Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Artículos &mdash;</strong>"
 
 #: admin/index.php:119
 #: admin/index.php:160
@@ -123,23 +123,23 @@ msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Item R
 #: admin/index.php:456
 #: admin/index.php:505
 msgid "Rich Snippet Title :"
-msgstr "Titel van de Rich Snippet :"
+msgstr "Título de la Reseña :"
 
 #: admin/index.php:123
 msgid "Reviewer :"
-msgstr "Beoordelaar :"
+msgstr "Revisor :"
 
 #: admin/index.php:127
 msgid "Review Date :"
-msgstr "Beoordelingsdatum :"
+msgstr "Fecha de la Reseña :"
 
 #: admin/index.php:131
 msgid "Item Name :"
-msgstr "Itemnaam :"
+msgstr "Nombre del Artículo :"
 
 #: admin/index.php:135
 msgid "Item Ratings :"
-msgstr "Itembeoordelingen :"
+msgstr "Calificaciones del Artículo :"
 
 #: admin/index.php:141
 #: admin/index.php:190
@@ -152,7 +152,7 @@ msgstr "Itembeoordelingen :"
 #: admin/index.php:543
 #: admin/index.php:868
 msgid "Update "
-msgstr "Bijwerken"
+msgstr "Actualizar"
 
 #: admin/index.php:141
 #: admin/index.php:190
@@ -165,31 +165,31 @@ msgstr "Bijwerken"
 #: admin/index.php:543
 #: admin/index.php:833
 msgid "Reset "
-msgstr "Resetten"
+msgstr "Restablecer"
 
 #: admin/index.php:151
 msgid "Events"
-msgstr "Evenementen"
+msgstr "Eventos"
 
 #: admin/index.php:154
 msgid "Strings to be displayed on frontend for <strong>Events Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Events Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Eventos &mdash;</strong>"
 
 #: admin/index.php:164
 msgid "Event Title :"
-msgstr "Titel van het evenement :"
+msgstr "Título del Evento :"
 
 #: admin/index.php:168
 msgid "Event Location :"
-msgstr "Locatie van het evenement :"
+msgstr "Ubicación del Evento :"
 
 #: admin/index.php:172
 msgid "Start Time :"
-msgstr "Starttijd :"
+msgstr "Hora de Inicio :"
 
 #: admin/index.php:176
 msgid "End Time :"
-msgstr "Eindtijd :"
+msgstr "Hora de Finalización :"
 
 #: admin/index.php:180
 #: admin/index.php:335
@@ -197,144 +197,144 @@ msgstr "Eindtijd :"
 #: admin/index.php:468
 #: admin/index.php:517
 msgid "Description :"
-msgstr "Beschrijving :"
+msgstr "Descripción :"
 
 #: admin/index.php:184
 msgid "Ticket Promotion :"
-msgstr "Ticketpromotie :"
+msgstr "Promoción de Entradas :"
 
 #: admin/index.php:200
 #: meta-boxes.php:64
 msgid "Person"
-msgstr "Persoon"
+msgstr "Persona"
 
 #: admin/index.php:203
 msgid "Strings to be displayed on frontend for <strong>Person's Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Person's Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Personas &mdash;</strong>"
 
 #: admin/index.php:213
 msgid "Person's Name :"
-msgstr "Naam van de persoon :"
+msgstr "Nombre de la Persona :"
 
 #: admin/index.php:217
 msgid "Nick Name :"
-msgstr "Bijnaam :"
+msgstr "Apodo :"
 
 #: admin/index.php:221
 msgid "Job Title :"
-msgstr "Functietitel :"
+msgstr "Título del Trabajo :"
 
 #: admin/index.php:225
 msgid "Home page :"
-msgstr "Startpagina :"
+msgstr "Página de inicio :"
 
 #: admin/index.php:229
 msgid "Company Name :"
-msgstr "Bedrijfsnaam :"
+msgstr "Nombre de la Empresa :"
 
 #: admin/index.php:233
 msgid "Address :"
-msgstr "Adres :"
+msgstr "Dirección :"
 
 #: admin/index.php:249
 #: meta-boxes.php:68
 #: meta-boxes.php:132
 msgid "Product"
-msgstr "Product"
+msgstr "Producto"
 
 #: admin/index.php:252
 msgid "Strings to be displayed on frontend for <strong>Product Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Product Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Productos &mdash;</strong>"
 
 #: admin/index.php:262
 #: admin/index.php:368
 msgid "Author Rating :"
-msgstr "Beoordeling auteur :"
+msgstr "Calificación del Autor :"
 
 #: admin/index.php:266
 msgid "Brand Name :"
-msgstr "Merknaam :"
+msgstr "Nombre de la Marca :"
 
 #: admin/index.php:270
 msgid "Product Name :"
-msgstr "Productnaam :"
+msgstr "Nombre del Producto :"
 
 #: admin/index.php:274
 #: admin/index.php:372
 msgid "User Rating :"
-msgstr "Beoordeling gebruiker :"
+msgstr "Calificación del Usuario :"
 
 #: admin/index.php:278
 msgid "Price :"
-msgstr "Prijs :"
+msgstr "Precio :"
 
 #: admin/index.php:282
 msgid "Product Availability :"
-msgstr "Beschikbaarheid van het product :"
+msgstr "Disponibilidad del Producto :"
 
 #: admin/index.php:298
 #: meta-boxes.php:72
 #: meta-boxes.php:136
 msgid "Recipe"
-msgstr "Recept"
+msgstr "Receta"
 
 #: admin/index.php:301
 msgid "Strings to be displayed on frontend for <strong>Recipe Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Recipe Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Recetas &mdash;</strong>"
 
 #: admin/index.php:311
 msgid "Recipe Name :"
-msgstr "Naam van het recept :"
+msgstr "Nombre de la Receta :"
 
 #: admin/index.php:315
 msgid "Author Name :"
-msgstr "Naam van de auteur :"
+msgstr "Nombre del Autor :"
 
 #: admin/index.php:319
 msgid "Published On : "
-msgstr "Gepubliceerd op :"
+msgstr "Publicado el :"
 
 #: admin/index.php:323
 msgid "Preparation Time:"
-msgstr "Bereidingstijd:"
+msgstr "Tiempo de Preparación:"
 
 #: admin/index.php:327
 msgid "Cook Time :"
-msgstr "Kooktijd :"
+msgstr "Tiempo de Cocción :"
 
 #: admin/index.php:331
 msgid "Total Time :"
-msgstr "Totale tijd :"
+msgstr "Tiempo Total :"
 
 #: admin/index.php:339
 msgid "Average Rating:"
-msgstr "Gemiddelde beoordeling:"
+msgstr "Calificación Promedio:"
 
 #: admin/index.php:355
 #: meta-boxes.php:76
 #: meta-boxes.php:140
 msgid "Software Application"
-msgstr "Softwaretoepassing"
+msgstr "Aplicación de Software"
 
 #: admin/index.php:358
 msgid "Strings to be displayed on frontend for <strong>Software Application Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Software Application Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Aplicaciones de Software &mdash;</strong>"
 
 #: admin/index.php:376
 msgid "Software Price :"
-msgstr "Prijs van de software :"
+msgstr "Precio del Software :"
 
 #: admin/index.php:380
 msgid "Software Name:"
-msgstr "Naam van de software:"
+msgstr "Nombre del Software:"
 
 #: admin/index.php:384
 msgid "Operating System :"
-msgstr "Besturingssysteem :"
+msgstr "Sistema Operativo :"
 
 #: admin/index.php:388
 msgid "Landing Page:"
-msgstr "Landingspagina:"
+msgstr "Página de Aterrizaje:"
 
 #: admin/index.php:406
 #: meta-boxes.php:80
@@ -345,73 +345,73 @@ msgstr "Video"
 
 #: admin/index.php:409
 msgid "Strings to be displayed on frontend for <strong>Video Rich Snippets &mdash;</strong>"
-msgstr "Teksten die op de voorkant moeten worden weergegeven voor <strong>Video Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el front-end para <strong>Reseñas Ricas de Videos &mdash;</strong>"
 
 #: admin/index.php:419
 msgid "Video Title :"
-msgstr "Videotitel :"
+msgstr "Título del video :"
 
 #: admin/index.php:427
 msgid "Video Duration :"
-msgstr "Videoduur :"
+msgstr "Duración del video :"
 
 #: admin/index.php:431
 msgid "Video Upload Date :"
-msgstr "Videouploaddatum :"
+msgstr "Fecha de carga del video :"
 
 #: admin/index.php:447
 #: meta-boxes.php:84
 msgid "Article"
-msgstr "Artikel"
+msgstr "Artículo"
 
 #: admin/index.php:450
 msgid "Strings to be displayed on frontend for <strong>Article Rich Snippets &mdash;</strong>"
-msgstr "Strings die op de frontend moeten worden weergegeven voor <strong>Artikel Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el frontend para <strong>Fragmentos enriquecidos de artículos &mdash;</strong>"
 
 #: admin/index.php:460
 msgid "Article Name :"
-msgstr "Artikelnaam :"
+msgstr "Nombre del artículo :"
 
 #: admin/index.php:464
 msgid "Author :"
-msgstr "Auteur :"
+msgstr "Autor :"
 
 #: admin/index.php:472
 msgid "Image :"
-msgstr "Afbeelding :"
+msgstr "Imagen :"
 
 #: admin/index.php:476
 msgid "Publisher :"
-msgstr "Uitgever :"
+msgstr "Editor :"
 
 #: admin/index.php:480
 msgid "Publisher Logo :"
-msgstr "Uitgever Logo :"
+msgstr "Logo del editor :"
 
 #: admin/index.php:496
 #: meta-boxes.php:88
 msgid "Service"
-msgstr "Dienst"
+msgstr "Servicio"
 
 #: admin/index.php:499
 msgid "Strings to be displayed on frontend for <strong>Service Rich Snippets &mdash;</strong>"
-msgstr "Strings die op de frontend moeten worden weergegeven voor <strong>Dienst Rich Snippets &mdash;</strong>"
+msgstr "Cadenas que se mostrarán en el frontend para <strong>Service Rich Snippets &mdash;</strong>"
 
 #: admin/index.php:509
 msgid "Service Type :"
-msgstr "Dientype :"
+msgstr "Tipo de servicio :"
 
 #: admin/index.php:513
 msgid "Area :"
-msgstr "Gebied :"
+msgstr "Área :"
 
 #: admin/index.php:521
 msgid "Provider Name :"
-msgstr "Providernaam :"
+msgstr "Nombre del proveedor :"
 
 #: admin/index.php:525
 msgid "Provider Location :"
-msgstr "Providerlocatie :"
+msgstr "Ubicación del proveedor :"
 
 #: admin/index.php:529
 msgid "URL :"
@@ -419,11 +419,11 @@ msgstr "URL :"
 
 #: admin/index.php:533
 msgid "URL Text :"
-msgstr "URL-tekst :"
+msgstr "Texto de URL :"
 
 #: admin/index.php:537
 msgid "Service Rating :"
-msgstr "Dienstbeoordeling :"
+msgstr "Calificación del servicio :"
 
 #: admin/index.php:555
 msgid ""
@@ -432,22 +432,22 @@ msgid ""
 "href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Know more "
 "about Schema Pro.</a>"
 msgstr ""
-"Heeft u meer schema-typen nodig met automatisering om schema-markup te implementeren? Krijg de nieuwste en premium "
-"schema-markup-plugin om het proces van het toevoegen van schema-markup op uw hele website te automatiseren. <br><a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Meer weten "
-"over Schema Pro.</a>"
+"¿Necesitas más tipos de esquema con automatización para implementar el marcado de esquema? Obtén el último y premium "
+"plugin de marcado de esquema para automatizar el proceso de agregar marcado de esquema en todo tu sitio web. <br><a "
+"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=configure' target='_blank'> Conoce más "
+"sobre Schema Pro.</a>"
 
 #: admin/index.php:567
 msgid "Welcome to All In One Schema Rich Snippets"
-msgstr "Welkom bij All In One Schema Rich Snippets"
+msgstr "Bienvenido a All In One Schema Rich Snippets"
 
 #: admin/index.php:598
 msgid "How it works"
-msgstr "Hoe het werkt"
+msgstr "Cómo funciona"
 
 #: admin/index.php:601
 msgid "Configure The Settings"
-msgstr "Configureer de instellingen"
+msgstr "Configura la configuración"
 
 #: admin/index.php:602
 msgid ""
@@ -455,25 +455,25 @@ msgid ""
 "type and update the strings you want to display on the front-end. You can use the Customization tab to manage how your "
 "rich snippet content box will look."
 msgstr ""
-"Ga naar de optie “Rich Snippets” in uw WordPress-dashboard. Onder het tabblad Configuratie selecteert u uw gewenste "
-"schema-type en werkt u de strings bij die u op de frontend wilt weergeven. U kunt het tabblad Aanpassing gebruiken om "
-"te beheren hoe uw rich snippet-inhoudsbox eruit zal zien."
+"Ve a la opción “Rich Snippets” en tu panel de WordPress. En la pestaña de Configuración, selecciona el tipo de esquema "
+"deseado y actualiza las cadenas que deseas mostrar en el frontend. Puedes usar la pestaña de Personalización para "
+"gestionar cómo se verá tu caja de contenido de rich snippet."
 
 #: admin/index.php:603
 msgid "Add Markup To Pages"
-msgstr "Markup aan pagina's toevoegen"
+msgstr "Agregar marcado a las páginas"
 
 #: admin/index.php:603
 msgid ""
 "Edit the posts or pages where you wish to add rich snippets and scroll down to the “Configure Rich Snippet” meta box to "
 "add schema markup."
 msgstr ""
-"Bewerk de berichten of pagina's waar u rich snippets wilt toevoegen en scroll naar beneden naar de meta box “Configure "
-"Rich Snippet” om schema-markup toe te voegen."
+"Edita las publicaciones o páginas donde desees agregar rich snippets y desplázate hacia abajo hasta el meta box "
+"“Configurar Rich Snippet” para agregar el marcado de esquema."
 
 #: admin/index.php:604
 msgid "Test Your Rich Snippets"
-msgstr "Test uw rich snippets"
+msgstr "Prueba tus Rich Snippets"
 
 #: admin/index.php:604
 msgid ""
@@ -481,17 +481,18 @@ msgid ""
 "href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> "
 "and fetch your website URL to test the schema markup you’ve just implemented on your webpages."
 msgstr ""
-"Google Structured Data Testing is een veelgebruikt online hulpmiddel om gestructureerde gegevens te testen. Open de <a "
-"href='https://search.google.com/structured-data/testing-tool/u/0/' target='_blank'>Google Structured Testing Tool</a> "
-"en haal uw website-URL op om de schema-markup te testen die u zojuist op uw webpagina's hebt geïmplementeerd."
+"La prueba de datos estructurados de Google es una herramienta en línea ampliamente utilizada para probar datos "
+"estructurados. Abre la <a href='https://search.google.com/structured-data/testing-tool/u/0/' "
+"target='_blank'>Herramienta de prueba de datos estructurados de Google</a> y obtén la URL de tu sitio web para probar "
+"el marcado de esquema que acabas de implementar en tus páginas web."
 
 #: admin/index.php:609
 msgid "Want to Automate Your Schema Markup?"
-msgstr "Wilt u uw schema-markup automatiseren?"
+msgstr "¿Quieres automatizar tu marcado de esquema?"
 
 #: admin/index.php:611
 msgid "Consider Schema Pro"
-msgstr "Overweeg Schema Pro"
+msgstr "Considera Schema Pro"
 
 #: admin/index.php:612
 msgid ""
@@ -500,58 +501,58 @@ msgid ""
 "you can kick those front-end content boxes to the curb and<b> get rich snippets without displaying any new "
 "human-readable content</b> on your site."
 msgstr ""
-"Schema Pro is een geavanceerde schema-markup-plugin die het proces van het toevoegen van schema-markup op meerdere "
-"pagina's automatiseert met slechts een paar klikken. Schema Pro gebruikt JSON-LD-markup, wat de nieuwste technologie is "
-"die door Google wordt aanbevolen. Hiermee kunt u die frontend-inhoudsboxen aan de kant zetten en <b>rijke snippets "
-"krijgen zonder nieuwe leesbare inhoud op uw site weer te geven</b>."
+"Schema Pro es un plugin avanzado de marcado de esquema que automatiza el proceso de agregar marcado de esquema en "
+"múltiples páginas con solo unos pocos clics. Schema Pro utiliza marcado JSON-LD, que es la última tecnología "
+"recomendada por Google. Con él, puedes deshacerte de esas cajas de contenido en el frontend y <b> obtener rich snippets "
+"sin mostrar ningún nuevo contenido legible por humanos</b> en tu sitio."
 
 #: admin/index.php:685
 msgid "With Schema Pro, you can…"
-msgstr "Met Schema Pro kunt u…"
+msgstr "Con Schema Pro, puedes…"
 
 #: admin/index.php:695
 msgid "Testimonials"
-msgstr "Getuigenissen"
+msgstr "Testimonios"
 
 #: admin/index.php:746
 msgid "Where can I test my schema markup implementation?"
-msgstr "Waar kan ik mijn schema markup implementatie testen?"
+msgstr "¿Dónde puedo probar la implementación de mi marcado de esquema?"
 
 #: admin/index.php:748
 msgid ""
 "You can use the standard Google Structured Data Testing Tool to test your schema markup implementation. You can also "
 "take a look at the preview of how your search result might look."
 msgstr ""
-"Je kunt de standaard Google Structured Data Testing Tool gebruiken om je schema markup implementatie te testen. Je kunt "
-"ook een kijkje nemen naar de preview van hoe je zoekresultaat eruit zou kunnen zien."
+"Puedes usar la herramienta estándar de prueba de datos estructurados de Google para probar la implementación de tu "
+"marcado de esquema. También puedes echar un vistazo a la vista previa de cómo podría verse tu resultado de búsqueda."
 
 #: admin/index.php:753
 msgid "Do I have to fill in all the details?"
-msgstr "Moet ik alle details invullen?"
+msgstr "¿Tengo que completar todos los detalles?"
 
 #: admin/index.php:755
 msgid ""
 "No. But, every schema type has some fields that HAVE to be filled as stated by Google. Therefore, it is recommended to "
 "fill these required fields in the schema markup you are implementing."
 msgstr ""
-"Nee. Maar, elk schema type heeft enkele velden die MOETEN worden ingevuld zoals aangegeven door Google. Daarom wordt "
-"aanbevolen om deze vereiste velden in de schema markup die je implementeert in te vullen."
+"No. Pero, cada tipo de esquema tiene algunos campos que DEBEN ser completados según lo indicado por Google. Por lo "
+"tanto, se recomienda completar estos campos requeridos en el marcado de esquema que estás implementando."
 
 #: admin/index.php:760
 msgid "Why does the plugin create extra content in the frontend? Can I hide it?"
-msgstr "Waarom creëert de plugin extra inhoud aan de voorkant? Kan ik het verbergen?"
+msgstr "¿Por qué el plugin crea contenido extra en el frontend? ¿Puedo ocultarlo?"
 
 #: admin/index.php:769
 msgid "Does the plugin work with other plugins like WordPress SEO, WooCommerce, etc?"
-msgstr "Werkt de plugin met andere plugins zoals WordPress SEO, WooCommerce, enz.?"
+msgstr "¿El plugin funciona con otros plugins como WordPress SEO, WooCommerce, etc.?"
 
 #: admin/index.php:776
 msgid "How long will it take to show up rich snippets for my search results?"
-msgstr "Hoe lang duurt het voordat rijke snippets voor mijn zoekresultaten verschijnen?"
+msgstr "¿Cuánto tiempo tomará para que aparezcan los fragmentos enriquecidos en mis resultados de búsqueda?"
 
 #: admin/index.php:785
 msgid "I don't see the feature I want. How can I get it?"
-msgstr "Ik zie de functie die ik wil niet. Hoe kan ik het krijgen?"
+msgstr "No veo la función que quiero. ¿Cómo puedo obtenerla?"
 
 #: admin/index.php:787
 msgid ""
@@ -559,47 +560,47 @@ msgid ""
 "development roadmap. If it is not in our roadmap, and if you still think this feature would make the plugin better, we "
 "have a couple of options for you:"
 msgstr ""
-"<a href='https://wpschema.com/contact/' target='_blank'>Neem contact</a> met ons op om te vragen of deze functie op "
-"onze ontwikkelingsroadmap staat. Als het niet op onze roadmap staat, en als je nog steeds denkt dat deze functie de "
-"plugin beter zou maken, hebben we een paar opties voor je:"
+"<a href='https://wpschema.com/contact/' target='_blank'>Ponte en contacto</a> con nosotros para preguntar si esta "
+"función está en nuestra hoja de ruta de desarrollo. Si no está en nuestra hoja de ruta, y si aún crees que esta función "
+"haría que el plugin fuera mejor, tenemos un par de opciones para ti:"
 
 #: admin/index.php:789
 msgid ""
 "Code the new feature if you are a developer and submit your code. If we include this feature in our releases, credits "
 "will be given to you."
 msgstr ""
-"Code de nieuwe functie als je een ontwikkelaar bent en dien je code in. Als we deze functie in onze releases opnemen, "
-"krijg je credits."
+"Codifica la nueva función si eres un desarrollador y envía tu código. Si incluimos esta función en nuestras versiones, "
+"se te dará crédito."
 
 #: admin/index.php:790
 msgid "Offer a sponsorship to get this feature done for all plugin users OR request a professional customisation service."
 msgstr ""
-"Bied een sponsoring aan om deze functie voor alle plugin gebruikers te laten uitvoeren OF vraag een professionele "
-"aanpassingsdienst aan."
+"Ofrece un patrocinio para que esta función se realice para todos los usuarios del plugin O solicita un servicio de "
+"personalización profesional."
 
 #: admin/index.php:805
 msgid "<span>Customize the look and feel of rich snippet box</span>"
-msgstr "<span>Pas het uiterlijk en gevoel van de rijke snippet box aan</span>"
+msgstr "<span>Personaliza la apariencia y el estilo de la caja de fragmento enriquecido</span>"
 
 #: admin/index.php:812
 msgid "Box Background "
-msgstr "Achtergrond van de box"
+msgstr "Fondo de la caja"
 
 #: admin/index.php:816
 msgid "Title Background"
-msgstr "Achtergrond van de titel"
+msgstr "Fondo del título"
 
 #: admin/index.php:820
 msgid "Border Color"
-msgstr "Randkleur"
+msgstr "Color del borde"
 
 #: admin/index.php:824
 msgid "Title Color"
-msgstr "Titelkleur"
+msgstr "Color del título"
 
 #: admin/index.php:828
 msgid "Snippet Text Color"
-msgstr "Snippet tekstkleur"
+msgstr "Color del texto del fragmento"
 
 #: admin/index.php:840
 msgid ""
@@ -608,14 +609,14 @@ msgid ""
 "href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Know more "
 "about Schema Pro.</a>"
 msgstr ""
-"Wil je geen inhoudsbox aan de voorkant toevoegen? Krijg de nieuwste en premium schema markup plugin die het door Google "
-"aanbevolen JSON-LD gestructureerde gegevensformaat toevoegt zonder de inhoudsbox. <a "
-"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Meer weten "
-"over Schema Pro.</a>"
+"¿No quieres agregar una caja de contenido en el frontend? Obtén el último y premium plugin de marcado de esquema que "
+"agrega el formato de datos estructurados JSON-LD recomendado por Google sin la caja de contenido. <a "
+"href='https://wpschema.com/?utm_source=allinone&utm_campaign=repo&utm_medium=customize' target='_blank'> Conoce más "
+"sobre Schema Pro.</a>"
 
 #: admin/index.php:854
 msgid "WooCommerce Configuration"
-msgstr "WooCommerce Configuratie"
+msgstr "Configuración de WooCommerce"
 
 #: admin/index.php:858
 msgid ""
@@ -623,117 +624,119 @@ msgid ""
 "duplicate schema so it is not recommended. If you could still like to enable our plugin on WooCommerce products, please "
 "enable this option."
 msgstr ""
-"WooCommerce komt standaard met Schema.org code en het gebruik van onze plugin op WooCommerce productpagina's zal "
-"dubbele schema toevoegen, dus het wordt niet aanbevolen. Als je onze plugin toch op WooCommerce producten wilt "
-"inschakelen, schakel dan deze optie in."
+"WooCommerce viene con código Schema.org por defecto y usar nuestro plugin en las páginas de productos de WooCommerce "
+"agregará esquema duplicado, por lo que no se recomienda. Si aún deseas habilitar nuestro plugin en productos de "
+"WooCommerce, por favor habilita esta opción."
 
 #: admin/index.php:1071
 msgid "Success! Your changes were successfully saved!"
-msgstr "Succes! Je wijzigingen zijn succesvol opgeslagen!"
+msgstr "¡Éxito! ¡Tus cambios se guardaron correctamente!"
 
 #: admin/index.php:1073
 msgid "Sorry, Your changes are not saved!"
-msgstr "Sorry, uw wijzigingen zijn niet opgeslagen!"
+msgstr "¡Lo siento, tus cambios no se guardaron!"
 
 #: admin/index.php:1199
 msgid "Get in touch with the Plugin Developers"
-msgstr "Neem contact op met de plugin-ontwikkelaars"
+msgstr "Ponte en contacto con los desarrolladores del plugin"
 
 #: admin/index.php:1203
 msgid "Just fill out the form below and your message will be emailed to the Plugin Developers."
-msgstr "Vul het onderstaande formulier in en uw bericht wordt per e-mail naar de plugin-ontwikkelaars gestuurd."
+msgstr ""
+"Solo completa el formulario a continuación y tu mensaje será enviado por correo electrónico a los desarrolladores del "
+"plugin."
 
 #: admin/index.php:1205
 msgid "Your Name:"
-msgstr "Uw naam:"
+msgstr "Tu nombre:"
 
 #: admin/index.php:1207
 msgid "Your Email:"
-msgstr "Uw e-mail:"
+msgstr "Tu correo electrónico:"
 
 #: admin/index.php:1209
 msgid "Reference URL:"
-msgstr "Referentie-URL:"
+msgstr "URL de referencia:"
 
 #: admin/index.php:1211
 msgid "Subject:"
-msgstr "Onderwerp:"
+msgstr "Asunto:"
 
 #: admin/index.php:1222
 msgid "Your Query in Brief:"
-msgstr "Uw vraag in het kort:"
+msgstr "Tu consulta en breve:"
 
 #: functions.php:887
 #. Translators: %s is the error message from the exception.
 msgid "Error creating DateTime object: %s"
-msgstr "Fout bij het maken van DateTime-object: %s"
+msgstr "Error al crear el objeto DateTime: %s"
 
 #: functions.php:1311
 msgid "Error adding your rating"
-msgstr "Fout bij het toevoegen van uw beoordeling"
+msgstr "Error al agregar tu calificación"
 
 #: functions.php:1311
 msgid "Ratings added successfully !"
-msgstr "Beoordelingen succesvol toegevoegd!"
+msgstr "Calificaciones agregadas con éxito!"
 
 #: functions.php:1341
 msgid "Error updating your rating"
-msgstr "Fout bij het bijwerken van uw beoordeling"
+msgstr "Error al actualizar tu calificación"
 
 #: functions.php:1341
 msgid "Ratings updated successfully !"
-msgstr "Beoordelingen succesvol bijgewerkt!"
+msgstr "Calificaciones actualizadas con éxito!"
 
 #: index.php:319
 msgid "Thank you!"
-msgstr "Bedankt!"
+msgstr "¡Gracias!"
 
 #: index.php:319
 msgid "Something went wrong!"
-msgstr "Er is iets misgegaan!"
+msgstr "¡Algo salió mal!"
 
 #: index.php:348
 msgid "Settings saved !"
-msgstr "Instellingen opgeslagen!"
+msgstr "¡Configuraciones guardadas!"
 
 #: index.php:348
 msgid "Error occured. Settings were not saved !"
-msgstr "Fout opgetreden. Instellingen zijn niet opgeslagen!"
+msgstr "Ocurrió un error. ¡Las configuraciones no se guardaron!"
 
 #: init.php:653
 msgid "Please Try Again"
-msgstr "Probeer het opnieuw"
+msgstr "Por favor, inténtalo de nuevo"
 
 #: init.php:668
 msgid "Remove Embed"
-msgstr "Verwijder insluiting"
+msgstr "Eliminar Embed"
 
 #: init.php:674
 #. translators: %s: $fallback
 msgid "No oEmbed Results Found for %s. View more info at"
-msgstr "Geen oEmbed-resultaten gevonden voor %s. Bekijk meer informatie op"
+msgstr "No se encontraron resultados de oEmbed para %s. Ver más información en"
 
 #: lib/notices/class-astra-notices.php:125
 msgid "WordPress Nonce not validated."
-msgstr "WordPress Nonce niet gevalideerd."
+msgstr "Nonce de WordPress no validado."
 
 #: meta-boxes.php:38
 msgid "Configure Rich Snippet"
-msgstr "Configureer Rich Snippet"
+msgstr "Configurar Rich Snippet"
 
 #: meta-boxes.php:52
 msgid "Select what this post is about"
-msgstr "Selecteer waar deze post over gaat"
+msgstr "Selecciona de qué trata esta publicación"
 
 #: meta-boxes.php:60
 #: meta-boxes.php:128
 #: settings.php:28
 msgid "Event"
-msgstr "Evenement"
+msgstr "Evento"
 
 #: meta-boxes.php:96
 msgid "Rich Snippets - Item Review"
-msgstr "Rich Snippets - Itembeoordeling"
+msgstr "Rich Snippets - Revisión de Artículo"
 
 #: meta-boxes.php:97
 #: meta-boxes.php:350
@@ -747,80 +750,80 @@ msgstr "Rich Snippets - Itembeoordeling"
 #: meta-boxes.php:922
 #: meta-boxes.php:973
 msgid "Please provide the following information."
-msgstr "Geef de volgende informatie op."
+msgstr "Por favor proporciona la siguiente información."
 
 #: meta-boxes.php:103
 msgid "Reviewer&rsquo;s Name "
-msgstr "Naam van de beoordelaar"
+msgstr "Nombre del Revisor"
 
 #: meta-boxes.php:104
 msgid "Enter the name of Item Reviewer or The Post Author."
-msgstr "Voer de naam in van de itembeoordelaar of de auteur van de post."
+msgstr "Ingresa el nombre del revisor del artículo o del autor de la publicación."
 
 #: meta-boxes.php:110
 msgid "Item to be reviewed"
-msgstr "Te beoordelen item"
+msgstr "Artículo a revisar"
 
 #: meta-boxes.php:111
 msgid "Enter the name of the item, you are writing review about."
-msgstr "Voer de naam in van het item waarover u een beoordeling schrijft."
+msgstr "Ingresa el nombre del artículo sobre el que estás escribiendo la reseña."
 
 #: meta-boxes.php:117
 msgid "Item Review Type"
-msgstr "Type itembeoordeling"
+msgstr "Tipo de Revisión del Artículo"
 
 #: meta-boxes.php:118
 msgid "Select the item to be reviewed."
-msgstr "Selecteer het item dat beoordeeld moet worden."
+msgstr "Selecciona el artículo a revisar."
 
 #: meta-boxes.php:124
 msgid "Select Item type"
-msgstr "Selecteer itemtype"
+msgstr "Seleccionar tipo de artículo"
 
 #: meta-boxes.php:150
 msgid "Event Name"
-msgstr "Naam van het evenement"
+msgstr "Nombre del Evento"
 
 #: meta-boxes.php:151
 msgid "Enter the Event name."
-msgstr "Voer de naam van het evenement in."
+msgstr "Ingresa el nombre del evento."
 
 #: meta-boxes.php:157
 msgid "Event Start Date "
-msgstr "Startdatum evenement"
+msgstr "Fecha de Inicio del Evento"
 
 #: meta-boxes.php:158
 #: meta-boxes.php:406
 msgid "Provide the Event Start Date."
-msgstr "Geef de startdatum van het evenement op."
+msgstr "Proporciona la fecha de inicio del evento."
 
 #: meta-boxes.php:164
 msgid "Event Location "
-msgstr "Locatie van het evenement"
+msgstr "Ubicación del Evento"
 
 #: meta-boxes.php:165
 #: meta-boxes.php:364
 msgid "Location Name Here"
-msgstr "Locatienaam hier"
+msgstr "Nombre de la Ubicación Aquí"
 
 #: meta-boxes.php:172
 #: meta-boxes.php:371
 #: meta-boxes.php:1015
 msgid "Street Address"
-msgstr "Straatadres"
+msgstr "Dirección"
 
 #: meta-boxes.php:179
 #: meta-boxes.php:378
 #: meta-boxes.php:1022
 msgid "Locality"
-msgstr "Plaats"
+msgstr "Localidad"
 
 #: meta-boxes.php:186
 #: meta-boxes.php:385
 #: meta-boxes.php:591
 #: meta-boxes.php:1029
 msgid "Region"
-msgstr "Regio"
+msgstr "Región"
 
 #: meta-boxes.php:193
 #: meta-boxes.php:392
@@ -828,43 +831,43 @@ msgstr "Regio"
 #: meta-boxes.php:598
 #: meta-boxes.php:1036
 msgid "Postal Code"
-msgstr "Postcode"
+msgstr "Código Postal"
 
 #: meta-boxes.php:199
 #: meta-boxes.php:649
 #: settings.php:62
 msgid "Product Name"
-msgstr "Productnaam"
+msgstr "Nombre del Producto"
 
 #: meta-boxes.php:200
 msgid "Enter the Product name."
-msgstr "Voer de productnaam in."
+msgstr "Ingresa el nombre del producto."
 
 #: meta-boxes.php:206
 #: meta-boxes.php:656
 msgid "Product Image"
-msgstr "Productafbeelding"
+msgstr "Imagen del Producto"
 
 #: meta-boxes.php:207
 #: meta-boxes.php:657
 msgid "Upload the product image or select from library. Medium size is recommended (300px X 300px)"
-msgstr "Upload de productafbeelding of selecteer uit de bibliotheek. Middelgrote afbeelding is aanbevolen (300px X 300px)"
+msgstr "Sube la imagen del producto o selecciona de la biblioteca. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:213
 #: meta-boxes.php:663
 msgid "Product Price"
-msgstr "Productprijs"
+msgstr "Precio del Producto"
 
 #: meta-boxes.php:214
 #: meta-boxes.php:664
 msgid "Enter the product Price."
-msgstr "Voer de productprijs in."
+msgstr "Ingresa el precio del producto."
 
 #: meta-boxes.php:220
 #: meta-boxes.php:426
 #: meta-boxes.php:670
 msgid "Currency "
-msgstr "Valuta"
+msgstr "Moneda"
 
 #: meta-boxes.php:221
 #: meta-boxes.php:427
@@ -874,183 +877,183 @@ msgid ""
 "Enter the Currency Code(e.g USD, INR, AUD, EUR, GBP). <a "
 "href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Know you currency code</a>"
 msgstr ""
-"Voer de valutacode in (bijv. USD, INR, AUD, EUR, GBP). <a "
-"href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Ken uw valutacode</a>"
+"Ingresa el código de moneda (por ejemplo, USD, INR, AUD, EUR, GBP). <a "
+"href=\"http://www.science.co.il/International/Currency-Codes.asp\" target=\"_blank\"> Conoce tu código de moneda</a>"
 
 #: meta-boxes.php:227
 #: meta-boxes.php:677
 msgid "Availability"
-msgstr "Beschikbaarheid"
+msgstr "Disponibilidad"
 
 #: meta-boxes.php:228
 #: meta-boxes.php:678
 msgid "Select the products availability."
-msgstr "Selecteer de beschikbaarheid van de producten."
+msgstr "Selecciona la disponibilidad de los productos."
 
 #: meta-boxes.php:234
 #: meta-boxes.php:684
 msgid "__ Please Select __"
-msgstr "__ Selecteer alstublieft __"
+msgstr "__ Por favor selecciona __"
 
 #: meta-boxes.php:238
 #: meta-boxes.php:688
 msgid "Out of Stock"
-msgstr "Niet op voorraad"
+msgstr "Agotado"
 
 #: meta-boxes.php:242
 #: meta-boxes.php:692
 msgid "In Stock"
-msgstr "Op voorraad"
+msgstr "En Stock"
 
 #: meta-boxes.php:246
 #: meta-boxes.php:696
 msgid "In Store Only"
-msgstr "Alleen in de winkel"
+msgstr "Solo en Tienda"
 
 #: meta-boxes.php:250
 #: meta-boxes.php:700
 msgid "Pre-Order"
-msgstr "Pre-order"
+msgstr "Pre-Ordenar"
 
 #: meta-boxes.php:256
 #: meta-boxes.php:713
 msgid "Recipe Name "
-msgstr "Receptnaam"
+msgstr "Nombre de la Receta"
 
 #: meta-boxes.php:257
 #: meta-boxes.php:714
 msgid "Enter the recipe name."
-msgstr "Voer de receptnaam in."
+msgstr "Ingresa el nombre de la receta."
 
 #: meta-boxes.php:263
 #: meta-boxes.php:769
 msgid "Recipe Photo"
-msgstr "Receptfoto"
+msgstr "Foto de la Receta"
 
 #: meta-boxes.php:264
 #: meta-boxes.php:770
 msgid "Upload or Select recipe photo. Medium size is recommended (300px X 300px)"
-msgstr "Upload of selecteer een receptfoto. Middelgrote afbeelding is aanbevolen (300px X 300px)"
+msgstr "Sube o selecciona la foto de la receta. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:270
 #: settings.php:99
 msgid "Software Name"
-msgstr "Software naam"
+msgstr "Nombre del Software"
 
 #: meta-boxes.php:271
 msgid "Enter the Software name."
-msgstr "Voer de naam van de software in."
+msgstr "Ingresa el nombre del software."
 
 #: meta-boxes.php:277
 msgid "Software Operating System"
-msgstr "Software besturingssysteem"
+msgstr "Sistema Operativo del Software"
 
 #: meta-boxes.php:278
 msgid "Enter the Operating System name."
-msgstr "Voer de naam van het besturingssysteem in."
+msgstr "Ingresa el nombre del sistema operativo."
 
 #: meta-boxes.php:284
 msgid "Software Application Category"
-msgstr "Software applicatiecategorie"
+msgstr "Categoría de Aplicación del Software"
 
 #: meta-boxes.php:285
 msgid "Enter the Application Category name."
-msgstr "Voer de naam van de applicatiecategorie in."
+msgstr "Ingresa el nombre de la categoría de la aplicación."
 
 #: meta-boxes.php:291
 #: meta-boxes.php:869
 msgid "Video Title"
-msgstr "Videotitel"
+msgstr "Título del Video"
 
 #: meta-boxes.php:292
 #: meta-boxes.php:870
 msgid "Enter the title for this video"
-msgstr "Voer de titel voor deze video in"
+msgstr "Ingresa el título de este video"
 
 #: meta-boxes.php:298
 #: meta-boxes.php:876
 msgid "Video Description"
-msgstr "Videobeschrijving"
+msgstr "Descripción del Video"
 
 #: meta-boxes.php:299
 #: meta-boxes.php:877
 msgid "Enter the brief description for this video"
-msgstr "Voer de korte beschrijving voor deze video in"
+msgstr "Ingresa la breve descripción de este video"
 
 #: meta-boxes.php:305
 #: meta-boxes.php:883
 msgid "Video Thumbnail"
-msgstr "Videominiatuur"
+msgstr "Miniatura del Video"
 
 #: meta-boxes.php:306
 #: meta-boxes.php:884
 msgid "Upload or select video thumbnail from gallery. Medium size is recommended (300px X 300px)"
-msgstr "Upload of selecteer een videominiatuur uit de galerij. Middelgrote afbeelding is aanbevolen (300px X 300px)"
+msgstr "Sube o selecciona la miniatura del video de la galería. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:312
 #: meta-boxes.php:913
 #: settings.php:115
 msgid "Upload Date"
-msgstr "Uploaddatum"
+msgstr "Fecha de Subida"
 
 #: meta-boxes.php:313
 #: meta-boxes.php:914
 msgid "Provide the date when the video is uploaded"
-msgstr "Geef de datum op waarop de video is geüpload"
+msgstr "Proporciona la fecha en que se subió el video"
 
 #: meta-boxes.php:319
 #: meta-boxes.php:613
 msgid "Your Rating"
-msgstr "Uw beoordeling"
+msgstr "Tu Calificación"
 
 #: meta-boxes.php:320
 msgid "&nbsp;&nbsp;Rate this item (1-5)"
-msgstr "&nbsp;&nbsp;Beoordeel dit item (1-5)"
+msgstr "&nbsp;&nbsp;Califica este artículo (1-5)"
 
 #: meta-boxes.php:349
 msgid "Rich Snippets - Events"
-msgstr "Rich Snippets - Evenementen"
+msgstr "Rich Snippets - Eventos"
 
 #: meta-boxes.php:356
 msgid "Event Title "
-msgstr "Evenement Titel"
+msgstr "Título del Evento"
 
 #: meta-boxes.php:357
 msgid "What would be the name of the event?"
-msgstr "Wat zou de naam van het evenement zijn?"
+msgstr "¿Cuál sería el nombre del evento?"
 
 #: meta-boxes.php:363
 msgid "Location "
-msgstr "Locatie"
+msgstr "Ubicación"
 
 #: meta-boxes.php:398
 msgid "Description "
-msgstr "Beschrijving"
+msgstr "Descripción"
 
 #: meta-boxes.php:399
 msgid "Describe the event in short."
-msgstr "Beschrijf het evenement kort."
+msgstr "Describe el evento brevemente."
 
 #: meta-boxes.php:405
 msgid "Start Date "
-msgstr "Startdatum"
+msgstr "Fecha de Inicio"
 
 #: meta-boxes.php:412
 msgid "End Date "
-msgstr "Einddatum"
+msgstr "Fecha de Fin"
 
 #: meta-boxes.php:413
 msgid "Provide the Event End Date."
-msgstr "Geef de einddatum van het evenement op."
+msgstr "Proporciona la fecha de finalización del evento."
 
 #: meta-boxes.php:419
 #: settings.php:33
 msgid "Offer Price"
-msgstr "Aanbiedingsprijs"
+msgstr "Precio de oferta"
 
 #: meta-boxes.php:420
 msgid "Enter the ticket Price."
-msgstr "Voer de ticketprijs in."
+msgstr "Ingrese el precio del boleto."
 
 #: meta-boxes.php:433
 msgid "Url "
@@ -1058,186 +1061,186 @@ msgstr "Url"
 
 #: meta-boxes.php:434
 msgid "Url of buy ticket page"
-msgstr "Url van de pagina om tickets te kopen"
+msgstr "Url de la página de compra de entradas"
 
 #: meta-boxes.php:441
 msgid "Rich Snippets - Music"
-msgstr "Rich Snippets - Muziek"
+msgstr "Rich Snippets - Música"
 
 #: meta-boxes.php:449
 msgid "Rich Snippets - Organization"
-msgstr "Rich Snippets - Organisatie"
+msgstr "Rich Snippets - Organización"
 
 #: meta-boxes.php:456
 msgid "Organization Name "
-msgstr "Organisatienaam"
+msgstr "Nombre de la Organización"
 
 #: meta-boxes.php:457
 msgid "Enter the Company or Organization Name."
-msgstr "Voer de naam van het bedrijf of de organisatie in."
+msgstr "Ingrese el nombre de la empresa u organización."
 
 #: meta-boxes.php:463
 msgid "Website URL "
-msgstr "Website URL"
+msgstr "URL del sitio web"
 
 #: meta-boxes.php:464
 msgid "Enter the Organization homepage url."
-msgstr "Voer de homepage-url van de organisatie in."
+msgstr "Ingrese la URL de la página de inicio de la organización."
 
 #: meta-boxes.php:470
 msgid "Contact No. "
-msgstr "Contactnummer"
+msgstr "Número de contacto."
 
 #: meta-boxes.php:471
 msgid "Enter the Telephone No."
-msgstr "Voer het telefoonnummer in."
+msgstr "Ingrese el número de teléfono."
 
 #: meta-boxes.php:477
 msgid "Address "
-msgstr "Adres"
+msgstr "Dirección"
 
 #: meta-boxes.php:478
 msgid "Street Name."
-msgstr "Straatnaam."
+msgstr "Nombre de la calle."
 
 #: meta-boxes.php:485
 msgid "Locality."
-msgstr "Plaats."
+msgstr "Localidad."
 
 #: meta-boxes.php:492
 msgid "Region."
-msgstr "Regio."
+msgstr "Región."
 
 #: meta-boxes.php:506
 msgid "Country Name"
-msgstr "Landnaam"
+msgstr "Nombre del país"
 
 #: meta-boxes.php:512
 msgid "GEO Location"
-msgstr "GEO-locatie"
+msgstr "Ubicación GEO"
 
 #: meta-boxes.php:513
 msgid "Latitude. <a href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">Find Here.</a>"
-msgstr "Breedtegraad. <a href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">Vind hier.</a>"
+msgstr "Latitud. <a href=\"http://universimmedia.pagesperso-orange.fr/geo/loc.htm\" target=\"_blank\">Encuentra aquí.</a>"
 
 #: meta-boxes.php:520
 msgid "Longitude."
-msgstr "Lengtegraad."
+msgstr "Longitud."
 
 #: meta-boxes.php:527
 msgid "Rich Snippets - Person"
-msgstr "Rich Snippets - Persoon"
+msgstr "Rich Snippets - Persona"
 
 #: meta-boxes.php:534
 msgid "Person&lsquo;s Name"
-msgstr "Naam van de persoon"
+msgstr "Nombre de la persona"
 
 #: meta-boxes.php:535
 msgid "Enter the relative person&lsquo;s name."
-msgstr "Voer de naam van de betreffende persoon in."
+msgstr "Ingrese el nombre del familiar."
 
 #: meta-boxes.php:541
 #: settings.php:45
 msgid "Nickname"
-msgstr "Bijnaam"
+msgstr "Apodo"
 
 #: meta-boxes.php:542
 msgid "Enter the nickname (if any)."
-msgstr "Voer de bijnaam in (indien van toepassing)."
+msgstr "Ingrese el apodo (si lo hay)."
 
 #: meta-boxes.php:548
 msgid "Photograph"
-msgstr "Foto"
+msgstr "Fotografía"
 
 #: meta-boxes.php:549
 msgid "Upload the photo or select from media library. Medium size is recommended (300px X 300px)"
-msgstr "Upload de foto of selecteer uit de mediabibliotheek. Middelgrote afbeelding is aanbevolen (300px X 300px)"
+msgstr "Suba la foto o seleccione de la biblioteca de medios. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:555
 msgid "Job Title "
-msgstr "Functietitel"
+msgstr "Título del trabajo"
 
 #: meta-boxes.php:556
 msgid "Enter job title."
-msgstr "Voer de functietitel in."
+msgstr "Ingrese el título del trabajo."
 
 #: meta-boxes.php:562
 msgid "Homepage URL"
-msgstr "Homepage URL"
+msgstr "URL de la página de inicio"
 
 #: meta-boxes.php:563
 msgid "Enter homepage URL(if any)."
-msgstr "Voer de homepage URL in (indien van toepassing)."
+msgstr "Ingrese la URL de la página de inicio (si la hay)."
 
 #: meta-boxes.php:569
 msgid "Company / Organization"
-msgstr "Bedrijf / Organisatie"
+msgstr "Empresa / Organización"
 
 #: meta-boxes.php:570
 msgid "Enter Company or Organization name in affiliation."
-msgstr "Voer de naam van het bedrijf of de organisatie in de affiliatie in."
+msgstr "Ingrese el nombre de la empresa u organización en afiliación."
 
 #: meta-boxes.php:576
 #: settings.php:49
 msgid "Address"
-msgstr "Adres"
+msgstr "Dirección"
 
 #: meta-boxes.php:577
 msgid "Enter Street"
-msgstr "Voer de straat in"
+msgstr "Ingrese la calle"
 
 #: meta-boxes.php:584
 msgid "Enter Locality"
-msgstr "Voer de plaats in"
+msgstr "Ingrese la localidad"
 
 #: meta-boxes.php:606
 msgid "Rich Snippets - Products"
-msgstr "Rich Snippets - Producten"
+msgstr "Rich Snippets - Productos"
 
 #: meta-boxes.php:614
 msgid "Rate this product or aggregate rating."
-msgstr "Beoordeel dit product of geef een gemiddelde beoordeling."
+msgstr "Califique este producto o calificación agregada."
 
 #: meta-boxes.php:642
 #: settings.php:61
 msgid "Brand Name"
-msgstr "Merknaam"
+msgstr "Nombre de la marca"
 
 #: meta-boxes.php:643
 msgid "Enter the products brand name"
-msgstr "Voer de merknaam van het product in"
+msgstr "Ingrese el nombre de la marca del producto"
 
 #: meta-boxes.php:650
 msgid "Enter the product name."
-msgstr "Voer de productnaam in."
+msgstr "Ingrese el nombre del producto."
 
 #: meta-boxes.php:706
 msgid "Rich Snippets - Recipes"
-msgstr "Rich Snippets - Recepten"
+msgstr "Rich Snippets - Recetas"
 
 #: meta-boxes.php:720
 msgid "Author Name "
-msgstr "Naam van de auteur"
+msgstr "Nombre del autor"
 
 #: meta-boxes.php:721
 msgid "Enter the Author name."
-msgstr "Voer de naam van de auteur in."
+msgstr "Ingrese el nombre del autor."
 
 #: meta-boxes.php:727
 msgid "Time Required "
-msgstr "Tijd benodigd"
+msgstr "Tiempo requerido"
 
 #: meta-boxes.php:728
 msgid "Preperation time  (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr "Bereidingstijd (Formaat: 1H30M. H - Uren, M - Minuten)"
+msgstr "Tiempo de preparación (Formato: 1H30M. H - Horas, M - Minutos)"
 
 #: meta-boxes.php:735
 msgid "Cook Time. (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr "Kooktijd. (Formaat: 1H30M. H - Uren, M - Minuten)"
+msgstr "Tiempo de cocción. (Formato: 1H30M. H - Horas, M - Minutos)"
 
 #: meta-boxes.php:742
 msgid "Total Time  (Format: 1H30M. H - Hours, M - Minutes )"
-msgstr "Totale tijd (Formaat: 1H30M. H - Uren, M - Minuten)"
+msgstr "Tiempo total (Formato: 1H30M. H - Horas, M - Minutos)"
 
 #: meta-boxes.php:748
 #: settings.php:30
@@ -1246,98 +1249,98 @@ msgstr "Totale tijd (Formaat: 1H30M. H - Uren, M - Minuten)"
 #: settings.php:127
 #: settings.php:143
 msgid "Description"
-msgstr "Beschrijving"
+msgstr "Descripción"
 
 #: meta-boxes.php:749
 msgid "Describe the recipe in short."
-msgstr "Beschrijf het recept kort."
+msgstr "Describa la receta brevemente."
 
 #: meta-boxes.php:755
 #: meta-boxes.php:756
 #: settings.php:83
 msgid "Nutrition"
-msgstr "Voeding"
+msgstr "Nutrición"
 
 #: meta-boxes.php:762
 #: settings.php:84
 msgid "Ingredients"
-msgstr "Ingrediënten"
+msgstr "Ingredientes"
 
 #: meta-boxes.php:763
 msgid "Enter the ingredients used"
-msgstr "Voer de gebruikte ingrediënten in"
+msgstr "Ingrese los ingredientes utilizados"
 
 #: meta-boxes.php:777
 msgid "Rich Snippets - Software Application"
-msgstr "Rich Snippets - Softwaretoepassing"
+msgstr "Rich Snippets - Aplicación de software"
 
 #: meta-boxes.php:784
 msgid "Software Rating"
-msgstr "Softwarebeoordeling"
+msgstr "Calificación del software"
 
 #: meta-boxes.php:785
 msgid "Rate this software."
-msgstr "Beoordeel deze software."
+msgstr "Califique este software."
 
 #: meta-boxes.php:813
 #: settings.php:64
 #: settings.php:98
 msgid "Price"
-msgstr "Prijs"
+msgstr "Precio"
 
 #: meta-boxes.php:814
 msgid "Enter the Price of Software"
-msgstr "Voer de prijs van de software in"
+msgstr "Ingrese el precio del software"
 
 #: meta-boxes.php:820
 msgid "Currency"
-msgstr "Valuta"
+msgstr "Moneda"
 
 #: meta-boxes.php:827
 msgid "Software Name "
-msgstr "Software naam"
+msgstr "Nombre del software"
 
 #: meta-boxes.php:828
 msgid "Enter the Software Name."
-msgstr "Voer de naam van de software in."
+msgstr "Ingrese el nombre del software."
 
 #: meta-boxes.php:834
 #: settings.php:100
 msgid "Operating System"
-msgstr "Besturingssysteem"
+msgstr "Sistema operativo"
 
 #: meta-boxes.php:835
 msgid "Enter the software Operating System."
-msgstr "Voer het besturingssysteem van de software in."
+msgstr "Ingrese el sistema operativo del software."
 
 #: meta-boxes.php:841
 msgid "Application Category"
-msgstr "Toepassingscategorie"
+msgstr "Categoría de la aplicación"
 
 #: meta-boxes.php:842
 msgid "Like Game, Multimedia"
-msgstr "Bijvoorbeeld spel, multimedia"
+msgstr "Como Juego, Multimedia"
 
 #: meta-boxes.php:848
 msgid "Software Image"
-msgstr "Software afbeelding"
+msgstr "Imagen del software"
 
 #: meta-boxes.php:849
 msgid "Upload or select image of software. Medium size is recommended (300px X 300px)"
-msgstr "Upload of selecteer een afbeelding van de software. Middelgrote afbeelding is aanbevolen (300px X 300px)"
+msgstr "Suba o seleccione la imagen del software. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:855
 #: settings.php:101
 msgid "Landing Page"
-msgstr "Landingspagina"
+msgstr "Página de destino"
 
 #: meta-boxes.php:856
 msgid "Enter the landing page url for software"
-msgstr "Voer de url van de landingspagina voor de software in"
+msgstr "Ingrese la URL de la página de destino para el software"
 
 #: meta-boxes.php:862
 msgid "Rich Snippets - Videos"
-msgstr "Rich Snippets - Video's"
+msgstr "Rich Snippets - Videos"
 
 #: meta-boxes.php:891
 msgid ""
@@ -1345,13 +1348,13 @@ msgid ""
 "actual video media file. This file should be in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv, or other video file "
 "format"
 msgstr ""
-"Upload video of voer de url van het videobestand in<br>Voorbeeld: <br> http://www.example.com/video123.flv<br>Een URL "
-"die naar het daadwerkelijke videomediabestand verwijst. Dit bestand moet in .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, "
-".flv of een ander video-bestandsformaat zijn"
+"Suba el video o ingrese la URL del archivo de video<br>Ejemplo: <br> http://www.example.com/video123.flv<br>Una URL que "
+"apunta al archivo de video real. Este archivo debe estar en formato .mpg, .mpeg, .mp4, .m4v, .mov, .wmv, .avi, .flv u "
+"otro formato de archivo de video"
 
 #: meta-boxes.php:898
 msgid "Embed Video"
-msgstr "Video insluiten"
+msgstr "Incrustar video"
 
 #: meta-boxes.php:899
 msgid ""
@@ -1360,135 +1363,135 @@ msgid ""
 "http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Add only one url either in \"Video\" or \"Embed "
 "Video\" field. Dont use both.</h3></div>"
 msgstr ""
-"Een URL die naar een speler voor de specifieke video wijst. Dit is meestal de informatie in het src-element van een "
-"&lt;embed&gt;-tag. <br>Voorbeeld: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: "
-"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Voeg slechts één URL toe, hetzij in het veld "
-"\"Video\" of \"Embed Video\". Gebruik niet beide.</h3></div>"
+"Una URL que apunta a un reproductor para el video específico. Normalmente, esta es la información en el elemento src de "
+"una etiqueta &lt;embed&gt;. <br>Ejemplo: <br>Youtube: https://www.youtube.com/embed/CibazcCevOk <br>Dailymotion: "
+"http://www.dailymotion.com/swf/x1o2g<br><div class=\"bsf_vd_note\"><h3>Agregue solo una URL ya sea en el campo "
+"\"Video\" o \"Incrustar video\". No use ambos.</h3></div>"
 
 #: meta-boxes.php:906
 msgid "Video Duration"
-msgstr "Videoduur"
+msgstr "Duración del video"
 
 #: meta-boxes.php:907
 msgid "Enter the duration for this video"
-msgstr "Voer de duur voor deze video in"
+msgstr "Ingrese la duración de este video"
 
 #: meta-boxes.php:921
 msgid "Rich Snippets - Article"
-msgstr "Rich Snippets - Artikel"
+msgstr "Fragmentos enriquecidos - Artículo"
 
 #: meta-boxes.php:928
 msgid "Article Image"
-msgstr "Artikelafbeelding"
+msgstr "Imagen del artículo"
 
 #: meta-boxes.php:929
 #: meta-boxes.php:964
 #: meta-boxes.php:980
 msgid "Upload or select image from gallery. Medium size is recommended (300px X 300px)"
-msgstr "Upload of selecteer een afbeelding uit de galerij. Medium formaat wordt aanbevolen (300px X 300px)"
+msgstr "Suba o seleccione una imagen de la galería. Se recomienda un tamaño mediano (300px X 300px)"
 
 #: meta-boxes.php:935
 #: settings.php:125
 msgid "Article Name"
-msgstr "Artikelnaam"
+msgstr "Nombre del artículo"
 
 #: meta-boxes.php:936
 msgid "Enter the name for this article"
-msgstr "Voer de naam voor dit artikel in"
+msgstr "Ingrese el nombre de este artículo"
 
 #: meta-boxes.php:942
 #: meta-boxes.php:1000
 msgid "Short Description"
-msgstr "Korte beschrijving"
+msgstr "Descripción corta"
 
 #: meta-boxes.php:943
 msgid "Enter the brief description about this article (About 30 Words)"
-msgstr "Voer de korte beschrijving van dit artikel in (Ongeveer 30 woorden)"
+msgstr "Ingrese la breve descripción sobre este artículo (Alrededor de 30 palabras)"
 
 #: meta-boxes.php:949
 #: settings.php:126
 msgid "Author"
-msgstr "Auteur"
+msgstr "Autor"
 
 #: meta-boxes.php:950
 msgid "Enter the author name for this article"
-msgstr "Voer de naam van de auteur voor dit artikel in"
+msgstr "Ingrese el nombre del autor de este artículo"
 
 #: meta-boxes.php:956
 msgid "Publisher - Orgnization"
-msgstr "Uitgever - Organisatie"
+msgstr "Editor - Organización"
 
 #: meta-boxes.php:957
 msgid "Enter the publisher name for this article"
-msgstr "Voer de naam van de uitgever voor dit artikel in"
+msgstr "Ingrese el nombre del editor de este artículo"
 
 #: meta-boxes.php:963
 #: settings.php:130
 msgid "Publisher Logo"
-msgstr "Uitgever Logo"
+msgstr "Logo del editor"
 
 #: meta-boxes.php:972
 msgid "Rich Snippets - Service"
-msgstr "Rich Snippets - Dienst"
+msgstr "Fragmentos enriquecidos - Servicio"
 
 #: meta-boxes.php:979
 #: settings.php:128
 msgid "Image"
-msgstr "Afbeelding"
+msgstr "Imagen"
 
 #: meta-boxes.php:986
 #: settings.php:141
 msgid "Service Type"
-msgstr "Dientype"
+msgstr "Tipo de servicio"
 
 #: meta-boxes.php:987
 msgid "Enter the service type"
-msgstr "Voer het dientype in"
+msgstr "Ingrese el tipo de servicio"
 
 #: meta-boxes.php:993
 msgid "Service Served Area"
-msgstr "Dienstengebied"
+msgstr "Área de servicio"
 
 #: meta-boxes.php:994
 msgid "Enter the area where service is available"
-msgstr "Voer het gebied in waar de dienst beschikbaar is"
+msgstr "Ingrese el área donde el servicio está disponible"
 
 #: meta-boxes.php:1001
 msgid "Enter the description about service (About 30 Words)"
-msgstr "Voer de beschrijving van de dienst in (Ongeveer 30 woorden)"
+msgstr "Ingrese la descripción sobre el servicio (Alrededor de 30 palabras)"
 
 #: meta-boxes.php:1007
 #: settings.php:147
 msgid "Provider Name"
-msgstr "Naam van de aanbieder"
+msgstr "Nombre del proveedor"
 
 #: meta-boxes.php:1008
 msgid "Enter the service provider name"
-msgstr "Voer de naam van de dienstverlener in"
+msgstr "Ingrese el nombre del proveedor de servicios"
 
 #: meta-boxes.php:1014
 #: settings.php:29
 #: settings.php:148
 msgid "Location"
-msgstr "Locatie"
+msgstr "Ubicación"
 
 #: meta-boxes.php:1042
 msgid "Provider Location Image"
-msgstr "Afbeelding van de locatie van de aanbieder"
+msgstr "Imagen de la ubicación del proveedor"
 
 #: meta-boxes.php:1043
 msgid "Upload the provider location image or select from library. Medium size is recommended (300px X 300px)"
 msgstr ""
-"Upload de afbeelding van de locatie van de aanbieder of selecteer uit de bibliotheek. Medium formaat wordt aanbevolen "
-"(300px X 300px)"
+"Suba la imagen de la ubicación del proveedor o seleccione de la biblioteca. Se recomienda un tamaño mediano (300px X "
+"300px)"
 
 #: meta-boxes.php:1049
 msgid "Telephone"
-msgstr "Telefoon"
+msgstr "Teléfono"
 
 #: meta-boxes.php:1050
 msgid "Telephone number"
-msgstr "Telefoonnummer"
+msgstr "Número de teléfono"
 
 #: settings.php:13
 #: settings.php:27
@@ -1500,102 +1503,102 @@ msgstr "Telefoonnummer"
 #: settings.php:124
 #: settings.php:140
 msgid "Summary"
-msgstr "Samenvatting"
+msgstr "Resumen"
 
 #: settings.php:14
 msgid "Reviewer"
-msgstr "Beoordelaar"
+msgstr "Revisor"
 
 #: settings.php:15
 msgid "Review Date"
-msgstr "Beoordelingsdatum"
+msgstr "Fecha de revisión"
 
 #: settings.php:16
 msgid "Reviewed Item"
-msgstr "Beoordeeld item"
+msgstr "Artículo revisado"
 
 #: settings.php:17
 #: settings.php:60
 #: settings.php:96
 msgid "Author Rating"
-msgstr "Auteur beoordeling"
+msgstr "Calificación del autor"
 
 #: settings.php:31
 msgid "Starting on"
-msgstr "Beginnend op"
+msgstr "Comenzando el"
 
 #: settings.php:32
 msgid "Ending on"
-msgstr "Eindigend op"
+msgstr "Terminando el"
 
 #: settings.php:44
 msgid "Name"
-msgstr "Naam"
+msgstr "Nombre"
 
 #: settings.php:46
 msgid "Job Title"
-msgstr "Functietitel"
+msgstr "Título del trabajo"
 
 #: settings.php:47
 msgid "Website"
-msgstr "Website"
+msgstr "Sitio web"
 
 #: settings.php:48
 msgid "Company"
-msgstr "Bedrijf"
+msgstr "Empresa"
 
 #: settings.php:63
 #: settings.php:97
 msgid "Aggregate Rating"
-msgstr "Geaggregeerde beoordeling"
+msgstr "Calificación agregada"
 
 #: settings.php:65
 msgid "Product Availability"
-msgstr "Productbeschikbaarheid"
+msgstr "Disponibilidad del producto"
 
 #: settings.php:76
 msgid "Recipe Name"
-msgstr "Receptnaam"
+msgstr "Nombre de la receta"
 
 #: settings.php:77
 msgid "Author Name"
-msgstr "Naam auteur"
+msgstr "Nombre del autor"
 
 #: settings.php:78
 msgid "Published On"
-msgstr "Gepubliceerd op"
+msgstr "Publicado el"
 
 #: settings.php:79
 msgid "Preparation Time"
-msgstr "Bereidingstijd"
+msgstr "Tiempo de preparación"
 
 #: settings.php:80
 msgid "Cook Time"
-msgstr "Kooktijd"
+msgstr "Tiempo de cocción"
 
 #: settings.php:81
 msgid "Total Time"
-msgstr "Totale tijd"
+msgstr "Tiempo total"
 
 #: settings.php:85
 msgid "Average Rating"
-msgstr "Gemiddelde beoordeling"
+msgstr "Calificación promedio"
 
 #: settings.php:112
 msgid "Title"
-msgstr "Titel"
+msgstr "Título"
 
 #: settings.php:114
 msgid "Duration"
-msgstr "Duur"
+msgstr "Duración"
 
 #: settings.php:129
 msgid "Publisher Name"
-msgstr "Naam uitgever"
+msgstr "Nombre del editor"
 
 #: settings.php:142
 msgid "Area"
-msgstr "Gebied"
+msgstr "Área"
 
 #: settings.php:144
 msgid "URL"
@@ -1603,12 +1606,12 @@ msgstr "URL"
 
 #: settings.php:145
 msgid "Click Here For More Info"
-msgstr "Klik hier voor meer info"
+msgstr "Haga clic aquí para más información"
 
 #: settings.php:146
 msgid "User Rating"
-msgstr "Gebruikersbeoordeling"
+msgstr "Calificación del usuario"
 
 #: settings.php:149
 msgid "Provider telephone number"
-msgstr "Telefoonnummer van de aanbieder"
+msgstr "Número de teléfono del proveedor"
