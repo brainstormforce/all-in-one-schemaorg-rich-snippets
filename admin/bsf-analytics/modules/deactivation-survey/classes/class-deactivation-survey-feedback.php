@@ -100,6 +100,9 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 				return;
 			}
 
+			// Product slug used for input fields and labels in each plugin's deactivation survey.
+			$product_slug = isset( $args['plugin_slug'] ) ? sanitize_text_field( $args['plugin_slug'] ) : 'bsf';
+
 			?>
 			<div id="<?php echo esc_attr( $id ); ?>" class="uds-feedback-form--wrapper" style="display: none">
 				<div class="uds-feedback-form--container">
@@ -121,11 +124,13 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 						<?php } ?>
 
 						<form class="uds-feedback-form" id="uds-feedback-form" method="post">
-							<?php foreach ( $args['popup_reasons'] as $key => $value ) { ?>
+						<?php foreach ( $args['popup_reasons'] as $key => $value ) {
+								$input_id = $product_slug . '_uds_reason_input_' . $key;
+								?>
 								<fieldset>
 									<div class="reason">
-										<input type="radio" class="uds-reason-input" name="uds_reason_input" id="uds_reason_input_<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" data-placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>" data-show_cta="<?php echo esc_attr( $value['show_cta'] ); ?>" data-accept_feedback="<?php echo esc_attr( $value['accept_feedback'] ); ?>">
-										<label class="uds-reason-label" for="uds_reason_input_<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $value['label'] ); ?></label>
+										<input type="radio" class="uds-reason-input" name="uds_reason_input" id="<?php echo esc_attr( $input_id ); ?>" value="<?php echo esc_attr( $key ); ?>" data-placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>" data-show_cta="<?php echo esc_attr( $value['show_cta'] ); ?>" data-accept_feedback="<?php echo esc_attr( $value['accept_feedback'] ); ?>">
+										<label class="uds-reason-label" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $value['label'] ); ?></label>
 									</div>
 								</fieldset>
 							<?php } ?>
@@ -151,8 +156,8 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 							</fieldset>
 
 							<div class="uds-feedback-form-sumbit--actions">
-							<button class="button button-primary uds-feedback-submit" data-action="submit"><?php esc_html_e( 'Submit & Deactivate' ); ?></button>
-							<button class="button button-secondary uds-feedback-skip" data-action="skip"><?php esc_html_e( 'Skip & Deactivate' ); ?></button>
+								<button class="button button-primary uds-feedback-submit" data-action="submit"><?php esc_html_e( 'Submit & Deactivate' ); ?></button>
+								<button class="button button-secondary uds-feedback-skip" data-action="skip"><?php esc_html_e( 'Skip & Deactivate' ); ?></button>
 								<input type="hidden" name="referer" value="<?php echo esc_url( get_site_url() ); ?>">
 								<input type="hidden" name="version" value="<?php echo esc_attr( $args['plugin_version'] ); ?>">
 								<input type="hidden" name="source" value="<?php echo esc_attr( $args['plugin_slug'] ); ?>">

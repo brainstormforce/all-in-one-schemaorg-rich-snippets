@@ -1,0 +1,17 @@
+v1.1.16 - 15-July-2025
+- Improvement: Added `SureRank` slug to UTM analytics.
+
+v1.1.15 - 1-July-2025
+- Improvement: Added `Ultimate_VC_Addons` slug to UTM analytics.
+
+v1.1.14 - 6-May-2025
+- New: Introduced a key 'hide_optin_checkbox' to hide checkbox from Settings > General.
+- Improvement: Single optin notice for all bsf products.
+- Improvement: Introduced delay of 7 days for next optin message if user has reqested request from product.
+
+v1.1.13 - 17-April-2025
+- Improvement: Ensured unique id for label's `for` attribute in deactivation survey fields by prefixing them with product slugs.
+- Improvement: Prevented deactivation survey from triggering when switching from a child theme to its parent.
+
+v1.1.12 - 24-March-2025
+- Improvement: Added `suremails` and `latepoint` slugs to UTM analytics.

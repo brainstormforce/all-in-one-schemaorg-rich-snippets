@@ -181,8 +181,8 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="event_desc" value="' . esc_attr( stripslashes( $event_desc ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'Ticket Promotion :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . esc_attr( stripslashes( $args_event['events_price'] ) ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Ticket Promotion :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="events_price" value="' . esc_attr( stripslashes( isset( $args_event['events_price'] ) ? $args_event['events_price'] : '' ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -369,8 +369,8 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="software_rating" value="' . esc_attr( stripslashes( $args_soft['software_rating'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'User Rating :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . esc_attr( stripslashes( $args_soft['software_agr'] ) ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'User Rating :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="software_agr" value="' . esc_attr( stripslashes( isset( $args_soft['software_agr'] ) ? $args_soft['software_agr'] : '' ) ) . '"/></td>
 													</tr>
 													<tr>
 														<td align="right"><strong><label>' . esc_html__( 'Software Price :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
@@ -473,12 +473,12 @@ function rich_snippet_dashboard() {
 														<td><input class="bsf_text_medium" type="text" name="article_image" value="' . esc_attr( stripslashes( $args_article['article_image'] ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'Publisher :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . esc_attr( stripslashes( $args_article['article_publisher'] ) ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Publisher :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher" value="' . esc_attr( stripslashes( isset( $args_article['article_publisher'] ) ? $args_article['article_publisher'] : '' ) ) . '"/></td>
 													</tr>
 													<tr>
-														<td align="right"><strong><label>' . esc_html__( 'Publisher Logo :', 'all-in-one-schemaorg-rich-snippets' ) . '</label></strong></td>
-														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . esc_attr( stripslashes( $args_article['article_publisher_logo'] ) ) . '"/></td>
+														<td align="right"><strong><label>' . esc_html__( 'Publisher Logo :', 'rich-snippets' ) . '</label></strong></td>
+														<td><input class="bsf_text_medium" type="text" name="article_publisher_logo" value="' . esc_attr( stripslashes( isset( $args_article['article_publisher_logo'] ) ? $args_article['article_publisher_logo'] : '' ) ) . '"/></td>
 													</tr>
 													<tr><td colspan="2"></td></tr>
 													<tr>
@@ -871,7 +871,32 @@ function rich_snippet_dashboard() {
 				</table>
 			</form>
 			</div>
-	</div>';
+	
+	
+			</div>
+			<div class="postbox bsf-analytics-setting closed">
+            <button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
+            <h3 class="get_in_touch">' . esc_html__( 'Help Us Improve Your Experience', 'rich-snippets' ) . '</h3>
+            <div class="inside">
+            <form id="bsf_css_editor" method="post" action="">
+            <input type="hidden" id="snippet_analytics_nonce_field" name="snippet_analytics_nonce_field" value="' . esc_attr( wp_create_nonce( 'snippet_analytics_form_action' ) ) . '">
+                <table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="aiosrs_analytics_optin" id="aiosrs_analytics_optin" value="yes" ' . checked( 'yes', get_option( 'aiosrs_analytics_optin', 'no' ), false ) . ' />
+                            <label for="analytics_option">' . esc_html__( 'Collect non-sensitive information from your website, such as the PHP version and features used, to help us fix bugs faster, make smarter decisions, and build features that actually matter to you. ', 'rich-snippets' ) . '</label>
+                            <a href="https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking" target="_blank">Learn More</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input style="margin-top:10px;" type="submit" class="button-primary" name="setting_analytics_submit" value="' . esc_html__( 'Save ', 'rich-snippets' ) . '"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+        </div>';
 
 	$allowed_html = array(
 		'div'      => array(
@@ -956,6 +981,19 @@ function rich_snippet_dashboard() {
 </script>';
 }
 // Update options.
+if ( isset( $_POST['setting_analytics_submit'] ) ) {
+	if ( ! isset( $_POST['snippet_analytics_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_analytics_nonce_field'], 'snippet_analytics_form_action' ) || ! current_user_can( 'manage_options' )
+		) {
+		print 'Sorry, your nonce did not verify.';
+		exit;
+	} else {
+		if ( isset( $_POST['aiosrs_analytics_optin'] ) ) {
+			update_option( 'aiosrs_analytics_optin', 'yes' );
+		} else {
+			update_option( 'aiosrs_analytics_optin', 'no' );
+		}
+	}
+}
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
 		) {

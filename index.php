@@ -5,8 +5,8 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.7.1
- * Text Domain: all-in-one-schemaorg-rich-snippets
+ * Version: 1.7.5
+ * Text Domain: rich-snippets
  * License: GPL2
  *
  * @package AIOSRS.
@@ -59,6 +59,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			add_action( 'admin_init', array( $this, 'bsf_color_scripts' ) );
 
+			add_action( 'admin_init', array( $this, 'aiosrs_maybe_migrate_analytics_tracking' ) );
+
+			add_filter( 'plugins_loaded', array( $this, 'rich_snippet_translation' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_enqueue' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'post_new_enqueue' ) );
 			add_action( 'admin_init', array( $this, 'handle_translation_refresh' ) );
@@ -82,7 +85,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.7.1' );
+			define( 'AIOSRS_PRO_VER', '1.7.5' );
 		}
 
 		/**
@@ -133,9 +136,18 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			if ( 'post.php' != $hook ) {
 				return;
 			}
-			$current_admin_screen     = get_current_screen();
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			$current_admin_screen = get_current_screen();
+
+			// Default exclusions for WooCommerce and other problematic post types.
+			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
+
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
+				return;
+			}
+
+			// Additional check for WooCommerce products to prevent conflicts.
+			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -161,9 +173,18 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			if ( 'post-new.php' != $hook ) {
 				return;
 			}
-			$current_admin_screen     = get_current_screen();
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
+			$current_admin_screen = get_current_screen();
+
+			// Default exclusions for WooCommerce and other problematic post types.
+			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
+			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
+
 			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
+				return;
+			}
+
+			// Additional check for WooCommerce products to prevent conflicts.
+			if ( 'product' === $current_admin_screen->post_type ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -426,6 +447,30 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 		}
 
+			/**
+			 * Migrate analytics tracking option from old bsf key to new one.
+			 *
+			 * @return void
+			 */
+		public function aiosrs_maybe_migrate_analytics_tracking() {
+			$old_tracking = get_option( 'bsf_analytics_optin', false );
+			$new_tracking = get_option( 'aiosrs_analytics_optin', false );
+			if ( 'yes' === $old_tracking && false === $new_tracking ) {
+				update_option( 'aiosrs_analytics_optin', 'yes' );
+				$time = get_option( 'bsf_analytics_installed_time' );
+				if ( $time ) {
+					update_option( 'aiosrs_analytics_installed_time', $time );
+				}
+			}
+		}
+	}
+}
+	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
+if ( is_admin() ) {
+	// Load Astra Notices library.
+	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
+}
+
 		/**
 		 * Handle manual translation refresh
 		 */
@@ -466,40 +511,29 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 			}
 
-			// Load the NPS Survey library.
-			if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) {
-				require_once plugin_dir_path( __FILE__ ) . 'lib/class-aiosrs-nps-survey.php';
-			}
-
-			// BSF Analytics library.
-			if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
-				require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
-			}
-			$bsf_analytics = BSF_Analytics_Loader::get_instance();
-
-			$bsf_analytics->set_entity(
+$bsf_analytics->set_entity(
+	array(
+		'aiosrs' => array(
+			'product_name'        => 'All In One Schema Rich Snippets',
+			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+			'author'              => 'Brainstorm Force',
+			'time_to_display'     => '+24 hours',
+			'deactivation_survey' => array(
 				array(
-					'bsf' => array(
-						'product_name'        => 'All In One Schema Rich Snippets',
-						'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
-						'author'              => 'Brainstorm Force',
-						'time_to_display'     => '+24 hours',
-						'deactivation_survey' => array(
-							array(
-								'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets',
-								'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-								'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-								'plugin_version'    => '1.7.1',
-								'popup_title'       => __( 'Quick Feedback', 'all-in-one-schemaorg-rich-snippets' ),
-								'support_url'       => 'https://wpschema.com/contact/',
-								'popup_description' => __( 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:', 'all-in-one-schemaorg-rich-snippets' ),
-								'show_on_screens'   => array( 'plugins' ),
-							),
-						),
-					),
-				)
-			);
-			
+					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
+					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
+					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
+					'plugin_version'    => '1.7.5',
+					'popup_title'       => 'Quick Feedback',
+					'support_url'       => 'https://wpschema.com/contact/',
+					'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
+					'show_on_screens'   => array( 'plugins' ),
+				),
+			),
+			'hide_optin_checkbox' => true,
+		),
+	)
+);
 			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
 		}
 	}
