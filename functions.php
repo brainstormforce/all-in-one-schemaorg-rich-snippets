@@ -6,6 +6,199 @@
  */
 
 /**
+ * Get translated labels for rich snippets
+ * This ensures labels are always in the current language
+ */
+function get_translated_snippet_labels() {
+	return array(
+		'review_title'  => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_reviewer' => __( 'Reviewer', 'all-in-one-schemaorg-rich-snippets' ),
+		'review_date'   => __( 'Review Date', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_name'     => __( 'Reviewed Item', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_rating'   => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		// Event labels
+		'snippet_title'  => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_title'    => __( 'Event', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_location' => __( 'Location', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_desc'     => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'start_time'     => __( 'Starting on', 'all-in-one-schemaorg-rich-snippets' ),
+		'end_time'       => __( 'Ending on', 'all-in-one-schemaorg-rich-snippets' ),
+		'events_price'   => __( 'Offer Price', 'all-in-one-schemaorg-rich-snippets' ),
+		// Person labels
+		'person_name'      => __( 'Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_nickname'  => __( 'Nickname', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_job_title' => __( 'Job Title', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_website'   => __( 'Website', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_company'   => __( 'Company', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_address'   => __( 'Address', 'all-in-one-schemaorg-rich-snippets' ),
+		// Product labels
+		'product_rating' => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_brand'  => __( 'Brand Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_name'   => __( 'Product Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_agr'    => __( 'Aggregate Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_price'  => __( 'Price', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_avail'  => __( 'Product Availability', 'all-in-one-schemaorg-rich-snippets' ),
+		// Recipe labels
+		'recipe_name'       => __( 'Recipe Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'author_name'       => __( 'Author Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_pub'        => __( 'Published On', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_prep'       => __( 'Preparation Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_cook'       => __( 'Cook Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_time'       => __( 'Total Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_desc'       => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_nutrition'  => __( 'Nutrition', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_ingredient' => __( 'Ingredients', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_rating'     => __( 'Average Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		// Software labels
+		'software_rating'  => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_agr'     => __( 'Aggregate Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_price'   => __( 'Price', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_name'    => __( 'Software Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_os'      => __( 'Operating System', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_website' => __( 'Landing Page', 'all-in-one-schemaorg-rich-snippets' ),
+		// Video labels
+		'video_title'   => __( 'Title', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_desc'    => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_time'    => __( 'Duration', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_date'    => __( 'Upload Date', 'all-in-one-schemaorg-rich-snippets' ),
+		// Article labels
+		'article_name'           => __( 'Article Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_author'         => __( 'Author', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_desc'           => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_image'          => __( 'Image', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_publisher'      => __( 'Publisher Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_publisher_logo' => __( 'Publisher Logo', 'all-in-one-schemaorg-rich-snippets' ),
+		// Service labels
+		'service_type'          => __( 'Service Type', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_area'          => __( 'Area', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_desc'          => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_channel'       => __( 'URL', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_url_link'      => __( 'Click Here For More Info', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_rating'        => __( 'User Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_provider_name' => __( 'Provider Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'provider_location'     => __( 'Location', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_telephone'     => __( 'Provider telephone number', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+}
+
+/**
+ * Refresh all stored translations with current language
+ * Call this function when language is changed
+ */
+function refresh_snippet_translations() {
+	// Update review options
+	$review_opt = array(
+		'review_title'  => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_reviewer' => __( 'Reviewer', 'all-in-one-schemaorg-rich-snippets' ),
+		'review_date'   => __( 'Review Date', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_name'     => __( 'Reviewed Item', 'all-in-one-schemaorg-rich-snippets' ),
+		'item_rating'   => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_review', $review_opt );
+
+	// Update event options
+	$event_opt = array(
+		'snippet_title'  => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_title'    => __( 'Event', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_location' => __( 'Location', 'all-in-one-schemaorg-rich-snippets' ),
+		'event_desc'     => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'start_time'     => __( 'Starting on', 'all-in-one-schemaorg-rich-snippets' ),
+		'end_time'       => __( 'Ending on', 'all-in-one-schemaorg-rich-snippets' ),
+		'events_price'   => __( 'Offer Price', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_event', $event_opt );
+
+	// Update person options
+	$person_opt = array(
+		'snippet_title'    => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_name'      => __( 'Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_nickname'  => __( 'Nickname', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_job_title' => __( 'Job Title', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_website'   => __( 'Website', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_company'   => __( 'Company', 'all-in-one-schemaorg-rich-snippets' ),
+		'person_address'   => __( 'Address', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_person', $person_opt );
+
+	// Update product options
+	$product_opt = array(
+		'snippet_title'  => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_rating' => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_brand'  => __( 'Brand Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_name'   => __( 'Product Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_agr'    => __( 'Aggregate Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_price'  => __( 'Price', 'all-in-one-schemaorg-rich-snippets' ),
+		'product_avail'  => __( 'Product Availability', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_product', $product_opt );
+
+	// Update recipe options
+	$recipe_opt = array(
+		'snippet_title'     => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_name'       => __( 'Recipe Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'author_name'       => __( 'Author Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_pub'        => __( 'Published On', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_prep'       => __( 'Preparation Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_cook'       => __( 'Cook Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_time'       => __( 'Total Time', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_desc'       => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_nutrition'  => __( 'Nutrition', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_ingredient' => __( 'Ingredients', 'all-in-one-schemaorg-rich-snippets' ),
+		'recipe_rating'     => __( 'Average Rating', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_recipe', $recipe_opt );
+
+	// Update software options
+	$software_opt = array(
+		'snippet_title'    => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_rating'  => __( 'Author Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_agr'     => __( 'Aggregate Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_price'   => __( 'Price', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_name'    => __( 'Software Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_os'      => __( 'Operating System', 'all-in-one-schemaorg-rich-snippets' ),
+		'software_website' => __( 'Landing Page', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_software', $software_opt );
+
+	// Update video options
+	$video_opt = array(
+		'snippet_title' => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_title'   => __( 'Title', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_desc'    => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_time'    => __( 'Duration', 'all-in-one-schemaorg-rich-snippets' ),
+		'video_date'    => __( 'Upload Date', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_video', $video_opt );
+
+	// Update article options
+	$article_opt = array(
+		'snippet_title'          => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_name'           => __( 'Article Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_author'         => __( 'Author', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_desc'           => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_image'          => __( 'Image', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_publisher'      => __( 'Publisher Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'article_publisher_logo' => __( 'Publisher Logo', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_article', $article_opt );
+
+	// Update service options
+	$service_opt = array(
+		'snippet_title'         => __( 'Summary', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_type'          => __( 'Service Type', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_area'          => __( 'Area', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_desc'          => __( 'Description', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_channel'       => __( 'URL', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_url_link'      => __( 'Click Here For More Info', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_rating'        => __( 'User Rating', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_provider_name' => __( 'Provider Name', 'all-in-one-schemaorg-rich-snippets' ),
+		'provider_location'     => __( 'Location', 'all-in-one-schemaorg-rich-snippets' ),
+		'service_telephone'     => __( 'Provider telephone number', 'all-in-one-schemaorg-rich-snippets' ),
+	);
+	update_option( 'bsf_service', $service_opt );
+}
+
+/**
  * Define the metabox and field configurations.
  *
  * @param  array $meta_boxes
@@ -74,12 +267,14 @@ function display_rich_snippet( $content ) {
 		global $post;
 
 		$args_review = get_option( 'bsf_review' );
+		// Get dynamically translated labels
+		$translated_labels = get_translated_snippet_labels();
 
 		$review  = '';
 		$review .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' != $args_review['review_title'] ) {
-			$review .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_review['review_title'] ) ) . '</div>';
+			$review .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( $translated_labels['review_title'] ) . '</div>';
 		}
 		$review                .= '<div class="snippet-markup" itemscope itemtype="https://schema.org/Review">';
 		$item                   = get_post_meta( $post->ID, '_bsf_item_name', true );
@@ -125,24 +320,24 @@ function display_rich_snippet( $content ) {
 			if ( '' != $args_review['item_reviewer'] ) {
 				$review .= '<span itemprop="author" itemscope itemtype="https://schema.org/Person">';
 			}
-				$review .= "<div class='snippet-label'>" . esc_attr( stripslashes( $args_review['item_reviewer'] ) ) . '</div>';
+				$review .= "<div class='snippet-label'>" . esc_attr( $translated_labels['item_reviewer'] ) . '</div>';
 			$review     .= " <div class='snippet-data'><span itemprop='name'>" . esc_attr( stripslashes( $reviewer ) ) . '</span></div></span>';
 		}
 		if ( isset( $args_review['review_date'] ) ) {
 			if ( '' != $args_review['review_date'] ) {
-				$review .= "<div class='snippet-label'>" . esc_attr( stripslashes( $args_review['review_date'] ) ) . '</div>';
+				$review .= "<div class='snippet-label'>" . esc_attr( $translated_labels['review_date'] ) . '</div>';
 			}
 			$review .= "<div class='snippet-data'> <time itemprop='datePublished' datetime='" . get_the_time( 'c' ) . "'>" . esc_attr( $post_date ) . '</time></div>';
 		}
 		if ( '' != trim( $item ) ) {
 			if ( '' != $args_review['item_name'] ) {
-				$review .= "<div class='snippet-label'>" . esc_attr( stripslashes( $args_review['item_name'] ) ) . '</div>';
+				$review .= "<div class='snippet-label'>" . esc_attr( $translated_labels['item_name'] ) . '</div>';
 			}
 			$review .= "<div class='snippet-data'> <span itemprop='name'>" . esc_attr( $item ) . '</span></div>';
 		}
 		if ( '' != trim( $rating ) ) {
 			if ( '' != $args_review['item_rating'] ) {
-				$review .= "<div class='snippet-label'>" . esc_attr( stripslashes( $args_review['item_rating'] ) ) . '</div>';
+				$review .= "<div class='snippet-label'>" . esc_attr( $translated_labels['item_rating'] ) . '</div>';
 			}
 			$review     .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='https://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>" . esc_attr( $rating ) . "</span></span><span class='star-img'>";
 			$ceil_rating = ceil( $rating );
@@ -311,13 +506,15 @@ function display_rich_snippet( $content ) {
 	} elseif ( '2' == $type ) {
 		global $post;
 		$args_event = get_option( 'bsf_event' );
+		// Get dynamically translated labels
+		$translated_labels = get_translated_snippet_labels();
 
 		$event = '';
 
 		$event .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' != $args_event['snippet_title'] ) {
-			$event .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_event['snippet_title'] ) ) . '</div>';
+			$event .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( $translated_labels['snippet_title'] ) . '</div>';
 		}
 		$event            .= '<div itemscope itemtype="https://schema.org/Event">';
 		$event_title       = get_post_meta( $post->ID, '_bsf_event_title', true );
@@ -884,7 +1081,7 @@ function display_rich_snippet( $content ) {
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
+					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'all-in-one-schemaorg-rich-snippets' ), esc_html( $e->getMessage() ) ) );
 					return;
 				}
 			}
@@ -1308,7 +1505,7 @@ function bsf_add_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'rich-snippets' );
+	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'all-in-one-schemaorg-rich-snippets' );
 	die();
 }
 /**
@@ -1338,7 +1535,7 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'rich-snippets' );
+	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'all-in-one-schemaorg-rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'all-in-one-schemaorg-rich-snippets' );
 	die();
 }
 /**
@@ -1397,14 +1594,14 @@ function show_nps_notice() {
 				'message'          => array(
 					// Step 1 i.e rating input.
 					'logo'                  => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'rich-snippets' ),
-					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'rich-snippets' ),
+					'plugin_name'           => __( 'All In One Schema Rich Snippets', 'all-in-one-schemaorg-rich-snippets' ),
+					'nps_rating_message'    => __( 'How likely are you to recommend All In One Schema Rich Snippets to your friends or colleagues?', 'all-in-one-schemaorg-rich-snippets' ),
 					// Step 2A i.e. positive.
-					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'rich-snippets' ),
+					'feedback_content'      => __( 'Could you please do us a favor and give us a 5-star rating on Wordpress? It would help others choose All In One Schema Rich Snippets with confidence. Thank you!', 'all-in-one-schemaorg-rich-snippets' ),
 					'plugin_rating_link'    => esc_url( 'https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets/reviews/#new-post' ),
 					// Step 2B i.e. negative.
-					'plugin_rating_title'   => __( 'Thank you for your feedback', 'rich-snippets' ),
-					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'rich-snippets' ),
+					'plugin_rating_title'   => __( 'Thank you for your feedback', 'all-in-one-schemaorg-rich-snippets' ),
+					'plugin_rating_content' => __( 'We value your input. How can we improve your experience?', 'all-in-one-schemaorg-rich-snippets' ),
 				),
 			)
 		);
