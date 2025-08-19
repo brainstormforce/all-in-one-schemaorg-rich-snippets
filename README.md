@@ -83,6 +83,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 ## Changelog ##
 
+### 1.7.6 ###
+- Improvement: Added support for new languages— Dutch, French, Spanish, and German to improve accessibility for global users.
+
 ### 1.7.5 ###
 - Improvement: Compatibility with PHP version 8.3.
 - Fixed: Resolved undefined array key warnings in plugin.
