@@ -447,11 +447,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 		}
 
-			/**
-			 * Migrate analytics tracking option from old bsf key to new one.
-			 *
-			 * @return void
-			 */
+		/**
+		 * Migrate analytics tracking option from old bsf key to new one.
+		 *
+		 * @return void
+		 */
 		public function aiosrs_maybe_migrate_analytics_tracking() {
 			$old_tracking = get_option( 'bsf_analytics_optin', false );
 			$new_tracking = get_option( 'aiosrs_analytics_optin', false );
@@ -463,13 +463,73 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				}
 			}
 		}
-	}
-}
-	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
-if ( is_admin() ) {
-	// Load Astra Notices library.
-	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
-}
+
+		/**
+		 * Initialize analytics and other components
+		 */
+		public function init_analytics() {
+			// Load required files
+			require_once plugin_dir_path( __FILE__ ) . 'functions.php';
+			
+			if ( is_admin() ) {
+				// Load Astra Notices library.
+				if ( file_exists( plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php' ) ) {
+					require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
+				}
+			}
+
+			// Initialize BSF Analytics if the files exist
+			$analytics_loader_path = plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
+			if ( file_exists( $analytics_loader_path ) ) {
+				if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
+					require_once $analytics_loader_path;
+				}
+
+				// Try to initialize the analytics loader safely
+				try {
+					if ( class_exists( 'BSF_Analytics_Loader' ) ) {
+						$bsf_analytics_loader = BSF_Analytics_Loader::get_instance();
+						if ( $bsf_analytics_loader && method_exists( $bsf_analytics_loader, 'get_analytics_instance' ) ) {
+							$bsf_analytics = $bsf_analytics_loader->get_analytics_instance();
+
+							if ( $bsf_analytics && method_exists( $bsf_analytics, 'set_entity' ) ) {
+								$bsf_analytics->set_entity(
+									array(
+										'aiosrs' => array(
+											'product_name'        => 'All In One Schema Rich Snippets',
+											'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+											'author'              => 'Brainstorm Force',
+											'time_to_display'     => '+24 hours',
+											'deactivation_survey' => array(
+												array(
+													'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets',
+													'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
+													'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
+													'plugin_version'    => '1.7.5',
+													'popup_title'       => 'Quick Feedback',
+													'support_url'       => 'https://wpschema.com/contact/',
+													'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
+													'show_on_screens'   => array( 'plugins' ),
+												),
+											),
+											'hide_optin_checkbox' => true,
+										),
+									)
+								);
+							}
+						}
+					}
+				} catch ( Exception $e ) {
+					// Silently handle any analytics initialization errors
+					error_log( 'AIOSRS Analytics initialization error: ' . $e->getMessage() );
+				}
+			}
+			
+			// Add the meta boxes filter
+			if ( function_exists( 'bsf_metaboxes' ) ) {
+				add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
+			}
+		}
 
 		/**
 		 * Handle manual translation refresh
@@ -498,45 +558,12 @@ if ( is_admin() ) {
 				 esc_html__( 'Rich Snippets translations have been refreshed for the current language!', 'all-in-one-schemaorg-rich-snippets' ) . 
 				 '</p></div>';
 		}
-
-		/**
-		 * Initialize analytics and other components
-		 */
-		public function init_analytics() {
-			// Load required files
-			require_once plugin_dir_path( __FILE__ ) . 'functions.php';
-			
-			if ( is_admin() ) {
-				// Load Astra Notices library.
-				require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
-			}
-
-$bsf_analytics->set_entity(
-	array(
-		'aiosrs' => array(
-			'product_name'        => 'All In One Schema Rich Snippets',
-			'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
-			'author'              => 'Brainstorm Force',
-			'time_to_display'     => '+24 hours',
-			'deactivation_survey' => array(
-				array(
-					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
-					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-					'plugin_version'    => '1.7.5',
-					'popup_title'       => 'Quick Feedback',
-					'support_url'       => 'https://wpschema.com/contact/',
-					'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
-					'show_on_screens'   => array( 'plugins' ),
-				),
-			),
-			'hide_optin_checkbox' => true,
-		),
-	)
-);
-			add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
-		}
 	}
+}
+require_once plugin_dir_path( __FILE__ ) . 'functions.php';
+if ( is_admin() ) {
+	// Load Astra Notices library.
+	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
 }
 
 // Instantiating the Class.
