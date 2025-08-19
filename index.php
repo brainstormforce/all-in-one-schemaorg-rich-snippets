@@ -48,7 +48,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function aiosrs_load_plugin() {
 			// Load translations first
 			$this->rich_snippet_translation();
-			
+
 			// Then load all other functionality
 			add_action( 'admin_init', array( $this, 'aiosrs_admin_redirect' ) );
 			add_action( 'admin_head', array( $this, 'star_icons' ) );
@@ -72,7 +72,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			add_action( 'wp_ajax_bsf_submit_color', array( $this, 'submit_color' ) );
 			// Admin bar menu.
 			add_action( 'admin_bar_menu', array( $this, 'aiosrs_admin_bar' ), 100 );
-			
+
 			// Initialize analytics and other components
 			$this->init_analytics();
 		}
@@ -246,24 +246,24 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$domain = 'all-in-one-schemaorg-rich-snippets';
 			$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 			$mofile = $domain . '-' . $locale . '.mo';
-			
+
 			// Try to load from wp-content/languages/plugins first (WordPress managed translations)
 			$global_mofile = WP_LANG_DIR . '/plugins/' . $mofile;
 			if ( file_exists( $global_mofile ) ) {
 				load_textdomain( $domain, $global_mofile );
 			}
-			
+
 			// Load from plugin's languages directory
-			load_plugin_textdomain( 
-				$domain, 
-				false, 
-				dirname( plugin_basename( __FILE__ ) ) . '/languages/' 
+			load_plugin_textdomain(
+				$domain,
+				false,
+				dirname( plugin_basename( __FILE__ ) ) . '/languages/'
 			);
-			
+
 			// Refresh stored translations when language changes
 			$current_locale = get_locale();
-			$stored_locale = get_option( 'aiosrs_current_locale', '' );
-			
+			$stored_locale  = get_option( 'aiosrs_current_locale', '' );
+
 			if ( $current_locale !== $stored_locale ) {
 				// Language has changed, refresh translations
 				if ( function_exists( 'refresh_snippet_translations' ) ) {
@@ -470,7 +470,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function init_analytics() {
 			// Load required files
 			require_once plugin_dir_path( __FILE__ ) . 'functions.php';
-			
+
 			if ( is_admin() ) {
 				// Load Astra Notices library.
 				if ( file_exists( plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php' ) ) {
@@ -496,20 +496,20 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 								$bsf_analytics->set_entity(
 									array(
 										'aiosrs' => array(
-											'product_name'        => 'All In One Schema Rich Snippets',
-											'path'                => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
-											'author'              => 'Brainstorm Force',
-											'time_to_display'     => '+24 hours',
+											'product_name' => 'All In One Schema Rich Snippets',
+											'path'         => plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics',
+											'author'       => 'Brainstorm Force',
+											'time_to_display' => '+24 hours',
 											'deactivation_survey' => array(
 												array(
-													'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets',
-													'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
-													'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-													'plugin_version'    => '1.7.5',
-													'popup_title'       => 'Quick Feedback',
-													'support_url'       => 'https://wpschema.com/contact/',
+													'id' => 'deactivation-survey-all-in-one-schemaorg-rich-snippets',
+													'popup_logo' => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
+													'plugin_slug' => 'all-in-one-schemaorg-rich-snippets',
+													'plugin_version' => '1.7.5',
+													'popup_title' => 'Quick Feedback',
+													'support_url' => 'https://wpschema.com/contact/',
 													'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
-													'show_on_screens'   => array( 'plugins' ),
+													'show_on_screens' => array( 'plugins' ),
 												),
 											),
 											'hide_optin_checkbox' => true,
@@ -524,7 +524,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 					error_log( 'AIOSRS Analytics initialization error: ' . $e->getMessage() );
 				}
 			}
-			
+
 			// Add the meta boxes filter
 			if ( function_exists( 'bsf_metaboxes' ) ) {
 				add_filter( 'bsf_meta_boxes', 'bsf_metaboxes' );
@@ -535,14 +535,14 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Handle manual translation refresh
 		 */
 		public function handle_translation_refresh() {
-			if ( isset( $_GET['aiosrs_refresh_translations'] ) && 
-				 isset( $_GET['nonce'] ) && 
+			if ( isset( $_GET['aiosrs_refresh_translations'] ) &&
+				 isset( $_GET['nonce'] ) &&
 				 wp_verify_nonce( $_GET['nonce'], 'aiosrs_refresh_translations' ) &&
 				 current_user_can( 'manage_options' ) ) {
-				
+
 				// Include functions.php to access the refresh function
 				require_once plugin_dir_path( __FILE__ ) . 'functions.php';
-				
+
 				if ( function_exists( 'refresh_snippet_translations' ) ) {
 					refresh_snippet_translations();
 					add_action( 'admin_notices', array( $this, 'translation_refresh_notice' ) );
@@ -554,8 +554,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Show translation refresh success notice
 		 */
 		public function translation_refresh_notice() {
-			echo '<div class="notice notice-success is-dismissible"><p>' . 
-				 esc_html__( 'Rich Snippets translations have been refreshed for the current language!', 'all-in-one-schemaorg-rich-snippets' ) . 
+			echo '<div class="notice notice-success is-dismissible"><p>' .
+				 esc_html__( 'Rich Snippets translations have been refreshed for the current language!', 'all-in-one-schemaorg-rich-snippets' ) .
 				 '</p></div>';
 		}
 	}
