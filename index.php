@@ -98,9 +98,27 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
 			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			// Add "Upgrade to Pro" submenu
+			add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
+			// Add "Get Help" submenu
+			add_submenu_page( 'rich_snippet_dashboard', __( 'Get Help', 'rich-snippets' ), __( 'Get Help', 'rich-snippets' ), 'administrator', 'aiosrs_get_help', array( $this, 'get_help_redirect' ) );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
+		}
+		/**
+		 * Redirect to upgrade to pro page.
+		 */
+		public function upgrade_to_pro_redirect() {
+			wp_redirect( 'https://wpschema.com/pricing/' );
+			exit;
+		}
+		/**
+		 * Redirect to get help page.
+		 */
+		public function get_help_redirect() {
+			wp_redirect( 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/#description' );
+			exit;
 		}
 		/**
 		 * Add settings link on plugin page.
@@ -110,6 +128,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
+			$pro_link = '<a href="https://wpschema.com/" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
+			$links[] = $pro_link;
 			return $links;
 		}
 		/**
