@@ -273,6 +273,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover a {
 				color: #fff !important;
 			}
+
+			/* Remove blue outline from "Get Schema Pro" link */
+			a[href*="https://wpschema.com/pricing"]:focus {
+				outline: none !important;
+				box-shadow: none !important;
+			}
 		</style>
 		<?php }
 		/**
