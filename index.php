@@ -68,12 +68,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @return bool True if Schema Pro is installed, false otherwise.
 		 */
 		public function is_schema_pro_installed() {
-			// Check multiple possible plugin paths for Schema Pro
+			// Check multiple possible plugin paths for Schema Pro.
 			$plugin_files = array(
 				'wp-schema-pro-master/wp-schema-pro.php',
-				'wp-schema-pro/wp-schema-pro.php'
+				'wp-schema-pro/wp-schema-pro.php',
 			);
-			
 			foreach ( $plugin_files as $plugin_file ) {
 				if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
 					return true;
@@ -89,29 +88,26 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @return bool True if Schema Pro is activated, false otherwise.
 		 */
 		public function is_schema_pro_active() {
-			// First check if Schema Pro classes are loaded (indicates it's active)
+			// First check if Schema Pro classes are loaded (indicates it's active).
 			if ( class_exists( 'BSF_AIOSRS_Pro' ) || class_exists( 'BSF_AIOSRS_Pro_Helper' ) ) {
 				return true;
 			}
-			
 			// Ensure is_plugin_active function is available.
 			if ( ! function_exists( 'is_plugin_active' ) ) {
 				include_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
 
-			// Check multiple possible plugin paths for Schema Pro
+			// Check multiple possible plugin paths for Schema Pro.
 			$plugin_files = array(
 				'wp-schema-pro-master/wp-schema-pro.php',
-				'wp-schema-pro/wp-schema-pro.php'
+				'wp-schema-pro/wp-schema-pro.php',
 			);
-			
 			foreach ( $plugin_files as $plugin_file ) {
-				// Check if plugin is active
+					// Check if plugin is active.
 				if ( is_plugin_active( $plugin_file ) ) {
 					return true;
 				}
 			}
-			
 			return false;
 		}
 
@@ -142,19 +138,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'href'  => 'https://validator.schema.org/',
 						'meta'  => array( 'target' => '_blank' ),
 					)
-				);
-			}
+				);}
 		}
 		/**
 		 * Register_custom_menu_page.
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			
-			// Only hide menu if Schema Pro is ACTIVE (not just installed)
+			// Only hide menu if Schema Pro is ACTIVE (not just installed).
 			if ( ! $this->is_schema_pro_active() ) {
 				$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
-				// Add "Upgrade to Pro" submenu only if Schema Pro is not installed
+				// Add "Upgrade to Pro" submenu only if Schema Pro is not installed.
 				if ( ! $this->is_schema_pro_installed() ) {
 					add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
 				}
@@ -485,8 +479,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_border'      => $border_color,
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
-					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
+					);		echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
 
 					die();
 				}
