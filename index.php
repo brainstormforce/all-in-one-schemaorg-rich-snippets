@@ -101,7 +101,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			// Add "Upgrade to Pro" submenu
 			add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
 			// Add "Get Help" submenu
-			add_submenu_page( 'rich_snippet_dashboard', __( 'Get Help', 'rich-snippets' ), __( 'Get Help', 'rich-snippets' ), 'administrator', 'aiosrs_get_help', array( $this, 'get_help_redirect' ) );
+			// add_submenu_page( 'rich_snippet_dashboard', __( 'Get Help', 'rich-snippets' ), __( 'Get Help', 'rich-snippets' ), 'administrator', 'aiosrs_get_help', array( $this, 'get_help_redirect' ) );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -110,7 +110,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Redirect to upgrade to pro page.
 		 */
 		public function upgrade_to_pro_redirect() {
-			wp_redirect( 'https://wpschema.com/pricing/' );
+			wp_redirect( 'https://wpschema.com/pricing/?utm_source=wp-admin&utm_medium=schema-side-bar&utm_campaign=upgrade' );
 			exit;
 		}
 		/**
@@ -128,7 +128,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
-			$pro_link = '<a href="https://wpschema.com/" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
+			$pro_link = '<a href="https://wpschema.com/pricing/?utm_source=Schema&utm_medium=Plugin-list&utm_campaign=upgrade" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
 			$links[] = $pro_link;
 			return $links;
 		}
@@ -241,6 +241,38 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
+			
+			/* Upgrade to Pro button styles */
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]),
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]),
+			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) {
+				background-color: #04a382 !important;
+				border-radius: 3px !important;
+				margin: 2px 8px !important;
+			}
+			
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) a,
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) a,
+			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) a {
+				color: #fff !important;
+				font-size: 13px !important;
+				font-weight: 500 !important;
+				line-height: 20px !important;
+				padding-right: 12px !important;
+				padding-left: 12px !important;
+			}
+			
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover,
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover,
+			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover {
+				background-color: #018d71 !important;
+			}
+			
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover a,
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover a,
+			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover a {
+				color: #fff !important;
+			}
 		</style>
 		<?php }
 		/**
