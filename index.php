@@ -112,13 +112,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			exit;
 		}
 		/**
-		 * Redirect to get help page.
-		 */
-		public function get_help_redirect() {
-			wp_safe_redirect( 'https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/#description' );
-			exit;
-		}
-		/**
 		 * Add settings link on plugin page.
 		 *
 		 * @param string $links Links.
@@ -126,8 +119,18 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
-			$pro_link = '<a href="https://wpschema.com/pricing/?utm_source=Schema&utm_medium=Plugin-list&utm_campaign=upgrade" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
-			$links[]  = $pro_link;
+			
+			// Ensure is_plugin_active function is available
+			if ( ! function_exists( 'is_plugin_active' ) ) {
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			
+			$plugin_file = 'wp-schema-pro/wp-schema-pro.php';
+			if ( ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && ! is_plugin_active( $plugin_file ) ) {
+				$pro_link = '<a href="https://wpschema.com/pricing/?utm_source=Schema&utm_medium=Plugin-list&utm_campaign=upgrade" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
+				$links[]  = $pro_link;
+			}
+			
 			return $links;
 		}
 		/**
