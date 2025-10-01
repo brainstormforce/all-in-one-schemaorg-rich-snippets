@@ -78,7 +78,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
 
@@ -479,7 +479,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_border'      => $border_color,
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
-					);		echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
+					);
+					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
 
 					die();
 				}
