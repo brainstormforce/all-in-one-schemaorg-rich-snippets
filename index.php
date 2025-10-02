@@ -68,18 +68,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @return bool True if Schema Pro is installed, false otherwise.
 		 */
 		public function is_schema_pro_installed() {
-			// Check multiple possible plugin paths for Schema Pro.
-			$plugin_files = array(
-				'wp-schema-pro-master/wp-schema-pro.php',
-				'wp-schema-pro/wp-schema-pro.php',
-			);
-			foreach ( $plugin_files as $plugin_file ) {
-				if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
-					return true;
-				}
-			}
-
-			return false;
+			// Check if Schema Pro plugin file exists.
+			$plugin_file = 'wp-schema-pro/wp-schema-pro.php';
+			return file_exists( WP_PLUGIN_DIR . '/' . $plugin_file );
 		}
 
 		/**
@@ -97,18 +88,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				include_once ABSPATH . 'wp-admin/includes/plugin.php';
 			}
 
-			// Check multiple possible plugin paths for Schema Pro.
-			$plugin_files = array(
-				'wp-schema-pro-master/wp-schema-pro.php',
-				'wp-schema-pro/wp-schema-pro.php',
-			);
-			foreach ( $plugin_files as $plugin_file ) {
-					// Check if plugin is active.
-				if ( is_plugin_active( $plugin_file ) ) {
-					return true;
-				}
-			}
-			return false;
+			// Check if Schema Pro plugin is active.
+			$plugin_file = 'wp-schema-pro/wp-schema-pro.php';
+			return is_plugin_active( $plugin_file );
 		}
 
 		/**
