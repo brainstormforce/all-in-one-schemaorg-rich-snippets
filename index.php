@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.7.5
+ * Version: 1.7.6
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -74,26 +74,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 
 		/**
-		 * Check if Schema Pro is activated (not just installed).
-		 *
-		 * @return bool True if Schema Pro is activated, false otherwise.
-		 */
-		public function is_schema_pro_active() {
-			// First check if Schema Pro classes are loaded (indicates it's active).
-			if ( class_exists( 'BSF_AIOSRS_Pro' ) || class_exists( 'BSF_AIOSRS_Pro_Helper' ) ) {
-				return true;
-			}
-			// Ensure is_plugin_active function is available.
-			if ( ! function_exists( 'is_plugin_active' ) ) {
-				include_once ABSPATH . 'wp-admin/includes/plugin.php';
-			}
-
-			// Check if Schema Pro plugin is active.
-			$plugin_file = 'wp-schema-pro/wp-schema-pro.php';
-			return is_plugin_active( $plugin_file );
-		}
-
-		/**
 		 * Defines all constants
 		 */
 		public function define_constants() {
@@ -101,7 +81,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.7.5' );
+			define( 'AIOSRS_PRO_VER', '1.7.6' );
 		}
 
 		/**
@@ -529,7 +509,7 @@ $bsf_analytics->set_entity(
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-					'plugin_version'    => '1.7.5',
+					'plugin_version'    => '1.7.6',
 					'popup_title'       => 'Quick Feedback',
 					'support_url'       => 'https://wpschema.com/contact/',
 					'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
