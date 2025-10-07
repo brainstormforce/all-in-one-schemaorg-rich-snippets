@@ -129,9 +129,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
 			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Add "Upgrade to Pro" submenu only if Schema Pro is not installed.
-			if ( ! $this->is_schema_pro_installed() ) {
-				add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
-			}
+			// if ( ! $this->is_schema_pro_installed() ) {
+			// 	add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
+			// }
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
