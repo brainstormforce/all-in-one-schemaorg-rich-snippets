@@ -240,17 +240,13 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 
 			<?php if ( ! $this->is_schema_pro_installed() ) : ?>
 			/* Upgrade to Pro button styles */
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]),
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]),
-			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) {
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) {
 				background-color: #04a382 !important;
 				border-radius: 3px !important;
 				margin: 2px 8px !important;
 			}
 
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) a,
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) a,
-			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]) a {
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) a {
 				color: #fff !important;
 				font-size: 13px !important;
 				font-weight: 500 !important;
@@ -259,15 +255,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				padding-left: 12px !important;
 			}
 
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover,
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover,
-			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover {
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover {
 				background-color: #018d71 !important;
 			}
 
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover a,
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover a,
-			#adminmenu #toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="aiosrs_upgrade_to_pro"]):hover a {
+			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover a {
 				color: #fff !important;
 			}
 
