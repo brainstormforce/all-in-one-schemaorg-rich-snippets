@@ -128,20 +128,9 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
 			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
-			// Add "Upgrade to Pro" submenu only if Schema Pro is not installed.
-			// if ( ! $this->is_schema_pro_installed() ) {
-			// 	add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
-			// }
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
-		}
-		/**
-		 * Redirect to upgrade to pro page.
-		 */
-		public function upgrade_to_pro_redirect() {
-			wp_safe_redirect( 'https://wpschema.com/pricing/?utm_source=wp-admin&utm_medium=schema-side-bar&utm_campaign=upgrade' );
-			exit;
 		}
 		/**
 		 * Add settings link on plugin page.
