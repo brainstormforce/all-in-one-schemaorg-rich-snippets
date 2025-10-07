@@ -127,17 +127,14 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			// Only hide menu if Schema Pro is ACTIVE (not just installed).
-			if ( ! $this->is_schema_pro_active() ) {
-				$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
-				// Add "Upgrade to Pro" submenu only if Schema Pro is not installed.
-				if ( ! $this->is_schema_pro_installed() ) {
-					add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
-				}
-				// Call the function to print the stylesheets and javascripts in only this plugins admin area.
-				add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
-				add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			// Add "Upgrade to Pro" submenu only if Schema Pro is not installed.
+			if ( ! $this->is_schema_pro_installed() ) {
+				add_submenu_page( 'rich_snippet_dashboard', __( 'Upgrade to Pro', 'rich-snippets' ), __( 'Upgrade to Pro', 'rich-snippets' ), 'administrator', 'aiosrs_upgrade_to_pro', array( $this, 'upgrade_to_pro_redirect' ) );
 			}
+			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
+			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
+			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
 		}
 		/**
 		 * Redirect to upgrade to pro page.
@@ -261,12 +258,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function star_icons() {
 			?>
 		<style>
-			<?php if ( $this->is_schema_pro_active() ) : ?>
-			/* Hide Rich Snippets menu when Schema Pro is active */
-			#toplevel_page_rich_snippet_dashboard {
-				display: none !important;
-			}
-			<?php else : ?>
 			#toplevel_page_rich_snippet_dashboard .wp-menu-image {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat !important;
 			}
@@ -277,7 +268,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
-			<?php endif; ?>
 
 			<?php if ( ! $this->is_schema_pro_installed() ) : ?>
 			/* Upgrade to Pro button styles */
