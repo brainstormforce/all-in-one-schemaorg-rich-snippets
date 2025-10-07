@@ -141,7 +141,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
 
-			if ( ! $this->is_schema_pro_active() ) {
+			if ( ! $this->is_schema_pro_installed() ) {
 				$pro_link = '<a href="https://wpschema.com/pricing/?utm_source=Schema&utm_medium=Plugin-list&utm_campaign=upgrade" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
 				$links[]  = $pro_link;
 			}
