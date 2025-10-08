@@ -4,7 +4,7 @@
 **Tags:** schema markup, rich snippets, wordpress seo, structured data, google search  
 **Requires at least:** 3.7  
 **Tested up to:** 6.8  
-**Stable tag:** 1.7.5  
+**Stable tag:** 1.7.6  
 **Requires PHP:** 7.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -31,14 +31,26 @@ It is basically a short summary of your page in the search results of Google, Ya
 ### Supported Content Types: ###
 This plugin supports the following types of Schemas:
 
-* Review
-* Event
-* People
-* Product
-* Recipe
-* Software Application
-* Video
-* Articles
+* Review – Show star ratings and reviews in Google results.
+* Event – Display event dates, times, and locations directly in search.
+* Person – Highlight author or person details with rich snippets.
+* Product – Add product info like price, availability, and ratings.
+* Recipe – Show cooking time, ingredients, and ratings in search.
+* Software Application – Display app name, pricing, and download info.
+* Video – Enhance video results with thumbnails and descriptions.
+* Article – Improve blog/article visibility with author and publish date.
+
+👉 Need advanced schema types and automation? Upgrade to [Schema Pro](https://wpschema.com/).
+
+### Unlock these schema types with Schema Pro ###
+* Local Business Schema (Pro) – Show business details like address, hours, and contacts.
+* Service Schema (Pro) – Highlight services with descriptions, providers, and pricing info.
+* Review Schema (Pro) – Display customer reviews and ratings directly in search.
+* Job Posting Schema (Pro) – Promote job listings with role, description, and application info.
+* Book Schema (Pro) – Share book details, including title, author, and ISBN.
+* Podcast Schema (Pro) – Feature podcast episodes with title, description, and links.
+* Movie Schema (Pro) – Enhance movie listings with cast, release date, and ratings.
+* How-To Schema (Pro) – Show step-by-step instructions with images and videos.
 
 ### Future release would include: ###
 * Breadcrumbs
@@ -68,10 +80,13 @@ You can test the rich snippet on Google Webmasters Rich Snippets Testing Tool
 ## Frequently Asked Questions ##
 ### What is a Rich Snippet? ###
 The All in One Schema Rich Snippets plugin helps you add structured data markup to your WordPress website, enabling search engines to display rich snippets like star ratings, reviews, recipes, events, and more in search results.
+
 ### How does this plugin improve SEO? ###
 By adding schema markup, the plugin enhances search engine understanding of your content, increasing the chances of rich snippets appearing in search results, which can improve click-through rates (CTR) and SEO performance.
+
 ### Which Content Types are Supported? ###
 This plugin currently supports almost all of the content types that are released by Schema.org at one place.
+
 ### Do I need coding knowledge to use this plugin?###
 No, the plugin provides an easy-to-use interface where you can add schema markup without any coding.
 
@@ -82,6 +97,8 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+### 1.7.6 ###
+- Improvement: Updated readme.txt.
 
 ### 1.7.5 ###
 - Improvement: Compatibility with PHP version 8.3.

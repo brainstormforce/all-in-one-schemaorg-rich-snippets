@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.7.5
+ * Version: 1.7.6
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -63,6 +63,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		}
 
 		/**
+		 * Check if Schema Pro is installed (file exists).
+		 *
+		 * @return bool True if Schema Pro is installed, false otherwise.
+		 */
+		public function is_schema_pro_installed() {
+			// Check if Schema Pro plugin file exists.
+			$plugin_file = 'wp-schema-pro/wp-schema-pro.php';
+			return file_exists( WP_PLUGIN_DIR . '/' . $plugin_file );
+		}
+
+		/**
 		 * Defines all constants
 		 */
 		public function define_constants() {
@@ -70,7 +81,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.7.5' );
+			define( 'AIOSRS_PRO_VER', '1.7.6' );
 		}
 
 		/**
@@ -89,8 +100,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'href'  => 'https://validator.schema.org/',
 						'meta'  => array( 'target' => '_blank' ),
 					)
-				);
-			}
+				);}
 		}
 		/**
 		 * Register_custom_menu_page.
@@ -110,6 +120,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		public function bsf_settings_link( $links ) {
 			$settings_link = '<a href="admin.php?page=rich_snippet_dashboard">Settings</a>';
 			array_unshift( $links, $settings_link );
+
+			if ( ! $this->is_schema_pro_installed() ) {
+				$pro_link = '<a href="https://wpschema.com/pricing/?utm_source=Schema&utm_medium=Plugin-list&utm_campaign=upgrade" target="_blank" style="color: #d54e21; font-weight: bold;">Get Schema Pro</a>';
+				$links[]  = $pro_link;
+			}
+
 			return $links;
 		}
 		/**
@@ -221,6 +237,15 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				background: url(<?php echo esc_url( plugins_url( '/images/star.png', __FILE__ ) ); ?>) no-repeat 0 -32px !important;
 			}
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
+
+			<?php if ( ! $this->is_schema_pro_installed() ) : ?>
+
+			/* Remove blue outline from "Get Schema Pro" link */
+			a[href*="https://wpschema.com/pricing"]:focus {
+				outline: none !important;
+				box-shadow: none !important;
+			}
+			<?php endif; ?>
 		</style>
 		<?php }
 		/**
@@ -453,7 +478,7 @@ $bsf_analytics->set_entity(
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-					'plugin_version'    => '1.7.5',
+					'plugin_version'    => '1.7.6',
 					'popup_title'       => 'Quick Feedback',
 					'support_url'       => 'https://wpschema.com/contact/',
 					'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
