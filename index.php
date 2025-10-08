@@ -239,29 +239,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			#star-icons-32.icon32 {background: url(<?php echo esc_url( plugins_url( '/images/gray-32.png', __FILE__ ) ); ?>) no-repeat;}
 
 			<?php if ( ! $this->is_schema_pro_installed() ) : ?>
-			/* Upgrade to Pro button styles */
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) {
-				background-color: #04a382 !important;
-				border-radius: 3px !important;
-				margin: 2px 8px !important;
-			}
-
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]) a {
-				color: #fff !important;
-				font-size: 13px !important;
-				font-weight: 500 !important;
-				line-height: 20px !important;
-				padding-right: 12px !important;
-				padding-left: 12px !important;
-			}
-
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover {
-				background-color: #018d71 !important;
-			}
-
-			#toplevel_page_rich_snippet_dashboard .wp-submenu li:has(a[href*="https://wpschema.com/pricing"]):hover a {
-				color: #fff !important;
-			}
 
 			/* Remove blue outline from "Get Schema Pro" link */
 			a[href*="https://wpschema.com/pricing"]:focus {
