@@ -880,7 +880,28 @@ function display_rich_snippet( $content ) {
 			if ( ! empty( $video_date ) && isset( $timezone ) ) {
 				try {
 					// Create a DateTime object from the $video_date string.
-					$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
+					// Try multiple date formats to handle different input formats.
+					$datetime = null;
+					$date_formats = array(
+						'd/m/Y',        // 30/06/2024
+						'm/d/Y',        // 06/30/2024
+						'Y-m-d',        // 2024-06-30
+						'd-m-Y',        // 30-06-2024
+						'Y/m/d',        // 2024/06/30
+					);
+					
+					foreach ( $date_formats as $format ) {
+						$datetime = DateTime::createFromFormat( $format, $video_date, new DateTimeZone( $timezone ) );
+						if ( $datetime !== false ) {
+							break;
+						}
+					}
+					
+					// If none of the formats worked, try the default DateTime constructor as fallback.
+					if ( $datetime === false || $datetime === null ) {
+						$datetime = new DateTime( $video_date, new DateTimeZone( $timezone ) );
+					}
+					
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
 					// Translators: %s is the error message from the exception.
