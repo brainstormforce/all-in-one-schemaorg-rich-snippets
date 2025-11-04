@@ -966,7 +966,7 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $uploadDate ) . '">'; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 		}
 
-		$video .= '</div><div class="snippet-clear"></div>';
+		$video .= '</div></div><div class="snippet-clear"></div>';
 
 
 		return ( is_single() || is_page() ) ? $content . $video : $content;
