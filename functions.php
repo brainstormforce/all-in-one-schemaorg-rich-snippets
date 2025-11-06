@@ -859,7 +859,6 @@ function display_rich_snippet( $content ) {
 				return;
 		}
 
-	
 		$args_video = get_option( 'bsf_video' );
 		$video      = '';
 
@@ -871,7 +870,6 @@ function display_rich_snippet( $content ) {
 		$video_emb_url  = get_post_meta( $post->ID, '_bsf_video_emb_url', true );
 		$video_duration = get_post_meta( $post->ID, '_bsf_video_duration', true );
 		$video_date     = get_post_meta( $post->ID, '_bsf_video_date', true );
-
 
 		// Set default timezone and handle video date.
 		if ( '' != trim( $video_date ) ) {
@@ -967,7 +965,6 @@ function display_rich_snippet( $content ) {
 		}
 
 		$video .= '</div></div><div class="snippet-clear"></div>';
-
 
 		return ( is_single() || is_page() ) ? $content . $video : $content;
 	} elseif ( '10' == $type ) {
