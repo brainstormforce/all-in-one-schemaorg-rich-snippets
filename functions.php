@@ -856,7 +856,7 @@ function display_rich_snippet( $content ) {
 		global $post;
 
 		if ( ! isset( $post->ID ) ) {
-			return;
+				return;
 		}
 
 		$args_video = get_option( 'bsf_video' );
@@ -914,7 +914,7 @@ function display_rich_snippet( $content ) {
 			'duration'     => $iso_duration,
 		);
 
-		// Output the schema as JSON-LD only once.
+		// Output the schema as JSON-LD script tag.
 		$video .= '<script type="application/ld+json">' . json_encode( $schema ) . '</script>'; // phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode
 
 		// Start the video rendering logic.
@@ -964,7 +964,7 @@ function display_rich_snippet( $content ) {
 			$video .= '<meta itemprop="uploadDate" content="' . esc_attr( $uploadDate ) . '">'; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 		}
 
-		$video .= '</div></div></div><div class="snippet-clear"></div>';
+		$video .= '</div></div><div class="snippet-clear"></div>';
 
 		return ( is_single() || is_page() ) ? $content . $video : $content;
 	} elseif ( '10' == $type ) {

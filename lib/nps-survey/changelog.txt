@@ -1,3 +1,18 @@
+Version 1.0.15 - 11-09-2025
+- New:
+  - Added `privacy_policy` option with configurable link and custom content.
+  - Added `popup.placement` option to customize popup position.
+
+Version 1.0.14 - 18-08-2025
+- Improvement:
+  - Added `rating_min_label` and `rating_max_label` text options for customizable rating labels.
+
+Version 1.0.13 - 18-08-2025
+- Fix:
+  - Fixed issue where incorrect Content-Type header caused NPS survey close and rating submission requests to fail.
+- Dev:
+  - Added filters to ensure compatibility with internal WP NPS Survey plugin on marketing sites.
+
 Version 1.0.12 - 16-07-2025
 - Improvement:
   - Refactored rating prompt logic to allow disabling the WordPress rating functionality, ensuring a non-discriminatory and guideline-compliant user experience.
