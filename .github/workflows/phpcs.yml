@@ -16,7 +16,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: Setup PHP
           uses: shivammathur/setup-php@v2
@@ -26,7 +26,7 @@ jobs:
             tools: composer, cs2pr
 
         - name: Install composer dependencies
-          run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
+          run: composer config github-oauth.github.com ${{ secrets.BSF_PRODUCTS_REPO_TOKEN }} && composer install --prefer-dist --no-suggest --no-progress
 
         - name: Run phpcs
           id: phpcs
