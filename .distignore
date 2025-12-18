@@ -6,6 +6,10 @@
 .gitlab-ci.yml
 .travis.yml
 .DS_Store
+auth.json
+.env
+.env.*
+credentials.json
 Thumbs.db
 behat.yml
 bin
