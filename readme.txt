@@ -129,6 +129,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 * Improvement: Added Product Image field in Review Schema.
 * Improvement: Updated plugin metadata tags to improve search optimization.
 
+= 1.6.11.1 =
+- Fixed: Product image schema error in Product schema.
+
 = 1.6.11 =
 * Fixed: Improved code quality syntax and security checks for better coding standards and practices.
 * Fixed: Recipe - Author type fix.
