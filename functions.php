@@ -883,9 +883,10 @@ function display_rich_snippet( $content ) {
 					$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
-					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
-					return;
+					// Log the error instead of displaying it to frontend visitors.
+					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'AIOSRS: Error creating DateTime object: ' . $e->getMessage() );
+					return $content;
 				}
 			}
 		}
