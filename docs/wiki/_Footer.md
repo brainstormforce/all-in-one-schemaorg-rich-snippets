@@ -1,0 +1,1 @@
+Schema - All In One Schema Rich Snippets v1.7.6 | By [Brainstorm Force](https://www.brainstormforce.com) | [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html) | [GitHub](https://github.com/brainstormforce/all-in-one-schemaorg-rich-snippets) | [WordPress.org](https://wordpress.org/plugins/all-in-one-schemaorg-rich-snippets/) | [Schema Pro](https://wpschema.com/)
