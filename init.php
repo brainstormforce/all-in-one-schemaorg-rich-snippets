@@ -644,7 +644,11 @@ add_action( 'wp_ajax_bsf_oembed_handler', 'bsf_oembed_ajax_results' );
  */
 function bsf_oembed_ajax_results() {
 	// verify our nonce.
-	if ( ! ( isset( $_REQUEST['bsf_ajax_nonce'], $_REQUEST['oembed_url'] ) && wp_verify_nonce( $_REQUEST['bsf_ajax_nonce'], 'ajax_nonce' ) ) ) {
+	if ( ! ( isset( $_REQUEST['bsf_ajax_nonce'], $_REQUEST['oembed_url'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['bsf_ajax_nonce'] ) ), 'ajax_nonce' ) ) ) {
+		die();
+	}
+	// verify capability.
+	if ( ! current_user_can( 'edit_posts' ) ) {
 		die();
 	}
 	// sanitize our search string.
