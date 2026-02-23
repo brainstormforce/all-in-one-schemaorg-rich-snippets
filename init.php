@@ -179,7 +179,7 @@ class Bsf_Meta_Box {
 	public function show() {
 		global $post;
 		// Use nonce for verification.
-		echo '<input type="hidden" name="wp_meta_box_nonce" value="', esc_attr( wp_create_nonce( basename( __FILE__ ) ) ), '" />';
+		echo '<input type="hidden" name="wp_meta_box_nonce" value="', esc_attr( wp_create_nonce( 'bsf_meta_box_nonce_action' ) ), '" />';
 		echo '<table class="form-table bsf_metabox">';
 		foreach ( $this->_meta_box['fields'] as $field ) {
 			// Set up blank or default values for empty ones.
@@ -452,7 +452,7 @@ class Bsf_Meta_Box {
 	 */
 	public function save( $post_id ) {
 		// verify nonce.
-		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || ! wp_verify_nonce( esc_attr( $_POST['wp_meta_box_nonce'] ), basename( __FILE__ ) ) ) {
+		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wp_meta_box_nonce'] ) ), 'bsf_meta_box_nonce_action' ) ) {
 			return $post_id;
 		}
 		// check autosave.
@@ -555,7 +555,7 @@ function bsf_scripts( $hook ) {
 			'bsf-scripts',
 			'bsf_ajax_data',
 			array(
-				'ajax_nonce' => wp_create_nonce( 'ajax_nonce' ),
+				'bsf_meta_box_ajax_nonce' => wp_create_nonce( 'bsf_meta_box_ajax_nonce' ),
 				'post_id'    => get_the_ID(),
 			)
 		);
@@ -571,7 +571,7 @@ add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
  */
 function bsf_editor_footer_scripts() { ?>
 	<?php
-	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
+	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'bsf_meta_box_ajax_nonce' ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
 		$label = esc_attr( $_GET['bsf_send_label'] );
 		if ( empty( $label ) ) {
 			$label = 'Select File';
@@ -595,7 +595,7 @@ add_filter( 'get_media_item_args', 'bsf_force_send' );
  */
 function bsf_force_send( $args ) {
 
-	if ( ! isset( $_GET['bsf_file_upload_nonce'] ) || ! wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) ) {
+	if ( ! isset( $_GET['bsf_file_upload_nonce'] ) || ! wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'bsf_meta_box_ajax_nonce' ) ) {
 		return $args;
 	}
 	// if the Gallery tab is opened from a custom meta box field, add Insert Into Post button.
@@ -644,7 +644,7 @@ add_action( 'wp_ajax_bsf_oembed_handler', 'bsf_oembed_ajax_results' );
  */
 function bsf_oembed_ajax_results() {
 	// verify our nonce.
-	if ( ! ( isset( $_REQUEST['bsf_ajax_nonce'], $_REQUEST['oembed_url'] ) && wp_verify_nonce( $_REQUEST['bsf_ajax_nonce'], 'ajax_nonce' ) ) ) {
+	if ( ! ( isset( $_REQUEST['bsf_ajax_nonce'], $_REQUEST['oembed_url'] ) && wp_verify_nonce( $_REQUEST['bsf_ajax_nonce'], 'bsf_meta_box_ajax_nonce' ) ) ) {
 		die();
 	}
 	// sanitize our search string.
