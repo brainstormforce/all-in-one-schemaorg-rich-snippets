@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(composer lint)",
+      "Bash(composer format)",
+      "Bash(composer phpstan)",
+      "Bash(composer gen-stubs)",
+      "Bash(composer install)",
+      "Bash(composer update)",
+      "Bash(vendor/bin/phpunit*)",
+      "Bash(vendor/bin/phpcs*)",
+      "Bash(vendor/bin/phpcbf*)",
+      "Bash(vendor/bin/phpstan*)",
+      "Bash(vendor/bin/cghooks*)",
+      "Bash(npm install)",
+      "Bash(npm run i18n*)",
+      "Bash(npx grunt *)",
+      "Bash(ls *)",
+      "Bash(find * -name \"*.php\" *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(composer remove *)",
+      "Bash(npm uninstall *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"/Users/bsf/Local Sites/aiosrs/app/public/wp-content/plugins/all-in-one-schemaorg-rich-snippets\" && vendor/bin/phpcs --standard=phpcs.xml.dist --report=summary \"$CLAUDE_TOOL_INPUT_FILE_PATH\" 2>/dev/null | tail -5 || true"
+          }
+        ]
+      }
+    ]
+  }
+}
