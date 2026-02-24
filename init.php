@@ -669,7 +669,7 @@ function bsf_oembed_ajax_results() {
 		$fallback = $wp_embed->maybe_make_link( $oembed_url );
 		if ( $check_embed && $check_embed != $fallback ) {
 			// Embed data.
-			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $_REQUEST['field_id'] ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
+			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( sanitize_text_field( wp_unslash( $_REQUEST['field_id'] ) ) ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
 			// set our response id.
 			$found = 'found';
 		} else {
