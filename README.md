@@ -97,6 +97,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+### 1.7.7 ###
+- Improvement: Added Security fixes.
+
 ### 1.7.6 ###
 - Improvement: Updated readme.txt.
 

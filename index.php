@@ -107,7 +107,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'manage_options', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -288,24 +288,22 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Submit_request.
 		 */
 		public function submit_request() {
-			$to       = 'Brainstorm Force <support@bsf.io>';
-			$from     = '';
-			$site     = '';
-			$sub      = '';
-			$message  = '';
-			$post_url = '';
-			$name     = '';
-			$subject  = ''; // Initialize $subject.
-
-			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
-
-				$from     = sanitize_email( $_POST['email'] );
-				$site     = esc_url( $_POST['site_url'] );
-				$sub      = sanitize_text_field( $_POST['subject'] );
-				$message  = esc_html( $_POST['message'] );
-				$name     = sanitize_text_field( $_POST['name'] );
-				$post_url = esc_url( $_POST['post_url'] );
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'Unauthorized access.', 'rich-snippets' ) );
 			}
+
+			if ( ! isset( $_POST['aiosrs_support_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['aiosrs_support_form_nonce'] ) ), 'aiosrs_support_form' ) ) {
+				wp_send_json_error( __( 'Security check failed.', 'rich-snippets' ) );
+			}
+
+			$to       = 'Brainstorm Force <support@bsf.io>';
+			$from     = sanitize_email( $_POST['email'] );
+			$site     = esc_url( $_POST['site_url'] );
+			$sub      = sanitize_text_field( $_POST['subject'] );
+			$message  = esc_html( $_POST['message'] );
+			$name     = sanitize_text_field( $_POST['name'] );
+			$post_url = esc_url( $_POST['post_url'] );
+			$subject  = '';
 
 			if ( 'question' == $sub ) {
 				$subject = '[AIOSRS] New question received from ' . $name;

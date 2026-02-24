@@ -883,9 +883,10 @@ function display_rich_snippet( $content ) {
 					$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
-					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
-					return;
+					// Log the error instead of displaying it to frontend visitors.
+					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'AIOSRS: Error creating DateTime object: ' . $e->getMessage() );
+					return $content;
 				}
 			}
 		}
@@ -1287,20 +1288,20 @@ function add_ajax_library() {
  */
 function bsf_add_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$user_rating = array(
 		'post_id'     => $postid,
@@ -1316,19 +1317,19 @@ function bsf_add_rating() {
  */
 function bsf_update_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$prev_data = get_post_meta( $postid, 'post-rating', true );
 
