@@ -1287,20 +1287,20 @@ function add_ajax_library() {
  */
 function bsf_add_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$user_rating = array(
 		'post_id'     => $postid,
@@ -1316,19 +1316,19 @@ function bsf_add_rating() {
  */
 function bsf_update_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$prev_data = get_post_meta( $postid, 'post-rating', true );
 

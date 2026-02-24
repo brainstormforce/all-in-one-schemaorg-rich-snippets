@@ -154,9 +154,9 @@ class Bsf_Meta_Box {
 		}
 		// Get the current ID.
 		if ( isset( $_GET['post'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
-			$post_id = esc_attr( $_GET['post'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
+			$post_id = absint( $_GET['post'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Recommended
 		} elseif ( isset( $_POST['post_ID'] ) ) { //phpcs:ignore:WordPress.Security.NonceVerification.Missing
-			$post_id = esc_attr( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
+			$post_id = absint( $_POST['post_ID'] ); //phpcs:ignore:WordPress.Security.NonceVerification.Missing
 		}
 
 		if ( ! ( isset( $post_id ) || is_page() ) ) {
@@ -452,7 +452,7 @@ class Bsf_Meta_Box {
 	 */
 	public function save( $post_id ) {
 		// verify nonce.
-		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || ! wp_verify_nonce( esc_attr( $_POST['wp_meta_box_nonce'] ), basename( __FILE__ ) ) ) {
+		if ( ! isset( $_POST['wp_meta_box_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wp_meta_box_nonce'] ) ), basename( __FILE__ ) ) ) {
 			return $post_id;
 		}
 		// check autosave.
@@ -460,7 +460,7 @@ class Bsf_Meta_Box {
 			return $post_id;
 		}
 		// check permissions.
-		if ( 'page' == esc_attr( $_POST['post_type'] ) ) {
+		if ( 'page' == sanitize_text_field( wp_unslash( $_POST['post_type'] ) ) ) {
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
@@ -473,7 +473,7 @@ class Bsf_Meta_Box {
 				$field['multiple'] = ( 'multicheck' == $field['type'] ) ? true : false;
 			}
 			$old = get_post_meta( $post_id, $name, ! $field['multiple'] /* If multicheck this can be multiple values */ );
-			$new = isset( $_POST[ esc_attr( $field['id'] ) ] ) ? esc_attr( $_POST[ esc_attr( $field['id'] ) ] ) : null;
+			$new = isset( $_POST[ $field['id'] ] ) ? sanitize_text_field( wp_unslash( $_POST[ $field['id'] ] ) ) : null;
 			if ( in_array( $field['type'], array( 'taxonomy_select', 'taxonomy_radio', 'taxonomy_multicheck' ) ) ) {
 				$new = wp_set_object_terms( $post_id, $new, $field['taxonomy'] );
 			}
@@ -571,8 +571,8 @@ add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
  */
 function bsf_editor_footer_scripts() { ?>
 	<?php
-	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
-		$label = esc_attr( $_GET['bsf_send_label'] );
+	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['bsf_file_upload_nonce'] ) ), 'ajax_nonce' ) && 'true' == sanitize_text_field( wp_unslash( $_GET['bsf_force_send'] ) ) ) {
+		$label = sanitize_text_field( wp_unslash( $_GET['bsf_send_label'] ) );
 		if ( empty( $label ) ) {
 			$label = 'Select File';
 		}
@@ -595,15 +595,15 @@ add_filter( 'get_media_item_args', 'bsf_force_send' );
  */
 function bsf_force_send( $args ) {
 
-	if ( ! isset( $_GET['bsf_file_upload_nonce'] ) || ! wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) ) {
+	if ( ! isset( $_GET['bsf_file_upload_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['bsf_file_upload_nonce'] ) ), 'ajax_nonce' ) ) {
 		return $args;
 	}
 	// if the Gallery tab is opened from a custom meta box field, add Insert Into Post button.
-	if ( isset( $_GET['bsf_force_send'] ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
+	if ( isset( $_GET['bsf_force_send'] ) && 'true' == sanitize_text_field( wp_unslash( $_GET['bsf_force_send'] ) ) ) {
 		$args['send'] = true;
 	}
 	// if the From Computer tab is opened AT ALL, add Insert Into Post button after an image is uploaded.
-	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST['attachment_id'] ) ) {
+	if ( isset( $_POST['attachment_id'] ) && '' != absint( $_POST['attachment_id'] ) ) {
 		$args['send'] = true;
 		// TO DO: Are there any conditions in which we don't want the Insert Into Post.
 		// button added? For example, if a post type supports thumbnails, does not support.
@@ -614,7 +614,7 @@ function bsf_force_send( $args ) {
 		// $post_type_object = get_post_type_object( $attachment_parent_post_type );.
 	}
 	// change the label of the button on the From Computer tab.
-	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST['attachment_id'] ) ) {
+	if ( isset( $_POST['attachment_id'] ) && '' != absint( $_POST['attachment_id'] ) ) {
 		echo '
 			<script type="text/javascript">
 				function cmbGetParameterByNameInline(name) {
@@ -661,7 +661,7 @@ function bsf_oembed_ajax_results() {
 		$oembed_url = esc_url( $oembed_string );
 		// Post ID is needed to check for embeds.
 		if ( isset( $_REQUEST['post_id'] ) ) {
-			$GLOBALS['post'] = get_post( esc_attr( $_REQUEST['post_id'] ) ); //phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
+			$GLOBALS['post'] = get_post( absint( $_REQUEST['post_id'] ) ); //phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
 		}
 		// ping WordPress for an embed.
 		$check_embed = $wp_embed->run_shortcode( '[embed]' . $oembed_url . '[/embed]' );
