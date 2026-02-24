@@ -556,7 +556,7 @@ function bsf_scripts( $hook ) {
 			'bsf_ajax_data',
 			array(
 				'bsf_meta_box_ajax_nonce' => wp_create_nonce( 'bsf_meta_box_ajax_nonce' ),
-				'post_id'                    => get_the_ID(),
+				'post_id'                 => get_the_ID(),
 			)
 		);
 		wp_enqueue_script( 'bsf-timepicker' );
