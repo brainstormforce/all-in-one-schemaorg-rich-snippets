@@ -1170,41 +1170,52 @@ if ( isset( $_GET['action'] ) ) {
 	if ( 'reset' == sanitize_text_field( wp_unslash( $_GET['action'] ) ) && isset( $_GET['nonce'] ) && current_user_can( 'manage_options' ) ) {
 		$option_to_reset = sanitize_text_field( wp_unslash( $_GET['options'] ) );
 		$nonce_value     = sanitize_text_field( wp_unslash( $_GET['nonce'] ) );
+		$nonce_verified  = false;
+
 		if ( 'review' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_item_nonce' ) ) {
 			delete_option( 'bsf_review' );
+			$nonce_verified = true;
 		}
 		if ( 'event' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_event_nonce' ) ) {
 			delete_option( 'bsf_event' );
+			$nonce_verified = true;
 		}
 		if ( 'person' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_person_nonce' ) ) {
 			delete_option( 'bsf_person' );
+			$nonce_verified = true;
 		}
-
 		if ( 'product' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_product_nonce' ) ) {
 			delete_option( 'bsf_product' );
+			$nonce_verified = true;
 		}
 		if ( 'recipe' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_recipe_nonce' ) ) {
 			delete_option( 'bsf_recipe' );
+			$nonce_verified = true;
 		}
 		if ( 'software' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_software_nonce' ) ) {
 			delete_option( 'bsf_software' );
+			$nonce_verified = true;
 		}
 		if ( 'video' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_video_nonce' ) ) {
 			delete_option( 'bsf_video' );
+			$nonce_verified = true;
 		}
-
 		if ( 'article' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_article_nonce' ) ) {
 			delete_option( 'bsf_article' );
+			$nonce_verified = true;
 		}
 		if ( 'service' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_service_nonce' ) ) {
 			delete_option( 'bsf_service' );
+			$nonce_verified = true;
 		}
-
 		if ( 'color' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_color_nonce' ) ) {
 			delete_option( 'bsf_custom' );
+			$nonce_verified = true;
 		}
 
-		bsf_reset_options( $option_to_reset );
+		if ( $nonce_verified ) {
+			bsf_reset_options( $option_to_reset );
+		}
 	}
 }
 /**
