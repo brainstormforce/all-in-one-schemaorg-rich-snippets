@@ -556,7 +556,7 @@ function bsf_scripts( $hook ) {
 			'bsf_ajax_data',
 			array(
 				'bsf_meta_box_ajax_nonce' => wp_create_nonce( 'bsf_meta_box_ajax_nonce' ),
-				'post_id'    => get_the_ID(),
+				'post_id'                    => get_the_ID(),
 			)
 		);
 		wp_enqueue_script( 'bsf-timepicker' );
@@ -670,7 +670,7 @@ function bsf_oembed_ajax_results() {
 		if ( $check_embed && $check_embed != $fallback ) {
 			// Embed data.
 			$field_id = isset( $_REQUEST['field_id'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['field_id'] ) ) : '';
-			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $field_id ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
+			$return   = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $field_id ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
 			// set our response id.
 			$found = 'found';
 		} else {
