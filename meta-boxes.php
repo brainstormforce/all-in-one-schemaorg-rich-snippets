@@ -5,6 +5,8 @@
  * @package AIOSRS.
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Metabox for review.
  *
