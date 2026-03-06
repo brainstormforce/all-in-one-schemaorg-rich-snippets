@@ -5,6 +5,8 @@
  * @package Init.
  */
 
+defined( 'ABSPATH' ) || exit;
+
 $meta_boxes = array();
 $meta_boxes = apply_filters( 'bsf_meta_boxes', $meta_boxes );
 foreach ( $meta_boxes as $meta_box ) {
@@ -25,7 +27,7 @@ class Bsf_Meta_Box_Validate {
 	 * @param string $text Text.
 	 */
 	public function check_text( $text ) {
-		if ( 'hello' != $text ) {
+		if ( 'hello' !== $text ) {
 			return false;
 		}
 		return true;
@@ -65,7 +67,7 @@ class Bsf_Meta_Box {
 		$this->_meta_box = $meta_box;
 		$upload          = false;
 		foreach ( $meta_box['fields'] as $field ) {
-			if ( 'file' == $field['type'] || 'file_list' == $field['type'] ) {
+			if ( 'file' === $field['type'] || 'file_list' === $field['type'] ) {
 				$upload = true;
 				break;
 			}
@@ -131,7 +133,7 @@ class Bsf_Meta_Box {
 		// If value isn't an array, turn it into one.
 		$meta_box['show_on']['value'] = ! is_array( $meta_box['show_on']['value'] ) ? array( $meta_box['show_on']['value'] ) : $meta_box['show_on']['value'];
 		// If current page id is in the included array, display the metabox.
-		if ( in_array( $post_id, $meta_box['show_on']['value'] ) ) {
+		if ( in_array( $post_id, $meta_box['show_on']['value'], true ) ) {
 			return true;
 		} else {
 			return false;
@@ -167,7 +169,7 @@ class Bsf_Meta_Box {
 		// If value isn't an array, turn it into one.
 		$meta_box['show_on']['value'] = ! is_array( $meta_box['show_on']['value'] ) ? array( $meta_box['show_on']['value'] ) : $meta_box['show_on']['value'];
 		// See if there's a match.
-		if ( in_array( $current_template, $meta_box['show_on']['value'] ) ) {
+		if ( in_array( $current_template, $meta_box['show_on']['value'], true ) ) {
 			return true;
 		} else {
 			return false;
@@ -192,21 +194,21 @@ class Bsf_Meta_Box {
 			if ( ! isset( $field['std'] ) ) {
 				$field['std'] = '';
 			}
-			if ( 'file' == $field['type'] && ! isset( $field['allow'] ) ) {
+			if ( 'file' === $field['type'] && ! isset( $field['allow'] ) ) {
 				$field['allow'] = array( 'url', 'attachment' );
 			}
-			if ( 'file' == $field['type'] && ! isset( $field['save_id'] ) ) {
+			if ( 'file' === $field['type'] && ! isset( $field['save_id'] ) ) {
 				$field['save_id'] = false;
 			}
-			if ( 'multicheck' == $field['type'] ) {
+			if ( 'multicheck' === $field['type'] ) {
 				$field['multiple'] = true;
 			}
-			$meta = get_post_meta( $post->ID, esc_attr( $field['id'] ), 'multicheck' != $field['type'] /* If multicheck this can be multiple values */ );
+			$meta = get_post_meta( $post->ID, esc_attr( $field['id'] ), 'multicheck' !== $field['type'] /* If multicheck this can be multiple values */ );
 			echo '<tr class="', esc_attr( $field['class'] ),'">';
-			if ( 'title' == $field['type'] || ( 'select' == $field['type'] && '' == esc_html( $field['name'] ) ) ) {
+			if ( 'title' === $field['type'] || ( 'select' === $field['type'] && '' === esc_html( $field['name'] ) ) ) {
 				echo '<td colspan="2">';
 			} else {
-				if ( true == $this->_meta_box['show_names'] ) {
+				if ( true === $this->_meta_box['show_names'] ) {
 					echo '<th style="width:18%"><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), '">', esc_html( $field['name'] ), '</label></th>';
 				}
 				echo '<td>';
@@ -263,7 +265,7 @@ class Bsf_Meta_Box {
 					}
 					echo '<select class="', esc_attr( $field['class'] ),'" name="', esc_attr( $field['id'] ), '" id="',esc_attr( $field['id'] ), '">';
 					foreach ( $field['options'] as $option ) {
-						echo '<option class="', esc_attr( $field['class'] ),'" value="', esc_attr( $option['value'] ), '"', $meta == $option['value'] ? ' selected="selected"' : '', '>', esc_attr( $option['name'] ) , '</option>';
+						echo '<option class="', esc_attr( $field['class'] ),'" value="', esc_attr( $option['value'] ), '"', $option['value'] === $meta ? ' selected="selected"' : '', '>', esc_attr( $option['name'] ) , '</option>';
 					}
 					echo '</select>';
 					echo '<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</p>';
@@ -275,7 +277,7 @@ class Bsf_Meta_Box {
 					echo '<div class="bsf_radio_inline ', esc_attr( $field['class'] ),'">';
 					$i = 1;
 					foreach ( $field['options'] as $option ) {
-						echo '<div class="bsf_radio_inline_option ', esc_attr( $field['class'] ),'"><input class="', esc_attr( $field['class'] ),'" type="radio" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), esc_attr( $i ), '" value="', esc_attr( $option['value'] ), '"', $meta == $option['value'] ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_attr( $option['name'] ) , '</label></div>';
+						echo '<div class="bsf_radio_inline_option ', esc_attr( $field['class'] ),'"><input class="', esc_attr( $field['class'] ),'" type="radio" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), esc_attr( $i ), '" value="', esc_attr( $option['value'] ), '"', $option['value'] === $meta ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_attr( $option['name'] ) , '</label></div>';
 						$i++;
 					}
 					echo '</div>';
@@ -288,13 +290,13 @@ class Bsf_Meta_Box {
 					echo '<div class="', esc_attr( $field['class'] ),'"><ul>';
 					$i = 1;
 					foreach ( $field['options'] as $option ) {
-						if ( esc_attr( $field['class'] ) == 'star review' || esc_attr( $field['class'] ) == 'star product' || esc_attr( $field['class'] ) == 'star software' || esc_attr( $field['class'] ) == 'star service' ) {
+						if ( 'star review' === esc_attr( $field['class'] ) || 'star product' === esc_attr( $field['class'] ) || 'star software' === esc_attr( $field['class'] ) || 'star service' === esc_attr( $field['class'] ) ) {
 							$class = 'star';
 						} else {
 							$class = esc_attr( $field['class'] );
 						}
 						echo '<li class="', esc_attr( $field['class'] ),'">
-					<input class="', $class,'" type="radio" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), esc_attr( $i ),'" value="', esc_attr( $option['value'] ), '"', $meta == $option['value'] ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_attr( $option['name'] ) . '</label>				</li>';
+					<input class="', $class,'" type="radio" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), esc_attr( $i ),'" value="', esc_attr( $option['value'] ), '"', $option['value'] === $meta ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_attr( $option['name'] ) . '</label>				</li>';
 						$i++;
 					}
 					echo '</ul></div>';
@@ -310,7 +312,7 @@ class Bsf_Meta_Box {
 					foreach ( $field['options'] as $value => $name ) {
 						// Append `[]` to the name to get multiple values.
 						// Use in_array() to check whether the current option should be checked.
-						echo '<li class="', esc_attr( $field['class'] ),'"><input type="checkbox" class="', esc_attr( $field['class'] ),'" name="', esc_attr( $field['id'] ), '[]" id="', esc_attr( $field['id'] ), esc_attr( $i ), '" value="', $value, '"', in_array( $value, $meta ) ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_html( $name ), '</label></li>';
+						echo '<li class="', esc_attr( $field['class'] ),'"><input type="checkbox" class="', esc_attr( $field['class'] ),'" name="', esc_attr( $field['id'] ), '[]" id="', esc_attr( $field['id'] ), esc_attr( $i ), '" value="', $value, '"', in_array( $value, $meta, true ) ? ' checked="checked"' : '', ' /><label class="', esc_attr( $field['class'] ),'" for="', esc_attr( $field['id'] ), esc_attr( $i ), '">', esc_html( $name ), '</label></li>';
 						$i++;
 					}
 					echo '</ul>';
@@ -332,7 +334,7 @@ class Bsf_Meta_Box {
 						if ( ! is_wp_error( $names ) && ! empty( $names ) && ! strcmp( $term->slug, $names[0]->slug ) ) {
 							echo '<option value="' . esc_attr( $term->slug ) . '" selected>' . esc_attr( $term->name ) . '</option>';
 						} else {
-							echo '<option value="' . $term->slug . '  ' , $meta == $term->slug ? esc_attr( $meta ) : ' ' ,'  ">' . esc_attr( $term->name ) . '</option>';
+							echo '<option value="' . $term->slug . '  ' , $term->slug === $meta ? esc_attr( $meta ) : ' ' ,'  ">' . esc_attr( $term->name ) . '</option>';
 						}
 					}
 					echo '</select>';
@@ -346,7 +348,7 @@ class Bsf_Meta_Box {
 						if ( ! is_wp_error( $names ) && ! empty( $names ) && ! strcmp( $term->slug, $names[0]->slug ) ) {
 							echo '<li class="', esc_attr( $field['class'] ),'"><input class="', esc_attr( $field['class'] ),'" type="radio" name="', esc_attr( $field['id'] ), '" value="' . esc_attr( $term->slug ) . '" checked>' . esc_attr( $term->name ) . '</li>';
 						} else {
-							echo '<li class="', esc_attr( $field['class'] ),'"><input class="', esc_attr( $field['class'] ),'" type="radio" name="', esc_attr( $field['id'] ), '" value="' . $term->slug . '  ' , $meta == $term->slug ? esc_attr( $meta ) : ' ' ,'  ">' . esc_attr( $term->name ) . '</li>';
+							echo '<li class="', esc_attr( $field['class'] ),'"><input class="', esc_attr( $field['class'] ),'" type="radio" name="', esc_attr( $field['id'] ), '" value="' . $term->slug . '  ' , $term->slug === $meta ? esc_attr( $meta ) : ' ' ,'  ">' . esc_attr( $term->name ) . '</li>';
 						}
 					}
 					echo '</ul>';
@@ -359,7 +361,7 @@ class Bsf_Meta_Box {
 					foreach ( $terms as $term ) {
 						echo '<li><input class="', esc_attr( $field['class'] ),'" type="checkbox" name="', esc_attr( $field['id'] ), '[]" id="', esc_attr( $field['id'] ), '" value="', esc_attr( $term->name ) , '"';
 						foreach ( $names as $name ) {
-							if ( $term->slug == $name->slug ) {
+							if ( $name->slug === $term->slug ) {
 								echo ' checked="checked" ';
 							};
 						}
@@ -392,7 +394,7 @@ class Bsf_Meta_Box {
 					break;
 				case 'file':
 					$input_type_url = 'hidden';
-					if ( 'url' == $field['allow'] || ( is_array( $field['allow'] ) && in_array( 'url', $field['allow'] ) ) ) {
+					if ( 'url' === $field['allow'] || ( is_array( $field['allow'] ) && in_array( 'url', $field['allow'], true ) ) ) {
 						$input_type_url = 'text';
 					}
 					echo '<input class="bsf_upload_file ', esc_attr( $field['class'] ),' ' . esc_attr( $field['id'] ) . '" type="' . esc_attr( $input_type_url ) . '" size="45" id="', esc_attr( $field['id'] ), '" name="', esc_attr( $field['id'] ), '" value="', esc_attr( $meta ), '" />';
@@ -400,7 +402,7 @@ class Bsf_Meta_Box {
 					echo '<input class="bsf_upload_file_id ', esc_attr( $field['class'] ),'" type="hidden" id="',esc_attr( $field['id'] ), '" name="', esc_attr( $field['id'] ), '_id" value="', esc_attr( get_post_meta( $post->ID, $field['id'] . '_id', true ) ), '" />';
 					echo '<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', wp_kses_post( $field['desc'] ), '</p>';
 					echo '<div id="', esc_attr( $field['id'] ), '_status" class="bsf_media_status ', esc_attr( $field['class'] ),'">';
-					if ( '' != $meta ) {
+					if ( '' !== $meta ) {
 						$check_image = preg_match( '/(^.*\.jpg|jpeg|png|gif|ico*)/i', $meta );
 						if ( $check_image ) {
 							echo '<div class="img_status">';
@@ -424,7 +426,7 @@ class Bsf_Meta_Box {
 					echo '<input class="bsf_oembed ', esc_attr( $field['class'] ),'" type="text" name="', esc_attr( $field['id'] ), '" id="', esc_attr( $field['id'] ), '" value="', '' !== $meta ? esc_attr( $meta ) : esc_attr( $field['std'] ), '" />','<p class="bsf_metabox_description ', esc_attr( $field['class'] ),'">', esc_attr( $field['desc'] ), '</p>';
 					echo '<p class="bsf-spinner spinner ', esc_attr( $field['class'] ),'"></p>';
 					echo '<div id="', esc_attr( $field['id'] ), '_status" class="bsf_media_status ui-helper-clearfix embed_wrap ', esc_attr( $field['class'] ),'">';
-					if ( '' != $meta ) {
+					if ( '' !== $meta ) {
 						$check_embed = $GLOBALS['wp_embed']->run_shortcode( '[embed]' . esc_url( $meta ) . '[/embed]' );
 						if ( $check_embed ) {
 							echo '<div class="embed_status ', esc_attr( $field['class'] ),'">';
@@ -460,7 +462,7 @@ class Bsf_Meta_Box {
 			return $post_id;
 		}
 		// check permissions.
-		if ( 'page' == esc_attr( $_POST['post_type'] ) ) {
+		if ( 'page' === esc_attr( $_POST['post_type'] ) ) {
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
@@ -470,23 +472,23 @@ class Bsf_Meta_Box {
 		foreach ( $this->_meta_box['fields'] as $field ) {
 			$name = esc_attr( $field['id'] );
 			if ( ! isset( $field['multiple'] ) ) {
-				$field['multiple'] = ( 'multicheck' == $field['type'] ) ? true : false;
+				$field['multiple'] = ( 'multicheck' === $field['type'] ) ? true : false;
 			}
 			$old = get_post_meta( $post_id, $name, ! $field['multiple'] /* If multicheck this can be multiple values */ );
 			$new = isset( $_POST[ esc_attr( $field['id'] ) ] ) ? esc_attr( $_POST[ esc_attr( $field['id'] ) ] ) : null;
-			if ( in_array( $field['type'], array( 'taxonomy_select', 'taxonomy_radio', 'taxonomy_multicheck' ) ) ) {
+			if ( in_array( $field['type'], array( 'taxonomy_select', 'taxonomy_radio', 'taxonomy_multicheck' ), true ) ) {
 				$new = wp_set_object_terms( $post_id, $new, $field['taxonomy'] );
 			}
-			if ( ( 'textarea' == $field['type'] ) || ( 'textarea_small' == $field['type'] ) ) {
+			if ( ( 'textarea' === $field['type'] ) || ( 'textarea_small' === $field['type'] ) ) {
 				$new = htmlspecialchars( $new ); //phpcs:ignore:PHPCompatibility.ParameterValues.NewHTMLEntitiesEncodingDefault.NotSet
 			}
-			if ( ( 'textarea_code' == $field['type'] ) ) {
+			if ( ( 'textarea_code' === $field['type'] ) ) {
 				$new = htmlspecialchars_decode( $new );
 			}
-			if ( 'text_date_timestamp' == $field['type'] ) {
+			if ( 'text_date_timestamp' === $field['type'] ) {
 				$new = strtotime( $new );
 			}
-			if ( 'text_datetime_timestamp' == $field['type'] ) {
+			if ( 'text_datetime_timestamp' === $field['type'] ) {
 				$string = $new['date'] . ' ' . $new['time'];
 				$new    = strtotime( $string );
 			}
@@ -504,12 +506,12 @@ class Bsf_Meta_Box {
 						add_post_meta( $post_id, $name, $add_new, false );
 					}
 				}
-			} elseif ( '' !== $new && $new != $old ) {
+			} elseif ( '' !== $new && $old !== $new ) {
 				update_post_meta( $post_id, $name, $new );
-			} elseif ( '' == $new ) {
+			} elseif ( '' === $new ) {
 				delete_post_meta( $post_id, $name );
 			}
-			if ( 'file' == $field['type'] ) {
+			if ( 'file' === $field['type'] ) {
 				$name = esc_attr( $field['id'] ) . '_id';
 				$old  = get_post_meta( $post_id, $name, ! $field['multiple'] /* If multicheck this can be multiple values */ );
 				if ( isset( $field['save_id'] ) && $field['save_id'] ) {
@@ -517,9 +519,9 @@ class Bsf_Meta_Box {
 				} else {
 					$new = '';
 				}
-				if ( $new && $new != $old ) {
+				if ( $new && $old !== $new ) {
 					update_post_meta( $post_id, $name, $new );
-				} elseif ( '' == $new && $old ) {
+				} elseif ( '' === $new && $old ) {
 					delete_post_meta( $post_id, $name, $old );
 				}
 			}
@@ -535,7 +537,7 @@ class Bsf_Meta_Box {
 function bsf_scripts( $hook ) {
 	global $wp_version;
 	// only enqueue our scripts/styles on the proper pages.
-	if ( 'post.php' == $hook || 'post-new.php' == $hook || 'page-new.php' == $hook || 'page.php' == $hook ) {
+	if ( 'post.php' === $hook || 'post-new.php' === $hook || 'page-new.php' === $hook || 'page.php' === $hook ) {
 		// scripts required for cmb.
 		$bsf_script_array = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox' );
 		// styles required for cmb.
@@ -571,7 +573,7 @@ add_action( 'admin_enqueue_scripts', 'bsf_scripts', 10 );
  */
 function bsf_editor_footer_scripts() { ?>
 	<?php
-	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
+	if ( isset( $_GET['bsf_force_send'] ) && isset( $_GET['bsf_file_upload_nonce'] ) && wp_verify_nonce( $_GET['bsf_file_upload_nonce'], 'ajax_nonce' ) && 'true' === esc_attr( $_GET['bsf_force_send'] ) ) {
 		$label = esc_attr( $_GET['bsf_send_label'] );
 		if ( empty( $label ) ) {
 			$label = 'Select File';
@@ -599,11 +601,11 @@ function bsf_force_send( $args ) {
 		return $args;
 	}
 	// if the Gallery tab is opened from a custom meta box field, add Insert Into Post button.
-	if ( isset( $_GET['bsf_force_send'] ) && 'true' == esc_attr( $_GET['bsf_force_send'] ) ) {
+	if ( isset( $_GET['bsf_force_send'] ) && 'true' === esc_attr( $_GET['bsf_force_send'] ) ) {
 		$args['send'] = true;
 	}
 	// if the From Computer tab is opened AT ALL, add Insert Into Post button after an image is uploaded.
-	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST['attachment_id'] ) ) {
+	if ( isset( $_POST['attachment_id'] ) && '' !== esc_attr( $_POST['attachment_id'] ) ) {
 		$args['send'] = true;
 		// TO DO: Are there any conditions in which we don't want the Insert Into Post.
 		// button added? For example, if a post type supports thumbnails, does not support.
@@ -614,7 +616,7 @@ function bsf_force_send( $args ) {
 		// $post_type_object = get_post_type_object( $attachment_parent_post_type );.
 	}
 	// change the label of the button on the From Computer tab.
-	if ( isset( $_POST['attachment_id'] ) && '' != esc_attr( $_POST['attachment_id'] ) ) {
+	if ( isset( $_POST['attachment_id'] ) && '' !== esc_attr( $_POST['attachment_id'] ) ) {
 		echo '
 			<script type="text/javascript">
 				function cmbGetParameterByNameInline(name) {
@@ -663,7 +665,7 @@ function bsf_oembed_ajax_results() {
 		$check_embed = $wp_embed->run_shortcode( '[embed]' . $oembed_url . '[/embed]' );
 		// fallback that WordPress creates when no oEmbed was found.
 		$fallback = $wp_embed->maybe_make_link( $oembed_url );
-		if ( $check_embed && $check_embed != $fallback ) {
+		if ( $check_embed && $fallback !== $check_embed ) {
 			// Embed data.
 			$return = '<div class="embed_status">' . $check_embed . '<a href="#" class="bsf_remove_file_button" rel="' . esc_attr( $_REQUEST['field_id'] ) . '">' . __( 'Remove Embed', 'rich-snippets' ) . '</a></div>';
 			// set our response id.
@@ -685,5 +687,4 @@ function bsf_oembed_ajax_results() {
 	);
 	die();
 }
-// End. That's it, folks! //.
-?>
+// End. That's it, folks!
