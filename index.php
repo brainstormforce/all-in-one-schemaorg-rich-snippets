@@ -129,14 +129,31 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			return $links;
 		}
 		/**
-		 *  Print the star rating style on post edit page.
+		 * Enqueue post editor scripts and styles on post.php.
 		 *
 		 * @param string $hook Hook.
 		 */
 		public function post_enqueue( $hook ) {
-			if ( 'post.php' != $hook ) {
+			if ( 'post.php' !== $hook ) {
 				return;
 			}
+			$this->enqueue_post_editor_scripts();
+		}
+		/**
+		 * Enqueue post editor scripts and styles on post-new.php.
+		 *
+		 * @param string $hook Hook.
+		 */
+		public function post_new_enqueue( $hook ) {
+			if ( 'post-new.php' !== $hook ) {
+				return;
+			}
+			$this->enqueue_post_editor_scripts();
+		}
+		/**
+		 * Shared helper: enqueue scripts and styles for the post editor screens.
+		 */
+		private function enqueue_post_editor_scripts() {
 			$current_admin_screen = get_current_screen();
 
 			// Default exclusions for WooCommerce and other problematic post types.
@@ -163,43 +180,6 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			if ( ! function_exists( 'vc_map' ) ) {
 				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', null, '1.0' );
-			}
-		}
-		/**
-		 *  Post_new_enqueue.
-		 *
-		 * @param string $hook Hook.
-		 */
-		public function post_new_enqueue( $hook ) {
-			if ( 'post-new.php' != $hook ) {
-				return;
-			}
-			$current_admin_screen = get_current_screen();
-
-			// Default exclusions for WooCommerce and other problematic post types.
-			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
-
-			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
-				return;
-			}
-
-			// Additional check for WooCommerce products to prevent conflicts.
-			if ( 'product' === $current_admin_screen->post_type ) {
-				return;
-			}
-			wp_enqueue_script( 'jquery' );
-			wp_enqueue_script( 'bsf_jquery_star' );
-			wp_enqueue_script( 'bsf_toggle' );
-			wp_enqueue_style( 'star_style' );
-			wp_register_script( 'bsf-scripts', BSF_META_BOX_URL . 'js/cmb.js', '', '0.9.1' );
-			wp_enqueue_script( 'bsf-scripts' );
-			wp_enqueue_media();
-			wp_register_script( 'bsf-scripts-media', BSF_META_BOX_URL . 'js/media.js', array( 'jquery' ), '1.0' );
-			wp_enqueue_script( 'bsf-scripts-media' );
-			wp_enqueue_script( 'jquery-ui-datepicker' );
-			if ( ! function_exists( 'vc_map' ) ) {
-				wp_enqueue_style( 'jquery-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css', null, 1.0 );
 			}
 		}
 		/**
@@ -361,9 +341,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
 			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
-
-			die();
+			if ( $result ) {
+				esc_html_e( 'Thank you!', 'rich-snippets' );
+			} else {
+				esc_html_e( 'Something went wrong!', 'rich-snippets' );
+			}
+			wp_die();
 		}
 		/**
 		 * Submit_color.
@@ -390,9 +373,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
-
-					die();
+					if ( update_option( 'bsf_custom', $color_opt ) ) {
+						esc_html_e( 'Settings saved !', 'rich-snippets' );
+					} else {
+						esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
+					}
+					wp_die();
 				}
 			}
 		}
@@ -409,25 +395,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Bsf_color_scripts.
 		 */
 		public function bsf_color_scripts() {
-			global $wp_version;
-			$bsf_script_array = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox' );
-
-			// styles required for cmb.
-			$bsf_style_array = array( 'thickbox' );
-
-			// if we're 3.5 or later, user wp-color-picker.
-			if ( 3.5 <= $wp_version ) {
-
-				$bsf_script_array[] = 'wp-color-picker';
-				$bsf_style_array[]  = 'wp-color-picker';
-
-			} else {
-
-				// otherwise use the older 'farbtastic'.
-				$bsf_script_array[] = 'farbtastic';
-				$bsf_style_array[]  = 'farbtastic';
-
-			}
+			$bsf_script_array   = array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'media-upload', 'thickbox', 'wp-color-picker' );
+			$bsf_style_array    = array( 'thickbox', 'wp-color-picker' );
 		}
 
 			/**
