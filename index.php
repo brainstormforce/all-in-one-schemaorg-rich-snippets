@@ -371,7 +371,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				// return if current user is not allowed to manage options.
 				return;
 			} else {
-				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
+				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_color_nonce_field'] ) ), 'snippet_color_form_action' )
 				) {
 					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
