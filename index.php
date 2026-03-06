@@ -355,13 +355,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				</body>
 			</html>
 			';
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
-
-			die();
+			$safe_name = str_replace( array( "\r", "\n" ), '', $name );
+			$safe_from = str_replace( array( "\r", "\n" ), '', $from );
+			$headers   = 'MIME-Version: 1.0' . "\r\n";
+			$headers  .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers  .= 'From:' . $safe_name . '<' . $safe_from . '>' . "\r\n";
+			$result    = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
+			if ( $result ) {
+				wp_send_json_success( __( 'Thank you!', 'rich-snippets' ) );
+			} else {
+				wp_send_json_error( __( 'Something went wrong!', 'rich-snippets' ) );
+			}
 		}
 		/**
 		 * Submit_color.
@@ -388,9 +392,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
-
-					die();
+					if ( update_option( 'bsf_custom', $color_opt ) ) {
+						wp_send_json_success( __( 'Settings saved !', 'rich-snippets' ) );
+					} else {
+						wp_send_json_error( __( 'Error occured. Settings were not saved !', 'rich-snippets' ) );
+					}
 				}
 			}
 		}
