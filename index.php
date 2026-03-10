@@ -107,7 +107,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'manage_options', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -288,24 +288,22 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Submit_request.
 		 */
 		public function submit_request() {
-			$to       = 'Brainstorm Force <support@bsf.io>';
-			$from     = '';
-			$site     = '';
-			$sub      = '';
-			$message  = '';
-			$post_url = '';
-			$name     = '';
-			$subject  = ''; // Initialize $subject.
-
-			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
-
-				$from     = sanitize_email( $_POST['email'] );
-				$site     = esc_url( $_POST['site_url'] );
-				$sub      = sanitize_text_field( $_POST['subject'] );
-				$message  = esc_html( $_POST['message'] );
-				$name     = sanitize_text_field( $_POST['name'] );
-				$post_url = esc_url( $_POST['post_url'] );
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'Unauthorized access.', 'rich-snippets' ) );
 			}
+
+			if ( ! isset( $_POST['aiosrs_support_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['aiosrs_support_form_nonce'] ) ), 'aiosrs_support_form' ) ) {
+				wp_send_json_error( __( 'Security check failed.', 'rich-snippets' ) );
+			}
+
+			$to       = 'Brainstorm Force <support@bsf.io>';
+			$from     = sanitize_email( $_POST['email'] );
+			$site     = esc_url( $_POST['site_url'] );
+			$sub      = sanitize_text_field( $_POST['subject'] );
+			$message  = esc_html( $_POST['message'] );
+			$name     = sanitize_text_field( $_POST['name'] );
+			$post_url = esc_url( $_POST['post_url'] );
+			$subject  = '';
 
 			if ( 'question' == $sub ) {
 				$subject = '[AIOSRS] New question received from ' . $name;
@@ -357,13 +355,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				</body>
 			</html>
 			';
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
-
-			die();
+			$safe_name = str_replace( array( "\r", "\n" ), '', $name );
+			$safe_from = str_replace( array( "\r", "\n" ), '', $from );
+			$headers   = 'MIME-Version: 1.0' . "\r\n";
+			$headers  .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers  .= 'From:' . $safe_name . '<' . $safe_from . '>' . "\r\n";
+			$result    = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
+			if ( $result ) {
+				wp_send_json_success( __( 'Thank you!', 'rich-snippets' ) );
+			} else {
+				wp_send_json_error( __( 'Something went wrong!', 'rich-snippets' ) );
+			}
 		}
 		/**
 		 * Submit_color.
@@ -373,7 +375,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				// return if current user is not allowed to manage options.
 				return;
 			} else {
-				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
+				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_color_nonce_field'] ) ), 'snippet_color_form_action' )
 				) {
 					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
@@ -390,9 +392,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
-
-					die();
+					if ( update_option( 'bsf_custom', $color_opt ) ) {
+						wp_send_json_success( __( 'Settings saved !', 'rich-snippets' ) );
+					} else {
+						wp_send_json_error( __( 'Error occured. Settings were not saved !', 'rich-snippets' ) );
+					}
 				}
 			}
 		}

@@ -609,7 +609,7 @@ function display_rich_snippet( $content ) {
 		$product .= '<div class="aio-info">';
 		if ( '' != trim( $product_rating ) ) {
 			if ( '' != $args_product['product_brand'] ) {
-				$product .= '<div class="snippet-label-img">' . $args_product['product_rating'] . '</div>';
+				$product .= '<div class="snippet-label-img">' . esc_html( $args_product['product_rating'] ) . '</div>';
 			}
 			$product            .= '<div class="snippet-data-img"><span class="star-img">';
 			$ceil_product_rating = ceil( $product_rating );
@@ -883,9 +883,10 @@ function display_rich_snippet( $content ) {
 					$datetime   = new DateTime( $video_date, new DateTimeZone( $timezone ) ); // Set the timezone to the server's timezone.
 					$uploadDate = $datetime->format( 'd-m-Y\TH:i:sP' ); // phpcs:ignore WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase
 				} catch ( Exception $e ) {
-					// Translators: %s is the error message from the exception.
-					echo esc_html( sprintf( __( 'Error creating DateTime object: %s', 'rich-snippets' ), esc_html( $e->getMessage() ) ) );
-					return;
+					// Log the error instead of displaying it to frontend visitors.
+					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'AIOSRS: Error creating DateTime object: ' . $e->getMessage() );
+					return $content;
 				}
 			}
 		}
@@ -915,7 +916,7 @@ function display_rich_snippet( $content ) {
 		);
 
 		// Output the schema as JSON-LD only once.
-		$video .= '<script type="application/ld+json">' . json_encode( $schema ) . '</script>'; // phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode
+		$video .= '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_HEX_TAG | JSON_HEX_AMP ) . '</script>';
 
 		// Start the video rendering logic.
 		$video .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
@@ -1184,11 +1185,11 @@ require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
  */
 function get_the_ip() {
 	if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) );
 	} elseif ( isset( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-		return $_SERVER['HTTP_CLIENT_IP'];
+		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
 	} else {
-		return $_SERVER['REMOTE_ADDR'];
+		return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
 	}
 }
 /**
@@ -1287,20 +1288,20 @@ function add_ajax_library() {
  */
 function bsf_add_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$user_rating = array(
 		'post_id'     => $postid,
@@ -1308,27 +1309,29 @@ function bsf_add_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == add_post_meta( $postid, 'post-rating', $user_rating ) ? esc_html_e( 'Error adding your rating', 'rich-snippets' ) : esc_html_e( 'Ratings added successfully !', 'rich-snippets' );
-	die();
+	if ( false === add_post_meta( $postid, 'post-rating', $user_rating ) ) {
+		wp_send_json_error( __( 'Error adding your rating', 'rich-snippets' ) );
+	}
+	wp_send_json_success( __( 'Ratings added successfully !', 'rich-snippets' ) );
 }
 /**
  * Bsf_update_rating.
  */
 function bsf_update_rating() {
 
-	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( $_POST['bsf_rating_nonce'], 'bsf_rating' ) ) {
+	if ( ! isset( $_POST['bsf_rating_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['bsf_rating_nonce'] ) ), 'bsf_rating' ) ) {
 
 		return;
 	}
 	if ( isset( $_POST['star-review'] ) ) {
-		$stars = esc_attr( $_POST['star-review'] );
+		$stars = intval( $_POST['star-review'] );
 	} else {
-		$stars = '0';
+		$stars = 0;
 	}
 
-	$ip = esc_attr( $_POST['ip'] );
+	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
 
-	$postid = esc_attr( $_POST['post_id'] );
+	$postid = absint( $_POST['post_id'] );
 
 	$prev_data = get_post_meta( $postid, 'post-rating', true );
 
@@ -1338,8 +1341,10 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	echo false == update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ? esc_html_e( 'Error updating your rating', 'rich-snippets' ) : esc_html_e( 'Ratings updated successfully !', 'rich-snippets' );
-	die();
+	if ( false === update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ) {
+		wp_send_json_error( __( 'Error updating your rating', 'rich-snippets' ) );
+	}
+	wp_send_json_success( __( 'Ratings updated successfully !', 'rich-snippets' ) );
 }
 /**
  * Display_rating.
@@ -1357,7 +1362,7 @@ function display_rating() {
 		$rating .= '<input type="radio" name="star-review" class="star star-4" value="4" id="bsf-star-4" aria-label="' . esc_attr__( '4 stars', 'rich-snippets' ) . '"/><label for="bsf-star-4" class="bsf-sr-only">' . esc_html__( '4 stars', 'rich-snippets' ) . '</label>';
 		$rating .= '<input type="radio" name="star-review" class="star star-5" value="5" id="bsf-star-5" aria-label="' . esc_attr__( '5 stars', 'rich-snippets' ) . '"/><label for="bsf-star-5" class="bsf-sr-only">' . esc_html__( '5 stars', 'rich-snippets' ) . '</label>';
 		$rating .= '</fieldset>';
-		$rating .= '<input type="hidden" name="ip" value="' . get_the_ip() . '" />';
+		$rating .= '<input type="hidden" name="ip" value="' . esc_attr( get_the_ip() ) . '" />';
 		$rating .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
 		$rating .= '</form>';
 		$rating .= '</div></span>';
