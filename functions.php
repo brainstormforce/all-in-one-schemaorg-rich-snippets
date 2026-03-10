@@ -78,7 +78,7 @@ function display_rich_snippet( $content ) {
 		$args_review = get_option( 'bsf_review' );
 
 		$review  = '';
-		$review .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
+		$review .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' !== $args_review['review_title'] ) {
 			$review .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_review['review_title'] ) ) . '</div>';
@@ -149,11 +149,11 @@ function display_rich_snippet( $content ) {
 			$review     .= "<div class='snippet-data'> <span itemprop='reviewRating' itemscope itemtype='https://schema.org/Rating'><span class='rating-value' itemprop='ratingValue'>" . esc_attr( $rating ) . "</span></span><span class='star-img'>";
 			$ceil_rating = ceil( $rating );
 			for ( $i = 1; $i <= $ceil_rating; $i++ ) {
-				$review .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="1star">';
+				$review .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="" role="img" aria-hidden="true">';
 			}
 			for ( $j = 0; $j <= 5 - $ceil_rating; $j++ ) {
 				if ( $j ) {
-					$review .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="gray">';
+					$review .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="" role="img" aria-hidden="true">';
 				}
 			}
 			$review .= '</span></div>';
@@ -316,7 +316,7 @@ function display_rich_snippet( $content ) {
 
 		$event = '';
 
-		$event .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
+		$event .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' !== $args_event['snippet_title'] ) {
 			$event .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_event['snippet_title'] ) ) . '</div>';
@@ -480,7 +480,7 @@ function display_rich_snippet( $content ) {
 
 		$people = '';
 
-		$people .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
+		$people .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' !== $args_person['snippet_title'] ) {
 			$people .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_person['snippet_title'] ) ) . '</div>';
@@ -616,11 +616,11 @@ function display_rich_snippet( $content ) {
 			$product            .= '<div class="snippet-data-img"><span class="star-img">';
 			$ceil_product_rating = ceil( $product_rating );
 			for ( $i = 1; $i <= $ceil_product_rating; $i++ ) {
-				$product .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="1star">';
+				$product .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="" role="img" aria-hidden="true">';
 			}
 			for ( $j = 0; $j <= 5 - $ceil_product_rating; $j++ ) {
 				if ( $j ) {
-					$product .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="gray">';
+					$product .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="" role="img" aria-hidden="true">';
 				}
 			}
 			$product .= '</span></div><div class="snippet-clear"></div>';
@@ -670,7 +670,7 @@ function display_rich_snippet( $content ) {
 		global $post;
 		$recipe = '';
 
-		$recipe .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
+		$recipe .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		$args_recipe = get_option( 'bsf_recipe' );
 
@@ -745,11 +745,11 @@ function display_rich_snippet( $content ) {
 			$recipe       .= ' <div class="snippet-data-img"> <span itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"><span itemprop="ratingValue" class="rating-value">' . esc_attr( $agregate ) . '</span><span class="star-img">';
 			$ceil_agregate = ceil( $agregate );
 			for ( $i = 1; $i <= $ceil_agregate; $i++ ) {
-				$recipe .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="1star">';
+				$recipe .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="" role="img" aria-hidden="true">';
 			}
 			for ( $j = 0; $j <= 5 - $ceil_agregate; $j++ ) {
 				if ( $j ) {
-					$recipe .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="gray">';
+					$recipe .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="" role="img" aria-hidden="true">';
 				}
 			}
 			$recipe .= '</span> Based on <span itemprop="reviewCount"><strong>' . esc_attr( $count ) . '</strong> </span> Review(s)</span></div><div class="snippet-clear"></div>';
@@ -798,11 +798,11 @@ function display_rich_snippet( $content ) {
 			$software            .= '<div class="snippet-data-img"><span class="star-img">';
 			$ceil_software_rating = ceil( $software_rating );
 			for ( $i = 1; $i <= $ceil_software_rating; $i++ ) {
-				$software .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="1star">';
+				$software .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/1star.png" alt="" role="img" aria-hidden="true">';
 			}
 			for ( $j = 0; $j <= 5 - $ceil_software_rating; $j++ ) {
 				if ( $j ) {
-					$software .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="gray">';
+					$software .= '<img src="' . plugin_dir_url( __FILE__ ) . 'images/gray.png" alt="" role="img" aria-hidden="true">';
 				}
 			}
 			$software .= '</span></div><div class="snippet-clear"></div>';
@@ -921,7 +921,7 @@ function display_rich_snippet( $content ) {
 		$video .= '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_HEX_TAG | JSON_HEX_AMP ) . '</script>';
 
 		// Start the video rendering logic.
-		$video .= '<div id="snippet-box" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
+		$video .= '<div id="snippet-box" role="complementary" aria-label="' . esc_attr__( 'Schema Information', 'rich-snippets' ) . '" class="snippet-type-' . esc_attr( $type ) . '" style="background:' . esc_attr( $args_color['snippet_box_bg'] ) . '; color:' . esc_attr( $args_color['snippet_box_color'] ) . '; border:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">';
 
 		if ( '' !== $args_video['snippet_title'] ) {
 			$video .= '<div class="snippet-title" style="background:' . esc_attr( $args_color['snippet_title_bg'] ) . '; color:' . esc_attr( $args_color['snippet_title_color'] ) . '; border-bottom:1px solid ' . esc_attr( $args_color['snippet_border'] ) . ';">' . esc_attr( stripslashes( $args_video['snippet_title'] ) ) . '</div>';
@@ -1351,14 +1351,16 @@ function bsf_update_rating() {
 function display_rating() {
 
 		global $post;
-		$rating  = '<span class="ratings"><div class="star-blocks">';
+		$rating  = '<span class="ratings"><div class="star-blocks" role="group" aria-label="' . esc_attr__( 'Rate this item', 'rich-snippets' ) . '">';
 		$rating .= '<form name="rating" method="post" action="' . get_permalink() . '" id="bsf-rating" onsubmit="return false;">';
+		$rating .= '<fieldset><legend class="bsf-sr-only">' . esc_html__( 'Rating', 'rich-snippets' ) . '</legend>';
 		$rating .= wp_nonce_field( 'bsf_rating', 'bsf_rating_nonce', true, false );
-		$rating .= '<input type="radio" name="star-review" class="star star-1" value="1"/>';
-		$rating .= '<input type="radio" name="star-review" class="star star-2" value="2"/>';
-		$rating .= '<input type="radio" name="star-review" class="star star-3" value="3"/>';
-		$rating .= '<input type="radio" name="star-review" class="star star-4" value="4"/>';
-		$rating .= '<input type="radio" name="star-review" class="star star-5" value="5"/>';
+		$rating .= '<input type="radio" name="star-review" class="star star-1" value="1" id="bsf-star-1" aria-label="' . esc_attr__( '1 star', 'rich-snippets' ) . '"/><label for="bsf-star-1" class="bsf-sr-only">' . esc_html__( '1 star', 'rich-snippets' ) . '</label>';
+		$rating .= '<input type="radio" name="star-review" class="star star-2" value="2" id="bsf-star-2" aria-label="' . esc_attr__( '2 stars', 'rich-snippets' ) . '"/><label for="bsf-star-2" class="bsf-sr-only">' . esc_html__( '2 stars', 'rich-snippets' ) . '</label>';
+		$rating .= '<input type="radio" name="star-review" class="star star-3" value="3" id="bsf-star-3" aria-label="' . esc_attr__( '3 stars', 'rich-snippets' ) . '"/><label for="bsf-star-3" class="bsf-sr-only">' . esc_html__( '3 stars', 'rich-snippets' ) . '</label>';
+		$rating .= '<input type="radio" name="star-review" class="star star-4" value="4" id="bsf-star-4" aria-label="' . esc_attr__( '4 stars', 'rich-snippets' ) . '"/><label for="bsf-star-4" class="bsf-sr-only">' . esc_html__( '4 stars', 'rich-snippets' ) . '</label>';
+		$rating .= '<input type="radio" name="star-review" class="star star-5" value="5" id="bsf-star-5" aria-label="' . esc_attr__( '5 stars', 'rich-snippets' ) . '"/><label for="bsf-star-5" class="bsf-sr-only">' . esc_html__( '5 stars', 'rich-snippets' ) . '</label>';
+		$rating .= '</fieldset>';
 		$rating .= '<input type="hidden" name="ip" value="' . esc_attr( get_the_ip() ) . '" />';
 		$rating .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
 		$rating .= '</form>';

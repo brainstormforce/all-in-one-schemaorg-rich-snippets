@@ -182,7 +182,7 @@ class Bsf_Meta_Box {
 		global $post;
 		// Use nonce for verification.
 		echo '<input type="hidden" name="wp_meta_box_nonce" value="', esc_attr( wp_create_nonce( 'bsf_meta_box_nonce_action' ) ), '" />';
-		echo '<table class="form-table bsf_metabox">';
+		echo '<table class="form-table bsf_metabox" role="presentation">';
 		foreach ( $this->_meta_box['fields'] as $field ) {
 			// Set up blank or default values for empty ones.
 			if ( ! isset( $field['name'] ) ) {
@@ -406,7 +406,7 @@ class Bsf_Meta_Box {
 						$check_image = preg_match( '/(^.*\.jpg|jpeg|png|gif|ico*)/i', $meta );
 						if ( $check_image ) {
 							echo '<div class="img_status">';
-							echo '<img src="', esc_attr( $meta ), '" alt="" />';
+							echo '<img src="', esc_attr( $meta ), '" alt="', esc_attr( $field['name'] ), '" />';
 							echo '<a href="#" class="bsf_remove_file_button ', esc_attr( $field['class'] ),'" rel="', esc_attr( $field['id'] ), '">Remove Image</a>';
 							echo '</div>';
 						} else {
