@@ -5,6 +5,8 @@
  * @package Schema - All In One Schema Rich Snippets.
  */
 
+defined( 'ABSPATH' ) || exit;
+
 ob_start();
 if ( is_admin() ) {
 	add_action( 'admin_footer', 'add_footer_script' );
@@ -400,7 +402,6 @@ function rich_snippet_dashboard() {
 								</div>
 							</div>
 
-
 							<div class="postbox closed">
 								<button type="button" class="handlediv" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Toggle panel: Frontend Options', 'rich-snippets' ) . '</span><span class="toggle-indicator" aria-hidden="true"></span></button>
 								<h3 class="hndle"><span>' . esc_html__( 'Video', 'rich-snippets' ) . '</span></h3>
@@ -557,7 +558,6 @@ function rich_snippet_dashboard() {
 					</div>
 				</div>
 			 </div>
-
 
 			 <div id="tab-5">
 				<div id="poststuff">
@@ -984,8 +984,7 @@ function rich_snippet_dashboard() {
 if ( isset( $_POST['setting_analytics_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_analytics_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_analytics_nonce_field'] ) ), 'snippet_analytics_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		if ( isset( $_POST['aiosrs_analytics_optin'] ) ) {
 			update_option( 'aiosrs_analytics_optin', 'yes' );
@@ -997,8 +996,7 @@ if ( isset( $_POST['setting_analytics_submit'] ) ) {
 if ( isset( $_POST['setting_submit'] ) ) {
 	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_woocommerce_nonce_field'] ) ), 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = null;
 		if ( isset( $_POST['woocommerce_option'] ) ) {
@@ -1012,9 +1010,8 @@ if ( isset( $_POST['setting_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['item_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_review_nonce_field'], 'snippet_review_form_action' ) || ! current_user_can( 'manage_options' ) ) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+	if ( ! isset( $_POST['snippet_review_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_review_nonce_field'] ) ), 'snippet_review_form_action' ) || ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'review_title', 'item_reviewer', 'review_date', 'item_name', 'item_rating' ) as $option ) {
@@ -1027,10 +1024,9 @@ if ( isset( $_POST['item_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['event_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_event_nonce_field'], 'snippet_event_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_event_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_event_nonce_field'] ) ), 'snippet_event_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'event_title', 'event_location', 'event_performer', 'start_time', 'end_time', 'event_desc', 'events_price' ) as $option ) {
@@ -1043,10 +1039,9 @@ if ( isset( $_POST['event_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['person_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_person_nonce_field'], 'snippet_person_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_person_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_person_nonce_field'] ) ), 'snippet_person_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'person_name', 'person_nickname', 'person_job_title', 'person_website', 'person_company', 'person_address' ) as $option ) {
@@ -1059,10 +1054,9 @@ if ( isset( $_POST['person_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['product_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_product_nonce_field'], 'snippet_product_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_product_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_product_nonce_field'] ) ), 'snippet_product_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'product_rating', 'product_brand', 'product_name', 'product_agr', 'product_price', 'product_avail' ) as $option ) {
@@ -1075,10 +1069,9 @@ if ( isset( $_POST['product_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['recipe_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_recipe_nonce_field'], 'snippet_recipe_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_recipe_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_recipe_nonce_field'] ) ), 'snippet_recipe_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'recipe_name', 'author_name', 'recipe_pub', 'recipe_prep', 'recipe_cook', 'recipe_time', 'recipe_desc', 'recipe_rating' ) as $option ) {
@@ -1091,10 +1084,9 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['software_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_soft_app_nonce_field'], 'snippet_soft_app_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_soft_app_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_soft_app_nonce_field'] ) ), 'snippet_soft_app_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'software_rating', 'software_agr', 'software_price', 'software_name', 'software_os', 'software_website' ) as $option ) {
@@ -1107,10 +1099,9 @@ if ( isset( $_POST['software_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['video_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_video_nonce_field'], 'snippet_video_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_video_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_video_nonce_field'] ) ), 'snippet_video_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'video_title', 'video_desc', 'video_time', 'video_date' ) as $option ) {
@@ -1123,10 +1114,9 @@ if ( isset( $_POST['video_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['article_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_article_nonce_field'], 'snippet_article_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_article_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_article_nonce_field'] ) ), 'snippet_article_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'article_name', 'article_author', 'article_desc', 'article_image', 'article_publisher', 'article_publisher_logo' ) as $option ) {
@@ -1139,10 +1129,9 @@ if ( isset( $_POST['article_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['service_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_service_nonce_field'], 'snippet_service_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_service_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_service_nonce_field'] ) ), 'snippet_service_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
-		print 'Sorry, your nonce did not verify.';
-		exit;
+		wp_die( esc_html__( 'Sorry, your nonce did not verify.', 'rich-snippets' ) );
 	} else {
 		$args = array(); // Defining the $args variable.
 		foreach ( array( 'snippet_title', 'service_type', 'service_area', 'service_desc', 'service_provider_name', 'provider_location', 'service_rating', 'service_channel', 'service_url_link' ) as $option ) {
@@ -1167,48 +1156,48 @@ function display_status( $status ) {
 	}
 }
 if ( isset( $_GET['action'] ) ) {
-	if ( 'reset' == sanitize_text_field( wp_unslash( $_GET['action'] ) ) && isset( $_GET['nonce'] ) && current_user_can( 'manage_options' ) ) {
+	if ( 'reset' === sanitize_text_field( wp_unslash( $_GET['action'] ) ) && isset( $_GET['nonce'] ) && current_user_can( 'manage_options' ) ) {
 		$option_to_reset = sanitize_text_field( wp_unslash( $_GET['options'] ) );
 		$nonce_value     = sanitize_text_field( wp_unslash( $_GET['nonce'] ) );
 		$nonce_verified  = false;
 
-		if ( 'review' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_item_nonce' ) ) {
+		if ( 'review' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_item_nonce' ) ) {
 			delete_option( 'bsf_review' );
 			$nonce_verified = true;
 		}
-		if ( 'event' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_event_nonce' ) ) {
+		if ( 'event' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_event_nonce' ) ) {
 			delete_option( 'bsf_event' );
 			$nonce_verified = true;
 		}
-		if ( 'person' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_person_nonce' ) ) {
+		if ( 'person' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_person_nonce' ) ) {
 			delete_option( 'bsf_person' );
 			$nonce_verified = true;
 		}
-		if ( 'product' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_product_nonce' ) ) {
+		if ( 'product' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_product_nonce' ) ) {
 			delete_option( 'bsf_product' );
 			$nonce_verified = true;
 		}
-		if ( 'recipe' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_recipe_nonce' ) ) {
+		if ( 'recipe' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_recipe_nonce' ) ) {
 			delete_option( 'bsf_recipe' );
 			$nonce_verified = true;
 		}
-		if ( 'software' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_software_nonce' ) ) {
+		if ( 'software' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_software_nonce' ) ) {
 			delete_option( 'bsf_software' );
 			$nonce_verified = true;
 		}
-		if ( 'video' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_video_nonce' ) ) {
+		if ( 'video' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_video_nonce' ) ) {
 			delete_option( 'bsf_video' );
 			$nonce_verified = true;
 		}
-		if ( 'article' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_article_nonce' ) ) {
+		if ( 'article' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_article_nonce' ) ) {
 			delete_option( 'bsf_article' );
 			$nonce_verified = true;
 		}
-		if ( 'service' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_service_nonce' ) ) {
+		if ( 'service' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_service_nonce' ) ) {
 			delete_option( 'bsf_service' );
 			$nonce_verified = true;
 		}
-		if ( 'color' == $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_color_nonce' ) ) {
+		if ( 'color' === $option_to_reset && wp_verify_nonce( $nonce_value, 'aiosrs_color_nonce' ) ) {
 			delete_option( 'bsf_custom' );
 			$nonce_verified = true;
 		}
@@ -1228,38 +1217,39 @@ function bsf_reset_options( $option_to_reset ) {
 		define( 'AIOSRS_PRO_DIR', '' );
 	}
 	require_once AIOSRS_PRO_DIR . '/settings.php';
-	if ( 'review' == $option_to_reset ) {
+	if ( 'review' === $option_to_reset ) {
 		add_review_option();
 	}
-	if ( 'event' == $option_to_reset ) {
+	if ( 'event' === $option_to_reset ) {
 		add_event_option();
 	}
-	if ( 'person' == $option_to_reset ) {
+	if ( 'person' === $option_to_reset ) {
 		add_person_option();
 	}
-	if ( 'product' == $option_to_reset ) {
+	if ( 'product' === $option_to_reset ) {
 		add_product_option();
 	}
-	if ( 'recipe' == $option_to_reset ) {
+	if ( 'recipe' === $option_to_reset ) {
 		add_recipe_option();
 	}
-	if ( 'software' == $option_to_reset ) {
+	if ( 'software' === $option_to_reset ) {
 		add_software_option();
 	}
-	if ( 'video' == $option_to_reset ) {
+	if ( 'video' === $option_to_reset ) {
 		add_video_option();
 	}
-	if ( 'article' == $option_to_reset ) {
+	if ( 'article' === $option_to_reset ) {
 		add_article_option();
 	}
-	if ( 'service' == $option_to_reset ) {
+	if ( 'service' === $option_to_reset ) {
 		add_service_option();
 	}
-	if ( 'color' == $option_to_reset ) {
+	if ( 'color' === $option_to_reset ) {
 		add_color_option();
 	}
 
-	header( 'location:?page=rich_snippet_dashboard' );
+	wp_safe_redirect( admin_url( 'admin.php?page=rich_snippet_dashboard' ) );
+	exit;
 }
 /**
  * Add footer script.
@@ -1291,7 +1281,8 @@ function add_footer_script() {
 			);
 		});
 	</script>
-<?php }
+	<?php
+}
 
 /**
  * Get support.
@@ -1306,7 +1297,7 @@ function get_support() {
 			<form name="support" id="support_form" action="" method="post" onsubmit="return false;">
 			<input type="hidden" id="aiosrs_support_form_nonce" name="aiosrs_support_form_nonce" value="' . esc_attr( wp_create_nonce( 'aiosrs_support_form' ) ) . '" />
 				<p> ' . esc_html__( 'Just fill out the form below and your message will be emailed to the Plugin Developers.', 'rich-snippets' ) . ' </p>
-				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . site_url() . '" /> </p>
+				<table class="bsf_metabox" > <input type="hidden" name="site_url" value="' . esc_url( site_url() ) . '" /> </p>
 					<tr><td><label for="name"><strong>' . esc_html__( 'Your Name:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
 						<td><input required="required" type="text" class="bsf_text_medium" name="name" /></td></tr>
 					<tr><td><label for="email"><strong>' . esc_html__( 'Your Email:', 'rich-snippets' ) . '<span style="color:red;"> *</span></strong> </label></td>
@@ -1339,4 +1330,3 @@ function get_support() {
 	';
 	return $html;
 }
-?>

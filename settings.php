@@ -5,6 +5,8 @@
  * @package AIOSRS.
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Function to add review option for settings.
  */
@@ -180,5 +182,3 @@ function add_woo_commerce_option() {
 		add_option( 'bsf_woocom_init_setting', 'done' );
 	}
 }
-
-

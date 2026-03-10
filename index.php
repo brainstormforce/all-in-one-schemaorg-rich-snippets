@@ -134,7 +134,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @param string $hook Hook.
 		 */
 		public function post_enqueue( $hook ) {
-			if ( 'post.php' != $hook ) {
+			if ( 'post.php' !== $hook ) {
 				return;
 			}
 			$current_admin_screen = get_current_screen();
@@ -171,7 +171,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @param string $hook Hook.
 		 */
 		public function post_new_enqueue( $hook ) {
-			if ( 'post-new.php' != $hook ) {
+			if ( 'post-new.php' !== $hook ) {
 				return;
 			}
 			$current_admin_screen = get_current_screen();
@@ -247,7 +247,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			<?php endif; ?>
 		</style>
-		<?php }
+			<?php
+		}
 		/**
 		 * Translation.
 		 */
@@ -305,21 +306,21 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			$post_url = esc_url( $_POST['post_url'] );
 			$subject  = '';
 
-			if ( 'question' == $sub ) {
+			if ( 'question' === $sub ) {
 				$subject = '[AIOSRS] New question received from ' . $name;
-			} elseif ( 'bug' == $sub ) {
+			} elseif ( 'bug' === $sub ) {
 				$subject = '[AIOSRS] New bug found by ' . $name;
-			} elseif ( 'help' == $sub ) {
+			} elseif ( 'help' === $sub ) {
 				$subject = '[AIOSRS] New help request received from ' . $name;
-			} elseif ( 'professional' == $sub ) {
+			} elseif ( 'professional' === $sub ) {
 				$subject = '[AIOSRS] New service quote request received from ' . $name;
-			} elseif ( 'contribute' == $sub ) {
+			} elseif ( 'contribute' === $sub ) {
 				$subject = '[AIOSRS] New development contribution request by ' . $name;
-			} elseif ( 'other' == $sub ) {
+			} elseif ( 'other' === $sub ) {
 				$subject = '[AIOSRS] New contact request received from ' . $name;
 			}
 
-			$html     = '
+			$html      = '
 			<html>
 				<head>
 				  <title>All in One Schema.org Rich Snippets</title>
@@ -463,7 +464,6 @@ if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'lib/class-aiosrs-nps-survey.php';
 }
 
-
 // BSF Analytics library.
 if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
@@ -498,4 +498,3 @@ $bsf_analytics->set_entity(
 if ( class_exists( 'RichSnippets' ) ) {
 	$richsnippets = new RichSnippets();
 }
-?>
