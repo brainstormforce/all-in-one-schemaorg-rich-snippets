@@ -320,7 +320,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				$subject = '[AIOSRS] New contact request received from ' . $name;
 			}
 
-			$html     = '
+			$html      = '
 			<html>
 				<head>
 				  <title>All in One Schema.org Rich Snippets</title>
