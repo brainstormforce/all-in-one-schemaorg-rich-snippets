@@ -982,7 +982,7 @@ function rich_snippet_dashboard() {
 }
 // Update options.
 if ( isset( $_POST['setting_analytics_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_analytics_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_analytics_nonce_field'], 'snippet_analytics_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_analytics_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_analytics_nonce_field'] ) ), 'snippet_analytics_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
@@ -995,7 +995,7 @@ if ( isset( $_POST['setting_analytics_submit'] ) ) {
 	}
 }
 if ( isset( $_POST['setting_submit'] ) ) {
-	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_woocommerce_nonce_field'], 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
+	if ( ! isset( $_POST['snippet_woocommerce_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_woocommerce_nonce_field'] ) ), 'snippet_woocommerce_form_action' ) || ! current_user_can( 'manage_options' )
 		) {
 		print 'Sorry, your nonce did not verify.';
 		exit;
