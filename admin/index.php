@@ -1264,7 +1264,7 @@ function add_footer_script() {
 		//alert(form_data);
 			jQuery.post(ajaxurl, form_data,
 				function (response) {
-					alert(response);
+					alert(response.data);
 				}
 			);
 		});
@@ -1275,7 +1275,7 @@ function add_footer_script() {
 		// alert(form_data);
 			jQuery.post(ajaxurl, form_data,
 				function (response) {
-					alert(response);
+					alert(response.data);
 					jQuery("#support_form .bsf_text_medium, #support_form .bsf_textarea_small").val("");
 				}
 			);

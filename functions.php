@@ -1373,7 +1373,7 @@ function display_rating() {
 				//	alert(form_data);
 					jQuery.post(ajaxurl, form_data,
 						function (response) {
-							alert(response);
+							alert(response.data);
 							window.location.href = window.location.href;
 						}
 					);
@@ -1452,7 +1452,7 @@ function bsf_display_rating( $n ) {
 				//	alert(form_data);
 					jQuery.post(ajaxurl, form_data,
 						function (response) {
-							alert(response);
+							alert(response.data);
 							window.location.href = window.location.href;
 						}
 					);
