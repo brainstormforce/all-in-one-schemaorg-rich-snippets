@@ -5,7 +5,7 @@
  * Author: Brainstorm Force
  * Author URI: https://www.brainstormforce.com
  * Description: Welcome to the Schema - All In One Schema Rich Snippets! You can now easily add schema markup on various * pages and posts of your website. Implement schema types such as Review, Events, Recipes, Article, Products, Services * *etc.
- * Version: 1.7.6
+ * Version: 1.7.7
  * Text Domain: rich-snippets
  * License: GPL2
  *
@@ -81,7 +81,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			define( 'AIOSRS_PRO_BASE', plugin_basename( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_DIR', plugin_dir_path( AIOSRS_PRO_FILE ) );
 			define( 'AIOSRS_PRO_URI', plugins_url( '/', AIOSRS_PRO_FILE ) );
-			define( 'AIOSRS_PRO_VER', '1.7.6' );
+			define( 'AIOSRS_PRO_VER', '1.7.7' );
 		}
 
 		/**
@@ -107,7 +107,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 */
 		public function register_custom_menu_page() {
 			require_once plugin_dir_path( __FILE__ ) . 'admin/index.php';
-			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'administrator', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
+			$page = add_menu_page( __( 'All in One Rich Snippets Dashboard', 'rich-snippets' ), __( 'Rich Snippets', 'rich-snippets' ), 'manage_options', 'rich_snippet_dashboard', 'rich_snippet_dashboard', 'div' );
 			// Call the function to print the stylesheets and javascripts in only this plugins admin area.
 			add_action( 'admin_print_styles-' . $page, 'bsf_admin_styles' );
 			add_action( 'admin_print_scripts-' . $page, array( $this, 'iris_enqueue_scripts' ) );
@@ -134,7 +134,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @param string $hook Hook.
 		 */
 		public function post_enqueue( $hook ) {
-			if ( 'post.php' != $hook ) {
+			if ( 'post.php' !== $hook ) {
 				return;
 			}
 			$current_admin_screen = get_current_screen();
@@ -171,7 +171,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * @param string $hook Hook.
 		 */
 		public function post_new_enqueue( $hook ) {
-			if ( 'post-new.php' != $hook ) {
+			if ( 'post-new.php' !== $hook ) {
 				return;
 			}
 			$current_admin_screen = get_current_screen();
@@ -247,7 +247,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			<?php endif; ?>
 		</style>
-		<?php }
+			<?php
+		}
 		/**
 		 * Translation.
 		 */
@@ -288,40 +289,38 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 		 * Submit_request.
 		 */
 		public function submit_request() {
-			$to       = 'Brainstorm Force <support@bsf.io>';
-			$from     = '';
-			$site     = '';
-			$sub      = '';
-			$message  = '';
-			$post_url = '';
-			$name     = '';
-			$subject  = ''; // Initialize $subject.
-
-			if ( isset( $_POST['aiosrs_support_form_nonce'] ) && wp_verify_nonce( $_POST['aiosrs_support_form_nonce'], 'aiosrs_support_form' ) ) {
-
-				$from     = sanitize_email( $_POST['email'] );
-				$site     = esc_url( $_POST['site_url'] );
-				$sub      = sanitize_text_field( $_POST['subject'] );
-				$message  = esc_html( $_POST['message'] );
-				$name     = sanitize_text_field( $_POST['name'] );
-				$post_url = esc_url( $_POST['post_url'] );
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'Unauthorized access.', 'rich-snippets' ) );
 			}
 
-			if ( 'question' == $sub ) {
+			if ( ! isset( $_POST['aiosrs_support_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['aiosrs_support_form_nonce'] ) ), 'aiosrs_support_form' ) ) {
+				wp_send_json_error( __( 'Security check failed.', 'rich-snippets' ) );
+			}
+
+			$to       = 'Brainstorm Force <support@bsf.io>';
+			$from     = sanitize_email( $_POST['email'] );
+			$site     = esc_url( $_POST['site_url'] );
+			$sub      = sanitize_text_field( $_POST['subject'] );
+			$message  = esc_html( $_POST['message'] );
+			$name     = sanitize_text_field( $_POST['name'] );
+			$post_url = esc_url( $_POST['post_url'] );
+			$subject  = '';
+
+			if ( 'question' === $sub ) {
 				$subject = '[AIOSRS] New question received from ' . $name;
-			} elseif ( 'bug' == $sub ) {
+			} elseif ( 'bug' === $sub ) {
 				$subject = '[AIOSRS] New bug found by ' . $name;
-			} elseif ( 'help' == $sub ) {
+			} elseif ( 'help' === $sub ) {
 				$subject = '[AIOSRS] New help request received from ' . $name;
-			} elseif ( 'professional' == $sub ) {
+			} elseif ( 'professional' === $sub ) {
 				$subject = '[AIOSRS] New service quote request received from ' . $name;
-			} elseif ( 'contribute' == $sub ) {
+			} elseif ( 'contribute' === $sub ) {
 				$subject = '[AIOSRS] New development contribution request by ' . $name;
-			} elseif ( 'other' == $sub ) {
+			} elseif ( 'other' === $sub ) {
 				$subject = '[AIOSRS] New contact request received from ' . $name;
 			}
 
-			$html     = '
+			$html      = '
 			<html>
 				<head>
 				  <title>All in One Schema.org Rich Snippets</title>
@@ -357,13 +356,17 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				</body>
 			</html>
 			';
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$headers .= 'From:' . $name . '<' . $from . '>' . "\r\n";
-			$result   = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
-			echo $result ? esc_html_e( 'Thank you!', 'rich-snippets' ) : esc_html_e( 'Something went wrong!', 'rich-snippets' );
-
-			die();
+			$safe_name = str_replace( array( "\r", "\n" ), '', $name );
+			$safe_from = str_replace( array( "\r", "\n" ), '', $from );
+			$headers   = 'MIME-Version: 1.0' . "\r\n";
+			$headers  .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers  .= 'From:' . $safe_name . '<' . $safe_from . '>' . "\r\n";
+			$result    = wp_mail( $to, $subject, wp_kses_post( $html ), $headers );
+			if ( $result ) {
+				wp_send_json_success( __( 'Thank you!', 'rich-snippets' ) );
+			} else {
+				wp_send_json_error( __( 'Something went wrong!', 'rich-snippets' ) );
+			}
 		}
 		/**
 		 * Submit_color.
@@ -373,7 +376,7 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 				// return if current user is not allowed to manage options.
 				return;
 			} else {
-				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( $_POST['snippet_color_nonce_field'], 'snippet_color_form_action' )
+				if ( ! isset( $_POST['snippet_color_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['snippet_color_nonce_field'] ) ), 'snippet_color_form_action' )
 				) {
 					print esc_attr( 'Sorry, your nonce did not verify.' );
 					exit;
@@ -390,9 +393,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					echo update_option( 'bsf_custom', $color_opt ) ? esc_html_e( 'Settings saved !', 'rich-snippets' ) : esc_html_e( 'Error occured. Settings were not saved !', 'rich-snippets' );
-
-					die();
+					if ( update_option( 'bsf_custom', $color_opt ) ) {
+						wp_send_json_success( __( 'Settings saved !', 'rich-snippets' ) );
+					} else {
+						wp_send_json_error( __( 'Error occured. Settings were not saved !', 'rich-snippets' ) );
+					}
 				}
 			}
 		}
@@ -459,7 +464,6 @@ if ( ! class_exists( 'AIOSRS_Nps_Survey' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'lib/class-aiosrs-nps-survey.php';
 }
 
-
 // BSF Analytics library.
 if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/bsf-analytics/class-bsf-analytics-loader.php';
@@ -478,7 +482,7 @@ $bsf_analytics->set_entity(
 					'id'                => 'deactivation-survey-all-in-one-schemaorg-rich-snippets', // 'deactivation-survey-<your-plugin-slug>'
 					'popup_logo'        => esc_url( plugins_url( 'admin/images/icon_32.png', __FILE__ ) ),
 					'plugin_slug'       => 'all-in-one-schemaorg-rich-snippets',
-					'plugin_version'    => '1.7.6',
+					'plugin_version'    => '1.7.7',
 					'popup_title'       => 'Quick Feedback',
 					'support_url'       => 'https://wpschema.com/contact/',
 					'popup_description' => 'If you have a moment, please share why you are deactivating All In One Schema Rich Snippets:',
@@ -494,4 +498,3 @@ $bsf_analytics->set_entity(
 if ( class_exists( 'RichSnippets' ) ) {
 	$richsnippets = new RichSnippets();
 }
-?>
