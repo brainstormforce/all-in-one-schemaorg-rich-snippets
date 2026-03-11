@@ -4,7 +4,7 @@ All notable changes to Schema - All In One Schema Rich Snippets are documented h
 
 ---
 
-## 1.7.6
+## 1.7.7
 - **Improvement:** Updated readme.txt.
 
 ## 1.7.5

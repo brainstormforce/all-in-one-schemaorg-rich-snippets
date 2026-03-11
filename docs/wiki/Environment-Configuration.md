@@ -20,7 +20,7 @@ Defined in `RichSnippets::define_constants()` (`index.php`) during every page lo
 | `AIOSRS_PRO_BASE` | `plugin_basename(AIOSRS_PRO_FILE)` | Relative plugin identifier (e.g. `all-in-one-schemaorg-rich-snippets/index.php`) |
 | `AIOSRS_PRO_DIR` | `plugin_dir_path(AIOSRS_PRO_FILE)` | Absolute directory path with trailing slash |
 | `AIOSRS_PRO_URI` | `plugins_url('/', AIOSRS_PRO_FILE)` | URL to the plugin root |
-| `AIOSRS_PRO_VER` | `'1.7.6'` | Current plugin version |
+| `AIOSRS_PRO_VER` | `'1.7.7'` | Current plugin version |
 | `BSF_META_BOX_URL` | Computed in `init.php` | URL path to the plugin directory, OS-aware (handles Windows paths) |
 
 ---

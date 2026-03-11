@@ -3,7 +3,7 @@
 WordPress plugin by Brainstorm Force that adds structured data (schema markup / Microdata) to posts and pages via a meta box interface.
 
 - **Plugin slug:** `all-in-one-schemaorg-rich-snippets`
-- **Version:** 1.7.6
+- **Version:** 1.7.7
 - **Text domain:** `rich-snippets`
 - **PHP:** 7.4 – 8.3 | **WP:** 3.7+ (tested to 6.9)
 - **License:** GPL v2

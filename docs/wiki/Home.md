@@ -1,6 +1,6 @@
 # Schema - All In One Schema Rich Snippets
 
-**Version:** 1.7.6 | **Author:** [Brainstorm Force](https://www.brainstormforce.com) | **License:** GPL v2
+**Version:** 1.7.7 | **Author:** [Brainstorm Force](https://www.brainstormforce.com) | **License:** GPL v2
 
 > Improve SEO, elevate rankings, and boost CTR. Add structured data (schema markup) to posts and pages without coding.
 
@@ -32,7 +32,7 @@ Supported schema types: **Review**, **Event**, **Person**, **Product**, **Recipe
 | [Deployment Guide](Deployment-Guide) | Build, i18n, and release process |
 | [Contributing Guide](Contributing-Guide) | Branch workflow, coding standards, PR process |
 | [Troubleshooting FAQ](Troubleshooting-FAQ) | Common issues and solutions |
-| [Changelog](Changelog) | Version history (v1.0 → v1.7.6) |
+| [Changelog](Changelog) | Version history (v1.0 → v1.7.7) |
 
 ---
 
