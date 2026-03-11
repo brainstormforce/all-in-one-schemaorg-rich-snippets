@@ -68,6 +68,8 @@ module.exports = function (grunt) {
                     		'!phpstan.neon',
                     		'!stubs-generator.php',
 							"!docs/**",
+							"!CLAUDE.md",
+							"!.claude/**",
 						],
 						dest: "/",
 					},

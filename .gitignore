@@ -23,6 +23,6 @@ vendor/
 # ignore PHPStorm extra directories
 .vscodecghooks.lock
 
-# Claude Code — local developer overrides (not shared)
-.claude/settings.local.json
+# Claude Code
+.claude/
 
