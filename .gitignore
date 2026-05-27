@@ -26,3 +26,4 @@ vendor/
 # Claude Code
 .claude/
 
+config.bat
