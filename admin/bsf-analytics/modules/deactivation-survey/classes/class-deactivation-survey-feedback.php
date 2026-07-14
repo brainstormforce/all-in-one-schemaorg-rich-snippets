@@ -86,14 +86,7 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 
 			// Parse the arguments with defaults.
 			$args = wp_parse_args( $args, $defaults );
-			$id   = '';
-
-			// Set a default ID if none is provided.
-			if ( empty( $args['id'] ) ) {
-				$id = 'uds-feedback-form--wrapper';
-			}
-
-			$id = sanitize_text_field( $args['id'] );
+			$id = ! empty( $args['id'] ) ? sanitize_text_field( $args['id'] ) : 'uds-feedback-form--wrapper';
 
 			// Return if not on the allowed screen.
 			if ( ! BSF_Analytics_Helper::is_allowed_screen() ) {
@@ -214,6 +207,7 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 
 			wp_enqueue_style( 'uds-feedback-style', $dir_path . 'assets/css/feedback' . $file_ext . '.css', array(), BSF_ANALYTICS_VERSION );
 			wp_style_add_data( 'uds-feedback-style', 'rtl', 'replace' );
+			wp_style_add_data( 'uds-feedback-style', 'suffix', $file_ext );
 		}
 
 		/**
@@ -254,7 +248,7 @@ if ( ! class_exists( 'Deactivation_Survey_Feedback' ) ) {
 			$api_args = array(
 				'body'    => wp_json_encode( $feedback_data ),
 				'headers' => BSF_Analytics_Helper::get_api_headers(),
-				'timeout' => 90, //phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout
+				'timeout' => 15, //phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout
 			);
 
 			$target_url = BSF_Analytics_Helper::get_api_url() . self::$feedback_api_endpoint;

@@ -1,3 +1,41 @@
+Version 1.0.24 - 20-05-2026
+- Fix: Use library-correct package name in file headers.
+
+Version 1.0.23 - 19-05-2026
+- Fix: WordPress.org compliance — use WP_Error and rest_ensure_response in REST callbacks, sanitize_key for slug params, and align JS response handling with REST format.
+
+Version 1.0.22 - 27-04-2026
+- Fix: Self-host the Figtree font used by the survey dialog instead of fetching from fonts.googleapis.com. Required for WordPress.org compliance.
+
+Version 1.0.21 - 24-03-2026
+- Improvement:
+  - Updated build process to add ABSPATH guards to generated .asset.php files.
+  - Added README.md documenting external service usage (metrics.brainstormforce.com).
+
+Version 1.0.20 - 20-03-2026
+- Fix:
+  - Updated variable names, error codes, and file loading to comply with WordPress.org plugin review guidelines.
+
+Version 1.0.19 - 16-03-2026
+- Fix:
+  - Added ABSPATH guards and conditional core file loading to prevent direct file access.
+  - Fixed first_name fallback not triggering when user has no first name set, now correctly falls back to display_name.
+- Security:
+  - Strengthen security and harden against potential vulnerabilities.
+
+Version 1.0.18 - 12-03-2026
+- Improvement:
+  - Added support for late loading when `wp_loaded` has already fired, allowing consuming plugins to defer library inclusion to hooks like `current_screen` for better performance.
+
+Version 1.0.17 - 02-03-2026
+- Fix:
+  - Added ABSPATH guards and conditional core file loading to prevent direct file access.
+
+Version 1.0.16 - 20-01-2026
+- Improvement:
+  - Made comment field mandatory for ratings of 6 or below to ensure actionable feedback.
+  - Enforced minimum feedback length of 50 characters for low ratings to prevent short or low-effort responses.
+
 Version 1.0.15 - 11-09-2025
 - New:
   - Added `privacy_policy` option with configurable link and custom content.

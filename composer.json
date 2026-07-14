@@ -17,6 +17,9 @@
     },
     "extra": {
         "installer-paths": {
+            "lib/notices/": [
+              "brainstormforce/astra-notices"
+            ],
             "lib/{$name}/": [
               "brainstormforce/nps-survey"
             ],
@@ -55,7 +58,8 @@
         "symfony/dependency-injection": "^5.4",
         "symfony/event-dispatcher-contracts": "^2.5",
         "symfony/event-dispatcher": "^5.4",
-        "brainstormforce/bsf-analytics": "^1"
+        "brainstormforce/bsf-analytics": "^1",
+        "brainstormforce/astra-notices": "^1"
     },
     "repositories": [
         {
@@ -67,6 +71,11 @@
             "name": "brainstormforce/bsf-analytics",
             "type": "vcs",
             "url": "git@github.com:brainstormforce/bsf-analytics.git"
+        },
+        {
+            "name": "brainstormforce/astra-notices",
+            "type": "vcs",
+            "url": "git@github.com:brainstormforce/astra-notices.git"
         }
     ]
 }
