@@ -1,3 +1,49 @@
+v1.1.29 - 30-June-2026
+- Improvement: Added `spectra-blocks` slug to UTM analytics.
+
+v1.1.28 - 22-June-2026
+- Fix: Deactivation survey loaded a non-existent RTL stylesheet (`feedback.min-rtl.css`) producing a 404 in RTL locales. Registered the file suffix so the correct `feedback-rtl.min.css` is requested.
+
+v1.1.27 - 16-June-2026
+- Improvement: Added `SureDonation` slug to UTM analytics.
+
+v1.1.26 - 20-April-2026
+- Improvement: Switched from `Astra_Notices` to `BSF_Admin_Notices`.
+
+v1.1.25 - 13-April-2026
+- New: Added optional `$force` parameter (4th arg) to `track()` — when true, bypasses the post-send dedup and overwrites any pending entry with the latest value. Default behavior (skip on duplicate) is unchanged. Useful for recurring events like `plugin_updated`.
+
+v1.1.24 - 8-April-2026
+- Improvement: Updated admin notice copy — concise heading, description, and button labels.
+
+v1.1.23 - 7-April-2026
+- Improvement: Improved consent notice copy — leads with benefit, clearer CTAs.
+- Improvement: Standardized usage doc link with dynamic product-specific UTM parameters.
+- Fix: Clear tracking transient immediately on opt-out for instant effect.
+- New: Added `bsf_usage_tracking_enabled` global filter as a kill switch for hosting providers and compliance plugins.
+- New: Include admin email in tracking payload.
+
+v1.1.22 - 1-April-2026
+- Improvement: Added `surecontact`, `surecookie`, `suredash`, `power-coupons` and `sigmize` slugs to UTM analytics.
+
+v1.1.21 - 27-March-2026
+- New: Introduced BSF_Analytics_Events class for reusable one-time milestone event tracking with dedup.
+- New: Support for custom option resolver callbacks (get/update) or default plugin-slug-prefixed WordPress options.
+
+v1.1.20 - 4-March-2026
+- New: Added PHPUnit test suite with 73 tests covering all 6 classes using WP_Mock.
+- New: Added GitHub Actions CI workflow for PHPUnit tests across PHP 7.4, 8.0, 8.1, and 8.2.
+
+v1.1.19 - 1-March-2026
+- Fix: Resolved dead-code form ID fallback and reduced AJAX timeout from 90s to 15s in deactivation survey.
+- Fix: Moved nonce verification before $_GET access in handle_optin_optout() to comply with WordPress.org coding standards.
+
+v1.1.18 - 19-February-2026
+- Improvement: Added `modern-cart` slug to UTM analytics.
+
+v1.1.17 - 29-January-2026
+- Improvement: Renamed options from `*_analytics_*` to `*_usage_*`.
+
 v1.1.16 - 15-July-2025
 - Improvement: Added `SureRank` slug to UTM analytics.
 

@@ -336,11 +336,11 @@ namespace {
 		public function load_analytics() {      }
 	}
 	/**
-	 * Astra_Notices
+	 * BSF_Admin_Notices
 	 *
 	 * @since 1.4.0
 	 */
-	class Astra_Notices {
+	class BSF_Admin_Notices {
 
 		/**
 		 * Initiator

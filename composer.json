@@ -22,6 +22,9 @@
     },
     "extra": {
         "installer-paths": {
+            "lib/notices/": [
+              "brainstormforce/astra-notices"
+            ],
             "lib/{$name}/": [
               "brainstormforce/nps-survey"
             ],
@@ -57,7 +60,8 @@
         "php": "^7.4.33 || ^8.0 || ^8.1 || ^8.2 || ^8.3",
         "brainstormforce/nps-survey": "^1",
         "composer/installers": "*",
-        "brainstormforce/bsf-analytics": "^1"
+        "brainstormforce/bsf-analytics": "^1",
+        "brainstormforce/astra-notices": "^1"
     },
     "repositories": [
         {
@@ -69,6 +73,11 @@
             "name": "brainstormforce/bsf-analytics",
             "type": "vcs",
             "url": "git@github.com:brainstormforce/bsf-analytics.git"
+        },
+        {
+            "name": "brainstormforce/astra-notices",
+            "type": "vcs",
+            "url": "git@github.com:brainstormforce/astra-notices.git"
         }
     ]
 }

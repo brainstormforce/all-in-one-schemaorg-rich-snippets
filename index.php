@@ -442,12 +442,12 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			 */
 		public function aiosrs_maybe_migrate_analytics_tracking() {
 			$old_tracking = get_option( 'bsf_analytics_optin', false );
-			$new_tracking = get_option( 'aiosrs_analytics_optin', false );
-			if ( 'yes' === $old_tracking && false === $new_tracking ) {
-				update_option( 'aiosrs_analytics_optin', 'yes' );
+			$new_tracking = get_option( 'aiosrs_usage_optin', false );
+			if ( 'yes' === $old_tracking && false === $new_tracking && false === get_option( 'aiosrs_analytics_optin', false ) ) {
+				update_option( 'aiosrs_usage_optin', 'yes' );
 				$time = get_option( 'bsf_analytics_installed_time' );
 				if ( $time ) {
-					update_option( 'aiosrs_analytics_installed_time', $time );
+					update_option( 'aiosrs_usage_installed_time', $time );
 				}
 			}
 		}
@@ -455,8 +455,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 }
 	require_once plugin_dir_path( __FILE__ ) . 'functions.php';
 if ( is_admin() ) {
-	// Load Astra Notices library.
-	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
+	// Load BSF Admin Notices library.
+	require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-bsf-admin-notices.php';
 }
 
 	// Load the NPS Survey library.

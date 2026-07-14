@@ -101,6 +101,8 @@ if ( ! class_exists( 'BSF_Analytics_Stats' ) ) {
 
 				'active_theme'           => get_template(),
 				'active_stylesheet'      => get_stylesheet(),
+
+				'admin_email'            => get_option( 'admin_email' ),
 			);
 		}
 

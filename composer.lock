@@ -4,26 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d958b01667bfab087a57e78ce70bcff0",
+    "content-hash": "e1f9ae52efdef0b499f994043daa3b80",
     "packages": [
         {
-            "name": "brainstormforce/bsf-analytics",
-            "version": "1.1.16",
+            "name": "brainstormforce/astra-notices",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
-                "url": "git@github.com:brainstormforce/bsf-analytics.git",
-                "reference": "82f94cf38b4dfef645e30595f060d66ff4098618"
+                "url": "git@github.com:brainstormforce/astra-notices.git",
+                "reference": "ac1564a44cf39dbc2bf824bf8ecb6d4c7ff4650f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/82f94cf38b4dfef645e30595f060d66ff4098618",
-                "reference": "82f94cf38b4dfef645e30595f060d66ff4098618",
+                "url": "https://api.github.com/repos/brainstormforce/astra-notices/zipball/ac1564a44cf39dbc2bf824bf8ecb6d4c7ff4650f",
+                "reference": "ac1564a44cf39dbc2bf824bf8ecb6d4c7ff4650f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^2.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+                "phpcompatibility/phpcompatibility-wp": "2.1.4",
+                "phpunit/phpunit": "^9.0",
+                "roots/wordpress": "^6.0",
+                "wp-cli/dist-archive-command": "^2.0",
+                "wp-coding-standards/wpcs": "^3.0",
+                "wp-phpunit/wp-phpunit": "^6.0",
+                "yoast/phpunit-polyfills": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "scripts": {
+                "format": [
+                    "vendor/bin/phpcbf"
+                ],
+                "lint": [
+                    "vendor/bin/phpcs"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Brainstorm Force",
+                    "email": "hello@bsf.io"
+                }
+            ],
+            "description": "Easily create admin notices",
+            "time": "2026-05-20T07:50:48+00:00"
+        },
+        {
+            "name": "brainstormforce/bsf-analytics",
+            "version": "1.1.29",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:brainstormforce/bsf-analytics.git",
+                "reference": "d219f81987f6ab2703ac76b1443a67d3f5be8be2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brainstormforce/bsf-analytics/zipball/d219f81987f6ab2703ac76b1443a67d3f5be8be2",
+                "reference": "d219f81987f6ab2703ac76b1443a67d3f5be8be2",
                 "shasum": ""
             },
             "require-dev": {
+                "10up/wp_mock": "^1.0",
                 "brainmaestro/composer-git-hooks": "^2.6",
                 "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "2.1.0",
+                "phpunit/phpunit": "^9.6",
                 "wp-coding-standards/wpcs": "2.2.1"
             },
             "type": "wordpress-plugin",
@@ -42,6 +95,9 @@
                 "lint": [
                     "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
                 ],
+                "test": [
+                    "phpunit"
+                ],
                 "post-install-cmd": [
                     "vendor/bin/cghooks add --ignore-lock"
                 ],
@@ -50,24 +106,20 @@
                 ]
             },
             "description": "Library to gather non sensitive analytics data to enhance bsf products.",
-            "support": {
-                "source": "https://github.com/brainstormforce/bsf-analytics/tree/1.1.16",
-                "issues": "https://github.com/brainstormforce/bsf-analytics/issues"
-            },
-            "time": "2025-07-15T10:52:37+00:00"
+            "time": "2026-06-29T13:29:46+00:00"
         },
         {
             "name": "brainstormforce/nps-survey",
-            "version": "1.0.15",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:brainstormforce/nps-survey.git",
-                "reference": "1913008e235779e65ba4e2be6a46d3f46c7fa60f"
+                "reference": "2862ec62d90dca787581a4e6f546fcd299aabf45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/1913008e235779e65ba4e2be6a46d3f46c7fa60f",
-                "reference": "1913008e235779e65ba4e2be6a46d3f46c7fa60f",
+                "url": "https://api.github.com/repos/brainstormforce/nps-survey/zipball/2862ec62d90dca787581a4e6f546fcd299aabf45",
+                "reference": "2862ec62d90dca787581a4e6f546fcd299aabf45",
                 "shasum": ""
             },
             "require-dev": {
@@ -109,12 +161,11 @@
                     "rm -f tests/php/stubs/nps-survey-stubs.php && bash bin/build-folder-phpstan.sh && composer gen-stubs"
                 ]
             },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
             "description": "NPS Survey Plugin",
-            "support": {
-                "source": "https://github.com/brainstormforce/nps-survey/tree/1.0.15",
-                "issues": "https://github.com/brainstormforce/nps-survey/issues"
-            },
-            "time": "2025-09-11T05:30:33+00:00"
+            "time": "2026-05-20T07:48:30+00:00"
         },
         {
             "name": "composer/installers",
@@ -7957,5 +8008,5 @@
     "platform-overrides": {
         "php": "8.2"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
