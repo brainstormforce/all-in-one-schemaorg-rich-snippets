@@ -48,6 +48,9 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "composer/installers": true
+        },
+        "platform": {
+            "php": "8.2"
         }
     },
     "require": {
