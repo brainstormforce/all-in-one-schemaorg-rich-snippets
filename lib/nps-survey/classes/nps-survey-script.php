@@ -64,7 +64,20 @@ class Nps_Survey {
 		$plugin_slug   = $vars['plugin_slug'];
 		$display_after = is_int( $vars['display_after'] ) ? $vars['display_after'] : 0;
 
-		if ( ! self::is_show_nps_survey_form( $plugin_slug, $display_after ) ) {
+		/**
+		 * Filter to check if the NPS survey should be shown.
+		 *
+		 * @param bool   $status Whether to show the notice.
+		 * @param string $plugin_slug Plugin slug.
+		 * @since 1.0.13
+		 */
+		$show_notice = apply_filters(
+			'nps_survey_show_notice',
+			self::is_show_nps_survey_form( $plugin_slug, $display_after ),
+			$plugin_slug
+		);
+
+		if ( ! $show_notice ) {
 			return;
 		}
 
@@ -75,7 +88,8 @@ class Nps_Survey {
 		}
 		$current_screen = get_current_screen();
 
-		if ( $current_screen instanceof WP_Screen && ! in_array( $current_screen->id, $show_on_screen, true ) ) {
+		$admin_only = self::is_nps_survey_enabled_for_admin_only();
+		if ( $admin_only && $current_screen instanceof WP_Screen && ! in_array( $current_screen->id, $show_on_screen, true ) ) {
 			return;
 		}
 		// Loading script here to confirm if the screen is allowed or not.
@@ -114,14 +128,15 @@ class Nps_Survey {
 	 */
 	public static function editor_load_scripts( $show_on_screens ): void {
 
-		if ( ! is_admin() ) {
+		$admin_only = self::is_nps_survey_enabled_for_admin_only();
+		if ( $admin_only && ! is_admin() ) {
 			return;
 		}
 
 		$screen    = get_current_screen();
 		$screen_id = $screen ? $screen->id : '';
 
-		if ( ! in_array( $screen_id, $show_on_screens, true ) ) {
+		if ( $admin_only && ! in_array( $screen_id, $show_on_screens, true ) ) {
 			return;
 		}
 
@@ -247,6 +262,14 @@ class Nps_Survey {
 	 * @return object|bool
 	 */
 	public static function get_item_permissions_check( $request ) {
+		/**
+		 * Filter to check if NPS Survey is enabled on API.
+		 *
+		 * @since 1.0.13
+		 */
+		if ( apply_filters( 'nps_survey_api_disable_permission_check', false ) ) {
+			return true;
+		}
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new \WP_Error(
@@ -256,6 +279,38 @@ class Nps_Survey {
 			);
 		}
 		return true;
+	}
+
+	/**
+	 * Method to determine if the NPS survey status update should be skipped for database option.
+	 *
+	 * @param string $nps_id NPS ID.
+	 * @param string $type Type of action (e.g., 'submit', 'dismiss').
+	 * @param array  $data Additional data related to the NPS survey.
+	 *
+	 * @since 1.0.13
+	 * @return bool
+	 * @phpstan-ignore-next-line
+	 */
+	public static function should_skip_status_update( $nps_id, $type, $data = array() ): bool {
+		/**
+		 * Filter to determine if the NPS survey status should be updated.
+		 *
+		 * @param bool  $update Default is true, can be modified by the filter.
+		 * @param array $post_data Post data being sent.
+		 * @since 1.0.13
+		 */
+		return apply_filters(
+			'nps_survey_should_skip_status_update',
+			false, // Default to false, can be modified by the filter.
+			array_merge(
+				$data,
+				array(
+					'nps_id'      => $nps_id,
+					'action_type' => $type,
+				)
+			)
+		);
 	}
 
 	/**
@@ -281,12 +336,14 @@ class Nps_Survey {
 		}
 
 		$current_user = wp_get_current_user();
+		$nps_id       = $request->get_param( 'nps_id' ) ?? '';
 
 		/**
 		 * Filter the post data.
 		 * This can be used to modify the post data before sending it to the API.
 		 *
 		 * @param array<mixed> $post_data Post data.
+		 * @param string       $nps_id    NPS ID.
 		 * @return array<mixed>
 		 */
 		$post_data = apply_filters(
@@ -299,7 +356,8 @@ class Nps_Survey {
 				'last_name'   => $current_user->last_name ?? '',
 				'source'      => ! empty( $request['plugin_slug'] ) ? sanitize_text_field( strval( $request['plugin_slug'] ) ) : '',
 				'plugin_slug' => ! empty( $request['plugin_slug'] ) ? sanitize_text_field( strval( $request['plugin_slug'] ) ) : '',
-			)
+			),
+			$nps_id
 		);
 
 		/**
@@ -307,13 +365,15 @@ class Nps_Survey {
 		 *
 		 * @param string       $api_endpoint API endpoint.
 		 * @param array<mixed> $post_data    Post data.
+		 * @param string       $nps_id       NPS ID.
 		 *
 		 * @return string
 		 */
 		$api_endpoint = apply_filters(
 			'nps_survey_api_endpoint',
 			self::get_api_domain() . 'wp-json/bsf-metrics-server/v1/nps-survey/',
-			$post_data // Pass the post data to the filter, so that the endpoint can be modified based on the data.
+			$post_data, // Pass the post data to the filter, so that the endpoint can be modified based on the data.
+			$nps_id
 		);
 
 		$post_data_in_json = wp_json_encode( $post_data );
@@ -331,14 +391,22 @@ class Nps_Survey {
 				array(
 					'data'   => 'Failed ' . $response->get_error_message(),
 					'status' => false,
-
 				)
 			);
 		}
 
 		$response_code = wp_remote_retrieve_response_code( $response );
 
-		if ( 200 === $response_code ) {
+		if ( 200 === $response_code || 201 === $response_code ) {
+
+			// If the status update should be skipped, return success.
+			if ( self::should_skip_status_update( $nps_id, 'submit', $post_data ) ) {
+				wp_send_json_success(
+					array(
+						'status' => true,
+					)
+				);
+			}
 
 			$nps_form_status = array(
 				'dismiss_count'       => 0,
@@ -358,7 +426,6 @@ class Nps_Survey {
 			wp_send_json_error(
 				array(
 					'status' => false,
-
 				)
 			);
 		}
@@ -382,6 +449,16 @@ class Nps_Survey {
 					'data'   => __( 'Nonce verification failed.', 'nps-survey' ),
 					'status' => false,
 
+				)
+			);
+		}
+
+		// If the status update should be skipped, return success.
+		$nps_id = $request->get_param( 'nps_id' ) ?? '';
+		if ( self::should_skip_status_update( $nps_id, 'dismiss' ) ) {
+			wp_send_json_success(
+				array(
+					'status' => true,
 				)
 			);
 		}
@@ -494,6 +571,21 @@ class Nps_Survey {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Check if NPS Survey is enabled for admin only. Default is true.
+	 *
+	 * @since 1.0.13
+	 * @return bool
+	 */
+	public static function is_nps_survey_enabled_for_admin_only() {
+		/**
+		 * Filter to check if NPS Survey is enabled for admin only.
+		 *
+		 * @since 1.0.13
+		 */
+		return apply_filters( 'nps_survey_enabled_for_admin_only', true );
 	}
 
 	/**
