@@ -97,11 +97,13 @@ nps-survey/
 
 ---
 
-## 3. Astra Notices (`lib/notices/`)
+## 3. BSF Admin Notices (`lib/notices/`)
 
-**File:** `lib/notices/class-astra-notices.php`
+**File:** `lib/notices/class-bsf-admin-notices.php`
 **CSS:** `lib/notices/notices.css`
 **JS:** `lib/notices/notices.js`
+
+Formerly "Astra Notices" — the library class was renamed from `Astra_Notices` to `BSF_Admin_Notices` upstream. Runtime strings (AJAX action, nonce, script handles, CSS classes) keep the legacy `astra-notices` names for backward compatibility, and a `class_alias` shim preserves the old class name. Managed via Composer (`brainstormforce/astra-notices`) with an installer path pinned to `lib/notices/`.
 
 ### Purpose
 
@@ -113,7 +115,7 @@ Loaded in `index.php` for admin screens only:
 
 ```php
 if ( is_admin() ) {
-    require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-astra-notices.php';
+    require_once plugin_dir_path( __FILE__ ) . '/lib/notices/class-bsf-admin-notices.php';
 }
 ```
 

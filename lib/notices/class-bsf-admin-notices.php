@@ -1,57 +1,62 @@
 <?php
 /**
- * Astra Notices
+ * BSF Admin Notices
  *
  * An easy to use PHP Library to add dismissible admin notices in the WordPress admin.
  *
- * @package Astra Notices
- * @since 1.0.0
+ * @package BSF Admin Notices
+ * @since   1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Notices' ) ) :
+if ( ! class_exists( 'BSF_Admin_Notices' ) ) :
 
 	/**
-	 * Astra_Notices
+	 * BSF_Admin_Notices
 	 *
-	 * @since 1.0.0
+	 * Renamed from Astra_Notices. All runtime strings (AJAX action, nonce,
+	 * script handles, JS globals, CSS classes, option keys, ID prefixes) are
+	 * intentionally frozen at their original values so old plugin JS/CSS that
+	 * is already shipped continues to work without updates.
+	 *
+	 * @since 1.2.0
 	 */
-	class Astra_Notices {
+	class BSF_Admin_Notices {
 
 		/**
-		 * Notices
+		 * Library version.
 		 *
 		 * @access private
-		 * @var array Notices.
-		 * @since 1.0.0
+		 * @var string
+		 * @since 1.2.0
 		 */
-		private static $version = '1.1.12';
+		private static $version = '1.2.3';
 
 		/**
-		 * Notices
+		 * Registered notices.
 		 *
 		 * @access private
-		 * @var array Notices.
-		 * @since 1.0.0
+		 * @var array
+		 * @since 1.2.0
 		 */
 		private static $notices = array();
 
 		/**
-		 * Instance
+		 * Instance.
 		 *
 		 * @access private
 		 * @var object Class object.
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 */
 		private static $instance;
 
 		/**
-		 * Initiator
+		 * Initiator.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @return object initialized object of class.
 		 */
 		public static function get_instance() {
@@ -62,11 +67,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
-		 * Constructor
+		 * Constructor.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 */
 		public function __construct() {
+			$this->maybe_migrate_notices_option();
 			add_action( 'admin_notices', array( $this, 'show_notices' ), 30 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
@@ -74,14 +80,28 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
-		 * Filters and Returns a list of allowed tags and attributes for a given context.
+		 * Migrate allowed_astra_notices → astra_notices_allowed (one-time, on first load).
+		 *
+		 * @since 1.2.2
+		 * @return void
+		 */
+		private function maybe_migrate_notices_option() {
+			$old = get_option( 'allowed_astra_notices', false );
+			if ( false !== $old ) {
+				update_option( 'astra_notices_allowed', $old );
+				delete_option( 'allowed_astra_notices' );
+			}
+		}
+
+		/**
+		 * Filters and returns a list of allowed tags and attributes for a given context.
 		 *
 		 * @param array  $allowedposttags array of allowed tags.
 		 * @param string $context Context type (explicit).
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @return array
 		 */
-		public function add_data_attributes( $allowedposttags, $context ) {
+		public function add_data_attributes( $allowedposttags, $context ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 			$allowedposttags['a']['data-repeat-notice-after'] = true;
 
 			return $allowedposttags;
@@ -90,62 +110,77 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		/**
 		 * Add Notice.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @param array $args Notice arguments.
 		 * @return void
 		 */
 		public static function add_notice( $args = array() ) {
 			self::$notices[] = $args;
-			$notice_id = $args['id']; // Notice ID.
-			$notices = get_option( 'allowed_astra_notices', array() );
-			if(array_search($notice_id, $notices) === false) { 
+
+			if ( ! isset( $args['id'] ) ) {
+				return;
+			}
+
+			$notice_id = sanitize_key( $args['id'] ); // Notice ID.
+			$notices   = get_option( 'astra_notices_allowed', array() );
+			if ( ! in_array( $notice_id, $notices, true ) ) {
 				$notices[] = $notice_id; // Add notice id to the array.
-				update_option( 'allowed_astra_notices', $notices ); // Update the option.
+				update_option( 'astra_notices_allowed', $notices ); // Update the option.
 			}
 		}
 
 		/**
 		 * Dismiss Notice.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @return void
 		 */
 		public function dismiss_notice() {
-			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( $_POST['notice_id'] ) : '';
-			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
-			$nonce               = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+			check_ajax_referer( 'astra-notices', 'nonce' );
+
+			$notice_id           = ( isset( $_POST['notice_id'] ) ) ? sanitize_key( wp_unslash( $_POST['notice_id'] ) ) : '';
+			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( wp_unslash( $_POST['repeat_notice_after'] ) ) : 0;
 			$notice              = $this->get_notice_by_id( $notice_id );
 			$capability          = isset( $notice['capability'] ) ? $notice['capability'] : 'manage_options';
 
-			if ( ! apply_filters( 'astra_notices_user_cap_check', current_user_can( $capability ) ) ) {
-				return;
+			$has_cap = current_user_can( $capability );
+
+			/**
+			 * Filters whether the current user passes the capability check for notice dismissal.
+			 *
+			 * Both the legacy and new filter names are fired for backward compatibility.
+			 * Filters can only restrict access (return false), never grant it — if the
+			 * underlying current_user_can() check fails, filters cannot override to true.
+			 */
+			$cap_check = apply_filters( 'astra_notices_user_cap_check', $has_cap );
+			$cap_check = apply_filters( 'bsf_admin_notices_user_cap_check', $cap_check );
+
+			if ( ! $has_cap || ! $cap_check ) {
+				wp_send_json_error( esc_html__( 'Permission denied.', 'astra-notices' ) );
 			}
 
-			$allowed_notices = get_option( 'allowed_astra_notices', array() ); // Get allowed notices.
+			$allowed_notices = get_option( 'astra_notices_allowed', array() ); // Get allowed notices.
 
-			 // Define restricted user meta keys
-			 $wp_default_meta_keys = array(
-				'wp_capabilities',
-				'wp_user_level',
-				'wp_user-settings',
+			// Define restricted user meta keys using the dynamic table prefix.
+			global $wpdb;
+			$wp_default_meta_keys = array(
+				$wpdb->prefix . 'capabilities',
+				$wpdb->prefix . 'user_level',
+				$wpdb->prefix . 'user-settings',
 				'account_status',
 				'session_tokens',
 			);
 
-			// Verify that the notice being dismissed is in the list of allowed notices.
-			if(array_search($notice_id, $allowed_notices) === false) { 
-				return;
-			}
-
-			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.' ) );
+			// if $notice_id does not start with astra-notices-id and notice_id is not from the allowed notices, then return.
+			if ( 0 !== strpos( $notice_id, 'astra-notices-id-' ) && ( ! in_array( $notice_id, $allowed_notices, true ) ) ) {
+				wp_send_json_error( esc_html__( 'Invalid notice ID.', 'astra-notices' ) );
 			}
 
 			// Valid inputs?
 			if ( ! empty( $notice_id ) ) {
 
 				if ( in_array( $notice_id, $wp_default_meta_keys, true ) ) {
-					wp_send_json_error( esc_html_e( 'Invalid notice ID.' ) );
+					wp_send_json_error( esc_html__( 'Invalid notice ID.', 'astra-notices' ) );
 				}
 
 				if ( ! empty( $repeat_notice_after ) ) {
@@ -163,15 +198,15 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		/**
 		 * Enqueue Scripts.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @return void
 		 */
 		public function enqueue_scripts() {
-			wp_register_style( 'astra-notices', self::get_url() . 'notices.css', array(), self::$version );
-			wp_register_script( 'astra-notices', self::get_url() . 'notices.js', array( 'jquery' ), self::$version, true );
+			wp_register_style( 'bsf-astra-notices', self::get_url() . 'notices.css', array(), self::$version );
+			wp_register_script( 'bsf-astra-notices', self::get_url() . 'notices.js', array( 'jquery' ), self::$version, true );
 			wp_localize_script(
-				'astra-notices',
-				'astraNotices',
+				'bsf-astra-notices',
+				'bsfAstraNotices',
 				array(
 					'_notice_nonce' => wp_create_nonce( 'astra-notices' ),
 				)
@@ -182,7 +217,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * Sort the notices based on the given priority of the notice.
 		 * This function is called from usort()
 		 *
-		 * @since 1.5.2
+		 * @since 1.2.0
 		 * @param array $notice_1 First notice.
 		 * @param array $notice_2 Second Notice.
 		 * @return array
@@ -200,7 +235,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 		/**
 		 * Get all registered notices.
-		 * Since v1.1.8 it is recommended to register the notices on
 		 *
 		 * @return array|null
 		 */
@@ -211,7 +245,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
-		 * Get notice by notice_id
+		 * Get notice by notice_id.
 		 *
 		 * @param string $notice_id Notice id.
 		 *
@@ -230,13 +264,13 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				)
 			);
 
-			return ! empty( $notice ) ? $notice[0] : array();
+			return ( ! empty( $notice ) && isset( $notice[0] ) ) ? $notice[0] : array();
 		}
 
 		/**
 		 * Display the notices in the WordPress admin.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @return void
 		 */
 		public function show_notices() {
@@ -249,7 +283,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'display-notice-after'       => false,      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
-				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
+				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from BSF_Admin_Notices.
 				'is_dismissible'             => true,
 				'capability'                 => 'manage_options', // User capability - This capability is required for the current user to see this notice.
 			);
@@ -284,42 +318,48 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 					}
 				}
 			}
-
 		}
 
 		/**
 		 * Render a notice.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 * @param  array $notice Notice markup.
 		 * @return void
 		 */
 		public static function markup( $notice = array() ) {
-			wp_enqueue_script( 'astra-notices' );
-			wp_enqueue_style( 'astra-notices' );
+			wp_enqueue_script( 'bsf-astra-notices' );
+			wp_enqueue_style( 'bsf-astra-notices' );
 
+			// Dual-emit: legacy (astra_notice_*) + new (bsf_admin_notice_*) hooks for backward compat.
+			// Note: consumers hooking BOTH names for the same event will be called twice.
 			do_action( 'astra_notice_before_markup' );
+			do_action( 'bsf_admin_notice_before_markup' );
 
 			do_action( "astra_notice_before_markup_{$notice['id']}" );
+			do_action( "bsf_admin_notice_before_markup_{$notice['id']}" );
 
 			?>
-			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo 'astra-notice-wrapper ' . esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
+			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( 'astra-notice-wrapper ' . $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<div class="astra-notice-container">
 					<?php do_action( "astra_notice_inside_markup_{$notice['id']}" ); ?>
+					<?php do_action( "bsf_admin_notice_inside_markup_{$notice['id']}" ); ?>
 					<?php echo wp_kses_post( $notice['message'] ); ?>
 				</div>
 			</div>
 			<?php
 
 			do_action( "astra_notice_after_markup_{$notice['id']}" );
+			do_action( "bsf_admin_notice_after_markup_{$notice['id']}" );
 
 			do_action( 'astra_notice_after_markup' );
+			do_action( 'bsf_admin_notice_after_markup' );
 		}
 
 		/**
 		 * Get wrapper classes for a notice.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 *
 		 * @param  array $notice Notice arguments.
 		 * @return array       Notice wrapper classes.
@@ -342,7 +382,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		/**
 		 * Get HTML ID for a given notice.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 *
 		 * @param  array $notice Notice arguments.
 		 * @param  int   $key    Notice array index.
@@ -359,7 +399,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		/**
 		 * Check if the notice is expires.
 		 *
-		 * @since 1.0.0
+		 * @since 1.2.0
 		 *
 		 * @param  array $notice Notice arguments.
 		 * @return boolean
@@ -392,26 +432,32 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		}
 
 		/**
-		 * Get base URL for the astra-notices.
+		 * Get base URL for the library assets.
 		 *
 		 * @return mixed URL.
 		 */
 		public static function get_url() {
-			$path      = wp_normalize_path( dirname( __FILE__ ) );
+			$path      = wp_normalize_path( dirname( __FILE__ ) ); // phpcs:ignore Modernize.FunctionCalls.Dirname.FileConstant
 			$theme_dir = wp_normalize_path( get_template_directory() );
 
-			if ( strpos( $path, $theme_dir ) !== false ) {
+			if ( false !== strpos( $path, $theme_dir ) ) {
 				return trailingslashit( get_template_directory_uri() . str_replace( $theme_dir, '', $path ) );
 			} else {
 				return plugin_dir_url( __FILE__ );
 			}
 		}
-
 	}
 
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Notices::get_instance();
+	BSF_Admin_Notices::get_instance();
 
 endif;
+
+// Backward compatibility alias for bsf-analytics library and third-party plugins
+// that still reference the old class name. Safe to remove once all consumers
+// are updated.
+if ( ! class_exists( 'Astra_Notices' ) ) {
+	class_alias( 'BSF_Admin_Notices', 'Astra_Notices' ); // phpcs:ignore PHPCompatibility.FunctionUse.NewFunctions.class_aliasFound
+}
