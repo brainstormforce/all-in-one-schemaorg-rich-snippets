@@ -3,8 +3,8 @@ Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, rich snippets, wordpress seo, structured data, google search
 Requires at least: 3.7
-Tested up to: 6.9
-Stable tag: 1.7.7
+Tested up to: 7.0
+Stable tag: 1.7.8
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -97,6 +97,10 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+### 1.7.8 ###
+- Improvement: Compatibility with WordPress 7.0.
+- Security: Hardened the build toolchain by resolving dependency advisories.
+
 ### 1.7.7 ###
 - Security Enhancements: Strengthened overall plugin security with improved authorization checks, robust nonce verification, thorough input sanitization, and enhanced error handling.
 
