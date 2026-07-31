@@ -99,6 +99,8 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 ## Changelog ##
 ### 1.7.9 ###
 - Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting out-of-range rating values.
+- Security: Removed a hidden field from the rating form whose value was output without escaping.
+- Improvement: Ratings are now identified by the connecting IP address rather than client-supplied forwarding headers. Sites behind a reverse proxy or CDN are detected automatically, and the new `bsf_trust_forwarded_ip` filter can override that decision.
 
 ### 1.7.8 ###
 - Improvement: Compatibility with WordPress 7.0.
