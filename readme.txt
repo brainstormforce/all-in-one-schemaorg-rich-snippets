@@ -97,6 +97,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+### 1.7.9 ###
+- Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting out-of-range rating values.
+
 ### 1.7.8 ###
 - Improvement: Compatibility with WordPress 7.0.
 - Security: Hardened the build toolchain by resolving dependency advisories.
