@@ -1182,68 +1182,15 @@ add_filter( 'the_content', 'display_rich_snippet', 90 );
 require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
  * Get_the_ip.
- *
- * Resolves the visitor IP, which is used as the per-visitor rating key.
- *
- * `REMOTE_ADDR` is the connecting address and cannot be forged. Forwarded
- * headers (`X-Forwarded-For` / `Client-IP`) are supplied by the client, so
- * they are only consulted when `REMOTE_ADDR` is a private or reserved
- * address — which means the request reached us through a local proxy or CDN
- * edge rather than directly, and the forwarded header is then the only way to
- * tell visitors apart. On a directly reachable site the headers are ignored,
- * so a visitor cannot mint unlimited identities by rotating them.
- *
- * Sites with an unusual topology can override the decision with the
- * `bsf_trust_forwarded_ip` filter. The result is always a valid IP or an
- * empty string.
- *
- * @since 1.7.9 Forwarded headers are no longer trusted unconditionally.
- * @return string Validated IP address, or an empty string if none could be resolved.
  */
 function get_the_ip() {
-	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
-	$ip     = filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '';
-
-	// A private/reserved connecting address means we sit behind a proxy or CDN.
-	$behind_proxy = '' !== $ip && ! filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE );
-
-	/**
-	 * Filters whether forwarded IP headers may be trusted.
-	 *
-	 * Defaults to true only when the connecting address is private or reserved.
-	 * Force it to true when a public-facing proxy fronts the site, or to false
-	 * to always key ratings on the connecting address.
-	 *
-	 * @since 1.7.9
-	 * @param bool   $trust_forwarded Whether to honour forwarded IP headers.
-	 * @param string $ip              The validated connecting address.
-	 */
-	if ( apply_filters( 'bsf_trust_forwarded_ip', $behind_proxy, $ip ) ) {
-		$forwarded = '';
-
-		if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			$forwarded = sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) );
-		} elseif ( isset( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-			$forwarded = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
-		}
-
-		if ( '' !== $forwarded ) {
-			/*
-			 * Proxies append to X-Forwarded-For rather than replacing it, so a
-			 * client-supplied value ends up on the LEFT and the address our
-			 * proxy actually saw on the RIGHT. Read the rightmost entry: it is
-			 * the only one the visitor could not have written themselves.
-			 */
-			$chain     = explode( ',', $forwarded );
-			$candidate = trim( end( $chain ) );
-
-			if ( filter_var( $candidate, FILTER_VALIDATE_IP ) ) {
-				$ip = $candidate;
-			}
-		}
+	if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) );
+	} elseif ( isset( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
+	} else {
+		return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
 	}
-
-	return filter_var( $ip, FILTER_VALIDATE_IP ) ? $ip : '';
 }
 /**
  * Average_rating.
@@ -1339,22 +1286,21 @@ function add_ajax_library() {
  * Determine whether a post is allowed to receive interactive star ratings.
  *
  * The rating form is only rendered for Product (6), Recipe (7) and Software (8)
- * schema types, so ratings must never be accepted for any other post or for a
- * non-existent post ID. This prevents unauthenticated callers from writing
- * rating meta to arbitrary posts.
+ * schema types, so ratings must never be accepted for any other post, an
+ * unpublished post, or a non-existent post ID. This prevents unauthenticated
+ * callers from writing rating meta to arbitrary posts.
  *
- * Both `publish` and `private` are accepted: a private post is published
- * content with a restricted audience, and the rating form does render for
- * viewers who are allowed to see it. Every other status — draft, pending,
- * future, trash, auto-draft, inherit — is rejected, as no visitor is ever
- * shown a rating form on those.
+ * Only `publish` is accepted. A rating form is never shown to visitors on any
+ * other status (draft, pending, future, private, trash, auto-draft, inherit),
+ * and accepting `private` here would let an unauthenticated caller write rating
+ * meta to restricted content they cannot read.
  *
  * @since 1.7.9
  * @param int $post_id Post ID.
  * @return bool True if the post accepts ratings, false otherwise.
  */
 function bsf_is_rateable_post( $post_id ) {
-	if ( $post_id <= 0 || ! in_array( get_post_status( $post_id ), array( 'publish', 'private' ), true ) ) {
+	if ( $post_id <= 0 || 'publish' !== get_post_status( $post_id ) ) {
 		return false;
 	}
 
