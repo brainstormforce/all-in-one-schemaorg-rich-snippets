@@ -1183,13 +1183,13 @@ require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
  * Save a settings option and report what actually happened.
  *
- * update_option() returns false both when the write fails and when the stored
- * value is already identical to the new one, so its return value alone cannot
- * tell a genuine failure from a submission that had nothing to change.
- * Re-reading the option separates the two so each case can be reported
- * accurately instead of showing a failure notice for an unchanged save.
+ * Both a failed write and an unchanged value make update_option() return false,
+ * so its return value alone cannot tell a genuine failure from a submission
+ * that had nothing to change. Re-reading the option separates the two, so each
+ * case can be reported accurately instead of showing a failure notice for an
+ * unchanged save.
  *
- * @since 1.7.9
+ * @since x.x.x
  * @param string $option Option name.
  * @param mixed  $args   Value to store.
  * @return string|false 'saved' when written, 'unchanged' when it already held
