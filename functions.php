@@ -1318,7 +1318,7 @@ function add_ajax_library() {
  * and accepting `private` here would let an unauthenticated caller write rating
  * meta to restricted content they cannot read.
  *
- * @since 1.7.9
+ * @since x.x.x
  * @param int $post_id Post ID.
  * @return bool True if the post accepts ratings, false otherwise.
  */
