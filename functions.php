@@ -1189,6 +1189,10 @@ require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
  * case can be reported accurately instead of showing a failure notice for an
  * unchanged save.
  *
+ * A boolean that is already stored is reported as unchanged rather than as a
+ * failure. An option that does not exist yet reads back as false, so saving
+ * false over it is also reported as unchanged, since nothing needed writing.
+ *
  * @since x.x.x
  * @param string $option Option name.
  * @param mixed  $args   Value to store.
@@ -1201,7 +1205,24 @@ function bsf_save_option( $option, $args ) {
 	}
 
 	// Nothing was written: either it already matched, or the write failed.
-	return get_option( $option ) === $args ? 'unchanged' : false;
+	$stored = get_option( $option );
+
+	if ( $stored === $args ) {
+		return 'unchanged';
+	}
+
+	/*
+	 * Scalars do not keep their type in the options table: true is read back as
+	 * '1' and false as an empty string. Comparing the submitted value strictly
+	 * against the stored one would therefore report a failure for a setting
+	 * that is already correct, so compare the stored form for scalars. Arrays
+	 * keep their types and are covered by the strict check above.
+	 */
+	if ( is_scalar( $args ) && is_scalar( $stored ) ) {
+		return (string) $stored === (string) $args ? 'unchanged' : false;
+	}
+
+	return false;
 }
 /**
  * Get_the_ip.
