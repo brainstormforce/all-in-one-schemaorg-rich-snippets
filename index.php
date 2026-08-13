@@ -393,7 +393,11 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 						'snippet_title_color' => $title_color,
 						'snippet_box_color'   => $box_color,
 					);
-					if ( update_option( 'bsf_custom', $color_opt ) ) {
+					$color_saved = bsf_save_option( 'bsf_custom', $color_opt );
+
+					if ( 'unchanged' === $color_saved ) {
+						wp_send_json_success( __( 'No changes to save.', 'rich-snippets' ) );
+					} elseif ( $color_saved ) {
 						wp_send_json_success( __( 'Settings saved !', 'rich-snippets' ) );
 					} else {
 						wp_send_json_error( __( 'Error occured. Settings were not saved !', 'rich-snippets' ) );
