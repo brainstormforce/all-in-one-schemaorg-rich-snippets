@@ -1397,9 +1397,14 @@ function bsf_update_rating() {
 				continue;
 			}
 
-			// update_post_meta() returns false when the write fails and when the
-			// stored value is already identical, so re-submitting the same star
-			// is rejected just as it was before this change.
+			// Re-submitting the star already on record changes nothing. Report it
+			// separately, because update_post_meta() returns false both for an
+			// unchanged value and for a failed write, and telling the visitor
+			// their rating errored would be misleading.
+			if ( isset( $rating_row['user_rating'] ) && (int) $rating_row['user_rating'] === $stars ) {
+				wp_send_json_error( __( 'You have already given this rating.', 'rich-snippets' ) );
+			}
+
 			if ( false === update_post_meta( $postid, 'post-rating', $user_rating, $rating_row ) ) {
 				wp_send_json_error( __( 'Error updating your rating', 'rich-snippets' ) );
 			}

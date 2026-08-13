@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Schema - All In One Schema Rich Snippets 1.7.8\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/all-in-one-schemaorg-rich-snippets\n"
-"POT-Creation-Date: 2026-07-31 09:34:47+00:00\n"
+"POT-Creation-Date: 2026-08-13 08:10:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1041,74 +1041,74 @@ msgid "Schema Information"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1312
-#: functions.php:1409
+#: functions.php:1355
 msgid "Error adding your rating"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1314
-#: functions.php:1411
+#: functions.php:1357
 msgid "Ratings added successfully !"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1344
-#: functions.php:1458 functions.php:1467
+#: functions.php:1409 functions.php:1418
 msgid "Error updating your rating"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1346
-#: functions.php:1461 functions.php:1469
+#: functions.php:1412 functions.php:1420
 msgid "Ratings updated successfully !"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1354
-#: functions.php:1477
+#: functions.php:1428
 msgid "Rate this item"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1356
-#: functions.php:1479
+#: functions.php:1430
 msgid "Rating"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1358
-#: functions.php:1481
+#: functions.php:1432
 msgid "1 star"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1359
-#: functions.php:1482
+#: functions.php:1433
 msgid "2 stars"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1360
-#: functions.php:1483
+#: functions.php:1434
 msgid "3 stars"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1361
-#: functions.php:1484
+#: functions.php:1435
 msgid "4 stars"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1362
-#: functions.php:1485
+#: functions.php:1436
 msgid "5 stars"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1406
-#: functions.php:1528
+#: functions.php:1479
 msgid "All In One Schema Rich Snippets"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1407
-#: functions.php:1529
+#: functions.php:1480
 msgid ""
 "How likely are you to recommend All In One Schema Rich Snippets to your "
 "friends or colleagues?"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1409
-#: functions.php:1531
+#: functions.php:1482
 msgid ""
 "Could you please do us a favor and give us a 5-star rating on Wordpress? It "
 "would help others choose All In One Schema Rich Snippets with confidence. "
@@ -1116,12 +1116,12 @@ msgid ""
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1412
-#: functions.php:1534
+#: functions.php:1485
 msgid "Thank you for your feedback"
 msgstr ""
 
 #: .claude/worktrees/dazzling-shamir-f1f2e3/functions.php:1413
-#: functions.php:1535
+#: functions.php:1486
 msgid "We value your input. How can we improve your experience?"
 msgstr ""
 
@@ -2284,16 +2284,20 @@ msgstr ""
 msgid "Provider telephone number"
 msgstr ""
 
-#: functions.php:1379 functions.php:1427
+#: functions.php:1325 functions.php:1373
 msgid "Invalid rating request."
 msgstr ""
 
-#: functions.php:1386 functions.php:1434
+#: functions.php:1332 functions.php:1380
 msgid "Invalid rating value."
 msgstr ""
 
-#: functions.php:1397
+#: functions.php:1343
 msgid "You have already rated this item."
+msgstr ""
+
+#: functions.php:1405
+msgid "You have already given this rating."
 msgstr ""
 
 #: vendor/wp-cli/core-command/src/Core_Command.php:759
