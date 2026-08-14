@@ -101,10 +101,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
   - Improvement: Compatibility with WordPress 7.1.
   - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.
   - Fix: Re-submitting the same star rating now reports it was already given instead of showing an update error.
-  - Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting
-  out-of-range rating values.
+  - Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting out-of-range rating values.
   - Security: Removed a hidden field from the rating form whose value was output without escaping.
-  
+
 ### 1.7.8 ###
 - Improvement: Compatibility with WordPress 7.0.
 - Security: Hardened the build toolchain by resolving dependency advisories.
