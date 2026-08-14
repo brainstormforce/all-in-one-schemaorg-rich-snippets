@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/BrainstormForce
 Tags: schema markup, rich snippets, wordpress seo, structured data, google search
 Requires at least: 3.7
 Tested up to: 7.1
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,8 +98,11 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 == Changelog ==
 ### 1.7.9 ###
-- Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting out-of-range rating values.
-- Security: Removed a hidden field from the rating form whose value was output without escaping.
+  - Improvement: Compatibility with WordPress 7.1.
+  - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.
+  - Fix: Re-submitting the same star rating now reports it was already given instead of showing an update error.
+  - Security: Hardened the post rating feature by validating the rated post, deriving the visitor IP server-side, enforcing one rating per visitor, and rejecting out-of-range rating values.
+  - Security: Removed a hidden field from the rating form whose value was output without escaping.
 
 ### 1.7.8 ###
 - Improvement: Compatibility with WordPress 7.0.
