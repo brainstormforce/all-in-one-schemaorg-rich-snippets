@@ -1181,6 +1181,50 @@ add_filter( 'the_content', 'display_rich_snippet', 90 );
 
 require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
+ * Save a settings option and report what actually happened.
+ *
+ * Both a failed write and an unchanged value make update_option() return false,
+ * so its return value alone cannot tell a genuine failure from a submission
+ * that had nothing to change. Re-reading the option separates the two, so each
+ * case can be reported accurately instead of showing a failure notice for an
+ * unchanged save.
+ *
+ * A boolean that is already stored is reported as unchanged rather than as a
+ * failure. An option that does not exist yet reads back as false, so saving
+ * false over it is also reported as unchanged, since nothing needed writing.
+ *
+ * @since x.x.x
+ * @param string $option Option name.
+ * @param mixed  $args   Value to store.
+ * @return string|false 'saved' when written, 'unchanged' when it already held
+ *                      this value, false when the option does not hold it.
+ */
+function bsf_save_option( $option, $args ) {
+	if ( update_option( $option, $args ) ) {
+		return 'saved';
+	}
+
+	// Nothing was written: either it already matched, or the write failed.
+	$stored = get_option( $option );
+
+	if ( $stored === $args ) {
+		return 'unchanged';
+	}
+
+	/*
+	 * Scalars do not keep their type in the options table: true is read back as
+	 * '1' and false as an empty string. Comparing the submitted value strictly
+	 * against the stored one would therefore report a failure for a setting
+	 * that is already correct, so compare the stored form for scalars. Arrays
+	 * keep their types and are covered by the strict check above.
+	 */
+	if ( is_scalar( $args ) && is_scalar( $stored ) ) {
+		return (string) $stored === (string) $args ? 'unchanged' : false;
+	}
+
+	return false;
+}
+/**
  * Get_the_ip.
  */
 function get_the_ip() {
