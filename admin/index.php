@@ -1005,7 +1005,7 @@ if ( isset( $_POST['setting_submit'] ) ) {
 			$args = false;
 		}
 		update_option( 'bsf_woocom_init_setting', 'done' );
-		$status = update_option( 'bsf_woocom_setting', $args );
+		$status = bsf_save_option( 'bsf_woocom_setting', $args );
 		display_status( $status );
 	}
 }
@@ -1019,7 +1019,7 @@ if ( isset( $_POST['item_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_review', $args );
+		$status = bsf_save_option( 'bsf_review', $args );
 		display_status( $status );
 	}
 }
@@ -1034,7 +1034,7 @@ if ( isset( $_POST['event_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_event', $args );
+		$status = bsf_save_option( 'bsf_event', $args );
 		display_status( $status );
 	}
 }
@@ -1049,7 +1049,7 @@ if ( isset( $_POST['person_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_person', $args );
+		$status = bsf_save_option( 'bsf_person', $args );
 		display_status( $status );
 	}
 }
@@ -1064,7 +1064,7 @@ if ( isset( $_POST['product_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_product', $args );
+		$status = bsf_save_option( 'bsf_product', $args );
 		display_status( $status );
 	}
 }
@@ -1079,7 +1079,7 @@ if ( isset( $_POST['recipe_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_recipe', $args );
+		$status = bsf_save_option( 'bsf_recipe', $args );
 		display_status( $status );
 	}
 }
@@ -1094,7 +1094,7 @@ if ( isset( $_POST['software_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_software', $args );
+		$status = bsf_save_option( 'bsf_software', $args );
 		display_status( $status );
 	}
 }
@@ -1109,7 +1109,7 @@ if ( isset( $_POST['video_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_video', $args );
+		$status = bsf_save_option( 'bsf_video', $args );
 		display_status( $status );
 	}
 }
@@ -1124,7 +1124,7 @@ if ( isset( $_POST['article_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_article', $args );
+		$status = bsf_save_option( 'bsf_article', $args );
 		display_status( $status );
 	}
 }
@@ -1139,17 +1139,23 @@ if ( isset( $_POST['service_submit'] ) ) {
 				$args[ $option ] = sanitize_text_field( $_POST[ $option ] );
 			}
 		}
-		$status = update_option( 'bsf_service', $args );
+		$status = bsf_save_option( 'bsf_service', $args );
 		display_status( $status );
 	}
 }
 /**
  * Display status.
  *
- * @param  string $status .
+ * Accepts the return value of bsf_save_option(): 'saved', 'unchanged', or
+ * false. A plain truthy value is still treated as a successful save so any
+ * existing caller keeps working.
+ *
+ * @param  string|bool $status .
  */
 function display_status( $status ) {
-	if ( $status ) {
+	if ( 'unchanged' === $status ) {
+		echo '<div class="notice notice-info"><p>' . esc_html__( 'No changes to save.', 'rich-snippets' ) . '</p></div>';
+	} elseif ( $status ) {
 		echo '<div class="updated"><p>' . esc_html__( 'Success! Your changes were successfully saved!', 'rich-snippets' ) . '</p></div>';
 	} else {
 		echo '<div class="error"><p>' . esc_html__( 'Sorry, Your changes are not saved!', 'rich-snippets' ) . '</p></div>';

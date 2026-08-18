@@ -1181,6 +1181,50 @@ add_filter( 'the_content', 'display_rich_snippet', 90 );
 
 require_once plugin_dir_path( __FILE__ ) . 'meta-boxes.php';
 /**
+ * Save a settings option and report what actually happened.
+ *
+ * Both a failed write and an unchanged value make update_option() return false,
+ * so its return value alone cannot tell a genuine failure from a submission
+ * that had nothing to change. Re-reading the option separates the two, so each
+ * case can be reported accurately instead of showing a failure notice for an
+ * unchanged save.
+ *
+ * A boolean that is already stored is reported as unchanged rather than as a
+ * failure. An option that does not exist yet reads back as false, so saving
+ * false over it is also reported as unchanged, since nothing needed writing.
+ *
+ * @since x.x.x
+ * @param string $option Option name.
+ * @param mixed  $args   Value to store.
+ * @return string|false 'saved' when written, 'unchanged' when it already held
+ *                      this value, false when the option does not hold it.
+ */
+function bsf_save_option( $option, $args ) {
+	if ( update_option( $option, $args ) ) {
+		return 'saved';
+	}
+
+	// Nothing was written: either it already matched, or the write failed.
+	$stored = get_option( $option );
+
+	if ( $stored === $args ) {
+		return 'unchanged';
+	}
+
+	/*
+	 * Scalars do not keep their type in the options table: true is read back as
+	 * '1' and false as an empty string. Comparing the submitted value strictly
+	 * against the stored one would therefore report a failure for a setting
+	 * that is already correct, so compare the stored form for scalars. Arrays
+	 * keep their types and are covered by the strict check above.
+	 */
+	if ( is_scalar( $args ) && is_scalar( $stored ) ) {
+		return (string) $stored === (string) $args ? 'unchanged' : false;
+	}
+
+	return false;
+}
+/**
  * Get_the_ip.
  */
 function get_the_ip() {
@@ -1283,6 +1327,32 @@ function add_ajax_library() {
 	echo $html; //phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 }
 /**
+ * Determine whether a post is allowed to receive interactive star ratings.
+ *
+ * The rating form is only rendered for Product (6), Recipe (7) and Software (8)
+ * schema types, so ratings must never be accepted for any other post, an
+ * unpublished post, or a non-existent post ID. This prevents unauthenticated
+ * callers from writing rating meta to arbitrary posts.
+ *
+ * Only `publish` is accepted. A rating form is never shown to visitors on any
+ * other status (draft, pending, future, private, trash, auto-draft, inherit),
+ * and accepting `private` here would let an unauthenticated caller write rating
+ * meta to restricted content they cannot read.
+ *
+ * @since x.x.x
+ * @param int $post_id Post ID.
+ * @return bool True if the post accepts ratings, false otherwise.
+ */
+function bsf_is_rateable_post( $post_id ) {
+	if ( $post_id <= 0 || 'publish' !== get_post_status( $post_id ) ) {
+		return false;
+	}
+
+	$schema_type = (string) get_post_meta( $post_id, '_bsf_post_type', true );
+
+	return in_array( $schema_type, array( '6', '7', '8' ), true );
+}
+/**
  * Bsf_add_rating.
  */
 function bsf_add_rating() {
@@ -1292,15 +1362,32 @@ function bsf_add_rating() {
 		return;
 	}
 
-	if ( isset( $_POST['star-review'] ) ) {
-		$stars = intval( $_POST['star-review'] );
-	} else {
-		$stars = 0;
+	$postid = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+	// Only accept ratings for published posts that actually render a rating form.
+	if ( ! bsf_is_rateable_post( $postid ) ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
 	}
 
-	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
+	$stars = isset( $_POST['star-review'] ) ? intval( $_POST['star-review'] ) : 0;
 
-	$postid = absint( $_POST['post_id'] );
+	// Ratings are 1-5 stars; reject anything outside that range.
+	if ( $stars < 1 || $stars > 5 ) {
+		wp_send_json_error( __( 'Invalid rating value.', 'rich-snippets' ) );
+	}
+
+	// Derive the visitor IP server-side; never trust a client-supplied value.
+	$ip = get_the_ip();
+
+	// One rating per IP per post: block duplicate and unbounded submissions.
+	$existing = get_post_meta( $postid, 'post-rating', false );
+	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		foreach ( $existing as $rating_row ) {
+			if ( isset( $rating_row['user_ip'] ) && $rating_row['user_ip'] === $ip ) {
+				wp_send_json_error( __( 'You have already rated this item.', 'rich-snippets' ) );
+			}
+		}
+	}
 
 	$user_rating = array(
 		'post_id'     => $postid,
@@ -1322,17 +1409,23 @@ function bsf_update_rating() {
 
 		return;
 	}
-	if ( isset( $_POST['star-review'] ) ) {
-		$stars = intval( $_POST['star-review'] );
-	} else {
-		$stars = 0;
+
+	$postid = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+	// Only accept ratings for published posts that actually render a rating form.
+	if ( ! bsf_is_rateable_post( $postid ) ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
 	}
 
-	$ip = sanitize_text_field( wp_unslash( $_POST['ip'] ) );
+	$stars = isset( $_POST['star-review'] ) ? intval( $_POST['star-review'] ) : 0;
 
-	$postid = absint( $_POST['post_id'] );
+	// Ratings are 1-5 stars; reject anything outside that range.
+	if ( $stars < 1 || $stars > 5 ) {
+		wp_send_json_error( __( 'Invalid rating value.', 'rich-snippets' ) );
+	}
 
-	$prev_data = get_post_meta( $postid, 'post-rating', true );
+	// Derive the visitor IP server-side; never trust a client-supplied value.
+	$ip = get_the_ip();
 
 	$user_rating = array(
 		'post_id'     => $postid,
@@ -1340,7 +1433,32 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	if ( false === update_post_meta( $postid, 'post-rating', $user_rating, $prev_data ) ) {
+	// Update only the rating row that belongs to this IP.
+	$existing = get_post_meta( $postid, 'post-rating', false );
+	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		foreach ( $existing as $rating_row ) {
+			if ( ! isset( $rating_row['user_ip'] ) || $rating_row['user_ip'] !== $ip ) {
+				continue;
+			}
+
+			// Re-submitting the star already on record changes nothing. Report it
+			// separately, because update_post_meta() returns false both for an
+			// unchanged value and for a failed write, and telling the visitor
+			// their rating errored would be misleading.
+			if ( isset( $rating_row['user_rating'] ) && (int) $rating_row['user_rating'] === $stars ) {
+				wp_send_json_error( __( 'You have already given this rating.', 'rich-snippets' ) );
+			}
+
+			if ( false === update_post_meta( $postid, 'post-rating', $user_rating, $rating_row ) ) {
+				wp_send_json_error( __( 'Error updating your rating', 'rich-snippets' ) );
+			}
+
+			wp_send_json_success( __( 'Ratings updated successfully !', 'rich-snippets' ) );
+		}
+	}
+
+	// No existing rating for this IP; store it as a new rating.
+	if ( false === add_post_meta( $postid, 'post-rating', $user_rating ) ) {
 		wp_send_json_error( __( 'Error updating your rating', 'rich-snippets' ) );
 	}
 	wp_send_json_success( __( 'Ratings updated successfully !', 'rich-snippets' ) );
@@ -1361,7 +1479,6 @@ function display_rating() {
 		$rating .= '<input type="radio" name="star-review" class="star star-4" value="4" id="bsf-star-4" aria-label="' . esc_attr__( '4 stars', 'rich-snippets' ) . '"/><label for="bsf-star-4" class="bsf-sr-only">' . esc_html__( '4 stars', 'rich-snippets' ) . '</label>';
 		$rating .= '<input type="radio" name="star-review" class="star star-5" value="5" id="bsf-star-5" aria-label="' . esc_attr__( '5 stars', 'rich-snippets' ) . '"/><label for="bsf-star-5" class="bsf-sr-only">' . esc_html__( '5 stars', 'rich-snippets' ) . '</label>';
 		$rating .= '</fieldset>';
-		$rating .= '<input type="hidden" name="ip" value="' . esc_attr( get_the_ip() ) . '" />';
 		$rating .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
 		$rating .= '</form>';
 		$rating .= '</div></span>';
@@ -1440,7 +1557,6 @@ function bsf_display_rating( $n ) {
 	4 === $n ? $rating .= ' checked="checked"/>' : $rating .= '/>';
 		$rating        .= '<input type="radio" name="star-review" class="star star-5" value="5" ';
 	5 === $n ? $rating .= ' checked="checked"/>' : $rating .= '/>';
-		$rating        .= '<input type="hidden" name="ip" value="' . get_the_ip() . '" />';
 		$rating        .= '<input type="hidden" name="post_id" value="' . $post->ID . '" />';
 		$rating        .= '</form>';
 		$rating        .= '</div></span>';
