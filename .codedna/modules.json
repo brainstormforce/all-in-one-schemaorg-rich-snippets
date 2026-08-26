@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-26",
+  "modules": [
+    {
+      "id": "core",
+      "path": ".",
+      "claude": "CLAUDE.md",
+      "architecture": "architecture.md",
+      "language": "php",
+      "confidence": "high",
+      "reason": "entrypoint"
+    },
+    {
+      "id": "admin",
+      "path": "admin",
+      "claude": "admin/CLAUDE.md",
+      "architecture": "admin/architecture.md",
+      "language": "php",
+      "confidence": "high",
+      "reason": "source-cluster"
+    },
+    {
+      "id": "js",
+      "path": "js",
+      "claude": "js/CLAUDE.md",
+      "architecture": "js/architecture.md",
+      "language": "js",
+      "confidence": "medium",
+      "reason": "source-cluster"
+    }
+  ]
+}
