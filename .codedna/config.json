@@ -1,0 +1,23 @@
+{
+  "mode": "auto",
+  "moduleRoots": [
+    ".",
+    "admin",
+    "js"
+  ],
+  "ignore": [
+    "node_modules",
+    ".git",
+    "dist",
+    "build",
+    "out",
+    "coverage",
+    "vendor",
+    "lib",
+    "admin/bsf-analytics",
+    "images",
+    "languages",
+    "__pycache__",
+    ".venv"
+  ]
+}

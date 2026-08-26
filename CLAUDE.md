@@ -80,6 +80,8 @@ npx grunt zip
 
 ## Architecture
 
+> Boundaries and rationale for the root engine live in [`architecture.md`](architecture.md). Submodules: [`admin/`](admin/CLAUDE.md), [`js/`](js/CLAUDE.md).
+
 - **Single meta box** (`review_metabox`) covers all schema types — field visibility toggled by `js/toggle.js`
 - **Post meta key prefix:** `_bsf_` (leading underscore hides from WP Custom Fields panel)
 - **Type selector:** `_bsf_post_type` — integer 0/1/2/5/6/7/8/9/10/11
@@ -114,6 +116,12 @@ npx grunt zip
 - **Text domain is `rich-snippets`** (not the plugin slug `all-in-one-schemaorg-rich-snippets`).
 - **`register_activation_hook`** is called in `index.php` and seeds options via `settings.php` — re-running `add_option()` is safe (won't overwrite existing values).
 - **Schema Pro detection:** `is_schema_pro_installed()` checks for `wp-schema-pro/wp-schema-pro.php` file existence to conditionally show the "Get Schema Pro" upsell.
+- **`_bsf_post_type` is dispatched as a *string*** — `functions.php` branches on `'1' === $type` (functions.php:75,313,476…). Adding a schema type requires BOTH a `<select>` option in `meta-boxes.php:52-93` AND an `elseif` branch in `functions.php`; a numeric-cast refactor silently breaks dispatch.
+- **Public (`nopriv`) rating AJAX must keep the `bsf_is_rateable_post()` gate** — `bsf_add_rating`/`bsf_update_rating` (functions.php:18-22) verify nonce `bsf_rating`, then allow only *published* posts of type `6/7/8` (functions.php:1346-1354). Removing it re-opens unauthenticated meta writes to arbitrary post IDs.
+- **`bsf_save_option()` returns a three-state string** — `'saved'` / `'unchanged'` / `false` (functions.php:1202-1226); callers must branch on the string, not a boolean.
+- **`add_ajax_library()` prints an inline `<script>` defining `ajaxurl` in `wp_head`** (functions.php:1321-1328, phpcs-ignored) — load-bearing; removing it breaks front-end (`nopriv`) rating posts.
+- **Dead duplicate initializer** — `RichSnippets::wp_initialize_bsf_meta_boxes()` (index.php:208) is never hooked; the live one is `bsf_initialize_bsf_meta_boxes()` (functions.php:58-62, hooked at :16). Editing the wrong one has no effect.
+- **`bsf_meta_boxes` filter load order** — `init.php` applies the filter at file top level (init.php:10-14); the callback is added at `index.php:500` and `init.php` is required on `init` priority 9999. Requiring `init.php` before that filter is added registers zero meta boxes.
 
 ---
 
@@ -131,3 +139,45 @@ npx grunt zip
 - All user input must be sanitized; all output must be escaped (see WPCS rules)
 - Nonce verification required on all AJAX handlers before processing
 - `manage_options` capability check required for admin-only AJAX actions
+
+---
+
+<!-- codedna:start — managed section. Edit freely; keep the markers so a
+     teammate running `setup` updates this block instead of duplicating it. -->
+## CodeDNA
+
+This repository keeps engineering context next to the code. Each module folder
+has a `CLAUDE.md` (rules and gotchas, auto-loaded when you read files there)
+and an `architecture.md` (what it owns, and why it is that way). Modules are
+listed in `.codedna/modules.json`: **core** (root), **admin/**, **js/**.
+
+### Before changing a module
+
+1. Read that module's `architecture.md`. Its `CLAUDE.md` has already loaded.
+2. Read the existing implementation, tests, and any linked ADRs or contracts.
+3. Use only what those sources and the code show. If something is missing,
+   ask. Do not invent APIs, modules, or dependencies.
+
+**Never guess a shape.** Field names, payload shapes, enum values, and option
+keys are written down somewhere in here (`meta-boxes.php`, `settings.php`) —
+open them and use them rather than inventing.
+
+### After changing code
+
+Update the module's docs in the same change when knowledge shifts:
+
+- a rule or a gotcha — something Claude would get wrong without it → `CLAUDE.md`
+- why the module is shaped this way, or what it owns → `architecture.md`
+
+Never write the same fact in both. Do not update docs for renames, formatting,
+or internal refactors that change nothing a caller can observe. Do not add a
+timestamp: git already records when a file changed.
+
+New architectural decision? Add an ADR under `docs/decisions/`. Do not rewrite
+existing ADRs — supersede them.
+
+### Context budget
+
+Load only the affected module's files. Do not read every module's docs for a
+local change.
+<!-- codedna:end -->
