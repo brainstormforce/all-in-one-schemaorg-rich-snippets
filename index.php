@@ -28,6 +28,47 @@ Copyright 2013 Schema - All In One Schema Rich Snippets (email : info@bsf.io)
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
+if ( ! function_exists( 'bsf_is_woocommerce_schema_enabled' ) ) {
+	/**
+	 * Check whether schema markup is enabled for WooCommerce post types.
+	 *
+	 * WooCommerce post types stay excluded until the "Enable schema on
+	 * WooCommerce products" option is explicitly turned on from the
+	 * plugin settings.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool True when schema is enabled on WooCommerce post types.
+	 */
+	function bsf_is_woocommerce_schema_enabled() {
+		if ( ! get_option( 'bsf_woocom_init_setting' ) ) {
+			return false;
+		}
+
+		return (bool) get_option( 'bsf_woocom_setting' );
+	}
+}
+
+if ( ! function_exists( 'bsf_get_excluded_post_types' ) ) {
+	/**
+	 * Get the post types excluded from the rich snippet meta box and its assets.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return array Post type slugs to exclude.
+	 */
+	function bsf_get_excluded_post_types() {
+		$exclusions = array();
+
+		if ( ! bsf_is_woocommerce_schema_enabled() ) {
+			$exclusions = array( 'product', 'product_variation', 'shop_order', 'shop_order_refund', 'shop_coupon', 'shop_webhook' );
+		}
+
+		return apply_filters( 'bsf_exclude_custom_post_type', $exclusions );
+	}
+}
+
 if ( ! class_exists( 'RichSnippets' ) ) {
 	/**
 	 * RichSnippets
@@ -139,16 +180,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			$current_admin_screen = get_current_screen();
 
-			// Default exclusions for WooCommerce and other problematic post types.
-			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
-
-			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
-				return;
-			}
-
-			// Additional check for WooCommerce products to prevent conflicts.
-			if ( 'product' === $current_admin_screen->post_type ) {
+			// Match the meta box exclusions so assets load exactly where the meta box renders.
+			if ( in_array( $current_admin_screen->post_type, bsf_get_excluded_post_types(), true ) ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
@@ -176,16 +209,8 @@ if ( ! class_exists( 'RichSnippets' ) ) {
 			}
 			$current_admin_screen = get_current_screen();
 
-			// Default exclusions for WooCommerce and other problematic post types.
-			$default_exclusions       = array( 'product', 'shop_order', 'shop_coupon', 'product_variation' );
-			$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', $default_exclusions );
-
-			if ( in_array( $current_admin_screen->post_type, $exclude_custom_post_type ) ) {
-				return;
-			}
-
-			// Additional check for WooCommerce products to prevent conflicts.
-			if ( 'product' === $current_admin_screen->post_type ) {
+			// Match the meta box exclusions so assets load exactly where the meta box renders.
+			if ( in_array( $current_admin_screen->post_type, bsf_get_excluded_post_types(), true ) ) {
 				return;
 			}
 			wp_enqueue_script( 'jquery' );
