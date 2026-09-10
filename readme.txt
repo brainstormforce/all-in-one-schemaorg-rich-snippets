@@ -1,7 +1,7 @@
-=== Schema - All In One Schema Rich Snippets ===
+=== Schema - All In One Schema Rich Snippets & Structured Data Markup ===
 Contributors: brainstormforce
 Donate link: https://www.paypal.me/BrainstormForce
-Tags: schema markup, rich snippets, wordpress seo, structured data, google search
+Tags: schema, schema markup, rich snippets, structured data, wordpress seo
 Requires at least: 3.7
 Tested up to: 7.1
 Stable tag: 1.7.9
@@ -9,7 +9,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Improve SEO, elevate rankings and Boost CTR. Supports different types of content and works well with Google, Bing, Yahoo, and Facebook.
+Add schema markup & structured data for 9 content types. Get rich snippets — star ratings, reviews, events, recipes — in Google search.
 
 == Description ==
 Get eye-catching results in search engines with the most popular schema markup plugin. Easy implementation of schema types like Review, Events, Recipes, Article, Products, Services etc
@@ -39,6 +39,7 @@ This plugin supports the following types of Schemas:
 * Software Application – Display app name, pricing, and download info.
 * Video – Enhance video results with thumbnails and descriptions.
 * Article – Improve blog/article visibility with author and publish date.
+* Service – Highlight services with descriptions and provider details.
 
 👉 Need advanced schema types and automation? Upgrade to [Schema Pro](https://wpschema.com/).
 
@@ -79,13 +80,13 @@ This plugin supports the following types of Schemas:
 * Sitelinks Search Box Schema (Pro) – Enable a search box for your site in Google results.
 
 = Want to contribute to the plugin? =
-You may now contribute to the plugin on Github: [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")
+You may now contribute to the plugin on GitHub: [All In One Schema Rich Snippets on GitHub](https://github.com/brainstormforce/all-in-one-schemaorg-rich-snippets "Contribute on GitHub")
 
 == Installation ==
 = Through Dashboard =
 1. Go to Plugins 
 1. Add New 
-1. Search for "All in One Schema.org Rich Snippets" Or Upload the plugins zip file
+1. Search for "All In One Schema Rich Snippets" Or Upload the plugins zip file
 
 = Through FTP =
 1. Upload the plugin into `wp-content/plugins` directory
@@ -96,20 +97,41 @@ Now go ahead and create a new post. Select the post type from the dropdown in th
 
 Google will start showing rich snippets in the search results, as soon as your post is crawled.
 
-You can test the rich snippet on Google Webmasters Rich Snippets Testing Tool
+You can test the rich snippet with the [Google Rich Results Test](https://search.google.com/test/rich-results).
 
 == Frequently Asked Questions ==
-= What is a Rich Snippet? =
-The All in One Schema Rich Snippets plugin helps you add structured data markup to your WordPress website, enabling search engines to display rich snippets like star ratings, reviews, recipes, events, and more in search results.
+= What is a rich snippet? =
+A rich snippet is an enhanced search result that displays extra details — star ratings, reviews, prices, event dates, cooking times — pulled from the structured data on your page. Rich snippets stand out in Google search results and typically earn a higher click-through rate than plain listings.
 
-= How does this plugin improve SEO? =
-By adding schema markup, the plugin enhances search engine understanding of your content, increasing the chances of rich snippets appearing in search results, which can improve click-through rates (CTR) and SEO performance.
+= How do I add schema markup to my WordPress site? =
+Install and activate the plugin, then edit any post or page. In the rich snippets meta box below the editor, select a content type from the dropdown, fill in the fields, and publish. The plugin adds the structured data markup to your page automatically — no code required.
 
-= Which Content Types are Supported? =
-This plugin currently supports almost all of the content types that are released by Schema.org at one place.
+= Which schema types does this plugin support? =
+The free plugin supports 9 schema types: Review, Event, Person, Product, Recipe, Software Application, Video, Article, and Service. [Schema Pro](https://wpschema.com/) (Pro) adds 20+ more, including FAQ, How-To, Local Business, Job Posting, Course, and Podcast.
 
-= Do I need coding knowledge to use this plugin?= 
-No, the plugin provides an easy-to-use interface where you can add schema markup without any coding.
+= Do I need coding knowledge to use this plugin? =
+No. The plugin provides an easy-to-use interface where you can add schema markup without touching any code.
+
+= How does schema markup improve SEO? =
+Schema markup helps search engines understand exactly what your content is about, which makes your pages eligible for rich results. While markup itself is not a direct ranking factor, rich snippets improve visibility and click-through rate, which supports your overall SEO performance.
+
+= How do I test if my rich snippets are working? =
+Paste your post or page URL into the [Google Rich Results Test](https://search.google.com/test/rich-results) or check the Enhancements reports in Google Search Console. Both show which structured data Google detects on the page.
+
+= Is this plugin free? =
+Yes. All 9 supported schema types are completely free. Advanced schema types, JSON-LD output, and site-wide automation are available in [Schema Pro](https://wpschema.com/) (Pro).
+
+= Does it work with Yoast SEO, Rank Math, or other SEO plugins? =
+Yes. The plugin adds content-specific structured data and works alongside general SEO plugins. Just avoid marking up the same content twice — if your SEO plugin already outputs a schema type for a page, don't add the same type again here.
+
+= Does it support WooCommerce products? =
+WooCommerce already outputs its own structured data for products, so the plugin keeps its meta box off WooCommerce product screens to avoid duplicate markup. To manage product markup yourself, turn on the "Enable schema on WooCommerce products" option in the plugin settings.
+
+= Why are rich snippets not showing in Google search results? =
+Google needs to recrawl your page before rich results can appear, which can take from a few days to a few weeks. Even with valid markup, Google decides per-query whether to display rich snippets — valid structured data makes your page eligible but doesn't guarantee display.
+
+= What is the difference between this plugin and Schema Pro? =
+This free plugin adds schema markup to individual posts and pages through a meta box. [Schema Pro](https://wpschema.com/) (Pro) automates markup site-wide with targeting rules, outputs Google-preferred JSON-LD, maps fields to existing content automatically, and supports 30+ schema types.
 
 == Screenshots ==
 1. Meta box in post-new under the editor screen.
