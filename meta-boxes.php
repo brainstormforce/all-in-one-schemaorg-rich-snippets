@@ -17,23 +17,7 @@ function bsf_metaboxes( array $meta_boxes ) {
 	$prefix     = '_bsf_';
 	$post_types = get_post_types( '', 'names' );
 
-	if ( ! get_option( 'bsf_woocom_init_setting' ) ) {
-		$woo_settings = true;
-	} else {
-		$woo_settings = get_option( 'bsf_woocom_setting' );
-	}
-
-	if ( empty( $woo_settings ) ) {
-
-		$woocommerce_post_type = array( 'product', 'product_variation', 'shop_order', 'shop_order_refund', 'shop_coupon', 'shop_webhook' );
-		$required_post_type    = array_diff( $post_types, $woocommerce_post_type );
-
-	} else {
-
-		$exclude_custom_post_type = apply_filters( 'bsf_exclude_custom_post_type', array() );
-		$required_post_type       = array_diff( $post_types, $exclude_custom_post_type );
-
-	}
+	$required_post_type = array_diff( $post_types, bsf_get_excluded_post_types() );
 
 	$meta_boxes[] = array(
 		'id'         => 'review_metabox',
