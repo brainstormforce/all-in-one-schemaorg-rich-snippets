@@ -43,19 +43,40 @@ This plugin supports the following types of Schemas:
 👉 Need advanced schema types and automation? Upgrade to [Schema Pro](https://wpschema.com/).
 
 = Unlock these schema types with Schema Pro =
-* Local Business Schema (Pro) – Show business details like address, hours, and contacts.
-* Service Schema (Pro) – Highlight services with descriptions, providers, and pricing info.
-* Review Schema (Pro) – Display customer reviews and ratings directly in search.
-* Job Posting Schema (Pro) – Promote job listings with role, description, and application info.
+* Article Schema (Pro) – Boost articles with author, publisher, and publish date details.
 * Book Schema (Pro) – Share book details, including title, author, and ISBN.
-* Podcast Schema (Pro) – Feature podcast episodes with title, description, and links.
-* Movie Schema (Pro) – Enhance movie listings with cast, release date, and ratings.
+* Course Schema (Pro) – Showcase courses with provider, description, and ratings.
+* Custom Markup Schema (Pro) – Add your own custom JSON-LD schema markup to any page.
+* Dataset Schema (Pro) – Describe datasets with name, license, and creator details.
+* Discussion Forum Schema (Pro) – Mark up forum threads with posts, authors, and replies.
+* Event Schema (Pro) – Display event dates, times, venues, and ticket info in search.
+* FAQ Schema (Pro) – Show frequently asked questions directly in search results.
 * How-To Schema (Pro) – Show step-by-step instructions with images and videos.
+* Image License Schema (Pro) – Add license details so images qualify for the Licensable badge.
+* Job Posting Schema (Pro) – Promote job listings with role, description, and application info.
+* Local Business Schema (Pro) – Show business details like address, hours, and contacts.
+* Movie Carousel Schema (Pro) – Enhance movie listings with cast, release date, and ratings.
+* Person Schema (Pro) – Highlight personal details like name, job title, and social profiles.
+* Podcast Schema (Pro) – Feature podcast episodes with title, description, and links.
+* Product Schema (Pro) – Add product info like price, availability, brand, and ratings.
+* Profile Page Schema (Pro) – Mark up author and member profile pages for search.
+* Q&A Page Schema (Pro) – Display questions and answers with upvotes in search results.
+* Recipe Schema (Pro) – Show cooking time, ingredients, nutrition, and ratings in search.
+* Review Schema (Pro) – Display customer reviews and ratings directly in search.
+* Service Schema (Pro) – Highlight services with descriptions, providers, and pricing info.
+* Software Application Schema (Pro) – Display app name, pricing, ratings, and download info.
+* Vehicle Listing Schema (Pro) – Showcase vehicles with make, model, price, and mileage.
+* Video Object Schema (Pro) – Enhance video results with thumbnails, duration, and descriptions.
+* WebPage Schema (Pro) – Define page type, author, and publisher details for any page.
 
-= Future release would include: =
-* Breadcrumbs
-* Local Business
-* Books
+= Site-wide schemas included with Schema Pro =
+* About Page Schema (Pro) – Mark up your About page for better search understanding.
+* Breadcrumb Schema (Pro) – Show breadcrumb navigation paths in search results.
+* Contact Page Schema (Pro) – Mark up your Contact page with business contact details.
+* Organization Schema (Pro) – Add your company name, logo, and social profiles site-wide.
+* Person Schema (Pro) – Represent a personal brand or portfolio site-wide.
+* Site Navigation Schema (Pro) – Help search engines understand your site's menu structure.
+* Sitelinks Search Box Schema (Pro) – Enable a search box for your site in Google results.
 
 = Want to contribute to the plugin? =
 You may now contribute to the plugin on Github: [All in one Schema.org Rich Snippets on Github](https://github.com/brainstormforce/All-In-One-Schema.org-Rich-Snippets "Contribute on Github")
@@ -97,6 +118,11 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+### 1.7.9.1 ###
+- Fix: The "Enable schema on WooCommerce products" setting now works as expected — the rich snippet meta box and its scripts load together on product edit screens when the setting is enabled.
+- Fix: Schema fields on WooCommerce products no longer appear all at once; each section now shows only when its snippet type is selected.
+- Fix: Resolved an issue where the schema type toggle script could hide the entire product edit screen.
+
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.
 - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.
