@@ -118,6 +118,11 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+### 1.7.9.1 ###
+- Fix: The "Enable schema on WooCommerce products" setting now works as expected — the rich snippet meta box and its scripts load together on product edit screens when the setting is enabled.
+- Fix: Schema fields on WooCommerce products no longer appear all at once; each section now shows only when its snippet type is selected.
+- Fix: Resolved an issue where the schema type toggle script could hide the entire product edit screen.
+
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.
 - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.
