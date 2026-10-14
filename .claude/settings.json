@@ -33,7 +33,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v jq >/dev/null || exit 0; f=$(jq -r '.tool_input.file_path // empty'); case \"$f\" in *.php) ;; *) exit 0 ;; esac; cd \"$CLAUDE_PROJECT_DIR\" && [ -x vendor/bin/phpcs ] || exit 0; out=$(vendor/bin/phpcs --standard=phpcs.xml.dist --report=summary --runtime-set ignore_warnings_on_exit 1 \"$f\" 2>/dev/null) && exit 0; echo \"$out\" >&2; exit 2"
+            "command": "command -v jq >/dev/null || exit 0; f=$(jq -r '.tool_input.file_path // empty'); case \"$f\" in *.php) ;; *) exit 0 ;; esac; cd \"$CLAUDE_PROJECT_DIR\" && [ -x vendor/bin/phpcs ] || exit 0; out=$(vendor/bin/phpcs --standard=phpcs.xml.dist -q --report=full --warning-severity=0 \"$f\" 2>/dev/null) && exit 0; echo \"$out\" >&2; exit 2"
           }
         ]
       }

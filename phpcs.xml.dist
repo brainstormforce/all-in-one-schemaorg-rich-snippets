@@ -131,6 +131,7 @@
 	<exclude-pattern>*/stubs-generator.php*</exclude-pattern>
 	<exclude-pattern>*/lib/*</exclude-pattern>
 	<exclude-pattern>*/admin/bsf-analytics/*</exclude-pattern>
+	<exclude-pattern>*/.claude/*</exclude-pattern>
 
 
 </ruleset>
