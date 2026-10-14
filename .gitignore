@@ -23,6 +23,7 @@ vendor/
 # ignore PHPStorm extra directories
 .vscodecghooks.lock
 
-# Claude Code
-.claude/
+# Claude Code (settings.json is shared; personal files stay local)
+.claude/settings.local.json
+.claude/worktrees/
 
