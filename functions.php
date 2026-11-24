@@ -68,6 +68,11 @@ function bsf_initialize_bsf_meta_boxes() {
 function display_rich_snippet( $content ) {
 	global $post;
 
+	// Bail early when the_content runs outside a post context (widgets, REST, CLI).
+	if ( ! $post instanceof WP_Post ) {
+		return $content;
+	}
+
 	$args_color = get_option( 'bsf_custom' );
 	$id         = $post->ID;
 	$type       = get_post_meta( $id, '_bsf_post_type', true );

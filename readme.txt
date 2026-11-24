@@ -97,6 +97,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 == Changelog ==
+### 1.7.10 ###
+- Fix: Resolved a PHP warning ("Attempt to read property ID on null") logged when the content filter runs outside a post, such as in widgets, REST responses, or WP-CLI.
+
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.
 - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.
