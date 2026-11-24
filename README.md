@@ -97,6 +97,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+### x.x.x ###
+- Security: Completed the post rating hardening from 1.7.9. The visitor IP is now read from forwarding headers only when the request comes from a trusted proxy (private networks and Cloudflare), so one rating per visitor can no longer be bypassed with a forged header. Other proxies or CDNs can be added with the `bsf_rating_trusted_proxies` filter.
+
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.
 - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.

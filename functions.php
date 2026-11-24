@@ -1225,16 +1225,188 @@ function bsf_save_option( $option, $args ) {
 	return false;
 }
 /**
- * Get_the_ip.
+ * Get the proxy address ranges whose forwarding headers may be trusted.
+ *
+ * Covers private, loopback and shared address space (a host's own load
+ * balancer, reverse proxy or container network) and Cloudflare's published
+ * edge ranges (https://www.cloudflare.com/ips/). Sites behind another CDN or
+ * proxy can add its ranges with the `bsf_rating_trusted_proxies` filter.
+ *
+ * @since x.x.x
+ * @return array<int, string> List of IP addresses or CIDR ranges.
+ */
+function bsf_rating_trusted_proxies() {
+	$proxies = array(
+		// Loopback, private and shared address space.
+		'127.0.0.0/8',
+		'10.0.0.0/8',
+		'172.16.0.0/12',
+		'192.168.0.0/16',
+		'100.64.0.0/10',
+		'::1/128',
+		'fc00::/7',
+		'fe80::/10',
+		// Cloudflare.
+		'173.245.48.0/20',
+		'103.21.244.0/22',
+		'103.22.200.0/22',
+		'103.31.4.0/22',
+		'141.101.64.0/18',
+		'108.162.192.0/18',
+		'190.93.240.0/20',
+		'188.114.96.0/20',
+		'197.234.240.0/22',
+		'198.41.128.0/17',
+		'162.158.0.0/15',
+		'104.16.0.0/13',
+		'104.24.0.0/14',
+		'172.64.0.0/13',
+		'131.0.72.0/22',
+		'2400:cb00::/32',
+		'2606:4700::/32',
+		'2803:f800::/32',
+		'2405:b500::/32',
+		'2405:8100::/32',
+		'2a06:98c0::/29',
+		'2c0f:f248::/32',
+	);
+
+	/**
+	 * Filters the proxy ranges whose forwarding headers are trusted.
+	 *
+	 * Add the ranges of any CDN or reverse proxy that connects to this site
+	 * and appends the visitor address to X-Forwarded-For. Never add ranges
+	 * that visitors can connect from directly.
+	 *
+	 * @since x.x.x
+	 * @param array<int, string> $proxies IP addresses or CIDR ranges.
+	 */
+	$proxies = apply_filters( 'bsf_rating_trusted_proxies', $proxies );
+
+	return is_array( $proxies ) ? array_values( array_filter( $proxies, 'is_string' ) ) : array();
+}
+
+/**
+ * Check whether an IP address falls inside an address or CIDR range.
+ *
+ * Works for IPv4 and IPv6. An address never matches a range of the other
+ * family.
+ *
+ * @since x.x.x
+ * @param string $ip    IP address.
+ * @param string $range IP address or CIDR range, e.g. 10.0.0.0/8.
+ * @return bool
+ */
+function bsf_ip_in_range( $ip, $range ) {
+	$parts  = explode( '/', trim( $range ), 2 );
+	$subnet = $parts[0];
+
+	$ip_bin     = filter_var( $ip, FILTER_VALIDATE_IP ) ? inet_pton( $ip ) : false;
+	$subnet_bin = filter_var( $subnet, FILTER_VALIDATE_IP ) ? inet_pton( $subnet ) : false;
+
+	if ( false === $ip_bin || false === $subnet_bin || strlen( $ip_bin ) !== strlen( $subnet_bin ) ) {
+		return false;
+	}
+
+	$max_bits = strlen( $ip_bin ) * 8;
+	$bits     = isset( $parts[1] ) && ctype_digit( $parts[1] ) ? (int) $parts[1] : $max_bits;
+
+	if ( $bits > $max_bits ) {
+		return false;
+	}
+
+	$whole_bytes = (int) floor( $bits / 8 );
+	if ( $whole_bytes > 0 && 0 !== substr_compare( $ip_bin, $subnet_bin, 0, $whole_bytes ) ) {
+		return false;
+	}
+
+	$remaining = $bits % 8;
+	if ( 0 === $remaining ) {
+		return true;
+	}
+
+	$mask = ( 0xff << ( 8 - $remaining ) ) & 0xff;
+
+	return ( ord( $ip_bin[ $whole_bytes ] ) & $mask ) === ( ord( $subnet_bin[ $whole_bytes ] ) & $mask );
+}
+
+/**
+ * Check whether an IP address belongs to a trusted proxy.
+ *
+ * @since x.x.x
+ * @param string             $ip      IP address.
+ * @param array<int, string> $proxies Trusted proxy addresses or ranges.
+ * @return bool
+ */
+function bsf_is_trusted_proxy( $ip, $proxies ) {
+	foreach ( $proxies as $range ) {
+		if ( bsf_ip_in_range( $ip, $range ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Resolve the visitor IP used as the one-rating-per-visitor key.
+ *
+ * REMOTE_ADDR is the address actually connected to the server and cannot be
+ * forged. Forwarding headers are written by whoever sends the request, so
+ * they are read only when REMOTE_ADDR is a trusted proxy. X-Forwarded-For is
+ * then walked from the right, skipping trusted proxies, and the first other
+ * address is the visitor: proxies append to the header, so anything a
+ * visitor wrote themselves sits further left and is never reached.
+ *
+ * @since x.x.x Forwarding headers are trusted only from trusted proxies.
+ * @return string Valid IP address, or an empty string if none can be resolved.
  */
 function get_the_ip() {
-	if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) );
-	} elseif ( isset( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
-	} else {
-		return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? trim( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) ) : '';
+	$ip     = filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '';
+
+	$proxies = bsf_rating_trusted_proxies();
+
+	if ( '' !== $ip && bsf_is_trusted_proxy( $ip, $proxies ) ) {
+		if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+			$chain = explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) );
+
+			foreach ( array_reverse( $chain ) as $hop ) {
+				$hop = trim( $hop );
+
+				// A malformed entry cannot be trusted; keep the last proxy-verified address.
+				if ( ! filter_var( $hop, FILTER_VALIDATE_IP ) ) {
+					break;
+				}
+
+				$ip = $hop;
+
+				if ( ! bsf_is_trusted_proxy( $hop, $proxies ) ) {
+					break;
+				}
+			}
+		} elseif ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+			$client = trim( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) ) );
+
+			if ( filter_var( $client, FILTER_VALIDATE_IP ) ) {
+				$ip = $client;
+			}
+		}
 	}
+
+	/**
+	 * Filters the resolved visitor IP used to enforce one rating per visitor.
+	 *
+	 * For setups the trusted proxy list cannot describe. The value must come
+	 * from a source the visitor cannot control.
+	 *
+	 * @since x.x.x
+	 * @param string $ip     Resolved visitor IP, or an empty string.
+	 * @param string $remote The connecting address (REMOTE_ADDR).
+	 */
+	$ip = apply_filters( 'bsf_rating_client_ip', $ip, $remote );
+
+	return is_string( $ip ) && filter_var( $ip, FILTER_VALIDATE_IP ) ? $ip : '';
 }
 /**
  * Average_rating.
@@ -1379,6 +1551,11 @@ function bsf_add_rating() {
 	// Derive the visitor IP server-side; never trust a client-supplied value.
 	$ip = get_the_ip();
 
+	// Without a visitor IP there is no way to enforce one rating per visitor.
+	if ( '' === $ip ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
+	}
+
 	// One rating per IP per post: block duplicate and unbounded submissions.
 	$existing = get_post_meta( $postid, 'post-rating', false );
 	if ( ! empty( $existing ) && is_array( $existing ) ) {
@@ -1426,6 +1603,11 @@ function bsf_update_rating() {
 
 	// Derive the visitor IP server-side; never trust a client-supplied value.
 	$ip = get_the_ip();
+
+	// Without a visitor IP there is no way to enforce one rating per visitor.
+	if ( '' === $ip ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
+	}
 
 	$user_rating = array(
 		'post_id'     => $postid,
