@@ -1225,28 +1225,18 @@ function bsf_save_option( $option, $args ) {
 	return false;
 }
 /**
- * Get the proxy address ranges whose forwarding headers may be trusted.
+ * Get Cloudflare's published edge ranges.
  *
- * Covers private, loopback and shared address space (a host's own load
- * balancer, reverse proxy or container network) and Cloudflare's published
- * edge ranges (https://www.cloudflare.com/ips/). Sites behind another CDN or
- * proxy can add its ranges with the `bsf_rating_trusted_proxies` filter.
+ * Requests from these addresses carry a CF-Connecting-IP header that
+ * Cloudflare always sets itself, so it is used instead of X-Forwarded-For.
+ *
+ * Synced 2026-11-24 from https://www.cloudflare.com/ips/.
  *
  * @since x.x.x
- * @return array<int, string> List of IP addresses or CIDR ranges.
+ * @return array<int, string> CIDR ranges.
  */
-function bsf_rating_trusted_proxies() {
-	$proxies = array(
-		// Loopback, private and shared address space.
-		'127.0.0.0/8',
-		'10.0.0.0/8',
-		'172.16.0.0/12',
-		'192.168.0.0/16',
-		'100.64.0.0/10',
-		'::1/128',
-		'fc00::/7',
-		'fe80::/10',
-		// Cloudflare.
+function aiosrs_rating_cloudflare_ranges() {
+	return array(
 		'173.245.48.0/20',
 		'103.21.244.0/22',
 		'103.22.200.0/22',
@@ -1270,13 +1260,47 @@ function bsf_rating_trusted_proxies() {
 		'2a06:98c0::/29',
 		'2c0f:f248::/32',
 	);
+}
+
+/**
+ * Get the proxy address ranges whose forwarding headers may be trusted.
+ *
+ * Covers private, loopback and shared address space (a host's own load
+ * balancer, reverse proxy or container network) and Cloudflare's edge
+ * ranges. Sites behind another CDN or proxy can add its ranges with the
+ * `bsf_rating_trusted_proxies` filter.
+ *
+ * A proxy missing from this list never weakens the one-rating-per-visitor
+ * rule: its visitors are keyed on the proxy address and share one rating
+ * until the proxy is added.
+ *
+ * @since x.x.x
+ * @return array<int, string> List of IP addresses or CIDR ranges.
+ */
+function aiosrs_rating_trusted_proxies() {
+	$proxies = array_merge(
+		array(
+			// Loopback, private and shared address space.
+			'127.0.0.0/8',
+			'10.0.0.0/8',
+			'172.16.0.0/12',
+			'192.168.0.0/16',
+			'100.64.0.0/10',
+			'::1/128',
+			'fc00::/7',
+			'fe80::/10',
+		),
+		aiosrs_rating_cloudflare_ranges()
+	);
 
 	/**
 	 * Filters the proxy ranges whose forwarding headers are trusted.
 	 *
-	 * Add the ranges of any CDN or reverse proxy that connects to this site
-	 * and appends the visitor address to X-Forwarded-For. Never add ranges
-	 * that visitors can connect from directly.
+	 * Add the ranges of a CDN or reverse proxy that connects to this site.
+	 * Only add a proxy that appends the visitor address to X-Forwarded-For
+	 * (or replaces the header). A proxy that passes a visitor-supplied
+	 * X-Forwarded-For through unchanged lets visitors choose their own
+	 * rating key. Never add ranges that visitors can connect from directly.
 	 *
 	 * @since x.x.x
 	 * @param array<int, string> $proxies IP addresses or CIDR ranges.
@@ -1287,17 +1311,51 @@ function bsf_rating_trusted_proxies() {
 }
 
 /**
+ * Normalise a raw address taken from the request into a plain IP.
+ *
+ * Strips the port some proxies add (`1.2.3.4:5678`, `[2001:db8::1]:443`)
+ * and converts IPv4-mapped IPv6 addresses (`::ffff:10.0.0.5`) to IPv4.
+ *
+ * @since x.x.x
+ * @param string $value Raw address.
+ * @return string Valid IP address, or an empty string.
+ */
+function aiosrs_normalize_ip( $value ) {
+	$value = trim( $value );
+
+	if ( 1 === preg_match( '/^\[([0-9a-fA-F:.]+)\](?::\d+)?$/', $value, $matches ) ) {
+		$value = $matches[1];
+	} elseif ( 1 === preg_match( '/^(\d{1,3}(?:\.\d{1,3}){3}):\d+$/', $value, $matches ) ) {
+		$value = $matches[1];
+	}
+
+	if ( ! filter_var( $value, FILTER_VALIDATE_IP ) ) {
+		return '';
+	}
+
+	$binary = inet_pton( $value );
+	if ( false !== $binary && 16 === strlen( $binary ) && str_repeat( "\0", 10 ) . "\xff\xff" === substr( $binary, 0, 12 ) ) {
+		$mapped = inet_ntop( substr( $binary, 12 ) );
+		if ( false !== $mapped ) {
+			return $mapped;
+		}
+	}
+
+	return $value;
+}
+
+/**
  * Check whether an IP address falls inside an address or CIDR range.
  *
  * Works for IPv4 and IPv6. An address never matches a range of the other
- * family.
+ * family, and a malformed range never matches.
  *
  * @since x.x.x
  * @param string $ip    IP address.
  * @param string $range IP address or CIDR range, e.g. 10.0.0.0/8.
  * @return bool
  */
-function bsf_ip_in_range( $ip, $range ) {
+function aiosrs_ip_in_range( $ip, $range ) {
 	$parts  = explode( '/', trim( $range ), 2 );
 	$subnet = $parts[0];
 
@@ -1309,7 +1367,14 @@ function bsf_ip_in_range( $ip, $range ) {
 	}
 
 	$max_bits = strlen( $ip_bin ) * 8;
-	$bits     = isset( $parts[1] ) && ctype_digit( $parts[1] ) ? (int) $parts[1] : $max_bits;
+
+	if ( ! isset( $parts[1] ) ) {
+		$bits = $max_bits;
+	} elseif ( 1 === preg_match( '/^\d{1,3}$/', $parts[1] ) ) {
+		$bits = (int) $parts[1];
+	} else {
+		return false;
+	}
 
 	if ( $bits > $max_bits ) {
 		return false;
@@ -1331,16 +1396,16 @@ function bsf_ip_in_range( $ip, $range ) {
 }
 
 /**
- * Check whether an IP address belongs to a trusted proxy.
+ * Check whether an IP address falls inside any of the given ranges.
  *
  * @since x.x.x
- * @param string             $ip      IP address.
- * @param array<int, string> $proxies Trusted proxy addresses or ranges.
+ * @param string             $ip     IP address.
+ * @param array<int, string> $ranges IP addresses or CIDR ranges.
  * @return bool
  */
-function bsf_is_trusted_proxy( $ip, $proxies ) {
-	foreach ( $proxies as $range ) {
-		if ( bsf_ip_in_range( $ip, $range ) ) {
+function aiosrs_ip_in_ranges( $ip, $ranges ) {
+	foreach ( $ranges as $range ) {
+		if ( aiosrs_ip_in_range( $ip, $range ) ) {
 			return true;
 		}
 	}
@@ -1352,45 +1417,49 @@ function bsf_is_trusted_proxy( $ip, $proxies ) {
  * Resolve the visitor IP used as the one-rating-per-visitor key.
  *
  * REMOTE_ADDR is the address actually connected to the server and cannot be
- * forged. Forwarding headers are written by whoever sends the request, so
- * they are read only when REMOTE_ADDR is a trusted proxy. X-Forwarded-For is
- * then walked from the right, skipping trusted proxies, and the first other
- * address is the visitor: proxies append to the header, so anything a
- * visitor wrote themselves sits further left and is never reached.
+ * forged, so a visitor who connects directly is always keyed on it and
+ * forwarding headers are ignored. Headers are read only while the address
+ * being looked at is a trusted proxy:
+ *
+ * - A Cloudflare edge: use CF-Connecting-IP, which Cloudflare always sets.
+ * - Any other trusted proxy: step to the next X-Forwarded-For entry from the
+ *   right. Proxies append to that header, so entries a visitor wrote
+ *   themselves sit further left and are never reached.
  *
  * @since x.x.x Forwarding headers are trusted only from trusted proxies.
  * @return string Valid IP address, or an empty string if none can be resolved.
  */
 function get_the_ip() {
-	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? trim( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) ) : '';
-	$ip     = filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '';
+	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? aiosrs_normalize_ip( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) ) : '';
+	$ip     = $remote;
 
-	$proxies = bsf_rating_trusted_proxies();
+	if ( '' !== $ip ) {
+		$proxies    = aiosrs_rating_trusted_proxies();
+		$cloudflare = aiosrs_rating_cloudflare_ranges();
+		$chain      = array();
 
-	if ( '' !== $ip && bsf_is_trusted_proxy( $ip, $proxies ) ) {
 		if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			$chain = explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) );
+			$chain = array_reverse( explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) ) );
+		}
 
-			foreach ( array_reverse( $chain ) as $hop ) {
-				$hop = trim( $hop );
+		while ( aiosrs_ip_in_ranges( $ip, $proxies ) ) {
+			if ( aiosrs_ip_in_ranges( $ip, $cloudflare ) ) {
+				$connecting = isset( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ? aiosrs_normalize_ip( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ) ) : '';
 
-				// A malformed entry cannot be trusted; keep the last proxy-verified address.
-				if ( ! filter_var( $hop, FILTER_VALIDATE_IP ) ) {
-					break;
+				if ( '' !== $connecting ) {
+					$ip = $connecting;
 				}
-
-				$ip = $hop;
-
-				if ( ! bsf_is_trusted_proxy( $hop, $proxies ) ) {
-					break;
-				}
+				break;
 			}
-		} elseif ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-			$client = trim( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) ) );
 
-			if ( filter_var( $client, FILTER_VALIDATE_IP ) ) {
-				$ip = $client;
+			$next = aiosrs_normalize_ip( (string) array_shift( $chain ) );
+
+			// No further entry, or a malformed one: keep the last proxy-verified address.
+			if ( '' === $next ) {
+				break;
 			}
+
+			$ip = $next;
 		}
 	}
 

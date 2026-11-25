@@ -90,6 +90,9 @@ This plugin currently supports almost all of the content types that are released
 = Do I need coding knowledge to use this plugin?= 
 No, the plugin provides an easy-to-use interface where you can add schema markup without any coding.
 
+= Visitors behind my CDN all share one star rating. How do I fix it? =
+Each visitor can rate an item once, identified by their IP address. Sites served directly, through the host's own proxy or load balancer, or through Cloudflare need no setup. If your site is behind another CDN or proxy (for example CloudFront, Fastly, Sucuri or Akamai) and your host does not pass the visitor's real IP to WordPress, add that provider's published IP ranges with the `bsf_rating_trusted_proxies` filter, for example: `add_filter( 'bsf_rating_trusted_proxies', function ( $proxies ) { $proxies[] = '203.0.113.0/24'; return $proxies; } );`
+
 == Screenshots ==
 1. Meta box in post-new under the editor screen.
 2. Select content type from dropdown
@@ -98,7 +101,7 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 
 == Changelog ==
 ### x.x.x ###
-- Security: Completed the post rating hardening from 1.7.9. The visitor IP is now read from forwarding headers only when the request comes from a trusted proxy (private networks and Cloudflare), so one rating per visitor can no longer be bypassed with a forged header. Other proxies or CDNs can be added with the `bsf_rating_trusted_proxies` filter.
+- Security: Improved how the post rating feature identifies visitors. Forwarding headers are now read only from trusted proxies (private networks and Cloudflare), so a header sent by the visitor is no longer used to identify them. Sites behind another CDN can add its IP ranges with the `bsf_rating_trusted_proxies` filter (see the FAQ); until then, visitors behind that CDN share one rating.
 
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.

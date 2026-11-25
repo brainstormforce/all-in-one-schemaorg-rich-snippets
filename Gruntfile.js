@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 			target: {
 				options: {
 					domainPath: "/languages",
-					exclude: [".git/*", "bin/*", "node_modules/*", "tests/*"],
+					exclude: [".git/*", ".claude/*", "bin/*", "node_modules/*", "tests/*"],
 					mainFile: "index.php",
 					potFilename: "all-in-one-schemaorg-rich-snippets.pot",
 					potHeaders: {
