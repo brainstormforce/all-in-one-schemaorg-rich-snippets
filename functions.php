@@ -1477,6 +1477,62 @@ function get_the_ip() {
 
 	return is_string( $ip ) && filter_var( $ip, FILTER_VALIDATE_IP ) ? $ip : '';
 }
+
+/**
+ * Work out the visitor key of a rating row stored by an earlier version.
+ *
+ * Earlier versions stored the raw X-Forwarded-For header as the visitor key,
+ * e.g. "198.51.100.10, 10.0.0.3". Reading that list the same way
+ * get_the_ip() reads the header (from the right, skipping trusted proxies)
+ * gives the key the same visitor resolves to now, so their old row is still
+ * recognised as theirs. Single-address keys are returned unchanged.
+ *
+ * @since x.x.x
+ * @param string             $stored  Stored user_ip value.
+ * @param array<int, string> $proxies Trusted proxy ranges.
+ * @return string Visitor key.
+ */
+function aiosrs_rating_legacy_key( $stored, $proxies ) {
+	if ( false === strpos( $stored, ',' ) ) {
+		return $stored;
+	}
+
+	$key = '';
+
+	foreach ( array_reverse( explode( ',', $stored ) ) as $hop ) {
+		$hop = aiosrs_normalize_ip( $hop );
+
+		// A malformed entry: keep the last address that was read.
+		if ( '' === $hop ) {
+			break;
+		}
+
+		$key = $hop;
+
+		if ( ! aiosrs_ip_in_ranges( $hop, $proxies ) ) {
+			break;
+		}
+	}
+
+	return '' === $key ? $stored : $key;
+}
+
+/**
+ * Check whether a stored rating row belongs to the given visitor.
+ *
+ * @since x.x.x
+ * @param mixed              $row     Stored post-rating row.
+ * @param string             $ip      Visitor IP from get_the_ip().
+ * @param array<int, string> $proxies Trusted proxy ranges.
+ * @return bool
+ */
+function aiosrs_rating_row_matches( $row, $ip, $proxies ) {
+	if ( ! is_array( $row ) || ! isset( $row['user_ip'] ) || ! is_string( $row['user_ip'] ) ) {
+		return false;
+	}
+
+	return $row['user_ip'] === $ip || aiosrs_rating_legacy_key( $row['user_ip'], $proxies ) === $ip;
+}
 /**
  * Average_rating.
  */
@@ -1628,8 +1684,10 @@ function bsf_add_rating() {
 	// One rating per IP per post: block duplicate and unbounded submissions.
 	$existing = get_post_meta( $postid, 'post-rating', false );
 	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		$proxies = aiosrs_rating_trusted_proxies();
+
 		foreach ( $existing as $rating_row ) {
-			if ( isset( $rating_row['user_ip'] ) && $rating_row['user_ip'] === $ip ) {
+			if ( aiosrs_rating_row_matches( $rating_row, $ip, $proxies ) ) {
 				wp_send_json_error( __( 'You have already rated this item.', 'rich-snippets' ) );
 			}
 		}
@@ -1684,11 +1742,15 @@ function bsf_update_rating() {
 		'user_rating' => $stars,
 	);
 
-	// Update only the rating row that belongs to this IP.
+	// Update only the rating row that belongs to this IP. A row stored by an
+	// older version is rewritten with the current key, so it matches exactly
+	// from then on.
 	$existing = get_post_meta( $postid, 'post-rating', false );
 	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		$proxies = aiosrs_rating_trusted_proxies();
+
 		foreach ( $existing as $rating_row ) {
-			if ( ! isset( $rating_row['user_ip'] ) || $rating_row['user_ip'] !== $ip ) {
+			if ( ! aiosrs_rating_row_matches( $rating_row, $ip, $proxies ) ) {
 				continue;
 			}
 
