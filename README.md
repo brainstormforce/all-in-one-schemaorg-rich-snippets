@@ -90,6 +90,12 @@ This plugin currently supports almost all of the content types that are released
 ### Do I need coding knowledge to use this plugin?###
 No, the plugin provides an easy-to-use interface where you can add schema markup without any coding.
 
+### Visitors behind my CDN all share one star rating. How do I fix it? ###
+Each visitor can rate an item once, identified by their IP address. Sites served directly, through the host's own proxy or load balancer, or through Cloudflare need no setup. If your site is behind another CDN or proxy (for example CloudFront, Fastly, Sucuri or Akamai) and your host does not pass the visitor's real IP to WordPress, add that provider's published IP ranges with the `bsf_rating_trusted_proxies` filter, for example: `add_filter( 'bsf_rating_trusted_proxies', function ( $proxies ) { $proxies[] = '203.0.113.0/24'; return $proxies; } );`
+
+### My site uses a TCP load balancer or Docker port publishing. Do I need to change anything? ###
+Probably. Forwarding headers from private network addresses are trusted on the assumption that the proxy at that address adds the visitor's IP to `X-Forwarded-For`, as nginx, Apache and most host load balancers do. A TCP or TLS-passthrough load balancer, Docker's userland proxy (172.17.0.1) or a Tailscale peer (100.64.0.0/10) passes the visitor's own header through unchanged, so remove that range with the `bsf_rating_trusted_proxies` filter, for example: `add_filter( 'bsf_rating_trusted_proxies', function ( $proxies ) { return array_values( array_diff( $proxies, array( '172.16.0.0/12' ) ) ); } );`
+
 ## Screenshots ##
 1. Meta box in post-new under the editor screen.
 2. Select content type from dropdown
@@ -97,6 +103,9 @@ No, the plugin provides an easy-to-use interface where you can add schema markup
 4. Test the post or page URL in Google Rich Snippets Testing
 
 ## Changelog ##
+### x.x.x ###
+- Security: Improved how the post rating feature identifies visitors. Forwarding headers are now read only from trusted proxies (private networks and Cloudflare), so a header sent by the visitor is no longer used to identify them. Sites behind another CDN can add its IP ranges with the `bsf_rating_trusted_proxies` filter (see the FAQ); until then, visitors behind that CDN share one rating. Sites with a pass-through TCP load balancer or Docker port publishing should remove that private range with the same filter (see the FAQ). IPv6 visitors are now identified by their /64 network.
+
 ### 1.7.9 ###
 - Improvement: Compatibility with WordPress 7.1.
 - Fix: Saving a settings form without changes now shows a clear "No changes to save" notice instead of a false error.

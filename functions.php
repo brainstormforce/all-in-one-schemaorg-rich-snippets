@@ -1225,16 +1225,361 @@ function bsf_save_option( $option, $args ) {
 	return false;
 }
 /**
- * Get_the_ip.
+ * Get Cloudflare's published edge ranges.
+ *
+ * Requests from these addresses carry a CF-Connecting-IP header that
+ * Cloudflare always sets itself, so it is used instead of X-Forwarded-For.
+ *
+ * Synced 2026-11-24 from https://www.cloudflare.com/ips/.
+ *
+ * @since x.x.x
+ * @return array<int, string> CIDR ranges.
+ */
+function aiosrs_rating_cloudflare_ranges() {
+	$ranges = array(
+		'173.245.48.0/20',
+		'103.21.244.0/22',
+		'103.22.200.0/22',
+		'103.31.4.0/22',
+		'141.101.64.0/18',
+		'108.162.192.0/18',
+		'190.93.240.0/20',
+		'188.114.96.0/20',
+		'197.234.240.0/22',
+		'198.41.128.0/17',
+		'162.158.0.0/15',
+		'104.16.0.0/13',
+		'104.24.0.0/14',
+		'172.64.0.0/13',
+		'131.0.72.0/22',
+		'2400:cb00::/32',
+		'2606:4700::/32',
+		'2803:f800::/32',
+		'2405:b500::/32',
+		'2405:8100::/32',
+		'2a06:98c0::/29',
+		'2c0f:f248::/32',
+	);
+
+	/**
+	 * Filters Cloudflare's edge ranges.
+	 *
+	 * Use it to add a range Cloudflare publishes after this list was synced.
+	 * Requests from these ranges are keyed on CF-Connecting-IP. Only add
+	 * ranges listed at https://www.cloudflare.com/ips/.
+	 *
+	 * @since x.x.x
+	 * @param array<int, string> $ranges CIDR ranges.
+	 */
+	$ranges = apply_filters( 'bsf_rating_cloudflare_ranges', $ranges );
+
+	return is_array( $ranges ) ? array_values( array_filter( $ranges, 'is_string' ) ) : array();
+}
+
+/**
+ * Get the proxy address ranges whose forwarding headers may be trusted.
+ *
+ * Covers private, loopback and shared address space (a host's own load
+ * balancer, reverse proxy or container network) and Cloudflare's edge
+ * ranges. Sites behind another CDN or proxy can add its ranges with the
+ * `bsf_rating_trusted_proxies` filter.
+ *
+ * A proxy missing from this list never weakens the one-rating-per-visitor
+ * rule: its visitors are keyed on the proxy address and share one rating
+ * until the proxy is added.
+ *
+ * The default private ranges assume the hop at that address is a proxy that
+ * appends the visitor address to X-Forwarded-For (nginx, Apache, most host
+ * load balancers). A hop that passes the visitor's own header through
+ * unchanged, such as a TCP or TLS-passthrough load balancer, Docker's
+ * userland proxy (172.17.0.1) or a Tailscale peer (100.64.0.0/10), lets
+ * visitors choose their own rating key. Sites with such a hop should remove
+ * the matching range with the filter.
+ *
+ * @since x.x.x
+ * @return array<int, string> List of IP addresses or CIDR ranges.
+ */
+function aiosrs_rating_trusted_proxies() {
+	$proxies = array_merge(
+		array(
+			// Loopback, private and shared address space.
+			'127.0.0.0/8',
+			'10.0.0.0/8',
+			'172.16.0.0/12',
+			'192.168.0.0/16',
+			'100.64.0.0/10',
+			'::1/128',
+			'fc00::/7',
+			'fe80::/10',
+		),
+		aiosrs_rating_cloudflare_ranges()
+	);
+
+	/**
+	 * Filters the proxy ranges whose forwarding headers are trusted.
+	 *
+	 * Add the ranges of a CDN or reverse proxy that connects to this site.
+	 * Only add a proxy that appends the visitor address to X-Forwarded-For
+	 * (or replaces the header). A proxy that passes a visitor-supplied
+	 * X-Forwarded-For through unchanged lets visitors choose their own
+	 * rating key. Never add ranges that visitors can connect from directly.
+	 *
+	 * @since x.x.x
+	 * @param array<int, string> $proxies IP addresses or CIDR ranges.
+	 */
+	$proxies = apply_filters( 'bsf_rating_trusted_proxies', $proxies );
+
+	return is_array( $proxies ) ? array_values( array_filter( $proxies, 'is_string' ) ) : array();
+}
+
+/**
+ * Normalise a raw address taken from the request into a plain IP.
+ *
+ * Strips the port some proxies add (`1.2.3.4:5678`, `[2001:db8::1]:443`)
+ * and converts IPv4-mapped IPv6 addresses (`::ffff:10.0.0.5`) to IPv4.
+ *
+ * @since x.x.x
+ * @param string $value Raw address.
+ * @return string Valid IP address, or an empty string.
+ */
+function aiosrs_normalize_ip( $value ) {
+	$value = trim( $value );
+
+	if ( 1 === preg_match( '/^\[([0-9a-fA-F:.]+)\](?::\d+)?$/', $value, $matches ) ) {
+		$value = $matches[1];
+	} elseif ( 1 === preg_match( '/^(\d{1,3}(?:\.\d{1,3}){3}):\d+$/', $value, $matches ) ) {
+		$value = $matches[1];
+	}
+
+	if ( ! filter_var( $value, FILTER_VALIDATE_IP ) ) {
+		return '';
+	}
+
+	$binary = inet_pton( $value );
+	if ( false !== $binary && 16 === strlen( $binary ) && str_repeat( "\0", 10 ) . "\xff\xff" === substr( $binary, 0, 12 ) ) {
+		$mapped = inet_ntop( substr( $binary, 12 ) );
+		if ( false !== $mapped ) {
+			return $mapped;
+		}
+	}
+
+	return $value;
+}
+
+/**
+ * Check whether an IP address falls inside an address or CIDR range.
+ *
+ * Works for IPv4 and IPv6. An address never matches a range of the other
+ * family, and a malformed range never matches.
+ *
+ * @since x.x.x
+ * @param string $ip    IP address.
+ * @param string $range IP address or CIDR range, e.g. 10.0.0.0/8.
+ * @return bool
+ */
+function aiosrs_ip_in_range( $ip, $range ) {
+	$parts  = explode( '/', trim( $range ), 2 );
+	$subnet = $parts[0];
+
+	$ip_bin     = filter_var( $ip, FILTER_VALIDATE_IP ) ? inet_pton( $ip ) : false;
+	$subnet_bin = filter_var( $subnet, FILTER_VALIDATE_IP ) ? inet_pton( $subnet ) : false;
+
+	if ( false === $ip_bin || false === $subnet_bin || strlen( $ip_bin ) !== strlen( $subnet_bin ) ) {
+		return false;
+	}
+
+	$max_bits = strlen( $ip_bin ) * 8;
+
+	if ( ! isset( $parts[1] ) ) {
+		$bits = $max_bits;
+	} elseif ( 1 === preg_match( '/^\d{1,3}$/', $parts[1] ) ) {
+		$bits = (int) $parts[1];
+	} else {
+		return false;
+	}
+
+	if ( $bits > $max_bits ) {
+		return false;
+	}
+
+	$whole_bytes = (int) floor( $bits / 8 );
+	if ( $whole_bytes > 0 && 0 !== substr_compare( $ip_bin, $subnet_bin, 0, $whole_bytes ) ) {
+		return false;
+	}
+
+	$remaining = $bits % 8;
+	if ( 0 === $remaining ) {
+		return true;
+	}
+
+	$mask = ( 0xff << ( 8 - $remaining ) ) & 0xff;
+
+	return ( ord( $ip_bin[ $whole_bytes ] ) & $mask ) === ( ord( $subnet_bin[ $whole_bytes ] ) & $mask );
+}
+
+/**
+ * Check whether an IP address falls inside any of the given ranges.
+ *
+ * @since x.x.x
+ * @param string             $ip     IP address.
+ * @param array<int, string> $ranges IP addresses or CIDR ranges.
+ * @return bool
+ */
+function aiosrs_ip_in_ranges( $ip, $ranges ) {
+	foreach ( $ranges as $range ) {
+		if ( aiosrs_ip_in_range( $ip, $range ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Turn a visitor IP into the key used for one rating per visitor.
+ *
+ * IPv4 addresses are used as they are. IPv6 addresses are reduced to their
+ * /64 network, because a single machine is usually given a whole /64 and
+ * could otherwise rate again from each address in it.
+ *
+ * @since x.x.x
+ * @param string $ip Valid IP address.
+ * @return string Rating key (an IPv4 address or an IPv6 /64 network address).
+ */
+function aiosrs_rating_visitor_key( $ip ) {
+	$binary = inet_pton( $ip );
+
+	if ( false === $binary || 16 !== strlen( $binary ) ) {
+		return $ip;
+	}
+
+	$network = inet_ntop( substr( $binary, 0, 8 ) . str_repeat( "\0", 8 ) );
+
+	return false === $network ? $ip : $network;
+}
+
+/**
+ * Resolve the visitor IP used as the one-rating-per-visitor key.
+ *
+ * REMOTE_ADDR is the address actually connected to the server and cannot be
+ * forged, so a visitor who connects directly is always keyed on it and
+ * forwarding headers are ignored. Headers are read only while the address
+ * being looked at is a trusted proxy:
+ *
+ * - A Cloudflare edge: use CF-Connecting-IP, which Cloudflare always sets.
+ * - Any other trusted proxy: step to the next X-Forwarded-For entry from the
+ *   right. Proxies append to that header, so entries a visitor wrote
+ *   themselves sit further left and are never reached.
+ *
+ * @since x.x.x Forwarding headers are trusted only from trusted proxies.
+ * @return string Rating key (see aiosrs_rating_visitor_key()), or an empty string if no IP can be resolved.
  */
 function get_the_ip() {
-	if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) );
-	} elseif ( isset( $_SERVER['HTTP_CLIENT_IP'] ) ) {
-		return sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
-	} else {
-		return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? aiosrs_normalize_ip( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) ) : '';
+	$ip     = $remote;
+
+	if ( '' !== $ip ) {
+		$proxies    = aiosrs_rating_trusted_proxies();
+		$cloudflare = aiosrs_rating_cloudflare_ranges();
+		$chain      = array();
+
+		if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+			$chain = array_reverse( explode( ',', sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) ) );
+		}
+
+		while ( aiosrs_ip_in_ranges( $ip, $proxies ) ) {
+			if ( aiosrs_ip_in_ranges( $ip, $cloudflare ) ) {
+				$connecting = isset( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ? aiosrs_normalize_ip( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ) ) : '';
+
+				if ( '' !== $connecting ) {
+					$ip = $connecting;
+				}
+				break;
+			}
+
+			$next = aiosrs_normalize_ip( (string) array_shift( $chain ) );
+
+			// No further entry, or a malformed one: keep the last proxy-verified address.
+			if ( '' === $next ) {
+				break;
+			}
+
+			$ip = $next;
+		}
 	}
+
+	/**
+	 * Filters the resolved visitor IP used to enforce one rating per visitor.
+	 *
+	 * For setups the trusted proxy list cannot describe. The value must come
+	 * from a source the visitor cannot control.
+	 *
+	 * @since x.x.x
+	 * @param string $ip     Resolved visitor IP, or an empty string.
+	 * @param string $remote The connecting address (REMOTE_ADDR).
+	 */
+	$ip = apply_filters( 'bsf_rating_client_ip', $ip, $remote );
+
+	return is_string( $ip ) && filter_var( $ip, FILTER_VALIDATE_IP ) ? aiosrs_rating_visitor_key( $ip ) : '';
+}
+
+/**
+ * Work out the visitor key of a rating row stored by an earlier version.
+ *
+ * Earlier versions stored the raw X-Forwarded-For header as the visitor key,
+ * e.g. "198.51.100.10, 10.0.0.3". Reading that list the same way
+ * get_the_ip() reads the header (from the right, skipping trusted proxies)
+ * gives the key the same visitor resolves to now, so their old row is still
+ * recognised as theirs. Single addresses are normalised the same way
+ * (port and ::ffff: prefix removed, IPv6 reduced to its /64 network).
+ *
+ * @since x.x.x
+ * @param string             $stored  Stored user_ip value.
+ * @param array<int, string> $proxies Trusted proxy ranges.
+ * @return string Visitor key.
+ */
+function aiosrs_rating_legacy_key( $stored, $proxies ) {
+	if ( false === strpos( $stored, ',' ) ) {
+		$single = aiosrs_normalize_ip( $stored );
+
+		return '' === $single ? $stored : aiosrs_rating_visitor_key( $single );
+	}
+
+	$key = '';
+
+	foreach ( array_reverse( explode( ',', $stored ) ) as $hop ) {
+		$hop = aiosrs_normalize_ip( $hop );
+
+		// A malformed entry: keep the last address that was read.
+		if ( '' === $hop ) {
+			break;
+		}
+
+		$key = $hop;
+
+		if ( ! aiosrs_ip_in_ranges( $hop, $proxies ) ) {
+			break;
+		}
+	}
+
+	return '' === $key ? $stored : aiosrs_rating_visitor_key( $key );
+}
+
+/**
+ * Check whether a stored rating row belongs to the given visitor.
+ *
+ * @since x.x.x
+ * @param mixed              $row     Stored post-rating row.
+ * @param string             $ip      Visitor IP from get_the_ip().
+ * @param array<int, string> $proxies Trusted proxy ranges.
+ * @return bool
+ */
+function aiosrs_rating_row_matches( $row, $ip, $proxies ) {
+	if ( ! is_array( $row ) || ! isset( $row['user_ip'] ) || ! is_string( $row['user_ip'] ) ) {
+		return false;
+	}
+
+	return $row['user_ip'] === $ip || aiosrs_rating_legacy_key( $row['user_ip'], $proxies ) === $ip;
 }
 /**
  * Average_rating.
@@ -1279,26 +1624,23 @@ function rating_count() {
  */
 function bsf_do_rating() {
 	global $post;
-	$ip = get_the_ip();
-
-	$ip_array = array();
-
+	$ip   = get_the_ip();
 	$data = get_post_meta( $post->ID, 'post-rating', false );
-	if ( ! empty( $data ) ) {
-		foreach ( $data as $d ) {
-			array_push( $ip_array, $d['user_ip'] );
-		}
-		if ( ! in_array( $ip, $ip_array, true ) ) {
-			return display_rating();
-		} elseif ( in_array( $ip, $ip_array, true ) ) {
-			$rating = get_previous_rating( $ip, $data );
 
-			$stars = bsf_display_rating( $rating );
-			return $stars;
+	// A visitor who already rated gets the form that updates their rating.
+	// Rows are matched the same way the AJAX handlers match them, so a row
+	// stored by an earlier version is recognised too.
+	if ( '' !== $ip && ! empty( $data ) && is_array( $data ) ) {
+		$proxies = aiosrs_rating_trusted_proxies();
+
+		foreach ( $data as $rating_row ) {
+			if ( aiosrs_rating_row_matches( $rating_row, $ip, $proxies ) ) {
+				return bsf_display_rating( isset( $rating_row['user_rating'] ) ? (int) $rating_row['user_rating'] : 0 );
+			}
 		}
-	} else {
-		return display_rating();
 	}
+
+	return display_rating();
 }
 /**
  * Get_previous_rating.
@@ -1379,11 +1721,18 @@ function bsf_add_rating() {
 	// Derive the visitor IP server-side; never trust a client-supplied value.
 	$ip = get_the_ip();
 
+	// Without a visitor IP there is no way to enforce one rating per visitor.
+	if ( '' === $ip ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
+	}
+
 	// One rating per IP per post: block duplicate and unbounded submissions.
 	$existing = get_post_meta( $postid, 'post-rating', false );
 	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		$proxies = aiosrs_rating_trusted_proxies();
+
 		foreach ( $existing as $rating_row ) {
-			if ( isset( $rating_row['user_ip'] ) && $rating_row['user_ip'] === $ip ) {
+			if ( aiosrs_rating_row_matches( $rating_row, $ip, $proxies ) ) {
 				wp_send_json_error( __( 'You have already rated this item.', 'rich-snippets' ) );
 			}
 		}
@@ -1427,17 +1776,26 @@ function bsf_update_rating() {
 	// Derive the visitor IP server-side; never trust a client-supplied value.
 	$ip = get_the_ip();
 
+	// Without a visitor IP there is no way to enforce one rating per visitor.
+	if ( '' === $ip ) {
+		wp_send_json_error( __( 'Invalid rating request.', 'rich-snippets' ) );
+	}
+
 	$user_rating = array(
 		'post_id'     => $postid,
 		'user_ip'     => $ip,
 		'user_rating' => $stars,
 	);
 
-	// Update only the rating row that belongs to this IP.
+	// Update only the rating row that belongs to this IP. A row stored by an
+	// older version is rewritten with the current key, so it matches exactly
+	// from then on.
 	$existing = get_post_meta( $postid, 'post-rating', false );
 	if ( ! empty( $existing ) && is_array( $existing ) ) {
+		$proxies = aiosrs_rating_trusted_proxies();
+
 		foreach ( $existing as $rating_row ) {
-			if ( ! isset( $rating_row['user_ip'] ) || $rating_row['user_ip'] !== $ip ) {
+			if ( ! aiosrs_rating_row_matches( $rating_row, $ip, $proxies ) ) {
 				continue;
 			}
 
